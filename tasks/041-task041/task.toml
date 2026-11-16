@@ -1,0 +1,35 @@
+# Harbor task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-06-holy-grail"
+description = "Au–CO₂ pathways at water and potassium interfaces"
+
+[task]
+name = "compchemworld/case-06-holy-grail"
+description = "Au–CO₂ pathways at water and potassium interfaces"
+
+[agent]
+timeout_sec = 7200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[agent_interface]
+reference_solution_provided = false

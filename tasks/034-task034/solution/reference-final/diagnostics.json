@@ -1,0 +1,28 @@
+{
+  "conditions": {},
+  "limitations": [],
+  "sampling": {
+    "A2": {
+      "end_step": 100000,
+      "frames": 87,
+      "production_time_ps": 7.0,
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "start_step": 30000
+    },
+    "WT": {
+      "end_step": 100000,
+      "frames": 99,
+      "production_time_ps": 8.0,
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "start_step": 20000
+    }
+  }
+}

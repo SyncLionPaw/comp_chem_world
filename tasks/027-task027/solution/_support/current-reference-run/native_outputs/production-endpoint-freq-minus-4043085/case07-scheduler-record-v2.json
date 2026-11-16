@@ -1,0 +1,29 @@
+{
+  "allocation_id": "4043085",
+  "array_job": false,
+  "batch_script_sha256": "a900eb76a82e4a770e32c7316bc62a55e6ad0b0a09d6480f3bacc2332610dc70",
+  "candidate_stage_declaration": {
+    "kind": "extension",
+    "reason": "Serial signed-endpoint stage; frequency is bound to its own converged optimization and endpoint roles are assigned from actual native optimized graphs.",
+    "route": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF endpoint Opt/AnFreq",
+    "stage_id": "extension:endpoint-frequency:minus:01"
+  },
+  "cpus": 8,
+  "ended_at_utc": "2026-10-25T13:07:57Z",
+  "exit_code": "0:0",
+  "job_id": "4043085",
+  "memory_gib": 16.0,
+  "p04_scheduler_record_path": "p04-scheduler-record.json",
+  "p04_scheduler_record_sha256": "403d0800786e742b7fd58b7ab1558959cd054308f8368cb259602c0e1cc2ec3c",
+  "p04_source_schema": "compchemworld.p04-scheduler-record/v1",
+  "peak_memory_gib": null,
+  "process_cpu_hours": 1.3822222222222222,
+  "scheduler": "slurm",
+  "schema": "case07-scheduler-record/v2",
+  "scratch_gib": 0.4121527196839452,
+  "stage_id": "extension:endpoint-frequency:minus:01",
+  "started_at_utc": "2026-10-25T12:57:35Z",
+  "state": "COMPLETED",
+  "submitted_at_utc": "2026-10-25T12:57:34Z",
+  "wall_seconds": 622
+}

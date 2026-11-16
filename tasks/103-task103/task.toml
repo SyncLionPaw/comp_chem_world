@@ -1,0 +1,141 @@
+# Harbor task config migrated from the preserved Bench16 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+case_id = "case-01"
+
+[compute]
+class = "local"
+network = "no-network"
+
+[requirements]
+software = ["bzip2", "a text parser for VASP OUTCAR"]
+inputs = [
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/00/OUTCAR.bz2", sha256 = "f357b16a87aca6fc647da81ba6da4a796b882e2606a7ba725a963e9539a0ed85"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/01/OUTCAR.bz2", sha256 = "7f3a75c821e976e9ac07ac58e75c3df24caaf0778912e2ab9ea3512b6bbfff1b"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/02/OUTCAR.bz2", sha256 = "5296d0605391e6b7dd2703a7b5bc15ae5d891f11c57834336a147b9ebe1ab123"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/03/OUTCAR.bz2", sha256 = "d09c07638ba9da87901409f29bc7edac3ee39d6e2819e995e3a3f23a66346ea7"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/04/OUTCAR.bz2", sha256 = "f665fba2a3d291c032320c0cdf40acbee05589858b8b67ffab3eb4e78643004f"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/INCAR", sha256 = "816afa2755497e836f0de464d70b665a933f435f6ff02e449da2041c7409027f"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/00/OUTCAR.bz2", sha256 = "f665fba2a3d291c032320c0cdf40acbee05589858b8b67ffab3eb4e78643004f"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/01/OUTCAR.bz2", sha256 = "6a39fb95ec6f74b13cc98f425d013a838ec15dd2ebe49f0b2a58ea060d811eee"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/02/OUTCAR.bz2", sha256 = "d1c907a4e93bfd1cff2a5050d7f3c3d333d65d2915244e79ccdfb519461b15af"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/03/OUTCAR.bz2", sha256 = "137b57b447d39c888302d7db933b2c945d81d26d4d930071b9629619970558d6"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/04/OUTCAR.bz2", sha256 = "3f8ad815b9e06a14c1e9a1d2c5de5515b546049bd71452b706d18f187c871e42"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/INCAR", sha256 = "a1d1d4190b840445e15cbf371a3a9e20c46b0e02d983bf4c777a2ede719e147c"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/00/OUTCAR.bz2", sha256 = "3f8ad815b9e06a14c1e9a1d2c5de5515b546049bd71452b706d18f187c871e42"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/01/OUTCAR.bz2", sha256 = "2d84399e01a4f555dddb1778e0d4306c1b7f95a35efbae596b8e9cb2b1960112"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/02/OUTCAR.bz2", sha256 = "5470b151365268c00ec5c5f1b7e88054bbd4b949d29dc7e3af5a301f6468e3c3"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/03/OUTCAR.bz2", sha256 = "c4b73a3e3f46534b33ef9ff899b53cdab23f9a402847e0413c2a38392930b1d7"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/04/OUTCAR.bz2", sha256 = "addb09c7a747971bb6b7525e4e56be751301c6586f6ff45e45f2045feb496d9a"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/INCAR", sha256 = "a1d1d4190b840445e15cbf371a3a9e20c46b0e02d983bf4c777a2ede719e147c"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/00/OUTCAR.bz2", sha256 = "addb09c7a747971bb6b7525e4e56be751301c6586f6ff45e45f2045feb496d9a"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/01/OUTCAR.bz2", sha256 = "78d79742f3932941a0f8c7adaabaae32cd062b7040fc1fc058375460892da5d6"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/02/OUTCAR.bz2", sha256 = "27f059a0b096e7f64e6430007a376848ca4dcea80cbb5036604a06f4228e1e6d"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/03/OUTCAR.bz2", sha256 = "1e5906c2a6023b9fdb2b0ceba985000a825a46b190783c86265d83c3453e47c8"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/04/OUTCAR.bz2", sha256 = "b98676c1d528e83e52628cb11c5d2117032b26d4d19b0adf545b739c377792de"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/INCAR", sha256 = "a1d1d4190b840445e15cbf371a3a9e20c46b0e02d983bf4c777a2ede719e147c"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/00/OUTCAR.bz2", sha256 = "b98676c1d528e83e52628cb11c5d2117032b26d4d19b0adf545b739c377792de"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/01/OUTCAR.bz2", sha256 = "d8fcc4ff5a5b7d21d619813ea4b6a2d932839613d4952658994fecc6e970092b"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/02/OUTCAR.bz2", sha256 = "a529f752f17a330825c3f08e1920d89eac64da3fa12b960a7eb3049b007d07fc"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/03/OUTCAR.bz2", sha256 = "1b809b1aae1ac7aac9a3162c730202d6b97e7ab9f2f4a5d95d96cc2c9000f4d2"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/04/OUTCAR.bz2", sha256 = "a3c1a54ba09111f0afa83cc8d3c1cffeca9ff6b49d8c298a76352d52826ece88"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/05/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/05/OUTCAR.bz2", sha256 = "3ee2264609aba95aef9f2520ff6ba5edb977ef998944c94a9e07be02f1bc3e98"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/06/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/06/OUTCAR.bz2", sha256 = "2eede43df51858737272f0fdcf80be0460d6a5aecbe17e56d3defd36c7c099dd"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/INCAR", sha256 = "bae20e4b16b62804d75344d2823f3ca32a9a1105382db9678fe00189df6f9de4"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/00/OUTCAR.bz2", sha256 = "a52dc00837a31097de874caa18adf5c1cac10753e15eeb3867e4e16b8f14dd28"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/01/OUTCAR.bz2", sha256 = "00c7bc988054c7729e97b346a5c6f51b1207b11bd98915acf4ab748133e864ce"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/02/OUTCAR.bz2", sha256 = "18a4b13797e9e9ad1f0ed6ab445e8f6499957cec558e669cf714336371f3cdf8"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/03/OUTCAR.bz2", sha256 = "d497d960c9249f906b2091f6ffc2a5b2188707fa7c859aa140d9631f852f0a36"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/04/OUTCAR.bz2", sha256 = "13abd972b56de21fc0bf8db985c78a36e1927005f6e5f3f7c5669d2579f3a3cd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/00/OUTCAR.bz2", sha256 = "13abd972b56de21fc0bf8db985c78a36e1927005f6e5f3f7c5669d2579f3a3cd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/01/OUTCAR.bz2", sha256 = "fda1f13338cd9d0e7dcd2d7aed721c009b447d5214aa2fe1e4add1b71fdfa871"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/02/OUTCAR.bz2", sha256 = "24e06b8407a4db72c5a37b4ab0bbf4ad5f54c14c92329c90de25a6ef7f479c63"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/03/OUTCAR.bz2", sha256 = "6630b3d373869889b8af5ce785bf1a2b0fd907972921d12b24324a4917b0d74b"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/04/OUTCAR.bz2", sha256 = "fb2409153177d1e143c8664a666ee6eff26c4f1103779b36012eb143c6f8dbdb"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/00/OUTCAR.bz2", sha256 = "fb2409153177d1e143c8664a666ee6eff26c4f1103779b36012eb143c6f8dbdb"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/01/OUTCAR.bz2", sha256 = "e1025b5adf4b7d516fa5df833f07feaf622e29fdca19d3d3ff39e83ee5f67467"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/02/OUTCAR.bz2", sha256 = "108fd036080b2679562d664b0839136c6e35c284e426809ab3f1862f60667e17"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/03/OUTCAR.bz2", sha256 = "0421f5c12765bcdb9e742fe8861047b880e7f60e663b3d3889ce095bf460586d"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/04/OUTCAR.bz2", sha256 = "a20ea6b8b130598bc76f0dd0f23ea15474801775a904b14013f8fee6931d6a80"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/00/OUTCAR.bz2", sha256 = "a20ea6b8b130598bc76f0dd0f23ea15474801775a904b14013f8fee6931d6a80"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/01/OUTCAR.bz2", sha256 = "ab23da98b7014e152d332a21031b74eb7f8b241e7f6f32c8076193b9b977e2a9"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/02/OUTCAR.bz2", sha256 = "ee6720eeaea2aeab3390cab647a698bfd20fa5d327327d5d981f7b0ccf627781"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/03/OUTCAR.bz2", sha256 = "0cc577ae69f6f0c74e238c26ce804dafab5a95585b4877a75ee59a4d8343271e"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/04/OUTCAR.bz2", sha256 = "8626f81c9e0fdb0e0ce440a16afac693942cd5bb53fbdf622d40abfdfc03d6e5"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/00/OUTCAR.bz2", sha256 = "8626f81c9e0fdb0e0ce440a16afac693942cd5bb53fbdf622d40abfdfc03d6e5"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/01/OUTCAR.bz2", sha256 = "ad563a66955c2943d042f0f346a9778045e95296973d63214f748a5dcbc5cbc7"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/02/OUTCAR.bz2", sha256 = "d69ddcbb269e96266c0706dce6414c6974d2ee371ac00cef9f7da400f7dff85e"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/03/OUTCAR.bz2", sha256 = "775fea30d20c92b8c36bcc18ac7309b43e048e881dc0596eaa756c8a80d6e878"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/04/OUTCAR.bz2", sha256 = "ea1291dd7396936cfa2c06faf7bc24c55101370cbef932fe73c029a4c27f6f62"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/00/OUTCAR.bz2", sha256 = "ea1291dd7396936cfa2c06faf7bc24c55101370cbef932fe73c029a4c27f6f62"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/01/OUTCAR.bz2", sha256 = "b241a29e2dd4a583a18b6323224ec1101a903d1a82eaf8801af68e9756e93199"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/02/OUTCAR.bz2", sha256 = "d3df6f903149ed95c942062f098685c4b24fc586397d5827c6d748d93a3b4180"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/03/OUTCAR.bz2", sha256 = "d1ba703cb2f52b411df00a45e3b53148d3a9bc61fae9e5eba905d4230fa27cb0"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/04/OUTCAR.bz2", sha256 = "51253a91cdce328a8a6101b76a225fe48b77f95f7d2148e1cdd7cf8ca1ad4c4b"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/00/OUTCAR.bz2", sha256 = "51253a91cdce328a8a6101b76a225fe48b77f95f7d2148e1cdd7cf8ca1ad4c4b"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/01/OUTCAR.bz2", sha256 = "5d8bef3ab07cea916d94d619f7fa43f6c9eab98ff8de2d0af5e191cd7c6d7ac3"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/02/OUTCAR.bz2", sha256 = "e1897fbb85daf073bf44d4fda340088c3ae702f68d94cc578254f24fc790a05e"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/03/OUTCAR.bz2", sha256 = "4bb5c6187cfe7209467982c29669f6767aa7ef7f80771bbf7d6404c16366cfd6"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/04/OUTCAR.bz2", sha256 = "df4dd20c61006807bc0079ffb443ec267d48e2477235d8707e14a9f8ac89de3b"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li7-x/00/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/00/OUTCAR.bz2", sha256 = "707f0c85fe45a36cc80a93798cdef59e31368101688e03e2ec2361ea60ae45bc"},
+  {path = "environment/assets/NEB_Li7-x/01/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/01/OUTCAR.bz2", sha256 = "499de731f9556a012eb584d4f4f82eb8296e514946ee9a36f976e5e41abc4d13"},
+  {path = "environment/assets/NEB_Li7-x/02/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/02/OUTCAR.bz2", sha256 = "5ae8b9174a006f4584bc08d9271a4766ad4ae888b07756647d7d0cbee14bbf66"},
+  {path = "environment/assets/NEB_Li7-x/03/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/03/OUTCAR.bz2", sha256 = "c24bf64936162e9601c2383b0f6c7d60fce1bcb3b2eb0edf3f1cba944d220690"},
+  {path = "environment/assets/NEB_Li7-x/04/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/04/OUTCAR.bz2", sha256 = "ac28e49b8ac10016b5558b13d424f91127556a6251cc38c3dd58188bb48948b3"},
+  {path = "environment/assets/NEB_Li7-x/05/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/05/OUTCAR.bz2", sha256 = "b4f7aca2a6e2f74e23a3ba23b0bb0f0c40e598323cfd9d5df85f0b9c39d441f5"},
+  {path = "environment/assets/NEB_Li7-x/06/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/06/OUTCAR.bz2", sha256 = "ddba8b1c234c512260a0adf2274f25b0f6433ecb615b60cd73a0732dff259ea1"},
+  {path = "environment/assets/NEB_Li7-x/07/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/07/OUTCAR.bz2", sha256 = "233ba04536b79fd7a72ea4c82859afe51f55af484133704fc485a2963a4fb372"},
+  {path = "environment/assets/NEB_Li7-x/08/OUTCAR.bz2", source_path = "public_inputs/neb/NEB_Li7-x/08/OUTCAR.bz2", sha256 = "73079cc2d44d8d2c55850454aecfaf4047ee2dec1aaf03d4b8afdb5d40c6abbe"},
+  {path = "environment/assets/NEB_Li7-x/INCAR", source_path = "public_inputs/neb/NEB_Li7-x/INCAR", sha256 = "79c2813a5abdd4784cf6809086d0c6e8263c6744971b7fd657b96fa1aae67372"},
+  {path = "environment/assets/NEB_Li7-x/KPOINTS", source_path = "public_inputs/neb/NEB_Li7-x/KPOINTS", sha256 = "8145d26ae84ab18b3fcd254e06df8c435e26525fda1bc8ea3bf77733831ca5d2"},
+]
+
+
+[metadata]
+name = "case-01"
+description = "Stitched Li migration barriers from deposited NEB images"
+
+[task]
+name = "compchemworld/case-01"
+description = "Stitched Li migration barriers from deposited NEB images"
+
+[agent]
+timeout_sec = 600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 60
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 512
+build_timeout_sec = 1800
+network_mode = "no-network"
+allow_internet = false
+
+[verifier.environment]
+cpus = 1
+memory_mb = 512
+build_timeout_sec = 1800
+network_mode = "no-network"

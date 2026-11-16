@@ -1,0 +1,39 @@
+# Native Harbor task configuration; original Bench08 definition preserved in metadata.
+schema_version = "1.4"
+artifacts = [
+  "/app/bias-grid.csv",
+  "/app/optimization-trace.csv",
+  "/app/bias_model.py",
+  "/app/report.md",
+  "/app/method-evidence.json",
+  "/app/solve.py",
+]
+
+[metadata]
+name = "bench08/task-49-wolfe-quapp-static-ves"
+description = "Static variational-bias numerical validation for the supplied Wolfe–Quapp potential."
+
+[task]
+name = "bench08/task-49-wolfe-quapp-static-ves"
+description = "在作者提供的二维 Wolfe–Quapp 多项式和明确的有限区间、自然单位及 well-tempered 目标下，构造变分偏置，恢复目标分布并与独立数值积分参考比较。"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

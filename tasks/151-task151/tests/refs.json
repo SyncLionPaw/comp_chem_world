@@ -1,0 +1,22 @@
+{
+  "schema_version": "case02-test-references/v1",
+  "public_asset_sha256": {
+    "5hls_a_flip_H.pqr": "e00776fd63b0c8049fe7387b18f4c74a7dd5beb7f06ef1222ee32a1ad989ca85",
+    "model_template.gjf": "dbbd3487e50ae5bf7be6673754bdd1fb72ac92f6d9f05f98b1a636ab56a9c28b",
+    "5hls_a_flip_ligH.pdb": "aa7b0a0e101c83e3d04458a27c1753d5d80cb9648594e189624a8c71076cd405",
+    "62G_optRESP.mol2": "4285423e2bb924a56ac4971da95a5502eca159ebf826cd72db8a48a0bbf2f715"
+  },
+  "reference_sidecar_sha256": {
+    "62G.top": "5cf3a7ebc2e9ecb76e34b2f97771f44678fd849e0e68b3042d2e3b2c251ae3b5",
+    "62G.par": "599c2de86a2f1505f9c2d1a98c5e3180fb6a2cbc1253e048236499527c328f08"
+  },
+  "policy": {
+    "contact_cutoff_angstrom": 4.0,
+    "coordinate_tolerance_angstrom": "0.001",
+    "partial_charge_tolerance": "0.000001",
+    "max_qm_atom_count": 50,
+    "max_qm_electron_count": 210,
+    "reported_distance_decimals": 3,
+    "rounding": "Python round ties-to-even"
+  }
+}

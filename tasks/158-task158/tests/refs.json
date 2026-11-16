@@ -1,0 +1,382 @@
+{
+  "time_step_ps": 0.001,
+  "onset_threshold_fraction_range": [
+    0.001,
+    0.05
+  ],
+  "onset_persistence_observations_range": [
+    1,
+    5
+  ],
+  "onset_start_step_exclusive": 200000,
+  "q_window_A_inv": [
+    3.0,
+    4.2
+  ],
+  "q_grid_spacing_A_inv": 0.01,
+  "q_center_grid_tolerance_A_inv": 0.021,
+  "raw_peak_match_q_tolerance_A_inv": 0.021,
+  "raw_peak_match_height_tolerance": 0.025,
+  "raw_peak_min_prominence": 0.08,
+  "peak_width_recompute_tolerance_A_inv": 0.02,
+  "representative_width_delta_tolerance_A_inv": 0.01,
+  "narrow_peak_delta_max_A_inv": -0.08,
+  "broad_peak_delta_range_A_inv": [
+    -0.08,
+    0.12
+  ],
+  "kinetics_class_fraction_thresholds": [
+    0.1,
+    0.005
+  ],
+  "after_doublet_rates": [
+    "1e12",
+    "2e12"
+  ],
+  "width_class_boundary_source": "private_reference_measurement",
+  "private_reference": {
+    "metadata": {
+      "reference_type": "computed from deposited native inputs plus Source Data cross-check",
+      "source_data_workbook_sha256": "3ae495f5d0c61657d572e6170caac953aa53cadb43d4725b17e4b17d6129ecde",
+      "input_sha256": {
+        "inputs/SiO/amorphous/structure_factors/total_structure_factor_calculated.1e12.dat": "f1bd94b1cf1708d296de360b035289884502b0fd0510cda151c1a89239ebb6cd",
+        "inputs/SiO/amorphous/structure_factors/total_structure_factor_calculated.1e13.dat": "244f596295f0223f412f62ca68f468ede38e85684d8c1675ca961d0b96db47a9",
+        "inputs/SiO/amorphous/structure_factors/total_structure_factor_calculated.2e12.dat": "6c6cf7a802944f84109e6916f86bddeea6b65d865a7233f14e77cbdc52e63fd3",
+        "inputs/SiO/amorphous/structure_factors/total_structure_factor_calculated.5e12.dat": "e0f6f86aca0ce24036333c13b4dbd0707cc16c6e5c2279da63e0a021288ec52d",
+        "inputs/SiO/partially_crystalline/crystallinity/crystallinity.1e12.info": "3660092d990eb113897ed8a640d85a45c855a3ac63d7c654bf2e9b14e9f11018",
+        "inputs/SiO/partially_crystalline/crystallinity/crystallinity.1e13.info": "8ce88942b19e692260527a7f4485b4f88827e8d8baf450c66cc7fffaadf9445d",
+        "inputs/SiO/partially_crystalline/crystallinity/crystallinity.2e12.info": "1d8640b8d4c1e88ade5d5cd7646721ef1e8ffa45cb8b324cd32dc65867a90c20",
+        "inputs/SiO/partially_crystalline/crystallinity/crystallinity.5e12.info": "3629f1da10da7b6a44126a0d192cd0e38b36ec29835cb11d86866f090eb885da",
+        "inputs/SiO/partially_crystalline/md/quenching.in": "ecad2c1c12d3ecab7cb032d321d52b2732f453b05ed00f4528665fa08a43557a",
+        "inputs/SiO/partially_crystalline/structure_factors/total_structure_factor_1e12.dat": "27ae83047e74394cc3711d10d8cc78a2826031eaf5da86782de3674cf3acde94",
+        "inputs/SiO/partially_crystalline/structure_factors/total_structure_factor_1e13.dat": "f23f11cb60d84ec0abcbdc186129aa92e6b7967763d8a502a4e71bff8e07e7a4",
+        "inputs/SiO/partially_crystalline/structure_factors/total_structure_factor_2e12.dat": "35898161ca9c0d0a229b1450de4e3bb82dd7c11cd76f8a13bbe7f9fd40b5adb8",
+        "inputs/SiO/partially_crystalline/structure_factors/total_structure_factor_5e12.dat": "ea41473a281133272fc23a1c04a5a08f999f3fc710a6d7a7a991194f58101eba",
+        "inputs/method-note.md": "7fbb156f9be4237be496a420fab44232fa50ac7cbc2440d27cce428fd61d608c"
+      },
+      "author_method_artifacts_sha256": {
+        "raw_data/unpacked/results-277b5114949b/results/SiO/partially_crystalline/crystallinity/get_cristallinity.py": "789baeed5efb9ff9b7cc0a303edeb5696a8079718739e9bec5589da9e438993b",
+        "raw_data/unpacked/results-277b5114949b/results/SiO/partially_crystalline/md/run.sh": "a449a7d634abd4ebe72bbdc5e772331cf8605050dabb5c2a9fca025633a3ffcb",
+        "raw_data/unpacked/results-277b5114949b/results/SiO/compute_structure_factor.py": "31e51e54db643c85f31c7f588235e330e6bd7d6c02326d5d1f75958a9248731c",
+        "raw_data/unpacked/results-277b5114949b/results/SiO/structure_factor.py": "0c9ee26a29e212651f0727c6bb1cfdc65d3efa12ba89702648e08a473587f2e6"
+      },
+      "source_data_checks": {
+        "1e12": {
+          "source_rows": 101,
+          "step_first": 200000,
+          "step_last": 20200000,
+          "max_fraction_abs_difference": 4.996003610813204e-16,
+          "max_count_abs_difference": 0
+        },
+        "2e12": {
+          "source_rows": 101,
+          "step_first": 200000,
+          "step_last": 20200000,
+          "max_fraction_abs_difference": 4.440892098500626e-16,
+          "max_count_abs_difference": 0
+        },
+        "5e12": {
+          "source_rows": 101,
+          "step_first": 200000,
+          "step_last": 20200000,
+          "max_fraction_abs_difference": 4.5102810375396984e-17,
+          "max_count_abs_difference": 0
+        },
+        "1e13": {
+          "source_rows": 101,
+          "step_first": 200000,
+          "step_last": 20200000,
+          "max_fraction_abs_difference": 4.336808689942018e-19,
+          "max_count_abs_difference": 0
+        }
+      },
+      "source_scattering_checks": {
+        "1e12": {
+          "source_rows": 2450,
+          "q_max_abs_difference_A_inv": 2.4868995751603507e-14,
+          "xray_s_max_abs_difference": 5.10702591327572e-15
+        },
+        "2e12": {
+          "source_rows": 2450,
+          "q_max_abs_difference_A_inv": 2.4868995751603507e-14,
+          "xray_s_max_abs_difference": 5.10702591327572e-15
+        },
+        "5e12": {
+          "source_rows": 2450,
+          "q_max_abs_difference_A_inv": 2.4868995751603507e-14,
+          "xray_s_max_abs_difference": 5.10702591327572e-15
+        },
+        "1e13": {
+          "source_rows": 2450,
+          "q_max_abs_difference_A_inv": 2.4868995751603507e-14,
+          "xray_s_max_abs_difference": 5.10702591327572e-15
+        }
+      },
+      "expected_rate_order_fast_to_slow": [
+        "1e13",
+        "5e12",
+        "2e12",
+        "1e12"
+      ],
+      "expected_onset_envelopes_ps": {
+        "1e12": [
+          9.0,
+          11.0
+        ],
+        "2e12": [
+          10.5,
+          14.5
+        ],
+        "5e12": [
+          15.0,
+          20.2
+        ],
+        "1e13": null
+      },
+      "tolerance_basis": {
+        "counts": "exact deposited integer counts",
+        "time": "0.001 ps per step; onset is recomputed at candidate-declared threshold/persistence and has 200 ps observation spacing",
+        "q_grid_A_inv": 0.01,
+        "peak_center_match_A_inv": 0.021,
+        "peak_height": 0.025,
+        "peak_width_A_inv": "recomputed by the declared algorithm on raw q/S(q); 0.02 A^-1 comparison tolerance covers grid interpolation",
+        "final_subset_fraction": 5e-10
+      },
+      "peak_reference_measurement": {
+        "method": "scipy.signal.find_peaks local prominence >=0.12 in q=[3.00,4.20] A^-1; scipy.signal.peak_widths at relative height 0.5",
+        "normalization": "raw second column (total X-ray S(q))",
+        "method_crosscheck_all_peaks": [
+          {
+            "rate_label": "1e12",
+            "state": "before",
+            "q_peak_A_inv": 3.640000000000003,
+            "scipy_prominence_half_height_A_inv": 0.49826441663899235,
+            "window_minimum_half_prominence_A_inv": 0.49826441663900356,
+            "absolute_method_difference_A_inv": 1.1213252548714081e-14
+          },
+          {
+            "rate_label": "1e12",
+            "state": "after",
+            "q_peak_A_inv": 3.2700000000000022,
+            "scipy_prominence_half_height_A_inv": 0.18567949890246416,
+            "window_minimum_half_prominence_A_inv": 0.1856794989024686,
+            "absolute_method_difference_A_inv": 4.440892098500626e-15
+          },
+          {
+            "rate_label": "1e12",
+            "state": "after",
+            "q_peak_A_inv": 3.820000000000003,
+            "scipy_prominence_half_height_A_inv": 0.16956944844912464,
+            "window_minimum_half_prominence_A_inv": 0.18933119912994067,
+            "absolute_method_difference_A_inv": 0.019761750680816037
+          },
+          {
+            "rate_label": "2e12",
+            "state": "before",
+            "q_peak_A_inv": 3.640000000000003,
+            "scipy_prominence_half_height_A_inv": 0.48549309795424345,
+            "window_minimum_half_prominence_A_inv": 0.48549309795425444,
+            "absolute_method_difference_A_inv": 1.099120794378905e-14
+          },
+          {
+            "rate_label": "2e12",
+            "state": "after",
+            "q_peak_A_inv": 3.2800000000000025,
+            "scipy_prominence_half_height_A_inv": 0.24239682945681496,
+            "window_minimum_half_prominence_A_inv": 0.2423968294568204,
+            "absolute_method_difference_A_inv": 5.440092820663267e-15
+          },
+          {
+            "rate_label": "2e12",
+            "state": "after",
+            "q_peak_A_inv": 3.800000000000003,
+            "scipy_prominence_half_height_A_inv": 0.1832563325213804,
+            "window_minimum_half_prominence_A_inv": 0.2742698030638979,
+            "absolute_method_difference_A_inv": 0.09101347054251752
+          },
+          {
+            "rate_label": "5e12",
+            "state": "before",
+            "q_peak_A_inv": 3.6200000000000028,
+            "scipy_prominence_half_height_A_inv": 0.4706511189187808,
+            "window_minimum_half_prominence_A_inv": 0.4706511189187914,
+            "absolute_method_difference_A_inv": 1.0602629885170245e-14
+          },
+          {
+            "rate_label": "5e12",
+            "state": "after",
+            "q_peak_A_inv": 3.640000000000003,
+            "scipy_prominence_half_height_A_inv": 0.5138534145059985,
+            "window_minimum_half_prominence_A_inv": 0.5138534145060101,
+            "absolute_method_difference_A_inv": 1.1546319456101628e-14
+          },
+          {
+            "rate_label": "1e13",
+            "state": "before",
+            "q_peak_A_inv": 3.6700000000000026,
+            "scipy_prominence_half_height_A_inv": 0.4516865293485237,
+            "window_minimum_half_prominence_A_inv": 0.4516865293485335,
+            "absolute_method_difference_A_inv": 9.769962616701378e-15
+          },
+          {
+            "rate_label": "1e13",
+            "state": "after",
+            "q_peak_A_inv": 3.6000000000000028,
+            "scipy_prominence_half_height_A_inv": 0.44558390355086874,
+            "window_minimum_half_prominence_A_inv": 0.4455839035508786,
+            "absolute_method_difference_A_inv": 9.880984919163893e-15
+          }
+        ],
+        "peak_width_class_boundary_A_inv": 0.36
+      }
+    },
+    "rates": {
+      "rate_results": [
+        {
+          "rate_label": "1e12",
+          "rate_K_per_s": 1000000000000.0,
+          "final_subset_fraction": 0.3611470825591652,
+          "final_step": 20200000,
+          "onset_ps_declared_rule": 9800.0,
+          "onset_reason": null,
+          "before_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.640000000000003,
+              "height": 1.228553235151488,
+              "prominence": 0.3707793806836521,
+              "width": 0.49826441663899235
+            }
+          ],
+          "after_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.2700000000000022,
+              "height": 1.470396755591312,
+              "prominence": 0.6693020755757665,
+              "width": 0.18567949890246416
+            },
+            {
+              "q": 3.820000000000003,
+              "height": 1.3861518848082617,
+              "prominence": 0.5079369917339183,
+              "width": 0.16956944844912464
+            }
+          ],
+          "representative_peak_width_change_A_inv": -0.3125849177365282,
+          "kinetics_class": "strong",
+          "scattering_class": "resolved_crystalline_doublet",
+          "joint_evidence": "consistent"
+        },
+        {
+          "rate_label": "2e12",
+          "rate_K_per_s": 2000000000000.0,
+          "final_subset_fraction": 0.1868018673571604,
+          "final_step": 20200000,
+          "onset_ps_declared_rule": 12200.0,
+          "onset_reason": null,
+          "before_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.640000000000003,
+              "height": 1.2139286058172498,
+              "prominence": 0.34685125783981596,
+              "width": 0.48549309795424345
+            }
+          ],
+          "after_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.2800000000000025,
+              "height": 1.1905387365743443,
+              "prominence": 0.340753998660258,
+              "width": 0.24239682945681496
+            },
+            {
+              "q": 3.800000000000003,
+              "height": 1.187825193697947,
+              "prominence": 0.21075444836526036,
+              "width": 0.1832563325213804
+            }
+          ],
+          "representative_peak_width_change_A_inv": -0.2430962684974285,
+          "kinetics_class": "strong",
+          "scattering_class": "resolved_crystalline_doublet",
+          "joint_evidence": "consistent"
+        },
+        {
+          "rate_label": "5e12",
+          "rate_K_per_s": 5000000000000.0,
+          "final_subset_fraction": 0.014860793982769538,
+          "final_step": 20200000,
+          "onset_ps_declared_rule": 19400.0,
+          "onset_reason": null,
+          "before_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.6200000000000028,
+              "height": 1.181648707134324,
+              "prominence": 0.28723427415989644,
+              "width": 0.4706511189187808
+            }
+          ],
+          "after_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.640000000000003,
+              "height": 1.085829322597611,
+              "prominence": 0.17544727536337945,
+              "width": 0.5138534145059985
+            }
+          ],
+          "representative_peak_width_change_A_inv": 0.04320229558721772,
+          "kinetics_class": "weak",
+          "scattering_class": "broad_peak_only_in_fixed_window",
+          "joint_evidence": "consistent"
+        },
+        {
+          "rate_label": "1e13",
+          "rate_K_per_s": 10000000000000.0,
+          "final_subset_fraction": 0.0007598562118245317,
+          "final_step": 20200000,
+          "onset_ps_declared_rule": null,
+          "onset_reason": "fraction never reaches 1% for 3 consecutive observed points",
+          "before_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.6700000000000026,
+              "height": 1.1422007074952578,
+              "prominence": 0.22652178271553058,
+              "width": 0.4516865293485237
+            }
+          ],
+          "after_peaks_q_3_0_4_2_A_inv": [
+            {
+              "q": 3.6000000000000028,
+              "height": 1.0777514053256299,
+              "prominence": 0.15348379652894883,
+              "width": 0.44558390355086874
+            }
+          ],
+          "representative_peak_width_change_A_inv": -0.00610262579765497,
+          "kinetics_class": "trace",
+          "scattering_class": "broad_peak_only_in_fixed_window",
+          "joint_evidence": "consistent"
+        }
+      ],
+      "onset_sensitivity_ps": {
+        "0.001": {
+          "1e12": 9400.0,
+          "2e12": 11200.0,
+          "5e12": 16000.0,
+          "1e13": null
+        },
+        "0.01": {
+          "1e12": 9800.0,
+          "2e12": 12200.0,
+          "5e12": 19400.0,
+          "1e13": null
+        },
+        "0.05": {
+          "1e12": 10600.0,
+          "2e12": 14200.0,
+          "5e12": null,
+          "1e13": null
+        }
+      }
+    }
+  }
+}

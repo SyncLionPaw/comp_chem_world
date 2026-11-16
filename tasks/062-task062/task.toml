@@ -1,0 +1,39 @@
+schema_version = "1.4"
+
+artifacts = [{ source = "/app/feature-audit.csv", destination = "feature-audit.csv" }, { source = "/app/geometry-check.json", destination = "geometry-check.json" }, { source = "/app/decision.json", destination = "decision.json" }, { source = "/app/research-rationale.md", destination = "research-rationale.md" }]
+
+[task]
+name = "compchembench/bench10-task-63"
+description = "用真实G4坐标比较配体局域水与主腔虚拟点水配位，决定哪些特征值得保留以及当前证据能支持到哪里。"
+
+[metadata]
+case_id = "case-01-water-rearrangement-descriptor"
+title = "选择非局域水重排描述符"
+objective = "用真实G4坐标比较配体局域水与主腔虚拟点水配位，决定哪些特征值得保留以及当前证据能支持到哪里。"
+compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 120 }
+requirements = { software = ["Python 3 + NumPy"], inputs = [{ path = "environment/assets/g4-coordinate-samples.npz", sha256 = "574c49fdc457fec2b57d3d81e9fadde6bb59e269e5676568b0d69d7a37e14550" }, { path = "environment/assets/coordinate-provenance.json", sha256 = "ec950e3438e0e982dd2f9ff8644879d3b2415976781d9d4a4052fbb050ccec20" }, { path = "environment/assets/g4-descriptors.csv", sha256 = "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66" }, { path = "environment/assets/descriptor-provenance.json", sha256 = "0cdaef45fc096bd1aca62229c665a1736a3ae336a59caf847cc5c34b22c5effd" }, { path = "environment/assets/geometry-method.md", sha256 = "d863e5b015aefb9b08a6bffab712e829c374289ca36a9847ad8369607226f0d6" }, { path = "environment/assets/atom-metadata.json", sha256 = "96621e325309550e179312f83aa62681c9139e0c53024657ea34a2ac4dcbe4db" }, { path = "environment/assets/training-design.json", sha256 = "4d32952da3ad9a87752d5f973048ee4f57c403fa43b91b1810750f1d90b75c95" }] }
+outputs = ["feature-audit.csv", "geometry-check.json", "decision.json", "research-rationale.md"]
+
+[agent]
+timeout_sec = 120.0
+network_mode = "public"
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+network_mode = "public"
+workdir = "/app"
+
+[verifier]
+timeout_sec = 600.0
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"

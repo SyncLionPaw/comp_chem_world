@@ -1,0 +1,18 @@
+{
+  "path_ids": [
+    "O1_Li",
+    "O1_Mg",
+    "O1_Na",
+    "Li05_Li",
+    "Li05_Mg",
+    "O3_Na",
+    "O3_Mg_PATH1",
+    "O3_Mg_PATH2",
+    "P3_Na",
+    "P3_Mg"
+  ],
+  "energy_tol_eV": 0.002,
+  "required_methods": {
+    "energy_source": "last_ionic_F"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "water-case-contract/v2",
+  "contract_version": "2.0",
+  "case_id": "water-independent-validation",
+  "method": {
+    "oxygen_atom_alignment": "atom ID",
+    "increment": "adjacent-frame orthorhombic MIC",
+    "diagnostic_path": "sum MIC increments from frame 0",
+    "time_origin": "frame 0 only"
+  },
+  "identifiability": {
+    "wrapped_xyz_only": true,
+    "image_flags_present": false,
+    "status_options": [
+      "D_identifiable",
+      "D_not_identifiable"
+    ],
+    "numeric_value": "report only when uniquely supported by sampled data; otherwise null",
+    "evidence": "source-derived endpoint pair and alternative lattice-winding displacement"
+  },
+  "grading": {
+    "box_A": 12.4,
+    "oxygen_count": 64,
+    "atom_count": 192,
+    "hydrogen_count": 128,
+    "frames": 201,
+    "step_start": 0,
+    "step_stop": 20000,
+    "step_interval": 100,
+    "box_tilt_tolerance_A": 1e-09,
+    "box_length_tolerance_A": 1e-08,
+    "manifest_sha256": "425e7a5122e5afd54c04874961caed9065744b980c687af2b9ec87103bc10db4",
+    "value_tolerance": 1e-07,
+    "endpoint_tolerance": 1e-10,
+    "time_ps_per_step": 0.0005,
+    "witness_tolerance": 1e-07,
+    "replica_count": 2
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "output": "solvation.json",
+  "assets": [
+    {
+      "path": "environment/assets/window_blue.dat",
+      "sha256": "a7fee309902e0224a66d83a15b94a4fdfa976c4ebacb36ae01f0bd514d52ce9d"
+    },
+    {
+      "path": "environment/assets/window_green.dat",
+      "sha256": "df0bfa0b6c4b64ac9f0be9a35e0db5ba0679a1c538f43d3ea76c87ba3029c524"
+    },
+    {
+      "path": "environment/assets/window_red.dat",
+      "sha256": "b0cbc4433528ecd2d072c774901cca7b31f866c6e46ff96592f80fc8abe3e15e"
+    },
+    {
+      "path": "environment/assets/window_all.dat",
+      "sha256": "37482425fa6397f1c0541e4cda247fbfc304a62806024135a8fed90958c6dc90"
+    },
+    {
+      "path": "environment/assets/angle_li_ow_li.dat",
+      "sha256": "2d419bb9994d0934fdc7054ca94506c72f4e909eada169914d6b909c9d435493"
+    },
+    {
+      "path": "environment/assets/angle_bulk_water_exp.dat",
+      "sha256": "ca1ae6af4a74b872c129e45e564c77bd946c87e3999c435d354e151c4faa351a"
+    }
+  ],
+  "gold": {
+    "short_contact_window": "blue",
+    "short_contact_mode_total_cn": 5,
+    "average_mode_total_cn": 4,
+    "short_contact_cn_higher_than_average": true,
+    "short_contact_modal_anion_cn": 1,
+    "angle_modes_deg": [
+      73,
+      111
+    ],
+    "acute_mode_tighter_than_bulk_water": true
+  },
+  "tolerances": {
+    "angle_deg": 2.0
+  },
+  "criteria": {
+    "acute_angle_range_deg": [
+      0.0,
+      90.0
+    ],
+    "obtuse_angle_range_deg": [
+      90.0,
+      180.0
+    ],
+    "short_contact_window": "blue"
+  }
+}

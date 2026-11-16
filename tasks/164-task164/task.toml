@@ -1,0 +1,104 @@
+schema_version = "1.4"
+artifacts = ["/app/outputs", "/app/bench25-artifacts"]
+
+[task]
+name = "compchembench/bench25-case03"
+description = "Budgeted SPaiNN fine-tuning and equivariance validation for ethylene."
+authors = []
+keywords = ["computational-chemistry", "nonadiabatic-dynamics"]
+
+[metadata.compchembench]
+handoff_version = "2.0"
+case_id = "case-03"
+readiness = "ROOT_CAPTURE_CONNECTED_SCIENCE_RECEIPT_PENDING"
+trusted_private_scoring = "case03_v3_same_attempt_local_or_scheduler_receipt"
+compute_class = "local"
+compute_execution = "local"
+compute_network = "candidate-selected"
+
+[metadata.compchembench.requirements]
+software = ["python", "pytorch", "schnetpack", "spainn", "ase", "numpy"]
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/trainval_shifted.db"
+source_path = "environment/assets/trainval_shifted.db"
+sha256 = "f9035b3ed2b0a89b75e65d594095a6ba3ca6a598ede3f015b31a81bbed9c1634"
+read_only = true
+visibility = "candidate_train_validation_labels"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/heldout_geometry.db"
+source_path = "environment/assets/heldout_geometry.db"
+sha256 = "916ca740359efff09829589b7878e7484078b1ccb7193f121361b9cc9972df44"
+read_only = true
+visibility = "candidate_geometry_only"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/public_asset_manifest.json"
+source_path = "environment/assets/public_asset_manifest.json"
+sha256 = "73b3166d6617dc8f76997f4b303a5c08668a4cba943d943e82c4a516744838a7"
+read_only = true
+visibility = "public_counts_hash_and_preprocessing_only"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/painn_baseline_state_dict.pt"
+source_path = "environment/assets/painn_baseline_state_dict.pt"
+sha256 = "840834c2b94fc2efdb7c454f11a60f5af3bee917f12594e90ad6a82b3155ecc5"
+read_only = true
+visibility = "fixed_selected_painn_baseline_tensor_only"
+
+[metadata.compchembench.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[environment]
+allow_internet = true
+
+[environment.env]
+CCB_BENCH25_ROLE = "agent"
+CCB_BENCH25_CASE = "case-03"
+CCB_BENCH25_AGENT_USER = "researcher"
+HOME = "/home/researcher"
+CCB_CASE03_ATTEMPT_BUDGET_SECONDS = "1200"
+CASE03_CPUS = "4"
+CASE03_MEMORY_GB = "8"
+CASE03_WALL_SECONDS = "600"
+CASE03_ACCELERATOR = "cpu"
+CASE03_GPU_COUNT = "0"
+
+[environment.healthcheck]
+command = "if [ \"$CCB_BENCH25_ROLE\" = verifier ]; then exit 0; fi; test -S /run/bench25-capture/request.sock && test -s /run/bench25-capture/public-attempt.json && test -s /trusted/capture.key"
+interval_sec = 5.0
+timeout_sec = 10.0
+start_period_sec = 900.0
+retries = 3
+
+[agent]
+timeout_sec = 86400.0
+user = "researcher"
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = "separate"
+user = "root"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[verifier.environment.env]
+CCB_BENCH25_ROLE = "verifier"
+CCB_BENCH25_CASE = "case-03"
+APP = "/app"
+LOGS = "/logs/verifier"
+HOME = "/root"
+
+[[verifier.collect]]
+command = "/usr/bin/python3 -B -I /opt/bench25/bench25_capture.py collect"
+service = "main"
+timeout_sec = 120.0
+user = "root"
+
+[metadata]
+execution_class = "local"

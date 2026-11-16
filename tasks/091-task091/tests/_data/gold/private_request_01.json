@@ -1,0 +1,324 @@
+{
+  "schema": "bench14.edl.request/v1",
+  "objective": "Solve the nonlinear planar lattice-gas Poisson-Fermi double layer and the declared rough-wall reconstruction.",
+  "model": {
+    "psi": "q*phi/(kB*T)",
+    "n_plus_m3": "nb*exp(-psi)/(1+2*nb*a^3*(cosh(psi)-1))",
+    "n_minus_m3": "nb*exp(psi)/(1+2*nb*a^3*(cosh(psi)-1))",
+    "poisson": "eps0*phi''-P1'-P2'+q*(n_plus-n_minus)=0",
+    "mode_1": "K11*P1-K12*P1''+K13*P1''''+eps0*phi'=0",
+    "mode_2": "K21*P2-K22*P2''+eps0*phi'=0",
+    "derivative_coordinate": "z in metres in SI equations; profile abscissa is z_A",
+    "boundary_wall": [
+      "P1=(1-alpha)*Pbar",
+      "P2=alpha*Pbar",
+      "P1''=0",
+      "eps0*phi'=Pbar-sigma0"
+    ],
+    "boundary_far": [
+      "phi=0",
+      "P1=0",
+      "P1'=0",
+      "P2=0"
+    ],
+    "interpretation": "P1'(0) is a solved output and is not constrained to zero. phi is the saddle/maximization variable in the fixed-sigma stationary functional, not a variable to minimize together with P1/P2."
+  },
+  "shared_parameters": {
+    "temperature_K": 300.0,
+    "alpha": 0.5,
+    "cell_length_nm": 0.8,
+    "sigma0_C_m2": 0.09,
+    "kernel_constants": {
+      "K11": 0.140125,
+      "K12": -0.207118,
+      "K13": 0.01129,
+      "K21": 0.015908,
+      "K22": 2.00394
+    },
+    "kernel_units": {
+      "K11": "dimensionless",
+      "K12": "Angstrom^2",
+      "K13": "Angstrom^4",
+      "K21": "dimensionless",
+      "K22": "Angstrom^2"
+    }
+  },
+  "conditions": [
+    {
+      "run_id": "private_probe_01",
+      "concentration_mM": 7.4,
+      "Pbar_C_m2": 0.073
+    }
+  ],
+  "parameter_probe_ranges": {
+    "concentration_mM": [
+      1.0,
+      10.0
+    ],
+    "Pbar_C_m2": [
+      -0.05,
+      0.1
+    ],
+    "sigma0_C_m2": [
+      0.08,
+      0.12
+    ],
+    "alpha": "fixed at 0.5",
+    "temperature_K": "fixed at 300 K",
+    "cell_length_nm": "fixed at 0.8 nm"
+  },
+  "roughness": {
+    "distribution": "normalized Eq. 19 Gaussian wall-position distribution on ell >= 0",
+    "mean_A": 2.5,
+    "delta_A": 1.5,
+    "gaussian_standard_deviation_A": 1.0606601718,
+    "quadrature_order": 384,
+    "integration_step_A": 0.0015625,
+    "fields": [
+      "phi_V",
+      "P1_C_m2",
+      "P1_prime_C_m3",
+      "P1_second_C_m4",
+      "P2_C_m2",
+      "P2_prime_C_m3",
+      "n_plus_m3",
+      "n_minus_m3",
+      "site_occupancy"
+    ],
+    "ion_rule": "convolve n_plus and n_minus separately; do not recompute nonlinear ion closure from convolved phi",
+    "status": "Use uniform-grid fast convolution on the fine BVP source mesh; directly integrate the continuous BVP with composite Gauss panels near the wall through 30 Angstrom where nonlinear ion saturation makes source-grid interpolation error consequential. This is an author-side Eq.19 reconstruction, not a claim about the unpublished Figure 6 implementation.",
+    "continuous_direct_until_A": 30.0,
+    "continuous_panel_A": 0.05,
+    "continuous_gauss_order": 16
+  },
+  "numerics": {
+    "bvp_tolerance": 5e-07,
+    "poisson_tolerance": 2e-08,
+    "functional_quadrature_order": 32,
+    "stationarity_amplitudes_C_m2": [
+      0.0004,
+      0.0002
+    ],
+    "initial_mesh_step_A": 0.25,
+    "output_step_A": 0.05,
+    "domain_gc_lengths": 12.0,
+    "round_domain_up_A": 10.0,
+    "domain_rule": "The exported grid uses the exact domain zmax=ceil(domain_gc_lengths*lambda_GC/round_domain_up_A)*round_domain_up_A and exact output_step_A spacing; internal BVP meshes and roughness source samples may be finer, but exported rows use this requested grid."
+  },
+  "functional_stability": {
+    "include": false,
+    "basis": "six max-abs-normalized modes: P1 and P2 each use ell=2 A,k=0; ell=2 A,k=3 A^-1; ell=lambda_GC/2,k=0. Include the full projected Hessian, not only diagonal directions.",
+    "amplitudes_C_m2": [
+      0.0004,
+      0.0002
+    ],
+    "criterion": "optional author-side diagnostic only: report finite-difference gradient and symmetric Hessian at both amplitudes, eigenspectrum, amplitude difference and numerical error; only claim resolved local stability if the smallest Hessian eigenvalue exceeds the measured error. This finite subspace is not a proof of global minimality. It is disabled in the public candidate request because it is author-side branch validation, not a required candidate runtime calculation."
+  },
+  "output_contract": {
+    "schema": "bench14.edl.output/v1",
+    "tables": {
+      "dl_profiles_sharp.csv": {
+        "columns": [
+          "run_id",
+          "concentration_mM",
+          "Pbar_C_m2",
+          "sigma0_C_m2",
+          "temperature_K",
+          "alpha",
+          "cell_length_nm",
+          "z_A",
+          "phi_V",
+          "P1_C_m2",
+          "P1_prime_C_m3",
+          "P1_second_C_m4",
+          "P2_C_m2",
+          "P2_prime_C_m3",
+          "n_plus_m3",
+          "n_minus_m3",
+          "site_occupancy",
+          "liquid_fraction",
+          "rho1_wall_C_m3",
+          "rho_total_wall_C_m3"
+        ],
+        "row_key": [
+          "run_id",
+          "z_A"
+        ],
+        "grid_rule": "For each condition, exactly one row at z_i=i*output_step_A from i=0 through zmax/output_step_A inclusive. Internal meshes may be finer."
+      },
+      "dl_profiles_smeared.csv": {
+        "same_columns_as": "dl_profiles_sharp.csv",
+        "row_key": [
+          "run_id",
+          "z_A"
+        ],
+        "grid_rule": "Same exact exported grid as dl_profiles_sharp.csv."
+      }
+    },
+    "analysis_json": {
+      "schema": "bench14.edl.analysis/v1",
+      "required_top_level": [
+        "schema",
+        "conditions",
+        "author_reconstruction",
+        "field_semantics",
+        "roughness",
+        "runtime_seconds_total",
+        "input_sha256"
+      ],
+      "required_condition": [
+        "run_id",
+        "parameters",
+        "rho1_wall_C_m3",
+        "rho_total_wall_C_m3",
+        "checks",
+        "bvp",
+        "fixed_sigma_functional_energy_J_m2",
+        "functional_quadrature_order",
+        "functional_energy_quadrature_difference_J_m2",
+        "stationarity",
+        "output_points",
+        "runtime_seconds"
+      ],
+      "checks_required": [
+        "integrated_mobile_charge_C_m2",
+        "electroneutrality_relative_to_input_charge",
+        "wall_natural_P1_second_C_m4",
+        "wall_surface_displacement_C_m2",
+        "occupancy_max",
+        "far_field_fit_length_A",
+        "boundary_residual_max"
+      ],
+      "bvp_required": [
+        "success",
+        "adaptive_nodes",
+        "rms_residual_max"
+      ]
+    },
+    "numeric_tolerances": {
+      "metadata": {
+        "relative": 1e-12,
+        "absolute": 1e-12,
+        "z_A_absolute": 1e-09,
+        "rho1_wall_C_m3": {
+          "absolute": 0.001,
+          "relative": 2e-05
+        },
+        "rho_total_wall_C_m3": {
+          "absolute": 0.001,
+          "relative": 2e-05
+        }
+      },
+      "sharp": {
+        "phi_V": {
+          "absolute": 2e-07,
+          "relative": 2e-06
+        },
+        "P1_C_m2": {
+          "absolute": 2e-08,
+          "relative": 2e-06
+        },
+        "P1_prime_C_m3": {
+          "absolute": 100.0,
+          "relative": 2e-06
+        },
+        "P1_second_C_m4": {
+          "absolute": 1000000000000.0,
+          "relative": 2e-06
+        },
+        "P2_C_m2": {
+          "absolute": 2e-08,
+          "relative": 2e-06
+        },
+        "P2_prime_C_m3": {
+          "absolute": 100.0,
+          "relative": 2e-06
+        },
+        "n_plus_m3": {
+          "absolute": 1e-06,
+          "relative": 2e-05,
+          "scale": "max(abs(reference), n_b)"
+        },
+        "n_minus_m3": {
+          "absolute": 1e-06,
+          "relative": 2e-05,
+          "scale": "max(abs(reference), n_b)"
+        },
+        "site_occupancy": {
+          "absolute": 1e-07,
+          "relative": 2e-05
+        },
+        "liquid_fraction": {
+          "absolute": 1e-08,
+          "relative": 1e-07
+        }
+      },
+      "smeared": {
+        "phi_V": {
+          "absolute": 2e-07,
+          "relative": 5e-06
+        },
+        "P1_C_m2": {
+          "absolute": 2e-08,
+          "relative": 5e-06
+        },
+        "P1_prime_C_m3": {
+          "absolute": 100.0,
+          "relative": 5e-05
+        },
+        "P1_second_C_m4": {
+          "absolute": 1000000000000.0,
+          "relative": 1e-05
+        },
+        "P2_C_m2": {
+          "absolute": 2e-08,
+          "relative": 5e-06
+        },
+        "P2_prime_C_m3": {
+          "absolute": 100.0,
+          "relative": 1e-05
+        },
+        "n_plus_m3": {
+          "absolute": 0.0002,
+          "relative": 0.0002,
+          "scale": "max(abs(reference), n_b*liquid_fraction, n_b*1e-12)"
+        },
+        "n_minus_m3": {
+          "absolute": 0.0002,
+          "relative": 0.0002,
+          "scale": "max(abs(reference), n_b*liquid_fraction, n_b*1e-12)"
+        },
+        "site_occupancy": {
+          "absolute": 2e-05,
+          "relative": 0.0001
+        },
+        "liquid_fraction": {
+          "absolute": 2e-08,
+          "relative": 2e-07
+        }
+      },
+      "analysis": {
+        "fixed_sigma_functional_energy_J_m2": {
+          "absolute": 1e-08,
+          "relative": 3e-05
+        }
+      },
+      "rough_constraints": {
+        "ion_density_negative_tolerance_relative_to_n_b": 1e-12,
+        "site_occupancy_negative_tolerance_absolute": 1e-12,
+        "site_occupancy_le_liquid_fraction_absolute": 3e-05,
+        "occupancy_consistency_relative": 2e-05,
+        "far_tail_ion_density_relative_to_n_b": 0.0002,
+        "far_tail_start_in_GC_lengths": 11.5
+      }
+    },
+    "candidate_execution": {
+      "request_file_read_only": true,
+      "timeout_sec_per_run": 300,
+      "cpu_limit_sec": 240,
+      "file_size_limit_bytes": 268435456,
+      "process_limit": 1,
+      "submission_files": "solver.py and any imported regular .py helpers in final/"
+    }
+  }
+}

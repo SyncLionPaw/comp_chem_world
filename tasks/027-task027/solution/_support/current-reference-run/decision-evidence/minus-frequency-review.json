@@ -1,0 +1,28 @@
+{
+  "schema": "case07-sol-endpoint-frequency-review/v1",
+  "status": "MINUS_C2_MINIMUM_FREQUENCY_ACCEPTED_NOT_COMPLETE",
+  "job_id": "4043085",
+  "method": "uks pbe d3bj def2-svp def2/j ri defgrid3",
+  "energy_au": -646.920194627162,
+  "zpe_au": 0.15139313,
+  "mode_count": 63,
+  "physical_imaginary_count": 0,
+  "lowest_physical_frequency_cm1": 33.77807954086595,
+  "graph": "mapped public C2",
+  "checks": [
+    "Independent current native_parser.stage_facts expected_imaginary=0 PASS",
+    "Raw Hess geometry graph matches public C2",
+    "All locally downloaded inventory file hashes/sizes verified",
+    "job.out byte-identical to orca.stdout"
+  ],
+  "raw_sha256": {
+    "job.hess": "cce2c7c786733ba03ea5931d66f5ad53ffc8d6af51615b2de2a95c86fc097c97",
+    "orca.stdout": "2be965332c9f9b786864f820a1ad7c778fc6cef0f1f594bddfa236b5df20d14d",
+    "start.xyz": "51c3e2b02adee59ded6f2c1e12b836bcbffe7572cdc51032b7c4d79e0ca5d82e"
+  },
+  "remaining": [
+    "plus Opt convergence and BPR graph",
+    "plus independent frequency zero imaginary",
+    "complete same-level barrier/bundle/Oracle/regrade"
+  ]
+}

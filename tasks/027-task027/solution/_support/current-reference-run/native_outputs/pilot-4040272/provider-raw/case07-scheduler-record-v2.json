@@ -1,0 +1,29 @@
+{
+  "allocation_id": "4040272",
+  "array_job": false,
+  "batch_script_sha256": "e791f6484e0bc2587d261101b7c2b7d4218a6cd77116b005135da65ffd4b3b61",
+  "candidate_stage_declaration": {
+    "kind": "pilot",
+    "reason": "First actual native pilot after bounded exact-owned reconciliation found no evidence of the earlier submit intent; this provider stage maps to logical pilot:1.",
+    "route": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF EnGrad",
+    "stage_id": "pilot:2"
+  },
+  "cpus": 8,
+  "ended_at_utc": "2026-10-25T08:07:55Z",
+  "exit_code": "0:0",
+  "job_id": "4040272",
+  "memory_gib": 16.0,
+  "p04_scheduler_record_path": "p04-scheduler-record.json",
+  "p04_scheduler_record_sha256": "1eb44076547c4fb010d71eef73363da309a4a4b19e18a66421ec14cc2d9d21d4",
+  "p04_source_schema": "compchemworld.p04-scheduler-record/v1",
+  "peak_memory_gib": null,
+  "process_cpu_hours": 0.06666666666666667,
+  "scheduler": "slurm",
+  "schema": "case07-scheduler-record/v2",
+  "scratch_gib": 0.05820159614086151,
+  "stage_id": "pilot:2",
+  "started_at_utc": "2026-10-25T08:07:25Z",
+  "state": "COMPLETED",
+  "submitted_at_utc": "2026-10-25T08:07:24Z",
+  "wall_seconds": 30
+}

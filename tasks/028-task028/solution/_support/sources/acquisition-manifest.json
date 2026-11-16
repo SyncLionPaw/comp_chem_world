@@ -1,0 +1,76 @@
+{
+  "schema": "case08-public-source-acquisition/v1",
+  "sources": [
+    {
+      "file": "article.xml",
+      "requested_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10435581/fullTextXML",
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10435581/fullTextXML",
+      "http_status": 200,
+      "content_type": "application/xml",
+      "request_started_at_utc": "2026-10-07T15:24:40.464569+00:00",
+      "response_received_at_utc": "2026-10-07T15:24:46.686628+00:00",
+      "bytes": 93693,
+      "sha256": "f3feac780dbd1c0afef56e1fdf3a9ca15014f6fac6b730964775cddd6ae45057",
+      "format_magic": "3c3f786d6c"
+    },
+    {
+      "file": "correction.pdf",
+      "requested_url": "https://www.nature.com/articles/s41467-023-44213-y.pdf",
+      "final_url": "https://www.nature.com/articles/s41467-023-44213-y.pdf?error=cookies_not_supported&code=0ab4dbe1-20c8-4661-b540-f00c65acf009",
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "request_started_at_utc": "2026-10-07T15:24:46.687198+00:00",
+      "response_received_at_utc": "2026-10-07T15:24:51.442178+00:00",
+      "bytes": 334362,
+      "sha256": "ceca37fc6bf9ce017484ad4e15a285fcf7696b0fa06e3f82c7c078989b86d13b",
+      "format_magic": "255044462d"
+    },
+    {
+      "file": "41467_2023_40675_MOESM1_ESM.docx",
+      "requested_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-40675-2/MediaObjects/41467_2023_40675_MOESM1_ESM.docx",
+      "final_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-40675-2/MediaObjects/41467_2023_40675_MOESM1_ESM.docx",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "request_started_at_utc": "2026-10-07T15:24:51.442581+00:00",
+      "response_received_at_utc": "2026-10-07T15:24:53.911441+00:00",
+      "bytes": 2276631,
+      "sha256": "52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a",
+      "format_magic": "504b0304"
+    },
+    {
+      "file": "41467_2023_40675_MOESM3_ESM.xlsx",
+      "requested_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-40675-2/MediaObjects/41467_2023_40675_MOESM3_ESM.xlsx",
+      "final_url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-023-40675-2/MediaObjects/41467_2023_40675_MOESM3_ESM.xlsx",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "request_started_at_utc": "2026-10-07T15:24:53.912450+00:00",
+      "response_received_at_utc": "2026-10-07T15:24:55.719065+00:00",
+      "bytes": 94275,
+      "sha256": "69969f05b7fb9b75335737bfc4e65cd49218d75da632197d929f6196784b67f1",
+      "format_magic": "504b0304"
+    },
+    {
+      "file": "QC-Files3.zip",
+      "locator": "https://zenodo.org/records/8214481",
+      "content_url": "https://zenodo.org/api/records/8214481/files/QC-Files3.zip/content",
+      "content_type": "application/zip",
+      "bytes": 34797678,
+      "sha256": "31343ba7f8bceb6ad785765af44f9c6bd8aad88fddc3a33c608e28d2c4dcff71",
+      "zenodo_md5": "6dd04e3af85174942cdcd07b7778f75d",
+      "zenodo_size": 34797678,
+      "content_request_statuses_observed": [
+        206
+      ],
+      "retrieved_at_utc_from_file_mtime": "2026-10-07T15:34:51.172683+00:00",
+      "retrieval_note": "First transfer was interrupted after a partial response; resumed with HTTP Range (206). Full ZIP validated by ZIP central directory, exact Zenodo byte size and MD5."
+    }
+  ],
+  "zenodo_api_manifest": {
+    "locator": "https://zenodo.org/api/records/8214481/files",
+    "http_status": 200,
+    "request_started_at_utc": "2026-10-07T15:37:59.717278+00:00",
+    "response_received_at_utc": "2026-10-07T15:38:00.856983+00:00",
+    "bytes": 2433,
+    "sha256": "263a5da2d6294877b49e97fa3cb0cf2ea47b1ea2812b9e12201e9f5de958bba2"
+  }
+}

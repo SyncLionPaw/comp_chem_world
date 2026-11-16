@@ -1,0 +1,85 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/bench20-task-134"
+version = "0.1.0"
+description = "TNEP polarizability blind validation (Table 2 + QM7B)"
+keywords = [ "computational-chemistry", "NEP", "bench20",]
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+os = "linux"
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+gpus = 0
+build_timeout_sec = 1800
+
+[metadata.compchembench]
+handoff_version = "1.0"
+case_id = "case-02"
+title = "TNEP polarizability blind validation (Table 2 + QM7B)"
+
+[metadata.compchembench.agent_interface]
+reference_solution_provided = true
+
+[metadata.compchembench.reference_solution]
+provided = true
+entrypoint = "solution/solve.sh"
+audience = "author_only"
+
+[metadata.compchembench.requirements]
+software = [ "Python", "NumPy", "C++ compiler", "NEP_CPU or GPUMD",]
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-alpha-h2o.xyz"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-alpha-h2o-dimer.xyz"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-alpha-h5o2plus.xyz"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-qm7b-dipole.xyz"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-qm7b-polarizability.xyz"
+
+[metadata.compchembench.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[metadata.compchembench.compute]
+class = "local"
+network = "public"
+
+[metadata.compchembench.agent]
+timeout_sec = 7200
+
+[metadata.compchembench.verifier]
+timeout_sec = 900
+isolation = "container"
+
+[metadata.compchembench.environment]
+allow_internet = true
+
+[metadata.compchembench.validation]
+case_delivery_status = "COMPLETE"
+environment_status = "READY"
+agent_result = "PASS"
+formal_agent_evaluation_allowed = true
+
+[metadata.compchembench.runtime.input_sha256]
+"environment/assets/inputs/nep_polarizability_water_monomer.txt" = "34d6ceb279aba965d73d225763bc4aec627af5315a0e63771b412163e0a40247"
+"environment/assets/inputs/nep_polarizability_water_dimer.txt" = "d52ec1ed189d21e7922a0f9a4ddbc552525ff53c25fc593a0fdc657a4d16aa29"
+"environment/assets/inputs/nep_polarizability_water_zundel.txt" = "8c0e6a38fc5451e190626705f7472daed6b7eeea08c49d2e65ed604c992fe6b8"
+"environment/assets/inputs/nep_polarizability_QM7B.txt" = "85a0f2090ff81a6ba48f9100d4eb6947f366643bc7fae2c4b8fee1a31d498d68"
+"environment/assets/inputs/nep_dipole_QM7B.txt" = "9f457a37c231ad4c95bd1e08cdab4e7345644f6488e84ffc77ff7a542e8a3aa5"

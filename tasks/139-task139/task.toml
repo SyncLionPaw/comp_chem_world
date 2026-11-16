@@ -1,0 +1,51 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/case-02-curvature-bias"
+description = "正 Hessian 本征值偏差诊断与机制假说"
+
+[agent]
+timeout_sec = 900
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1200
+environment_mode = "separate"
+network_mode = "public"
+
+[verifier.env]
+API_KEY = "${API_KEY:-}"
+BASE_URL = "${BASE_URL:-}"
+HTTPS_PROXY = ""
+https_proxy = ""
+HTTP_PROXY = ""
+http_proxy = ""
+ALL_PROXY = ""
+all_proxy = ""
+NO_PROXY = ""
+no_proxy = ""
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[metadata]
+name = "case-02-curvature-bias"
+title = "正 Hessian 本征值偏差诊断与机制假说"
+[[metadata.source_hashes]]
+path = "environment/assets/hessian_eigenvalues.csv"
+sha256 = "9bac57d284a907ea153cfc31dbe524220ada45061cd4dd4595be9a95fa64edf0"
+
+[[metadata.source_hashes]]
+path = "environment/assets/output-contract.json"
+sha256 = "d0918ff86e8ac50ad339c07b0338b9b2930ef837d8692fe6dbd6bfe8ab508a5c"
+

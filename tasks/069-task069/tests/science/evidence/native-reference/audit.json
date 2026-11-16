@@ -1,0 +1,1480 @@
+{
+  "audit_version": 2,
+  "purpose": "evidence audit only; no scoring threshold/COMPLETE status change",
+  "sources": {
+    "gromacs_md_2022.6": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/molecular-dynamics.html (kinetic temperature, degrees of freedom, neighbor-list timing)",
+    "gromacs_groups_2022.6": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/group-concept.html (temperature coupling groups)",
+    "gromacs_constraints_2022.6": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/constraint-algorithms.html (LINCS/SETTLE)",
+    "gromacs_mdp_2022.6": "https://manual.gromacs.org/documentation/2022.6/user-guide/mdp-options.html (define controls FLEXIBLE water branch)",
+    "Bussi_2007": "https://doi.org/10.1063/1.2408420",
+    "Hess_LINCS_1997": "https://doi.org/10.1002/(SICI)1096-987X(199709)18:12%3C1463::AID-JCC4%3E3.0.CO;2-H",
+    "Miyamoto_Kollman_SETTLE_1992": "https://doi.org/10.1002/jcc.540130805"
+  },
+  "input_hashes": {
+    "b.gro": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+    "u.gro": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479",
+    "topol.top": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+    "NVT-50ps-dt1fs.mdp": "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b",
+    "NVT-50ps-dt2fs.mdp": "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e"
+  },
+  "source_provenance_file": "gromacs-sources.json",
+  "source_provenance_sha256": "a1edab4aa814f96eba3e36de096b96c8f8433c2d39ba1e7308db5f0b3422a6f1",
+  "retrieved_source_records": [
+    {
+      "id": "molecular-dynamics",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/molecular-dynamics.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/molecular-dynamics.html",
+      "sha256": "82a658bfa89a119b64e6cb27b0d380a7361c6f3191a2c792965e4a808fa332e5",
+      "bytes": 144828,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "kinetic energy and temperature: Eq. 22-25 DOF and T",
+        "temperature coupling: NVT total energy vs conserved quantity",
+        "velocity-rescaling: Eq. 47 Nf and stochastic coupling",
+        "group temperature coupling; neighbor list"
+      ]
+    },
+    {
+      "id": "group-concept",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/group-concept.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/group-concept.html",
+      "sha256": "0ac4fba080b32939992034e0c1cfacdf5bf7f37036dc98c76025157484fc1787",
+      "bytes": 9857,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "temperature coupling groups and degree of freedom assignment"
+      ]
+    },
+    {
+      "id": "constraint-algorithms",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/constraint-algorithms.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/constraint-algorithms.html",
+      "sha256": "b0d41f62c92f06c4fba8301a98e236bfaf18e112b8d1f59fb4a04625f2aa9922",
+      "bytes": 24575,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "SETTLE rigid water",
+        "LINCS bond constraint algorithm"
+      ]
+    },
+    {
+      "id": "mdp-options",
+      "url": "https://manual.gromacs.org/documentation/2022.6/user-guide/mdp-options.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/mdp-options.html",
+      "sha256": "69eacd0119dda925546fcb735549bb92ae77807e2e20d46a1fae2e0c9c96bc36",
+      "bytes": 346267,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "tc-grps/ref-t and v-rescale options",
+        "lincs-warnangle warnings",
+        "constraints=all-bonds and SETTLE special treatment"
+      ]
+    }
+  ],
+  "initial_structures": {
+    "b": {
+      "atoms": 6533,
+      "residue_atom_counts": {
+        "MOL": 28,
+        "OCB": 196,
+        "Na+": 9,
+        "WAT": 6300
+      },
+      "box_nm": [
+        4.0324,
+        4.0324,
+        4.0324
+      ],
+      "water_geometry_all_2100": {
+        "waters": 2100,
+        "residue_id_range": [
+          12,
+          2111
+        ],
+        "all": {
+          "OH1": {
+            "n": 2100,
+            "mean": 0.09572529903402024,
+            "sd_population": 0.0004109467463743845,
+            "min": 0.09451454914456293,
+            "max": 0.09688653157173102
+          },
+          "OH2": {
+            "n": 2100,
+            "mean": 0.09571317228235111,
+            "sd_population": 0.0004031828504282464,
+            "min": 0.09450396817065407,
+            "max": 0.09690201236300526
+          },
+          "HH": {
+            "n": 2100,
+            "mean": 0.15137925674907832,
+            "sd_population": 0.00041378324375483503,
+            "min": 0.15016324450410617,
+            "max": 0.15253196386331622
+          },
+          "angle_deg": {
+            "n": 2100,
+            "mean": 104.51133550435539,
+            "sd_population": 0.36132650667761973,
+            "min": 103.3399025366768,
+            "max": 105.55060618050027
+          }
+        },
+        "target_deviation_mean_abs_nm": {
+          "OH1": 0.00033155804759202074,
+          "OH2": 0.00032774007687182914,
+          "HH": 0.00033547722852654864
+        },
+        "target_deviation_max_abs_nm": {
+          "OH1": 0.0012054508554370652,
+          "OH2": 0.0012160318293459316,
+          "HH": 0.0011967554958938198
+        },
+        "source_of_targets": "topology [ settles ]: doh=0.09572 nm, dhh=0.15136 nm"
+      },
+      "host_guest_bond_geometry": {
+        "MOL": {
+          "bond_terms": 30,
+          "rms_delta_nm": 0.0004760841188942162,
+          "max_abs_delta_nm": 0.000895937144517911,
+          "max_abs_pair": {
+            "atom_ids": [
+              3,
+              4
+            ],
+            "atom_names": [
+              "C3",
+              "C4"
+            ],
+            "actual_nm": 0.1526040628554821,
+            "topology_equilibrium_nm": 0.1535,
+            "delta_nm": -0.000895937144517911
+          }
+        },
+        "OCB": {
+          "bond_terms": 216,
+          "rms_delta_nm": 0.00040187521322846787,
+          "max_abs_delta_nm": 0.001017572266340444,
+          "max_abs_pair": {
+            "atom_ids": [
+              100,
+              101
+            ],
+            "atom_names": [
+              "C60",
+              "C61"
+            ],
+            "actual_nm": 0.13971757226634043,
+            "topology_equilibrium_nm": 0.1387,
+            "delta_nm": 0.001017572266340444
+          }
+        }
+      },
+      "topology_atom_order_matches_gro": {
+        "MOL": true,
+        "OCB": true,
+        "Na+": true,
+        "WAT": true
+      },
+      "coordinate_pairwise_comparison": "see gro source coordinates; no force-field overlap thresholds sourced"
+    },
+    "u": {
+      "atoms": 6533,
+      "residue_atom_counts": {
+        "MOL": 28,
+        "OCB": 196,
+        "Na+": 9,
+        "WAT": 6300
+      },
+      "box_nm": [
+        4.0324,
+        4.0324,
+        4.0324
+      ],
+      "water_geometry_all_2100": {
+        "waters": 2100,
+        "residue_id_range": [
+          12,
+          2111
+        ],
+        "all": {
+          "OH1": {
+            "n": 2100,
+            "mean": 0.09572213467325191,
+            "sd_population": 0.0004064014852966751,
+            "min": 0.09445104552094698,
+            "max": 0.09702576977277749
+          },
+          "OH2": {
+            "n": 2100,
+            "mean": 0.0957283403204242,
+            "sd_population": 0.0004098111898546904,
+            "min": 0.09445104552094664,
+            "max": 0.09685040010242603
+          },
+          "HH": {
+            "n": 2100,
+            "mean": 0.15137110999928732,
+            "sd_population": 0.00040210216995956714,
+            "min": 0.14990997298378775,
+            "max": 0.15248934388999125
+          },
+          "angle_deg": {
+            "n": 2100,
+            "mean": 104.4941727571143,
+            "sd_population": 0.36315891574012915,
+            "min": 103.44891929675076,
+            "max": 105.64159666745493
+          }
+        },
+        "target_deviation_mean_abs_nm": {
+          "OH1": 0.00033119837450962665,
+          "OH2": 0.00033238191144223427,
+          "HH": 0.0003258419615626327
+        },
+        "target_deviation_max_abs_nm": {
+          "OH1": 0.001305769772777493,
+          "OH2": 0.0012689544790533552,
+          "HH": 0.0014500270162122464
+        },
+        "source_of_targets": "topology [ settles ]: doh=0.09572 nm, dhh=0.15136 nm"
+      },
+      "host_guest_bond_geometry": {
+        "MOL": {
+          "bond_terms": 30,
+          "rms_delta_nm": 0.0004118791714964921,
+          "max_abs_delta_nm": 0.0008534904043313585,
+          "max_abs_pair": {
+            "atom_ids": [
+              3,
+              4
+            ],
+            "atom_names": [
+              "C3",
+              "C4"
+            ],
+            "actual_nm": 0.15435349040433136,
+            "topology_equilibrium_nm": 0.1535,
+            "delta_nm": 0.0008534904043313585
+          }
+        },
+        "OCB": {
+          "bond_terms": 216,
+          "rms_delta_nm": 0.0004067705387158019,
+          "max_abs_delta_nm": 0.001113190507753714,
+          "max_abs_pair": {
+            "atom_ids": [
+              77,
+              185
+            ],
+            "atom_names": [
+              "C39",
+              "H25"
+            ],
+            "actual_nm": 0.11031319050775372,
+            "topology_equilibrium_nm": 0.1092,
+            "delta_nm": 0.001113190507753714
+          }
+        }
+      },
+      "topology_atom_order_matches_gro": {
+        "MOL": true,
+        "OCB": true,
+        "Na+": true,
+        "WAT": true
+      },
+      "coordinate_pairwise_comparison": "see gro source coordinates; no force-field overlap thresholds sourced"
+    }
+  },
+  "topology": {
+    "molecules": {
+      "MOL": {
+        "molecule_count": 1,
+        "atoms_per_molecule": 28,
+        "system_atoms": 28,
+        "charge_per_molecule_e": -0.9999959999999999,
+        "system_charge_e": -0.9999959999999999,
+        "atom_names_in_topology_order": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8",
+          "C9",
+          "C10",
+          "C11",
+          "O1",
+          "O2",
+          "Br1",
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6",
+          "H7",
+          "H8",
+          "H9",
+          "H10",
+          "H11",
+          "H12",
+          "H13",
+          "H14"
+        ],
+        "topology_bond_terms_converted_by_all_bonds": 30,
+        "settles": null
+      },
+      "OCB": {
+        "molecule_count": 1,
+        "atoms_per_molecule": 196,
+        "system_atoms": 196,
+        "charge_per_molecule_e": -8.000004,
+        "system_charge_e": -8.000004,
+        "atom_names_in_topology_order": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "O1",
+          "C7",
+          "C8",
+          "O2",
+          "C9",
+          "C10",
+          "C11",
+          "C12",
+          "C13",
+          "C14",
+          "O3",
+          "C15",
+          "C16",
+          "C17",
+          "C18",
+          "O4",
+          "O5",
+          "C19",
+          "C20",
+          "O6",
+          "C21",
+          "C22",
+          "C23",
+          "C24",
+          "C25",
+          "O7",
+          "O8",
+          "C26",
+          "C27",
+          "C28",
+          "C29",
+          "C30",
+          "C31",
+          "C32",
+          "C33",
+          "C34",
+          "C35",
+          "O9",
+          "C36",
+          "C37",
+          "C38",
+          "O10",
+          "C39",
+          "C40",
+          "C41",
+          "O11",
+          "C42",
+          "C43",
+          "C44",
+          "O12",
+          "C45",
+          "C46",
+          "C47",
+          "C48",
+          "C49",
+          "C50",
+          "C51",
+          "C52",
+          "C53",
+          "C54",
+          "C55",
+          "C56",
+          "C57",
+          "C58",
+          "C59",
+          "C60",
+          "C61",
+          "C62",
+          "C63",
+          "C64",
+          "C65",
+          "C66",
+          "C67",
+          "C68",
+          "O13",
+          "O14",
+          "O15",
+          "O16",
+          "O17",
+          "O18",
+          "O19",
+          "C69",
+          "C70",
+          "C71",
+          "C72",
+          "C73",
+          "C74",
+          "O20",
+          "C75",
+          "C76",
+          "C77",
+          "C78",
+          "C79",
+          "C80",
+          "C81",
+          "C82",
+          "C83",
+          "C84",
+          "C85",
+          "C86",
+          "C87",
+          "O21",
+          "C88",
+          "O22",
+          "C89",
+          "O23",
+          "O24",
+          "O25",
+          "O26",
+          "C90",
+          "O27",
+          "O28",
+          "O29",
+          "O30",
+          "O31",
+          "O32",
+          "C91",
+          "C92",
+          "C93",
+          "C94",
+          "C95",
+          "C96",
+          "C97",
+          "C98",
+          "C99",
+          "C",
+          "H1",
+          "H2",
+          "H3",
+          "H4",
+          "H5",
+          "H6",
+          "H7",
+          "H8",
+          "H9",
+          "H10",
+          "H11",
+          "H12",
+          "H13",
+          "H14",
+          "H15",
+          "H16",
+          "H17",
+          "H18",
+          "H19",
+          "H20",
+          "H21",
+          "H22",
+          "H23",
+          "H24",
+          "H25",
+          "H26",
+          "H27",
+          "H28",
+          "H29",
+          "H30",
+          "H31",
+          "H32",
+          "H33",
+          "H34",
+          "H35",
+          "H36",
+          "H37",
+          "H38",
+          "H39",
+          "H40",
+          "H41",
+          "H42",
+          "H43",
+          "H44",
+          "H45",
+          "H46",
+          "H47",
+          "H48",
+          "H49",
+          "H50",
+          "H51",
+          "H52",
+          "H53",
+          "H54",
+          "H55",
+          "H56",
+          "H57",
+          "H58",
+          "H59",
+          "H60",
+          "H61",
+          "H62",
+          "H63",
+          "H64"
+        ],
+        "topology_bond_terms_converted_by_all_bonds": 216,
+        "settles": null
+      },
+      "Na+": {
+        "molecule_count": 9,
+        "atoms_per_molecule": 1,
+        "system_atoms": 9,
+        "charge_per_molecule_e": 1.0,
+        "system_charge_e": 9.0,
+        "atom_names_in_topology_order": [
+          "Na+"
+        ],
+        "topology_bond_terms_converted_by_all_bonds": 0,
+        "settles": null
+      },
+      "WAT": {
+        "molecule_count": 2100,
+        "atoms_per_molecule": 3,
+        "system_atoms": 6300,
+        "charge_per_molecule_e": 0.0,
+        "system_charge_e": 0.0,
+        "atom_names_in_topology_order": [
+          "O",
+          "H1",
+          "H2"
+        ],
+        "topology_bond_terms_converted_by_all_bonds": 0,
+        "settles": [
+          [
+            "1",
+            "1",
+            "0.09572000",
+            "0.15136000"
+          ]
+        ]
+      }
+    },
+    "total_atoms": 6533,
+    "total_formal_charge_e": 0.0,
+    "source": "topol.top parsed [atoms]/[molecules]; MOL/OCB [bonds] terms converted by actual all-bonds MDP; FLEXIBLE undefined, so WAT uses SETTLE, not the conditional flexible [bonds] section",
+    "mdp_constraint_setting": "all-bonds; algorithm LINCS; iter=2; order=4"
+  },
+  "contact_audit": {
+    "b": {
+      "host_OCB_vs_water_atoms": {
+        "pair_evaluations": 1234800,
+        "minimum_nm": 0.15865055940651437,
+        "atoms": {
+          "first": {
+            "id": 149,
+            "resid": 2,
+            "resname": "OCB",
+            "name": "O31"
+          },
+          "second": {
+            "id": 6247,
+            "resid": 2016,
+            "resname": "WAT",
+            "name": "H1"
+          }
+        },
+        "pairs_below_0.20nm_count": 37,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "guest_MOL_vs_water_atoms": {
+        "pair_evaluations": 176400,
+        "minimum_nm": 0.16524224641416638,
+        "atoms": {
+          "first": {
+            "id": 13,
+            "resid": 1,
+            "resname": "MOL",
+            "name": "O2"
+          },
+          "second": {
+            "id": 5899,
+            "resid": 1900,
+            "resname": "WAT",
+            "name": "H1"
+          }
+        },
+        "pairs_below_0.20nm_count": 4,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "host_OCB_vs_guest_MOL": {
+        "pair_evaluations": 5488,
+        "minimum_nm": 0.17773294573601142,
+        "atoms": {
+          "first": {
+            "id": 168,
+            "resid": 2,
+            "resname": "OCB",
+            "name": "H8"
+          },
+          "second": {
+            "id": 17,
+            "resid": 1,
+            "resname": "MOL",
+            "name": "H3"
+          }
+        },
+        "pairs_below_0.20nm_count": 3,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "water_vs_ions": {
+        "pair_evaluations": 56700,
+        "minimum_nm": 0.2222925099952762,
+        "atoms": {
+          "first": {
+            "id": 5196,
+            "resid": 1666,
+            "resname": "WAT",
+            "name": "O"
+          },
+          "second": {
+            "id": 228,
+            "resid": 6,
+            "resname": "Na+",
+            "name": "Na+"
+          }
+        },
+        "pairs_below_0.20nm_count": 0,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "water_oxygen_vs_water_oxygen": {
+        "selection": "WAT oxygen atoms only; different molecules; PBC minimum image",
+        "evaluated_candidate_pairs": 116584,
+        "exhaustive_pairs": 2203950,
+        "search": "periodic spatial cell list; minimum is shorter than one cell width, bounding unsearched bins",
+        "minimum_nm": 0.2476408690018676,
+        "atoms": {
+          "first": {
+            "id": 4845,
+            "resid": 1549,
+            "resname": "WAT",
+            "name": "O"
+          },
+          "second": {
+            "id": 6069,
+            "resid": 1957,
+            "resname": "WAT",
+            "name": "O"
+          }
+        }
+      }
+    },
+    "u": {
+      "host_OCB_vs_water_atoms": {
+        "pair_evaluations": 1234800,
+        "minimum_nm": 0.15105297084135746,
+        "atoms": {
+          "first": {
+            "id": 150,
+            "resid": 2,
+            "resname": "OCB",
+            "name": "O32"
+          },
+          "second": {
+            "id": 5734,
+            "resid": 1845,
+            "resname": "WAT",
+            "name": "H1"
+          }
+        },
+        "pairs_below_0.20nm_count": 40,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "guest_MOL_vs_water_atoms": {
+        "pair_evaluations": 176400,
+        "minimum_nm": 0.16045248517863475,
+        "atoms": {
+          "first": {
+            "id": 13,
+            "resid": 1,
+            "resname": "MOL",
+            "name": "O2"
+          },
+          "second": {
+            "id": 4625,
+            "resid": 1475,
+            "resname": "WAT",
+            "name": "H2"
+          }
+        },
+        "pairs_below_0.20nm_count": 6,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "host_OCB_vs_guest_MOL": {
+        "pair_evaluations": 5488,
+        "minimum_nm": 0.7860858731716274,
+        "atoms": {
+          "first": {
+            "id": 216,
+            "resid": 2,
+            "resname": "OCB",
+            "name": "H56"
+          },
+          "second": {
+            "id": 16,
+            "resid": 1,
+            "resname": "MOL",
+            "name": "H2"
+          }
+        },
+        "pairs_below_0.20nm_count": 0,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "water_vs_ions": {
+        "pair_evaluations": 56700,
+        "minimum_nm": 0.21479292353334173,
+        "atoms": {
+          "first": {
+            "id": 462,
+            "resid": 88,
+            "resname": "WAT",
+            "name": "O"
+          },
+          "second": {
+            "id": 231,
+            "resid": 9,
+            "resname": "Na+",
+            "name": "Na+"
+          }
+        },
+        "pairs_below_0.20nm_count": 0,
+        "warning": "0.20 nm is only a report bin, not a pass/fail cutoff; bonded exclusions are not removed for these intermolecular selections"
+      },
+      "water_oxygen_vs_water_oxygen": {
+        "selection": "WAT oxygen atoms only; different molecules; PBC minimum image",
+        "evaluated_candidate_pairs": 116288,
+        "exhaustive_pairs": 2203950,
+        "search": "periodic spatial cell list; minimum is shorter than one cell width, bounding unsearched bins",
+        "minimum_nm": 0.24724279564832627,
+        "atoms": {
+          "first": {
+            "id": 2460,
+            "resid": 754,
+            "resname": "WAT",
+            "name": "O"
+          },
+          "second": {
+            "id": 4926,
+            "resid": 1576,
+            "resname": "WAT",
+            "name": "O"
+          }
+        }
+      }
+    }
+  },
+  "runtime_dof_temperature": {
+    "B-dt1fs": {
+      "dof_from_real_grompp_log": {
+        "OCB": 371.91,
+        "MOL": 53.99,
+        "Water_and_ions": 12624.1
+      },
+      "tc_grps_from_mdout_mdp": [
+        "OCB",
+        "MOL",
+        "Water_and_ions"
+      ],
+      "grompp_version": ":-) GROMACS - gmx grompp, 2022.6 (-:",
+      "temperature_series_means_K": {
+        "Temperature": 300.04809083033933,
+        "T-OCB": 300.9299401157685,
+        "T-MOL": 303.7402720379241,
+        "T-Water_and_ions": 300.00632700798405
+      },
+      "temperature_series_population_sd_K": {
+        "Temperature": 4.358291095396336,
+        "T-OCB": 22.39503839766663,
+        "T-MOL": 58.116263171958806,
+        "T-Water_and_ions": 4.035877966544808
+      },
+      "canonical_equilibrium_sd_reference_K": {
+        "OCB": 21.999728671686228,
+        "MOL": 57.740373497380205,
+        "Water_and_ions": 3.776035246919395
+      },
+      "canonical_sd_scope": "equilibrium canonical scale reference only; observed finite 50 ps series are correlated and not tested against a hard cutoff",
+      "grompp_total_dof_sum": 13050.0,
+      "matches_topology_constraint_count": true
+    },
+    "B-dt2fs": {
+      "dof_from_real_grompp_log": {
+        "OCB": 371.91,
+        "MOL": 53.99,
+        "Water_and_ions": 12624.1
+      },
+      "tc_grps_from_mdout_mdp": [
+        "OCB",
+        "MOL",
+        "Water_and_ions"
+      ],
+      "grompp_version": ":-) GROMACS - gmx grompp, 2022.6 (-:",
+      "temperature_series_means_K": {
+        "Temperature": 299.8463033652695,
+        "T-OCB": 298.03588723752495,
+        "T-MOL": 296.5649196207585,
+        "T-Water_and_ions": 299.9136781936128
+      },
+      "temperature_series_population_sd_K": {
+        "Temperature": 4.029057812162654,
+        "T-OCB": 20.70000510379341,
+        "T-MOL": 56.04894725610442,
+        "T-Water_and_ions": 3.7729674449708788
+      },
+      "canonical_equilibrium_sd_reference_K": {
+        "OCB": 21.999728671686228,
+        "MOL": 57.740373497380205,
+        "Water_and_ions": 3.776035246919395
+      },
+      "canonical_sd_scope": "equilibrium canonical scale reference only; observed finite 50 ps series are correlated and not tested against a hard cutoff",
+      "grompp_total_dof_sum": 13050.0,
+      "matches_topology_constraint_count": true
+    },
+    "U-dt1fs": {
+      "dof_from_real_grompp_log": {
+        "OCB": 371.91,
+        "MOL": 53.99,
+        "Water_and_ions": 12624.1
+      },
+      "tc_grps_from_mdout_mdp": [
+        "OCB",
+        "MOL",
+        "Water_and_ions"
+      ],
+      "grompp_version": ":-) GROMACS - gmx grompp, 2022.6 (-:",
+      "temperature_series_means_K": {
+        "Temperature": 299.8314576327345,
+        "T-OCB": 299.93064597405186,
+        "T-MOL": 298.21119275648704,
+        "T-Water_and_ions": 299.83547022954093
+      },
+      "temperature_series_population_sd_K": {
+        "Temperature": 3.918364226285706,
+        "T-OCB": 21.146346798030155,
+        "T-MOL": 58.43592180985955,
+        "T-Water_and_ions": 3.6864973171983704
+      },
+      "canonical_equilibrium_sd_reference_K": {
+        "OCB": 21.999728671686228,
+        "MOL": 57.740373497380205,
+        "Water_and_ions": 3.776035246919395
+      },
+      "canonical_sd_scope": "equilibrium canonical scale reference only; observed finite 50 ps series are correlated and not tested against a hard cutoff",
+      "grompp_total_dof_sum": 13050.0,
+      "matches_topology_constraint_count": true
+    },
+    "U-dt2fs": {
+      "dof_from_real_grompp_log": {
+        "OCB": 371.91,
+        "MOL": 53.99,
+        "Water_and_ions": 12624.1
+      },
+      "tc_grps_from_mdout_mdp": [
+        "OCB",
+        "MOL",
+        "Water_and_ions"
+      ],
+      "grompp_version": ":-) GROMACS - gmx grompp, 2022.6 (-:",
+      "temperature_series_means_K": {
+        "Temperature": 300.026297259481,
+        "T-OCB": 299.2032556207585,
+        "T-MOL": 300.4543636506986,
+        "T-Water_and_ions": 300.0487206007984
+      },
+      "temperature_series_population_sd_K": {
+        "Temperature": 3.917904593727617,
+        "T-OCB": 21.220631769596114,
+        "T-MOL": 55.84069291350939,
+        "T-Water_and_ions": 3.685899220729918
+      },
+      "canonical_equilibrium_sd_reference_K": {
+        "OCB": 21.999728671686228,
+        "MOL": 57.740373497380205,
+        "Water_and_ions": 3.776035246919395
+      },
+      "canonical_sd_scope": "equilibrium canonical scale reference only; observed finite 50 ps series are correlated and not tested against a hard cutoff",
+      "grompp_total_dof_sum": 13050.0,
+      "matches_topology_constraint_count": true
+    }
+  },
+  "energy_and_autocorrelation": {
+    "B-dt1fs": {
+      "n_energy_samples": 501,
+      "sample_interval_ps": 0.1,
+      "kinetic_energy_global_mean_kJmol": 16278.169647051896,
+      "sum_group_kinetic_from_T_DOF_mean_kJmol": 16278.16991987174,
+      "max_abs_global_vs_group_derived_KE_kJmol": 0.0031404254223161843,
+      "time_blocks_0_25_25_50ps": {
+        "Temperature": {
+          "0-25ps_mean": 299.784985944,
+          "25-50ps_mean": 300.31014749003987
+        },
+        "Potential": {
+          "0-25ps_mean": -90214.799218752,
+          "25-50ps_mean": -90154.9206299761
+        },
+        "Kinetic En.": {
+          "0-25ps_mean": 16263.895703124,
+          "25-50ps_mean": 16292.38672267729
+        },
+        "Total Energy": {
+          "0-25ps_mean": -73950.903593752,
+          "25-50ps_mean": -73862.53383341036
+        },
+        "Conserved En.": {
+          "0-25ps_mean": -73662.95562502,
+          "25-50ps_mean": -73663.94515682867
+        },
+        "Constr. rmsd": {
+          "0-25ps_mean": 5.776e-06,
+          "25-50ps_mean": 5.764940239043824e-06
+        },
+        "T-OCB": {
+          "0-25ps_mean": 299.45075994399997,
+          "25-50ps_mean": 302.4032271394422
+        },
+        "T-MOL": {
+          "0-25ps_mean": 301.7217182,
+          "25-50ps_mean": 305.7507838286853
+        },
+        "T-Water_and_ions": {
+          "0-25ps_mean": 299.78655565599996,
+          "25-50ps_mean": 300.2252227768924
+        }
+      },
+      "temperature_and_energy_acf": {
+        "Temperature": {
+          "tau_int_samples": 1.3123626517538427,
+          "tau_int_ps": 0.13123626517538428,
+          "effective_samples_approx": 190.87711743795174,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Potential": {
+          "tau_int_samples": 5.193960719338692,
+          "tau_int_ps": 0.5193960719338693,
+          "effective_samples_approx": 48.2290901945624,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Total Energy": {
+          "tau_int_samples": 5.01008702347176,
+          "tau_int_ps": 0.501008702347176,
+          "effective_samples_approx": 49.999131517363345,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Conserved En.": {
+          "tau_int_samples": 15.720470367058578,
+          "tau_int_ps": 1.5720470367058579,
+          "effective_samples_approx": 15.934637714461116,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-OCB": {
+          "tau_int_samples": 1.0457044569424754,
+          "tau_int_ps": 0.10457044569424755,
+          "effective_samples_approx": 239.55143189542713,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-MOL": {
+          "tau_int_samples": 0.9899443446901259,
+          "tau_int_ps": 0.0989944344690126,
+          "effective_samples_approx": 253.04452855722099,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-Water_and_ions": {
+          "tau_int_samples": 1.213983020226674,
+          "tau_int_ps": 0.1213983020226674,
+          "effective_samples_approx": 206.345554942957,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        }
+      },
+      "conserved_energy_ols_trend": {
+        "0-50ps": {
+          "slope_kJ_mol_ps": -0.04800930203210668,
+          "intercept_kJ_mol": -73662.25114593023,
+          "first_value_kJ_mol": -73663.070312,
+          "last_value_kJ_mol": -73665.765625,
+          "endpoint_change_kJ_mol": -2.6953130000038072,
+          "n": 501
+        },
+        "5-50ps_sensitivity": {
+          "slope_kJ_mol_ps": -0.048112988538081235,
+          "intercept_kJ_mol": -73662.25028873094,
+          "first_value_kJ_mol": -73663.359375,
+          "last_value_kJ_mol": -73665.765625,
+          "endpoint_change_kJ_mol": -2.40625,
+          "n": 451
+        }
+      },
+      "conserved_energy_interpretation": "GROMACS conserved-energy diagnostic under thermostat, not NVE total-energy conservation. Slope/endpoint are descriptive signals; no hard acceptance threshold applied."
+    },
+    "B-dt2fs": {
+      "n_energy_samples": 501,
+      "sample_interval_ps": 0.1,
+      "kinetic_energy_global_mean_kJmol": 16267.222180646706,
+      "sum_group_kinetic_from_T_DOF_mean_kJmol": 16267.222548052509,
+      "max_abs_global_vs_group_derived_KE_kJmol": 0.0035375908755668206,
+      "time_blocks_0_25_25_50ps": {
+        "Temperature": {
+          "0-25ps_mean": 300.0374756,
+          "25-50ps_mean": 299.6558927729084
+        },
+        "Potential": {
+          "0-25ps_mean": -90158.214624976,
+          "25-50ps_mean": -90288.58251373307
+        },
+        "Kinetic En.": {
+          "0-25ps_mean": 16277.593601568,
+          "25-50ps_mean": 16256.892080127489
+        },
+        "Total Energy": {
+          "0-25ps_mean": -73880.62099996001,
+          "25-50ps_mean": -74031.69023902391
+        },
+        "Conserved En.": {
+          "0-25ps_mean": -73513.124906204,
+          "25-50ps_mean": -73551.26668325099
+        },
+        "Constr. rmsd": {
+          "0-25ps_mean": 2.2476e-05,
+          "25-50ps_mean": 2.2693227091633466e-05
+        },
+        "T-OCB": {
+          "0-25ps_mean": 298.016905216,
+          "25-50ps_mean": 298.0547936334661
+        },
+        "T-MOL": {
+          "0-25ps_mean": 300.5293445,
+          "25-50ps_mean": 292.6162892629482
+        },
+        "T-Water_and_ions": {
+          "0-25ps_mean": 300.094905148,
+          "25-50ps_mean": 299.73317325896414
+        }
+      },
+      "temperature_and_energy_acf": {
+        "Temperature": {
+          "tau_int_samples": 1.1762833975641371,
+          "tau_int_ps": 0.11762833975641372,
+          "effective_samples_approx": 212.95888432901344,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Potential": {
+          "tau_int_samples": 3.2093256570761417,
+          "tau_int_ps": 0.3209325657076142,
+          "effective_samples_approx": 78.05378037834222,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Total Energy": {
+          "tau_int_samples": 3.4495272402561876,
+          "tau_int_ps": 0.3449527240256188,
+          "effective_samples_approx": 72.61864671675879,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Conserved En.": {
+          "tau_int_samples": 101.78104102327679,
+          "tau_int_ps": 10.17810410232768,
+          "effective_samples_approx": 2.461165630470531,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-OCB": {
+          "tau_int_samples": 1.355279025262542,
+          "tau_int_ps": 0.1355279025262542,
+          "effective_samples_approx": 184.83278744129728,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-MOL": {
+          "tau_int_samples": 1.2346653993192396,
+          "tau_int_ps": 0.12346653993192397,
+          "effective_samples_approx": 202.88897715779416,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-Water_and_ions": {
+          "tau_int_samples": 0.9903890301604377,
+          "tau_int_ps": 0.09903890301604377,
+          "effective_samples_approx": 252.93091136057956,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        }
+      },
+      "conserved_energy_ols_trend": {
+        "0-50ps": {
+          "slope_kJ_mol_ps": -1.445145736101356,
+          "intercept_kJ_mol": -73496.10521697073,
+          "first_value_kJ_mol": -73503.421875,
+          "last_value_kJ_mol": -73563.242188,
+          "endpoint_change_kJ_mol": -59.82031300000381,
+          "n": 501
+        },
+        "5-50ps_sensitivity": {
+          "slope_kJ_mol_ps": -1.4392128660976393,
+          "intercept_kJ_mol": -73496.3215560781,
+          "first_value_kJ_mol": -73503.070312,
+          "last_value_kJ_mol": -73563.242188,
+          "endpoint_change_kJ_mol": -60.171876000007614,
+          "n": 451
+        }
+      },
+      "conserved_energy_interpretation": "GROMACS conserved-energy diagnostic under thermostat, not NVE total-energy conservation. Slope/endpoint are descriptive signals; no hard acceptance threshold applied."
+    },
+    "U-dt1fs": {
+      "n_energy_samples": 501,
+      "sample_interval_ps": 0.1,
+      "kinetic_energy_global_mean_kJmol": 16266.416824580838,
+      "sum_group_kinetic_from_T_DOF_mean_kJmol": 16266.417112959502,
+      "max_abs_global_vs_group_derived_KE_kJmol": 0.0041898453928297386,
+      "time_blocks_0_25_25_50ps": {
+        "Temperature": {
+          "0-25ps_mean": 299.843213508,
+          "25-50ps_mean": 299.8197485936255
+        },
+        "Potential": {
+          "0-25ps_mean": -90156.201500004,
+          "25-50ps_mean": -90139.41337774103
+        },
+        "Kinetic En.": {
+          "0-25ps_mean": 16267.054605484,
+          "25-50ps_mean": 16265.78158463745
+        },
+        "Total Energy": {
+          "0-25ps_mean": -73889.146937492,
+          "25-50ps_mean": -73873.63178538247
+        },
+        "Conserved En.": {
+          "0-25ps_mean": -73614.483718732,
+          "25-50ps_mean": -73617.1733690239
+        },
+        "Constr. rmsd": {
+          "0-25ps_mean": 5.348e-06,
+          "25-50ps_mean": 5.282868525896415e-06
+        },
+        "T-OCB": {
+          "0-25ps_mean": 300.211346996,
+          "25-50ps_mean": 299.65106328286856
+        },
+        "T-MOL": {
+          "0-25ps_mean": 295.825228624,
+          "25-50ps_mean": 300.5876510557769
+        },
+        "T-Water_and_ions": {
+          "0-25ps_mean": 299.84955653599997,
+          "25-50ps_mean": 299.8214400438247
+        }
+      },
+      "temperature_and_energy_acf": {
+        "Temperature": {
+          "tau_int_samples": 0.8070212708607827,
+          "tau_int_ps": 0.08070212708607827,
+          "effective_samples_approx": 310.400740407762,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Potential": {
+          "tau_int_samples": 3.6449522581868217,
+          "tau_int_ps": 0.3644952258186822,
+          "effective_samples_approx": 68.72517999031653,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Total Energy": {
+          "tau_int_samples": 3.4830125926648257,
+          "tau_int_ps": 0.3483012592664826,
+          "effective_samples_approx": 71.92049794122174,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Conserved En.": {
+          "tau_int_samples": 64.26526470009776,
+          "tau_int_ps": 6.426526470009776,
+          "effective_samples_approx": 3.897906608943275,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-OCB": {
+          "tau_int_samples": 0.883763643095838,
+          "tau_int_ps": 0.0883763643095838,
+          "effective_samples_approx": 283.4468264868812,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-MOL": {
+          "tau_int_samples": 0.6805263236442715,
+          "tau_int_ps": 0.06805263236442714,
+          "effective_samples_approx": 368.0974435471548,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-Water_and_ions": {
+          "tau_int_samples": 0.7461999640566528,
+          "tau_int_ps": 0.07461999640566529,
+          "effective_samples_approx": 335.7009006515867,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        }
+      },
+      "conserved_energy_ols_trend": {
+        "0-50ps": {
+          "slope_kJ_mol_ps": -0.09104346898108653,
+          "intercept_kJ_mol": -73613.55514143515,
+          "first_value_kJ_mol": -73613.632812,
+          "last_value_kJ_mol": -73615.1875,
+          "endpoint_change_kJ_mol": -1.5546880000038072,
+          "n": 501
+        },
+        "5-50ps_sensitivity": {
+          "slope_kJ_mol_ps": -0.07591188514150889,
+          "intercept_kJ_mol": -73614.07338490583,
+          "first_value_kJ_mol": -73613.867188,
+          "last_value_kJ_mol": -73615.1875,
+          "endpoint_change_kJ_mol": -1.3203119999961928,
+          "n": 451
+        }
+      },
+      "conserved_energy_interpretation": "GROMACS conserved-energy diagnostic under thermostat, not NVE total-energy conservation. Slope/endpoint are descriptive signals; no hard acceptance threshold applied."
+    },
+    "U-dt2fs": {
+      "n_energy_samples": 501,
+      "sample_interval_ps": 0.1,
+      "kinetic_energy_global_mean_kJmol": 16276.98728130539,
+      "sum_group_kinetic_from_T_DOF_mean_kJmol": 16276.9876179653,
+      "max_abs_global_vs_group_derived_KE_kJmol": 0.003369985832250677,
+      "time_blocks_0_25_25_50ps": {
+        "Temperature": {
+          "0-25ps_mean": 300.08445200799997,
+          "25-50ps_mean": 299.96837420318724
+        },
+        "Potential": {
+          "0-25ps_mean": -90149.2330625,
+          "25-50ps_mean": -90187.30213523904
+        },
+        "Kinetic En.": {
+          "0-25ps_mean": 16280.142296868,
+          "25-50ps_mean": 16273.844835525897
+        },
+        "Total Energy": {
+          "0-25ps_mean": -73869.090593752,
+          "25-50ps_mean": -73913.45717133068
+        },
+        "Conserved En.": {
+          "0-25ps_mean": -73476.33656251199,
+          "25-50ps_mean": -73504.25376619921
+        },
+        "Constr. rmsd": {
+          "0-25ps_mean": 2.1252e-05,
+          "25-50ps_mean": 2.1362549800796815e-05
+        },
+        "T-OCB": {
+          "0-25ps_mean": 299.531304892,
+          "25-50ps_mean": 298.87651331872513
+        },
+        "T-MOL": {
+          "0-25ps_mean": 300.00129645600003,
+          "25-50ps_mean": 300.9056257968127
+        },
+        "T-Water_and_ions": {
+          "0-25ps_mean": 300.101110964,
+          "25-50ps_mean": 299.99653896414344
+        }
+      },
+      "temperature_and_energy_acf": {
+        "Temperature": {
+          "tau_int_samples": 1.561035043827362,
+          "tau_int_ps": 0.1561035043827362,
+          "effective_samples_approx": 160.47045259523546,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Potential": {
+          "tau_int_samples": 2.5784058276594366,
+          "tau_int_ps": 0.2578405827659437,
+          "effective_samples_approx": 97.15305376399684,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Total Energy": {
+          "tau_int_samples": 3.3096015986506693,
+          "tau_int_ps": 0.33096015986506694,
+          "effective_samples_approx": 75.68886844329822,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "Conserved En.": {
+          "tau_int_samples": 80.6574921706691,
+          "tau_int_ps": 8.06574921706691,
+          "effective_samples_approx": 3.105725125571084,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-OCB": {
+          "tau_int_samples": 1.4016786442982938,
+          "tau_int_ps": 0.1401678644298294,
+          "effective_samples_approx": 178.71428734323402,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-MOL": {
+          "tau_int_samples": 0.9490856692977407,
+          "tau_int_ps": 0.09490856692977408,
+          "effective_samples_approx": 263.93823877390656,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        },
+        "T-Water_and_ions": {
+          "tau_int_samples": 1.3346744400668011,
+          "tau_int_ps": 0.13346744400668012,
+          "effective_samples_approx": 187.68621956037634,
+          "method": "truncated positive pair sum of normalized sample ACF; descriptive only, 501 correlated samples"
+        }
+      },
+      "conserved_energy_ols_trend": {
+        "0-50ps": {
+          "slope_kJ_mol_ps": -1.1853783305103018,
+          "intercept_kJ_mol": -73460.68856757355,
+          "first_value_kJ_mol": -73468.8125,
+          "last_value_kJ_mol": -73518.835938,
+          "endpoint_change_kJ_mol": -50.02343800000381,
+          "n": 501
+        },
+        "5-50ps_sensitivity": {
+          "slope_kJ_mol_ps": -1.1345315788500214,
+          "intercept_kJ_mol": -73462.44102392087,
+          "first_value_kJ_mol": -73456.515625,
+          "last_value_kJ_mol": -73518.835938,
+          "endpoint_change_kJ_mol": -62.32031300000381,
+          "n": 451
+        }
+      },
+      "conserved_energy_interpretation": "GROMACS conserved-energy diagnostic under thermostat, not NVE total-energy conservation. Slope/endpoint are descriptive signals; no hard acceptance threshold applied."
+    }
+  },
+  "limits": [
+    "No threshold for a closest contact was available from a source; distances are reported, not classified as clashes.",
+    "Initial-state full water geometry does not replace production trajectory geometry. The earlier trajectory analysis sampled only 20 fixed waters; all 2100 initial waters are analyzed here.",
+    "The existing production trajectories are a single matched-seed pair per B/U and 50 ps each; this audit does not show equilibration or uncertainty convergence.",
+    "ACF/ESS estimates over 50 ps are descriptive and unstable for slowly varying components.",
+    "This audit does not authorize or launch more MD."
+  ],
+  "sources_bibliography": {
+    "Bussi_2007": "doi:10.1063/1.2408420 (bibliographic context only; not used as evidence basis)",
+    "Hess_LINCS_1997": "doi:10.1002/(SICI)1096-987X(199709)18:12<1463::AID-JCC4>3.0.CO;2-H (bibliographic context only)",
+    "Miyamoto_Kollman_SETTLE_1992": "doi:10.1002/jcc.540130805 (bibliographic context only)"
+  },
+  "processed_topology_audit": {
+    "per_run": [
+      {
+        "run": "B-dt1fs",
+        "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+        "active_bond_terms_by_molecule": {
+          "MOL": 30,
+          "OCB": 216,
+          "Na+": 0,
+          "WAT": 0
+        },
+        "active_settle_rows_by_molecule": {
+          "MOL": [],
+          "OCB": [],
+          "Na+": [],
+          "WAT": [
+            [
+              "1",
+              "1",
+              "0.09572000",
+              "0.15136000"
+            ]
+          ]
+        }
+      },
+      {
+        "run": "B-dt2fs",
+        "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+        "active_bond_terms_by_molecule": {
+          "MOL": 30,
+          "OCB": 216,
+          "Na+": 0,
+          "WAT": 0
+        },
+        "active_settle_rows_by_molecule": {
+          "MOL": [],
+          "OCB": [],
+          "Na+": [],
+          "WAT": [
+            [
+              "1",
+              "1",
+              "0.09572000",
+              "0.15136000"
+            ]
+          ]
+        }
+      },
+      {
+        "run": "U-dt1fs",
+        "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+        "active_bond_terms_by_molecule": {
+          "MOL": 30,
+          "OCB": 216,
+          "Na+": 0,
+          "WAT": 0
+        },
+        "active_settle_rows_by_molecule": {
+          "MOL": [],
+          "OCB": [],
+          "Na+": [],
+          "WAT": [
+            [
+              "1",
+              "1",
+              "0.09572000",
+              "0.15136000"
+            ]
+          ]
+        }
+      },
+      {
+        "run": "U-dt2fs",
+        "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+        "active_bond_terms_by_molecule": {
+          "MOL": 30,
+          "OCB": 216,
+          "Na+": 0,
+          "WAT": 0
+        },
+        "active_settle_rows_by_molecule": {
+          "MOL": [],
+          "OCB": [],
+          "Na+": [],
+          "WAT": [
+            [
+              "1",
+              "1",
+              "0.09572000",
+              "0.15136000"
+            ]
+          ]
+        }
+      }
+    ],
+    "all_four_same_sha256": true,
+    "active_constraint_counts": {
+      "MOL": 30,
+      "OCB": 216,
+      "Na+": 0,
+      "WAT": 6300
+    },
+    "total_active_constraints": 6546,
+    "dof_count_check": {
+      "cartesian": 19599,
+      "constraints_from_active_processed_top": 6546,
+      "linear_COM_removed": 3,
+      "expected_total_DOF": 13050
+    },
+    "basis": "Counts and SETTLE geometry parsed from each actual grompp processed.top; all-bonds mdp semantics convert the remaining listed MOL/OCB bonds to constraints; compared with production grompp group-DOF sums"
+  }
+}

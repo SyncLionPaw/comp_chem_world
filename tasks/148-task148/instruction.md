@@ -1,0 +1,46 @@
+## Background
+
+Excitation-energy derivatives are diagonal quantities; they do not give an interstate off-diagonal matrix element. This task measures derivatives for states tracked along one C=O-dominated normal mode and separately evaluates a scoped S0–S1 nuclear-attraction derivative-operator projection.
+
+## Task
+
+Independently optimize neutral benzophenone (C13H10O, 24 atoms), compute its Cartesian Hessian, and select the mode with the largest C=O stretch projection. At the optimized geometry and at positive and negative displacements for three successively halved steps, compute the lowest three singlet and triplet roots using one fixed response approximation (full TDDFT or TDA). Match displaced roots one-to-one to reference states by maximizing the total absolute transition-density-overlap proxy; root indices may reorder. For each spin, reference root, and step, report `[E_n(+Q)-E_n(-Q)]/(2Q)`. Separately project the scoped S0–S1 operator using the saved reference singlet root-1 arrays and unchanged reference log, with no additional reference SCF/TD calculation.
+
+## Requirements
+
+- Environment: use the container Python on `PATH`. Preinstalled packages include h5py, NumPy, PySCF, SciPy. Do not install additional packages or fetch dependencies from the network.
+
+If using HPC, follow the `ikkem-slurm` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+
+Use the task’s configured remote execution profile within its run budget. Keep the geometry, Hessian, mode, reference and displaced roots, and operator on one consistent electronic/mode route. For atom A and Cartesian component k, evaluate `O_Ak=-Z_A*(int1e_iprinv+transpose)`, contract with the singlet density `2*(X+Y)`, and project with `mode_Ak/sqrt(m_A)`; do not apply nuclear charge twice. Report the signed projection in Hartree/(bohr·sqrt(amu)). Validate against inverse-distance-origin finite differences at three successively halved Bohr steps. The finest-step componentwise and projected errors must satisfy the existing Richardson O(h²) envelope plus `64*eps*nao²` floating-point floor.
+
+Use PySCF isotope-average atomic masses (`atom_mass_list(isotope_avg=True)`). Fix the mode phase so the normalized mass-weighted eigenvector has nonnegative dot product with the normalized C=O stretch vector: along the C→O unit axis, its C and O components are `-axis/sqrt(m_C)` and `+axis/sqrt(m_O)`, respectively, with all other components zero. Fix the S1 electronic phase so the largest-magnitude AO transition-density element is nonnegative. Choose the three positive Q steps (strictly halved) and the one-to-one root mapping.
+
+The accepted optimizer point and independent final-frequency recheck must each have maximum absolute gradient ≤ `1e-4 Eh/bohr`. Raw-Hessian maximum-entry and Frobenius antisymmetry ratios, relative to its symmetric part, must each be ≤ `1e-4`. Independently reconstructed raw and symmetric spectra must be stable and differ mode-by-mode by ≤ `0.1 cm⁻¹`; all 66 modes must be positive. The full spectrum and selected frequency must reproduce within `0.01 cm⁻¹`; structure, final gradient and selected mode must describe the same geometry within `1e-9 Å`. Keep the operator scope explicit: it is a single-reference linear-response one-electron transition-density approximation, not a Gaussian-16 wavefunction or multireference result, triplet generalization, spin-orbit coupling or absolute ISC rate. Never label diagonal derivatives as the off-diagonal operator.
+
+## Files
+
+Public input files:
+
+| File path | Description |
+| --- | --- |
+| `/app/inputs/benchmark.json` | Benchmark parameters and calculation conditions. |
+
+Write under `/app/final/`. Submit `structure.xyz`, `mode.json`, `state_tracking.csv`, `derivatives.csv` and `s0_s1_offdiag_operator.json`. You may add optional interpretation in `diagnosis.md`. In the compact format, set `selected_mode_index_zero_based` in `mode.json` to the zero-based index of the mode you selected from your computed spectrum.
+
+If `native/optimization_summary.json` lacks `pyscf_version`, report `engine_version` in `mode.json`; if both exist they must match. Do not guess a version.
+
+`state_tracking.csv` has exactly 36 rows and columns `step_index,step_Q_Angstrom_sqrt_amu,multiplicity,sign,reference_root,selected_displaced_root`. `derivatives.csv` has exactly 18 rows and columns `step_index,step_Q_Angstrom_sqrt_amu,multiplicity,reference_root,central_derivative_eV_per_Angstrom_sqrt_amu`. Steps are 1–3; multiplicities are `singlet` or `triplet`; signs are `minus`/`plus`; roots are 1–3.
+
+The operator JSON requires `analytic_projection_hartree_per_bohr_sqrt_amu`, `origin_steps_bohr` (three values), `projection_hartree_per_bohr_sqrt_amu` (three values), and `scientific_scope`. The converted `analytic_projection_eV_per_angstrom_sqrt_amu` is optional. Input context is in `/app/inputs/benchmark.json`.
+
+Preserve the execution evidence below; a matching scalar alone does not establish that the calculations ran.
+
+| Native evidence | Required content |
+|---|---|
+| `optimization_summary.json`, `<accepted_attempt>/evaluation_*.npz`, `final_gradient.npz`, `final_frequency_gradient.npz`, `final_frequency_gradient.log`, `optimized_geometry.xyz`, `frequency.log`, `independent_cartesian_hessian_hartree_per_bohr2.npy` | Summary: `scf_converged`, `functional`, `basis`, optional `pyscf_version` (if absent, provide `engine_version` in compact `mode.json`), `grid_level`, `density_fitting` as `{enabled, auxbasis}` when enabled (the auxiliary basis must match the log), `accepted_attempt`, `gtol_hartree_per_bohr`, `final_energy_hartree`, `max_abs_gradient_hartree_per_bohr`, `rms_gradient_hartree_per_bohr`, `frequency_recheck_max_abs_gradient_hartree_per_bohr`, `frequency_recheck_rms_gradient_hartree_per_bohr`, and `frequency_recheck_energy_hartree`. Each evaluation/gradient NPZ: `coordinates_angstrom (24,3)`, `gradient_hartree_per_bohr (72)`, `energy_hartree` (scalar). Hessian: `(24,24,3,3)` Hartree/bohr². Frequency log has `converged SCF energy` and `RKS`; gradient log has `converged SCF energy` and `Gradients`. |
+| `mode_evidence.npz` | `mass_weighted_modes (66,24,3)`, `frequencies_cm1 (66)`, `co_stretch_overlap_squared (66)`. |
+| `reference_tddft.log`, six `q<1..3>_<minus|plus>_tddft.log`, 42 matching root NPZs, six `q<step>_<sign>.xyz` | Keep each complete native log. Each contains six `NATIVE_QC_ROOT` JSON records (`method`, `spin`, `root`, `excitation_energy_hartree`, `excitation_energy_eV`, `oscillator_strength`, `response_approximation`) and native text markers `converged SCF energy`, `XC functionals = <functional>`, `basis = <basis>`, `grids dens level: <integer>` (plus `auxbasis = <basis>` when density fitting is enabled). Each root NPZ contains `td_x`, `td_y`, `mo_coeff`, `mo_occ`, `excitation_energy_hartree`, `oscillator_strength`, `response_approximation`. Preserve the six `reference_tddft_<singlet|triplet>_root<1..3>.npz` files and corresponding `q<step>_<sign>_tddft_<singlet|triplet>_root<1..3>.npz` files. |
+| `s0_s1_offdiag_operator_evidence.npz`, `s0_s1_offdiag_operator.log` | Exact arrays: `coordinates_bohr (24,3)`, `atom_charges (24)`, `masses_amu (24)`, `mass_weighted_mode (24,3)`, `contribution_factor (24,3)`, `raw_td_x`, `raw_td_y`, `phase_aligned_td_x`, `phase_aligned_td_y`, `mo_coeff`, `mo_occ`, `ao_transition_density`, scalar `excitation_energy_hartree`, `oscillator_strength`, `analytic_transition_moments_hartree_per_bohr (24,3)`, `finite_difference_transition_moments_hartree_per_bohr (3,24,3)`, `finite_difference_moment_absolute_errors_hartree_per_bohr (3,24,3)`, `finite_difference_projection_absolute_errors_hartree_per_bohr_sqrt_amu (3)`, `finite_difference_moment_error_envelope_hartree_per_bohr (24,3)`, `finite_difference_projection_error_envelope_hartree_per_bohr_sqrt_amu (1)`, `finite_difference_analytic_agreement (1)`, scalar `analytic_projection_hartree_per_bohr_sqrt_amu`, `finite_difference_projection_hartree_per_bohr_sqrt_amu (3)`, `fd_steps_bohr (3)`, scalar `state_phase_sign`, `mode_phase_sign`. Moments/projections use Hartree/bohr and Hartree/(bohr·sqrt(amu)); steps use bohr. The reader checks the `NATIVE_OFFDIAG_OP <JSON>` fields `analytic_projection_hartree_per_bohr_sqrt_amu` and `finite_difference_projection_hartree_per_bohr_sqrt_amu`, and the `NATIVE_OFFDIAG_OP_SOURCE <JSON>` fields `source_kind`, `reference_root_file`, `reference_log_file`, `mode_file`, `derivatives_file`, `response_approximation`, `functional`, `basis`, `grid_level`, `density_fitting`. |
+
+Use the directory named by the summary’s `accepted_attempt` and set the native source record’s `source_kind` to `reused_exact_saved_task_reference_singlet_root1`. Native paths are relative to `/app/final/native/`; the report and structured outputs are directly under `/app/final/`. In the compact format, set `derivatives_file` to `derivatives.csv` in the native `NATIVE_OFFDIAG_OP_SOURCE` record only. Do not add that key to the compact operator JSON. The detailed legacy format uses `derivatives.json` in both records. Optional notes may explain how root matching affects the central differences, which derivatives stabilize as the step is halved, and what the separate S0–S1 operator projection can establish.

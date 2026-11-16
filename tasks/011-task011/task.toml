@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-11"
+description = '在体相氢浓度和温度给定时，由氢吸收能分布确定化学势，求应力驱动的裂尖各列占据率，区分控制解理与位错发射的覆盖度，并将纳米扩散后的表面能量贡献和组态熵组合为γ_F(C_b,T,Kapp)；用不确定度与温度对照解释氢如何降低解理阻力。'
+
+[metadata]
+task_number = 11
+name = 'task 11'
+description = '在体相氢浓度和温度给定时，由氢吸收能分布确定化学势，求应力驱动的裂尖各列占据率，区分控制解理与位错发射的覆盖度，并将纳米扩散后的表面能量贡献和组态熵组合为γ_F(C_b,T,Kapp)；用不确定度与温度对照解释氢如何降低解理阻力。'
+execution_class = 'local'
+task_id = "task-11"
+solution_timeout_sec = 1800
+title = '裂尖氢偏聚、纳米扩散与含熵断裂自由能'
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[environment]
+os = "linux"
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+gpus = 0
+network_mode = "no-network"
+allow_internet = false
+

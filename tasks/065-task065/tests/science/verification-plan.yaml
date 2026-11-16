@@ -1,0 +1,65 @@
+case_id: case-04-g4-hydration-water-bridge
+readiness: READY_FOR_RUNTIME
+evidence_coverage: COMPLETE
+implementation: partial
+criteria:
+- criterion: coordinate_geometry_atom_ids_units_and_pbc
+  level: L2
+  necessary: true
+  verification_basis:
+    type: derived_coordinate_reference
+    source: packages/case-04-g4-hydration-water-bridge/tests/refs.json
+    source_sha256: 3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d
+    rationale: Real positions, atom IDs, template-fit RMSD and rotated box vectors support independent PBC/geometry
+      recomputation.
+- criterion: matched_z_and_radius_hydration_contrast
+  level: L3
+  necessary: true
+  verification_basis:
+    type: derived_same_coordinate_geometry
+    source: packages/case-04-g4-hydration-water-bridge/tests/refs.json
+    source_sha256: 3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d
+    rationale: Two actual frames with coordinate z and radius matched within 0.02 nm show a measured water-feature
+      and Br-contact difference; additional frames support an explicit H-bond geometry test.
+- criterion: water_bridge_geometry_and_hypothesis_limits
+  level: L3
+  necessary: true
+  verification_basis:
+    type: derived_native_water_geometry_and_paper_claim
+    source: packages/case-04-g4-hydration-water-bridge/tests/refs.json
+    source_sha256: 3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d
+    rationale: Hidden reference lists actual water atom IDs and O–O/H-angle/Br-contact measurements for selected
+      snapshots. Agents may conclude a proposed bridge is unsupported when geometry does not satisfy their stated
+      definition; sparse biased snapshots cannot imply population or kinetics.
+- criterion: full_frame_join_and_OPES_weights
+  level: L2
+  necessary: true
+  verification_basis:
+    type: source_pinned_full_frame_replay
+    source: packages/case-04-g4-hydration-water-bridge/tests/refs.json
+    source_sha256: 3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d
+    rationale: Recompute every source frame/time join and instantaneous historical OPES weight from the fixed 8,834-row
+      table; the funnel and upper wall remain constraints.
+- criterion: state_analysis_scope_and_summary
+  level: L2
+  necessary: true
+  verification_basis:
+    type: source_pinned_weighted_state_replay
+    source: packages/case-04-g4-hydration-water-bridge/tests/refs.json
+    source_sha256: 3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d
+    rationale: Recompute masks from native_cyl_z_nm/native_radius_nm (bound z<0.8 nm and r<=0.45 nm; unbound z>=1.25
+      nm and r<=0.45 nm), 300 K instantaneous OPES-bias weighting, separately normalized burn-in windows 0/20000/40000
+      ps, and all 45 contiguous 4000 ps blocks; extra sensitivities may supplement this versioned baseline.
+- criterion: contiguous_block_statistics
+  level: L2
+  necessary: true
+  verification_basis:
+    type: source_pinned_contiguous_block_replay
+    source: packages/case-04-g4-hydration-water-bridge/tests/refs.json
+    source_sha256: 3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d
+    rationale: Verify complete, non-overlapping public 4 ns blocks and their declared finite-sample summaries; block
+      estimates are not independent replicas or standard-state binding free energies.
+review_policy: The current MVP explicitly fixes the native-coordinate masks, 300 K instantaneous-bias formula, three
+  burn-in windows and 4000 ps blocks. Additional declared sensitivities may supplement them; interpret this single
+  constrained trajectory without inferring equilibrium populations or kinetics.
+verifier: tests/test.sh

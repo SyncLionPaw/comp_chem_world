@@ -1,0 +1,96 @@
+{
+  "protocol": {
+    "units": "kcal mol-1",
+    "ligand_count": 6,
+    "offset_fit": "equal-weight mean(predicted - experimental)",
+    "offset_rmse": "RMSE after subtracting that fitted mean offset",
+    "linear_slope": "ordinary least-squares predicted versus experimental",
+    "pearson_r2": "squared Pearson correlation",
+    "kendall_tau": "Kendall tau-a; no ties in these six values",
+    "reported_sigma_usage": "retained as source evidence; not used as force-field uncertainty or regression weights"
+  },
+  "metrics": {
+    "TIP3P": {
+      "absolute_rmse_kcal_mol": 0.6826175112511154,
+      "offset_kcal_mol": -0.5233333333333332,
+      "offset_rmse_kcal_mol": 0.43827946437049603,
+      "pearson_r2": 0.932322723531007,
+      "linear_slope": 1.206620720434629,
+      "kendall_tau": 0.8666666666666667
+    },
+    "TIP4P_EW": {
+      "absolute_rmse_kcal_mol": 1.932110245301753,
+      "offset_kcal_mol": -1.888333333333333,
+      "offset_rmse_kcal_mol": 0.40895870478842006,
+      "pearson_r2": 0.966464792609239,
+      "linear_slope": 1.270514878168101,
+      "kendall_tau": 0.8666666666666667
+    }
+  },
+  "per_ligand": [
+    {
+      "ligand": "G1",
+      "TIP4P_EW_minus_TIP3P_kcal_mol": -0.79,
+      "TIP3P_minus_experiment_kcal_mol": -1.0699999999999994,
+      "TIP4P_EW_minus_experiment_kcal_mol": -1.8599999999999994
+    },
+    {
+      "ligand": "G2",
+      "TIP4P_EW_minus_TIP3P_kcal_mol": -1.2299999999999995,
+      "TIP3P_minus_experiment_kcal_mol": -1.1500000000000004,
+      "TIP4P_EW_minus_experiment_kcal_mol": -2.38
+    },
+    {
+      "ligand": "G3",
+      "TIP4P_EW_minus_TIP3P_kcal_mol": -2.130000000000001,
+      "TIP3P_minus_experiment_kcal_mol": -0.3299999999999992,
+      "TIP4P_EW_minus_experiment_kcal_mol": -2.46
+    },
+    {
+      "ligand": "G4",
+      "TIP4P_EW_minus_TIP3P_kcal_mol": -1.3000000000000003,
+      "TIP3P_minus_experiment_kcal_mol": -0.1299999999999999,
+      "TIP4P_EW_minus_experiment_kcal_mol": -1.4300000000000002
+    },
+    {
+      "ligand": "G5",
+      "TIP4P_EW_minus_TIP3P_kcal_mol": -1.7599999999999998,
+      "TIP3P_minus_experiment_kcal_mol": -0.010000000000000231,
+      "TIP4P_EW_minus_experiment_kcal_mol": -1.77
+    },
+    {
+      "ligand": "G6",
+      "TIP4P_EW_minus_TIP3P_kcal_mol": -0.9800000000000004,
+      "TIP3P_minus_experiment_kcal_mol": -0.4500000000000002,
+      "TIP4P_EW_minus_experiment_kcal_mol": -1.4300000000000006
+    }
+  ],
+  "diagnosis": {
+    "mean_TIP4P_EW_minus_TIP3P_kcal_mol": -1.3650000000000002,
+    "TIP4P_EW_more_negative_for_all_six": true,
+    "kendall_tau_equal_to_reported_rounding": true,
+    "force_field_causality_established": false,
+    "scope": "published OAMe six-ligand means; uncertainty bars describe reported simulation estimates, not model-form uncertainty"
+  },
+  "provenance": {
+    "input_sha256": "08a8902f5198209bb5ef1a36f7a7c8a2fa6c32fd75c6cc2ab91b51d4c6716782",
+    "source": {
+      "doi": "10.1038/s41467-020-20310-0",
+      "document": "41467_2020_20310_MOESM1_ESM.pdf",
+      "page": 58,
+      "tables": [
+        19,
+        20
+      ]
+    },
+    "source_sha256": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "generator_sha256": "958124aa9b2d05791d6b04745bfad84cea083995423360ef74a4ddf217f9a58f"
+  },
+  "source_hashes": {
+    "environment/assets/method-basis.md": "82467e7f4de2651b202418e17418e04e50f352c632cc229fb2b29f748fc66d82",
+    "environment/assets/water-model-observations.csv": "08a8902f5198209bb5ef1a36f7a7c8a2fa6c32fd75c6cc2ab91b51d4c6716782",
+    "tests/evidence/41467_2020_20310_MOESM1_ESM.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "tests/evidence/README.txt": "517a3620157e9083b76a8d1e1fec022f45ba8e5fbd0713cd1304a3e2feb12011",
+    "tests/evidence/evidence-manifest.json": "fcc0d827a7e54b938b546cab9e5ce1caf0cbf020819dcb9cb628c7b0eacf48a1"
+  }
+}

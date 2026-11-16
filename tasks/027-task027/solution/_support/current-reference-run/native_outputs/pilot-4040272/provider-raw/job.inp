@@ -1,0 +1,7 @@
+! UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF EnGrad
+%pal nprocs 8 end
+%maxcore 1400
+%scf
+  MaxIter 400
+end
+* xyzfile 0 2 start.xyz

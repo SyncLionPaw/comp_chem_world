@@ -1,0 +1,32 @@
+# Harbor task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-04-outer-sphere-budgeted"
+description = "有限预算下的外球抽样与 Marcus 推断"
+
+[task]
+name = "compchemworld/case-04-outer-sphere-budgeted"
+description = "有限预算下的外球抽样与 Marcus 推断"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 240
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

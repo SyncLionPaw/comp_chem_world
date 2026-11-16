@@ -1,0 +1,29 @@
+{
+  "allocation_id": "4043648",
+  "array_job": false,
+  "batch_script_sha256": "772736178a62a3ebe71bfdd76ca409446636e64d67049b078ff96078ef900a3a",
+  "candidate_stage_declaration": {
+    "kind": "extension",
+    "reason": "Independent full harmonic frequency calculation on the exact final job.xyz bytes from converged plus endpoint optimization 4043441; no optimizer Hessian reuse.",
+    "route": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF AnFreq on exact converged plus endpoint geometry",
+    "stage_id": "extension:endpoint-frequency:plus:01"
+  },
+  "cpus": 8,
+  "ended_at_utc": "2026-10-25T14:10:35Z",
+  "exit_code": "0:0",
+  "job_id": "4043648",
+  "memory_gib": 16.0,
+  "p04_scheduler_record_path": "p04-scheduler-record.json",
+  "p04_scheduler_record_sha256": "37109c9e7dbf4a656c7b72390b853e440fee3b7d2e3d127faf5f6649d04e1fc7",
+  "p04_source_schema": "compchemworld.p04-scheduler-record/v1",
+  "peak_memory_gib": null,
+  "process_cpu_hours": 0.6755555555555556,
+  "scheduler": "slurm",
+  "schema": "case07-scheduler-record/v2",
+  "scratch_gib": 0.3964632134884596,
+  "stage_id": "extension:endpoint-frequency:plus:01",
+  "started_at_utc": "2026-10-25T14:05:31Z",
+  "state": "COMPLETED",
+  "submitted_at_utc": "2026-10-25T14:05:31Z",
+  "wall_seconds": 304
+}

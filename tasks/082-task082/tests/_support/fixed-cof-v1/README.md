@@ -1,0 +1,5 @@
+# Retired fixed-COF profile
+
+This is historical scientific evidence for the superseded fixed 05001N2 task, preserved during the user-directed transition to open research v2 on 2026-10-31. It is not the current grading entry point and is never copied into the candidate image. The old output schema is private historical material, not a supplied research input. The unused duplicate PDFs were removed on 2026-10-31; byte-identical literature remains in Tasks 77–82. The retired verifier is retained as historical evidence and is not a runnable current profile. Supporting original scientific helper modules remain in the parent `_support/` directory. No scientific Oracle existed for this profile; the former `solution/solve.sh` was only a NOT_IMPLEMENTED placeholder and has been removed.
+
+Current entry points are `tests/test.sh`, `tests/verify.py` and `tests/refs.json`. The v2 independent-review gate evaluates the research actually chosen by the candidate; it does not impose the former fixed COF, state counts, basis set or CSV layout.

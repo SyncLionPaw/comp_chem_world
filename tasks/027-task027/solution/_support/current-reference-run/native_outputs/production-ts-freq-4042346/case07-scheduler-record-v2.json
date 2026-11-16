@@ -1,0 +1,29 @@
+{
+  "allocation_id": "4042346",
+  "array_job": false,
+  "batch_script_sha256": "497f4f9de7f2777628218c75b28ab2482b7eeb9cb08807942be0fbcc20531c16",
+  "candidate_stage_declaration": {
+    "kind": "production",
+    "reason": "Independent full harmonic frequency calculation on the exact final job.xyz bytes from converged OptTS job 4042149; does not reuse the optimizer Hessian.",
+    "route": "Independent PBE-D3BJ/def2-SVP def2/J RI VeryTightSCF AnFreq on exact converged OptTS geometry",
+    "stage_id": "production:ts_freq"
+  },
+  "cpus": 8,
+  "ended_at_utc": "2026-10-25T11:36:47Z",
+  "exit_code": "0:0",
+  "job_id": "4042346",
+  "memory_gib": 16.0,
+  "p04_scheduler_record_path": "p04-scheduler-record.json",
+  "p04_scheduler_record_sha256": "3cdf225e65b82242c98420e99bc9965f6e3e5df6f8cb7c3acd27a251039b27bf",
+  "p04_source_schema": "compchemworld.p04-scheduler-record/v1",
+  "peak_memory_gib": null,
+  "process_cpu_hours": 1.6333333333333333,
+  "scheduler": "slurm",
+  "schema": "case07-scheduler-record/v2",
+  "scratch_gib": 0.4510584771633148,
+  "stage_id": "production:ts_freq",
+  "started_at_utc": "2026-10-25T11:24:32Z",
+  "state": "COMPLETED",
+  "submitted_at_utc": "2026-10-25T11:24:32Z",
+  "wall_seconds": 735
+}

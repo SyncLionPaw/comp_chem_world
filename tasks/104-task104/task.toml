@@ -1,0 +1,220 @@
+# Harbor task config migrated from the preserved Bench16 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+case_id = "case-02"
+
+[compute]
+class = "local"
+network = "no-network"
+
+[requirements]
+software = ["Python 3", "gzip", "a parser for VASP vasprun projected DOS"]
+inputs = [
+  {path = "environment/assets/Li4/1/INCAR", source_path = "public_inputs/eels/Li4/1/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/1/KPOINTS", source_path = "public_inputs/eels/Li4/1/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/1/POSCAR", source_path = "public_inputs/eels/Li4/1/POSCAR", sha256 = "1c75f00dd317de8006ff4e87397b141794e497bf6ef30b0470a0976362186658"},
+  {path = "environment/assets/Li4/1/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/1/vasprun.xml.gz", sha256 = "00129ceebf07559662c7c95226e64768396cff3b4873ea86493585def50c2456"},
+  {path = "environment/assets/Li4/2/INCAR", source_path = "public_inputs/eels/Li4/2/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/2/KPOINTS", source_path = "public_inputs/eels/Li4/2/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/2/POSCAR", source_path = "public_inputs/eels/Li4/2/POSCAR", sha256 = "b68e031afe9a54d98bbaa252d0e4d60efba5d620f0339b320c94ce2d9de86c9a"},
+  {path = "environment/assets/Li4/2/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/2/vasprun.xml.gz", sha256 = "fafb8db814f7437ed9528fc356262d70470782ad224b1418b5964b02a76f6a73"},
+  {path = "environment/assets/Li4/3/INCAR", source_path = "public_inputs/eels/Li4/3/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/3/KPOINTS", source_path = "public_inputs/eels/Li4/3/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/3/POSCAR", source_path = "public_inputs/eels/Li4/3/POSCAR", sha256 = "9ff07dc3ec0934ad036dec8fb9098d806ce39d48c05fe35cd538d3c1e7b97eb0"},
+  {path = "environment/assets/Li4/3/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/3/vasprun.xml.gz", sha256 = "d9a2714acced91532e407ec12f9f1f19ba39d4eeb4161351a77355adf8a7b161"},
+  {path = "environment/assets/Li4/4/INCAR", source_path = "public_inputs/eels/Li4/4/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/4/KPOINTS", source_path = "public_inputs/eels/Li4/4/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/4/POSCAR", source_path = "public_inputs/eels/Li4/4/POSCAR", sha256 = "61df111c9696c5f161b3eeb77c68a3524663206477ae2d6d8a32c9fb58bbf23c"},
+  {path = "environment/assets/Li4/4/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/4/vasprun.xml.gz", sha256 = "5eb4db793a35d4c637d40ac06c1d57e521e45c5f0180d1b35c32b7fd3dfdc799"},
+  {path = "environment/assets/Li4/5/INCAR", source_path = "public_inputs/eels/Li4/5/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/5/KPOINTS", source_path = "public_inputs/eels/Li4/5/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/5/POSCAR", source_path = "public_inputs/eels/Li4/5/POSCAR", sha256 = "fec7cb59dd225b2a4c52c7b064c8d15022e9d65b3ffd605e2cd0cd82e6c4f236"},
+  {path = "environment/assets/Li4/5/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/5/vasprun.xml.gz", sha256 = "8c439bf4441aa230e06b92d4bb84b8b642e8c2fd62a8b14d05107a82aaf3c731"},
+  {path = "environment/assets/Li4/6/INCAR", source_path = "public_inputs/eels/Li4/6/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/6/KPOINTS", source_path = "public_inputs/eels/Li4/6/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/6/POSCAR", source_path = "public_inputs/eels/Li4/6/POSCAR", sha256 = "df60b00bd7ad4758e015c57cd3213c3376725a5e696ffe24693136437686d564"},
+  {path = "environment/assets/Li4/6/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/6/vasprun.xml.gz", sha256 = "dd0a866e57fd5046993d203dadf1f14a28e2faa6dd15180f4e3a34a1e061959a"},
+  {path = "environment/assets/Li4/7/INCAR", source_path = "public_inputs/eels/Li4/7/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/7/KPOINTS", source_path = "public_inputs/eels/Li4/7/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/7/POSCAR", source_path = "public_inputs/eels/Li4/7/POSCAR", sha256 = "acd48c6a4540ed5c17964c24bc26df476ddc688f27240693114e8c2e81e91d0e"},
+  {path = "environment/assets/Li4/7/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/7/vasprun.xml.gz", sha256 = "84af2af7b65c3d5156e0ba96815404678e260daf08d51e65a9098b7ac79155d8"},
+  {path = "environment/assets/Li4/8/INCAR", source_path = "public_inputs/eels/Li4/8/INCAR", sha256 = "e856359fd2ceb41aad76ceaead9821987fbe4ec4065000d71e8ee706f7fef0ca"},
+  {path = "environment/assets/Li4/8/KPOINTS", source_path = "public_inputs/eels/Li4/8/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li4/8/POSCAR", source_path = "public_inputs/eels/Li4/8/POSCAR", sha256 = "f79bfcf17a00096f3c091db46b9be128a9ce6b1d65537bca69f8536021d8a0e6"},
+  {path = "environment/assets/Li4/8/vasprun.xml.gz", source_path = "public_inputs/eels/Li4/8/vasprun.xml.gz", sha256 = "38cd9da75e30cba011751ab41f29786d335b23b6d61746827d5f9d88031fe228"},
+  {path = "environment/assets/Li5/1/INCAR", source_path = "public_inputs/eels/Li5/1/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/1/KPOINTS", source_path = "public_inputs/eels/Li5/1/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/1/POSCAR", source_path = "public_inputs/eels/Li5/1/POSCAR", sha256 = "dc71db3e039ef1dce38464b432564b4e941cd9e9bdfd167941d6b043036b2090"},
+  {path = "environment/assets/Li5/1/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/1/vasprun.xml.gz", sha256 = "b12b8facf08aa58ed89d0f7241b75ed6f4e32d9a3875d11aaf04b059c02cbc04"},
+  {path = "environment/assets/Li5/10/INCAR", source_path = "public_inputs/eels/Li5/10/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/10/KPOINTS", source_path = "public_inputs/eels/Li5/10/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/10/POSCAR", source_path = "public_inputs/eels/Li5/10/POSCAR", sha256 = "e0400d51798eef4f65d746c5ac1827fada8c7d0831aa469988ce638edf17e79d"},
+  {path = "environment/assets/Li5/10/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/10/vasprun.xml.gz", sha256 = "0c805d0203eb51fa3e5ccf0a09dcb8898cff8f7b69c2684e129912697de8718c"},
+  {path = "environment/assets/Li5/2/INCAR", source_path = "public_inputs/eels/Li5/2/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/2/KPOINTS", source_path = "public_inputs/eels/Li5/2/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/2/POSCAR", source_path = "public_inputs/eels/Li5/2/POSCAR", sha256 = "327b09485e2afdcc2069c2eb77298fbac8584a739322ceccd4ce34f8cf2c591a"},
+  {path = "environment/assets/Li5/2/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/2/vasprun.xml.gz", sha256 = "48fa98c018b8836486c25f3be0afbe91e318aa9a72eb31735b392b0c0897ed0e"},
+  {path = "environment/assets/Li5/3/INCAR", source_path = "public_inputs/eels/Li5/3/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/3/KPOINTS", source_path = "public_inputs/eels/Li5/3/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/3/POSCAR", source_path = "public_inputs/eels/Li5/3/POSCAR", sha256 = "ecdfe84a9a061d9d6df85e45052e0b511185061d118cb0d44038943905a56e7d"},
+  {path = "environment/assets/Li5/3/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/3/vasprun.xml.gz", sha256 = "1e8b0ca39457db9678e62cbc8bbf19788b597825705bf6c3f68bec4d1965b80f"},
+  {path = "environment/assets/Li5/4/INCAR", source_path = "public_inputs/eels/Li5/4/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/4/KPOINTS", source_path = "public_inputs/eels/Li5/4/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/4/POSCAR", source_path = "public_inputs/eels/Li5/4/POSCAR", sha256 = "a3652d21d694433b53b216f34800f097b7db5f89be6ad4b82d23b62eb5cbab18"},
+  {path = "environment/assets/Li5/4/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/4/vasprun.xml.gz", sha256 = "7a022d497673c3ef21cd1534a36c3ddd5402acf33a3c7b46bc9dc63b41061ab3"},
+  {path = "environment/assets/Li5/5/INCAR", source_path = "public_inputs/eels/Li5/5/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/5/KPOINTS", source_path = "public_inputs/eels/Li5/5/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/5/POSCAR", source_path = "public_inputs/eels/Li5/5/POSCAR", sha256 = "5d0945daf9256da3755e94e56d39e3844086a39f7ca0eba7e929dd2442ba4ed5"},
+  {path = "environment/assets/Li5/5/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/5/vasprun.xml.gz", sha256 = "bd2f02c14ae605ffffa15d921668d0b87da892e322b91e6d1b4cf6f70c1bc058"},
+  {path = "environment/assets/Li5/6/INCAR", source_path = "public_inputs/eels/Li5/6/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/6/KPOINTS", source_path = "public_inputs/eels/Li5/6/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/6/POSCAR", source_path = "public_inputs/eels/Li5/6/POSCAR", sha256 = "f17852ac6d76c82dcec0c88bd8aabf429e9dab643ca92448d9c1c2d5a3cd0d70"},
+  {path = "environment/assets/Li5/6/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/6/vasprun.xml.gz", sha256 = "b4171b5df7306efc05515f96fd2060f5387f817746831b7cc871a32e027cc55a"},
+  {path = "environment/assets/Li5/7/INCAR", source_path = "public_inputs/eels/Li5/7/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/7/KPOINTS", source_path = "public_inputs/eels/Li5/7/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/7/POSCAR", source_path = "public_inputs/eels/Li5/7/POSCAR", sha256 = "3b13e56559116c15ee3cd72ab141afa1753776d3ef52283b3b52908de03c8cad"},
+  {path = "environment/assets/Li5/7/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/7/vasprun.xml.gz", sha256 = "ad974d8656c85cc4c3bbf13ed5187538a1b0bbdc52aeba8a24ff3f72b7b088d2"},
+  {path = "environment/assets/Li5/8/INCAR", source_path = "public_inputs/eels/Li5/8/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/8/KPOINTS", source_path = "public_inputs/eels/Li5/8/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/8/POSCAR", source_path = "public_inputs/eels/Li5/8/POSCAR", sha256 = "ad435c3b2a2d205086009167dae67e1e10795e9a4b3fa8d3055d3dc116373ff8"},
+  {path = "environment/assets/Li5/8/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/8/vasprun.xml.gz", sha256 = "e210dbb647946670eac461cfa825375166a84a7b95511f8320cc31fa5bc5def6"},
+  {path = "environment/assets/Li5/9/INCAR", source_path = "public_inputs/eels/Li5/9/INCAR", sha256 = "f81b394fd8e4785b4a784f2074ae79d7aa1b6dbbd39c5abd8b42411b5f2177ff"},
+  {path = "environment/assets/Li5/9/KPOINTS", source_path = "public_inputs/eels/Li5/9/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li5/9/POSCAR", source_path = "public_inputs/eels/Li5/9/POSCAR", sha256 = "7fbb2a671ac983f1a564ab9bdec79dac528ff9ae5fa96f60f5626e7ab752cbf7"},
+  {path = "environment/assets/Li5/9/vasprun.xml.gz", source_path = "public_inputs/eels/Li5/9/vasprun.xml.gz", sha256 = "4d8f3002190dee2c22a45ca7e9a251e8d7091e1e2db038aaf41f5d6897b2ff17"},
+  {path = "environment/assets/Li6/1/INCAR", source_path = "public_inputs/eels/Li6/1/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/1/KPOINTS", source_path = "public_inputs/eels/Li6/1/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/1/POSCAR", source_path = "public_inputs/eels/Li6/1/POSCAR", sha256 = "9569c57a9d41cbb8e94f85e5e74d7950cd2bfec6f03e901da3ddd9783553a85a"},
+  {path = "environment/assets/Li6/1/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/1/vasprun.xml.gz", sha256 = "71498a45575c413f25c82ab520e62923929a5a749ee71aef8d7693a6c7038cff"},
+  {path = "environment/assets/Li6/10/INCAR", source_path = "public_inputs/eels/Li6/10/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/10/KPOINTS", source_path = "public_inputs/eels/Li6/10/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/10/POSCAR", source_path = "public_inputs/eels/Li6/10/POSCAR", sha256 = "6bc7e87d8963d7f69fc5ed09fcbfc3ad84eaa0ea6f18b841903d2e00b3c0418a"},
+  {path = "environment/assets/Li6/10/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/10/vasprun.xml.gz", sha256 = "6661fd3e6a3cc97b32ccc260b7a2139f5b06bdd473bf0a953eb4fc54b617f9db"},
+  {path = "environment/assets/Li6/11/INCAR", source_path = "public_inputs/eels/Li6/11/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/11/KPOINTS", source_path = "public_inputs/eels/Li6/11/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/11/POSCAR", source_path = "public_inputs/eels/Li6/11/POSCAR", sha256 = "8bfb0d7994110b0c6e406772c9e80e20a3572dbdcfeaffe6438f2cb90822fae1"},
+  {path = "environment/assets/Li6/11/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/11/vasprun.xml.gz", sha256 = "433c856a613996b37f1805a35a82522bfcece23041cebd9f28e3d87048817abe"},
+  {path = "environment/assets/Li6/12/INCAR", source_path = "public_inputs/eels/Li6/12/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/12/KPOINTS", source_path = "public_inputs/eels/Li6/12/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/12/POSCAR", source_path = "public_inputs/eels/Li6/12/POSCAR", sha256 = "3ebd4fddc06b3e0317f7c9c516c374a778aaa7783f642ff60d68f40a7d6ab6cc"},
+  {path = "environment/assets/Li6/12/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/12/vasprun.xml.gz", sha256 = "d7e02e75ee46d56bd33d690608913d6b4f7d71cc80ed7962582704f4dc3d0db5"},
+  {path = "environment/assets/Li6/2/INCAR", source_path = "public_inputs/eels/Li6/2/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/2/KPOINTS", source_path = "public_inputs/eels/Li6/2/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/2/POSCAR", source_path = "public_inputs/eels/Li6/2/POSCAR", sha256 = "a8ced03fb77525a3c4ccada3bf8eedc0b82ffc20978c8c1c0fb90200fa4a187d"},
+  {path = "environment/assets/Li6/2/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/2/vasprun.xml.gz", sha256 = "96c510f90ce0392a16a588d09d3562a3aa9d70c34b42a6b15b78eb6309127620"},
+  {path = "environment/assets/Li6/3/INCAR", source_path = "public_inputs/eels/Li6/3/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/3/KPOINTS", source_path = "public_inputs/eels/Li6/3/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/3/POSCAR", source_path = "public_inputs/eels/Li6/3/POSCAR", sha256 = "60b5fce384d5029c4aec3e9525ba69c4a6b47e9d756230d5bad4a54ce27fac22"},
+  {path = "environment/assets/Li6/3/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/3/vasprun.xml.gz", sha256 = "fd95114d074f23e16ff2519fd9905f524cbd26b4b879bd5057e7a61ed8a8a4d3"},
+  {path = "environment/assets/Li6/4/INCAR", source_path = "public_inputs/eels/Li6/4/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/4/KPOINTS", source_path = "public_inputs/eels/Li6/4/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/4/POSCAR", source_path = "public_inputs/eels/Li6/4/POSCAR", sha256 = "15fcdb08cbba99fbacf3ad1e85dc9b92785d19880bf35b5f9eeab0fbed4187c7"},
+  {path = "environment/assets/Li6/4/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/4/vasprun.xml.gz", sha256 = "74245a876d18a3bed2d2db9c3a179f80c54bed06756c7ae7887ad8e3da2c8a44"},
+  {path = "environment/assets/Li6/5/INCAR", source_path = "public_inputs/eels/Li6/5/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/5/KPOINTS", source_path = "public_inputs/eels/Li6/5/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/5/POSCAR", source_path = "public_inputs/eels/Li6/5/POSCAR", sha256 = "49b76eda5aaea1b382e99b5eee6e63c9f3fdf8136cb641dc6136fb18f722ece5"},
+  {path = "environment/assets/Li6/5/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/5/vasprun.xml.gz", sha256 = "cc61a394da109156d35058525963d917dc3b947b7d63b0eb7add2cb3c56c0046"},
+  {path = "environment/assets/Li6/6/INCAR", source_path = "public_inputs/eels/Li6/6/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/6/KPOINTS", source_path = "public_inputs/eels/Li6/6/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/6/POSCAR", source_path = "public_inputs/eels/Li6/6/POSCAR", sha256 = "a9124c5a34c68c5a78636f0f5671d3a618a20b7b13bec4a48cd8c08acd7c0b76"},
+  {path = "environment/assets/Li6/6/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/6/vasprun.xml.gz", sha256 = "29d8db41dea1e72397082100ab185dae5075259ac36700a83be66eda32f8d30e"},
+  {path = "environment/assets/Li6/7/INCAR", source_path = "public_inputs/eels/Li6/7/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/7/KPOINTS", source_path = "public_inputs/eels/Li6/7/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/7/POSCAR", source_path = "public_inputs/eels/Li6/7/POSCAR", sha256 = "70222f4e553548f8c24bcb51111f5b1be6c931aa7a5ebdf3e6bbeb1460b9204b"},
+  {path = "environment/assets/Li6/7/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/7/vasprun.xml.gz", sha256 = "02f61749db2215b21cfbba9870c957f2e547417ed68d83f3c3e66db74d56aa06"},
+  {path = "environment/assets/Li6/8/INCAR", source_path = "public_inputs/eels/Li6/8/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/8/KPOINTS", source_path = "public_inputs/eels/Li6/8/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/8/POSCAR", source_path = "public_inputs/eels/Li6/8/POSCAR", sha256 = "242607872846120ab6e5b2b54d1d26f7077b63fb1c2386bc06749622de84f36d"},
+  {path = "environment/assets/Li6/8/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/8/vasprun.xml.gz", sha256 = "3600f341f22da9addb7c341b521b5de8e7a5eec9c8fc8dac2296230fa359cc21"},
+  {path = "environment/assets/Li6/9/INCAR", source_path = "public_inputs/eels/Li6/9/INCAR", sha256 = "d2b56bb3b8fb52a4aa4a2a98391fce2dc45737bba88e9f5eac42e7f466a5827b"},
+  {path = "environment/assets/Li6/9/KPOINTS", source_path = "public_inputs/eels/Li6/9/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li6/9/POSCAR", source_path = "public_inputs/eels/Li6/9/POSCAR", sha256 = "339b14b5892bbcaadc90211c44009f49af627dbb9ef1846a218a5d9eb14288f4"},
+  {path = "environment/assets/Li6/9/vasprun.xml.gz", source_path = "public_inputs/eels/Li6/9/vasprun.xml.gz", sha256 = "424f4120fb47a5f44f22d66e3c411809b77ff439d7e42f9e2de3d9fa9c57610a"},
+  {path = "environment/assets/Li7/1/INCAR", source_path = "public_inputs/eels/Li7/1/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/1/KPOINTS", source_path = "public_inputs/eels/Li7/1/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/1/POSCAR", source_path = "public_inputs/eels/Li7/1/POSCAR", sha256 = "a7ca88856965f89d09004b9f41b7f3ef112c6b89d96094aad501dbc9c2872671"},
+  {path = "environment/assets/Li7/1/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/1/vasprun.xml.gz", sha256 = "8509f54d875bdf6de63db4a66e307a07bdcfb2ddad5fcb75f02cba60d2f3a43e"},
+  {path = "environment/assets/Li7/10/INCAR", source_path = "public_inputs/eels/Li7/10/INCAR", sha256 = "f2431c61e8cbd1f46d78f217064c80d666b9651df663c7ac25777c40a6823cd4"},
+  {path = "environment/assets/Li7/10/KPOINTS", source_path = "public_inputs/eels/Li7/10/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/10/POSCAR", source_path = "public_inputs/eels/Li7/10/POSCAR", sha256 = "b9245ca4e3eb336e523765447aa8019c3e0aa7f866bee63e6fba82463dde1db1"},
+  {path = "environment/assets/Li7/10/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/10/vasprun.xml.gz", sha256 = "037589ec49ba2a9472693c89a6e6064fcd4e909c328c1407384e8ea39bff8ca1"},
+  {path = "environment/assets/Li7/11/INCAR", source_path = "public_inputs/eels/Li7/11/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/11/KPOINTS", source_path = "public_inputs/eels/Li7/11/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/11/POSCAR", source_path = "public_inputs/eels/Li7/11/POSCAR", sha256 = "894d910e17b37bd8a4c97689de30d21fbd723b8840c77baa2e81c7e643c06085"},
+  {path = "environment/assets/Li7/11/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/11/vasprun.xml.gz", sha256 = "7378d1351cb77d95ddc542677fe1ffca03d57b4cfdfe74b0c74bebd520996c8d"},
+  {path = "environment/assets/Li7/12/INCAR", source_path = "public_inputs/eels/Li7/12/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/12/KPOINTS", source_path = "public_inputs/eels/Li7/12/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/12/POSCAR", source_path = "public_inputs/eels/Li7/12/POSCAR", sha256 = "9760415c5a932317fa6225b71bd903e9be5849adc97fabbd753de716da8f9980"},
+  {path = "environment/assets/Li7/12/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/12/vasprun.xml.gz", sha256 = "2de1d1e51546aac4757777fa0c98e12a86dd1d511f11b57f8e1833e29aef2329"},
+  {path = "environment/assets/Li7/13/INCAR", source_path = "public_inputs/eels/Li7/13/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/13/KPOINTS", source_path = "public_inputs/eels/Li7/13/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/13/POSCAR", source_path = "public_inputs/eels/Li7/13/POSCAR", sha256 = "0f1c36733d3e9cde5d854c67b08454351af8e05e49c598598b3001046ac293fd"},
+  {path = "environment/assets/Li7/13/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/13/vasprun.xml.gz", sha256 = "133e04d16b73bb4c60392c315d2e06d68de815a7107708f54f9d09fc85393cee"},
+  {path = "environment/assets/Li7/14/INCAR", source_path = "public_inputs/eels/Li7/14/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/14/KPOINTS", source_path = "public_inputs/eels/Li7/14/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/14/POSCAR", source_path = "public_inputs/eels/Li7/14/POSCAR", sha256 = "66eb9a96954456d46e122b148a6474bff5d1c3de5bb24ef8c14c1ec6aa4d3876"},
+  {path = "environment/assets/Li7/14/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/14/vasprun.xml.gz", sha256 = "d7dd2e53e0725f759d2d011a4fe520f95ca1f66b076cbe5252fea1e62ce7729c"},
+  {path = "environment/assets/Li7/2/INCAR", source_path = "public_inputs/eels/Li7/2/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/2/KPOINTS", source_path = "public_inputs/eels/Li7/2/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/2/POSCAR", source_path = "public_inputs/eels/Li7/2/POSCAR", sha256 = "42db54e6019b6b8b1b864d9d1cb274420b7eba31c71e7ece55f9e80bfe5329d2"},
+  {path = "environment/assets/Li7/2/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/2/vasprun.xml.gz", sha256 = "8024193555e4292b9a99c243ad3e9cb34d524c685e4b041cce46dd41b9e145b0"},
+  {path = "environment/assets/Li7/3/INCAR", source_path = "public_inputs/eels/Li7/3/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/3/KPOINTS", source_path = "public_inputs/eels/Li7/3/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/3/POSCAR", source_path = "public_inputs/eels/Li7/3/POSCAR", sha256 = "8fd0c06c43bdcc6ce933fe2578680ec8f2839d553032b8a082a062c2f49a260d"},
+  {path = "environment/assets/Li7/3/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/3/vasprun.xml.gz", sha256 = "dc9ad22b976354f6fe2299eed203cd310810acb2b930e7c4167a0d0c8b7d6912"},
+  {path = "environment/assets/Li7/4/INCAR", source_path = "public_inputs/eels/Li7/4/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/4/KPOINTS", source_path = "public_inputs/eels/Li7/4/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/4/POSCAR", source_path = "public_inputs/eels/Li7/4/POSCAR", sha256 = "0d24c722002d0cf04fbd5e8eb0ffa3361abbd6700983e0952ae29ee2f8b3c87a"},
+  {path = "environment/assets/Li7/4/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/4/vasprun.xml.gz", sha256 = "6c19461226889635be0ad1ddde2df93ca83107ba3b83782c7851e79fd43af0d4"},
+  {path = "environment/assets/Li7/5/INCAR", source_path = "public_inputs/eels/Li7/5/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/5/KPOINTS", source_path = "public_inputs/eels/Li7/5/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/5/POSCAR", source_path = "public_inputs/eels/Li7/5/POSCAR", sha256 = "dc29e1652ab0d7c4371c6b410dab42a35045c037161f23e953a136b1a37b440b"},
+  {path = "environment/assets/Li7/5/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/5/vasprun.xml.gz", sha256 = "acc14cc7b4987c5a82cfdd81ca45bc985f3a3f1872ce41ca5157c3d2c3df2b13"},
+  {path = "environment/assets/Li7/6/INCAR", source_path = "public_inputs/eels/Li7/6/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/6/KPOINTS", source_path = "public_inputs/eels/Li7/6/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/6/POSCAR", source_path = "public_inputs/eels/Li7/6/POSCAR", sha256 = "9caab0e1eda7f16f32cc10f8e068953632c36ae68bb180ef5fde96e5fa3e4f89"},
+  {path = "environment/assets/Li7/6/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/6/vasprun.xml.gz", sha256 = "abd9c11e5775c9cf60aa54b95c80f83bad3eb8426bcd9a7a35e6a7a2c96b6f74"},
+  {path = "environment/assets/Li7/7/INCAR", source_path = "public_inputs/eels/Li7/7/INCAR", sha256 = "c26ca13754d22cc0e49e7e305577724e68a47975eb949c776c51e938bce17786"},
+  {path = "environment/assets/Li7/7/KPOINTS", source_path = "public_inputs/eels/Li7/7/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/7/POSCAR", source_path = "public_inputs/eels/Li7/7/POSCAR", sha256 = "784ab5657867fd1930feb4a3e5e9adb1dc80b42f58f59a9ab7c3db5dfc1a7343"},
+  {path = "environment/assets/Li7/7/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/7/vasprun.xml.gz", sha256 = "cc1c48bf840b708107a2c9110a60ae99f3d721e9f00c497672e6585961f5c751"},
+  {path = "environment/assets/Li7/8/INCAR", source_path = "public_inputs/eels/Li7/8/INCAR", sha256 = "f2431c61e8cbd1f46d78f217064c80d666b9651df663c7ac25777c40a6823cd4"},
+  {path = "environment/assets/Li7/8/KPOINTS", source_path = "public_inputs/eels/Li7/8/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/8/POSCAR", source_path = "public_inputs/eels/Li7/8/POSCAR", sha256 = "b64318cf93f6cb09752a49410948a26c528f6729905b3e26885031491f55ddf2"},
+  {path = "environment/assets/Li7/8/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/8/vasprun.xml.gz", sha256 = "171fd6d61794b9d4aad9f06f3d383e5a9acf55c69356cf2e5833c7fa1bb6d46e"},
+  {path = "environment/assets/Li7/9/INCAR", source_path = "public_inputs/eels/Li7/9/INCAR", sha256 = "f2431c61e8cbd1f46d78f217064c80d666b9651df663c7ac25777c40a6823cd4"},
+  {path = "environment/assets/Li7/9/KPOINTS", source_path = "public_inputs/eels/Li7/9/KPOINTS", sha256 = "bb9fb5e242a833f904ce800cf2c1b2c6b2e889b9029f78b3a211becc38c077c2"},
+  {path = "environment/assets/Li7/9/POSCAR", source_path = "public_inputs/eels/Li7/9/POSCAR", sha256 = "e28910253a2c35535210f4c02012a2d2270019b30cebc1416ad9cb4aff23c0bd"},
+  {path = "environment/assets/Li7/9/vasprun.xml.gz", source_path = "public_inputs/eels/Li7/9/vasprun.xml.gz", sha256 = "815655320eb42119e082de40847339c41edaf2fd1417cf8acf8181fc9a0df0bc"},
+]
+
+
+[metadata]
+name = "case-02"
+description = "Li K-edge assignment of pre-peak M"
+
+[task]
+name = "compchemworld/case-02"
+description = "Li K-edge assignment of pre-peak M"
+
+[agent]
+timeout_sec = 600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 180
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 1024
+build_timeout_sec = 1800
+network_mode = "no-network"
+allow_internet = false
+
+[verifier.environment]
+cpus = 1
+memory_mb = 1024
+build_timeout_sec = 1800
+network_mode = "no-network"

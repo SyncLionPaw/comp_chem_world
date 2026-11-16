@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-09"
+description = 'Infer coverage response, its uncertainty and its transfer from the published 108 A^2 DFT ensemble to finite loop areas, across six alloys; distinguish robust hardening/ranking from covariance/model-dependent claims.'
+
+[metadata]
+task_number = 9
+name = 'task 9'
+description = 'Infer coverage response, its uncertainty and its transfer from the published 108 A^2 DFT ensemble to finite loop areas, across six alloys; distinguish robust hardening/ranking from covariance/model-dependent claims.'
+execution_class = 'local'
+task_id = "task-09"
+solution_timeout_sec = 1800
+title = '氢覆盖下不稳定层错能的统计响应与成核尺度输运'
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[environment]
+os = "linux"
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+gpus = 0
+network_mode = "no-network"
+allow_internet = false
+

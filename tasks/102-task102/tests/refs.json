@@ -1,0 +1,127 @@
+{
+  "schema": "bench15.tests.refs/v1",
+  "case_id": "case-07-md-mcm-experiment-reproduction",
+  "reference_values": {
+    "root": "tests/private",
+    "registry": "tests/private/source-registry.json",
+    "scientific_decision": "independent six-gate review"
+  },
+  "files": [
+    {
+      "path": "tests/private/reference/Figure3a.xlsx",
+      "sha256": "851cd87ade38cfb76f99e21d981a5dbd6dd87253f465d1a6e6a1a906e6ac4101",
+      "bytes": 23665
+    },
+    {
+      "path": "tests/private/reference/Figure4b.xlsx",
+      "sha256": "03a2aed20750189591038fc0a81fd06000b5ac54be26f4845310209075046d82",
+      "bytes": 12068
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-0GPa",
+      "sha256": "249d5f5e5961aacaeb06bb41ccf29e40fae57b48f6544aef2068a7ad5ffd0dab",
+      "bytes": 1547896
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-10GPa",
+      "sha256": "9716e687a6deebf3a2e6064939ef207483f7c56c47adcf5d0e2aaada641413fc",
+      "bytes": 1547531
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-1GPa",
+      "sha256": "b88904d28407c442f80dfa08b7e6b4f195384b748437f389eeeb390ae43d5c1d",
+      "bytes": 1549409
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-2GPa",
+      "sha256": "7155becc3e05f2baf8d7f87388287fbcdcf591e47f807f40f0a64586448de82e",
+      "bytes": 1547514
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-3GPa",
+      "sha256": "1d933dcc7b31745d367b9ce7b1801bf682aaed64ca9d446624bec9858b1f84f0",
+      "bytes": 1547514
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-4GPa",
+      "sha256": "980458b1819cf111fa027eb98d9202a4f6b8f01d1fcb784105198ee61a23891c",
+      "bytes": 1547514
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-5GPa",
+      "sha256": "2037bb2132443a95aff746fbfb614c8f06fdba957ee404753c6697b627176217",
+      "bytes": 1549449
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-6GPa",
+      "sha256": "31fdb6e7f936d713e40237bf1c858ddbaefb60142638b1d08ff6805dd462d997",
+      "bytes": 1549449
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-7GPa",
+      "sha256": "0e6ea63cc486e7e149b0aba5ae57deb31554ee6b2c98fc80245451ccd0db71c1",
+      "bytes": 1549449
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-8GPa",
+      "sha256": "0675f7d991f88eb6e4aa8add2aea3810396af6f0430bc06adbffc4f58e8d92e0",
+      "bytes": 1549449
+    },
+    {
+      "path": "tests/private/reference/OUTCAR-9GPa",
+      "sha256": "f8ef5603c17571f2a41b6445aa33b2175572309520495945f5220daaad5d560b",
+      "bytes": 1549449
+    },
+    {
+      "path": "tests/private/scientific-rubric.md",
+      "sha256": "49f93351e808f82e84ad313382420a5e05bebad47404c95cb3a598d4f42a383e",
+      "bytes": 2433
+    },
+    {
+      "path": "tests/private/source-registry.json",
+      "sha256": "b9b9c2fa84f9853a9599b931cb3054201406582376f856b845cb79c6cb0f27aa",
+      "bytes": 42305
+    },
+    {
+      "path": "tests/verify.py",
+      "sha256": "874bf114046f9c16948d6d34af8a39fa5de4170442194cbd4fb506c7e9938df4",
+      "bytes": 25002
+    }
+  ],
+  "reference_root": "tests/private",
+  "note": "open-research task: structural and registered-numeric checks only; a run-bound independent six-gate review supplies the science decision",
+  "tolerances": {
+    "source": "tests/research_numeric.py",
+    "note": "registered numeric selectors use per-claim bounds derived from the private reference workbooks"
+  },
+  "numeric_selectors": {
+    "figure3a": {
+      "N2_LB": [
+        "A",
+        "B"
+      ],
+      "N4_LB": [
+        "C",
+        "D"
+      ],
+      "N2_S": [
+        "AF",
+        "AG"
+      ],
+      "N4_S": [
+        "AJ",
+        "AK"
+      ]
+    },
+    "limits": {
+      "xlsx_byte_limit": 2000000,
+      "zip_entries": 64,
+      "uncompressed_bytes": 4000000,
+      "sheet1_first_row": 5,
+      "sheet1_last_row": 31,
+      "min_points": 3,
+      "min_distinct_x": 2,
+      "outcar_byte_limit": 2000000
+    }
+  }
+}

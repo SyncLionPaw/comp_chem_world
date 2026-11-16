@@ -1,0 +1,78 @@
+{
+  "version": "1.2",
+  "case_id": "case-04-uncertainty-applicability-domain",
+  "reference_source_kind": "published_result",
+  "source_digest": "sha256:150b2283e24c969380b7b13c85cf9d50b778bced6a9ae8407113973428ea07b2",
+  "independent_check": "case04-protocol/v2 declarative GPR grader in tests/_support/case04_verifier.py; shared safe model primitives in tests/_support/case04_protocol.py; candidate-native fold receipts are independently refit; protected answers are injected with --gold-path; historical author evidence in data/gold/derived/case04_runtime/ is not a grading dependency.",
+  "readiness": "READY_FOR_RUNTIME",
+  "verification_coverage": "COMPLETE",
+  "asset_hashes": {
+    "assets/master_s115_blindarm.csv": "sha256:0491a107e23a9f7113376a378aafefacca58e75fc276413063c09413e4d668bb",
+    "assets/SC-012-D0SC04896H-s120.csv": "sha256:37d52b584033c1f7932537241c635b1f93878220500156455aef2e305a3677de",
+    "assets/SC-012-D0SC04896H-s113.npy": "sha256:283a0daa6a2a3eebc056d358a02a1e10191b659fbe03538f47b30f3d78747160",
+    "assets/SC-012-D0SC04896H-s114.npy": "sha256:800116bf2a4d89d90d254f41b6df8e5617d99427aae4ed7358396ee5a112ca24",
+    "assets/SC-012-D0SC04896H-s117.npy": "sha256:2f40cce1d8819093da3009d7880364a25cac06ffd0368f79946a5de5ef9c59f4",
+    "assets/SC-012-D0SC04896H-s118.npy": "sha256:a0621d32a62ccff1bd675c1b410dbcc679dcb7b62241077158a4e19b654d140a",
+    "assets/SC-012-D0SC04896H-s119.npy": "sha256:189f3abea25fa3d4a008dc45b82fbeee69680db1164f0cd72d79b79a107ebdb1",
+    "assets/S12_replicate_barrier_pairs.csv": "sha256:8dbabac18ff105aaa63e73998d8f1745bc2e6e02724cfedc7727c53593510cec"
+  },
+  "observations": [
+    {
+      "name": "deliverable_completeness",
+      "level": "L1",
+      "expected": "Four artifacts plus the reasoning document carry the claim; the predictions file is what every later check reads.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "All declared files must exist; blind predictions cover each frozen test row exactly once and contain only row_index,prediction,sigma. The candidate must not include grader-only truth or metrics."
+    },
+    {
+      "name": "variances_are_produced_by_the_model",
+      "level": "L2",
+      "expected": "The sigma column must come from the submitted protocol's posterior and match a grader refit from the pinned public training rows. Positive constant sigma is valid when the declared model reproduces it.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "All 89 predictions and posterior sigma values must be finite, sigma positive, and both mean and sigma must match an independent refit of the declared supported protocol within rtol=2e-5, atol=2e-5. A constant posterior sigma is valid when the fitted model reproduces it; a hand-written constant is not."
+    },
+    {
+      "name": "falsification_control_effective",
+      "level": "L3",
+      "expected": "The verifier independently refits observed and candidate-declared paired permutations on identical folds. The historical ten-permutation author run is context, not a required model or random seed.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "SI p.23 'The R2 for GPRM1.5 is lowered from 0.86 to -0.05' and Table S8 rows 0.86 and -0.05",
+      "acceptance_rule": "The protocol declares 10 to 100 paired permutations. The submitted observed and null summaries must match independent refits; report observed-versus-null ordering and R2 separation as scientific effects without a required positive direction or minimum separation. Ten permutations do not imply p<0.05."
+    },
+    {
+      "name": "coverage_and_risk_filter",
+      "level": "L3",
+      "expected": "The candidate supplies training-only OOF predictions and sigma for independent recomputation; the grader separately joins blind test predictions with hidden targets. The model-generated sigma, interval definitions (1, 1.96, 2 and 2.576), risk-filter counts and MAE are checked from rows, not trusted ",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "Report all requested OOF and hidden-test coverage and low-sigma MAE values from the joined rows. These values are scientific outcomes, not reward thresholds; preserve whether the low-sigma subset improves on overall MAE and whether coverage falls inside the registered benchmark 0.60 to 1.00 band as diagnostics."
+    },
+    {
+      "name": "group_split_is_actually_disjoint",
+      "level": "L2",
+      "expected": "Pinned public s113/s114/s117 vectors map to reaction (335 groups), nucleophile (83 groups) and parsed substrate (119 groups), respectively. The verifier checks vector identity, membership and every candidate-native LOGO fold against the released labels; counts alone do not establish identity.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "Exact group-member partition must match the proper released vector; each LOGO test fold contains only its held group, train/test row indices are disjoint, and the held group is absent from training."
+    },
+    {
+      "name": "extrapolation_direction",
+      "level": "L3",
+      "expected": "The grader refits every candidate-native held-group fold, then independently computes equal-group macro MAE/SEM and equal-row micro MAE. This preserves the resolved author-protocol interpretation without using author values as an answer key. The verifier checks complete execution and valid aggregati",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "Report both released group directions, full fold receipts and valid macro/micro summaries. No direction, sign or proximity to author error values is a pass condition."
+    },
+    {
+      "name": "noise_floor_used_correctly",
+      "level": "L3",
+      "expected": "All four published replicate pairs are retained. A sub-0.1 claim needs structured evidence scoped to a declared estimand; current registered evidence supports only per-pair replicate-mean intervals under an explicit IID assumption, not single-observation noise or model accuracy.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "data/gold/tables/S12_replicate_barrier_pairs.csv, four replicate pairs whose differences are 0.08, 0.10, 0.55 and 1.63 kcal/mol",
+      "acceptance_rule": "Report all four differences within 0.02 kcal/mol. A numeric claim below 0.1 is checked against structured evidence: first-version support recomputes per-pair 95% Student-t intervals for S12 replicate means under an explicit IID-within-pair assumption; it does not justify single-observation noise or model accuracy. Other evidence scopes are UNSUPPORTED pending external review."
+    }
+  ],
+  "protected_answers_sha256": "df39acae5b49162280a3daba999704dc57ba628c4a1f1e13291a924abea24216"
+}

@@ -1,0 +1,55 @@
+{
+  "output": "composition.json",
+  "assets": [
+    {
+      "path": "environment/assets/frame_late.xyz",
+      "sha256": "f59ee58c5e3c6fad03d6fa13a4f6c4b5551962df6f61c926c7c24e40645d3d90"
+    },
+    {
+      "path": "environment/assets/experimental_sans.txt",
+      "sha256": "4b186d26eda6bf504e2dc4589eda0a1fe96158c02be759267cc7d1f5f634f3d6"
+    }
+  ],
+  "gold": {
+    "n_atoms": 3068,
+    "n_Li": 128,
+    "n_TFSI": 128,
+    "n_H2O": 340,
+    "charge_neutral": true,
+    "molality_mol_kg": 20.9,
+    "n_H2O_per_Li": 2.65625,
+    "box_length_A": 34.64,
+    "sans_repeat_A": [
+      12.57,
+      13.96
+    ],
+    "correlation_lengths_along_edge": 2.6187354366263875,
+    "cell_spans_multiple_repeats": true
+  },
+  "tolerances": {
+    "molality_range": [
+      20.6,
+      21.2
+    ],
+    "water_li_ratio_range": [
+      2.6,
+      2.7
+    ],
+    "box_A": 0.02,
+    "repeat_ranges_A": [
+      [
+        12.2,
+        13.0
+      ],
+      [
+        13.6,
+        14.3
+      ]
+    ],
+    "lengths_range": [
+      2.3,
+      2.9
+    ]
+  },
+  "criteria": {}
+}

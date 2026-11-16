@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/reference_audit.json", "/app/electronic_reference_report.md", "/app/scientific_certificate.json"]
+
+[task]
+name = "compchemworld/case-01-electronic-reference-audit"
+description = "Audit all 10,712 Rad-6 molecular records and 123,914 atom rows using only the supplied acquired data: reconstruct the signed atomization ledger with the source H/C/O atomic references, derive neutral-electron parity spin constraints, assess what the two electronic energy columns do and do not establish, and deliver reference_audit.json, electronic_reference_report.md and a source-bound spin-comparability scientific certificate under /app."
+
+[metadata]
+name = "case-01-electronic-reference-audit"
+description = "Audit all 10,712 Rad-6 molecular records and 123,914 atom rows using only the supplied acquired data: reconstruct the signed atomization ledger with the source H/C/O atomic references, derive neutral-electron parity spin constraints, assess what the two electronic energy columns do and do not establish, and deliver reference_audit.json, electronic_reference_report.md and a source-bound spin-comparability scientific certificate under /app."
+execution_class = "local"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 120
+cpus = 1
+memory_mb = 2048
+network_mode = "no-network"
+
+[verifier.environment]
+build_timeout_sec = 120
+cpus = 1
+memory_mb = 2048
+network_mode = "no-network"

@@ -1,0 +1,17 @@
+{
+  "tol": 1e-05,
+  "dead_zone": 0.001,
+  "expected_ids": [
+    "TiS2-P",
+    "TiS2-R",
+    "LiTiS2-P",
+    "LiTiS2-R",
+    "NaTiS2-P",
+    "NaTiS2-R"
+  ],
+  "expected_formulae": {
+    "TiS2": {"Ti": 1, "S": 2},
+    "LiTiS2": {"Li": 1, "Ti": 1, "S": 2},
+    "NaTiS2": {"Na": 1, "Ti": 1, "S": 2}
+  }
+}

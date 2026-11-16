@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-178"
+description = "Assess structural and dynamical claims from the supplied observables"
+
+[metadata]
+case_id = "case-06-nanochain-claim"
+task_number = 178
+title = "Assess structural and dynamical claims from the supplied observables"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 300
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

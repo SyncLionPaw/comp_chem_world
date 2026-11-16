@@ -1,0 +1,224 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:compchemworld:bench12:case07:output-contract:v1",
+  "title": "Bench12 case07 candidate output contract",
+  "description": "Structural contract transcribed from the public case07 verifier. It defines submission shape, not scientific validity or a passing result.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "case_id",
+    "criteria_version",
+    "structure",
+    "runtime",
+    "stages"
+  ],
+  "properties": {
+    "schema": {
+      "const": "bench12.case07.provenance/v1"
+    },
+    "case_id": {
+      "const": "case-07-cof-excited-state-screening"
+    },
+    "criteria_version": {
+      "const": "case07-definition-2026-10-07"
+    },
+    "structure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_structure",
+        "atom_count",
+        "basis_function_count",
+        "cell_policy",
+        "gs_geometry"
+      ],
+      "properties": {
+        "source_structure": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "atom_count": {
+          "const": 192
+        },
+        "basis_function_count": {
+          "const": 4848
+        },
+        "cell_policy": {
+          "const": "fixed_database_cell"
+        },
+        "gs_geometry": {
+          "$ref": "#/$defs/artifactRef"
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cp2k_version",
+        "binary_sha256",
+        "data_sha256",
+        "runtime_evidence"
+      ],
+      "properties": {
+        "cp2k_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "binary_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "data_sha256": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "BASIS_ccGRB_UZH",
+            "BASIS_ADMM_UZH",
+            "POTENTIAL_UZH",
+            "t_c_g.dat"
+          ],
+          "properties": {
+            "BASIS_ccGRB_UZH": {
+              "$ref": "#/$defs/sha256"
+            },
+            "BASIS_ADMM_UZH": {
+              "$ref": "#/$defs/sha256"
+            },
+            "POTENTIAL_UZH": {
+              "$ref": "#/$defs/sha256"
+            },
+            "t_c_g.dat": {
+              "$ref": "#/$defs/sha256"
+            }
+          }
+        },
+        "runtime_evidence": {
+          "$ref": "#/$defs/artifactRef"
+        }
+      }
+    },
+    "stages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gs_optimization",
+        "full_spectrum",
+        "stda_spectrum",
+        "full_s1_optimization",
+        "stda_s1_optimization"
+      ],
+      "properties": {
+        "gs_optimization": {
+          "$ref": "#/$defs/geometryStage"
+        },
+        "full_spectrum": {
+          "$ref": "#/$defs/spectrumStage"
+        },
+        "stda_spectrum": {
+          "$ref": "#/$defs/spectrumStage"
+        },
+        "full_s1_optimization": {
+          "$ref": "#/$defs/geometryStage"
+        },
+        "stda_s1_optimization": {
+          "$ref": "#/$defs/geometryStage"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Relative path inside final/; must resolve to a submitted regular artifact."
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "geometryStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input",
+        "native",
+        "geometry",
+        "trajectory"
+      ],
+      "properties": {
+        "input": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "native": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "geometry": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "trajectory": {
+          "$ref": "#/$defs/artifactRef"
+        }
+      }
+    },
+    "spectrumStage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input",
+        "native",
+        "geometry"
+      ],
+      "properties": {
+        "input": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "native": {
+          "$ref": "#/$defs/artifactRef"
+        },
+        "geometry": {
+          "$ref": "#/$defs/artifactRef"
+        }
+      }
+    }
+  },
+  "submission_files": [
+    "final/geometries/ (ground-state and both S1 endpoint geometries, CP2K inputs, full native logs, and S1 trajectories)",
+    "final/spectra/ (500 singlet energies and oscillator strengths for both kernels, with processing code or parameters)",
+    "final/table5.csv",
+    "final/report.md",
+    "final/provenance.json"
+  ],
+  "table5_csv": {
+    "header": [
+      "kernel",
+      "Evert_eV",
+      "Ead_electronic_eV",
+      "Efl_eV",
+      "Stokes_eV",
+      "Ead_0-0_eV",
+      "paper_Evert_eV",
+      "paper_Ead_paper_definition_eV",
+      "paper_Efl_eV",
+      "paper_Stokes_eV"
+    ],
+    "row_order": [
+      "FULL",
+      "STDA"
+    ],
+    "rows": 2,
+    "number_format": "finite decimal tokens; Ead_0-0_eV may be empty only when unavailable, with the reason explained in report.md"
+  }
+}

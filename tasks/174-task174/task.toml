@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-174"
+description = "Characterize Li-Li RDF features and compare literature curves"
+
+[metadata]
+case_id = "case-02-li-li-environments"
+task_number = 174
+title = "Characterize Li-Li RDF features and compare literature curves"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 300
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

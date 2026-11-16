@@ -1,0 +1,52 @@
+{
+  "output": "topology.json",
+  "assets": [
+    {
+      "path": "environment/assets/frame_early.xyz",
+      "sha256": "7167c8dabcac3a11ba5bd98213cb3daf3416bcfcd7f864a83f49d79b575fb2f2"
+    },
+    {
+      "path": "environment/assets/frame_late.xyz",
+      "sha256": "f59ee58c5e3c6fad03d6fa13a4f6c4b5551962df6f61c926c7c24e40645d3d90"
+    }
+  ],
+  "gold": {
+    "li_li_cutoff_A": 3.0,
+    "li_o_cutoff_A": 2.6,
+    "early": {
+      "n_contact_pairs": 4,
+      "fraction_oxygen_bridged": 1.0,
+      "max_component_size": 3,
+      "fraction_Li_in_components_ge_3": 0.0234375
+    },
+    "late": {
+      "n_contact_pairs": 15,
+      "fraction_oxygen_bridged": 1.0,
+      "max_component_size": 7,
+      "fraction_Li_in_components_ge_3": 0.15625
+    },
+    "contacts_share_water": true,
+    "anion_can_co_bridge": true,
+    "chains_present_in_late_frame": true,
+    "extended_chains_present_at_classical_start": false,
+    "ensemble_population_established": false
+  },
+  "tolerances": {
+    "fraction_oxygen_bridged": 0.02,
+    "fraction_Li_in_components_ge_3": 0.02
+  },
+  "criteria": {
+    "box_length_A": 34.64,
+    "water_OH_cutoff_A": 1.25,
+    "li_li_cutoff_range_A": [
+      2.7,
+      3.2
+    ],
+    "li_o_cutoff_range_A": [
+      2.4,
+      3.0
+    ],
+    "chain_component_min": 3,
+    "extended_component_min": 4
+  }
+}

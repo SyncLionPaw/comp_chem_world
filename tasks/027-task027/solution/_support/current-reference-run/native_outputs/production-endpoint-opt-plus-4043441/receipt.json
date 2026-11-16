@@ -1,0 +1,18 @@
+{
+  "derived_from_actual_bytes": true,
+  "elapsed_seconds": 200,
+  "ended_at_utc": "2026-10-25T13:53:33Z",
+  "execution_outcome": "COMPLETED",
+  "input_sha256": "9be81fe7598ac85aeac3f03f9fbf8e2127c48090708e6832a088247ce7bc2978",
+  "output_sha256": "2886ff3a6950435b86d9beed2310c6005cf4ea1e24ad34bda1cfe5a502972436",
+  "provider_job_id": "4043441",
+  "provider_receipt_sha256": "9a1f545c97893f2329182c06032715b88d892510bc890248e274c8c9034c44dc",
+  "provider_stage_id": "extension:endpoint-opt:plus:continuation:01",
+  "returncode": 0,
+  "scheduler_elapsed_seconds": 200,
+  "scheduler_record_sha256": "d90ad3d35e692c04fce6423403566a5f96acd8488b7b1a407fcb16f929a4d8f3",
+  "schema": "case07-native-stage-parser-alias/v1",
+  "start_xyz_sha256": "3ac0242fd71c25930b82a2f9654aa44cdac80c12245b9fe0d0b54604918846b5",
+  "started_at_utc": "2026-10-25T13:50:15Z",
+  "status": "normal"
+}

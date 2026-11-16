@@ -1,0 +1,29 @@
+{
+  "allocation_id": "4040840",
+  "array_job": false,
+  "batch_script_sha256": "4f693c956a39336c2a489d60c2e0bb60061d339bdab8574b1d4efb095aa4e827",
+  "candidate_stage_declaration": {
+    "kind": "screen",
+    "reason": "Fresh public-mapped C2 EnGrad screen at lambda=0.50; serial single-job batch.",
+    "route": "UKS PBE D3BJ def2-SVP DefGrid3 TightSCF EnGrad; public mapped C2 interpolation lambda=0.50",
+    "stage_id": "screen:C2:3"
+  },
+  "cpus": 8,
+  "ended_at_utc": "2026-10-25T08:57:27Z",
+  "exit_code": "0:0",
+  "job_id": "4040840",
+  "memory_gib": 16.0,
+  "p04_scheduler_record_path": "p04-scheduler-record.json",
+  "p04_scheduler_record_sha256": "6606285c59797694eddc2049fbac48bdffe29236d3a05df3b4c53bff204590eb",
+  "p04_source_schema": "compchemworld.p04-scheduler-record/v1",
+  "peak_memory_gib": null,
+  "process_cpu_hours": 0.07777777777777778,
+  "scheduler": "slurm",
+  "schema": "case07-scheduler-record/v2",
+  "scratch_gib": 0.11814495641738176,
+  "stage_id": "screen:C2:3",
+  "started_at_utc": "2026-10-25T08:56:52Z",
+  "state": "COMPLETED",
+  "submitted_at_utc": "2026-10-25T08:56:52Z",
+  "wall_seconds": 35
+}

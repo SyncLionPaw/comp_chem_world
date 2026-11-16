@@ -1,0 +1,48 @@
+schema_version = "1.4"
+artifacts = [
+  "/app/final",
+  "/app/production.tpr",
+  "/app/production.xtc",
+  "/app/production.edr",
+  "/app/production.log",
+  "/app/npt.gro",
+  "/app/nvt.log",
+  "/app/npt.log",
+  "/app/nvt.tpr",
+  "/app/nvt.edr",
+  "/app/nvt.gro",
+  "/app/nvt.cpt",
+  "/app/npt.tpr",
+  "/app/production.mdp",
+  "/app/nvt.mdp",
+  "/app/npt.mdp",
+  "/app/em.mdp",
+  "/app/em.tpr",
+  "/app/em.log",
+  "/app/em.gro",
+  "/app/em.edr",
+  "/app/solvated.gro",
+  "/app/topol.runtime.top",
+  "/app/run_case01.sh",
+]
+
+[metadata]
+name = "case-01-water-md-response"
+case_id = "case-01-water-md-response"
+title = "Bulk SPC/E water MD and nonlocal dielectric response"
+description = "Bulk SPC/E water MD and nonlocal dielectric response"
+
+[agent]
+timeout_sec = 21600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 8
+memory_mb = 6144
+build_timeout_sec = 1800
+network_mode = "public"

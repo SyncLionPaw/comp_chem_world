@@ -1,0 +1,57 @@
+schema_version = "1.4"
+artifacts = ["/app/plan.json", "/app/execution", "/app/run-ledger.json", "/app/topology.json", "/app/correlations.npz", "/app/results.json", "/app/decision-trace.json", "/app/decision.json", "/app/report.md"]
+
+[metadata]
+name = "compchemworld/reline-05-collective"
+description = "有限MD预算下的集体相关与假平台诊断"
+case_id = "reline-05-collective"
+title = "有限MD预算下的集体相关与假平台诊断"
+software = ["LAMMPS + DeePMD", "Python numerical trajectory analysis"]
+inputs = [
+  { path = "environment/assets/inputs/models/model.000.pb", source_path = "environment/assets/inputs/models/model.000.pb", sha256 = "a5eaa05beba8e11234c0891348e4336491404e998188b201f57c0abe4c35e773" },
+  { path = "environment/assets/inputs/models/model.001.pb", source_path = "environment/assets/inputs/models/model.001.pb", sha256 = "06fa7f85d95e9509b5195848cb6dcb982df510be29fd38a59a32b923fbf95206" },
+  { path = "environment/assets/inputs/models/model.002.pb", source_path = "environment/assets/inputs/models/model.002.pb", sha256 = "b21dde0c555875ea197f85270727fdc48645ca13d029fc044aa56cec57b69e8a" },
+  { path = "environment/assets/inputs/models/model.003.pb", source_path = "environment/assets/inputs/models/model.003.pb", sha256 = "5d7a90ac1e1f203eeb8380e1a2defc23b05c2a3c77b065af88fbf45db799503a" },
+  { path = "environment/assets/inputs/inputs/strc.lmp", source_path = "environment/assets/inputs/inputs/strc.lmp", sha256 = "9e9262202010a9aad0b22a2cdac360675be443b40d2971892a70cd79514d501f" },
+  { path = "environment/assets/inputs/inputs/start.lammps", source_path = "environment/assets/inputs/inputs/start.lammps", sha256 = "2fab1bde3dc41deda3d88792dcb699bab8785fee796a16abe601154b07e5ca33" },
+  { path = "environment/assets/inputs/inputs/restart.lammps", source_path = "environment/assets/inputs/inputs/restart.lammps", sha256 = "2ae7f0f911cda20934f1d04ecd84e14e099e67ebd60f05d39b136bd668e28f01" },
+  { path = "environment/assets/inputs/system-spec.json", source_path = "environment/assets/inputs/system-spec.json", sha256 = "e484b4c1964b4fc2c0e7a154ce2e53f131545243e83758b7fdc9fd0e5e5c8a0f" },
+  { path = "environment/assets/inputs/thermophysical.csv", source_path = "environment/assets/inputs/thermophysical.csv", sha256 = "dedb512676a8bda057061f2dc733362172721ebabc9ceab6dbe2623bea4fef1d" },
+  { path = "environment/assets/inputs/decision-budget-05.json", source_path = "environment/assets/inputs/decision-budget-05.json", sha256 = "96b2e653b8147f83dddc1be1c595124831fe680939c0d7eaf81c454cf3174447" },
+  { path = "environment/assets/compute-budget.yaml", source_path = "environment/assets/compute-budget.yaml", sha256 = "5d2e340aa9e539c39d6aa0741e6933d4f1dccb2bc4990585c5efca7ccd425e97" },
+]
+compute = { class = "remote", cpus = 2, memory_mb = 4096, network = "public", profile = "reline-05-collective", resource_plan = "environment/assets/compute-budget.yaml" }
+status = { readiness = "PENDING", reference_validation = "NOT_RUN" }
+agent_interface = { reference_solution_provided = true }
+hpc = { client = "ikkem-slurm" }
+
+[task]
+name = "compchemworld/reline-05-collective"
+description = "有限MD预算下的集体相关与假平台诊断"
+
+[agent]
+timeout_sec = 14400
+network_mode = "public"
+
+[verifier]
+# Covers two bounded native checks, independent review and artifact export.
+timeout_sec = 1500
+environment_mode = "separate"
+network_mode = "public"
+
+[verifier.env]
+BENCH07_REVIEW_API_KEY = "${BENCH07_REVIEW_API_KEY:-}"
+BENCH07_REVIEW_BASE_URL = "${BENCH07_REVIEW_BASE_URL:-}"
+BENCH07_REVIEW_MODEL = "${BENCH07_REVIEW_MODEL:-}"
+
+[environment]
+build_timeout_sec = 1800
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "public"
+cpus = 2
+memory_mb = 4096

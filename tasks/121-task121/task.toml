@@ -1,0 +1,30 @@
+schema_version = "1.4"
+handoff_version = "1.0"
+case_id = "case-02-coords"
+title = "按分子名称生成三维坐标"
+artifacts = ["/app/final/out.xyz"]
+
+[metadata]
+name = "chemgraph-task-121"
+case_id = "case-02-coords"
+title = "按分子名称生成三维坐标"
+description = "Generate 3D coordinates from a molecule name"
+
+[task]
+name = "compchemworld/chemgraph-task-121"
+description = "Generate 3D coordinates from a molecule name"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"
+workdir = "/app"

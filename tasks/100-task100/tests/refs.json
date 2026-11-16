@@ -1,0 +1,105 @@
+{
+  "schema": "bench15.tests.refs/v1",
+  "case_id": "case-05-few-layer-md-mode-assignment",
+  "files": [
+    {
+      "path": "tests/verify.py",
+      "bytes": 91987,
+      "sha256": "fcac092fdf94d0d1d75c0cb47426776a620f8fa757dd2e3258aa2b8e10f578b0"
+    }
+  ],
+  "reference_mode": "NOT_VERIFIED_NO_COMPLETE_TRUSTED_NATIVE_REPLAY",
+  "note": "No complete native COM/equilibration/thermo bundle is available for trusted replay. No fresh HPC execution was started. The old host-context receipt reference is retained only in jobs/provenance/remote-portable-20261031.",
+  "tolerances": {
+    "source": "case05-v4 scientific scoring and numeric thresholds unchanged",
+    "note": "Only selection/provenance binding and candidate-submitted evidence validation changed."
+  },
+  "runtime_contract": {
+    "schema": "case05-candidate-execution-contract/v1",
+    "task_version": "case05-generic-native-modes-v4",
+    "dispatch_enabled": "candidate-selected within declared budget",
+    "selection": {
+      "N": 2,
+      "seed": 24101,
+      "atoms": 7068,
+      "asset_manifest": "environment/assets/n2-seed24101/manifest.json",
+      "asset_manifest_sha256": "23f77f707b9866860c48b487f59802dcde8ec9b78a2df94a29167651a4eb6576"
+    },
+    "resource_caps": {
+      "cpus": [
+        1,
+        10
+      ],
+      "mpi_ranks": [
+        1,
+        10
+      ],
+      "mpi_ranks_must_not_exceed_cpus": true,
+      "memory_gib": [
+        1,
+        16
+      ],
+      "walltime_seconds": [
+        60,
+        21600
+      ],
+      "walltime_step_seconds": 60,
+      "gpus": 0,
+      "single_non_array_allocation": true
+    },
+    "execution_provenance_roles": [
+      "execution_receipt",
+      "scheduler_record",
+      "execution_order",
+      "batch_script",
+      "job_stdout",
+      "job_stderr",
+      "native_manifest"
+    ],
+    "native_roles": [
+      "manifest",
+      "input",
+      "data",
+      "deletion_map",
+      "source",
+      "potential_rebomos_source",
+      "potential_rebomos_derived",
+      "potential_ilp",
+      "potential_diagnostics",
+      "potential_composite_stdout",
+      "potential_rebo_stdout",
+      "potential_ilp_stdout",
+      "force_baseline_composite",
+      "force_baseline_rebo",
+      "force_baseline_ilp",
+      "force_compressed_composite",
+      "force_compressed_rebo",
+      "force_compressed_ilp",
+      "force_rebo_baseline",
+      "force_rebo_compressed",
+      "restart_min",
+      "restart_equil",
+      "restart_final",
+      "eqmon",
+      "com",
+      "thermo_log",
+      "stdout"
+    ],
+    "required_ordered_steps": [
+      "potential_baseline_composite",
+      "potential_baseline_rebo",
+      "potential_baseline_ilp",
+      "potential_rigid_shift_composite",
+      "potential_compressed_composite",
+      "potential_compressed_rebo",
+      "potential_compressed_ilp",
+      "minimization",
+      "npt_equilibration",
+      "nve_production"
+    ],
+    "missing_candidate_evidence": "FAIL reward 0",
+    "missing_verifier_dependency": "ERROR reward null"
+  },
+  "runtime_contract_sha256": "934f7b4570627ccdc4a21435de23481a9a2c40ef7eb08cce9c61c4bbaf20d68c",
+  "reference_files_moved": "jobs/provenance/remote-portable-20261031/task 101/tests/refs.json"
+}

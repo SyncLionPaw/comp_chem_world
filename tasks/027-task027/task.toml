@@ -1,0 +1,34 @@
+# Harbor execution wrapper; original Bench definition preserved verbatim below.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-07-independent-saddle-point-recomputation"
+description = "从甲苯 ipso-BPR 极小点及两个开环产物的几何出发，自主构造并执行 C1/C2 双通道筛查，选择至少一个通道完成新的 DFT 过渡态搜索、频率与连接验证，计算同水平零点能位垒，并用已有高水平能量参考界定结果的精度和结论范围。"
+task_number = 27
+case_id = "case-07-independent-saddle-point-recomputation"
+title = "甲苯 ipso-BPR 双通道筛查与鞍点验证"
+migration_boundary = "candidate image retains its prior SSH-dependent HPC setup. The Harbor verifier is a separate no-network image and does not copy candidate credentials. Harbor does not provide the legacy trusted runner_context or signed host-receipt/provider, so those trust bindings remain pending and no equivalent authenticated HPC execution is claimed."
+
+[task]
+name = "compchemworld/case-07-independent-saddle-point-recomputation"
+description = "从甲苯 ipso-BPR 极小点及两个开环产物的几何出发，自主构造并执行 C1/C2 双通道筛查，选择至少一个通道完成新的 DFT 过渡态搜索、频率与连接验证，计算同水平零点能位垒，并用已有高水平能量参考界定结果的精度和结论范围。"
+
+[agent]
+timeout_sec = 28800
+network_mode = "public"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 1800
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

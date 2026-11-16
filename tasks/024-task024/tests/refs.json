@@ -1,0 +1,104 @@
+{
+  "version": "1.1",
+  "case_id": "case-04-bpr-fate-effective-loss-rate",
+  "reference_source_kind": "trusted_author_result",
+  "source_digest": "sha256:050ade4d0888adb2369e34830cc955a79379a6ba5918724dfa4277209b8c5255",
+  "independent_check": "scripts/build_case04_fate_reference.py reconstructs SI equation (2) from OMML, recomputes conditional kinetics and records unverified parameter/approximation boundaries.",
+  "readiness": "READY_FOR_RUNTIME",
+  "verification_coverage": "COMPLETE",
+  "verification_implementation": "implemented",
+  "asset_hashes": {
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-200-mesmer_out.xml": "sha256:6e25c758ad0ac7c3a0473f974ea31dd33746344b281c1f7e7b26db148eefe537",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-225-mesmer_out.xml": "sha256:914a4da187f2b77952702778b84818d29344eab1ded434c3c674a46e2965f4b4",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-250-mesmer_out.xml": "sha256:b193715b66aa4887e4ee3d96fe9ac3b5c607a3ea1b844c28e4d58adb082407dc",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-255-mesmer_out.xml": "sha256:aaada51cb08a8972193f7fbee12ac62b10d13c18cd563abbf995e434e8ebd853",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-260-mesmer_out.xml": "sha256:2e060ea36920da0c1c1ac346be94dc0991f7fe91536db930c74373b2b41c5d4b",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-265-mesmer_out.xml": "sha256:8f27d782a57da4ff98f4d720970fabd69a00c5be6eff86d0884e70e0756d4310",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-270-mesmer_out.xml": "sha256:9905cdaac95762092597f9294a3349babe8367f239ee137b2a119b620ae46727",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-275-mesmer_out.xml": "sha256:7824830b91254335da4d51c6f90ab8f8cdae9545267c6398790089ac22b9fb47",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-280-mesmer_out.xml": "sha256:b639c098005f248b84fe9a631cfdeab03fd08e63db10d62e95e65a91e48ee4e5",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-285-mesmer_out.xml": "sha256:0fd73724fb42f6d63cc36342141943fc24c01ec332a9dea179f6f52833ce5b22",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-290-mesmer_out.xml": "sha256:29e1a781d5d90ec68be7f9c40ef29ded4acfc01833b6f0b5bd9a1550a3077d94",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-295-mesmer_out.xml": "sha256:1f0febc06b2a6b1e5b2ffcd5fe4f5b8444632f66125e06ad5d96645aee779caa",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-300-mesmer_out.xml": "sha256:e919fd67260d98c5bbbf2edff3a114ce54ba336e3bdd59556856abea5f4f6516",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-305-mesmer_out.xml": "sha256:0d10af4420299fc1d16b4de01e2856d3462c68e540eec8bc733cdf5aa674486b",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-310-mesmer_out.xml": "sha256:4761128d619cb8dfa66bd053eecd265d7d2f5000d6baaf691ccc76c1d57e29b0",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-325-mesmer_out.xml": "sha256:1c9461303649e977ab862bb15967247b05e6a3599079a36c4ce3b3cbe7e19e25",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-350-mesmer_out.xml": "sha256:ac14cc3d3d9862900447ec203e19f07a9651193b89ae4a2871ee0e83b93a5d51",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-375-mesmer_out.xml": "sha256:c6c1a7a440a7083faa99a2e866c2b61fcf8a4ba91c9116eba81333e5ddc8a29a",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-400-mesmer_out.xml": "sha256:f6c739a68af204aeee61628116ec917eb4429959946f1c07f4bb48a179bc79f3",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-425-mesmer_out.xml": "sha256:7b7ce9ec7325fbe11f3147cef62fcadd9ddea4302e9fa14e55f4a4bdf1e905a8",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-450-mesmer_out.xml": "sha256:c42f760bf2abd22625b3f91aab3bf31b2e95734149f2b23f5ed134384b63dd9c",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-475-mesmer_out.xml": "sha256:96f53569d357286677e7f0bf8ca9dc2716bc1a3be2bf6c4f81548690740e9704",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-500-mesmer_out.xml": "sha256:240997ebe177f06cd099b9172cdd09bece1a16ec7b13d1f3091c433d7f1137ad",
+    "assets/41467_2023_40675_MOESM1_ESM.docx": "sha256:52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a",
+    "assets/41467_2023_40675_MOESM3_ESM.xlsx": "sha256:69969f05b7fb9b75335737bfc4e65cd49218d75da632197d929f6196784b67f1"
+  },
+  "observations": [
+    {
+      "name": "fate_quantities_present",
+      "level": "L1",
+      "expected": "All four frozen outputs present; record native channel sum, concentrations, assumed conditions, unit conventions and resulting rates.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Without the concentrations, the equilibrium constant and both effective rates in one machine-readable face, the comparison cannot be audited."
+    },
+    {
+      "name": "unit_conventions_explicit",
+      "level": "L2",
+      "expected": "Exact dimensional identities; use molecular or equivalent molar concentration conventions consistently, including the cm3/L and Avogadro conversions.",
+      "unit": "dimensionless",
+      "source_locator": "gold/case04_fate_manifest.json",
+      "acceptance_rule": "SI equation (2), recovered from Word OMML, requires K_eq = k_add/k_return in cm3/molecule when concentrations are molecules/cm3. Use number density P/(k_B*T)/1e6, [NO] = ppbv*1e-9*n_air, and [O2] = x_O2*n_air. State T, pressure and x_O2 explicitly; the 300 K/1 atm/0.2095 scenario is a declared convention, not an independently recovered SI oxygen concentration."
+    },
+    {
+      "name": "channel_sum_reproduced",
+      "level": "L3",
+      "expected": "0.749169 per second at 300 K within 1%; trace C1/C2 analysis elements in the native XML.",
+      "unit": "per_second",
+      "source_locator": "gold/tables/mesmer_tdep_rates.csv",
+      "acceptance_rule": "Measured: the two channel rates at 300 K are 0.164121 and 0.585048 per second, summing to 0.749169 against the 0.75 stated in the SI, so the band on the sum is the rounding of the published value and any deviation beyond 1 % is an extraction error."
+    },
+    {
+      "name": "effective_rate_within_author_range",
+      "level": "L3",
+      "expected": "Baseline 4991.364/1491.326 per second within 2% of derived values; reproduce the SI 4900/1500 rounding within 2% under this explicitly assumed scenario. At other declared concentrations, recompute the model and check within 1%, rather than requiring atmospheric baseline values.",
+      "unit": "per_second",
+      "source_locator": "gold/case04_fate_manifest.json",
+      "acceptance_rule": "Recomputed from SI supplied K_eq=1.3e-15 cm3/molecule and k_RO2+NO=9.15e-12 cm3/molecule/s, the explicit 300 K/1 atm/x_O2=0.2095/1 ppbv NO scenario gives 4991.364 and 1491.326 per second per B-alkyl, within 1.865% and 0.579% of the author-stated 4900/1500. These are conditional pre-equilibrium coefficients; supplied K_eq is not independently validated. Other stated concentrations are judged by recomputation rather than forced into the same numerical band."
+    },
+    {
+      "name": "comparison_against_prior_ceiling_quantified",
+      "level": "L3",
+      "expected": "BPR-to-BPR ratio 24.9723 within 1%; comparing 4991/s directly to 0.03/s as the mechanistic acceleration fails because the species bases differ.",
+      "unit": "dimensionless",
+      "source_locator": "gold/case04_fate_manifest.json",
+      "acceptance_rule": "The main-paper prior ceiling 0.03/s applies to BPR unimolecular rates. Compare native k_mer=0.749169/s on that same species basis, giving 24.9723, rather than dividing the B-alkyl-based effective coefficient by a BPR rate. SI k_oxy=0.22/s is the relevant B-alkyl comparison for the effective coefficient, conditionally giving a ratio of 22688.019."
+    },
+    {
+      "name": "NO_competition_and_branching_consistent",
+      "level": "L3",
+      "expected": "Baseline ratio 3.346930, MR fraction 0.769952587 and crossover 3.346930 ppbv within 1%; the two-sink fraction is independent of O2 and common K_eq factor.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/case04_fate_sensitivity.csv",
+      "acceptance_rule": "At the baseline, k_NO[NO]=0.223837666/s, k_mer/k_NO[NO]=3.346930, the MR fraction of the two sinks is 0.769952587, and equality occurs at 3.346930 ppbv NO. Under the common pre-equilibrium factor, O2 and supplied K_eq cancel from this branching fraction. State that other sinks are excluded; do not add the two author sole-fate values as a measured full mechanism."
+    },
+    {
+      "name": "temperature_sensitivity_assumptions_disclosed",
+      "level": "L3",
+      "expected": "Include T/O2/NO variation with units; require fixed-K_eq/fixed-k_NO labels or separate evidence supporting different dependencies. Use native k_mer(T) at source pressure; no unsupported thermodynamic extrapolation.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/case04_fate_sensitivity.csv",
+      "acceptance_rule": "All 23 native k_mer(T) points are at 760 Torr. Temperature sensitivity of the conditional fate calculation holds the supplied SI K_eq and k_RO2+NO fixed, because no K_eq(T) or k_NO(T) is provided. Label this as a scenario rather than a independently calculated atmospheric thermodynamic temperature law; report every chosen concentration and assumption."
+    },
+    {
+      "name": "pre_equilibrium_and_reference_species_limits_stated",
+      "level": "L3",
+      "expected": "Report the condition k_return >> k_mer + k_NO[NO], distinguish B-alkyl coefficient from total-pool lifetime, and disclose unverified K_eq/return kinetics. Correct symbolic QSSA or equivalent reasoning accepted.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/case04_approximation_sensitivity.csv",
+      "acceptance_rule": "For reversible O2 addition, QSSA gives k_eff,MR=k_add[O2]*k_mer/(k_return+k_mer+k_NO[NO]); equation (2) follows only when k_return dominates the sinks. The missing k_return prevents validation of this condition. Flux/[B-alkyl] may be about 4991/s but is not the inverse lifetime of the combined [B-alkyl]+[BPR] pool; in the rapid-equilibrium limit the MR coefficient per pool is q/(1+q)*k_mer, about 0.749057/s. State that independent F12 K_eq reproduction and physical validity of pre-equilibrium remain unverified."
+    }
+  ],
+  "reference_manifest": "gold/case04_fate_manifest.json"
+}

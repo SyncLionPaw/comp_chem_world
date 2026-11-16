@@ -1,0 +1,20 @@
+{
+  "schema_version": "case04-test-references/v1",
+  "public_asset_sha256": {
+    "occupancy_sweep.csv": "d34778f15e6012473b0a7a78b5e92cec0279dd76aa9a039eb1ea304af52b72ee"
+  },
+  "source_labels": [
+    "CYS A 145",
+    "4WI A 401",
+    "Sum"
+  ],
+  "policy": {
+    "numeric_tolerance": 1e-09,
+    "component_half_width": 0.05,
+    "weight_domain": [
+      0.0,
+      1.0
+    ],
+    "sum_is_derived_from_components": true
+  }
+}

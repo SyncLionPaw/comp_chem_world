@@ -1,0 +1,38 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-169"
+description = "应变与掺杂系列的超导调控相图与极端耦合判定"
+authors = []
+keywords = ["materials-science", "W2N3"]
+
+[metadata]
+task_number = 169
+case_id = "case-03-tuning-phase-diagram"
+legacy_artifacts = ["/app/final/tuning-report.json"]
+verification_scope = "full"
+
+[agent]
+timeout_sec = 3600
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+user = "root"
+
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+environment_mode = "separate"
+user = "root"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+
+[environment]
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+cpus = 2
+memory_mb = 4096
+workdir = "/app"

@@ -1,0 +1,35 @@
+# Harbor-native task configuration (schema 1.4).
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+task_number = 26
+name = 'case-06-organonitrate-termination-energies'
+description = 'Rebuild the relative energies of the bicyclic and ring-opened organonitrate and alkoxy species from the deposited coupled-cluster and density-functional outputs, decode which column of SI Table 9 belongs to which species, and state which of its rows have no computational witness.'
+source_doi = '10.1038/s41467-023-40675-2'
+
+[task]
+name = "compchemworld/case-06-organonitrate-termination-energies"
+description = 'Rebuild the relative energies of the bicyclic and ring-opened organonitrate and alkoxy species from the deposited coupled-cluster and density-functional outputs, decode which column of SI Table 9 belongs to which species, and state which of its rows have no computational witness.'
+tags = []
+
+[agent]
+timeout_sec = 14400
+network_mode = 'no-network'
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

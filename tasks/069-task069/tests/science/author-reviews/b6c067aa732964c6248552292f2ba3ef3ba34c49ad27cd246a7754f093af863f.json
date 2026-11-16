@@ -1,0 +1,502 @@
+{
+  "version": 1,
+  "case_id": "case-08-short-md-stop-go",
+  "review_status": "FAIL",
+  "reviewer": "Sol closure scientific review",
+  "reviewed_on": "2026-10-30",
+  "trusted_job_id": "4082781",
+  "accounting_evidence_sha256": "31df4ebfb9a08997fc05f066fa927b0a67ec8c1a67c688e748f45025c840ff37",
+  "native_evidence_sha256": "9c45f7b142077cb5e0fb6715d6e3ac9b585d1fb01e7f1dc42230311dfbddddba",
+  "candidate_manifest": {
+    "submission/MVP-scope.md": {
+      "sha256": "5c0b30e1b8346a55f2b42f08fd79fda8b202e6b4c7c4e5b34a2b923d2807d147",
+      "bytes": 642
+    },
+    "submission/cli-probe-snapshot.json": {
+      "sha256": "66d6e479954ad80f8efe020041fc43614534d597f9ebb4badfd5d79af79573d2",
+      "bytes": 94485
+    },
+    "submission/cli-scheduler.json": {
+      "sha256": "16aef3ab8775d8f23902de65ce57e8247017e107e856aa3f6c946a4d3b46a4d1",
+      "bytes": 1147
+    },
+    "submission/cli-submission.json": {
+      "sha256": "76372f0472ef725d31419575ac48e819b2824351239c0e0feb6179eeb6fb630f",
+      "bytes": 4572
+    },
+    "submission/continuation-decision.json": {
+      "sha256": "7a6cb40a3fb7893d7fcd5adb35f098ba46913d559bef53d09246606a514d290a",
+      "bytes": 3082
+    },
+    "submission/diagnostics.csv": {
+      "sha256": "eac83777f384949fb33c38bd3ea0c8ce24f3449388af8c65ffe3be0b5f386495",
+      "bytes": 2897
+    },
+    "submission/gromacs-version.txt": {
+      "sha256": "a1e9e1e85db6459f6140fd346388decce0aa7ec6fe08e0d6938317b4ea3295d4",
+      "bytes": 1179
+    },
+    "submission/input-audit.json": {
+      "sha256": "597c50b61ad4b67130ec9e5337be7cfebad03c0153f5e7b2eb651a9c69144e5d",
+      "bytes": 4149
+    },
+    "submission/numerical-comparison.json": {
+      "sha256": "e702471c557bce977c52bdc4a1384c5994e04ecae705bcc96901c92fdf142e0d",
+      "bytes": 24628
+    },
+    "submission/remote-provenance.json": {
+      "sha256": "457323ae21d24b5dbb5606834afa33b1a46fcffdc9d92706f2dd04c7ae0b7534",
+      "bytes": 18727
+    },
+    "submission/runs/B-dt1fs/energy.xvg": {
+      "sha256": "ef8087ddf900f18fa977e3168f50de447c33d7aedae3984efdf2093d53c2e9d1",
+      "bytes": 2430
+    },
+    "submission/runs/B-dt1fs/gmx-energy.log": {
+      "sha256": "e79f46193580bef30a1fb79ee70c60a2769cb95e8f08bf5d9964d6d81b2af3ae",
+      "bytes": 3327
+    },
+    "submission/runs/B-dt1fs/grompp.console.log": {
+      "sha256": "6918ada91e243feaca33315eeb8c515b4cc9f71d508417c36a8c0a201719dd6a",
+      "bytes": 2091
+    },
+    "submission/runs/B-dt1fs/imdgroup.gro": {
+      "sha256": "ebe3a6ba8e3b7f8bb20e146b93ed1c20c246b99b47f50e43db19a4f7c2450119",
+      "bytes": 16123
+    },
+    "submission/runs/B-dt1fs/index.ndx": {
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c",
+      "bytes": 32431
+    },
+    "submission/runs/B-dt1fs/input.mdp": {
+      "sha256": "b37e0b13278d64a95183c52216e7df9ad5e1939ec6c8a649ddebe00504d04598",
+      "bytes": 2173
+    },
+    "submission/runs/B-dt1fs/md.cpt": {
+      "sha256": "834576ba56eb248c11e434b901336090cfbf590da895a7419997417bad6801d1",
+      "bytes": 158560
+    },
+    "submission/runs/B-dt1fs/md.edr": {
+      "sha256": "5df8ccac01d2301a2e1f69545c9449fc61288c05a402986c008870c77eadbb5b",
+      "bytes": 3656
+    },
+    "submission/runs/B-dt1fs/md.gro": {
+      "sha256": "c48fc0bf6281e70ea760edc8abd509b6b8f9926a5e5d15b040c4a084c01c3d91",
+      "bytes": 450828
+    },
+    "submission/runs/B-dt1fs/md.log": {
+      "sha256": "71991f289ce95e83498eb5cb0f659c63cf8876c18ba7f1bd22430119794d6a8f",
+      "bytes": 31685
+    },
+    "submission/runs/B-dt1fs/md.xtc": {
+      "sha256": "4eb75eaf38c60eff496fcd05953135e9c556c44a02d4ba88bb38cbe1df2c09bd",
+      "bytes": 70668
+    },
+    "submission/runs/B-dt1fs/mdout.mdp": {
+      "sha256": "30d614bfab400b9dabb3730792179e04b77f91bf409e21971431076813a261d6",
+      "bytes": 10718
+    },
+    "submission/runs/B-dt1fs/mdrun.console.log": {
+      "sha256": "85402928c0a397d8dc5f0c4459d016c51483ca24bcd77b13ef1a81451101deb5",
+      "bytes": 1531
+    },
+    "submission/runs/B-dt1fs/processed.top": {
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "bytes": 122196
+    },
+    "submission/runs/B-dt1fs/sample0.gro": {
+      "sha256": "234df5a66e73ea43b77b3e3b963d03182c2533b39af13dbf61d085085423e8d2",
+      "bytes": 294057
+    },
+    "submission/runs/B-dt1fs/sample1.gro": {
+      "sha256": "16396d5c93a77dd4bd13bee1bc5103e576547839cc4fa9ee8856e312eb53fed2",
+      "bytes": 294059
+    },
+    "submission/runs/B-dt1fs/sample2.gro": {
+      "sha256": "36672b22b74594ee890e6d4d4e2ea74e13c437a4bff6184ae71dc03362abb5b0",
+      "bytes": 294060
+    },
+    "submission/runs/B-dt1fs/source-NVT-audit-only.mdp": {
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb",
+      "bytes": 1980
+    },
+    "submission/runs/B-dt1fs/start.gro": {
+      "sha256": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+      "bytes": 294066
+    },
+    "submission/runs/B-dt1fs/topol.top": {
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "bytes": 122438
+    },
+    "submission/runs/B-dt1fs/topol.tpr": {
+      "sha256": "36cdce165ce3d17c34d3543f20167699a8b472c21294ccfaeee8207d1f05e465",
+      "bytes": 229428
+    },
+    "submission/runs/B-dt1fs/tpr-dump.stderr": {
+      "sha256": "73779dd760e8bc7a0075176cacb47201b8a7f46c45b4a01719108862c26dfb5e",
+      "bytes": 983
+    },
+    "submission/runs/B-dt1fs/tpr-state-dump.txt": {
+      "sha256": "35a53a6c2a91cc90a9e054904ea41d2eb1c35062e194678f644eb9996f098b63",
+      "bytes": 1450635
+    },
+    "submission/runs/B-dt1fs/trjconv.log": {
+      "sha256": "11ff1ef03aa03da5b78abfd115f2fb5279fbbb7dc9eb2fdc9d22da95fbc1e288",
+      "bytes": 1543
+    },
+    "submission/runs/B-dt2fs/energy.xvg": {
+      "sha256": "07fe495491bd54f07af46690356aaf4eb9e0d8d6551f36264e96f888f4fcf40f",
+      "bytes": 2454
+    },
+    "submission/runs/B-dt2fs/gmx-energy.log": {
+      "sha256": "b880dc924f1c9fae7c20769515923ccae489cce78f50c4cc5799c537f43a4fea",
+      "bytes": 3250
+    },
+    "submission/runs/B-dt2fs/grompp.console.log": {
+      "sha256": "20332c78ec2b259b544cb0d0dfc5e222d868c7d9ade28d3fad59d2512141bf62",
+      "bytes": 2047
+    },
+    "submission/runs/B-dt2fs/imdgroup.gro": {
+      "sha256": "ebe3a6ba8e3b7f8bb20e146b93ed1c20c246b99b47f50e43db19a4f7c2450119",
+      "bytes": 16123
+    },
+    "submission/runs/B-dt2fs/index.ndx": {
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c",
+      "bytes": 32431
+    },
+    "submission/runs/B-dt2fs/input.mdp": {
+      "sha256": "2571d9538f1f71c049e7499152e341bfc75713e288f90c16c074b6ef0ddc6df0",
+      "bytes": 2168
+    },
+    "submission/runs/B-dt2fs/md.cpt": {
+      "sha256": "11cc4af6a6a8584e67a85c688230fe4ad1c13741a6132b76b757a700243ae8a7",
+      "bytes": 158560
+    },
+    "submission/runs/B-dt2fs/md.edr": {
+      "sha256": "c7d7056954efb44eb91fecea69eb1f112bdf505bde4624a9cbac689684749313",
+      "bytes": 3656
+    },
+    "submission/runs/B-dt2fs/md.gro": {
+      "sha256": "eea26d8cdf904c4109dbe5634c91a351d8a2555554eb0b8b2cf358c311a479f0",
+      "bytes": 450828
+    },
+    "submission/runs/B-dt2fs/md.log": {
+      "sha256": "9ddb4a1b499a0b76b5d449d8a4dc3627b161fe754d4a5f8ae31505eb7ccec0fd",
+      "bytes": 31680
+    },
+    "submission/runs/B-dt2fs/md.xtc": {
+      "sha256": "5a6d305737f8c664f9dd13f491caec2b63b62907ca73f8e7ecbee84a2658750b",
+      "bytes": 70304
+    },
+    "submission/runs/B-dt2fs/mdout.mdp": {
+      "sha256": "6063d3a957fbe9b7a5f46424d88316aa658faa5ea2305037734570aa657ffde6",
+      "bytes": 10713
+    },
+    "submission/runs/B-dt2fs/mdrun.console.log": {
+      "sha256": "6e15c301eae1823874c7536e0363ad779ce64dee4903388429bccd0914a16661",
+      "bytes": 1454
+    },
+    "submission/runs/B-dt2fs/processed.top": {
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "bytes": 122196
+    },
+    "submission/runs/B-dt2fs/sample0.gro": {
+      "sha256": "234df5a66e73ea43b77b3e3b963d03182c2533b39af13dbf61d085085423e8d2",
+      "bytes": 294057
+    },
+    "submission/runs/B-dt2fs/sample1.gro": {
+      "sha256": "2f263f51ce19d9332987f1f888a7c8b57ce91c3a0faee753a1720b61db32ea68",
+      "bytes": 294059
+    },
+    "submission/runs/B-dt2fs/sample2.gro": {
+      "sha256": "5f955f803431c45f4b57e6a537d95f6987a57b4c3dae17d6bed41999824d20d2",
+      "bytes": 294059
+    },
+    "submission/runs/B-dt2fs/source-NVT-audit-only.mdp": {
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb",
+      "bytes": 1980
+    },
+    "submission/runs/B-dt2fs/start.gro": {
+      "sha256": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+      "bytes": 294066
+    },
+    "submission/runs/B-dt2fs/topol.top": {
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "bytes": 122438
+    },
+    "submission/runs/B-dt2fs/topol.tpr": {
+      "sha256": "fd1edf52171541ac6a66a203c06bddf9e951ec47c1b579a4fcd30b6c5c809c40",
+      "bytes": 229428
+    },
+    "submission/runs/B-dt2fs/tpr-dump.stderr": {
+      "sha256": "1cf5eaed8da830bcefdb836388f88a5afc595f2d45dc7d2baf07fac680c7d35e",
+      "bytes": 939
+    },
+    "submission/runs/B-dt2fs/tpr-state-dump.txt": {
+      "sha256": "2a652ab1843b417fcd174e9d3c9a84cf3e28cfc0a8141c64f948b49bacbd7400",
+      "bytes": 1450631
+    },
+    "submission/runs/B-dt2fs/trjconv.log": {
+      "sha256": "81be0fe9abdbd8a9a06173922446d30a2b672336fefe366575cd2bbf1e4481d8",
+      "bytes": 1533
+    },
+    "submission/runs/U-dt1fs/energy.xvg": {
+      "sha256": "6462ca20993ea2ebca25a19d1ddcba2d3bc73d5634839c8af6bf237d2e935953",
+      "bytes": 2446
+    },
+    "submission/runs/U-dt1fs/gmx-energy.log": {
+      "sha256": "0265ef3dd201bcb8f87c74c1dc9f4e29e53de08b093c439df64ad49266be3123",
+      "bytes": 3279
+    },
+    "submission/runs/U-dt1fs/grompp.console.log": {
+      "sha256": "fade0a440247e496e0808cfe40607b4e81eed322f5c9f22dbd7018300684a7c2",
+      "bytes": 2037
+    },
+    "submission/runs/U-dt1fs/imdgroup.gro": {
+      "sha256": "8e384a372f0c1803b3811e5a027470bb0b50187d9746e5da2a317128113afde9",
+      "bytes": 16123
+    },
+    "submission/runs/U-dt1fs/index.ndx": {
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c",
+      "bytes": 32431
+    },
+    "submission/runs/U-dt1fs/input.mdp": {
+      "sha256": "b37e0b13278d64a95183c52216e7df9ad5e1939ec6c8a649ddebe00504d04598",
+      "bytes": 2173
+    },
+    "submission/runs/U-dt1fs/md.cpt": {
+      "sha256": "78df2b2a1fa273c95a55788c8f2f70fc5f63da4a058a7966a1ad1ce2ce840e84",
+      "bytes": 158560
+    },
+    "submission/runs/U-dt1fs/md.edr": {
+      "sha256": "f665ae540b406b717136bb28bb4e0460a24f411fa6b7b7a91905a0d47fe42283",
+      "bytes": 3656
+    },
+    "submission/runs/U-dt1fs/md.gro": {
+      "sha256": "eac91a33dac1ca76152f5b2a9b17b640c5b15e9e38f504c7175afbfbcf69d7dc",
+      "bytes": 450828
+    },
+    "submission/runs/U-dt1fs/md.log": {
+      "sha256": "a73848288d9b5eecb6b7d864ba43bff12843b9d1e08bfc0f8fdda8b8daef5fc5",
+      "bytes": 31685
+    },
+    "submission/runs/U-dt1fs/md.xtc": {
+      "sha256": "0a820877e17b6f57558228bd64912b1e030ef36bc68c7ad4435aae1a8e4f8062",
+      "bytes": 70464
+    },
+    "submission/runs/U-dt1fs/mdout.mdp": {
+      "sha256": "4e229908e0e288e7123ca9db52d8f5c40e763e116672b488f08cd5ce93b56f0f",
+      "bytes": 10718
+    },
+    "submission/runs/U-dt1fs/mdrun.console.log": {
+      "sha256": "a4ca11eab8643b7126e4ade18538c405d93c427c071a57a29430795cc7ede275",
+      "bytes": 1482
+    },
+    "submission/runs/U-dt1fs/processed.top": {
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "bytes": 122196
+    },
+    "submission/runs/U-dt1fs/sample0.gro": {
+      "sha256": "300b48ca032481a52cb960da85376ad64fb5f1095a420d1719c7010938229338",
+      "bytes": 294057
+    },
+    "submission/runs/U-dt1fs/sample1.gro": {
+      "sha256": "a4b073bcbfa83886ed4ea9f5f41b7adda6f73f19e130dbcc7d83c94888d5bb0a",
+      "bytes": 294059
+    },
+    "submission/runs/U-dt1fs/sample2.gro": {
+      "sha256": "216a205a68cf537d64037700b55527cc7819b00f0463010dd38f30ba6d1384e7",
+      "bytes": 294060
+    },
+    "submission/runs/U-dt1fs/source-NVT-audit-only.mdp": {
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb",
+      "bytes": 1980
+    },
+    "submission/runs/U-dt1fs/start.gro": {
+      "sha256": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479",
+      "bytes": 294066
+    },
+    "submission/runs/U-dt1fs/topol.top": {
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "bytes": 122438
+    },
+    "submission/runs/U-dt1fs/topol.tpr": {
+      "sha256": "dd9d35010db1fd3f0feea1b864f62377c6846b5c9241b6fedec1cea67bf75852",
+      "bytes": 229428
+    },
+    "submission/runs/U-dt1fs/tpr-dump.stderr": {
+      "sha256": "7eee48533772c2f07ebfddf9ce251d25517dfe15ec8f6ddc822ac0a5479b0aa0",
+      "bytes": 929
+    },
+    "submission/runs/U-dt1fs/tpr-state-dump.txt": {
+      "sha256": "32e2c8845e003d41b6a3110a1898c422930a365585efb9033f4519b3c8d49650",
+      "bytes": 1450635
+    },
+    "submission/runs/U-dt1fs/trjconv.log": {
+      "sha256": "a7f8e4e7a4455b56fe18a4ca5b5184001d8432687ca0f108d6616ae6bdef4295",
+      "bytes": 1561
+    },
+    "submission/runs/U-dt2fs/energy.xvg": {
+      "sha256": "6ee63b0e3bff627c546029d7cba11c21fc0ef1f889311c7125b97d6489bf952e",
+      "bytes": 2466
+    },
+    "submission/runs/U-dt2fs/gmx-energy.log": {
+      "sha256": "6e857e5577ac112355a853ce25b1fd490dfec7399e6e70ea6412302d8564a511",
+      "bytes": 3390
+    },
+    "submission/runs/U-dt2fs/grompp.console.log": {
+      "sha256": "8df1f536420f719c1c2ec20a4e403efc4836d12b26956caad0bbc4a73d21c398",
+      "bytes": 2066
+    },
+    "submission/runs/U-dt2fs/imdgroup.gro": {
+      "sha256": "8e384a372f0c1803b3811e5a027470bb0b50187d9746e5da2a317128113afde9",
+      "bytes": 16123
+    },
+    "submission/runs/U-dt2fs/index.ndx": {
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c",
+      "bytes": 32431
+    },
+    "submission/runs/U-dt2fs/input.mdp": {
+      "sha256": "2571d9538f1f71c049e7499152e341bfc75713e288f90c16c074b6ef0ddc6df0",
+      "bytes": 2168
+    },
+    "submission/runs/U-dt2fs/md.cpt": {
+      "sha256": "e9d2837c5bfa72dcbb9017f56bdd15764505eb6b7e3d48d3d3087019c27b8a29",
+      "bytes": 158560
+    },
+    "submission/runs/U-dt2fs/md.edr": {
+      "sha256": "e9adae6b5574bb17e97f93fcd011bf29ca11b5582b34ed41663811c99674dcd6",
+      "bytes": 3656
+    },
+    "submission/runs/U-dt2fs/md.gro": {
+      "sha256": "9c9304013d29f42004dd1e3157ff6f8f4bb2e68e8dff4035292027d4b55c927c",
+      "bytes": 450828
+    },
+    "submission/runs/U-dt2fs/md.log": {
+      "sha256": "fc67cc4a100e356536d4d322bd7083ddd84e63d40bf846f2f30abd5682c80109",
+      "bytes": 31681
+    },
+    "submission/runs/U-dt2fs/md.xtc": {
+      "sha256": "68cd1915943e8bf88c37dfcdcdd6109075693e52387b8c62feb94eb7d4f76ee5",
+      "bytes": 70412
+    },
+    "submission/runs/U-dt2fs/mdout.mdp": {
+      "sha256": "827a905273783bbadb96d89c7787f84915949eb05f27e8a6eba64eb6544c56dc",
+      "bytes": 10713
+    },
+    "submission/runs/U-dt2fs/mdrun.console.log": {
+      "sha256": "322bb7af6485046fd6c40d10418812f96dac400a85ee3ec6457355d785b1d5f1",
+      "bytes": 1595
+    },
+    "submission/runs/U-dt2fs/processed.top": {
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "bytes": 122196
+    },
+    "submission/runs/U-dt2fs/sample0.gro": {
+      "sha256": "300b48ca032481a52cb960da85376ad64fb5f1095a420d1719c7010938229338",
+      "bytes": 294057
+    },
+    "submission/runs/U-dt2fs/sample1.gro": {
+      "sha256": "49a89aa676c526a1f81f4228c0f2950f77c38f71d779f677e724c7018b2471a7",
+      "bytes": 294059
+    },
+    "submission/runs/U-dt2fs/sample2.gro": {
+      "sha256": "74a4c10b7db2cbcdbbeab02d09554b3574b136a63d95ffd4f53c1d3d214b8e08",
+      "bytes": 294059
+    },
+    "submission/runs/U-dt2fs/source-NVT-audit-only.mdp": {
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb",
+      "bytes": 1980
+    },
+    "submission/runs/U-dt2fs/start.gro": {
+      "sha256": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479",
+      "bytes": 294066
+    },
+    "submission/runs/U-dt2fs/topol.top": {
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "bytes": 122438
+    },
+    "submission/runs/U-dt2fs/topol.tpr": {
+      "sha256": "845f9c4b0fc4ccc651c06a1f097a6ad546a4a55bbc5a25704085e182e9436f4b",
+      "bytes": 229428
+    },
+    "submission/runs/U-dt2fs/tpr-dump.stderr": {
+      "sha256": "8189560767d489c3bd8669b271ed71772a50bb2ae292c9b20cec5069e3b30351",
+      "bytes": 957
+    },
+    "submission/runs/U-dt2fs/tpr-state-dump.txt": {
+      "sha256": "613c06f3acd535900e37c58476c44378a56b770fd78ea61625b8dfc9f62bcac1",
+      "bytes": 1450632
+    },
+    "submission/runs/U-dt2fs/trjconv.log": {
+      "sha256": "7cdc473a398d6778d1fbfa5f70f87a5e7f682ade98677194c0b94fc367f9f922",
+      "bytes": 1674
+    },
+    "submission/scientific-rationale.md": {
+      "sha256": "0df10a888a8a19415ed64628172fe74a531899772ea90254424b5272da9411b9",
+      "bytes": 1492
+    },
+    "submission/source-manifest.json": {
+      "sha256": "f3df46a38bbfe9e2fc083b85d4293b7839ef4b4e63933be2a7bf20cef8488834",
+      "bytes": 1389
+    }
+  },
+  "source_fingerprints": {
+    "tests/refs.json": "0ffaa906a67369ef30c8ed6023d672b0e114926c66a2b5640219f85408379a58",
+    "tests/reference-hashes.json": "81db36bcce693375fcd80840a4de87886d774db41c926cba67aa4c9b17027db0",
+    "tests/verification-plan.yaml": "bb483e5261470324e2da59fc1cd4da7aa0e9b3c5174fcc869cfe65ce91e0e744",
+    "tests/verify.py": "819cab9b9c9cc09c1722f4e8ddd1bce9d74211a94b0fd512a5bc59fc42682603",
+    "tests/review_status.py": "f406924461c3c594d57c50414939fbad10da044b94deaae5b528bf0561ee924d",
+    "tests/test.sh": "bc223d0fde616df1ba1ce76224c8312cec83f47946d5247628cdbba34c6a508c",
+    "tests/test_verifier_fixtures.py": "4193c8e870c208872f38ceb16711418bb168a0a8ce3fe567e5bf38217520cffe",
+    "tests/code-fingerprints.json": "101240144e27f23660b28b457c65e1978c8d23219d4f92643c88d86bec7b6f18",
+    "code/jobs/case08/qualification-20261017/qualification_preflight.py": "00561ff58f388a780ef73668a5459e468c92f5fe401b31ff278f43a2730ff094",
+    "code/jobs/case08/qualification-20261017/remote_qualify.sh": "0a1c0a459a6ee0c88c8239ca98ca19b5d0c75d1d0f57e86942d7dbbfbc483427",
+    "code/jobs/case08/qualification-20261017/submit.sh": "69fcb83607c3da02e605a2affb6d27d63d8e332610961d9e91eb4efa8f416972",
+    "code/packages/case-08-short-md-stop-go/compute-budget.yaml": "f649a4eab1f89cbfd3a9738224ffd1f2466579bde7aeab77587bfb79ee644349",
+    "code/packages/case-08-short-md-stop-go/environment/Dockerfile": "e140395e35c3efa0512c870bb83f2a6041db2b6de145f2edbc9f045e030e4a45",
+    "code/packages/case-08-short-md-stop-go/environment/submit-job.json": "250c7fc6bbeea23fd57b25d456e3d5509799fafa2db77c1ab6667a0b2a111212",
+    "code/packages/case-08-short-md-stop-go/output-contract.json": "fc4712b545d777582fad6486b219cbb59fd131482a0f37324f5c7c8d69ee4ffe",
+    "code/packages/case-08-short-md-stop-go/solution/case08_remote.sh": "6843bba1405bd9fa0b327cbe421f5d30471195bb1d84fd5a9a365b1a11188e05",
+    "code/packages/case-08-short-md-stop-go/solution/case08_tools.py": "258a99679bbccb870cad0ba86c52beac4ce754fe3b9f4531af64c9f3ae9accb7",
+    "code/packages/case-08-short-md-stop-go/solution/postprocess_decision.py": "c72667e9be50094e6e8a93f441b8ab7b9119066f4cf7dc72c33974b0b1fa8379",
+    "code/packages/case-08-short-md-stop-go/solution/solve.sh": "0c8afb70b09a6888850fe76d06f98470ea1b4999ae300e6d1d6ce85910548718",
+    "code/packages/case-08-short-md-stop-go/task.toml": "3e419b342f667a36f1c0630d3e98cc4d083289b5d50651830000c2dade829fa1",
+    "code/packages/case-08-short-md-stop-go/tests/review_status.py": "0dcfcf1239e9ea199ee69b43a281291ad2d0501ae1e9cf317b45c7ebb83fa83d",
+    "code/packages/case-08-short-md-stop-go/tests/test.sh": "bc223d0fde616df1ba1ce76224c8312cec83f47946d5247628cdbba34c6a508c",
+    "code/packages/case-08-short-md-stop-go/tests/test_solve_collect_fixture.py": "218f03752fb87c2d5c352ef08c3f2df63a9c7c73c8cb841ea814d60a52dbfa87",
+    "code/packages/case-08-short-md-stop-go/tests/test_verifier_fixtures.py": "03877b2e0581dc8f36c727fd1c40adb0b5c70212d0acc73a0b20e4e3365f61b3",
+    "code/packages/case-08-short-md-stop-go/tests/verification-plan.yaml": "bb483e5261470324e2da59fc1cd4da7aa0e9b3c5174fcc869cfe65ce91e0e744",
+    "code/packages/case-08-short-md-stop-go/tests/verify.py": "0563a887e7f6386c9190177057b9e16bc2ef95b12306335b232ff8a92fa20321",
+    "code/packages/case-08-short-md-stop-go/verification.md": "13189b6e4e3421d494914cb74913732b4dd8b73abef6e9db5acbb818089a33f6"
+  },
+  "input_hashes": {
+    "environment/assets/NVT-50ps-dt1fs.mdp": "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b",
+    "environment/assets/NVT-50ps-dt2fs.mdp": "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e",
+    "environment/assets/NVT.mdp": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb",
+    "environment/assets/b.gro": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+    "environment/assets/conf_template.pdb": "71b3fd1fa0f6027449d50b8f053f272d847d96adac70802b7e7744635c203ec9",
+    "environment/assets/remote-input-provenance.json": "56651dbc56b4b467b270307cbd3fb247498d239db09eef819cdb3d315e608eca",
+    "environment/assets/topol.top": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+    "environment/assets/u.gro": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479"
+  },
+  "execution_evidence_path": "evidence/verified-execution-4082781.json",
+  "criteria": {
+    "bounded_remote_native_engine_run_and_provenance": {
+      "status": "PASS",
+      "evidence": "Independent review of existing Slurm job 4082781 and retained scheduler receipt: COMPLETED 0:0 in 11 s on cu068, one node, 8 CPUs, 8 GiB. GROMACS 2022.6 native output contains 96 files whose hashes and sizes match. The four effective mdout.mdp files each configure 1 ps (1000×0.001 ps or 500×0.002 ps), total 4 ps. Peak RSS is unavailable and is not reported as measured."
+    },
+    "paired_timestep_intervention_and_physical_parameter_control": {
+      "status": "PASS",
+      "evidence": "Independently parsed TPR x/v vectors agree within both B and U timestep pairs. Effective MDP files preserve ref-t 300 300 300, all-bonds, PME, v-rescale, and no pressure coupling; topology/input hashes agree. Step counts differ to provide equal 1 ps comparison intervals."
+    },
+    "numerical_temperature_constraint_and_water_geometry_diagnosis": {
+      "status": "PASS",
+      "evidence": "Four native energy series each contain 11 samples spanning 0–1 ps; sampled GRO diagnostics contain 12 rows total at three times per run. Box dimensions are 4.0324 nm. No true numerical/LINCS warning was found. Temperature means B1/B2/U1/U2 are 298.8917/301.3779/304.3510/302.0959 K; mean constraint RMSD 5.4545e-6/2.1818e-5/5.4545e-6/2.1273e-5; conserved-energy endpoint changes +0.59375/+5.796875/+2.742187/+4.945312 kJ/mol. First-20-water geometry method, PBC, and source frames are declared. Misleading 0–25/25–50 labels are accompanied by raw times/counts and empty late-window statistics; those windows are not mandatory. This supports only short diagnostics, not equilibration or long-term stability."
+    },
+    "bounded_go_stop_decision_and_inference_scope": {
+      "status": "FAIL",
+      "evidence": "continuation-decision.json says stop because “Runs incomplete or shorter than the configured 50 ps” for all four runs. The actual configured duration is 1 ps and every run completes it; there is no failure, resource exhaustion, or numerical event supporting that incompleteness claim. It also calls them “These 50 ps NVT comparisons” and says to stop only for incomplete runs, non-finite diagnostics, or explicit native warnings, none of which holds. scientific-rationale.md and MVP-scope.md repeat an “original 50 ps completeness criterion” absent from the method-neutral contract. The correct inference limits and future 1 fs check do not repair the false decision premise. The failure is not the 1 ps length or empty later windows."
+    }
+  }
+}

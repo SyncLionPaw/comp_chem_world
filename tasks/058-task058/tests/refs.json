@@ -1,0 +1,184 @@
+{
+  "case_id": "case-04-seebeck-validity",
+  "criteria": [
+    {
+      "criterion": "deliverables",
+      "level": "L1",
+      "necessary": true,
+      "description": "所有冻结输出可解析，条件、单位和方向可追溯。"
+    },
+    {
+      "criterion": "analysis_execution",
+      "level": "L2",
+      "necessary": true,
+      "description": "提交分析脚本和执行日志，审查脚本与原始数组、输出对应关系。"
+    },
+    {
+      "criterion": "seebeck_and_units",
+      "level": "L3",
+      "necessary": true,
+      "description": "作者原始 Seebeck 与电导/迁移率数组可重算；n cm^-3 转 m^-3、mu cm^2/(V s) 转 m^2/(V s)；数值 rtol=1e-6。",
+      "verification_basis": {
+        "type": "author_artifact",
+        "rationale": "作者原始 Seebeck 与电导/迁移率数组可重算；n cm^-3 转 m^-3、mu cm^2/(V s) 转 m^2/(V s)；数值 rtol=1e-6。",
+        "source": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck"
+      }
+    },
+    {
+      "criterion": "diffusive_interpretation",
+      "level": "L3",
+      "necessary": true,
+      "description": "主文 Fig.4b 与 SI Eq.11–15 支持 CRTA 的常数 lifetime 在 Seebeck 比值中约去，但能量相关散射仍可改变 S；Si、CdS 的声子拖曳不在冻结模型中。",
+      "verification_basis": {
+        "type": "paper_result",
+        "rationale": "主文 Fig.4b 与 SI Eq.11–15 支持 CRTA 的常数 lifetime 在 Seebeck 比值中约去，但能量相关散射仍可改变 S；Si、CdS 的声子拖曳不在冻结模型中。",
+        "source": "docs/41467_2021_22440_MOESM1_ESM.pdf Eqs.11–15; main p.6"
+      }
+    }
+  ],
+  "public_input_hashes": {
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/GaAs/AMSET_transport.json": "6ecc76ef8ce5ab71c2d65ab0d7a091a639f98f7b75b851b62d96e922ff181a08",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/GaAs/CRT_transport.json": "3a3f1305776eb9848f0b497597276c198e924871bab9365df2eb1c469f19b0b1",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/p-GaAs/AMSET_transport.json": "ff0a183f484a82cbaf2f40829427147affd321885ac45fc2d45dbf5e0a721132",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/p-GaAs/CRT_transport.json": "134313a46d7dfdce1ab94aab3bf425a063a41a1eea086dd55178f8c152175c03",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/SnSe/AMSET_transport.json": "1bfb7baf28013de3018270bfe54bcb0776cc0337c89392165e0e710929724d33",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/SnSe/CRT_transport.json": "78100c2348356d411e06ff93adf3d3f9b0f02c35fb1a156c03597847750df55c",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/Si/AMSET_transport.json": "7e289cffdf367b7ebb75244cc69378295c1af5dbad586b0b8e570513c81daa10",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/Si/CRT_transport.json": "b00b928584411b43ee6ae8a0b99b470548f3387bc92c626ea89c816868b6d705",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/CdS/AMSET_transport.json": "ca2fc3f01a7cbc0dd25cc73c86746da8c5026496d0012a45b35884c0b2de209e",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/CdS/CRT_transport.json": "311592585cd39c39cd71618b193c03ed25c41dca43a109729b570a77d45882b3"
+  },
+  "reference_contract": {
+    "kind": "public-array-recomputation-v1",
+    "derivation": "decode-sha256-verified-author-arrays-and-recompute-case-specific-observables",
+    "values": "derived-from-public-inputs-not-copied-gold-arrays"
+  },
+  "numeric_tolerances": {
+    "reported_value_rtol": 1e-06,
+    "reported_value_atol": 1e-08,
+    "input_grid_rtol": 1e-12
+  },
+  "evidence_provenance": {
+    "paper": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "supplementary": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  },
+  "task_metadata": {
+    "handoff_version": "1.0",
+    "case_id": "case-04-seebeck-validity",
+    "title": "Seebeck 极性、各向异性与弛豫时间敏感性",
+    "artifacts": [
+      "/app/final/results.json",
+      "/app/final/analysis.py",
+      "/app/final/run.log",
+      "/app/final/report.md"
+    ],
+    "requirements": {
+      "software": [
+        "Python >=3.11",
+        "NumPy"
+      ],
+      "inputs": [
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/GaAs/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/GaAs/AMSET_transport.json",
+          "sha256": "6ecc76ef8ce5ab71c2d65ab0d7a091a639f98f7b75b851b62d96e922ff181a08"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/GaAs/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/GaAs/CRT_transport.json",
+          "sha256": "3a3f1305776eb9848f0b497597276c198e924871bab9365df2eb1c469f19b0b1"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/p-GaAs/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/p-GaAs/AMSET_transport.json",
+          "sha256": "ff0a183f484a82cbaf2f40829427147affd321885ac45fc2d45dbf5e0a721132"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/p-GaAs/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/p-GaAs/CRT_transport.json",
+          "sha256": "134313a46d7dfdce1ab94aab3bf425a063a41a1eea086dd55178f8c152175c03"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/SnSe/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/SnSe/AMSET_transport.json",
+          "sha256": "1bfb7baf28013de3018270bfe54bcb0776cc0337c89392165e0e710929724d33"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/SnSe/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/SnSe/CRT_transport.json",
+          "sha256": "78100c2348356d411e06ff93adf3d3f9b0f02c35fb1a156c03597847750df55c"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/Si/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/Si/AMSET_transport.json",
+          "sha256": "7e289cffdf367b7ebb75244cc69378295c1af5dbad586b0b8e570513c81daa10"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/Si/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/Si/CRT_transport.json",
+          "sha256": "b00b928584411b43ee6ae8a0b99b470548f3387bc92c626ea89c816868b6d705"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/CdS/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/CdS/AMSET_transport.json",
+          "sha256": "ca2fc3f01a7cbc0dd25cc73c86746da8c5026496d0012a45b35884c0b2de209e"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/CdS/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/CdS/CRT_transport.json",
+          "sha256": "311592585cd39c39cd71618b193c03ed25c41dca43a109729b570a77d45882b3"
+        }
+      ]
+    },
+    "verification": {
+      "implementation": "implemented",
+      "scientific_implementation": "implemented",
+      "scientific_verifier": "tests/verify.py",
+      "scoring_scope": "full",
+      "verifier": "tests/verify.py"
+    },
+    "compute": {
+      "class": "local",
+      "cpus": 2,
+      "memory_mb": 2048,
+      "network": "no-network"
+    },
+    "environment": {
+      "build_timeout_sec": 1800,
+      "cpus": 2,
+      "memory_mb": 2048,
+      "allow_internet": false
+    },
+    "agent": {
+      "timeout_sec": 1800,
+      "allow_internet": false
+    },
+    "verifier": {
+      "timeout_sec": 300,
+      "isolation": "container",
+      "extra_tmpfs": [
+        "/dev/shm:rw,exec,nosuid,nodev,size=512m"
+      ]
+    }
+  },
+  "scoring_integrity": {
+    "tests/verify.py": "abe9d7d77ffb08d9b93536adae072836207873cf6f55e0ff820d7bd91ca96153",
+    "tests/test.sh": "8e84a4ef50048099db38b5dd71710eea4a75a43f8057a8469a6b9f1e2c5c4291"
+  },
+  "evidence_documents": {
+    "environment/assets/literature/paper.pdf": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "environment/assets/literature/supplementary.pdf": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "case_id": "case-02-water-cv-validation",
+  "source_hashes": {
+    "environment/assets/g4-native-traces.npz": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "environment/assets/trace-provenance.json": "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5",
+    "environment/assets/deep-lda-method.md": "7008a9ae9e93ad8f3990ba65d1393625e2c976dc7d668e8cabad1618b59b8427",
+    "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+    "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "environment/assets/g4-descriptors.csv": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "environment/assets/g4-model-weights.npz": "85ccbf359e268871eea3052cdc6a18ff33f52b1c117d5b40c9d987e4a0365455",
+    "environment/assets/g4-model-export.json": "fa6c370426cdc030c61e078d50dd4356fb1f692cebd2df4f4195801d7310581e",
+    "tests/evidence/mvp-model/full-g4-model-export.json": "78a2cb3e2aae607592762af6118d66fe541297448ef476a2a194798eb843d80e",
+    "tests/evidence/mvp-model/g4-model-torch-reference.csv": "3a8918ed0ed43540d91b82a2df0e589ef40fff7f07c93dbc9374ab6b5baff56e",
+    "tests/evidence/mvp-model/g4-model-gradient-reference.csv": "e05b47d204cb754e3e1442ba9b5550aeb9066dba50179008fd68cf1a71dfeb94"
+  },
+  "derived_evidence": {
+    "cv_trace_diagnostics": {
+      "n_rows": 353353,
+      "one_archived_COLVAR_record": "The three NN outputs are columns from one archived trajectory/configuration, not independent simulations.",
+      "pairwise": {
+        "node0_node1": {
+          "pearson": -0.9328377268083499,
+          "sign_invariant_abs_pearson": 0.9328377268083499
+        },
+        "node0_node2": {
+          "pearson": -0.9619396529513989,
+          "sign_invariant_abs_pearson": 0.9619396529513989
+        },
+        "node1_node2": {
+          "pearson": 0.9817079989011207,
+          "sign_invariant_abs_pearson": 0.9817079989011207
+        }
+      },
+      "descriptive_elapsed_blocks": {
+        "1": {
+          "time_range_ps": [
+            0.0,
+            35335.2016784
+          ],
+          "n": 70671,
+          "outputs": {
+            "node0": {
+              "mean": 0.0609178941857339,
+              "sd": 0.7567893749780585
+            },
+            "node1": {
+              "mean": -0.37439839113639256,
+              "sd": 0.6825526696039356
+            },
+            "node2": {
+              "mean": -0.1966869111799748,
+              "sd": 0.7577913255870865
+            }
+          }
+        },
+        "2": {
+          "time_range_ps": [
+            35335.2016784,
+            70670.4033568
+          ],
+          "n": 70670,
+          "outputs": {
+            "node0": {
+              "mean": -0.19104252865430876,
+              "sd": 0.75150856045362
+            },
+            "node1": {
+              "mean": -0.12362808263761145,
+              "sd": 0.785341323061477
+            },
+            "node2": {
+              "mean": 0.04965675109664638,
+              "sd": 0.8002348739396378
+            }
+          }
+        },
+        "3": {
+          "time_range_ps": [
+            70670.4033568,
+            106005.60503519999
+          ],
+          "n": 70671,
+          "outputs": {
+            "node0": {
+              "mean": -0.3515541749798361,
+              "sd": 0.7928980300935933
+            },
+            "node1": {
+              "mean": 0.16182106804771407,
+              "sd": 0.7807017819099497
+            },
+            "node2": {
+              "mean": 0.26513408045733045,
+              "sd": 0.8043237414250893
+            }
+          }
+        },
+        "4": {
+          "time_range_ps": [
+            106005.60503519999,
+            141340.8067136
+          ],
+          "n": 70670,
+          "outputs": {
+            "node0": {
+              "mean": -0.36927344700721665,
+              "sd": 0.7480304217683763
+            },
+            "node1": {
+              "mean": 0.09353959530210841,
+              "sd": 0.8037942538492742
+            },
+            "node2": {
+              "mean": 0.24439285269562758,
+              "sd": 0.7993231669046562
+            }
+          }
+        },
+        "5": {
+          "time_range_ps": [
+            141340.8067136,
+            176676.008392
+          ],
+          "n": 70671,
+          "outputs": {
+            "node0": {
+              "mean": 0.04148707956587568,
+              "sd": 0.7970417879650039
+            },
+            "node1": {
+              "mean": -0.2834026998344441,
+              "sd": 0.7398106197217855
+            },
+            "node2": {
+              "mean": -0.15436664261153796,
+              "sd": 0.7922026835176148
+            }
+          }
+        }
+      }
+    }
+  }
+}

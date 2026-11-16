@@ -1,0 +1,67 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/bench20-task-136"
+version = "0.1.0"
+description = "Published tensor-property results and convention reconciliation"
+keywords = [ "computational-chemistry", "NEP", "bench20",]
+
+[agent]
+timeout_sec = 3600
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+os = "linux"
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+gpus = 0
+build_timeout_sec = 1800
+
+[metadata.compchembench]
+handoff_version = "1.0"
+case_id = "case-04"
+title = "Published tensor-property results and convention reconciliation"
+
+[metadata.compchembench.agent_interface]
+reference_solution_provided = true
+
+[metadata.compchembench.reference_solution]
+provided = true
+entrypoint = "solution/solve.sh"
+audience = "author_only"
+provides = "source_document_execution"
+execution_note = "solution/reference.py reads the author-only official PDFs in solution/source, extracts the requested measurements and conventions, and derives the structured checks from source text and counterexamples. It does not read tests/refs.json or a precomputed answer. Independent source PDFs in tests/refs are grader integrity references. Neither directory is copied into the Agent image. SI redistribution terms remain unconfirmed; see the bench README."
+
+[metadata.compchembench.requirements]
+software = [ "Python 3",]
+inputs = []
+
+[metadata.compchembench.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[metadata.compchembench.compute]
+class = "local"
+network = "public"
+
+[metadata.compchembench.agent]
+timeout_sec = 3600
+
+[metadata.compchembench.verifier]
+timeout_sec = 600
+isolation = "container"
+
+[metadata.compchembench.environment]
+allow_internet = true
+
+[metadata.compchembench.validation]
+case_delivery_status = "COMPLETE"
+environment_status = "READY"
+agent_result = "PASS"
+formal_agent_evaluation_allowed = true

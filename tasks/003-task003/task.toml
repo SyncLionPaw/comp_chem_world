@@ -1,0 +1,32 @@
+# Harbor task config migrated from the archived Bench01 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-03-low-data-model-selection"
+description = "Analyze public low-data learning curves for identity-confirmed mechanistic, no-transition-state, and reaction-fingerprint representations using paired splits and evaluator-owned independent refits of the declared model protocol. No blind-test, candidate-code execution, or model-internals claim is made."
+
+[task]
+name = "compchemworld/case-03-low-data-model-selection"
+description = "Analyze public low-data learning curves for identity-confirmed mechanistic, no-transition-state, and reaction-fingerprint representations using paired splits and evaluator-owned independent refits of the declared model protocol. No blind-test, candidate-code execution, or model-internals claim is made."
+
+[agent]
+timeout_sec = 14400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 600
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 600
+network_mode = "no-network"

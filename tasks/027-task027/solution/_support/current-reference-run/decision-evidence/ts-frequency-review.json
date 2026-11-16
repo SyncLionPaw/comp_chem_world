@@ -1,0 +1,98 @@
+{
+  "schema": "case07-independent-ts-frequency-review/v1",
+  "status": "ACCEPT_TS_FREQUENCY_AND_REACTION_MODE_PROCEED_SIGNED_ENDPOINTS",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "job_id": "4042346",
+  "source_terminal_result_sha256": "fd9621b1328f5760d4587e87a6e7078e91c3c2cd7e2620a57041cfc744c1e4a0",
+  "source_hessian_path": "acceptance/complete-07-20261025/attempt-1b4461d70eed4d1db4a1af01b86ea882/neb-01/ts-frequency-preparation-01/runtime-01/final/native_outputs/jobs/4042346/job.hess",
+  "source_hessian_sha256": "cf018a54f6bb078284e6b9e621fdaec367c0e04fdbc244d88711e3fefc96bb2b",
+  "local_artifacts_rehashed": 9,
+  "native_frequency_reparse": "PASS current stage_facts(expected_imaginary=1) through transparent temporary raw-byte alias; full63 output/Hess frequencies/ZPE/input geometry",
+  "method": "uks pbe d3bj def2-svp def2/j ri defgrid3",
+  "scf": "VeryTightSCF",
+  "engine": "ORCA6.0.1",
+  "energy_au": -646.840213437313,
+  "zpe_au": 0.15034575,
+  "rigid_modes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "physical_imaginary_indices": [
+    6
+  ],
+  "frequency_cm1": -282.71877765864997,
+  "hessian_symmetry_error": 0.0,
+  "hessian_vs_input_geometry_after_translation_max_atom_angstrom": 1.516825549821142e-08,
+  "spin_S2": 0.753012,
+  "reaction_mode": "Signed actual vector couples C1-C5 ring opening, O10-O11 cleavage and C1-O11 carbonyl formation; donor-to-acceptor H motion is in the product direction. Not a detached peripheral mode.",
+  "displacement": {
+    "mode_index": 6,
+    "amplitude_angstrom": 0.12,
+    "normalization": "max_atom_cartesian",
+    "mode_vector_convention": "raw_hess_modes",
+    "phase_source": "eigenvector-as-written",
+    "signs": [
+      -1,
+      1
+    ],
+    "predicted_role_only": {
+      "-1": "C2 product direction",
+      "1": "BPR direction"
+    },
+    "pair_distances_angstrom": {
+      "-1": {
+        "1-5": 1.9831683508096054,
+        "10-11": 2.24627380494284,
+        "13-14": 1.0418294975507738,
+        "10-14": 1.6662435665971411,
+        "1-11": 1.2449550623768055
+      },
+      "0": {
+        "1-5": 1.8035045528101128,
+        "10-11": 2.135029395299728,
+        "13-14": 1.0141089909038956,
+        "10-14": 1.790320040530477,
+        "1-11": 1.2801677893819106
+      },
+      "1": {
+        "1-5": 1.6240472843869833,
+        "10-11": 2.0250456517742235,
+        "13-14": 0.9957221649715088,
+        "10-14": 1.9148626766409158,
+        "1-11": 1.3171542961592653
+      }
+    }
+  },
+  "endpoint_admission": {
+    "execution": "Four serial jobs: minus Opt,minus AnFreq,plus Opt,plus AnFreq; actual successful optimization before each corresponding frequency",
+    "resources_each": {
+      "wall_seconds": 1800,
+      "cpus": 8,
+      "memory_gib": 16,
+      "scratch_gib": 20
+    },
+    "total_requested_wall_seconds": 7200,
+    "overhead_reserve_seconds": 1800,
+    "automatic_retry": false,
+    "source": "Only actual TS Hessian signed displacement, not path-preoptimized endpoints",
+    "gate": "Exact actual deterministic seeds/inputs/driver narrow review before execution; final roles require actual opposite mapped BPR/C2 minimum graphs and zero physical imaginary modes, otherwise stop review."
+  },
+  "resources": {
+    "known_terminal_allocations": 12,
+    "actual_allocated_cpu_seconds": 55040,
+    "new_frequency_elapsed_seconds": 735,
+    "new_frequency_allocated_cpu_seconds": 5880,
+    "close": "CONFIRMED",
+    "peak_memory": "UNKNOWN in sealed allocation record"
+  },
+  "not_complete": [
+    "No final connected endpoint proof yet",
+    "No barrier from final same-level BPR frequency yet",
+    "No current Oracle or independent exact-candidate regrade yet"
+  ],
+  "nas": "PAUSED"
+}

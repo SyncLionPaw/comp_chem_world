@@ -1,0 +1,176 @@
+{
+  "case_id": "case-06-water-model-free-energy",
+  "expected_outputs": [
+    "submission/metrics.json",
+    "submission/per_ligand_effects.csv",
+    "submission/interpretation.json",
+    "submission/comparison-report.md",
+    "submission/provenance.json"
+  ],
+  "output_contract": {
+    "description": "Compute comparison metrics and provide a bounded model-effect diagnosis.",
+    "submission_directory": "submission/",
+    "files": {
+      "metrics.json": "protocol, metrics{TIP3P,TIP4P_EW}; each model has absolute_rmse_kcal_mol,offset_kcal_mol,offset_rmse_kcal_mol,pearson_r2,linear_slope,kendall_tau.",
+      "per_ligand_effects.csv": "ordered G1–G6; columns ligand,TIP4P_EW_minus_TIP3P_kcal_mol,TIP3P_minus_experiment_kcal_mol,TIP4P_EW_minus_experiment_kcal_mol.",
+      "interpretation.json": "water_model_effect{mean_shift_kcal_mol,more_negative_ligands},ranking{kendall_tau_TIP3P,kendall_tau_TIP4P_EW,ranking_comparison},absolute_accuracy{lower_RMSE_model},uncertainty{sigma_scope},causality{force_field_causal_claim_supported}.",
+      "comparison-report.md": "Discuss absolute error, offset, ranking, per-ligand changes, reported sampling uncertainty and causal scope.",
+      "provenance.json": "input_sha256, source{doi,document,page,tables}, metric_protocol."
+    },
+    "interpretation_schema": {
+      "ranking.ranking_comparison": [
+        "similar",
+        "different"
+      ],
+      "absolute_accuracy.lower_RMSE_model": [
+        "TIP3P",
+        "TIP4P_EW"
+      ],
+      "uncertainty.sigma_scope": [
+        "sampling_only",
+        "model_form_or_force_field"
+      ],
+      "causality.force_field_causal_claim_supported": [
+        true,
+        false
+      ]
+    },
+    "provenance_schema": {
+      "input_sha256": "SHA-256 of supplied derived observation CSV",
+      "source": {
+        "doi": "10.1038/s41467-020-20310-0",
+        "document": "41467_2020_20310_MOESM1_ESM.pdf",
+        "page": 58,
+        "tables": [
+          19,
+          20
+        ]
+      }
+    },
+    "tolerances": {
+      "metric_abs": 1e-06,
+      "per_ligand_abs": 1e-06,
+      "mean_shift_kcal_mol_abs": 0.01
+    },
+    "review_limits": {
+      "max_required_text_file_bytes": 45000,
+      "max_total_required_text_bytes": 120000,
+      "max_csv_bytes": 10000000,
+      "max_csv_columns": 128,
+      "max_csv_record_chars": 12000,
+      "max_artifact_files": 128,
+      "max_artifact_path_chars": 512,
+      "csv_fields_may_contain_embedded_newlines": false,
+      "max_review_view_chars": 180000,
+      "extra_artifact_policy": "Non-text extras are retained by SHA-256, media type and byte size; the judge does not parse them, and scientific numeric claims require independent replay."
+    },
+    "scientific_criteria": [
+      {
+        "criterion": "six_ligand_absolute_and_offset_error_regression_metrics",
+        "necessary": true,
+        "required_evidence": "SI provides the six experimental/TIP3P/TIP4P-Ew values and rounded metric checks; equal-weight metrics are recomputed from those acquired observations.",
+        "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "per_ligand_water_model_shifts_and_common_offset",
+        "necessary": true,
+        "required_evidence": "Six paired water-model values support per-ligand shifts and an equal-weight mean offset.",
+        "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "ranking_vs_absolute_error_diagnosis",
+        "necessary": true,
+        "required_evidence": "Reported Kendall ranking is 0.87 for both models while the absolute RMSE differs, so ranking agreement and absolute accuracy answer different questions.",
+        "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "sampling_sigma_and_causal_scope_limits",
+        "necessary": true,
+        "required_evidence": "Reported σ values describe simulation estimates; this six-ligand comparison does not identify causal force-field error or model-form uncertainty.",
+        "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      }
+    ],
+    "required_paths": [
+      "submission/metrics.json",
+      "submission/per_ligand_effects.csv",
+      "submission/interpretation.json",
+      "submission/comparison-report.md",
+      "submission/provenance.json"
+    ],
+    "schemas": {
+      "submission/metrics.json": "protocol, metrics{TIP3P,TIP4P_EW}; each model has absolute_rmse_kcal_mol,offset_kcal_mol,offset_rmse_kcal_mol,pearson_r2,linear_slope,kendall_tau.",
+      "submission/per_ligand_effects.csv": "ordered G1–G6; columns ligand,TIP4P_EW_minus_TIP3P_kcal_mol,TIP3P_minus_experiment_kcal_mol,TIP4P_EW_minus_experiment_kcal_mol.",
+      "submission/interpretation.json": "water_model_effect{mean_shift_kcal_mol,more_negative_ligands},ranking{kendall_tau_TIP3P,kendall_tau_TIP4P_EW,ranking_comparison},absolute_accuracy{lower_RMSE_model},uncertainty{sigma_scope},causality{force_field_causal_claim_supported}.",
+      "submission/comparison-report.md": "Discuss absolute error, offset, ranking, per-ligand changes, reported sampling uncertainty and causal scope.",
+      "submission/provenance.json": "input_sha256, source{doi,document,page,tables}, metric_protocol."
+    }
+  },
+  "inputs": {
+    "environment/assets/water-model-observations.csv": "08a8902f5198209bb5ef1a36f7a7c8a2fa6c32fd75c6cc2ab91b51d4c6716782",
+    "environment/assets/method-basis.md": "82467e7f4de2651b202418e17418e04e50f352c632cc229fb2b29f748fc66d82"
+  },
+  "criteria": [
+    {
+      "criterion": "six_ligand_absolute_and_offset_error_regression_metrics",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "author_table_and_derived_reference",
+        "source": "packages/case-06-water-model-free-energy/tests/refs.json",
+        "source_sha256": "c9f6676fdde1b77b815fe315418ed9fb0d64e6153c668ce3793b267c077fc2e2",
+        "input_sha256": "08a8902f5198209bb5ef1a36f7a7c8a2fa6c32fd75c6cc2ab91b51d4c6716782",
+        "script_sha256": "958124aa9b2d05791d6b04745bfad84cea083995423360ef74a4ddf217f9a58f",
+        "rationale": "SI provides the six experimental/TIP3P/TIP4P-Ew values and rounded metric checks; equal-weight metrics are recomputed from those acquired observations."
+      }
+    },
+    {
+      "criterion": "per_ligand_water_model_shifts_and_common_offset",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "author_table_and_derived_reference",
+        "source": "packages/case-06-water-model-free-energy/tests/refs.json",
+        "source_sha256": "c9f6676fdde1b77b815fe315418ed9fb0d64e6153c668ce3793b267c077fc2e2",
+        "input_sha256": "08a8902f5198209bb5ef1a36f7a7c8a2fa6c32fd75c6cc2ab91b51d4c6716782",
+        "rationale": "Six paired water-model values support per-ligand shifts and an equal-weight mean offset."
+      }
+    },
+    {
+      "criterion": "ranking_vs_absolute_error_diagnosis",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "author_table",
+        "source": "packages/case-06-water-model-free-energy/tests/refs.json",
+        "source_sha256": "c9f6676fdde1b77b815fe315418ed9fb0d64e6153c668ce3793b267c077fc2e2",
+        "rationale": "Reported Kendall ranking is 0.87 for both models while the absolute RMSE differs, so ranking agreement and absolute accuracy answer different questions."
+      }
+    },
+    {
+      "criterion": "sampling_sigma_and_causal_scope_limits",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "packages/case-06-water-model-free-energy/tests/refs.json",
+        "source_sha256": "c9f6676fdde1b77b815fe315418ed9fb0d64e6153c668ce3793b267c077fc2e2",
+        "rationale": "Reported σ values describe simulation estimates; this six-ligand comparison does not identify causal force-field error or model-form uncertainty."
+      }
+    }
+  ],
+  "review_policy": "数值检查与必要科学评审分开；当前只提供数值诊断。重新接入后必须逐项评审必要科学判据，不得由文件存在或数值通过直接授予科学 PASS。",
+  "contract_fingerprints": {
+    "instruction.md": "51a88504845f084105596bdb20c19456920fd088826a3fe494efe903a664514a",
+    "task.toml": "a71d8141007b1446d114f4a8b4369ae9fb1e63b197caad749ccf03a665c7865d",
+    "output-contract.yaml": "5d753a474f511e7ff420018b28ea875ad07c4a6d4cacf8ad7714e02d33023e5c",
+    "output-contract.json": "4d601b4dc47ee3e6ee87ec6d35dd6eb8013a21a1e56d435f07c3b157f0567027"
+  }
+}

@@ -1,0 +1,60 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/case-06-path-identity"
+description = "真实双向路径与反应端点图身份"
+
+[agent]
+timeout_sec = 4200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1200
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 1800
+network_mode = "public"
+
+[metadata]
+execution_class = "local"
+name = "case-06-path-identity"
+title = "真实双向路径与反应端点图身份"
+[[metadata.source_hashes]]
+path = "environment/assets/case06_reference_ts.xyz"
+sha256 = "c6d1f0f2faa9e4dd0dfa40ccf96cfb4d2b4c6e99f7bfd907c0d13058650bbcb2"
+
+[[metadata.source_hashes]]
+path = "environment/assets/case06_original_zenodo_000_R.xyz"
+sha256 = "5836d06545213c34025ede4e5626b8592de4cb2829b2a775dc3b3e0f5e6d5292"
+
+[[metadata.source_hashes]]
+path = "environment/assets/case06_original_zenodo_000_P.xyz"
+sha256 = "611e03e2875519d65e1c5cb6aecb4e6dde9ae534be059867c3f71fa9882723fd"
+
+[[metadata.source_hashes]]
+path = "environment/assets/path_protocol.json"
+sha256 = "b6a922f12ac849f4ae5228839354408e7312838eecf350ed432a60f1cbacee57"
+
+[[metadata.source_hashes]]
+path = "environment/assets/best_model_state.tar"
+sha256 = "a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3"
+
+[[metadata.source_hashes]]
+path = "environment/assets/newtonnet_model_spec.yml"
+sha256 = "eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf"
+
+[[metadata.source_hashes]]
+path = "environment/assets/output-contract.json"
+sha256 = "3e0afef72aaa43907765ac309989a254e13019ddfaea19f45337cc7ed0ce254a"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 1800
+network_mode = "no-network"
+

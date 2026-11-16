@@ -1,0 +1,68 @@
+{
+  "case_id": "case-03",
+  "definition_sha256": "48e52ae969d4d33cb36037c51fd61762e01fb976814c6fcd83b9247e8e3f10f3",
+  "verification_implementation": "implemented",
+  "asset_hashes": {
+    "assets/task09_task_spec.json": "sha256:19d291667436496af822c8a1ae0e710961b6229ba9e42d848500aa0c52804cda",
+    "assets/gamma_usf_fig2c_parameters.csv": "sha256:84359d2e18ec9d8575d297b6defb7c55cdca8ee7340685e60844b018dd3824d3",
+    "assets/gamma_usf_fig2c_parameters.provenance.json": "sha256:7302c26640c1bfde8f4da3ac785411e6d48daaa5cd31f1a809d39ed8a413a9fd"
+  },
+  "grader_reference_hashes": {},
+  "criteria": [
+    {
+      "criterion": "source_and_units",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Actual 18 source anchors and SI ensemble/area model",
+        "rationale": "Anchor mapping and mJ/m2 versus J/m2 correct; configurations are independent SQS examples, not a displacement path; source precision remains separate from sample variation."
+      },
+      "tolerance": "Anchor mapping and mJ/m2 versus J/m2 correct; configurations are independent SQS examples, not a displacement path; source precision remains separate from sample variation."
+    },
+    {
+      "criterion": "coverage_response",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Linear contrasts on real published means; Cauchy-Schwarz variance bound for unknown covariance",
+        "rationale": "All six alloys response and curvature are calculated; SE uses n=9 only as a model assumption, both ddof alternatives reported. Contrast variance uses a^T Cov a and admissible covariance, never fake sample bootstrap."
+      },
+      "tolerance": "All six alloys response and curvature are calculated; SE uses n=9 only as a model assumption, both ddof alternatives reported. Contrast variance uses a^T Cov a and admissible covariance, never fake sample bootstrap."
+    },
+    {
+      "criterion": "loop_area_transport",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "SI finite-area averaging model sigma_A=sigma_108*sqrt(108/A)",
+        "rationale": "All 72 area/anchor rows, Gaussian quantiles and nonpositive probabilities are consistent. Area scaling applies to physical ensemble spread, not mean-estimation SE. Negative tails disclosed, not silently clipped."
+      },
+      "tolerance": "All 72 area/anchor rows, Gaussian quantiles and nonpositive probabilities are consistent. Area scaling applies to physical ensemble spread, not mean-estimation SE. Negative tails disclosed, not silently clipped."
+    },
+    {
+      "criterion": "scientific_inference",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Source contrasts plus declared sensitivity families",
+        "rationale": "Hardening, nonlinearity and ranks are supported or reported unresolved under stated model. Statistical confidence is conditional on the assumptions, not inferred observed covariance. Adjacent rank contrasts must be calculated; missing covariance alone is not a reason to declare every contrast unresolved, because worst-correlation bounds can support some conditional signs. Report normal plug-in assumption, not exact confidence guarantees with n9."
+      },
+      "tolerance": "Hardening, nonlinearity and ranks are supported or reported unresolved under stated model. Statistical confidence is conditional on the assumptions, not inferred observed covariance. Adjacent rank contrasts must be calculated; missing covariance alone is not a reason to declare every contrast unresolved, because worst-correlation bounds can support some conditional signs. Report normal plug-in assumption, not exact confidence guarantees with n9."
+    },
+    {
+      "criterion": "actual_numerical_work",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "execution_validity",
+        "source": "Local computation trace and independently recomputable outputs",
+        "rationale": "Execution inputs/code/grid are traceable; source table readback alone cannot establish the inference."
+      },
+      "tolerance": "Execution inputs/code/grid are traceable; source table readback alone cannot establish the inference."
+    }
+  ]
+}

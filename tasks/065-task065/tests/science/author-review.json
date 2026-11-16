@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "case_id": "case-04-g4-hydration-water-bridge",
+  "review_status": "PASS",
+  "reviewer": "Codex source-only migration; scientific criteria inherited from Sol (independent model scientific audit)",
+  "reviewed_on": "2026-10-27",
+  "criteria": {
+    "coordinate_geometry_atom_ids_units_and_pbc": {
+      "status": "PASS",
+      "evidence": "Independent geometry replay checked the 64-frame coordinate excerpt, 960 coordinate values and seven relevant atom contacts with the declared units, atom IDs, template alignment and rotated-box periodic boundaries."
+    },
+    "matched_z_and_radius_hydration_contrast": {
+      "status": "PASS",
+      "evidence": "Recomputed the reported matched pair (frames 3084 and 8272): |Δz| = 0.0035155 nm and |Δr| = 0.0003663 nm, both inside the frozen 0.02 nm matching window. The output reports a local water-feature contrast without treating sparse snapshots as a population estimate."
+    },
+    "water_bridge_geometry_and_hypothesis_limits": {
+      "status": "PASS",
+      "evidence": "Recomputed the cited O–O, donor-angle and Br-contact geometry. The near-Br contact does not satisfy the stated hydrogen-bond geometry; the candidate says the bridge is unsupported for these snapshots and does not infer kinetics or prevalence."
+    },
+    "full_frame_join_and_OPES_weights": {
+      "status": "PASS",
+      "evidence": "Replayed all 8,834 source rows on the 20 ps time grid. The instantaneous weights use exp(βV_bias), not V_rct; normalized mass sums to one, ESS is 145.591564, and bound-like mass is 0.903832 under the frozen masks."
+    },
+    "state_analysis_scope_and_summary": {
+      "status": "PASS",
+      "evidence": "Recomputed the native-coordinate bound/unbound masks, three separately normalized burn-in windows, state summaries and the reported cavity-water range (2–27; mean 18.228308). Interpretation distinguishes native coordinates from auxiliary descriptors and avoids standard-state binding free-energy claims."
+    },
+    "contiguous_block_statistics": {
+      "status": "PASS",
+      "evidence": "Verified all 45 non-overlapping contiguous 4,000 ps blocks and the declared finite-sample summaries; the report does not treat blocks as independent replicas or infer equilibrium from one constrained trajectory."
+    }
+  },
+  "input_hashes": {
+    "environment/assets/g4-coordinate-samples.npz": "574c49fdc457fec2b57d3d81e9fadde6bb59e269e5676568b0d69d7a37e14550",
+    "environment/assets/coordinate-provenance.json": "ec950e3438e0e982dd2f9ff8644879d3b2415976781d9d4a4052fbb050ccec20",
+    "environment/assets/g4-descriptors.csv": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "environment/assets/descriptor-provenance.json": "0cdaef45fc096bd1aca62229c665a1736a3ae336a59caf847cc5c34b22c5effd",
+    "environment/assets/geometry-method.md": "d863e5b015aefb9b08a6bffab712e829c374289ca36a9847ad8369607226f0d6",
+    "environment/assets/g4-trajectory-observables.csv": "8382f7bfb0356e5ee63ecb38337509a4f2df9674ae55af6fc121a5dfbf38744f",
+    "environment/assets/g4-trajectory-observables.provenance.json": "459cac2a99bd2480952f33309004b815542542f68fa8c503fa4569959748deb7"
+  },
+  "source_fingerprints": {
+    "tests/assessment-protocol.json": "18d6c380941aa17790dcf9144c444cac1f744fb55471ea68b6a2ff220ff3412b",
+    "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+    "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+    "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "tests/g4_model_numpy.py": "a9f3ba5475d5804ae56844b89ca5a466ee63ef11fae292ac92ad0078e66f950d",
+    "tests/mvp_numeric.py": "cbcdc1b88f3f83a092f82f80f10ce6cd82cc1cbe7bbe2ad88449a0299524306f",
+    "tests/numeric_evidence.py": "55768019de295940e5907956b1d28ae069b0893efb6cc8b060c27b946c2caab1",
+    "tests/reference-hashes.json": "61797872b1400d3bee40181d966cc937e4e2456011bf63b5f4bc455df14f8873",
+    "tests/refs.json": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
+    "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+    "tests/test.sh": "f0778702f773fe6ed79835ef186de83aaa92e73dd0123974688c7a0faee79776",
+    "tests/test_case04_cavity_summary_compat.py": "ca6e24b6a1563dd8cdde3140874b5512f409ac15fc145930dd3335ae99471d1b",
+    "tests/verification-plan.yaml": "0773cc97aaac3beff2039a1e1e6022a1c33c03fb572bdbf80f8db0f2c9ffb76a",
+    "tests/verify.py": "2dca9f73c6e68470dac313f8a49e7804eaaf8b336ee40a5585d4e5ead60bc5c8",
+    "contract/instruction.md": "6405fa465e9401d52e276ba1a803a503ebd4a6bb9fb96758f7b6df1c841b9a04",
+    "contract/task.toml": "ef7adaec5e558056501b80b170d96af97258da747d0ae75f8020733343f4714b",
+    "contract/output-contract.json": "4e089132c34b3273dd11964fee51d912119add66576a7172da739bc0429687f6",
+    "contract/output-contract.yaml": "15165df38787ec6789ab1c8411130a9ddd95e77f884eb5cd4052740696617c98",
+    "contract/instruction.zh-CN.md": "b359c4cf4acbe1c9fd3bbcc0ac31ed8285c6c7f1aff81d2a879a3e7472df4b27",
+    "contract/environment/instructions-zh-CN.md": "b359c4cf4acbe1c9fd3bbcc0ac31ed8285c6c7f1aff81d2a879a3e7472df4b27",
+    "contract/environment/instruciton.md": "6405fa465e9401d52e276ba1a803a503ebd4a6bb9fb96758f7b6df1c841b9a04"
+  },
+  "candidate_manifest": {
+    "coordinate-observables.csv": {
+      "sha256": "3110a5bdfcf29515b9cf774f9a9a13b333c0eb1cf325b6b441a14bf5ed3db88d",
+      "bytes": 28924
+    },
+    "geometry-evidence.csv": {
+      "sha256": "43467dce289d5391ee3d2042dbfa4234798ccaeaa584b8b519a2741e0998e20f",
+      "bytes": 1440
+    },
+    "mechanism-decision.md": {
+      "sha256": "70af9665b9344a26c00467c827434020d1ea54026f119f412f6b5cc9965ebd1f",
+      "bytes": 376
+    },
+    "state-analysis.json": {
+      "sha256": "39258fa8d8b71d7fdfba2c4893bceec71b3fa4266314f2f39ea7d68d27904b54",
+      "bytes": 5439
+    },
+    "state-blocks.csv": {
+      "sha256": "9764bbb2ac83d5ce584aa3693f8a04f77709ca8bca18b7a5f299fb8d77aa9412",
+      "bytes": 4646
+    },
+    "state-frames.csv": {
+      "sha256": "d94dbf7936507bdca8b642ca0c3ea568b9ab32698e5f4f37d2b5059943d071d3",
+      "bytes": 1094702
+    },
+    "state-hypotheses.json": {
+      "sha256": "5caf80416a6ed492f61573e4f2120a34acd24c2388c9b0f5debb03ac1140ad54",
+      "bytes": 5601
+    }
+  },
+  "review_basis": {
+    "previous_record_sha256": "4d51227c09b58b97a35c101bb3acb51daca23cc6b52e1112e1b20c5a092585ad",
+    "root_reviewed_candidate_index_sha256": "8741a6ef11606d14bbbba2ffaebc42e6f0042ca17bb07891c878e934eb67f5a9",
+    "candidate_root_in_author_snapshot": "/private/tmp/bench10-release-20261018-r1/snapshot/10_Host-Guest-Water-Enhanced-Sampling/jobs/10_Host-Guest-Water-Enhanced-Sampling/case-04-g4-hydration-water-bridge/oracle/2026-10-17_22-44-23/workspace",
+    "candidate_manifest_unchanged": true,
+    "scientific_scope_changed": false
+  },
+  "source_only_migration": {
+    "kind": "source_only_approval_inheritance",
+    "scientific_review": "Inherited unchanged from the archived prior approval; no new scientific review was performed.",
+    "prior_review": {
+      "archive_path": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-author-review/task-66/author-review.json",
+      "sha256": "c924695479ade71dd5d5c55554a49fe606c2124feb23d35335d40b77c4bc840b",
+      "reviewer": "Sol (independent model scientific audit)",
+      "reviewed_on": "2026-10-18",
+      "review_status": "PASS"
+    },
+    "candidate_output_evidence": {
+      "oracle_workspace_verified_against_prior_candidate_manifest": true,
+      "baseline_test_status": "PASS",
+      "baseline_reward": 1
+    },
+    "removed_helpers": [
+      {
+        "path": "task 66/tests/apo_numeric.py",
+        "sha256": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834",
+        "source_copied_to_archive": false,
+        "dependency_review": "No runtime/test import or read; historical reference-hash entry removed."
+      },
+      {
+        "path": "task 66/tests/mvp_host_evidence.py",
+        "sha256": "7a507c6ac0e45b93dc4dfcefd923bd27124e6f27e8adac58d97921280052ec19",
+        "source_copied_to_archive": false,
+        "dependency_review": "No runtime/test import or read; historical reference-hash entry removed."
+      }
+    ],
+    "reference_hash_index": {
+      "path": "task 66/tests/reference-hashes.json",
+      "archived_original": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-reference-hashes/task-66/reference-hashes.json",
+      "archived_sha256": "a985125e282409359d14ac2ebf533da4b2de43bd94e54222a603bcd154f7b234",
+      "removed_entries": {
+        "tests/apo_numeric.py": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834",
+        "tests/mvp_host_evidence.py": "7a507c6ac0e45b93dc4dfcefd923bd27124e6f27e8adac58d97921280052ec19"
+      },
+      "new_sha256": "5e4d8f13d494451df64c7e4ef15b68840047f5a89b6de15a729d96d1634ce3df"
+    },
+    "not_performed": [
+      "new scientific review",
+      "new oracle/MD/HPC/SSH execution",
+      "new model training",
+      "candidate solve"
+    ]
+  }
+}

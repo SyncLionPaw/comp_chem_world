@@ -1,0 +1,6 @@
+**
+!Dockerfile
+!assets/
+!assets/_runtime/
+!assets/_runtime/output-contract.json
+!assets/_runtime/README.md

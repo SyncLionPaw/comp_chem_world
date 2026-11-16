@@ -1,0 +1,56 @@
+{
+  "case_id": "case-01",
+  "definition_sha256": "d68a1483d2e902d178f3ad37602423c504ab9960411bd8b9a57089f7e59d01e1",
+  "verification_implementation": "case01-native-uid-slurm-provenance-v2",
+  "asset_hashes": {
+    "assets/task07-scientific-claims.schema.json": "sha256:271031d7b376914ef2cf4b16a7c45cd362f2e8b5093082c71cde4c11f1d8f91a",
+    "assets/task07-model.json": "sha256:fe67b1f381f1a6ee40c06778f2eaa89327a4ea43b4ac0311bdc462ecd80ed6d4",
+    "assets/task07-site-inventory.csv": "sha256:b0c29d123d6678688100741e0a67ac5b371669bae5efe22b79c8a22bb67f0d06",
+    "assets/task07_trusted.py": "sha256:8dfaa143a35d4a3a79eb18966dde1634929b99ee33b481838d5f893117bedd4d",
+    "assets/task07_submit.py": "sha256:dd260203aa86fadbc5bd76cc421b89f9e72c2309bbfc5b958ce485dfae9273fb"
+  },
+  "grader_reference_hashes": {},
+  "criteria": [
+    {
+      "criterion": "pre_result_geometry_and_site_choice",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "有效局域对照要求正确的理想fcc小胞、完整间隙清单、不同近邻化学环境和无结果泄露的事前选择。"
+      },
+      "tolerance": "Independent reconstruction of all 32 inventory rows, FCC geometry and descriptors; actual Slurm submission scripts bind the pre-result choice and input manifest to the runner attempt. Candidate timestamps alone do not establish chronology."
+    },
+    {
+      "criterion": "budgeted_matched_method_design",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "有限任务要求把成对基准、数值敏感性与磁性初态敏感性证据分配到明确预算内。"
+      },
+      "tolerance": "Check all three strict A/B pairs, valid multi-allocation schedules up to the six-task study, positive finite actual resources matched to Slurm/native metadata, actual execution records and the Harbor attempt deadline. Permit equivalent scientifically valid settings."
+    },
+    {
+      "criterion": "native_electronic_execution_validity",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "execution_validity",
+        "rationale": "位点能差必须由真实周期引擎的完整原生输入和输出支撑。"
+      },
+      "tolerance": "Check bound native execution, normal terminal state, energy and XML consistency, electronic convergence, finite extrapolated energy, top-band occupancy, fixed geometry and per-atom local moments; forces are diagnostic."
+    },
+    {
+      "criterion": "paired_preference_and_scope",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "结论仅由同条件位点A/B能差及其数值和磁性响应确定，必须将完整未决与证据缺失区分。"
+      },
+      "tolerance": "Recompute the three deltas, numerical and signed alternate-start response and strict exploratory rule; accept complete UNDECIDED, require deterministic report to equal validated structured claims, and reject unsupported scope claims."
+    }
+  ],
+  "issuer_public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAsr43AzqXopoTgGLZDda3H7hQ6qiQnKOH+h62bs9Uv/E=\n-----END PUBLIC KEY-----\n"
+}

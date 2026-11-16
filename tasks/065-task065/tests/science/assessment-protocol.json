@@ -1,0 +1,182 @@
+{
+  "case_id": "case-04-g4-hydration-water-bridge",
+  "expected_outputs": [
+    "coordinate-observables.csv",
+    "geometry-evidence.csv",
+    "state-hypotheses.json",
+    "mechanism-decision.md",
+    "state-analysis.json",
+    "state-frames.csv",
+    "state-blocks.csv"
+  ],
+  "output_contract": {
+    "required_paths": [
+      "coordinate-observables.csv",
+      "geometry-evidence.csv",
+      "state-hypotheses.json",
+      "mechanism-decision.md",
+      "state-analysis.json",
+      "state-frames.csv",
+      "state-blocks.csv"
+    ],
+    "schemas": {
+      "coordinate-observables.csv": "source_frame_index,time_ps,coordinate_z_nm,coordinate_radius_nm,feature_values,selection_policy",
+      "geometry-evidence.csv": "frame_index,water_O_ids,water_H_ids,partner_O_or_Br_id,distance_nm,angle_deg,criterion_applied,meets_criterion; optional replayable columns: host_O_id,distance_cutoff_nm,angle_cutoff_deg,cutoff_relation=distance_le|reported_only,angle_relation=angle_ge|reported_only|blank. Report atom IDs and units; use a candidate-declared geometric criterion, and treat angle as diagnostic where not applicable.",
+      "state-hypotheses.json": "hypothesis,matched_frames,evidence_for,evidence_against,alternative,claim_limit",
+      "mechanism-decision.md": "support level, geometry, sparse biased sampling limit, falsifying control",
+      "state-analysis.json": "source_bindings,join_counts{matched_frames,unmatched_frames,unique_time_join,tolerance_ps,max_abs_delta_ps,p95_abs_delta_ps},coordinate_definition,weighting_method,weighted_states{bound_like,unbound_like,intermediate:{frame_count,normalized_weight_mass,conditional_weighted_cavity_count_mean,conditional_weighted_bridge_frame_fraction,effective_sample_size},cavity_water_count_range,cavity_occupancy_weighted_distribution,cavity_occupancy_weighted_mean},ESS{all_frames,bound_like,unbound_like},block_summary,sensitivity[{burn_in_ps,frame_count,weight_ess,bound_like_weight_mass,unbound_like_weight_mass,weighted_cavity_count_mean,weighted_bridge_frame_fraction}],scope_limitations. For cavity_water_count_range, cavity_occupancy_weighted_distribution and cavity_occupancy_weighted_mean, accept the canonical weighted_states location or the same-named top-level alias; if both are present, each copy must independently match the source replay. cavity_water_count_range may be [min,max] or an object with integer min and max. Missing, malformed, conflicting or source-inconsistent values fail. Required MVP values: masks on native_cyl_z_nm/native_radius_nm; bound z<0.8 nm,r<=0.45 nm; unbound z>=1.25 nm,r<=0.45 nm; beta=1/(0.00831446261815324 kJ mol-1 K-1 * 300 K), logw=beta*opes_bias_kJ_mol with max-subtraction; windows burn_in_ps=0,20000,40000 independently normalized; 45 blocks of 4000 ps.",
+      "state-frames.csv": "frame_index,time_ps,native_colvar_time_delta_ps,native_cyl_z_nm,native_radius_nm,opes_bias_kJ_mol,opes_rct_kJ_mol,cavity_water_count_r045_z0_1p75,water_bridge_count,log_weight,normalized_weight,state; time and delta tolerances absolute 1e-6 ps; normalized_weight abs 1e-10 + relative 1e-5; weighted masses/probabilities abs 1e-8 + relative 1e-5; other reported numeric summaries abs+relative 2e-5",
+      "state-blocks.csv": "block_index,time_start_ps,time_end_ps,frame_count,effective_sample_size,bound_weight,unbound_weight,deltaG_kcal_mol; 45 contiguous bins [0,4000),[4000,8000),..., end=min(block_start+4000 ps,last_source_time+1 ps), which gives 176661 ps for the pinned record; deltaG is only -RT ln(bound_weight/unbound_weight) conditional finite-sample log-mass proxy, blank if either mass is zero, never standard-state binding free energy.; block endpoints absolute 1e-6 ps, summary numeric tolerance abs+relative 2e-5; for this pinned source final block is [176000,176661) ps (last source time + 1 ps)"
+    },
+    "review_limits": {
+      "max_required_text_file_bytes": 45000,
+      "max_total_required_text_bytes": 120000,
+      "max_csv_bytes": 10000000,
+      "max_csv_columns": 128,
+      "max_csv_record_chars": 12000,
+      "max_artifact_files": 128,
+      "max_artifact_path_chars": 512,
+      "csv_fields_may_contain_embedded_newlines": false,
+      "max_review_view_chars": 180000,
+      "extra_artifact_policy": "Non-text extras are retained by SHA-256, media type and byte size; the judge does not parse them, and scientific numeric claims require independent replay."
+    },
+    "scientific_criteria": [
+      {
+        "criterion": "coordinate_geometry_atom_ids_units_and_pbc",
+        "necessary": true,
+        "required_evidence": "Real positions, atom IDs, template-fit RMSD and rotated box vectors support independent PBC/geometry recomputation.",
+        "accepted_methods": "Do not require one four-state author mask. A plausible bridge requires the submitted atom-level geometry and stated cutoff/angle tests; unsupported or conditional is valid when the selected evidence says so. Never infer kinetics or population from snapshots.",
+        "inference_limits": "以同一套坐标定义计算匹配z/r对的水特征；对每个水桥断言列出具体O IDs、距离、donor-H-acceptor角和Br-water接触，并提供替代解释。可以报告当前证据不足；不能把均匀选帧当作状态占比或动力学事件。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "matched_z_and_radius_hydration_contrast",
+        "necessary": true,
+        "required_evidence": "Two actual frames with coordinate z and radius matched within 0.02 nm show a measured water-feature and Br-contact difference; additional frames support an explicit H-bond geometry test.",
+        "accepted_methods": "Do not require one four-state author mask. A plausible bridge requires the submitted atom-level geometry and stated cutoff/angle tests; unsupported or conditional is valid when the selected evidence says so. Never infer kinetics or population from snapshots.",
+        "inference_limits": "以同一套坐标定义计算匹配z/r对的水特征；对每个水桥断言列出具体O IDs、距离、donor-H-acceptor角和Br-water接触，并提供替代解释。可以报告当前证据不足；不能把均匀选帧当作状态占比或动力学事件。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "water_bridge_geometry_and_hypothesis_limits",
+        "necessary": true,
+        "required_evidence": "Hidden reference lists actual water atom IDs and O–O/H-angle/Br-contact measurements for selected snapshots. Agents may conclude a proposed bridge is unsupported when geometry does not satisfy their stated definition; sparse biased snapshots cannot imply population or kinetics.",
+        "accepted_methods": "Do not require one four-state author mask. A plausible bridge requires the submitted atom-level geometry and stated cutoff/angle tests; unsupported or conditional is valid when the selected evidence says so. Never infer kinetics or population from snapshots.",
+        "inference_limits": "以同一套坐标定义计算匹配z/r对的水特征；对每个水桥断言列出具体O IDs、距离、donor-H-acceptor角和Br-water接触，并提供替代解释。可以报告当前证据不足；不能把均匀选帧当作状态占比或动力学事件。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "full_frame_join_and_OPES_weights",
+        "necessary": true,
+        "required_evidence": "Use all 8,834 rows of the source-pinned derived coordinate/COLVAR table, preserve exact frame IDs, verify the unique time join and report the predeclared instantaneous historical OPES-bias weighting. New MVP fixed baseline: native COLVAR masks use bound z<0.8 nm/r<=0.45 nm and unbound z>=1.25 nm/r<=0.45 nm; beta=1/(0.00831446261815324 kJ mol-1 K-1 * 300 K), instantaneous OPES bias only.",
+        "accepted_methods": "Recompute log weights with beta=1/(R*T), max-subtract before exponentiation, and retain the funnel/upper-wall-constrained scope. Do not use RCT as the instantaneous bias.",
+        "inference_limits": "This is one historical biased trajectory, not equilibrium, unconfined populations, or kinetics.",
+        "review_scope": "Per-frame joins and weights are independently recomputed; physical interpretation remains reviewed."
+      },
+      {
+        "criterion": "state_analysis_scope_and_summary",
+        "necessary": true,
+        "required_evidence": "Report bound-like/unbound-like/intermediate masks, weighted masses and ESS, continuous cavity-water occupancy and bridge summaries, plus burn-in sensitivity. The new versioned MVP baseline requires separately normalized burn-in windows at 0, 20,000 and 40,000 ps, plus the full 45 non-overlapping 4,000 ps blocks; additional declared sensitivities may be included.",
+        "accepted_methods": "Use the public mask definitions and full-table values. If describing low/high occupancy, state the threshold; do not call cavity count zero a dry state when the source range excludes zero. These three burn-in windows and the 4,000 ps block width are explicit requirements of this new MVP version; additional methods may supplement them.",
+        "inference_limits": "Weighted state log-odds are conditional finite-sample proxies, not standard-state binding free energies.",
+        "review_scope": "Declared numeric summaries are independently recomputed; conclusions about hydration remain reviewed."
+      },
+      {
+        "criterion": "contiguous_block_statistics",
+        "necessary": true,
+        "required_evidence": "Provide a complete, non-overlapping coverage of the source timeline by the public 4 ns contiguous blocks and report frame count, ESS, bound/unbound mass, and any explicitly defined conditional state log-odds proxy.",
+        "accepted_methods": "Blocks are descriptive dependence checks from one trajectory, not replicate-level uncertainty. A missing state must be represented as undefined, not zero.",
+        "inference_limits": "No block estimate is a converged standard-state binding free energy or an independent replicate.",
+        "review_scope": "Block boundaries, coverage and numeric values are independently recomputed."
+      }
+    ],
+    "atom_mapping_scope": "Atom-mapping scope: `atom-metadata.json` lists the eight host oxygen atoms in the supplied template-PDB fragment. The source-bound `g4-trajectory-observables.provenance.json` traces all 32 host oxygen atoms in the full G4 trajectory. These records cover different scopes, not conflicting element mappings. Any no-bridge conclusion based on the eight-atom fragment must be stated as conditional on that subset and the supplied coordinate excerpt; it does not establish absence across all 32 host oxygen atoms or the full trajectory."
+  },
+  "inputs": {
+    "environment/assets/g4-coordinate-samples.npz": "574c49fdc457fec2b57d3d81e9fadde6bb59e269e5676568b0d69d7a37e14550",
+    "environment/assets/coordinate-provenance.json": "ec950e3438e0e982dd2f9ff8644879d3b2415976781d9d4a4052fbb050ccec20",
+    "environment/assets/g4-descriptors.csv": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "environment/assets/descriptor-provenance.json": "0cdaef45fc096bd1aca62229c665a1736a3ae336a59caf847cc5c34b22c5effd",
+    "environment/assets/geometry-method.md": "d863e5b015aefb9b08a6bffab712e829c374289ca36a9847ad8369607226f0d6",
+    "environment/assets/g4-trajectory-observables.csv": "8382f7bfb0356e5ee63ecb38337509a4f2df9674ae55af6fc121a5dfbf38744f",
+    "environment/assets/g4-trajectory-observables.provenance.json": "459cac2a99bd2480952f33309004b815542542f68fa8c503fa4569959748deb7"
+  },
+  "criteria": [
+    {
+      "criterion": "coordinate_geometry_atom_ids_units_and_pbc",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_coordinate_reference",
+        "source": "packages/case-04-g4-hydration-water-bridge/tests/refs.json",
+        "source_sha256": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
+        "rationale": "Real positions, atom IDs, template-fit RMSD and rotated box vectors support independent PBC/geometry recomputation."
+      }
+    },
+    {
+      "criterion": "matched_z_and_radius_hydration_contrast",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_same_coordinate_geometry",
+        "source": "packages/case-04-g4-hydration-water-bridge/tests/refs.json",
+        "source_sha256": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
+        "rationale": "Two actual frames with coordinate z and radius matched within 0.02 nm show a measured water-feature and Br-contact difference; additional frames support an explicit H-bond geometry test."
+      }
+    },
+    {
+      "criterion": "water_bridge_geometry_and_hypothesis_limits",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_native_water_geometry_and_paper_claim",
+        "source": "packages/case-04-g4-hydration-water-bridge/tests/refs.json",
+        "source_sha256": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
+        "rationale": "Hidden reference lists actual water atom IDs and O–O/H-angle/Br-contact measurements for selected snapshots. Agents may conclude a proposed bridge is unsupported when geometry does not satisfy their stated definition; sparse biased snapshots cannot imply population or kinetics."
+      }
+    },
+    {
+      "criterion": "full_frame_join_and_OPES_weights",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "source_pinned_full_frame_replay",
+        "source": "packages/case-04-g4-hydration-water-bridge/tests/refs.json",
+        "source_sha256": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
+        "rationale": "Recompute every source frame/time join and instantaneous historical OPES weight from the fixed 8,834-row table; the funnel and upper wall remain constraints."
+      }
+    },
+    {
+      "criterion": "state_analysis_scope_and_summary",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "source_pinned_weighted_state_replay",
+        "source": "packages/case-04-g4-hydration-water-bridge/tests/refs.json",
+        "source_sha256": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
+        "rationale": "Recompute masks from native_cyl_z_nm/native_radius_nm (bound z<0.8 nm and r<=0.45 nm; unbound z>=1.25 nm and r<=0.45 nm), 300 K instantaneous OPES-bias weighting, separately normalized burn-in windows 0/20000/40000 ps, and all 45 contiguous 4000 ps blocks; extra sensitivities may supplement this versioned baseline."
+      }
+    },
+    {
+      "criterion": "contiguous_block_statistics",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "source_pinned_contiguous_block_replay",
+        "source": "packages/case-04-g4-hydration-water-bridge/tests/refs.json",
+        "source_sha256": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
+        "rationale": "Verify complete, non-overlapping public 4 ns blocks and their declared finite-sample summaries; block estimates are not independent replicas or standard-state binding free energies."
+      }
+    }
+  ],
+  "review_policy": "数值检查与必要科学评审分开；当前只提供数值诊断。重新接入后必须逐项评审必要科学判据，不得由文件存在或数值通过直接授予科学 PASS。",
+  "contract_fingerprints": {
+    "instruction.md": "6405fa465e9401d52e276ba1a803a503ebd4a6bb9fb96758f7b6df1c841b9a04",
+    "task.toml": "ef7adaec5e558056501b80b170d96af97258da747d0ae75f8020733343f4714b",
+    "output-contract.json": "4e089132c34b3273dd11964fee51d912119add66576a7172da739bc0429687f6",
+    "output-contract.yaml": "15165df38787ec6789ab1c8411130a9ddd95e77f884eb5cd4052740696617c98",
+    "instruction.zh-CN.md": "b359c4cf4acbe1c9fd3bbcc0ac31ed8285c6c7f1aff81d2a879a3e7472df4b27",
+    "environment/instructions-zh-CN.md": "b359c4cf4acbe1c9fd3bbcc0ac31ed8285c6c7f1aff81d2a879a3e7472df4b27",
+    "environment/instruciton.md": "6405fa465e9401d52e276ba1a803a503ebd4a6bb9fb96758f7b6df1c841b9a04"
+  }
+}

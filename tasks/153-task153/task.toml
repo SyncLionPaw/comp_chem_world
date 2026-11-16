@@ -1,0 +1,29 @@
+# Harbor task config migrated from the archived Bench23 task 153 definition.
+schema_version = "1.4"
+artifacts = ["/app/report.md", "/app/diagnosis.json"]
+
+[task]
+name = "compchemworld/bench23-task-153"
+description = "Diagnose whether the finite M7 occupancy-score sweep supports a robust multiobjective joint decision, using only the supplied sweep CSV."
+
+[metadata]
+task_number = 153
+name = "task 153"
+description = "仅使用给定的扫描 CSV，判断有限 M7 占据分数是否支持稳健的多目标联合决策。"
+case_id = "case04-occupancy-diagnosis"
+execution_class = "local"
+holy_grail = false
+
+[agent]
+timeout_sec = 900
+
+[environment]
+network_mode = "no-network"
+env = { APP = "/app", TESTS = "/tests", LOGS = "/logs/verifier" }
+cpus = 2
+memory_mb = 2048
+gpus = 0
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 120

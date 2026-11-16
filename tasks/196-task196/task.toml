@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/metrics.csv", "/app/per_frame.csv", "/app/analysis.md", "/app/analysis.py", "/app/code", "/app/decision_certificate.json"]
+
+[task]
+name = "compchemworld/case-01-cross-composition-error"
+description = "Compare NNP and ReaxFF energy/force errors across zeolite compositions on the published OOD test set, reconstruct each method's reference states and relative-energy gauges, and diagnose composition-dependent reference offsets against configuration-dependent errors. Deliver metrics.csv, per_frame.csv, an executable analysis and a complete decision certificate covering the full metric, aggregation and weight sensitivity family, without inventing data or inferring bias direction from nonnegative RMSE."
+
+[metadata]
+name = "case-01-cross-composition-error"
+description = "Compare NNP and ReaxFF energy/force errors across zeolite compositions on the published OOD test set, reconstruct each method's reference states and relative-energy gauges, and diagnose composition-dependent reference offsets against configuration-dependent errors. Deliver metrics.csv, per_frame.csv, an executable analysis and a complete decision certificate covering the full metric, aggregation and weight sensitivity family, without inventing data or inferring bias direction from nonnegative RMSE."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 4096
+build_timeout_sec = 2400
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 4096
+build_timeout_sec = 2400
+network_mode = "no-network"

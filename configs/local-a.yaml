@@ -1,0 +1,110 @@
+# Local task subset A: alternating half of the local.yaml task order.
+# local-a.yaml + local-b.yaml cover the full local set with no overlap; for two
+# collaborators testing in parallel. Classification is based on the task environment image/runtime.
+job_name: comp-chem-world-local-a
+n_concurrent_trials: 4
+tasks:
+  - path: tasks/000-hello
+  - path: tasks/002-task002
+  - path: tasks/004-task004
+  - path: tasks/008-task008
+  - path: tasks/010-task010
+  - path: tasks/012-task012
+  - path: tasks/014-task014
+  - path: tasks/016-task016
+  - path: tasks/019-task019
+  - path: tasks/021-task021
+  - path: tasks/023-task023
+  - path: tasks/025-task025
+  - path: tasks/029-task029
+  - path: tasks/031-task031
+  - path: tasks/033-task033
+  - path: tasks/037-task037
+  - path: tasks/039-task039
+  - path: tasks/041-task041
+  - path: tasks/043-task043
+  - path: tasks/047-task047
+  - path: tasks/050-task050
+  - path: tasks/052-task052
+  - path: tasks/054-task054
+  - path: tasks/056-task056
+  - path: tasks/058-task058
+  - path: tasks/061-task061
+  - path: tasks/063-task063
+  - path: tasks/065-task065
+  - path: tasks/067-task067
+  - path: tasks/071-task071
+  - path: tasks/073-task073
+  - path: tasks/076-task076
+  - path: tasks/078-task078
+  - path: tasks/080-task080
+  - path: tasks/084-task084
+  - path: tasks/086-task086
+  - path: tasks/089-task089
+  - path: tasks/091-task091
+  - path: tasks/093-task093
+  - path: tasks/095-task095
+  - path: tasks/097-task097
+  - path: tasks/099-task099
+  - path: tasks/103-task103
+  - path: tasks/107-task107
+  - path: tasks/109-task109
+  - path: tasks/111-task111
+  - path: tasks/113-task113
+  - path: tasks/115-task115
+  - path: tasks/117-task117
+  - path: tasks/120-task120
+  - path: tasks/122-task122
+  - path: tasks/124-task124
+  - path: tasks/126-task126
+  - path: tasks/128-task128
+  - path: tasks/130-task130
+  - path: tasks/132-task132
+  - path: tasks/134-task134
+  - path: tasks/136-task136
+  - path: tasks/139-task139
+  - path: tasks/141-task141
+  - path: tasks/143-task143
+  - path: tasks/145-task145
+  - path: tasks/149-task149
+  - path: tasks/151-task151
+  - path: tasks/155-task155
+  - path: tasks/157-task157
+  - path: tasks/162-task162
+  - path: tasks/167-task167
+  - path: tasks/169-task169
+  - path: tasks/171-task171
+  - path: tasks/174-task174
+  - path: tasks/176-task176
+  - path: tasks/178-task178
+  - path: tasks/182-task182
+  - path: tasks/184-task184
+  - path: tasks/193-task193
+  - path: tasks/196-task196
+  - path: tasks/200-task200
+  - path: tasks/202-task202
+  - path: tasks/204-task204
+  - path: tasks/206-task206
+  - path: tasks/208-task208
+  - path: tasks/210-task210
+  - path: tasks/212-task212
+  - path: tasks/214-task214
+  - path: tasks/216-task216
+  - path: tasks/218-task218
+  - path: tasks/225-task225
+  - path: tasks/227-task227
+  - path: tasks/229-task229
+  - path: tasks/231-task231
+  - path: tasks/233-task233
+  - path: tasks/235-task235
+  - path: tasks/237-task237
+  - path: tasks/241-task241
+  - path: tasks/243-task243
+  - path: tasks/245-task245
+  - path: tasks/247-task247
+
+agents:
+  - name: claude-code
+    model_name: deepseek/deepseek-flash
+    kwargs:
+      version: "2.1.317"

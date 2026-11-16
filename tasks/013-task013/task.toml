@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-13"
+description = 'Construct forward conditional six-alloy hydrogen-embrittlement first-crossing predictions from sourced elastic, absorption, coverage-energy and crack-geometry inputs; test stability and disagreement against source experimental comparators, and delimit an independent Ni experiment comparison without inventing Ni energy parameters. This is not an independent deposited-DFT reconstruction.'
+
+[metadata]
+task_number = 13
+name = 'task 13'
+description = 'Construct forward conditional six-alloy hydrogen-embrittlement first-crossing predictions from sourced elastic, absorption, coverage-energy and crack-geometry inputs; test stability and disagreement against source experimental comparators, and delimit an independent Ni experiment comparison without inventing Ni energy parameters. This is not an independent deposited-DFT reconstruction.'
+execution_class = 'local'
+task_id = "task-13"
+solution_timeout_sec = 1800
+title = '公开参数条件下裂尖解理—发射首交点与实验可比性'
+
+[agent]
+timeout_sec = 3600
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[environment]
+os = "linux"
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+gpus = 0
+network_mode = "no-network"
+allow_internet = false
+

@@ -1,0 +1,81 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/bench20-task-133"
+version = "0.1.0"
+description = "TNEP dipole blind validation (Table 1)"
+keywords = [ "computational-chemistry", "NEP", "bench20",]
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+os = "linux"
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+gpus = 0
+build_timeout_sec = 1800
+
+[metadata.compchembench]
+handoff_version = "1.0"
+case_id = "case-01"
+title = "TNEP dipole blind validation (Table 1)"
+
+[metadata.compchembench.agent_interface]
+reference_solution_provided = true
+
+[metadata.compchembench.reference_solution]
+provided = true
+entrypoint = "solution/solve.sh"
+audience = "author_only"
+
+[metadata.compchembench.requirements]
+software = [ "Python", "NumPy", "C++ compiler", "NEP_CPU or GPUMD",]
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-h2o.xyz"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-h2o-dimer.xyz"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-h5o2plus.xyz"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-liquid-water.xyz"
+
+[metadata.compchembench.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[metadata.compchembench.compute]
+class = "local"
+network = "public"
+
+[metadata.compchembench.agent]
+timeout_sec = 7200
+
+[metadata.compchembench.verifier]
+timeout_sec = 900
+isolation = "container"
+
+[metadata.compchembench.environment]
+allow_internet = true
+
+[metadata.compchembench.validation]
+case_delivery_status = "COMPLETE"
+environment_status = "READY"
+agent_result = "PASS"
+formal_agent_evaluation_allowed = true
+
+[metadata.compchembench.runtime.input_sha256]
+"environment/assets/inputs/nep_dipole_water_monomer.txt" = "72cbd55d24670247fedfcc8833191b08f5c9320051c3f4f05111d5508a87d85f"
+"environment/assets/inputs/nep_dipole_water_dimer.txt" = "9dd80961b806f1ebbdb7e982d81cd666d2aa45a806e33c7038af196e56d35e05"
+"environment/assets/inputs/nep_dipole_water_zundel.txt" = "0acb6024d35e51c5972a4bb4cb367fe9845365783b9ca732f0e09275b39f73c8"
+"environment/assets/inputs/nep_dipole_bulk_water.txt" = "e88f42295a295a0306740909baa63aaac23e5681ab9c65671a7d3c3e7bb7278b"

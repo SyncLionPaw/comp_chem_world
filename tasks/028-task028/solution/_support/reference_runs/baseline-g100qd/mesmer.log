@@ -1,0 +1,106 @@
+
+            /|      /|                        \   
+           / |     / | ________________________\  
+          /  |    /  |  _   _             _   _   
+         /   |   /   | / \ / \ |\     /| / \ / \  
+        /    |  /    | \_/ \_  | \   / | \_/ |_/  
+       /     | /     | /     \ |  \ /  | /   | \  
+    \_/      |/      | \_/ \_/ |   V   | \_/ |  \ 
+
+     Mesmer: Master Equation Solver for Multi-Energy well Reactions
+     Mesmer v7.1 compiled: -- Oct  8 2026 -- 00:06:32
+
+     Copyright (C) 2009-2024 by
+     Struan H. Robertson, Chris Morley, Chi-Hsiu Liang,
+     David R. Glowacki, Michael J. Pilling and contributors
+
+     Mesmer is free software: you can redistribute it and/or modify
+     it under the terms of the GNU Public License as published by
+     the Free Software Foundation, either version 2 of the License,
+     or (at your option) any later version.
+
+     But WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+     GNU Public License for more details.
+
+    You should have received a copy of the GNU Public License
+    along with Mesmer.  If not, see <http://www.gnu.org/licenses/>.
+
+                     Platform:        Linux
+                     Execution Date:  Thu Oct  8 00:12:30 2026
+                     Number of ranks: 1
+
+defaults.xml, librarymols.xml are in ../..
+
+Parsing input xml file...
+Toluene-mech-S2-R1.xml
+
+The default value of me:calcMethod was used.
+--Parse data for simpleCalc
+Energy convention "" written to <moleculeList>
+In R2: Parsing reaction...Isomerization reaction
+In i-BPR: Hindered rotor b10
+In i-BPR: Hindered rotor b12
+In i-BPR: Hindered rotor b14
+In i-BPR: The default value of me:DistributionCalcMethod was used.
+In i-BPR: --Parse data for Boltzmann
+In i-BPR: --Parse data for ExponentialDown
+In P-C2: The default value of me:DistributionCalcMethod was used.
+In P-C2: --Parse data for Boltzmann
+In P-C2: --Parse data for ExponentialDown
+In TS-C2: The default value of the attribute spinMultiplicity was used.
+In TS-C2: Hindered rotor b13
+In TS-C2: Hindered rotor b5
+In TS-C2: Hindered rotor b15
+In R2: --Parse data for SimpleRRKM
+In R2: --Parse data for Eckart
+In R5: Parsing reaction...Isomerization reaction
+In R1: The default value of me:DistributionCalcMethod was used.
+In R1: --Parse data for Boltzmann
+In R1: --Parse data for ExponentialDown
+In TS_R1: The default value of the attribute spinMultiplicity was used.
+In R5: --Parse data for SimpleRRKM
+In R5: --Parse data for Eckart
+In R6: Parsing reaction...Bimolecular sink reaction
+In R6: --Parse data for SimpleRRKM
+In R6: No tunneling method used for R6
+In R7: Parsing reaction...Bimolecular sink reaction
+In R7: --Parse data for SimpleRRKM
+In R7: No tunneling method used for R7
+760Torr, 300K at qd precision with N2
+Excess Reactant Conc. for reaction R6 = 5e+18 particles per cc
+Excess Reactant Conc. for reaction R7 = 5e+18 particles per cc
+The default value of me:ForceMacroDetailedBalance was used.
+Write metadata 20261008_001230
+
+File: "Toluene-mech-S2-R1.xml" successfully parsed.
+Main Calculation begins
+Now calculating...
+
+--Execute calcMethod simpleCalc
+Number of cells = 50000, Number of grains = 413
+Warning: TS-C2 is an asymmetric top containing five or more non-hydrogen
+atoms. The asymmetric top rotation states may be expensive to calculate. You may 
+wish to consider using a classical treatment.
+In FastLaplaceConvolution: 26580 values in the FFT convolution routine were replaced by standard convolution
+Warning: i-BPR is an asymmetric top containing five or more non-hydrogen
+atoms. The asymmetric top rotation states may be expensive to calculate. You may 
+wish to consider using a classical treatment.
+In FastLaplaceConvolution: 26820 values in the FFT convolution routine were replaced by standard convolution
+In timeEvolution: No population was assigned, and there is no source term.
+In timeEvolution: Initial poupulation set to 1.0  in the first isomer.
+
+WARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).
+
+The last CSE = -6.27398e+08 and the first IERE = -6.46245e+08
+(last CSE)/(first IERE) ratio = 0.970835, which is less than an order of magnitude
+
+Results obtained from Bartis Widom eigenvalue-vector analysis may be unreliable
+ -- Total time elapsed: 130 seconds.
+
+
+    Temperature  Concentration    Exp. Coeff.    Cal. Coeff.
+
+
+System saved to out.xml
+Total time elapsed: 130 seconds.

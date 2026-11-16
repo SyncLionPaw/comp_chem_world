@@ -1,0 +1,42 @@
+schema_version = "1.4"
+artifacts = ["/app/results.csv", "/app/analysis.json", "/app/calculations.py"]
+
+[metadata]
+name = "compchemworld/reline-06-ne-audit"
+description = "NE 电导率与相关因子的科学审计"
+case_id = "reline-06-ne-audit"
+title = "NE 电导率与相关因子的科学审计"
+software = ["Python 3 standard library"]
+inputs = [
+  { path = "environment/assets/inputs/conductivity-audit.csv", source_path = "environment/assets/inputs/conductivity-audit.csv", sha256 = "d6422037b9d52118327dd7c990a35347082f042a908306a62fe5cad6a3bff57e" },
+  { path = "environment/assets/inputs/system-spec.json", source_path = "environment/assets/inputs/system-spec.json", sha256 = "e484b4c1964b4fc2c0e7a154ce2e53f131545243e83758b7fdc9fd0e5e5c8a0f" },
+]
+compute = { class = "local", network = "no-network" }
+status = {  }
+
+[task]
+name = "compchemworld/reline-06-ne-audit"
+description = "NE 电导率与相关因子的科学审计"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+# Covers two bounded native checks, independent review and artifact export.
+timeout_sec = 1500
+environment_mode = "separate"
+network_mode = "public"
+
+[verifier.env]
+BENCH07_REVIEW_API_KEY = "${BENCH07_REVIEW_API_KEY:-}"
+BENCH07_REVIEW_BASE_URL = "${BENCH07_REVIEW_BASE_URL:-}"
+BENCH07_REVIEW_MODEL = "${BENCH07_REVIEW_MODEL:-}"
+
+[environment]
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "public"

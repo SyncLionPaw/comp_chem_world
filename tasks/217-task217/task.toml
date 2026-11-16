@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/topology_integrity_report.json", "/app/parameter_consistency_matrix.json"]
+
+[task]
+name = "compchemworld/case-04-force-field-validation"
+description = "Validate the deposited Q6 EVB reaction-region topologies and force-field parameters across the four chimera systems: parse the four .fep files and the 51-window input set, identify all 17 reactive Q atoms, require defined atom_types/Lennard-Jones records for every referenced type, confirm the change_bonds table encodes CSP S-P breaking plus P-O formation, and compare atom-type, LJ and bonded parameter tables across systems."
+
+[metadata]
+name = "case-04-force-field-validation"
+description = "Validate the deposited Q6 EVB reaction-region topologies and force-field parameters across the four chimera systems: parse the four .fep files and the 51-window input set, identify all 17 reactive Q atoms, require defined atom_types/Lennard-Jones records for every referenced type, confirm the change_bonds table encodes CSP S-P breaking plus P-O formation, and compare atom-type, LJ and bonded parameter tables across systems."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 3600
+network_mode = "no-network"

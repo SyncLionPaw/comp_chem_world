@@ -1,0 +1,121 @@
+{
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "candidate_scheduler_projection": "case07-scheduler-record-v2.json",
+  "candidate_scheduler_projection_sha256": "d93f5cf6640d1e9c01a9b72dc6f57fe033f7d8d52c90dc28cf4d0f32d0343a1c",
+  "case_id": "case-07-independent-saddle-point-recomputation",
+  "collected_at_utc": "2026-10-25T12:48:01.310884+00:00",
+  "files": [
+    {
+      "bytes": 2474,
+      "path": "job.bibtex",
+      "sha256": "3129c22b5ab8cfe01c2976803a7e9a3acc2c56862c3bbb49d0759854406e5a27"
+    },
+    {
+      "bytes": 1451808,
+      "path": "job.densities",
+      "sha256": "7822a090629c9caae272b059d23ced62e74b66138d37ad099dfb31f2f1053194"
+    },
+    {
+      "bytes": 3160,
+      "path": "job.densitiesinfo",
+      "sha256": "bdc05eab51141351943d958364f34e8a69d65aa4afa7c75ccf6ea478cf730a67"
+    },
+    {
+      "bytes": 2531,
+      "path": "job.engrad",
+      "sha256": "899a888190a725c93ee7948ebe7dadef90e85e23a0617845a612bb6bc2f2fb3d"
+    },
+    {
+      "bytes": 1813372,
+      "path": "job.gbw",
+      "sha256": "a6af00f1de351902a2d2a1700145b33bbcaa595b3c2ea7d444e6511015aec29b"
+    },
+    {
+      "bytes": 172,
+      "path": "job.inp",
+      "sha256": "9be81fe7598ac85aeac3f03f9fbf8e2127c48090708e6832a088247ce7bc2978"
+    },
+    {
+      "bytes": 33342,
+      "path": "job.opt",
+      "sha256": "d69214a41f80401f7965c8224bc97cac0521aea6a0b5cf611b91673b41287af0"
+    },
+    {
+      "bytes": 267972,
+      "path": "job.property.txt",
+      "sha256": "526f91825b23756b495c18e43ec9020ffa30966041e722167c33bea6487e8ec6"
+    },
+    {
+      "bytes": 2167,
+      "path": "job.sbatch",
+      "sha256": "e36d11ba75dc222636d3cb5b6f5ffd1110a18871521ed1a44e4de2c978ef1b3f"
+    },
+    {
+      "bytes": 1628,
+      "path": "job.xyz",
+      "sha256": "51c3e2b02adee59ded6f2c1e12b836bcbffe7572cdc51032b7c4d79e0ca5d82e"
+    },
+    {
+      "bytes": 35360,
+      "path": "job_trj.xyz",
+      "sha256": "1828f6cb58e6783c9498ba038c98e0765f3ce1d022d7dfe7982eeb0b3ac1893c"
+    },
+    {
+      "bytes": 228,
+      "path": "native-stage-receipt.json",
+      "sha256": "46efcdcb5ed5d49e7e0688f80f5034d5e02e2dbaf70f821fe076ab6202c4fa81"
+    },
+    {
+      "bytes": 2,
+      "path": "native.exitcode",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 0,
+      "path": "orca.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1227895,
+      "path": "orca.stdout",
+      "sha256": "3c3a41989f55c510b34613226e44c3eb2f65bd294f2a8e9ee4db7989b992c740"
+    },
+    {
+      "bytes": 3096,
+      "path": "p04-scheduler-record.json",
+      "sha256": "376e7df2d5a978de72584f16e144bad3509bd370fcdcad8e1ca63d38f81d77bf"
+    },
+    {
+      "bytes": 64,
+      "path": "slurm-4042849.err",
+      "sha256": "2804f173dae0ebba12034a4a14f0b05a3dcd0e06c8e44464cecfb431b2887f90"
+    },
+    {
+      "bytes": 0,
+      "path": "slurm-4042849.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1040,
+      "path": "start.xyz",
+      "sha256": "62b065c474115c6bd2c569fa6005791db9288df2ebfc84bcee65264812777eb2"
+    }
+  ],
+  "host_scratch_observation": {
+    "peak_memory_mib": null,
+    "scratch_measurement": "sampled_owned_directory_usage_not_hard_quota",
+    "scratch_observation_count": 30,
+    "scratch_observed_bytes_peak": 138850982
+  },
+  "job_id": "4042849",
+  "scheduler_record_path": "p04-scheduler-record.json",
+  "scheduler_record_sha256": "376e7df2d5a978de72584f16e144bad3509bd370fcdcad8e1ca63d38f81d77bf",
+  "schema": "case07-p04-collection-index/v1",
+  "scope": "Candidate-side download index; the listed host service hashes were rechecked locally. Not a signed host attestation or scientific assessment.",
+  "stage": {
+    "kind": "extension",
+    "reason": "One bounded continuation from the last complete evaluated native trajectory frame (cycle 16) after the prior minus-side optimization timed out. The prior timeout and partial cycle 17 remain resource-only/raw history; no convergence is presumed.",
+    "route": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF Opt TightOpt",
+    "stage_id": "extension:endpoint-opt:minus:continuation:01"
+  }
+}

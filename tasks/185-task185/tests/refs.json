@@ -1,0 +1,26 @@
+{
+  "schema": "bench28-task185-grading/v1",
+  "component_weights": {
+    "research_report": 0.2,
+    "provenance_links": 0.2,
+    "workflow_artifacts": 0.2,
+    "independent_validation": 0.2,
+    "reproducibility": 0.2
+  },
+  "tolerances": {
+    "validation_quantity_abs": 1e-10,
+    "validation_quantity_rel": 1e-10,
+    "reproducibility_abs": 1e-10,
+    "reproducibility_rel": 1e-08,
+    "rdf_edge_abs": 1e-12,
+    "rdf_value_abs": 1e-08,
+    "native_output_serialization_abs": 1e-08
+  },
+  "rdf_diagnostic": {
+    "bins": 100,
+    "r_max_angstrom": 3.0,
+    "oxygen_minimum": 2,
+    "cell_edge_minimum_angstrom": 6.0
+  },
+  "claim_boundary": "Evidence completeness and consistency only; not scientific correctness, execution authentication, source truth, or genuine validation independence."
+}

@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/krr_model_evaluation.json", "/app/krr_evidence.npz"]
+
+[task]
+name = "compchemworld/case-03-extensive-vs-intensive-soap-krr"
+description = "Compute extensive and intensive SOAP-KRR learning curves on Rad-6 at N=500,1000,2000,4000, with validation-selected regularization, per-molecule predictions and complete kernel condition diagnostics."
+
+[metadata]
+name = "case-03-extensive-vs-intensive-soap-krr"
+description = "Compute extensive and intensive SOAP-KRR learning curves on Rad-6 at N=500,1000,2000,4000, with validation-selected regularization, per-molecule predictions and complete kernel condition diagnostics."
+execution_class = "remote"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 86400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 10800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 1800
+cpus = 8
+memory_mb = 32768
+network_mode = "public"
+
+[verifier.environment]
+build_timeout_sec = 1800
+cpus = 8
+memory_mb = 32768
+network_mode = "no-network"

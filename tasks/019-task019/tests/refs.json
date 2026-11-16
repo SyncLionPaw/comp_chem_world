@@ -1,0 +1,143 @@
+{
+  "schema": "autosolvate-private-refs/v1",
+  "case_id": "case-06",
+  "runtime": {
+    "schema": "autosolvate-scorer/v1",
+    "case_id": "case-06",
+    "inputs": [
+      {
+        "path": "inputs/requests.json",
+        "source_path": "author-evidence/derived-inputs/case-06/requests.json",
+        "sha256": "5bcd08092a1b63e33f29a6171be7af68a8576a519ff1173a46697ab66aec8325"
+      }
+    ],
+    "output_paths": [
+      "decisions.json",
+      "route.py",
+      "analysis.md"
+    ],
+    "output_types": {
+      "decisions.json": "file",
+      "route.py": "file",
+      "analysis.md": "file"
+    },
+    "python_modules": []
+  },
+  "tolerances": {
+    "integer_chemical_counts": 0
+  },
+  "reference": {
+    "decisions": [
+      {
+        "request_id": "R1",
+        "electrons": 68,
+        "verdict": "supported",
+        "reason_codes": [
+          "closed_shell_bcc"
+        ],
+        "charge_method": "am1-bcc",
+        "launch_allowed": true,
+        "charge": 0,
+        "spin_multiplicity": 1
+      },
+      {
+        "request_id": "R2",
+        "electrons": 67,
+        "verdict": "supported",
+        "reason_codes": [
+          "open_shell_resp"
+        ],
+        "charge_method": "resp",
+        "launch_allowed": true,
+        "charge": 1,
+        "spin_multiplicity": 2
+      },
+      {
+        "request_id": "R3",
+        "electrons": 68,
+        "verdict": "invalid_state",
+        "reason_codes": [
+          "electron_spin_parity"
+        ],
+        "charge_method": null,
+        "launch_allowed": false,
+        "charge": 0,
+        "spin_multiplicity": 2
+      },
+      {
+        "request_id": "R4",
+        "electrons": 24,
+        "verdict": "unsupported",
+        "reason_codes": [
+          "unsupported_element_in_published_web"
+        ],
+        "charge_method": null,
+        "launch_allowed": false,
+        "charge": 2,
+        "spin_multiplicity": 5
+      },
+      {
+        "request_id": "R5",
+        "electrons": 134,
+        "verdict": "unsupported",
+        "reason_codes": [
+          "iodine_bond_pattern_outside_published_gaff_scope"
+        ],
+        "charge_method": null,
+        "launch_allowed": false,
+        "charge": 1,
+        "spin_multiplicity": 1
+      },
+      {
+        "request_id": "R6",
+        "electrons": 54,
+        "verdict": "unsupported",
+        "reason_codes": [
+          "unsupported_element_in_published_web"
+        ],
+        "charge_method": null,
+        "launch_allowed": false,
+        "charge": 0,
+        "spin_multiplicity": 1
+      },
+      {
+        "request_id": "R7",
+        "electrons": 26,
+        "verdict": "supported",
+        "reason_codes": [
+          "closed_shell_bcc"
+        ],
+        "charge_method": "am1-bcc",
+        "launch_allowed": true,
+        "charge": 0,
+        "spin_multiplicity": 1
+      },
+      {
+        "request_id": "R8",
+        "electrons": 52,
+        "verdict": "unsupported",
+        "reason_codes": [
+          "published_web_requires_single_solute_molecule"
+        ],
+        "charge_method": null,
+        "launch_allowed": false,
+        "charge": 0,
+        "spin_multiplicity": 1
+      }
+    ]
+  },
+  "chemical_scope": {
+    "supported_elements": [
+      "H",
+      "C",
+      "N",
+      "O",
+      "P",
+      "S",
+      "F",
+      "Cl",
+      "Br",
+      "I"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+# Scientific rationale
+
+This bounded comparison tests whether changing the timestep from 1 fs to 2 fs produces visible numerical or constraint problems under the supplied G4 NVT setup. The decision is `needs_check` because four short trajectories provide a numerical probe, not evidence of equilibrium or production suitability. The energy series, constraint warnings, box, and first-20-water geometry are reported from the native outputs; NVT total energy and finite-sample temperature are not treated as universal pass thresholds. Any continuation should remain within the supplied single-node, 8 CPU, 8 GiB, 30-minute and 200 ps limits.

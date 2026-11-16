@@ -1,0 +1,831 @@
+{
+  "schema_version": "006-author-sweeps/v1",
+  "dataset": "hidden",
+  "source_solver": "packages/case-05-double-layer-structure/solution/edl_solver.py",
+  "source_solver_snapshot": "tests/private/edl_solver_8074b275.py",
+  "source_solver_sha256": "8074b275c0291f6e6273f5691fbbc9a24e03e42d4d6e27407e0434d3aea95a90",
+  "parameters": {
+    "temperature_K": 300.0,
+    "alpha": 0.5,
+    "cell_length_nm": 0.8,
+    "K11": 0.140125,
+    "K12": -0.207118,
+    "K13": 0.01129,
+    "K21": 0.015908,
+    "K22": 2.00394
+  },
+  "units": {
+    "concentration_mM": "mmol/L",
+    "Pbar_C_m2": "C/m^2",
+    "sigma0_C_m2": "C/m^2",
+    "phi0_V": "V",
+    "functional_energy_J_m2": "J/m^2"
+  },
+  "branch_matrix": [
+    {
+      "branch_id": "c1.3_p0.015",
+      "concentration_mM": 1.3,
+      "Pbar_C_m2": 0.015
+    },
+    {
+      "branch_id": "c1.3_p0.025",
+      "concentration_mM": 1.3,
+      "Pbar_C_m2": 0.025
+    },
+    {
+      "branch_id": "c2.4_p0.015",
+      "concentration_mM": 2.4,
+      "Pbar_C_m2": 0.015
+    },
+    {
+      "branch_id": "c2.4_p0.025",
+      "concentration_mM": 2.4,
+      "Pbar_C_m2": 0.025
+    },
+    {
+      "branch_id": "c3.7_p0.015",
+      "concentration_mM": 3.7,
+      "Pbar_C_m2": 0.015
+    },
+    {
+      "branch_id": "c3.7_p0.025",
+      "concentration_mM": 3.7,
+      "Pbar_C_m2": 0.025
+    },
+    {
+      "branch_id": "c6.1_p0.015",
+      "concentration_mM": 6.1,
+      "Pbar_C_m2": 0.015
+    },
+    {
+      "branch_id": "c6.1_p0.025",
+      "concentration_mM": 6.1,
+      "Pbar_C_m2": 0.025
+    },
+    {
+      "branch_id": "c9.2_p0.015",
+      "concentration_mM": 9.2,
+      "Pbar_C_m2": 0.015
+    },
+    {
+      "branch_id": "c9.2_p0.025",
+      "concentration_mM": 9.2,
+      "Pbar_C_m2": 0.025
+    }
+  ],
+  "grid_levels": {
+    "coarse_curve": {
+      "sigma0_C_m2": [
+        -0.15,
+        -0.14,
+        -0.13,
+        -0.12,
+        -0.11,
+        -0.1,
+        -0.09,
+        -0.08,
+        -0.07,
+        -0.06,
+        -0.05,
+        -0.04,
+        -0.03,
+        -0.02,
+        -0.01,
+        0.0,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.1,
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15
+      ],
+      "purpose": "full branch diagnostic curve; never used as a near-zero PZ derivative"
+    },
+    "near_pzc_h": {
+      "h_C_m2": 0.001,
+      "sigma0_C_m2": [
+        -0.002,
+        -0.001,
+        0,
+        0.001,
+        0.002
+      ]
+    },
+    "near_pzc_h2": {
+      "h_C_m2": 0.0005,
+      "sigma0_C_m2": [
+        -0.001,
+        -0.0005,
+        0,
+        0.0005,
+        0.001
+      ]
+    },
+    "near_pzc_h4": {
+      "h_C_m2": 0.00025,
+      "sigma0_C_m2": [
+        -0.0005,
+        -0.00025,
+        0,
+        0.00025,
+        0.0005
+      ]
+    }
+  },
+  "fit": {
+    "primary_concentrations_mM": [
+      1.3,
+      2.4,
+      3.7,
+      6.1,
+      9.2
+    ],
+    "axis_primary": "x=1/C_GC(0); y=1/C_model(sigma0=0)",
+    "alternative_diagnostic": "x=1/C_GC(phi_pzc_model); y=1/C_model(sigma0=0)",
+    "fit_method": "ordinary_least_squares_unweighted",
+    "leave_one_out": true,
+    "neighbor_windows": [
+      [
+        1.3,
+        2.4,
+        3.7,
+        6.1
+      ],
+      [
+        2.4,
+        3.7,
+        6.1,
+        9.2
+      ]
+    ]
+  },
+  "branch_protocol": "Solve sigma0=0 first. Continue positive and negative sigma0 arms independently outward from the center solution; never sweep through zero on one warm-started branch.",
+  "analysis_protocol": {
+    "coarse_curve": "Diagnostic only: at each ordered sigma0 sample, use the local three-point quadratic interpolant phi0(sigma0), then report signed d_sigma/d_phi=1/(d_phi/d_sigma) and |C|. Preserve sigma parameter order through turning points; never sort by phi0. The coarse derivative is not the physical full-resolution capacitance curve.",
+    "physical_curve": "The full capacitance curve is evaluated at every coarse center from actual 005 BVP values in curve_refinement.csv. Apply the five-point derivative at h=.0005, h2=.00025 and h3=.000125 C/m^2; report signed/absolute C and both successive changes. Do not claim h-convergence where observed values fail the declared numerical envelope.",
+    "turning_points": "Report each adjacent coarse interval where sign(d_phi/d_sigma) changes. This is a geometric fold diagnostic only; it does not assert fixed-voltage thermodynamic stability.",
+    "pzc": "Use the exact coarse_curve row sigma0=0; do not infer pzc by phi0=0.",
+    "near_pzc_derivative": "For each near-PZ level with step h, compute five-point d_phi/d_sigma=[phi(-2h)-8phi(-h)+8phi(h)-phi(2h)]/(12h); report C=1/abs(d_phi/d_sigma).",
+    "curve_refinement": {
+      "file": "hidden_curve_refinement.csv",
+      "source_csv_sha256": "0e06d6081a7f04904f4dfac0feaa999ee0418530febc80510fe772047d2796e7",
+      "levels": {
+        "curve_h": {
+          "h_C_m2": 0.0005,
+          "offset_multiple": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ]
+        },
+        "curve_h2": {
+          "h_C_m2": 0.00025,
+          "offset_multiple": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ]
+        },
+        "curve_h3": {
+          "h_C_m2": 0.000125,
+          "offset_multiple": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "centers": [
+        -0.15,
+        -0.14,
+        -0.13,
+        -0.12,
+        -0.11,
+        -0.1,
+        -0.09,
+        -0.08,
+        -0.07,
+        -0.06,
+        -0.05,
+        -0.04,
+        -0.03,
+        -0.02,
+        -0.01,
+        0.0,
+        0.01,
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06,
+        0.07,
+        0.08,
+        0.09,
+        0.1,
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15
+      ],
+      "columns": [
+        "branch_id",
+        "concentration_mM",
+        "Pbar_C_m2",
+        "center_sigma0_C_m2",
+        "derivative_level",
+        "h_C_m2",
+        "offset_multiple",
+        "sigma0_C_m2",
+        "phi0_V",
+        "solver_rms_residual_max",
+        "solver_nodes"
+      ],
+      "note": "At sigma=0 the refinement points are already present in the near-PZ author sweep and are reused; nonzero centers are six actual nearby BVP points per center."
+    },
+    "steps_C_m2": {
+      "h": 0.001,
+      "h2": 0.0005,
+      "h4": 0.00025,
+      "author_reference_h8": 0.000125
+    },
+    "primary_fit": "At each fixed Pbar, OLS of y=1/C_model(sigma0=0) versus x=1/C_GC(phi0=0); all five manifest concentrations, unweighted.",
+    "alternate_reference": "Report diagnostic OLS using x=1/C_GC(phi_pzc_model); never substitute it silently for the primary axis.",
+    "sensitivity": "Report five leave-one-concentration-out fits and the declared lower/upper adjacent four-concentration windows; slopes printed in Figure 8 are provenance only, not targets.",
+    "eps_b": "Bulk dielectric constant used by the Gouy-Chapman reference capacitance C_GC: the supplied two-mode kernel evaluated at k=0, i.e. eps_b = 1 + 1/K11 + 1/K21. It is part of the fixed model input and is not a free physical choice; the water value 78.3 is not used.",
+    "fit_point_fields": "Per concentration point: C_D_F_m2 is the Gouy-Chapman reference capacitance C_GC at phi0=0 and C_D_at_model_pzc_F_m2 is C_GC at phi_pzc_model (both from the eps_b of this contract), while C_pzc_F_m2 is the model capacitance at sigma0=0; x_m2_per_F=1/C_D_F_m2, x_at_model_pzc_m2_per_F=1/C_D_at_model_pzc_F_m2 and y_m2_per_F=1/C_pzc_F_m2."
+  },
+  "analysis_numeric_comparison": {
+    "curve_and_points_rtol": 1e-07,
+    "curve_and_points_atol_F_m2": 1e-09,
+    "fit_rtol": 1e-07,
+    "fit_atol": 1e-08,
+    "phi_pzc_atol_V": 1e-10,
+    "note": "These compare exact derived metrics for a fixed finite dataset, not a tolerance on continuous physical C or experimental fit accuracy."
+  },
+  "numerical_solver": {
+    "domain_A": 1200.0,
+    "initial_mesh_spacing_A": 0.5,
+    "solve_bvp_tolerance": 2e-05,
+    "max_nodes": 30000
+  },
+  "selection": "fixed sigma0, fixed Pbar, T=300 K, alpha=0.5, cell_length=0.8 nm; P1'(0) and bound surface charge are outputs of the 005 variational solver, not optimized inputs.",
+  "claims": {
+    "not_paper_exact_figure8_fit": true,
+    "printed_figure8_slopes_are_orientation_only": true,
+    "primary_gc_reference_is_own_pzc_zero_potential": true,
+    "pzc_is_exact_sigma0_zero_row": true
+  },
+  "source_csv_sha256": "9d5aa515775016143802bfb5aadbd41301307bc8e1f7ee377b67d2384a4582cb",
+  "branch_generation": [
+    {
+      "branch_id": "c1.3_p0.015",
+      "concentration_mM": 1.3,
+      "Pbar_C_m2": 0.015,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 32.254040583000005,
+      "max_solver_rms_residual": 1.999801818171791e-05,
+      "max_mesh_nodes": 3550,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 25.677742042000002,
+      "refinement_max_mesh_nodes": 3557,
+      "min_sigma_energy_J_m2": -0.06440129393703241,
+      "max_sigma_energy_J_m2": 0.002048470459439669,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c1.3_p0.025",
+      "concentration_mM": 1.3,
+      "Pbar_C_m2": 0.025,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 35.69587175,
+      "max_solver_rms_residual": 1.9983304603233988e-05,
+      "max_mesh_nodes": 3858,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 27.509701208000003,
+      "refinement_max_mesh_nodes": 3858,
+      "min_sigma_energy_J_m2": -0.07663446116475608,
+      "max_sigma_energy_J_m2": 0.003440214977983669,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c2.4_p0.015",
+      "concentration_mM": 2.4,
+      "Pbar_C_m2": 0.015,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 36.76426120799999,
+      "max_solver_rms_residual": 1.9998008149599818e-05,
+      "max_mesh_nodes": 3825,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 28.748492958,
+      "refinement_max_mesh_nodes": 3827,
+      "min_sigma_energy_J_m2": -0.06710855532641138,
+      "max_sigma_energy_J_m2": 0.0016340099164218022,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c2.4_p0.025",
+      "concentration_mM": 2.4,
+      "Pbar_C_m2": 0.025,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 27.583141416000004,
+      "max_solver_rms_residual": 1.9994292273222438e-05,
+      "max_mesh_nodes": 3403,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 21.80962012500001,
+      "refinement_max_mesh_nodes": 3405,
+      "min_sigma_energy_J_m2": -0.07935294081733103,
+      "max_sigma_energy_J_m2": 0.0028720272177756396,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c3.7_p0.015",
+      "concentration_mM": 3.7,
+      "Pbar_C_m2": 0.015,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 34.31695183299999,
+      "max_solver_rms_residual": 1.9999902439455015e-05,
+      "max_mesh_nodes": 3586,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 27.14795104199999,
+      "refinement_max_mesh_nodes": 3588,
+      "min_sigma_energy_J_m2": -0.06901320509279786,
+      "max_sigma_energy_J_m2": 0.0013497820383745957,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c3.7_p0.025",
+      "concentration_mM": 3.7,
+      "Pbar_C_m2": 0.025,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 48.70894141699998,
+      "max_solver_rms_residual": 1.9987249592566674e-05,
+      "max_mesh_nodes": 10390,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 38.67627349999998,
+      "refinement_max_mesh_nodes": 10390,
+      "min_sigma_energy_J_m2": -0.08126650537441663,
+      "max_sigma_energy_J_m2": 0.0024816444592239842,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c6.1_p0.015",
+      "concentration_mM": 6.1,
+      "Pbar_C_m2": 0.015,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 27.567459832999987,
+      "max_solver_rms_residual": 1.999847145746099e-05,
+      "max_mesh_nodes": 3971,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 20.924582249999986,
+      "refinement_max_mesh_nodes": 3972,
+      "min_sigma_energy_J_m2": -0.07120632587812839,
+      "max_sigma_energy_J_m2": 0.0010405519796441093,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c6.1_p0.025",
+      "concentration_mM": 6.1,
+      "Pbar_C_m2": 0.025,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 37.87125033299998,
+      "max_solver_rms_residual": 1.9984195568248154e-05,
+      "max_mesh_nodes": 8630,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 30.27124870900002,
+      "refinement_max_mesh_nodes": 8630,
+      "min_sigma_energy_J_m2": -0.08347279302941073,
+      "max_sigma_energy_J_m2": 0.002042266895192281,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c9.2_p0.015",
+      "concentration_mM": 9.2,
+      "Pbar_C_m2": 0.015,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 38.21927070800001,
+      "max_solver_rms_residual": 1.9995206898099657e-05,
+      "max_mesh_nodes": 6273,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 28.882982208000044,
+      "refinement_max_mesh_nodes": 6276,
+      "min_sigma_energy_J_m2": -0.07300700675480534,
+      "max_sigma_energy_J_m2": 0.0009041415777548947,
+      "center_solver_route": "lambda_ramp"
+    },
+    {
+      "branch_id": "c9.2_p0.025",
+      "concentration_mM": 9.2,
+      "Pbar_C_m2": 0.025,
+      "unique_sigma_solutions": 39,
+      "continuation_bvp_solves": 39,
+      "csv_rows": 46,
+      "elapsed_seconds": 86.038285959,
+      "max_solver_rms_residual": 1.998228862327498e-05,
+      "max_mesh_nodes": 25271,
+      "refinement_bvp_solves": 242,
+      "refinement_elapsed_seconds": 65.25357670899996,
+      "refinement_max_mesh_nodes": 25271,
+      "min_sigma_energy_J_m2": -0.08528870023570853,
+      "max_sigma_energy_J_m2": 0.0018040440125331448,
+      "center_solver_route": "sigma0_Pbar_continuation_from_zero"
+    }
+  ],
+  "output_contract": {
+    "schema_version": "006-analysis-output/v1",
+    "analysis_json": {
+      "required_top_level": [
+        "schema_version",
+        "dataset",
+        "source_dataset_schema",
+        "temperature_K",
+        "alpha",
+        "cell_length_nm",
+        "eps_b",
+        "branches",
+        "parsons_zobel",
+        "resolution_summary",
+        "method"
+      ],
+      "branch_required": [
+        "branch_id",
+        "concentration_mM",
+        "Pbar_C_m2",
+        "coarse_curve",
+        "turning_intervals",
+        "fine_center_turning_brackets_h3",
+        "coarse_fine_sign_conflicts",
+        "pzc",
+        "physical_capacitance_curve"
+      ],
+      "coarse_point_required": [
+        "sigma0_C_m2",
+        "phi0_V",
+        "d_sigma_d_phi_F_m2",
+        "C_F_m2"
+      ],
+      "physical_point_required": [
+        "sigma0_C_m2",
+        "phi0_V",
+        "d_sigma_d_phi_curve_h_F_m2",
+        "C_curve_h_F_m2",
+        "d_sigma_d_phi_curve_h2_F_m2",
+        "C_curve_h2_F_m2",
+        "d_sigma_d_phi_curve_h3_F_m2",
+        "C_curve_h3_F_m2",
+        "d_phi_d_sigma_curve_h_V_per_C_m2",
+        "d_phi_d_sigma_curve_h2_V_per_C_m2",
+        "d_phi_d_sigma_curve_h3_V_per_C_m2",
+        "abs_d_phi_change_h_to_h2_V_per_C_m2",
+        "abs_d_phi_change_h2_to_h3_V_per_C_m2",
+        "d_phi_sign_consistent",
+        "estimated_delta_d_phi_V_per_C_m2",
+        "d_phi_interval_h3_V_per_C_m2",
+        "d_phi_interval_contains_zero",
+        "C_magnitude_interval_F_m2",
+        "relative_derivative_scale_h3",
+        "numerical_resolution"
+      ],
+      "resolution_enum": [
+        "resolved",
+        "ill_conditioned",
+        "unresolved"
+      ],
+      "pzc_required": [
+        "phi_pzc_V",
+        "C_by_level_F_m2",
+        "signed_d_sigma_d_phi_by_level_F_m2",
+        "d_phi_d_sigma_by_level_V_per_C_m2",
+        "sign_by_level",
+        "signed_response_sign_consistent",
+        "has_negative_response",
+        "pzc_response_diagnostic",
+        "chosen_level",
+        "C_pzc_F_m2",
+        "absolute_differences_F_m2",
+        "relative_differences",
+        "observed_order_or_null"
+      ],
+      "parsons_zobel_required": [
+        "Pbar_C_m2",
+        "reference_convention",
+        "points",
+        "primary_fit",
+        "leave_one_out",
+        "neighbor_windows",
+        "alternative_gc_at_model_pzc"
+      ],
+      "point_required": [
+        "c_mM",
+        "phi_pzc_V",
+        "C_pzc_F_m2",
+        "signed_C_pzc_F_m2",
+        "d_phi_d_sigma_pzc_V_per_C_m2",
+        "C_D_F_m2",
+        "x_m2_per_F",
+        "y_m2_per_F",
+        "C_D_at_model_pzc_F_m2",
+        "x_at_model_pzc_m2_per_F"
+      ],
+      "fit_required": [
+        "slope",
+        "intercept_m2_per_F",
+        "rms_residual_m2_per_F"
+      ],
+      "resolution_summary_required": [
+        "curve_point_count",
+        "resolved_count",
+        "ill_conditioned_count",
+        "unresolved_count",
+        "delta_d_estimate",
+        "zero_containment_rule",
+        "capacitance_interval",
+        "resolved_threshold_relative_C_change_h2_to_h3"
+      ],
+      "rule": "Every listed key is required and scored; additional descriptive JSON object keys are allowed. Numeric values must be finite except observed_order_or_null and an unbounded capacitance interval upper endpoint may be null.",
+      "exact_object_shapes": {
+        "coarse_turning_intervals": {
+          "bracket_sigma0_C_m2": "[left_sigma,right_sigma]",
+          "derivative_sign": "[left_sign,right_sign]",
+          "interpretation": "coarse-grid diagnostic interval only; does not locate the refined physical fold or imply stability"
+        },
+        "fine_center_turning_brackets_h3": {
+          "bracket_sigma0_C_m2": "[left_sigma,right_sigma]",
+          "derivative_sign_h3": "[left_sign,right_sign]",
+          "endpoint_resolution": "[left_status,right_status]",
+          "interpretation": "refined-center sign-change bracket; not an interpolated fold location"
+        },
+        "coarse_fine_sign_conflicts": {
+          "interval_sigma0_C_m2": "[left_sigma,right_sigma]",
+          "coarse_derivative_sign": "[left_sign,right_sign]",
+          "h3_derivative_sign": "[left_sign,right_sign]"
+        },
+        "pzc_level_names": [
+          "h",
+          "h2",
+          "h4",
+          "h8"
+        ],
+        "pzc_chosen_level": "h8",
+        "pzc_by_level_fields": "C_by_level_F_m2, signed_d_sigma_d_phi_by_level_F_m2, d_phi_d_sigma_by_level_V_per_C_m2 and sign_by_level are objects keyed by the pzc_level_names entries (h, h2, h4, h8), not arrays.",
+        "pzc_signed_response_note": "signed differential response is reported; its sign alone does not establish fixed-voltage thermodynamic stability",
+        "parsons_zobel_reference_convention": "gc_own_pzc_phi0_zero",
+        "alternative_reference_convention": "gc_at_model_phi_pzc",
+        "pzc_absolute_differences_F_m2": "[abs(C_h2-C_h),abs(C_h4-C_h2),abs(C_h8-C_h4)] in pzc_level_names order",
+        "pzc_relative_differences": "the same three-element array divided by C_by_level_F_m2 at the chosen level h8",
+        "resolution_summary_textual_fields": "delta_d_estimate, zero_containment_rule and capacitance_interval are descriptive entries about the reported interval heuristic, not numeric results; report each as text or the corresponding number.",
+        "alternative_gc_at_model_pzc": {
+          "reference_convention": "gc_at_model_phi_pzc",
+          "points": "the same point_required objects at c_mM, but with each point's x_m2_per_F replaced by its x_at_model_pzc_m2_per_F (the 1/C_GC(phi_pzc_model) axis); every other field keeps its primary-axis value",
+          "fit": "fit_required summary of the alternate-axis line"
+        },
+        "leave_one_out_point_shape": [
+          "omitted_c_mM",
+          "slope",
+          "intercept_m2_per_F",
+          "rms_residual_m2_per_F"
+        ],
+        "neighbor_window_shape": [
+          "concentrations_mM",
+          "slope",
+          "intercept_m2_per_F",
+          "rms_residual_m2_per_F"
+        ]
+      },
+      "finite_and_nulls": "All numeric outputs must be finite. Only observed_order_or_null may be null when the observed difference ratio is undefined. The upper endpoint of C_magnitude_interval_F_m2 is null exactly when d_phi_interval_contains_zero is true.",
+      "required_keys_per_object": {
+        "root": [
+          "schema_version",
+          "dataset",
+          "source_dataset_schema",
+          "temperature_K",
+          "alpha",
+          "cell_length_nm",
+          "eps_b",
+          "branches",
+          "parsons_zobel",
+          "resolution_summary",
+          "method"
+        ],
+        "branch": [
+          "branch_id",
+          "concentration_mM",
+          "Pbar_C_m2",
+          "coarse_curve",
+          "turning_intervals",
+          "fine_center_turning_brackets_h3",
+          "coarse_fine_sign_conflicts",
+          "pzc",
+          "physical_capacitance_curve"
+        ],
+        "coarse_point": [
+          "sigma0_C_m2",
+          "phi0_V",
+          "d_sigma_d_phi_F_m2",
+          "C_F_m2"
+        ],
+        "physical_point": [
+          "sigma0_C_m2",
+          "phi0_V",
+          "d_sigma_d_phi_curve_h_F_m2",
+          "C_curve_h_F_m2",
+          "d_sigma_d_phi_curve_h2_F_m2",
+          "C_curve_h2_F_m2",
+          "d_sigma_d_phi_curve_h3_F_m2",
+          "C_curve_h3_F_m2",
+          "d_phi_d_sigma_curve_h_V_per_C_m2",
+          "d_phi_d_sigma_curve_h2_V_per_C_m2",
+          "d_phi_d_sigma_curve_h3_V_per_C_m2",
+          "abs_d_phi_change_h_to_h2_V_per_C_m2",
+          "abs_d_phi_change_h2_to_h3_V_per_C_m2",
+          "d_phi_sign_consistent",
+          "estimated_delta_d_phi_V_per_C_m2",
+          "d_phi_interval_h3_V_per_C_m2",
+          "d_phi_interval_contains_zero",
+          "C_magnitude_interval_F_m2",
+          "relative_derivative_scale_h3",
+          "numerical_resolution",
+          "coarse_diagnostic_C_F_m2",
+          "coarse_relative_bias_vs_curve_h3",
+          "relative_change_h_to_h2",
+          "relative_change_h2_to_h3"
+        ],
+        "pzc": [
+          "phi_pzc_V",
+          "C_by_level_F_m2",
+          "signed_d_sigma_d_phi_by_level_F_m2",
+          "d_phi_d_sigma_by_level_V_per_C_m2",
+          "sign_by_level",
+          "signed_response_sign_consistent",
+          "has_negative_response",
+          "pzc_response_diagnostic",
+          "chosen_level",
+          "C_pzc_F_m2",
+          "absolute_differences_F_m2",
+          "relative_differences",
+          "observed_order_or_null"
+        ],
+        "parsons_zobel": [
+          "Pbar_C_m2",
+          "reference_convention",
+          "points",
+          "primary_fit",
+          "leave_one_out",
+          "neighbor_windows",
+          "alternative_gc_at_model_pzc"
+        ],
+        "fit_point": [
+          "c_mM",
+          "phi_pzc_V",
+          "C_pzc_F_m2",
+          "signed_C_pzc_F_m2",
+          "d_phi_d_sigma_pzc_V_per_C_m2",
+          "C_D_F_m2",
+          "x_m2_per_F",
+          "y_m2_per_F",
+          "C_D_at_model_pzc_F_m2",
+          "x_at_model_pzc_m2_per_F"
+        ],
+        "fit_summary": [
+          "slope",
+          "intercept_m2_per_F",
+          "rms_residual_m2_per_F"
+        ],
+        "resolution_summary": [
+          "curve_point_count",
+          "resolved_count",
+          "ill_conditioned_count",
+          "unresolved_count",
+          "delta_d_estimate",
+          "zero_containment_rule",
+          "capacitance_interval",
+          "resolved_threshold_relative_C_change_h2_to_h3"
+        ],
+        "method": [
+          "coarse_curve_derivative",
+          "pzc",
+          "pzc_derivative",
+          "primary_pz_axis",
+          "secondary_pz_axis",
+          "paper_figure_slopes"
+        ]
+      }
+    },
+    "csv": {
+      "capacitance_curves.csv": {
+        "row_key": [
+          "branch_id",
+          "sigma0_C_m2"
+        ],
+        "row_count": "one row for every public or hidden branch and every coarse center",
+        "columns": [
+          "branch_id",
+          "concentration_mM",
+          "Pbar_C_m2",
+          "sigma0_C_m2",
+          "phi0_V",
+          "d_sigma_d_phi_curve_h_F_m2",
+          "C_curve_h_F_m2",
+          "d_sigma_d_phi_curve_h2_F_m2",
+          "C_curve_h2_F_m2",
+          "d_sigma_d_phi_curve_h3_F_m2",
+          "C_curve_h3_F_m2",
+          "d_phi_d_sigma_curve_h_V_per_C_m2",
+          "d_phi_d_sigma_curve_h2_V_per_C_m2",
+          "d_phi_d_sigma_curve_h3_V_per_C_m2",
+          "abs_d_phi_change_h_to_h2_V_per_C_m2",
+          "abs_d_phi_change_h2_to_h3_V_per_C_m2",
+          "d_phi_sign_consistent",
+          "estimated_delta_d_phi_V_per_C_m2",
+          "d_phi_interval_lower_h3_V_per_C_m2",
+          "d_phi_interval_upper_h3_V_per_C_m2",
+          "d_phi_interval_contains_zero",
+          "C_interval_lower_F_m2",
+          "C_interval_upper_F_m2",
+          "relative_derivative_scale_h3",
+          "numerical_resolution",
+          "coarse_diagnostic_C_F_m2",
+          "coarse_relative_bias_vs_curve_h3",
+          "relative_change_h_to_h2",
+          "relative_change_h2_to_h3"
+        ],
+        "units": "column suffixes; capacitance F/m^2, derivative V/(C/m^2), sigma C/m^2, phi V",
+        "null": "blank upper capacitance bound denotes unbounded",
+        "columns_exact": true
+      },
+      "parsons_zobel.csv": {
+        "row_key": [
+          "Pbar_C_m2",
+          "c_mM"
+        ],
+        "row_count": "all five concentration points at each of four fixed Pbar branches",
+        "columns": [
+          "Pbar_C_m2",
+          "reference_convention",
+          "c_mM",
+          "phi_pzc_V",
+          "C_pzc_F_m2",
+          "signed_C_pzc_F_m2",
+          "d_phi_d_sigma_pzc_V_per_C_m2",
+          "C_D_F_m2",
+          "x_m2_per_F",
+          "y_m2_per_F",
+          "C_D_at_model_pzc_F_m2",
+          "x_at_model_pzc_m2_per_F",
+          "primary_slope",
+          "primary_intercept_m2_per_F",
+          "primary_rms_residual_m2_per_F"
+        ],
+        "columns_exact": true
+      }
+    },
+    "solver.log": {
+      "json_object_required": {
+        "status": "analysis_complete",
+        "dataset": "matches input manifest dataset",
+        "branch_count": "20 for the public set; number of branches in hidden manifest for hidden evaluation",
+        "PZ_fit_count": "one per declared fixed-Pbar fit"
+      },
+      "exact_keys": [
+        "status",
+        "dataset",
+        "branch_count",
+        "PZ_fit_count",
+        "source_dataset_schema"
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "assembly-dyad/v1",
+  "provenance": {
+    "paper": {
+      "title": "Pathogenic mutation impairs functional dynamics of Hsp60 in mono- and oligomeric states",
+      "local_pdf": "docs/Torielli 等 - 2025 - Pathogenic mutation impairs functional dynamics of Hsp60 in mono- and oligomeric states.pdf",
+      "sha256": "9b3257f1864e760124810481c07b70152da536e7e06ccc2d9971f8460aa8823b",
+      "sections_consulted": ["main text pp. 10-14", "Methods pp. 17-18", "Supplementary Information pp. 10-11, 15-16"],
+      "scope": "Author interpretations motivate comparisons, but all signed numeric effects are recomputed from the supplied author frame-level values."
+    },
+    "author_data": [
+      {"path": "packages/case-05-assembly-dyad/environment/assets/Fig_6b.dat", "sha256": "d24858aa32c44d5b336af0c0a0570c7003554fae91a60fff578b374238b33c08", "role": "double-ring D panel frame-level delta/gamma values"},
+      {"path": "packages/case-05-assembly-dyad/environment/assets/Fig_8b.dat", "sha256": "afee6f32ca1e2c3124f731d740625b9085b8ce8024e2d1cbda5c2d41b7ecf5f0", "role": "football F panel frame-level delta/gamma values"},
+      {"path": "packages/case-05-assembly-dyad/environment/assets/data_dictionary.md", "sha256": "63af59f0c928517b1b27bc9ffc8c241e426d12ea19c22bc8734310fe84f0f60a", "role": "panel, column, unit, and protonation mapping"}
+    ],
+    "author_supplementary_data": [
+      {"path": "raw_data/unpacked/RAW_DATA_FOR_FIGURES_AND_MOVIES-234eb4743437/RAW_DATA_FOR_FIGURES_AND_MOVIES/Raw_Data_For_All_Figures/Supplementary_Figures/Supplementary_Fig_10.dat", "sha256": "cd80423eec34c12999064df1a0d4c5a8b8c825ec5623e28f4f3b70cf7fc2d797", "role": "distance-context cross-check"},
+      {"path": "raw_data/unpacked/RAW_DATA_FOR_FIGURES_AND_MOVIES-234eb4743437/RAW_DATA_FOR_FIGURES_AND_MOVIES/Raw_Data_For_All_Figures/Supplementary_Figures/Supplementary_Fig_11.dat", "sha256": "11c82c3b591888c0a521556e8e571388f4269c93ae48c65fb75765596e3bf467", "role": "distance-context cross-check"},
+      {"path": "raw_data/unpacked/RAW_DATA_FOR_FIGURES_AND_MOVIES-234eb4743437/RAW_DATA_FOR_FIGURES_AND_MOVIES/Raw_Data_For_All_Figures/Supplementary_Figures/Supplementary_Fig_12.dat", "sha256": "df8a644bd6be6731f96bc80e53f203550fe32f65b01025f94edb2872a6e5998c", "role": "distance-context cross-check"},
+      {"path": "raw_data/unpacked/RAW_DATA_FOR_FIGURES_AND_MOVIES-234eb4743437/RAW_DATA_FOR_FIGURES_AND_MOVIES/Raw_Data_For_All_Figures/Supplementary_Figures/Supplementary_Fig_17.dat", "sha256": "01d4b108b08fdf12c9f6fdc014ecf94c7af6a2c0b140f1d80bd4b5529c5d2204", "role": "apical distribution context; preserve the reported discrepancy with the main-text Fig. 8b scatter"},
+      {"path": "raw_data/unpacked/RAW_DATA_FOR_FIGURES_AND_MOVIES-234eb4743437/RAW_DATA_FOR_FIGURES_AND_MOVIES/Raw_Data_For_All_Figures/Supplementary_Figures/Supplementary_Fig_18.dat", "sha256": "00fa9ee48399da926415180d8e7f135b83e2ffe6fb3b02208a151621182bfa8e", "role": "apical distribution context"},
+      {"path": "raw_data/unpacked/RAW_DATA_FOR_FIGURES_AND_MOVIES-234eb4743437/RAW_DATA_FOR_FIGURES_AND_MOVIES/Raw_Data_For_All_Figures/Supplementary_Figures/Supplementary_Fig_19.dat", "sha256": "7dfaf56dfe0d67bfbfa6df5e7dc3834455949c5cba2aa763426778d2ea663f18", "role": "apical distribution context"}
+    ],
+    "criteria_rationale": "Matched effects use actual means or medians of the supplied per-monomer frames, with no universal sign imposed. Local contact probability uses raw delta <= 4.35 angstrom (within the frozen 4.25-4.50 angstrom local-contact range). F opening is summarized by gamma median and the directly measured fraction >120 degrees. D opening is separately summarized as fraction gamma >=100 degrees, including AshAsp descriptively. Delta-gamma Pearson correlation is computed from aligned finite pairs within each of all 12 groups and is descriptive, not a claim of independent samples or causation. The shoulder test is the exact common radial-shape probe below; it does not equate a slope minimum with a secondary peak. Supplementary Fig. 17 does not override the supplied Fig. 8b series where their reported apical interpretations differ."
+  },
+  "criteria": {
+    "contact_threshold_angstrom": 4.35,
+    "F_open_cutoff_degree": 120.0,
+    "D_open_cutoff_degree": 100.0,
+    "shape_edges_angstrom": [0.0, 16.0, 0.01],
+    "shape_smoothing_sigma_angstrom": [0.1, 0.15],
+    "shape_method": "histogram probability density divided by r^2; gaussian_filter1d; np.gradient; scipy.signal.find_peaks(-slope)",
+    "shape_windows_angstrom": {"D": [4.6, 5.0], "F": [4.1, 4.7]},
+    "shape_feature_tolerance_angstrom": 0.02
+  }
+}

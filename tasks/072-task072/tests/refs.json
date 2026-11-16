@@ -1,0 +1,62 @@
+{
+  "schema_version": "spm-allostery-reference/v1",
+  "numbering": {
+    "matrix_index_origin": 0,
+    "mature_residue_equals_matrix_index": true,
+    "author_and_pdb_labels_are_one_based": true,
+    "first_residue": "matrix index 0 is mature Ala0 and PDB Ala residue 1"
+  },
+  "public_input_sha256": {
+    "README_residue_numbering": "a1488c55ef353c6ae82a2f9d77c35a6dfc9929ac70a65081f098acb4156ea230",
+    "corrmat_c0_WT.dat": "be3202d7235606d7e212b6baac5a26bc26a38c2c9a809a359f054bac28cf7bb0",
+    "distmat_c0_WT.dat": "63d6042457f7fcc811fd24fb0cb2a2ac18185cc85bfdb28ed3831b42e6be2686",
+    "corrmat_c0_V72I.dat": "881b191e61b3807565c83125ddcbb9d03840a855885582d3a732318128c3cd05",
+    "distmat_c0_V72I.dat": "3f0f76ec7bb044b55783151835833341b2ca3d418cb1d9e388862cffc62a8b65"
+  },
+  "acquired_source_sha256": {
+    "paper_pdf": "9b3257f1864e760124810481c07b70152da536e7e06ccc2d9971f8460aa8823b",
+    "wt_representative_pdb": "4d1bb0ddcf141dfad1f4bda2e05c004ac08dd6faeb11dd02e27ae085646e169e",
+    "author_wt_spm": "dbaa80bb5e0b87345807555cbe77af8c5f3bbf54aa0e85751c1282bb079bc9fd",
+    "author_v72i_spm": "a8886cf2862ebbcfc5155bdae397982c3b686bb2ab99b40f4ca265497a668577"
+  },
+  "literature_basis": {
+    "paper": "Torielli et al. (2025), Pathogenic mutation impairs functional dynamics of Hsp60 in mono- and oligomeric states",
+    "page_4": "WT Glu517 C terminus to alpha18/alpha14 ATP-lid Asp397 and beta5/beta13 apical relationships",
+    "page_6": "beta13 mature residue range 375-380",
+    "page_18": "contact distance below 6 angstrom; edge cost -log(abs(correlation)); all-pairs shortest path edge usage, maximum normalization, display threshold above 0.3"
+  },
+  "author_output_basis": {
+    "weight_scale_before_normalization": 10,
+    "display_threshold_normalized": 0.3,
+    "wt_display_edges": 32,
+    "v72i_display_edges": 25,
+    "wt_beta13_internal_display_edges": 5,
+    "v72i_beta13_internal_display_edges": 0,
+    "v72i_boundary_display_edges": [
+      [
+        380,
+        381
+      ],
+      [
+        381,
+        382
+      ]
+    ],
+    "wt_517_516_display_edge": [
+      517,
+      516
+    ],
+    "wt_517_apical_display_path_exists": false
+  },
+  "calibrated_input_challenge": {
+    "manifest_sha256": "cec9564acbe23c59ff424fb32c6cf5348cfceeb4bf74317ea364b743d2459779",
+    "changed_file": "distmat_c0_WT.dat",
+    "changed_file_sha256": "6d1bd9056a29e659d5195edcb501e76920b9c8a9d7aa5ebd468898652278a0f9",
+    "removed_contact_edge_matrix_indices": [
+      402,
+      405
+    ],
+    "replacement_distance_angstrom": 6.1,
+    "manifest_base64": "ewogICJzY2hlbWFfdmVyc2lvbiI6ICJzcG0taW5wdXQtY2hhbGxlbmdlL3YxIiwKICAiYmFzZV9pbnB1dF9zaGEyNTYiOiB7CiAgICAiUkVBRE1FX3Jlc2lkdWVfbnVtYmVyaW5nIjogImExNDg4YzU1ZWYzNTNjNmFlODJhMmY5ZDc3YzM1YTZkZmM5OTI5YWM3MGE2NTA4MWYwOThhY2I0MTU2ZWEyMzAiLAogICAgImNvcnJtYXRfYzBfVjcySS5kYXQiOiAiODgxYjE5MWU2MWIzODA3NTY1YzgzMTI1ZGRjYmI5ZDAzODQwYTg1NTg4NTU4MmQzYTczMjMxODEyOGMzY2QwNSIsCiAgICAiY29ycm1hdF9jMF9XVC5kYXQiOiAiYmUzMjAyZDcyMzU2MDZkN2UyMTJiNmJhYWM1YTI2YmMyNmEzOGMyYzlhODA5YTM1OWYwNTRiYWMyOGNmN2JiMCIsCiAgICAiZGlzdG1hdF9jMF9WNzJJLmRhdCI6ICIzZjBmNzZlYzdiYjA0NGI1NTc4MzE1MTgzNTgzMzM0MWIyY2EzZDQxOGNiMWQ5ZTM4ODg2MmNmZmM2MmE4YjY1IiwKICAgICJkaXN0bWF0X2MwX1dULmRhdCI6ICI2M2Q2MDQyNDU3ZjdmY2M4MTFmZDI0ZmIwY2IyYTJhYzE4MTg1Y2M4NWJmZGIyOGVkMzgzMWI0MmU2YmUyNjg2IgogIH0sCiAgImNoYWxsZW5nZV9pbnB1dF9zaGEyNTYiOiB7CiAgICAiUkVBRE1FX3Jlc2lkdWVfbnVtYmVyaW5nIjogImExNDg4YzU1ZWYzNTNjNmFlODJhMmY5ZDc3YzM1YTZkZmM5OTI5YWM3MGE2NTA4MWYwOThhY2I0MTU2ZWEyMzAiLAogICAgImNvcnJtYXRfYzBfVjcySS5kYXQiOiAiODgxYjE5MWU2MWIzODA3NTY1YzgzMTI1ZGRjYmI5ZDAzODQwYTg1NTg4NTU4MmQzYTczMjMxODEyOGMzY2QwNSIsCiAgICAiY29ycm1hdF9jMF9XVC5kYXQiOiAiYmUzMjAyZDcyMzU2MDZkN2UyMTJiNmJhYWM1YTI2YmMyNmEzOGMyYzlhODA5YTM1OWYwNTRiYWMyOGNmN2JiMCIsCiAgICAiZGlzdG1hdF9jMF9WNzJJLmRhdCI6ICIzZjBmNzZlYzdiYjA0NGI1NTc4MzE1MTgzNTgzMzM0MWIyY2EzZDQxOGNiMWQ5ZTM4ODg2MmNmZmM2MmE4YjY1IiwKICAgICJkaXN0bWF0X2MwX1dULmRhdCI6ICI2ZDFiZDkwNTZhMjllNjU5ZDUxOTVlZGNiNTAxZTc2OTIwYjljOGE5ZDdhYTVlYmQ0Njg4OTg2NTIyNzhhMGY5IgogIH0sCiAgIm11dGF0aW9uIjogewogICAgIm1hdHJpeCI6ICJkaXN0bWF0X2MwX1dULmRhdCIsCiAgICAicmVtb3ZlZF9jb250YWN0X2VkZ2UiOiBbCiAgICAgIDQwMiwKICAgICAgNDA1CiAgICBdLAogICAgIm9sZF9kaXN0YW5jZV9hbmdzdHJvbSI6IDQuOTk3LAogICAgIm5ld19kaXN0YW5jZV9hbmdzdHJvbSI6IDYuMQogIH0KfQo="
+  }
+}

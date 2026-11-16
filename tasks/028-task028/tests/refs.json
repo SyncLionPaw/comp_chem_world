@@ -1,0 +1,105 @@
+{
+  "version": "1.3",
+  "case_id": "case-08-end-to-end-rearrangement-claim",
+  "reference_source_kind": "holy_grail_no_reference",
+  "source_digest": "sha256:6839b9f8f46b7488783d3f738b704fb529f37ffee44560e736c3dd0fba10c574",
+  "independent_check": "The literature core conclusion is an evaluator-side standard, never a candidate recipe. The verifier checks traceability and rejects false lineage mechanically; all positive scientific judgments require a trusted, snapshot-bound, method-neutral review. Paper and SI source hashes are recorded in refs.json.",
+  "readiness": "BLOCKED",
+  "verification_coverage": "PARTIAL",
+  "verification_implementation": "partial",
+  "verification_runtime_mode": "diagnostic-review",
+  "asset_hashes": {},
+  "observations": [
+    {
+      "name": "deliverables_present",
+      "level": "L1",
+      "expected": "All three declared deliverables are present; claim.md answers the question, native_evidence contains computation evidence and provenance.json parses.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "The conclusion, native evidence and provenance must be present and interpretable."
+    },
+    {
+      "name": "execution_evidence_traceable",
+      "level": "L2",
+      "expected": "Every central computed quantity links to inputs, native outputs and independent runtime or scheduler receipts. Acquired data have source provenance and are distinguished from new computations; scientific validity checks are appropriate to the chosen method.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Central computed quantities must be reconstructible from actual new execution rather than copied published values or fabricated output."
+    },
+    {
+      "name": "environment_only_boundary",
+      "level": "L2",
+      "expected": "No prepared scientific assets, author outputs, method recipes or numerical targets are supplied. Runtime access checks isolate evaluator files, Gold and other cases. Agent acquisition and construction of inputs are recorded; resource requests follow current site policy and actual usage is reported for review.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "The holy-grail attempt starts with a scientific question and execution environment only; all scientific inputs and decisions belong to the agent."
+    },
+    {
+      "name": "paper_core_conclusion_reproduced",
+      "level": "L3",
+      "expected": "Independently executed evidence must substantiate the literature core conclusion, including sufficiently rapid rearrangement and its supported connection to autoxidation and aerosol precursors. Compare numerical results at relevant matched conditions and reference populations; the BPR rate and B-alkyl effective coefficient are distinct quantities. Reviewers assess the selected method on its own terms and evaluate its approximations and sensitivities. Any numeric acceptance band used must have a documented source or calibration, but no universal method-dependent band is required. Unsupported, negative or incomplete results do not pass this core criterion merely because they are honestly reported.",
+      "unit": "dimensionless",
+      "source_locator": "main text core conclusion and SI section 2.2; gold/tables/mesmer_tdep_rates.csv; gold/case04_fate_manifest.json",
+      "acceptance_rule": "The evaluator-side standard answer is that BPR rearrangement opens a fast route that sustains autoxidation toward oxygen-rich aerosol precursors. Quantitative support must be consistent with the relevant published conditions and reference populations. The deposited ipso BPR sum is about 0.75 per second at 300 K versus the previous BPR ceiling of 0.03 per second. The roughly 4.9e3 per second effective coefficient has a B-alkyl reference population and must not be compared directly with that BPR ceiling. Published results alone do not establish new execution, and molecular rates alone do not establish aerosol yield."
+    },
+    {
+      "name": "uncertainty_attributed",
+      "level": "L3",
+      "expected": "Dominant uncertainties and sensitivity or robustness evidence are tied to actual approximations. Unsupported stages are explicit and the conclusion does not exceed the evidence. No fixed author error factor or branching interval is required.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Uncertainty must reflect the approximations and missing evidence in the route actually used, rather than mandatory repetition of the authors' error factors."
+    },
+    {
+      "name": "route_neutrality_preserved",
+      "level": "L3",
+      "expected": "Equivalent scientifically justified routes may pass when they reproduce the core conclusion with their own valid evidence. No named engine, prescribed theory level or author workflow is required. Accurate literature restatement without new computation does not pass.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "The literature core conclusion is the standard answer; input preparation, system selection, methods, workflow and stopping decisions remain autonomous. Equivalent routes may substantiate the same core conclusion."
+    }
+  ],
+  "evaluator_sources": [
+    {
+      "path": "docs/Iyer 等 - 2023 - Molecular rearrangement of bicyclic peroxy radicals is a key route to aerosol from aromatics.pdf",
+      "sha256": "sha256:1686e5c6526c18824b7f4a48da648afb7bf24ffa9d146078b9c9c0193a60eb9b",
+      "locator": "DOI 10.1038/s41467-023-40675-2; main text pp. 1-6"
+    },
+    {
+      "path": "docs/41467_2023_40675_MOESM1_ESM.docx",
+      "sha256": "sha256:52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a",
+      "locator": "Supplementary Information, especially section 2.2 and Methods"
+    },
+    {
+      "path": "gold/tables/derived_ibpr_barriers.csv",
+      "sha256": "sha256:765606501de2a2a75f11549af81a4ce5d0ab28c30c67cc445ceda949e8543883",
+      "locator": "recomputed native barrier reference; conditions and species in table"
+    },
+    {
+      "path": "gold/tables/mesmer_tdep_rates.csv",
+      "sha256": "sha256:bdde3c726cb83e709de4e4668c15d2535359dd26c66d351efea084abc196a41b",
+      "locator": "deposited temperature-dependent rates; one atmosphere N2"
+    },
+    {
+      "path": "gold/case04_fate_manifest.json",
+      "sha256": "sha256:050ade4d0888adb2369e34830cc955a79379a6ba5918724dfa4277209b8c5255",
+      "locator": "effective-fate derivation and reference-population provenance"
+    }
+  ],
+  "review_rubric_sha256": "sha256:23708acf286b170fe4d7eadda1beac4e82b702ef82f6785e491861cd3a760526",
+  "review_public_key_sha256": "sha256:1cebb32cdbaed4da946738084ffa73cf7fa868bd81b719ab51ed837cf2631fed",
+  "review_protocol": {
+    "rubric": "tests/protected/review-rubric.json",
+    "assessment": "tests/protected/review-assessment.json",
+    "binding": [
+      "canonical_case_id",
+      "rubric_sha256",
+      "candidate_file_manifest",
+      "trusted_receipt_hashes",
+      "reviewer_id",
+      "attempt_id"
+    ],
+    "pending_result": "REVIEW_REQUIRED; no reward file",
+    "trust_boundary": "host-owned TESTS snapshot, never candidate /app or HPC home"
+  }
+}

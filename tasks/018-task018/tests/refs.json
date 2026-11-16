@@ -1,0 +1,46 @@
+{
+  "schema": "autosolvate-private-refs/v1",
+  "case_id": "case-05",
+  "tolerances": {
+    "orbital_norm": 0.0001,
+    "reported_population_percentage_points": 0.01,
+    "classification_margin_percentage_points": 0.1,
+    "energy_hartree": 5e-06,
+    "molden_coordinates_angstrom": 1e-06,
+    "occupation": 5e-05,
+    "selector_replay_abs": 1e-12,
+    "geometry_replay_angstrom": 1e-06,
+    "short_restart_coordinates_angstrom": 0.002,
+    "replayed_numeric_claim": 1e-08
+  },
+  "reference": {
+    "dye_atoms": [
+      1,
+      72
+    ],
+    "solvent_atoms": [
+      73,
+      78
+    ],
+    "conditions": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "ordinary_allocations": 8,
+    "historical_author_condition_job_ids": {
+      "A": "3889767",
+      "B": "3890425",
+      "C": "3889808",
+      "D": "3889859",
+      "E": "3890425"
+    },
+    "classification_percent": {
+      "dye_dominant_min": 80.0,
+      "solvent_dominant_max_dye": 20.0,
+      "solvent_dominant_min": 80.0
+    }
+  }
+}

@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-177"
+description = "Compare total X-ray scattering curves and assess structural specificity"
+
+[metadata]
+case_id = "case-05-scattering-limit"
+task_number = 177
+title = "Compare total X-ray scattering curves and assess structural specificity"
+
+[agent]
+timeout_sec = 1200
+network_mode = "no-network"
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 300
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

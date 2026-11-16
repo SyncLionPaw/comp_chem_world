@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "case_id": "case-05-apo-cavity-hydration",
+  "review_status": "PASS",
+  "reviewer": "Root (independent scientific reviewer)",
+  "reviewed_on": "2026-10-18",
+  "input_hashes": {
+    "environment/assets/oame-coordinate-samples.npz": "852c0a855a524b5e3026ad81e447ae66965443b90082817ca235ed1075fe399e",
+    "environment/assets/oame-coordinate-provenance.json": "0b55b2145de5442cefce15e1649aa3aaf4a8257884e6577da947bef42cecb3e9",
+    "environment/assets/oah-coordinate-samples.npz": "c8eaa38d376b4824e690dcd2c8f743cbd82ec62adf5dca69b862137903b673ad",
+    "environment/assets/oah-coordinate-provenance.json": "dbdbc7dddd0aa8a45dfa8c5483522a3e69bc082bd78b66f09c3af858b911e9fa",
+    "environment/assets/oame-bias-audit.csv": "2bed2e877a3f3739a4b2b85dcc1168ec49deb019864dbf1c9326bb7179e7b6d2",
+    "environment/assets/oame-bias-audit-provenance.json": "dd3d71ea3e0445c2340e693e2b4865501a35385c428db2d6d17e2b6dbd44f0b1",
+    "environment/assets/oah-bias-audit.csv": "32d57502adbb54e0eeda00206297842a3417b296edec1d667bea9cd0c2aa7672",
+    "environment/assets/oah-bias-audit-provenance.json": "ef8f37664deea804035e61eb73a9b9505b8a1748a78673f400c0be163ec1ce55",
+    "environment/assets/apo-method.md": "b5ce1c339461e91bcf56283d9b94aa5ade0fd0c11630f015943416d279147514"
+  },
+  "source_fingerprints": {
+    "tests/apo_numeric.py": "0f4d1c9805321a9803790879c7ed7745c45c27e88208450cdc63874abd009e75",
+    "tests/assessment-protocol.json": "65b6fa359e50daa813105df0f01d9e9959dc29a03d2a08b3de822709e719b3ef",
+    "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+    "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+    "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "tests/numeric_evidence.py": "00b0668b51417c26d147dd58ee945329c321ec2824c17790086f0c0337ae4427",
+    "tests/reference-hashes.json": "38ceb1722d7c11a8cb865ea73f2927af503de698f929190286b6ff9c2591e6ab",
+    "tests/refs.json": "90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb",
+    "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+    "tests/test.sh": "0ae6d7fe88171c1abfbea56f980d4e8922f7412adadb0b80132082dc9dfca0ef",
+    "tests/verification-plan.yaml": "4ce934adbbe14b1859a40694beb1006690ab3796075a7388361687e1501ff22c",
+    "tests/verify.py": "8e519752504991cb7423daaa9798b9edb3590689ab23a06b11b5677e9148eb49",
+    "contract/instruction.md": "6f4fd0c9c1e1c0e6b39c694c9d0a4598a4ccf1bef6ac29f4217829b8aeb083e1",
+    "contract/task.toml": "bc53e410197130ad319b5002b5605eb4ab721a9839f7de8e3a4c5f138b3ecd80",
+    "contract/output-contract.yaml": "f71b2fab2c6103feea89f089876fbbf2ed2644e706c8ec6d18b856a8c724bf13",
+    "contract/output-contract.json": "421f240cb0c1ffab5d79f4df2fd2f76510ef89364da5598a0444b18b4ad12d21"
+  },
+  "candidate_manifest": {
+    "bias-validity-audit.json": {
+      "sha256": "2963fcc7b181360eba1bb8b983a8ae5d3dd7399e03b64a66354beeef8bf6acfd",
+      "bytes": 2455
+    },
+    "cavity-definition.json": {
+      "sha256": "50a4973b2cd23a3f8df4f45fda2fc6edae81801041e4f5431230ab404a7b905d",
+      "bytes": 2631
+    },
+    "decision.md": {
+      "sha256": "0527bda535fefcff34ab004419fc8dbe615a5767e5f9e0ca2f651cbd7a6ace39",
+      "bytes": 1034
+    },
+    "occupancy-region-sensitivity.csv": {
+      "sha256": "d224081e55e7bc0a69f9824758dfa7e99d540a43100f38fb65a09e52bad10561",
+      "bytes": 32327
+    },
+    "wire-geometry.csv": {
+      "sha256": "5f92491d239103d718b9e3fd8ad87ac56ddebf5d7de57f8b6485b60f3bfe0aa6",
+      "bytes": 676923
+    }
+  },
+  "criteria": {
+    "bias_time_join_and_historical_replay_validity": {
+      "status": "PASS",
+      "evidence": "The audit distinguishes OAMe cadence 5 ps from the public 0.5/2 ps excerpts and notes the OAH 1.5 ps offset. It reports only the available near-joins and does not claim complete same-configuration historical-bias replay; absent full bias/weights prevent an unbiased occupancy estimate."
+    },
+    "identifiability_of_unbiased_hydration_probability": {
+      "status": "PASS",
+      "evidence": "The decision explicitly does not report an unbiased hydration probability. The available excerpts omit full same-configuration historical bias and weights and do not provide independent validation; the candidate identifies those missing data and limits its conclusion accordingly."
+    },
+    "pbc_occupancy_region_geometry_and_sensitivity": {
+      "status": "PASS",
+      "evidence": "Independent vectorized PBC cylinder counting matched all 256 reported region rows with zero mismatches. The 0.50 and 0.60 nm radii give volumes 1.178097 and 1.696460 nm^3; boundary comparisons support comparing the two definitions while the 64-frame excerpt remains sparse and biased."
+    },
+    "water_wire_or_ring_graph_geometry_and_atom_level_evidence": {
+      "status": "PASS",
+      "evidence": "The output contains 4,514 atom-level edge rows, 128 per-frame graph summaries, and oxygen/hydrogen IDs, PBC O-O distances, donor-H-acceptor angles, and the stated 0.35 nm/150 degree thresholds. The numeric checker reproduces the edge geometry and graph summaries; no unsupported alpha-shape or dynamical-stability claim is made."
+    }
+  },
+  "review_basis": {
+    "previous_record_sha256": "8d497468aff0b67965380fde405669310fff2fda7a51046755d8335f222bdc7e",
+    "root_reviewed_candidate_index_sha256": "8741a6ef11606d14bbbba2ffaebc42e6f0042ca17bb07891c878e934eb67f5a9",
+    "candidate_root_in_author_snapshot": "/private/tmp/bench10-release-20261018-r1/snapshot/10_Host-Guest-Water-Enhanced-Sampling/authoring/integration-20261017/oracle-candidates/case05",
+    "candidate_manifest_unchanged": true,
+    "scientific_scope_changed": false
+  }
+}

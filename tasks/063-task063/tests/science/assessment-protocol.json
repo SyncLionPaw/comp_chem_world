@@ -1,0 +1,155 @@
+{
+  "case_id": "case-02-water-cv-validation",
+  "expected_outputs": [
+    "cv-audit.csv",
+    "validation-plan.json",
+    "decision.json",
+    "rationale.md",
+    "model-output-audit.csv",
+    "model-gradient-audit.csv"
+  ],
+  "output_contract": {
+    "required_paths": [
+      "cv-audit.csv",
+      "validation-plan.json",
+      "decision.json",
+      "rationale.md",
+      "model-output-audit.csv",
+      "model-gradient-audit.csv"
+    ],
+    "schemas": {
+      "cv-audit.csv": "output_pair,correlation_method,sign_alignment,correlation_or_error,block_or_z_condition,n,interpretation",
+      "validation-plan.json": "decision,split_unit,leakage_controls,heldout_unit,acceptance_checks,independent_B_U_requirements,coverage_limit",
+      "decision.json": "approval_status,conditions,alternatives,limitations,source_provenance{native_record_path,native_record_sha256,acquired_colvar_path,acquired_colvar_sha256,source_sha256,public_input_path,public_input_sha256,converted_npz_path,converted_npz_sha256,trace_provenance_path,trace_provenance_sha256,descriptor_path,descriptor_sha256,row_count,time_range_ps,selected_network_outputs,native_column_mapping,available_archive_keys,archive_key_names_unique,duplicate_column_audit{documented_policy,status,candidate_claims_raw_duplicate_values_recomputed},model_mapping_diagnostic{scope,mapping_claim}}",
+      "rationale.md": "基于原始数值的判定与可推翻证据",
+      "model-output-audit.csv": "exactly 64 frames x 3 models x 6 native columns (node0,node1,node2,sw,swb,swc), 1152 rows total; frame_index,time_ps,model_id,s_raw,sw,native_column,native_value,affine_residual; model_output=s_raw for node0/node1/node2 and model_output=sw for sw/swb/swc; 64-frame ordinary least squares native_value=slope*model_output+intercept; affine_residual=native_value-fitted native value; time ps in source native units; accept only the descriptor time_ps or its unique nearest native-trace time after a <=0.01 ps join, each within absolute tolerance 1e-6 ps; reject interpolated or other times; numeric residual/output abs+relative 2e-5",
+      "model-gradient-audit.csv": "exactly 3 models x 12 descriptors; model_id,descriptor,median_abs_dsw_dd,p10_abs_dsw_dd,p90_abs_dsw_dd,fraction_positive,fraction_negative,n_frames; 64-frame signed d(sw)/d(dj); absolute-gradient median and NumPy linear p10/p90, sign fractions from signed gradients, n_frames=64; numeric summary tolerance absolute+relative 2e-5"
+    },
+    "review_limits": {
+      "max_required_text_file_bytes": 45000,
+      "max_total_required_text_bytes": 120000,
+      "max_csv_bytes": 10000000,
+      "max_csv_columns": 128,
+      "max_csv_record_chars": 12000,
+      "max_artifact_files": 128,
+      "max_artifact_path_chars": 512,
+      "csv_fields_may_contain_embedded_newlines": false,
+      "max_review_view_chars": 180000,
+      "extra_artifact_policy": "Non-text extras are retained by SHA-256, media type and byte size; the judge does not parse them, and scientific numeric claims require independent replay."
+    },
+    "scientific_criteria": [
+      {
+        "criterion": "trace_and_column_provenance_integrity",
+        "necessary": true,
+        "required_evidence": "Require candidate-bound provenance that matches the public trace-provenance metadata, including its duplicate-column audit policy and limitations. The unique-column NPZ does not retain raw duplicate columns, so their equality cannot be independently re-audited from the supplied input.",
+        "accepted_methods": "Agreement may be positive or negative; do not score identical-output runs as independent replications. The required answer is a supported validation decision, not a fixed yes/no.",
+        "inference_limits": "三个网络标量字段来自同一G4存档COLVAR的一条模拟记录。计算符号/尺度不变对照、按连续时间或z分层的变化，说明是否有资格使用该CV，以及下一步如何避免训练/验证泄漏。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "gauge_aware_pairwise_cv_comparison",
+        "necessary": true,
+        "required_evidence": "All three native outputs are present in the real full scalar record, allowing sign/gauge-aware pairwise statistics and stratified diagnostics; numeric statistics do not make them independent runs.",
+        "accepted_methods": "Agreement may be positive or negative; do not score identical-output runs as independent replications. The required answer is a supported validation decision, not a fixed yes/no.",
+        "inference_limits": "三个网络标量字段来自同一G4存档COLVAR的一条模拟记录。计算符号/尺度不变对照、按连续时间或z分层的变化，说明是否有资格使用该CV，以及下一步如何避免训练/验证泄漏。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "independent_validation_leakage_and_bias_applicability_decision",
+        "necessary": true,
+        "required_evidence": "The author training protocol requires B/U state data and multiple trajectories; this archived record is biased and represents one trajectory, so the agent must distinguish output agreement from independent generalization.",
+        "accepted_methods": "Agreement may be positive or negative; do not score identical-output runs as independent replications. The required answer is a supported validation decision, not a fixed yes/no.",
+        "inference_limits": "三个网络标量字段来自同一G4存档COLVAR的一条模拟记录。计算符号/尺度不变对照、按连续时间或z分层的变化，说明是否有资格使用该CV，以及下一步如何避免训练/验证泄漏。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "published_model_forward_and_native_comparison",
+        "necessary": true,
+        "required_evidence": "For every 64-frame × 3-model × 6-column row, use model_output=s_raw for node0/node1/node2 and model_output=sw for sw/swb/swc. Fit native_value=slope*model_output+intercept by ordinary least squares independently for each pair; affine_residual=native_value-fitted native value. Report all 18 model/native pairs without asserting identity.",
+        "accepted_methods": "The pinned model graph is 12→10→8→6→4 with ReLU after the first three affine layers, LDA projection s, and sw=s+s^3. A mapping may remain unresolved if no unique predeclared fit supports it.",
+        "inference_limits": "Descriptor-row replay is not model training, coordinate forces, or independent held-out B/U validation. The historical descriptors use legacy NL_CUTOFF=1.0.",
+        "review_scope": "Fixed source-pinned numerical forward comparisons are independently recomputed; mapping interpretation remains subject to review."
+      },
+      {
+        "criterion": "descriptor_gradient_statistics",
+        "necessary": true,
+        "required_evidence": "Report d(sw)/d(d1..d12) from the fixed model export and summarize all 64 legacy descriptor frames for all three models. Summaries are over the 64 rows; median/p10/p90 use absolute signed gradients with NumPy linear quantiles, while sign fractions use the signed gradients.",
+        "accepted_methods": "Use analytic backpropagation through the declared affine/ReLU graph; finite differences are an independent implementation check.",
+        "inference_limits": "These are descriptor-level local sensitivities, not coordinate forces or causal feature importance.",
+        "review_scope": "Required gradient summaries are independently recomputed from trusted public tensors."
+      }
+    ]
+  },
+  "inputs": {
+    "environment/assets/g4-native-traces.npz": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "environment/assets/trace-provenance.json": "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5",
+    "environment/assets/deep-lda-method.md": "7008a9ae9e93ad8f3990ba65d1393625e2c976dc7d668e8cabad1618b59b8427",
+    "environment/assets/g4-descriptors.csv": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "environment/assets/g4-model-weights.npz": "85ccbf359e268871eea3052cdc6a18ff33f52b1c117d5b40c9d987e4a0365455",
+    "environment/assets/g4-model-export.json": "fa6c370426cdc030c61e078d50dd4356fb1f692cebd2df4f4195801d7310581e"
+  },
+  "criteria": [
+    {
+      "criterion": "trace_and_column_provenance_integrity",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "acquired_native_colvar",
+        "source": "packages/case-02-water-cv-validation/tests/refs.json",
+        "source_sha256": "d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e",
+        "rationale": "Candidate must bind its stated acquired-COLVAR provenance to public trace-provenance metadata and accurately report the published duplicate-column audit policy and its limits. The supplied unique-column NPZ does not contain original duplicate columns, so their equality cannot be independently re-audited from this input."
+      }
+    },
+    {
+      "criterion": "gauge_aware_pairwise_cv_comparison",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_trace_statistics",
+        "source": "packages/case-02-water-cv-validation/tests/refs.json",
+        "source_sha256": "d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e",
+        "rationale": "All three native outputs are present in the real full scalar record, allowing sign/gauge-aware pairwise statistics and stratified diagnostics; numeric statistics do not make them independent runs."
+      }
+    },
+    {
+      "criterion": "independent_validation_leakage_and_bias_applicability_decision",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "author_method_and_sampling_provenance",
+        "source": "packages/case-02-water-cv-validation/tests/refs.json",
+        "source_sha256": "d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e",
+        "rationale": "The author training protocol requires B/U state data and multiple trajectories; this archived record is biased and represents one trajectory, so the agent must distinguish output agreement from independent generalization."
+      }
+    },
+    {
+      "criterion": "published_model_forward_and_native_comparison",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "source_pinned_model_replay",
+        "source": "packages/case-02-water-cv-validation/tests/refs.json",
+        "source_sha256": "d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e",
+        "rationale": "Recompute the published a/b/c model outputs on the fixed 64 legacy descriptor rows and compare all native-output mappings without assuming a filename identity."
+      }
+    },
+    {
+      "criterion": "descriptor_gradient_statistics",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "source_pinned_model_gradient_replay",
+        "source": "packages/case-02-water-cv-validation/tests/refs.json",
+        "source_sha256": "d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e",
+        "rationale": "Recompute descriptor-level d(sw)/d(d1..d12) summaries; gradients are local sensitivities, not coordinate forces or causal importance."
+      }
+    }
+  ],
+  "review_policy": "数值检查与必要科学评审分开；当前只提供数值诊断。重新接入后必须逐项评审必要科学判据，不得由文件存在或数值通过直接授予科学 PASS。",
+  "contract_fingerprints": {
+    "instruction.md": "57fd32b2f1da79b1381608abb95e50c9421fe62d7ba38f0ef550a6aff31bbf80",
+    "task.toml": "42c43eea495038398292dee20cd0abf044fedd226b4f43f98e63879f7165280b",
+    "output-contract.json": "8fd31ff25c5c2fff1007fe94689ec1d9517d7ca24a3a1bd9905131c818b96436",
+    "output-contract.yaml": "893b9360f8cf838fdf04d9d2896aa9f67f52617ef837a6a0513d853b92a98e4e"
+  }
+}

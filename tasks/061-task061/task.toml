@@ -1,0 +1,33 @@
+schema_version = "1.4"
+metadata = { execution_class = "local", case_id = "case-07-holy-grail", title = "自主研究第一性原理载流子散射与输运" }
+artifacts = ["/app/final", "/app/trusted"]
+
+[task]
+name = "compchemworld/case-07-holy-grail"
+description = "自主研究第一性原理载流子散射与输运"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+user = "root"
+
+[[verifier.collect]]
+command = "HOME=/root /opt/case07-venv/bin/python /app/environment/assets/root_service.py collect"
+service = "main"
+timeout_sec = 7200
+user = "root"
+
+[environment]
+build_timeout_sec = 1800
+network_mode = "public"
+env = { CCB_CASE07_ENABLE_SCIENTIFIC_REVIEW = "${CCB_CASE07_ENABLE_SCIENTIFIC_REVIEW:-0}" }
+[agent]
+timeout_sec = 1800
+user = "agent"
+
+[verifier.environment]
+env = { LOGS = "/logs/verifier", APP = "/app/trusted", RUNNER_CONTEXT = "/app/trusted/runner-context.json", NATIVE_RECONSTRUCTION = "/app/trusted/native-reconstruction.json", LOCAL_REANALYSIS = "/app/trusted/local-reanalysis.json", CCB_CASE07_ENABLE_SCIENTIFIC_REVIEW = "${CCB_CASE07_ENABLE_SCIENTIFIC_REVIEW:-0}", CCB_CASE07_REVIEW_MODEL = "${CCB_CASE07_REVIEW_MODEL:-gpt-6.1-sol}" }
+
+[agent_interface]
+reference_solution_provided = false

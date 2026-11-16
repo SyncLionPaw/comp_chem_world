@@ -1,0 +1,40 @@
+{
+  "schema": "bench21-case-refs/1",
+  "case_id": "case-03-hessian-comparison",
+  "kind": "independent-model-and-dft-reference-replay",
+  "verifier": "tests/verify.py",
+  "thresholds": {
+    "near_degenerate_gap_abs_eV_A2": 1e-08,
+    "near_degenerate_gap_relative_choices": [
+      1e-06,
+      1e-05,
+      0.0001
+    ],
+    "hessian_calls_exact": 4
+  },
+  "tolerances": {
+    "model_hessian_abs_eV_A2": 2e-05,
+    "model_hessian_rel": 2e-05,
+    "coordinate_abs_A": 1e-09,
+    "mode_eigenvalue_abs_eV_A2": 2e-05,
+    "mode_overlap_abs": 2e-05,
+    "bond_response_abs_A": 2e-06,
+    "mode_matching_tie_abs": 1e-12
+  },
+  "limits": {
+    "hessian_calls_max": 8,
+    "energy_force_calls_max": 40,
+    "eigenpairs_rows": 129,
+    "mode_comparison_rows": 10
+  },
+  "reference_values": {
+    "input_sha256": {
+      "case03_ts_geometries_001_079_205_024.extxyz": "89f853ed2db9d7d55027794adeb0ad9aa07891693d171bc1f721f869f44dade6",
+      "case03_dft_hessians_001_079_205_024.jsonl": "46dedc29a1e5e7f41e77f02ab54f73c9db7e88a6c05f0550eeb10593b4abe575",
+      "best_model_state.tar": "a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3",
+      "newtonnet_model_spec.yml": "eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf",
+      "analysis_protocol.json": "f70914de6bacaa6c34b8004d7d969765a03f852d823521bd6844a41d1f60e48a"
+    },
+    "dft_reference": "pinned public matrices; model values from independent replay"
+  }
+}

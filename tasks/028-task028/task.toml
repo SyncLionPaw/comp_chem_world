@@ -1,0 +1,39 @@
+# Harbor execution wrapper; original Bench definition preserved verbatim below.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-08-end-to-end-rearrangement-claim"
+description = "Independently investigate whether bicyclic peroxy radical rearrangement is a key route to aerosol formation from aromatics, and substantiate the core scientific conclusion with computations you execute and an attributed uncertainty assessment. Only the scientific question and execution environment are supplied; all scientific inputs and decisions are your responsibility."
+task_number = 28
+reference_solution_provided = false
+case_type = "holy_grail_no_reference"
+verification_coverage = "PARTIAL_REVIEW_REQUIRED"
+holy_grail_checked_claims = ["Historical local ARM64 MESMER g50/g200 control outputs and their receipts are present, linked, and internally consistent as bounded diagnostic evidence.", "The bounded control comparison is reported as an empirical conditional comparison, not as a convergence proof, current HPC result, or complete oxidation mechanism."]
+holy_grail_unverified_claims = ["Independent reproduction of the paper's core conclusion from new computation.", "Representative scope and ring-opening coverage.", "Matched rearrangement-rate and competition evidence.", "Mechanistic connection to aerosol precursors.", "Route-specific scientific validity of a complete candidate study.", "Scientific uncertainty and claim scope sufficient to establish the core conclusion."]
+case_id = "case-08-end-to-end-rearrangement-claim"
+title = "Holy Grail：自主计算验证芳烃 BPR 重排的核心科学结论"
+migration_boundary = "Environment and verifier packaging only. No oracle, reference solution, or scientific PASS is provided or implied. Harbor does not supply the legacy trusted runner_context or authenticated HPC host-receipt/provider; the six scientific claims remain REVIEW_REQUIRED until exact-snapshot independent review."
+
+[task]
+name = "compchemworld/case-08-end-to-end-rearrangement-claim"
+description = "Independently investigate whether bicyclic peroxy radical rearrangement is a key route to aerosol formation from aromatics, and substantiate the core scientific conclusion with computations you execute and an attributed uncertainty assessment. Only the scientific question and execution environment are supplied; all scientific inputs and decisions are your responsibility."
+
+[agent]
+timeout_sec = 28800
+network_mode = "public"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 1800
+
+[verifier]
+timeout_sec = 120
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 1
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

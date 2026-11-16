@@ -1,0 +1,36 @@
+# Harbor task config migrated from the archived Bench12 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+task_number = 82
+name = "task 82"
+case_id = "case-07-cof-excited-state-screening"
+title = "Holy Grail：高效激发态方法的自主开放研究"
+description = "自主检索文献并研究 ADMM 与简化响应核的准确性、效率和适用范围；无预置研究输入、固定答案或参考解。完整科学认可依赖独立审核，正式审核及 HPC 接入尚未验收。"
+execution_class = "remote"
+scientific_status = "HOLD_INDEPENDENT_REVIEW_NOT_CONNECTED"
+research_mode = "open_research"
+criteria_version = "task83-open-research-v2"
+oracle_policy = "NOT_APPLICABLE_OPEN_RESEARCH"
+selected_defaults = ["environment.build_timeout_sec=1800 (migration-selected)", "agent.timeout_sec=900 (local smoke default; not a research or HPC budget)", "verifier.environment_mode=separate (Harbor migration-selected)", "verifier.network_mode=no-network (Harbor migration-selected)"]
+
+[task]
+name = "compchembench/task-83"
+description = '自主检索文献并研究 ADMM 与简化响应核的准确性、效率和适用范围；无预置研究输入、固定答案或参考解。完整科学认可依赖独立审核，正式审核及 HPC 接入尚未验收。'
+
+[agent]
+timeout_sec = 900
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 1800
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "no-network"

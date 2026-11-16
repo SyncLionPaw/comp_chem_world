@@ -1,0 +1,358 @@
+{
+  "contract_version": 1,
+  "anchors": [
+    {
+      "table": "Table 1",
+      "cell": "H2O rmse",
+      "value": 0.0002,
+      "relative_tolerance": 0.02,
+      "expected_unit": "e*bohr",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 1",
+      "cell": "H2O rrmse",
+      "value": 0.00069,
+      "relative_tolerance": 0.02,
+      "expected_unit": "1",
+      "count_entity": null,
+      "percent_allowed": true
+    },
+    {
+      "table": "Table 1",
+      "cell": "(H2O)2 rmse",
+      "value": 0.0105,
+      "relative_tolerance": 0.02,
+      "expected_unit": "e*bohr",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 1",
+      "cell": "(H2O)2 rrmse",
+      "value": 0.01681,
+      "relative_tolerance": 0.02,
+      "expected_unit": "1",
+      "count_entity": null,
+      "percent_allowed": true
+    },
+    {
+      "table": "Table 1",
+      "cell": "H5O2+ rmse",
+      "value": 0.0014,
+      "relative_tolerance": 0.02,
+      "expected_unit": "e*bohr",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 1",
+      "cell": "H5O2+ rrmse",
+      "value": 0.00371,
+      "relative_tolerance": 0.02,
+      "expected_unit": "1",
+      "count_entity": null,
+      "percent_allowed": true
+    },
+    {
+      "table": "Table 1",
+      "cell": "liquid water rmse",
+      "value": 0.0017,
+      "relative_tolerance": 0.02,
+      "expected_unit": "e*bohr",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 1",
+      "cell": "liquid water rrmse",
+      "value": 0.00852,
+      "relative_tolerance": 0.02,
+      "expected_unit": "1",
+      "count_entity": null,
+      "percent_allowed": true
+    },
+    {
+      "table": "Table 2",
+      "cell": "H2O diag rmse",
+      "value": 0.085,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 2",
+      "cell": "H2O offdiag rmse",
+      "value": 0.004,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 2",
+      "cell": "(H2O)2 diag rmse",
+      "value": 0.227,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 2",
+      "cell": "(H2O)2 offdiag rmse",
+      "value": 0.137,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 2",
+      "cell": "H5O2+ diag rmse",
+      "value": 0.023,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 2",
+      "cell": "H5O2+ offdiag rmse",
+      "value": 0.017,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 2",
+      "cell": "liquid water diag rmse",
+      "value": 0.054,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table 2",
+      "cell": "liquid water offdiag rmse",
+      "value": 0.037,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "QM7B",
+      "cell": "dipole rmse per atom",
+      "value": 0.0018,
+      "relative_tolerance": 0.02,
+      "expected_unit": "e*bohr/atom",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "QM7B",
+      "cell": "alpha diag rmse per atom",
+      "value": 0.0464,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3/atom",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "QM7B",
+      "cell": "alpha offdiag rmse per atom",
+      "value": 0.0258,
+      "relative_tolerance": 0.02,
+      "expected_unit": "bohr^3/atom",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "QM7B",
+      "cell": "dipole r2",
+      "value": 0.998,
+      "relative_tolerance": 0.01,
+      "expected_unit": "1",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S1",
+      "cell": "H2O Nneu",
+      "value": 10,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "neuron",
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S1",
+      "cell": "QM7B Nneu",
+      "value": 30,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "neuron",
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S1",
+      "cell": "rRc",
+      "value": 6.0,
+      "relative_tolerance": 0.0,
+      "expected_unit": "angstrom",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S1",
+      "cell": "rAc",
+      "value": 4.0,
+      "relative_tolerance": 0.0,
+      "expected_unit": "angstrom",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S2",
+      "cell": "BaZrO3 Nneu",
+      "value": 20,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "neuron",
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S2",
+      "cell": "BaZrO3 Ngen",
+      "value": 600000.0,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "generation",
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S2",
+      "cell": "BaZrO3 Npop",
+      "value": 50,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "individual",
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S2",
+      "cell": "BaZrO3 nmax",
+      "value": 4,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "count",
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S3",
+      "cell": "liquid water Nneu",
+      "value": 100,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "neuron",
+      "percent_allowed": false
+    },
+    {
+      "table": "Table S3",
+      "cell": "liquid water Ngen",
+      "value": 300000.0,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "generation",
+      "percent_allowed": false
+    },
+    {
+      "table": "Text",
+      "cell": "BaZrO3 structures",
+      "value": 940,
+      "relative_tolerance": 0.0,
+      "expected_unit": "1",
+      "count_entity": "structure",
+      "percent_allowed": false
+    },
+    {
+      "table": "Text",
+      "cell": "BaZrO3 R2 diagonal",
+      "value": 0.95,
+      "relative_tolerance": 0.01,
+      "expected_unit": "1",
+      "count_entity": null,
+      "percent_allowed": true
+    },
+    {
+      "table": "Text",
+      "cell": "BaZrO3 R2 off-diagonal",
+      "value": 0.984,
+      "relative_tolerance": 0.01,
+      "expected_unit": "1",
+      "count_entity": null,
+      "percent_allowed": true
+    },
+    {
+      "table": "Text",
+      "cell": "OH stretch FWHM cm-1",
+      "value": 380.0,
+      "relative_tolerance": 0.01,
+      "expected_unit": "cm^-1",
+      "count_entity": null,
+      "percent_allowed": false
+    },
+    {
+      "table": "Text",
+      "cell": "experimental FWHM cm-1",
+      "value": 350.0,
+      "relative_tolerance": 0.03,
+      "expected_unit": "cm^-1",
+      "count_entity": null,
+      "percent_allowed": false
+    }
+  ],
+  "convention_topics": {
+    "liquid water dipole normalization": [
+      "32",
+      "water molecule"
+    ],
+    "qm7b normalization": [
+      "atom"
+    ],
+    "unit conventions": [
+      "bohr"
+    ],
+    "clausius-mossotti": [
+      "chi",
+      "3"
+    ],
+    "chi/rho reconstructability": [
+      "cannot",
+      "uniquely"
+    ]
+  },
+  "unsupported_keywords": [
+    [
+      "extrapolat",
+      "hardware"
+    ],
+    [
+      "per-configuration",
+      "distribution"
+    ],
+    [
+      "absolute",
+      "speed"
+    ]
+  ],
+  "documents_sha256": {
+    "official_main_article.pdf": "321617c376e0ba91600b4b83f4e377aa8c001b4bcbe3c0648ab248b61b6d5a9f",
+    "official_supplementary_information.pdf": "50529429377166ee34b3addce4b3256cae17e65a47492fabc4cd39a40bb83834"
+  }
+}

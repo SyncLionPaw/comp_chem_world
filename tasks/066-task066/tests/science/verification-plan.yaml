@@ -1,0 +1,46 @@
+case_id: case-05-apo-cavity-hydration
+readiness: READY_FOR_RUNTIME
+evidence_coverage: COMPLETE
+implementation: partial
+criteria:
+- criterion: pbc_occupancy_region_geometry_and_sensitivity
+  level: L2
+  necessary: true
+  verification_basis:
+    type: derived_native_coordinates_and_plumed_axis
+    source: packages/case-05-apo-cavity-hydration/tests/refs.json
+    source_sha256: 90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb
+    rationale: Two actual host-aligned coordinate excerpts and original axis definitions support reproducible integer
+      counts and alternative region/volume sensitivity.
+- criterion: bias_time_join_and_historical_replay_validity
+  level: L3
+  necessary: true
+  verification_basis:
+    type: native_colvar_and_coordinate_time_audit
+    source: packages/case-05-apo-cavity-hydration/tests/refs.json
+    source_sha256: 90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb
+    rationale: Actual contiguous time excerpts show the distinct COLVAR cadence/offset and time-varying bias diagnostics.
+      A final kernel alone does not establish historical same-configuration bias.
+- criterion: water_wire_or_ring_graph_geometry_and_atom_level_evidence
+  level: L3
+  necessary: true
+  verification_basis:
+    type: derived_apo_water_geometry
+    source: packages/case-05-apo-cavity-hydration/tests/refs.json
+    source_sha256: 90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb
+    rationale: A bounded PBC-aware O-O/H-angle graph reference supplies real water atom IDs, edge geometry, connected
+      components and cycle rank for both apo hosts. This supports checking alternative graph definitions without
+      demanding an author ring mode.
+- criterion: identifiability_of_unbiased_hydration_probability
+  level: L3
+  necessary: true
+  verification_basis:
+    type: scientific_constraint_and_bounded_coordinate_reference
+    source: packages/case-05-apo-cavity-hydration/tests/refs.json
+    source_sha256: 90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb
+    rationale: The original alpha-shape parameter/mask is absent and supplied frames are sparse, biased observations;
+      bounded sample frequencies cannot be promoted to unbiased P(n) without validated weights.
+review_policy: Accept alternative physically justified regions and valid conditional conclusions. Sparse biased
+  coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded
+  in the actual timing/bias evidence.
+verifier: tests/test.sh

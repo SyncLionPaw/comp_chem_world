@@ -1,0 +1,29 @@
+schema_version = "1.4"
+case_id = "case-01"
+artifacts = ["/app/outputs"]
+
+[metadata]
+name = "compchemworld/case-01"
+
+[task]
+name = "compchemworld/case-01"
+description = "XAlkeneDB 激发态数据库审计与性质提取"
+
+[agent]
+timeout_sec = 3600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"

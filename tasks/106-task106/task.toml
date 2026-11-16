@@ -1,0 +1,97 @@
+# Harbor task config migrated from the preserved Bench16 definition.
+schema_version = "1.4"
+artifacts = ["/app/final", "/app/.bench16-trusted/runner-context.json", "/app/.bench16-trusted/capture-proof.json"]
+case_id = "case-04-author-neb-v3"
+
+[compute]
+class = "remote"
+profile = "case04-author-neb-v3"
+network = "public"
+
+[compute.budget]
+profile = "case04-author-neb-v3"
+max_cpus = 64
+max_memory_gib = 64
+max_core_hours = 160
+max_walltime_seconds = 9000
+nodes = 1
+allocation_count = 1
+
+[compute.budget.science]
+active_images = 3
+npar = 4
+neb_ranks_multiple = 12
+fresh_nsw = 4
+
+[requirements]
+software = [
+  "VASP-compatible execution path for ordinary VTST NEB, with observed version and hash",
+  "PAW policy: exact author archive replay or host-qualified hpc_standard_native_v1 standard PAW_PBE Li/Ti/O; alternate source hashes and component order are sealed, not claimed byte-equivalent",
+  "One MPI rank allocation respecting the host resource and method layout"
+]
+inputs = [
+  {path = "environment/assets/input-manifest.json", sha256 = "50c0a6991e37a2828800e0036503c80eeb9f30e57ef6b6c18ea7005e83f7e176"},
+  {path = "environment/assets/bench16_runtime.py", sha256 = "d0b59b0e34662e3cbc3c1581cf00251d8d43239261c0c9357a3fb5de4d970e83"},
+  {path = "environment/assets/output-schema.json", sha256 = "e28891a33ce850aaee2015c8669d078af8e0706466ad4818845db9d20aba9621"},
+  {path = "environment/assets/neb/INCAR", sha256 = "4dc990105d77624eb4a05755be4e8e0c1254861763eb6861934a04c1b374e3d8"},
+  {path = "environment/assets/neb/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/neb/00/POSCAR", sha256 = "54493ae47028c9ce865651bb9305a570bce2da6229745764ac53ea3f466e5078"},
+  {path = "environment/assets/neb/01/POSCAR", sha256 = "02b2d1e0521ed913f2fe6a3a3a58793fd7825238239b41bbe465f573139bfbb2"},
+  {path = "environment/assets/neb/02/POSCAR", sha256 = "e2b98187a681c20e3ab3c206128b52ce6f62170f0ced4137a0f10be3bf9c7d01"},
+  {path = "environment/assets/neb/03/POSCAR", sha256 = "ab8db82ebc7ec43a5937ccc3aa4b770e689cf387c253f228f4ca414bab1d439c"},
+  {path = "environment/assets/neb/04/POSCAR", sha256 = "d0fca84a65ae60bf7563834e8e2015b5aec0ea805d288060813834426f279a47"},
+  {path = "environment/assets/upstream/00/CONTCAR", sha256 = "a0f332fa177e63933ff7e8f29e2fb3e59af1823d8e6178fa9cdd8a6907474157"},
+  {path = "environment/assets/upstream/00/OUTCAR.bz2", sha256 = "a52dc00837a31097de874caa18adf5c1cac10753e15eeb3867e4e16b8f14dd28"},
+  {path = "environment/assets/upstream/04/CONTCAR", sha256 = "9bc9897ba1dad715d5188faf870f05c82bf11f7c341db05e22c27b31de67c740"},
+  {path = "environment/assets/upstream/04/OUTCAR.bz2", sha256 = "13abd972b56de21fc0bf8db985c78a36e1927005f6e5f3f7c5669d2579f3a3cd"}
+]
+
+[metadata]
+name = "case-04-author-neb-v3"
+description = "Author-derived bounded ordinary NEB and native force audit"
+
+[task]
+name = "compchemworld/case-04-author-neb-v3"
+description = "Author-derived bounded ordinary NEB and native force audit"
+
+[agent]
+timeout_sec = 14400
+user = "researcher"
+network_mode = "public"
+
+[verifier]
+user = "root"
+timeout_sec = 120
+environment_mode = "separate"
+network_mode = "no-network"
+
+[[verifier.collect]]
+command = "HOME=/root python3 /app/assets/bench16_runtime.py collect"
+service = "main"
+user = "root"
+timeout_sec = 60
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+allow_internet = true
+
+[environment.healthcheck]
+command = "test -f /run/bench16/agent-ready && test \"$(stat -c %u /run/bench16/profile.json)\" = 0 && test \"$(stat -c %a /run/bench16/profile.json)\" = 400"
+interval_sec = 2
+timeout_sec = 3
+start_period_sec = 120
+start_interval_sec = 2
+retries = 60
+
+[environment.env]
+CCB_BENCH16_RUN_MODE = "normal"
+HOME = "/home/researcher"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

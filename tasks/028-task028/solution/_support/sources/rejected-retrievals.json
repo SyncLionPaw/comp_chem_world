@@ -1,0 +1,21 @@
+{
+  "recorded_at_utc": "2026-10-07T15:24:14.023074+00:00",
+  "responses": [
+    {
+      "locator": "https://pmc.ncbi.nlm.nih.gov/articles/instance/10435581/bin/41467_2023_40675_MOESM1_ESM.docx",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 1816,
+      "sha256": "efeb12178a715ec580f960253199d17a154779a6d5332aca7972ad22693eab34",
+      "disposition": "rejected: HTML error page, not DOCX"
+    },
+    {
+      "locator": "https://pmc.ncbi.nlm.nih.gov/articles/instance/10435581/bin/41467_2023_40675_MOESM3_ESM.xlsx",
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 1817,
+      "sha256": "a66107ffa66710edc22f3731fe330fe6eda1a9be7990e90230aa0b1b0d603c8e",
+      "disposition": "rejected: HTML error page, not XLSX"
+    }
+  ]
+}

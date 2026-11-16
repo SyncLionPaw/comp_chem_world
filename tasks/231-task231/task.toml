@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
+
+[task]
+name = "compchemworld/case-01-dft-berry-phase-polarization"
+description = "Reconstruct the integer-lattice polarization branch for every recorded BaTiO3 geometry from a finite first-principles training record. Replay the published proxy-polarization reconstruction at fixed and agent-selected proxy scales, retain the complete per-frame shift and margin evidence, and report finite-record means under the supplied units and branch convention."
+
+[metadata]
+name = "case-01-dft-berry-phase-polarization"
+description = "Reconstruct the integer-lattice polarization branch for every recorded BaTiO3 geometry from a finite first-principles training record. Replay the published proxy-polarization reconstruction at fixed and agent-selected proxy scales, retain the complete per-frame shift and margin evidence, and report finite-record means under the supplied units and branch convention."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

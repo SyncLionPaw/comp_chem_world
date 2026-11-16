@@ -1,0 +1,3 @@
+Bench 14 case 005 coupled Poisson-Fermi solutions
+private_probe_02: c=1.45 mM Pbar=0.002 C/m2 zmax=920 A nodes=10648 RMS=4.978e-07 charge_rel=4.282e-06 Omega=-0.03065363108 J/m2 stability=None runtime=3.842s
+all conditions completed in 3.844s

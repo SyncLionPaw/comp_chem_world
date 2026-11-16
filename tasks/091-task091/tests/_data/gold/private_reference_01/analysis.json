@@ -1,0 +1,104 @@
+{
+  "schema": "bench14.edl.analysis/v1",
+  "conditions": [
+    {
+      "run_id": "private_probe_01",
+      "parameters": {
+        "concentration_mM": 7.4,
+        "sigma0_C_m2": 0.09,
+        "Pbar_C_m2": 0.073,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 410.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -1860368349.3018959,
+      "rho_total_wall_C_m3": -1803542605.752284,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.716780154079905e-07,
+        "boundary_residual_max": 9.737466435029426e-26,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.09,
+        "wall_surface_charge_input_C_m2": 0.09,
+        "integrated_mobile_charge_C_m2": -0.08999990918310971,
+        "electroneutrality_residual_C_m2": 9.08168902857831e-08,
+        "electroneutrality_relative_to_input_charge": 1.0090765587309235e-06,
+        "electroneutrality_relative_to_Pscale": 9.08168902857831e-07,
+        "occupancy_max": 0.9993064468259987,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 33.735162059303725,
+        "linearized_modes_inverse_A": [
+          [
+            0.028275509397631647,
+            0.0
+          ],
+          [
+            0.28900196748599205,
+            0.0
+          ],
+          [
+            0.5761934705849749,
+            3.0433731675399067
+          ],
+          [
+            0.5761934705849749,
+            -3.0433731675399067
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 35.36629476545381,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          101.20548617791118,
+          236.14613441512608
+        ],
+        "far_field_fit_length_A": 35.36572523060888,
+        "far_field_fit_r_squared": 0.9999999997758873,
+        "far_field_fit_relative_deviation": 0.04833423264541481,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 1.610388785999728e-05,
+        "domain_A": 410.0,
+        "adaptive_nodes": 5600
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 5600,
+        "rms_residual_max": 4.716780154079905e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": 0.009317463371131806,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": 2.42861286636753e-17,
+      "stationarity": null,
+      "output_points": 8201,
+      "runtime_seconds": 1.6973692510000546
+    }
+  ],
+  "author_reconstruction": true,
+  "field_semantics": {
+    "P1_prime_C_m3": "rough table is the Eq.19 weighted mean of sharp local P1' at z-ell, not d(mean(P1))/dz",
+    "P2_prime_C_m3": "rough table is the Eq.19 weighted mean of sharp local P2' at z-ell, not d(mean(P2))/dz",
+    "P1_second_C_m4": "rough table is the Eq.19 weighted mean of sharp local P1'' at z-ell",
+    "rho1_wall_C_m3": "original sharp-wall -P1'(0), repeated as condition metadata; not rough averaged-interface charge",
+    "rho_total_wall_C_m3": "original sharp-wall -(P1'+P2')(0), repeated as condition metadata; not rough averaged-interface charge",
+    "rough_fields": "the local sharp fields listed here are convolved independently; they are not asserted to satisfy the sharp-interface PDE after convolution"
+  },
+  "roughness": {
+    "equation": "Eq.19 half-space wall-position density",
+    "mean_A": 2.5,
+    "delta_A": 1.5,
+    "integration_step_A": 0.0015625,
+    "quadrature_order": 384,
+    "near_wall_continuous_until_A": 30.0,
+    "near_wall_panel_A": 0.05,
+    "near_wall_gauss_order": 16,
+    "interpretation": "independently convolve each sharp field, including n+ and n-; do not apply ion closure to averaged phi"
+  },
+  "runtime_seconds_total": 1.698747000998992,
+  "input_sha256": "1110ddac644c8bb8329707a0342cce99f23fefa3d28eb2feabe6f3ae7cb7d243"
+}

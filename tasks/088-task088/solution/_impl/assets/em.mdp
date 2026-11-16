@@ -1,0 +1,19 @@
+; Steepest-descent minimization before equilibration.
+integrator              = steep
+emtol                   = 1000.0
+emstep                  = 0.01
+nsteps                  = 50000
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 0.9
+coulombtype             = PME
+rcoulomb                = 0.9
+pme-order               = 4
+fourierspacing          = 0.12
+vdwtype                 = Cut-off
+rvdw                    = 0.9
+vdw-modifier            = Potential-shift
+disp-corr               = no
+constraints             = h-bonds
+constraint-algorithm    = lincs
+pbc                     = xyz

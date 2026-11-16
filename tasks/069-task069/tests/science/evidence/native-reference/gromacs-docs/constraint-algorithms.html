@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Constraint algorithms &#8212; GROMACS 2022.6 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Simulated Annealing" href="simulated-annealing.html" />
+    <link rel="prev" title="Shell molecular dynamics" href="shell-molecular-dynamics.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="simulated-annealing.html" title="Simulated Annealing"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="shell-molecular-dynamics.html" title="Shell molecular dynamics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GROMACS 2022.6</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../algorithms.html" accesskey="U">Algorithms</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Constraint algorithms</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="constraint-algorithms">
+<h1>Constraint algorithms<a class="headerlink" href="#constraint-algorithms" title="Permalink to this headline">¶</a></h1>
+<p>Constraints can be imposed in GROMACS using LINCS (default) or the
+traditional SHAKE method.</p>
+<section id="shake">
+<span id="id1"></span><h2>SHAKE<a class="headerlink" href="#shake" title="Permalink to this headline">¶</a></h2>
+<p>The SHAKE <a class="reference internal" href="../references.html#refryckaert77"><span class="std std-ref">46</span></a> algorithm changes a
+set of unconstrained coordinates <span class="math notranslate nohighlight">\(\mathbf{r}^{'}\)</span> to
+a set of coordinates <span class="math notranslate nohighlight">\(\mathbf{r}''\)</span> that fulfill a
+list of distance constraints, using a set <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> reference, as</p>
+<div class="math notranslate nohighlight" id="equation-eqnshakebase">
+<span class="eqno">(100)<a class="headerlink" href="#equation-eqnshakebase" title="Permalink to this equation">¶</a></span>\[{\rm SHAKE}(\mathbf{r}^{'} \rightarrow \mathbf{r}'';\, \mathbf{r})\]</div>
+<p>This action is consistent with solving a set of Lagrange multipliers in
+the constrained equations of motion. SHAKE needs a <em>relative tolerance</em>;
+it will continue until all constraints are satisfied within that
+relative tolerance. An error message is given if SHAKE cannot reset the
+coordinates because the deviation is too large, or if a given number of
+iterations is surpassed.</p>
+<p>Assume the equations of motion must fulfill <span class="math notranslate nohighlight">\(K\)</span> holonomic
+constraints, expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eqnshakemotconstr">
+<span class="eqno">(101)<a class="headerlink" href="#equation-eqnshakemotconstr" title="Permalink to this equation">¶</a></span>\[\sigma_k(\mathbf{r}_1 \ldots \mathbf{r}_N) = 0; \;\; k=1 \ldots K.\]</div>
+<p>For example, <span class="math notranslate nohighlight">\((\mathbf{r}_1 - \mathbf{r}_2)^2 - b^2 = 0\)</span>.
+Then the forces are defined as</p>
+<div class="math notranslate nohighlight" id="equation-eqnshakeforce">
+<span class="eqno">(102)<a class="headerlink" href="#equation-eqnshakeforce" title="Permalink to this equation">¶</a></span>\[- \frac{\partial}{\partial \mathbf{r}_i} \left( V + \sum_{k=1}^K \lambda_k
+\sigma_k \right),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_k\)</span> are Lagrange multipliers which must be solved
+to fulfill the constraint equations. The second part of this sum
+determines the <em>constraint forces</em> <span class="math notranslate nohighlight">\(\mathbf{G}_i\)</span>, defined by</p>
+<div class="math notranslate nohighlight" id="equation-eqnshakeconstrforces">
+<span class="eqno">(103)<a class="headerlink" href="#equation-eqnshakeconstrforces" title="Permalink to this equation">¶</a></span>\[\mathbf{G}_i = -\sum_{k=1}^K \lambda_k \frac{\partial \sigma_k}{\partial
+\mathbf{r}_i}\]</div>
+<p>The displacement due to the constraint forces in the leap-frog or
+Verlet algorithm is equal to <span class="math notranslate nohighlight">\((\mathbf{G}_i/m_i)({{\Delta t}})^2\)</span>. Solving the
+Lagrange multipliers (and hence the displacements) requires the solution
+of a set of coupled equations of the second degree. These are solved
+iteratively by SHAKE. <a class="reference internal" href="#settle"><span class="std std-ref">SETTLE</span></a></p>
+</section>
+<section id="settle">
+<span id="id2"></span><h2>SETTLE<a class="headerlink" href="#settle" title="Permalink to this headline">¶</a></h2>
+<p>For the special case of rigid
+water molecules, that often make up more than 80% of the simulation
+system we have implemented the SETTLE algorithm <a class="reference internal" href="../references.html#refmiyamoto92"><span class="std std-ref">47</span></a>
+(sec. <a class="reference internal" href="../topologies/constraint-algorithm-section.html#constraintalg"><span class="std std-ref">Constraint algorithms</span></a>). The implementation of SETTLE in GROMACS
+is a slight modification of the original algorithm, in that it completely
+avoids the calculation of the center of mass of the water molecule.
+Apart from saving a few operations, the main gain of this is a reduction
+in rouding errors. For large coordinates, the floating pointing precision of constrained
+distances is reduced, which leads to an energy drift which usually depends
+quadratically on the coordinate. For SETTLE this dependence is now linear, which enables
+accurate integration of systems in single precision up to 1000 nm in size.
+But note that the drift due to SHAKE and LINCS still has a quadratic
+dependence, which limits the size of systems with normal constraints
+in single precision to 100 to 200 nm.</p>
+<p>For velocity Verlet, an additional round of constraining must be done,
+to constrain the velocities of the second velocity half step, removing
+any component of the velocity parallel to the bond vector. This step is
+called RATTLE, and is covered in more detail in the original Andersen
+paper <a class="reference internal" href="../references.html#refandersen1983a"><span class="std std-ref">48</span></a>.</p>
+</section>
+<section id="lincs">
+<h2>LINCS<a class="headerlink" href="#lincs" title="Permalink to this headline">¶</a></h2>
+<section id="the-lincs-algorithm">
+<span id="id3"></span><h3>The LINCS algorithm<a class="headerlink" href="#the-lincs-algorithm" title="Permalink to this headline">¶</a></h3>
+<p>LINCS is an algorithm that resets bonds to their correct lengths after
+an unconstrained update <a class="reference internal" href="../references.html#refhess97"><span class="std std-ref">49</span></a>. The method is non-iterative,
+as it always uses two steps. Although LINCS is based on matrices, no
+matrix-matrix multiplications are needed. The method is more stable and
+faster than SHAKE, but it can only be used with bond constraints and
+isolated angle constraints, such as the proton angle in OH. Because of
+its stability, LINCS is especially useful for Brownian dynamics. LINCS
+has two parameters, which are explained in the subsection parameters.
+The parallel version of LINCS, P-LINCS, is described in subsection
+<a class="reference internal" href="parallelization-domain-decomp.html#plincs"><span class="std std-ref">Constraints in parallel</span></a>.</p>
+</section>
+<section id="the-lincs-formulas">
+<h3>The LINCS formulas<a class="headerlink" href="#the-lincs-formulas" title="Permalink to this headline">¶</a></h3>
+<p>We consider a system of <span class="math notranslate nohighlight">\(N\)</span> particles, with positions given by a
+<span class="math notranslate nohighlight">\(3N\)</span> vector <span class="math notranslate nohighlight">\(\mathbf{r}(t)\)</span>. For molecular
+dynamics the equations of motion are given by Newton’s Law</p>
+<div class="math notranslate nohighlight" id="equation-eqnc1">
+<span class="eqno">(104)<a class="headerlink" href="#equation-eqnc1" title="Permalink to this equation">¶</a></span>\[{{\mbox{d}}^2 \mathbf{r} \over {\mbox{d}}t^2} = {{\mathbf{M}}^{-1}}\mathbf{F},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> is the <span class="math notranslate nohighlight">\(3N\)</span> force vector
+and <span class="math notranslate nohighlight">\({\mathbf{M}}\)</span> is a <span class="math notranslate nohighlight">\(3N \times 3N\)</span>
+diagonal matrix, containing the masses of the particles. The system is
+constrained by <span class="math notranslate nohighlight">\(K\)</span> time-independent constraint equations</p>
+<div class="math notranslate nohighlight" id="equation-eqnc2">
+<span class="eqno">(105)<a class="headerlink" href="#equation-eqnc2" title="Permalink to this equation">¶</a></span>\[g_i(\mathbf{r}) = | \mathbf{r}_{i_1}-\mathbf{r}_{i_2} | - d_i = 0 ~~~~~~i=1,\ldots,K.\]</div>
+<p>In a numerical integration scheme, LINCS is applied after an
+unconstrained update, just like SHAKE. The algorithm works in two steps
+(see figure <a class="reference internal" href="#fig-lincs"><span class="std std-numref">Fig. 8</span></a>). In the first step, the
+projections of the new bonds on the old bonds are set to zero. In the
+second step, a correction is applied for the lengthening of the bonds
+due to rotation. The numerics for the first step and the second step are
+very similar. A complete derivation of the algorithm can be found in
+<a class="reference internal" href="../references.html#refhess97"><span class="std std-ref">49</span></a>. Only a short description of the first step is given
+here.</p>
+<figure class="align-default" id="id4">
+<span id="fig-lincs"></span><a class="reference internal image-reference" href="../../_images/lincs.png"><img alt="../../_images/lincs.png" src="../../_images/lincs.png" style="height: 5.00000cm;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The three position updates needed for one time step. The dashed
+line is the old bond of length <span class="math notranslate nohighlight">\(d\)</span>, the solid lines are the new
+bonds. <span class="math notranslate nohighlight">\(l=d \cos \theta\)</span> and <span class="math notranslate nohighlight">\(p=(2 d^2 - l^2)^{1 \over 2}\)</span>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>A new notation is introduced for the gradient matrix of the constraint
+equations which appears on the right hand side of this equation:</p>
+<div class="math notranslate nohighlight" id="equation-eqnc3">
+<span class="eqno">(106)<a class="headerlink" href="#equation-eqnc3" title="Permalink to this equation">¶</a></span>\[B_{hi} = {{\partial}g_h \over {\partial}r_i}\]</div>
+<p>Notice that <span class="math notranslate nohighlight">\({\mathbf{B}}\)</span> is a <span class="math notranslate nohighlight">\(K \times 3N\)</span>
+matrix, it contains the directions of the constraints. The following
+equation shows how the new constrained coordinates
+<span class="math notranslate nohighlight">\(\mathbf{r}_{n+1}\)</span> are related to the unconstrained
+coordinates <span class="math notranslate nohighlight">\(\mathbf{r}_{n+1}^{unc}\)</span> by</p>
+<div class="math notranslate nohighlight" id="equation-eqnm0">
+<span class="eqno">(107)<a class="headerlink" href="#equation-eqnm0" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{c}
+\mathbf{r}_{n+1}=(\mathbf{I}-\mathbf{T}_n \mathbf{B}_n) \mathbf{r}_{n+1}^{unc} + {\mathbf{T}}_n \mathbf{d}=
+\\[2mm]
+\mathbf{r}_{n+1}^{unc} -
+{{\mathbf{M}}^{-1}}\mathbf{B}_n ({\mathbf{B}}_n {{\mathbf{M}}^{-1}}{\mathbf{B}}_n^T)^{-1} ({\mathbf{B}}_n \mathbf{r}_{n+1}^{unc} - \mathbf{d})
+\end{array}\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eqnnm01">
+<span class="eqno">(108)<a class="headerlink" href="#equation-eqnnm01" title="Permalink to this equation">¶</a></span>\[{\mathbf{T}}= {{\mathbf{M}}^{-1}}{\mathbf{B}}^T ({\mathbf{B}}{{\mathbf{M}}^{-1}}{\mathbf{B}}^T)^{-1}\]</div>
+<p>The derivation of this equation from <a class="reference internal" href="#equation-eqnc1">(104)</a> and
+<a class="reference internal" href="#equation-eqnc2">(105)</a> can be found in <a class="reference internal" href="../references.html#refhess97"><span class="std std-ref">49</span></a>.</p>
+<p>This first step does not set the real bond lengths to the prescribed
+lengths, but the projection of the new bonds onto the old directions of
+the bonds. To correct for the rotation of bond <span class="math notranslate nohighlight">\(i\)</span>, the projection
+of the bond, <span class="math notranslate nohighlight">\(p_i\)</span>, on the old direction is set to</p>
+<div class="math notranslate nohighlight" id="equation-eqnm1a">
+<span class="eqno">(109)<a class="headerlink" href="#equation-eqnm1a" title="Permalink to this equation">¶</a></span>\[p_i=\sqrt{2 d_i^2 - l_i^2},\]</div>
+<p>where <span class="math notranslate nohighlight">\(l_i\)</span> is the bond length after the first projection. The
+corrected positions are</p>
+<div class="math notranslate nohighlight" id="equation-eqnm1b">
+<span class="eqno">(110)<a class="headerlink" href="#equation-eqnm1b" title="Permalink to this equation">¶</a></span>\[\mathbf{r}_{n+1}^*=(\mathbf{I}-\mathbf{T}_n \mathbf{B}_n)\mathbf{r}_{n+1} + {\mathbf{T}}_n \mathbf{p}.\]</div>
+<p>This correction for rotational effects is actually an iterative
+process, but during MD only one iteration is applied. The relative
+constraint deviation after this procedure will be less than 0.0001 for
+every constraint. In energy minimization, this might not be accurate
+enough, so the number of iterations is equal to the order of the
+expansion (see below).</p>
+<p>Half of the CPU time goes to inverting the constraint coupling matrix
+<span class="math notranslate nohighlight">\({\mathbf{B}}_n {{\mathbf{M}}^{-1}}{\mathbf{B}}_n^T\)</span>,
+which has to be done every time step. This <span class="math notranslate nohighlight">\(K \times K\)</span> matrix has
+<span class="math notranslate nohighlight">\(1/m_{i_1} + 1/m_{i_2}\)</span> on the diagonal. The off-diagonal elements
+are only non-zero when two bonds are connected, then the element is
+<span class="math notranslate nohighlight">\(\cos \phi /m_c\)</span>, where <span class="math notranslate nohighlight">\(m_c\)</span> is the mass of the atom
+connecting the two bonds and <span class="math notranslate nohighlight">\(\phi\)</span> is the angle between the
+bonds.</p>
+<p>The matrix <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> is inverted through a power
+expansion. A <span class="math notranslate nohighlight">\(K \times K\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{S}\)</span>
+is introduced which is the inverse square root of the diagonal of
+<span class="math notranslate nohighlight">\(\mathbf{B}_n {{\mathbf{M}}^{-1}}{\mathbf{B}}_n^T\)</span>.
+This matrix is used to convert the diagonal elements of the coupling
+matrix to one:</p>
+<div class="math notranslate nohighlight" id="equation-eqnm2">
+<span class="eqno">(111)<a class="headerlink" href="#equation-eqnm2" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{array}{c}
+({\mathbf{B}}_n {{\mathbf{M}}^{-1}}{\mathbf{B}}_n^T)^{-1}
+= {\mathbf{S}}{\mathbf{S}}^{-1} ({\mathbf{B}}_n {{\mathbf{M}}^{-1}}{\mathbf{B}}_n^T)^{-1} {\mathbf{S}}^{-1} {\mathbf{S}}\\[2mm]
+= {\mathbf{S}}({\mathbf{S}}{\mathbf{B}}_n {{\mathbf{M}}^{-1}}{\mathbf{B}}_n^T {\mathbf{S}})^{-1} {\mathbf{S}}=
+{\mathbf{S}}(\mathbf{I} - \mathbf{A}_n)^{-1} {\mathbf{S}}\end{array}\end{split}\]</div>
+<p>The matrix <span class="math notranslate nohighlight">\(\mathbf{A}_n\)</span> is symmetric and sparse
+and has zeros on the diagonal. Thus a simple trick can be used to
+calculate the inverse:</p>
+<div class="math notranslate nohighlight" id="equation-eqnm3">
+<span class="eqno">(112)<a class="headerlink" href="#equation-eqnm3" title="Permalink to this equation">¶</a></span>\[(\mathbf{I}-\mathbf{A}_n)^{-1}=
+\mathbf{I} + \mathbf{A}_n + \mathbf{A}_n^2 + \mathbf{A}_n^3 + \ldots\]</div>
+<p>This inversion method is only valid if the absolute values of all the
+eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}_n\)</span> are smaller than one.
+In molecules with only bond constraints, the connectivity is so low that
+this will always be true, even if ring structures are present. Problems
+can arise in angle-constrained molecules. By constraining angles with
+additional distance constraints, multiple small ring structures are
+introduced. This gives a high connectivity, leading to large
+eigenvalues. Therefore LINCS should NOT be used with coupled
+angle-constraints.</p>
+<p>For molecules with all bonds constrained the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>
+are around 0.4. This means that with each additional order in the
+expansion <a class="reference internal" href="#equation-eqnm3">(112)</a> the deviations decrease by a factor 0.4. But for
+relatively isolated triangles of constraints the largest eigenvalue is
+around 0.7. Such triangles can occur when removing hydrogen angle
+vibrations with an additional angle constraint in alcohol groups or when
+constraining water molecules with LINCS, for instance with flexible
+constraints. The constraints in such triangles converge twice as slow as
+the other constraints. Therefore, starting with GROMACS 4, additional
+terms are added to the expansion for such triangles</p>
+<div class="math notranslate nohighlight" id="equation-eqnm3ang">
+<span class="eqno">(113)<a class="headerlink" href="#equation-eqnm3ang" title="Permalink to this equation">¶</a></span>\[(\mathbf{I}-\mathbf{A}_n)^{-1} \approx
+\mathbf{I} + \mathbf{A}_n + \ldots + \mathbf{A}_n^{N_i} +
+\left(\mathbf{A}^*_n + \ldots + {\mathbf{A}_n^*}^{N_i} \right) \mathbf{A}_n^{N_i}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N_i\)</span> is the normal order of the expansion and
+<span class="math notranslate nohighlight">\(\mathbf{A}^*\)</span> only contains the elements of
+<span class="math notranslate nohighlight">\(\mathbf{A}\)</span> that couple constraints within rigid
+triangles, all other elements are zero. In this manner, the accuracy of
+angle constraints comes close to that of the other constraints, while
+the series of matrix vector multiplications required for determining the
+expansion only needs to be extended for a few constraint couplings. This
+procedure is described in the P-LINCS paper<a class="reference internal" href="../references.html#refhess2008a"><span class="std std-ref">50</span></a>.</p>
+</section>
+<section id="the-lincs-parameters">
+<h3>The LINCS Parameters<a class="headerlink" href="#the-lincs-parameters" title="Permalink to this headline">¶</a></h3>
+<p>The accuracy of LINCS depends on the number of matrices used in the
+expansion <a class="reference internal" href="#equation-eqnm3">(112)</a>. For MD calculations a fourth order expansion is
+enough. For Brownian dynamics with large time steps an eighth order
+expansion may be necessary. The order is a parameter in the <a class="reference internal" href="../file-formats.html#mdp"><span class="std std-ref">mdp</span></a> file.
+The implementation of LINCS is done in such a way that the algorithm
+will never crash. Even when it is impossible to to reset the constraints
+LINCS will generate a conformation which fulfills the constraints as
+well as possible. However, LINCS will generate a warning when in one
+step a bond rotates over more than a predefined angle. This angle is set
+by the user in the <a class="reference internal" href="../file-formats.html#mdp"><span class="std std-ref">mdp</span></a> file.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Constraint algorithms</a><ul>
+<li><a class="reference internal" href="#shake">SHAKE</a></li>
+<li><a class="reference internal" href="#settle">SETTLE</a></li>
+<li><a class="reference internal" href="#lincs">LINCS</a><ul>
+<li><a class="reference internal" href="#the-lincs-algorithm">The LINCS algorithm</a></li>
+<li><a class="reference internal" href="#the-lincs-formulas">The LINCS formulas</a></li>
+<li><a class="reference internal" href="#the-lincs-parameters">The LINCS Parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="shell-molecular-dynamics.html"
+                        title="previous chapter">Shell molecular dynamics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="simulated-annealing.html"
+                        title="next chapter">Simulated Annealing</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference-manual/algorithms/constraint-algorithms.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="simulated-annealing.html" title="Simulated Annealing"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="shell-molecular-dynamics.html" title="Shell molecular dynamics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GROMACS 2022.6</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../algorithms.html" >Algorithms</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Constraint algorithms</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, GROMACS development team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>

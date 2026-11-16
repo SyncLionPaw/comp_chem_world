@@ -1,0 +1,9 @@
+oh_addition_site,channel,minimum_file,saddle_file,n_imaginary,multiplicity,dft_zero_point_kcal_per_mol,composite_kcal_per_mol,is_lowest_channel,published_lowest_channel_kcal_per_mol,abs_deviation_vs_published
+ipso,C1,Toluene-iBPR-DFT.log,Toluene-iBPR-TS-C1-DFT.log,1,2.0,20.946,18.838,no,17.9,
+ipso,C2,Toluene-iBPR-DFT.log,Toluene-iBPR-TS-C2-DFT.log,1,2.0,20.352,17.899,yes,17.9,0.001
+meta,C1,Toluene-mBPR-DFT.log,Toluene-mBPR-TS-C1-DFT.log,1,2.0,24.282,21.477,no,21.0,
+meta,C2,Toluene-mBPR-DFT.log,Toluene-mBPR-TS-C2-DFT.log,1,2.0,24.085,21.026,yes,21.0,0.026
+para,C1,Toluene-pBPR-DFT.log,Toluene-pBPR-TS-C1-DFT.log,1,2.0,25.451,22.782,no,22.0,
+para,C2,Toluene-pBPR-DFT.log,Toluene-pBPR-TS-C2-DFT.log,1,2.0,22.896,21.869,yes,22.0,0.131
+ortho,C1,Toluene-oBPR-DFT.log,Toluene-oBPR-TS-C1-DFT.log,1,2.0,26.205,25.066,no,23.2,
+ortho,C2,Toluene-oBPR-DFT.log,Toluene-oBPR-TS-C2-DFT.log,1,2.0,25.472,24.387,yes,23.2,1.187

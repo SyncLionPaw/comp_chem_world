@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "case_id": "case-03-binding-free-energy-stop-rule",
+  "review_status": "PASS",
+  "reviewer": "Sol independent scientific reviewer (not patch implementer)",
+  "reviewed_on": "2026-11-03",
+  "input_hashes": {
+    "environment/assets/g4-thermodynamic-records.npz": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "environment/assets/record-provenance.json": "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5",
+    "environment/assets/thermodynamic-method.md": "ef05a71bcedee02f442aed45aec53d9498552f3d111a4c71dcf2b8b89c5f1e51"
+  },
+  "source_fingerprints": {
+    "tests/assessment-protocol.json": "d8632922c25c00fd53b0fcc65f7f4b935b9ca0387539b6c1565b19d6781bd8fe",
+    "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+    "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+    "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "tests/numeric_evidence.py": "00b0668b51417c26d147dd58ee945329c321ec2824c17790086f0c0337ae4427",
+    "tests/reference-hashes.json": "473e8f82c17c133e97ddfdeaef7df327a00a12c69960ec98dbbbaf9cae7cafbb",
+    "tests/refs.json": "2c16bbd74d2c937d1be145d16ddae270b0bf36d583059352af864c296897a6f3",
+    "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+    "tests/test.sh": "0ae6d7fe88171c1abfbea56f980d4e8922f7412adadb0b80132082dc9dfca0ef",
+    "tests/verification-plan.yaml": "dfcfeeade09daf1206d1ce28299c06c542fdfe6861f529e397e9d3f6cce0cb08",
+    "tests/verify.py": "8e34fbacba4fcf584da5c37eba4daa990f0aee741a609984789ec3e834648114",
+    "contract/instruction.md": "a9fc9128d8ff964c646677a0be4bb4fd1b5fc5b9759be56739d6d498e5e05948",
+    "contract/task.toml": "d2d60ac437c4900a043282664a19024e03b8a1f28489c5e8b6defaf9c24317d3",
+    "contract/output-contract.yaml": "47b785e3e4de47419c8c3467ee148952e8afc4c460976f05cd30364562ea36c4",
+    "contract/output-contract.json": "2f890266ce78e0e2a20403e74cde168fe6b7db74926021419654a6f77710c533"
+  },
+  "candidate_manifest": {
+    "FES.csv": {
+      "sha256": "693beb828458a168a387e539c3d77f065206cbd78410aa190ca4d7af9b135388",
+      "bytes": 3104
+    },
+    "blocks.csv": {
+      "sha256": "ce7126e28f478ca96a58c235b256195815fead1762476e40984bb92b42692102",
+      "bytes": 699
+    },
+    "thermodynamics.json": {
+      "sha256": "306922a8704355264c3396a89ae185cb05e17d1da0dd65e9da29154b2e51a31e",
+      "bytes": 1130
+    },
+    "sensitivity.csv": {
+      "sha256": "49653ad1f0bb81ef44f2c37098ef998c32e85db3788480d851472e4e02870c6f",
+      "bytes": 322
+    },
+    "sampling-decision.json": {
+      "sha256": "1bd64c70c02e51d3be5918f9560511c09c3c5e8463b42785dc795864ef03a615",
+      "bytes": 568
+    },
+    "audit-report.md": {
+      "sha256": "7f496e724c8f5f67547a9e1b660b1aae3a2dd9cbd46fdf1ced944da0ccebeaf5",
+      "bytes": 1999
+    },
+    "provenance.json": {
+      "sha256": "416deaa44f3d9f6357e0a0b9cbe06a97d47868323058c90b90e1d88a679cc18f",
+      "bytes": 303
+    }
+  },
+  "criteria": {
+    "baseline_reweighted_fes_and_funnel_standard_state_integral": {
+      "status": "PASS",
+      "evidence": "Independent NPZ replay without importing the patched verifier matches all 72 FES bins, five blocks, local-scaled block weights and thermodynamic scalars under floor bin assignment, wall-filtered block weighting, and first acquired postburn time origin. deltaG=-2.705261729959503 kcal/mol, SD=0.5310150005168718 kcal/mol. Source hashes and all seven output hashes are bound below. Fresh post-fix Oracle was independently recomputed; six unchanged numerical/provenance deliverables are byte-identical to the prior canonical generation, with only the requested audit report changed."
+    },
+    "burnin_or_window_sensitivity_and_sampling_decision": {
+      "status": "PASS",
+      "evidence": "The separately declared 10000 ps burn-in alternative replays under the same coherent numerical convention: deltaG=-2.7774138173845673 kcal/mol, shift=-0.0721520874250643 kcal/mol. The report correctly compares this with descriptive SD/formal SE without using the comparison as proof of convergence. The decision limits precision to descriptive variation and requests independent replicas, time-resolved bias and predeclared convergence diagnostics."
+    },
+    "units_scope_and_uncertainty_accounting": {
+      "status": "PASS",
+      "evidence": "Fresh canonical output now explicitly reports 18 unique public NPZ arrays, attributes the raw OPES duplicate-column audit to supplied provenance and states raw COLVAR is unavailable for a fresh raw-column audit. The independently checked frame-ESS domain has 312715 time+wall rows before z, versus 307227 FES rows. It explicitly states five elapsed-time blocks from first acquired postburn 20000.000950 ps to final 176676.008392 ps, final-row inclusion, wall-population block weights and the correct local-to-common-scale transformation. Native nm resolves the prose typo; one 176.676008 ns replica, descriptive correlated SD/formal SE, no iid or independent-replica precision, and no full-paper reproduction are correctly bounded."
+    }
+  },
+  "review_basis": {
+    "type": "fresh_independent_candidate_specific_review",
+    "candidate_path": "canonical reference generated by task64/solution/solve.sh in the declared Docker environment",
+    "trial_id": "canonical-declared-docker-environment",
+    "numeric_replay_status": "PASS",
+    "numeric_replay_sha256": "4abf30ae5f9b77b3fe00dbf3b3706ffafc29d3a03e7af6f22e2db1347aacd0c1",
+    "independent_replay_implementation_sha256": "5eef342b2721925cb2435515f06266be453892933f501e78910196722f67e177",
+    "numeric_replay": [
+      {
+        "edge": "floor",
+        "scope": "wall",
+        "origin": "first_postburn",
+        "weight_representations": [
+          "local"
+        ],
+        "baseline": {
+          "deltaG_kJ_mol": -11.318815078150562,
+          "deltaG_kcal_mol": -2.705261729959503,
+          "weighted_block_mean_kcal_mol": -2.878193851774971,
+          "weighted_block_mean_kJ_mol": -12.04236307582648,
+          "weighted_block_sd_kcal_mol": 0.5310150005168718,
+          "weighted_block_formal_se_kcal_mol": 0.25710020511745435,
+          "frame_effective_sample_size": 4856.9637964263575,
+          "block_effective_sample_size": 4.265880965720748
+        },
+        "sensitivities": [
+          {
+            "variant": "burnin_10000_ps",
+            "matches": [
+              {
+                "origin": "first_postburn",
+                "status": "supported",
+                "deltaG_kcal_mol": -2.7774138173845673
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "inherited_approval": false,
+    "candidate_outputs_modified_by_reviewer": false,
+    "declared_runtime": {
+      "image": "task-64__wgeefdw__env-main:latest",
+      "numpy": "2.2.6"
+    },
+    "reference_solution_sha256": {
+      "solution/solve.sh": "c98c3a6cd3a4a82313cd51be94319f0ff62d816e28a7efaa43e1f4fbb6875603",
+      "solution/solve.py": "1ecc420608d31449ad1d0c36108f7ea2f5349b1100b056a461b8d1b4f22a72d0"
+    },
+    "previous_historical_review_sha256": "474d9f903e9764769f558d8380cb235cd196f49db5559cccfb63eef08d5e9022"
+  }
+}

@@ -1,0 +1,38 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-168"
+description = "由 Eliashberg 谱函数计算 λ、ω_log 与 Allen-Dynes Tc 并检验 μ* 敏感性"
+authors = []
+keywords = ["materials-science", "W2N3"]
+
+[metadata]
+task_number = 168
+case_id = "case-02-eliashberg-numerics"
+legacy_artifacts = ["/app/final/eliashberg-results.json"]
+verification_scope = "full"
+
+[agent]
+timeout_sec = 1800
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+user = "root"
+
+[verifier]
+timeout_sec = 300
+network_mode = "no-network"
+environment_mode = "separate"
+user = "root"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+
+[environment]
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+cpus = 2
+memory_mb = 2048
+workdir = "/app"

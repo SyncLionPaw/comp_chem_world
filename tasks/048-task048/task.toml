@@ -1,0 +1,28 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/reline-07-holy-grail"
+description = "How reliably can a model describe structure and transport in reline?"
+
+[metadata]
+task_number = 48
+holy_grail = true
+research_mode = "auto_research"
+execution_class = "remote"
+
+[agent]
+network_mode = "public"
+timeout_sec = 14400
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[verifier.environment]
+network_mode = "no-network"

@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/execution.json", "/app/profiles/", "/app/stability_audit.json", "/app/stationary_interpretation.md", "/app/code/"]
+
+[task]
+name = "compchemworld/case-06-stationary-feedback-diagnosis"
+description = "Construct stationary coupled transport solutions at the two prescribed potentials from the mandated initial states, probe every prescribed signed finite flux perturbation, and reconstruct the full log-activity conjugate response spectra with independent multiprecision Jacobian controls."
+
+[metadata]
+name = "case-06-stationary-feedback-diagnosis"
+description = "Construct stationary coupled transport solutions at the two prescribed potentials from the mandated initial states, probe every prescribed signed finite flux perturbation, and reconstruct the full log-activity conjugate response spectra with independent multiprecision Jacobian controls."
+execution_class = "local"
+difficulty = "holy_grail"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

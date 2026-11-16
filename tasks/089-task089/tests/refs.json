@@ -1,0 +1,42 @@
+{
+  "case_id": "case-02-kernel-parametrization",
+  "formal_reference": "published Figure 1 kernel and the observables recomputed in tests/verify.py",
+  "research_trial_not_reference": ".work/independent_checks.py case_002 uses a perturbed kernel and is not the scored target set",
+  "targets": {
+    "eps_w": 70.997939,
+    "k_min_Ainv": 0.400044,
+    "chi_min": 0.924774,
+    "k_max_Ainv": 2.998992,
+    "delta_k_Ainv": 1.216510
+  },
+  "tolerances": {
+    "eps_w": 0.02,
+    "k_min": 0.002,
+    "chi_min": 0.001,
+    "k_max": 0.005,
+    "delta_k": 0.01
+  },
+  "published_kernel": {
+    "K11": 0.140125,
+    "K12": -0.207118,
+    "K13": 0.011290,
+    "K21": 0.015908,
+    "K22": 2.003940,
+    "units": {
+      "K11": "dimensionless",
+      "K12": "Angstrom^2",
+      "K13": "Angstrom^4",
+      "K21": "dimensionless",
+      "K22": "Angstrom^2"
+    }
+  },
+  "host_replay": {
+    "gold": "PASS",
+    "wrong_K12": "FAIL L3",
+    "missing_solver_log": "FAIL L1",
+    "container_gates": "not run"
+  },
+  "asset_hashes": {
+    "assets/response_targets.json": "sha256:d9a7b4f76ef1d1116cbad89f35559426fa5e9cc7ce085d4f4184918920a053b2"
+  }
+}

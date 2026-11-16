@@ -1,0 +1,23 @@
+! WB97X-D3 6-31+G(d) TightSCF TightOpt DefGrid3 NoRI NoCOSX OptTS
+%pal nprocs 16 end
+%maxcore 1500
+%scf
+  MaxIter 500
+end
+%cpcm
+  smd true
+  SMDsolvent "acetonitrile"
+end
+%geom
+  MaxIter 80
+  Calc_Hess true
+  Recalc_Hess 10
+  MaxStep 0.15
+  Trust 0.15
+  TS_Mode {B 5 11} end
+  modify_internal
+    {B 5 11 A}
+    {B 5 6 A}
+  end
+end
+* xyzfile 0 1 initial.xyz

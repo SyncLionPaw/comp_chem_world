@@ -1,0 +1,242 @@
+{
+  "schema": "case08-postprocessed-decision/v1",
+  "decision": "needs_check",
+  "execution_job_id": "3968344",
+  "analysis_version": "independent-native-edr-postprocess/v1",
+  "job_analysis_preserved_as": [
+    "job-diagnostics.csv",
+    "job-numerical-comparison.json",
+    "job-continuation-decision.json",
+    "job-scientific-rationale.md"
+  ],
+  "job_case08_tools_sha256": "9e1b1bd0911e78902f1ae8767a0a5ad147ee2f73df70e0dd3456444315e4e1c2",
+  "postprocess_script_sha256": "c72667e9be50094e6e8a93f441b8ab7b9119066f4cf7dc72c33974b0b1fa8379",
+  "source_native_manifest_sha256": "9a2b3435742fa96c7f2e2dc01094e49debc5fa374cd5a2726baa587d9833a748",
+  "postprocessed_energy": {
+    "B-dt1fs": {
+      "xvg_sha256": "4703c9593d21240f6d2a4c0dee1d818bf1064744566d0128d9b7c89639ddc239",
+      "xvg_bytes": 67211,
+      "source_edr_path": "runs/B-dt1fs/md.edr",
+      "source_edr_sha256": "7a126a4d668c11ceb3d9d0cf1787e9d7f40328ea515a403dcf0780ab14c8d424"
+    },
+    "B-dt2fs": {
+      "xvg_sha256": "21cd3743e5d330d897887117b569255d5b5efc4c2dc9dc3c958561e4d7623d4c",
+      "xvg_bytes": 67204,
+      "source_edr_path": "runs/B-dt2fs/md.edr",
+      "source_edr_sha256": "0c45f8485540d7fbf17d369eb3849bace8636319538dc29054f990109275acd0"
+    },
+    "U-dt1fs": {
+      "xvg_sha256": "53977e40988b12a8011073b8804f0d1d76fb094186b21d4205775f6f005bd496",
+      "xvg_bytes": 67204,
+      "source_edr_path": "runs/U-dt1fs/md.edr",
+      "source_edr_sha256": "8bdba9e1243bea8314e0149bb14af371c7a86594c996ee94fb201b0a7f585130"
+    },
+    "U-dt2fs": {
+      "xvg_sha256": "dd88a8ba9e8f40f0de10cd68983bf8c726f0b3255cc8b445bda981204a7132e7",
+      "xvg_bytes": 67204,
+      "source_edr_path": "runs/U-dt2fs/md.edr",
+      "source_edr_sha256": "362c3909bb4206332d3c42b53a18abbf28274e263f80bc16daee7a515ee574a1"
+    }
+  },
+  "per_run_observations": {
+    "B-dt1fs": {
+      "configured_steps": 50000,
+      "finished_mdrun": true,
+      "sample_count": 11,
+      "last_logged_step_time": [
+        "50000",
+        "50.00000"
+      ],
+      "temperature_K": {
+        "min": 292.978912,
+        "max": 304.487885,
+        "mean": 300.5379470909091,
+        "n": 11
+      },
+      "constraint_rmsd_mean": 5.715999999999972e-06,
+      "conserved_energy_start_kj_mol": -73663.070312,
+      "conserved_energy_end_kj_mol": -73649.3125,
+      "conserved_energy_change_kj_mol": 13.757811999996193,
+      "constraint_or_numerical_warning_lines": [],
+      "water20_OH_mean_nm_range": {
+        "min": 0.09567502535603098,
+        "max": 0.09589324255907127,
+        "mean": 0.09574846695006736,
+        "n": 11
+      },
+      "water20_HH_mean_nm_range": {
+        "min": 0.15129673574329255,
+        "max": 0.15163106011734148,
+        "mean": 0.15141258038813768,
+        "n": 11
+      },
+      "water20_HOH_angle_mean_deg_range": {
+        "min": 104.41181935730484,
+        "max": 104.58904809252556,
+        "mean": 104.49871063185,
+        "n": 11
+      }
+    },
+    "B-dt2fs": {
+      "configured_steps": 25000,
+      "finished_mdrun": true,
+      "sample_count": 11,
+      "last_logged_step_time": [
+        "25000",
+        "50.00000"
+      ],
+      "temperature_K": {
+        "min": 297.187012,
+        "max": 306.058136,
+        "mean": 301.7188749090909,
+        "n": 11
+      },
+      "constraint_rmsd_mean": 2.248199999999997e-05,
+      "conserved_energy_start_kj_mol": -73503.421875,
+      "conserved_energy_end_kj_mol": -73544.09375,
+      "conserved_energy_change_kj_mol": -40.671875,
+      "constraint_or_numerical_warning_lines": [],
+      "water20_OH_mean_nm_range": {
+        "min": 0.09564602829098146,
+        "max": 0.09579126919941346,
+        "mean": 0.09572402151750362,
+        "n": 11
+      },
+      "water20_HH_mean_nm_range": {
+        "min": 0.15128451741031246,
+        "max": 0.15156704370774762,
+        "mean": 0.1513874684399797,
+        "n": 11
+      },
+      "water20_HOH_angle_mean_deg_range": {
+        "min": 104.34584325269986,
+        "max": 104.66036190641292,
+        "mean": 104.51205453100278,
+        "n": 11
+      }
+    },
+    "U-dt1fs": {
+      "configured_steps": 50000,
+      "finished_mdrun": true,
+      "sample_count": 11,
+      "last_logged_step_time": [
+        "50000",
+        "50.00000"
+      ],
+      "temperature_K": {
+        "min": 293.69754,
+        "max": 305.474091,
+        "mean": 300.5785439090909,
+        "n": 11
+      },
+      "constraint_rmsd_mean": 5.323999999999984e-06,
+      "conserved_energy_start_kj_mol": -73613.632812,
+      "conserved_energy_end_kj_mol": -73610.492188,
+      "conserved_energy_change_kj_mol": 3.1406239999923855,
+      "constraint_or_numerical_warning_lines": [],
+      "water20_OH_mean_nm_range": {
+        "min": 0.09560208343764046,
+        "max": 0.09581677809500323,
+        "mean": 0.09570544491911546,
+        "n": 11
+      },
+      "water20_HH_mean_nm_range": {
+        "min": 0.151204820546548,
+        "max": 0.15158315431589783,
+        "mean": 0.15134435758111803,
+        "n": 11
+      },
+      "water20_HOH_angle_mean_deg_range": {
+        "min": 104.37700424128339,
+        "max": 104.64452563326999,
+        "mean": 104.4986004545021,
+        "n": 11
+      }
+    },
+    "U-dt2fs": {
+      "configured_steps": 25000,
+      "finished_mdrun": true,
+      "sample_count": 11,
+      "last_logged_step_time": [
+        "25000",
+        "50.00000"
+      ],
+      "temperature_K": {
+        "min": 294.668671,
+        "max": 307.820496,
+        "mean": 300.588981,
+        "n": 11
+      },
+      "constraint_rmsd_mean": 2.1197999999999996e-05,
+      "conserved_energy_start_kj_mol": -73468.8125,
+      "conserved_energy_end_kj_mol": -73525.585938,
+      "conserved_energy_change_kj_mol": -56.77343800000381,
+      "constraint_or_numerical_warning_lines": [],
+      "water20_OH_mean_nm_range": {
+        "min": 0.09562139404208587,
+        "max": 0.09577113818921418,
+        "mean": 0.09569591512068974,
+        "n": 11
+      },
+      "water20_HH_mean_nm_range": {
+        "min": 0.15123970207196108,
+        "max": 0.15141754299540758,
+        "mean": 0.15131320330341788,
+        "n": 11
+      },
+      "water20_HOH_angle_mean_deg_range": {
+        "min": 104.33115673216108,
+        "max": 104.70025961439174,
+        "mean": 104.48283738331742,
+        "n": 11
+      }
+    }
+  },
+  "paired_timestep_temperature_comparison": {
+    "B": {
+      "dt1fs_mean_temperature_K": 299.4586426960001,
+      "dt2fs_mean_temperature_K": 300.46210003399943,
+      "dt2_minus_dt1_mean_temperature_K": 1.0034573379993503,
+      "dt1fs_population_sd_K": 3.9462719275685085,
+      "dt2fs_population_sd_K": 4.243536155601857,
+      "dt1fs_constraint_rmsd_mean": 5.715999999999972e-06,
+      "dt2fs_constraint_rmsd_mean": 2.248199999999997e-05,
+      "dt1fs_conserved_energy_change_kj_mol": 13.757811999996193,
+      "dt2fs_conserved_energy_change_kj_mol": -40.671875
+    },
+    "U": {
+      "dt1fs_mean_temperature_K": 299.9139994439998,
+      "dt2fs_mean_temperature_K": 299.82442945800034,
+      "dt2_minus_dt1_mean_temperature_K": -0.08956998599944654,
+      "dt1fs_population_sd_K": 4.144062380403732,
+      "dt2fs_population_sd_K": 3.802056387469166,
+      "dt1fs_constraint_rmsd_mean": 5.323999999999984e-06,
+      "dt2fs_constraint_rmsd_mean": 2.1197999999999996e-05,
+      "dt1fs_conserved_energy_change_kj_mol": 3.1406239999923855,
+      "dt2fs_conserved_energy_change_kj_mol": -56.77343800000381
+    }
+  },
+  "preferred_follow_up_timestep_fs": 1,
+  "evidence": [
+    "B-dt1fs: 11 frames; mdrun finished=True; temperature 292.979–304.488 K; explicit warning events=0; first-20-water mean O–H 0.095675–0.095893 nm, H–H 0.151297–0.151631 nm, H–O–H 104.412–104.589 degrees.",
+    "B-dt1fs: full-window mean constraint RMSD=5.716e-06; Conserved En. start/end=-73663.070/-73649.312 kJ/mol (change +13.758 kJ/mol).",
+    "B-dt2fs: 11 frames; mdrun finished=True; temperature 297.187–306.058 K; explicit warning events=0; first-20-water mean O–H 0.095646–0.095791 nm, H–H 0.151285–0.151567 nm, H–O–H 104.346–104.660 degrees.",
+    "B-dt2fs: full-window mean constraint RMSD=2.2482e-05; Conserved En. start/end=-73503.422/-73544.094 kJ/mol (change -40.672 kJ/mol).",
+    "U-dt1fs: 11 frames; mdrun finished=True; temperature 293.698–305.474 K; explicit warning events=0; first-20-water mean O–H 0.095602–0.095817 nm, H–H 0.151205–0.151583 nm, H–O–H 104.377–104.645 degrees.",
+    "U-dt1fs: full-window mean constraint RMSD=5.324e-06; Conserved En. start/end=-73613.633/-73610.492 kJ/mol (change +3.141 kJ/mol).",
+    "U-dt2fs: 11 frames; mdrun finished=True; temperature 294.669–307.820 K; explicit warning events=0; first-20-water mean O–H 0.095621–0.095771 nm, H–H 0.151240–0.151418 nm, H–O–H 104.331–104.700 degrees.",
+    "U-dt2fs: full-window mean constraint RMSD=2.1198e-05; Conserved En. start/end=-73468.812/-73525.586 kJ/mol (change -56.773 kJ/mol)."
+  ],
+  "alternative": "For this observed pair, prefer 1 fs for the next bounded check when both B and U show larger 2 fs constraint residual means and larger absolute conserved-energy changes. These comparisons are not universal cutoffs. Stop and inspect native logs if any run is incomplete, diagnostics are non-finite, or explicit constraint/numerical warnings occur.",
+  "inference_limits": [
+    "The 50 ps NVT trajectories do not establish equilibration, free energy, kinetics, or production readiness.",
+    "Finite-sample temperatures and water geometry are descriptive observations, not universal pass thresholds."
+  ],
+  "next_budget": {
+    "max_nodes": 1,
+    "max_cpus": 8,
+    "memory_gib": 8,
+    "walltime": "00:30:00",
+    "max_total_simulated_ps": 200
+  }
+}

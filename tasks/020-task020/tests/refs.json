@@ -1,0 +1,96 @@
+{
+  "schema": "autosolvate-private-refs/v1",
+  "case_id": "case-07",
+  "runtime": {
+    "schema": "autosolvate-scorer/v1",
+    "case_id": "case-07",
+    "inputs": [
+      {
+        "path": "inputs/faulty-input.json",
+        "source_path": "author-evidence/derived-inputs/case-07/faulty-input.json",
+        "sha256": "72dbef2491698e169fe4e43e27f910e1f8ed8cfba3ecf540dedaf6e4b22a3e7f"
+      },
+      {
+        "path": "inputs/faulty-system.xml",
+        "source_path": "author-evidence/derived-inputs/case-07/faulty-system.xml",
+        "sha256": "a80c33d7273887c10012c31ea972992ef12ff9da9e62ce071432a47ba7282c62"
+      },
+      {
+        "path": "inputs/faulty-integrator.xml",
+        "source_path": "author-evidence/derived-inputs/case-07/faulty-integrator.xml",
+        "sha256": "2019f2c000bc0adaedd01acde5345878f1e345f49372bae041baada44080190a"
+      },
+      {
+        "path": "inputs/last-good-state.xml",
+        "source_path": "author-evidence/derived-inputs/case-07/last-good-state.xml",
+        "sha256": "a4311ac01455c08ee6db168ca8ccb82622f9ca41628b74ce01473b7012d743a4"
+      },
+      {
+        "path": "inputs/failure.log",
+        "source_path": "author-evidence/derived-inputs/case-07/failure.log",
+        "sha256": "7b5f694d06e7a8bdc08de55981f50defd7e0be5378a8873da2380f98e5e7a803"
+      },
+      {
+        "path": "inputs/failed-trace.json",
+        "source_path": "author-evidence/derived-inputs/case-07/failed-trace.json",
+        "sha256": "e290982bd165f40a684033243cafaec3bccaaa56d342d30e50d29943c030fef8"
+      }
+    ],
+    "output_paths": [
+      "repair.json",
+      "system.xml",
+      "integrator.xml",
+      "restart-before.xml",
+      "final-state.xml",
+      "recovered.nc",
+      "native.csv",
+      "repair.py",
+      "repair.log",
+      "analysis.md"
+    ],
+    "output_types": {
+      "repair.json": "file",
+      "system.xml": "file",
+      "integrator.xml": "file",
+      "restart-before.xml": "file",
+      "final-state.xml": "file",
+      "recovered.nc": "file",
+      "native.csv": "file",
+      "repair.py": "file",
+      "repair.log": "file",
+      "analysis.md": "file"
+    },
+    "python_modules": [
+      "numpy",
+      "scipy",
+      "parmed",
+      "openmm",
+      "netCDF4"
+    ]
+  },
+  "tolerances": {
+    "native_report": 1e-06,
+    "time_and_integrator": 1e-08,
+    "restart_coordinates_angstrom": 1e-05,
+    "trajectory_coordinates_angstrom": 0.0001,
+    "endpoint_energy_kcal_mol": 0.001,
+    "frame_energy_kcal_mol": 0.2,
+    "timestep_unit_consistency_rel": 1e-09,
+    "timestep_unit_consistency_abs_fs": 1e-10,
+    "restart_box_angstrom": 1e-06,
+    "clock_ps": 1e-06,
+    "native_energy_relative": 1e-06,
+    "temperature_relative": 1e-06,
+    "temperature_absolute_k": 1e-05,
+    "orthogonal_box_angstrom": 1e-08,
+    "trajectory_box_angstrom": 0.0001,
+    "trajectory_box_relative": 1e-06,
+    "frame_energy_relative": 1e-05
+  },
+  "reference": {
+    "particles": 24003,
+    "maximum_timestep_fs": 1,
+    "duration_ps": 2,
+    "model_constraints": 0
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "version": "1.1",
+  "case_id": "case-03-pressure-dependent-ring-opening-rates",
+  "reference_source_kind": "trusted_author_result",
+  "source_digest": "sha256:6839b9f8f46b7488783d3f738b704fb529f37ffee44560e736c3dd0fba10c574",
+  "independent_check": "scripts/build_gold_p04.py recomputes every band from registered local bytes",
+  "readiness": "READY_FOR_RUNTIME",
+  "verification_coverage": "COMPLETE",
+  "verification_implementation": "planned",
+  "asset_hashes": {
+    "assets/41467_2023_40675_MOESM3_ESM.xlsx": "sha256:69969f05b7fb9b75335737bfc4e65cd49218d75da632197d929f6196784b67f1",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-200-mesmer_out.xml": "sha256:6e25c758ad0ac7c3a0473f974ea31dd33746344b281c1f7e7b26db148eefe537",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-225-mesmer_out.xml": "sha256:914a4da187f2b77952702778b84818d29344eab1ded434c3c674a46e2965f4b4",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-250-mesmer_out.xml": "sha256:b193715b66aa4887e4ee3d96fe9ac3b5c607a3ea1b844c28e4d58adb082407dc",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-255-mesmer_out.xml": "sha256:aaada51cb08a8972193f7fbee12ac62b10d13c18cd563abbf995e434e8ebd853",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-260-mesmer_out.xml": "sha256:2e060ea36920da0c1c1ac346be94dc0991f7fe91536db930c74373b2b41c5d4b",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-265-mesmer_out.xml": "sha256:8f27d782a57da4ff98f4d720970fabd69a00c5be6eff86d0884e70e0756d4310",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-270-mesmer_out.xml": "sha256:9905cdaac95762092597f9294a3349babe8367f239ee137b2a119b620ae46727",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-275-mesmer_out.xml": "sha256:7824830b91254335da4d51c6f90ab8f8cdae9545267c6398790089ac22b9fb47",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-280-mesmer_out.xml": "sha256:b639c098005f248b84fe9a631cfdeab03fd08e63db10d62e95e65a91e48ee4e5",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-285-mesmer_out.xml": "sha256:0fd73724fb42f6d63cc36342141943fc24c01ec332a9dea179f6f52833ce5b22",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-290-mesmer_out.xml": "sha256:29e1a781d5d90ec68be7f9c40ef29ded4acfc01833b6f0b5bd9a1550a3077d94",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-295-mesmer_out.xml": "sha256:1f0febc06b2a6b1e5b2ffcd5fe4f5b8444632f66125e06ad5d96645aee779caa",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-300-mesmer_out.xml": "sha256:e919fd67260d98c5bbbf2edff3a114ce54ba336e3bdd59556856abea5f4f6516",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-305-mesmer_out.xml": "sha256:0d10af4420299fc1d16b4de01e2856d3462c68e540eec8bc733cdf5aa674486b",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-310-mesmer_out.xml": "sha256:4761128d619cb8dfa66bd053eecd265d7d2f5000d6baaf691ccc76c1d57e29b0",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-325-mesmer_out.xml": "sha256:1c9461303649e977ab862bb15967247b05e6a3599079a36c4ce3b3cbe7e19e25",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-350-mesmer_out.xml": "sha256:ac14cc3d3d9862900447ec203e19f07a9651193b89ae4a2871ee0e83b93a5d51",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-375-mesmer_out.xml": "sha256:c6c1a7a440a7083faa99a2e866c2b61fcf8a4ba91c9116eba81333e5ddc8a29a",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-400-mesmer_out.xml": "sha256:f6c739a68af204aeee61628116ec917eb4429959946f1c07f4bb48a179bc79f3",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-425-mesmer_out.xml": "sha256:7b7ce9ec7325fbe11f3147cef62fcadd9ddea4302e9fa14e55f4a4bdf1e905a8",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-450-mesmer_out.xml": "sha256:c42f760bf2abd22625b3f91aab3bf31b2e95734149f2b23f5ed134384b63dd9c",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-475-mesmer_out.xml": "sha256:96f53569d357286677e7f0bf8ca9dc2716bc1a3be2bf6c4f81548690740e9704",
+    "assets/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-500-mesmer_out.xml": "sha256:240997ebe177f06cd099b9172cdd09bece1a16ec7b13d1f3091c433d7f1137ad"
+  },
+  "observations": [
+    {
+      "name": "rate_table_complete_per_temperature",
+      "level": "L1",
+      "expected": "见 verification.md 的 rationale",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "All 23 deposited temperatures must appear with both channels, since a partial grid is what makes a fit window claim unverifiable."
+    },
+    {
+      "name": "rates_read_from_analysis_block",
+      "level": "L2",
+      "expected": "Each value cites a first-order rate element and its two species references inside the named file; 23 of 23 files expose both channel rates.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Each value must be traceable to a first-order rate element in the analysis section of the named output file; the population and density-of-states blocks in the same file carry numbers of the same shape, so a provenance field that names only the file is not sufficient."
+    },
+    {
+      "name": "rates_match_published_table",
+      "level": "L3",
+      "expected": "Relative deviation at most 1e-4 at each of the 20 shared temperatures; measured maximum 3.37e-6.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/mesmer_tdep_rates.csv",
+      "acceptance_rule": "Measured: at every temperature that both the outputs and the published table carry, the two channel rates agree to a maximum relative deviation of 3.37e-6 over 20 compared points, so the tolerance here is extraction fidelity, not method uncertainty."
+    },
+    {
+      "name": "fit_within_measured_curvature",
+      "level": "L3",
+      "expected": "For the declared full-range modified Arrhenius model on all 23 rows, compare predicted C1, C2 and total rate curves at each temperature; each maximum absolute ln k residual must be consistent with the measured 0.0883, 0.0800 and 0.0848 (allow 0.01), and no fit may claim residual below its direct recomputation. Report A, n and Ea for all three quantities; equivalent parameter conventions are accepted when their rate curves agree.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/derived_arrhenius_fits.csv",
+      "acceptance_rule": "The three-parameter modified Arrhenius fit over 200 to 500 K gives C1/C2/total Ea of 18.844/17.972/18.008 kcal/mol and maximum ln k residuals of 0.0883/0.0800/0.0848 on 23 points each. The fit table supports every required rate quantity; the narrow 270 to 310 K fits are an optional local comparison, not a replacement for reporting the full-range curvature. Compare predicted rates and the declared residual over the stated window so equivalent parameter conventions remain assessable."
+    },
+    {
+      "name": "branching_validity_range_stated",
+      "level": "L3",
+      "expected": "The C1 fraction must be within 0.5 percentage points of 21.907 at 300 K and must be quoted with its temperature; a split presented as temperature-independent fails even when the number is right.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/mesmer_tdep_rates.csv",
+      "acceptance_rule": "Measured: the C1 branching fraction rises monotonically from 12.86 % at 200 K to 31.03 % at 500 K and is 21.91 % at 300 K against the published 21 %. The conclusion must therefore attach the split to a temperature; a submission that reports 21 % / 79 % as a property of the mechanism is rejected even though the number is right at one point."
+    },
+    {
+      "name": "fixed_pressure_scope_reported",
+      "level": "L3",
+      "expected": "All 23 rows must report 760 Torr and N2, and conclusions must state that pressure dependence cannot be inferred from this single-pressure grid.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "All 23 deposited outputs are at 760 Torr in N2. The output contract requires pressure and bath gas per row, so the observed temperature trend is assessable under that fixed condition, while a pressure response cannot be inferred. Claiming a pressure-dependent trend from this single-pressure grid is inconsistent with the deposited evidence."
+    }
+  ]
+}

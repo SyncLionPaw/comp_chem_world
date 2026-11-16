@@ -1,0 +1,28 @@
+{
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "downloaded_files": [
+    {
+      "bytes": 64,
+      "path": "slurm-4043648.err",
+      "sha256": "2804f173dae0ebba12034a4a14f0b05a3dcd0e06c8e44464cecfb431b2887f90"
+    },
+    {
+      "bytes": 0,
+      "path": "slurm-4043648.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "job_id": "4043648",
+  "operation": "single exact-owned tar read, no scheduler mutation or stage submission",
+  "remote_workdir": "/public/home/xjchen/04_Bicyclic-Peroxy-Radical-Rearrangement/case07/candidate-attempts/1b4461d70eed4d1db4a1af01b86ea882/job-018",
+  "schema": "case07-exact-owned-lifecycle-log-fetch/v1",
+  "selected_names": [
+    "slurm-4043648.out",
+    "slurm-4043648.err"
+  ],
+  "source_inventory_path": "acceptance/complete-07-20261025/attempt-1b4461d70eed4d1db4a1af01b86ea882/neb-01/plus-frequency-preparation-01/runtime-01/raw/terminal-inventory.json",
+  "source_inventory_sha256": "1c58ea09b583c36929798bbb39623c8d3080377eca89876fbf39283b70b32f60",
+  "source_ledger_path": "acceptance/complete-07-20261025/attempt-1b4461d70eed4d1db4a1af01b86ea882/neb-01/plus-frequency-preparation-01/runtime-01/service-ledger-final.json",
+  "source_ledger_sha256": "a2ce9ff9d44d960c4b4680b9042236040257643398f7472d57697951c8be7c4b",
+  "ssh_audit_path": "acceptance/complete-07-20261025/attempt-1b4461d70eed4d1db4a1af01b86ea882/neb-01/plus-frequency-preparation-01/runtime-01/auxiliary-lifecycle-fetch-01/private-ssh-audit"
+}

@@ -1,0 +1,63 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/case-05-initial-guess-robustness"
+description = "近鞍点初猜的有限扰动稳健性"
+
+[agent]
+timeout_sec = 2700
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1200
+environment_mode = "separate"
+network_mode = "public"
+
+[verifier.env]
+API_KEY = "${API_KEY:-}"
+BASE_URL = "${BASE_URL:-}"
+HTTPS_PROXY = ""
+https_proxy = ""
+HTTP_PROXY = ""
+http_proxy = ""
+ALL_PROXY = ""
+all_proxy = ""
+NO_PROXY = ""
+no_proxy = ""
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "public"
+
+[metadata]
+name = "case-05-initial-guess-robustness"
+title = "近鞍点初猜的有限扰动稳健性"
+[[metadata.source_hashes]]
+path = "environment/assets/case05_ts_geometries_001_162.extxyz"
+sha256 = "31bde820e66b0f34a1838b1d1056d52cd4e856e146a875844324f2215f944ace"
+
+[[metadata.source_hashes]]
+path = "environment/assets/best_model_state.tar"
+sha256 = "a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3"
+
+[[metadata.source_hashes]]
+path = "environment/assets/newtonnet_model_spec.yml"
+sha256 = "eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf"
+
+[[metadata.source_hashes]]
+path = "environment/assets/protocol.json"
+sha256 = "9a88675f99ff259521f3310876d84ca4c3233c38e1dafc0d8e719507880469d7"
+
+[[metadata.source_hashes]]
+path = "environment/assets/output-contract.json"
+sha256 = "f6a23c7bbe6ca239623dc4a40daf1441eab8ac826eec5c58cf7de5e4fdbf1aa9"
+

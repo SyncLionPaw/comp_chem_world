@@ -1,0 +1,3870 @@
+{
+ "schema": "bench12-refs/v1",
+ "tolerance_stats": 0.02,
+ "kernel_geometry_stats": {
+  "bond": {
+   "PBE0|TZVP": [
+    -0.15,
+    0.93,
+    4.21,
+    1.18
+   ],
+   "ADMM-PBE0|TZVP+tzp": [
+    0.06,
+    0.92,
+    4.47,
+    1.18
+   ],
+   "sTDA@PBE0|TZVP": [
+    0.1,
+    1.06,
+    6.56,
+    1.5
+   ],
+   "sTDA@ADMM-PBE0|TZVP+tzp": [
+    0.28,
+    1.03,
+    6.21,
+    1.35
+   ]
+  },
+  "angle": {
+   "PBE0|TZVP": [
+    0.32,
+    1.24,
+    9.93,
+    2.2
+   ],
+   "ADMM-PBE0|TZVP+tzp": [
+    0.2,
+    1.18,
+    8.29,
+    2.09
+   ],
+   "sTDA@PBE0|TZVP": [
+    -0.03,
+    1.6,
+    -8.76,
+    2.57
+   ],
+   "sTDA@ADMM-PBE0|TZVP+tzp": [
+    -0.05,
+    1.51,
+    -8.76,
+    2.34
+   ]
+  },
+  "dihedral": {
+   "PBE0|TZVP": [
+    0.8,
+    2.34,
+    9.49,
+    3.21
+   ],
+   "ADMM-PBE0|TZVP+tzp": [
+    0.86,
+    2.31,
+    10.63,
+    3.46
+   ],
+   "sTDA@PBE0|TZVP": [
+    3.98,
+    4.06,
+    13.29,
+    3.95
+   ],
+   "sTDA@ADMM-PBE0|TZVP+tzp": [
+    4.03,
+    4.14,
+    14.08,
+    4.06
+   ]
+  }
+ },
+ "kernel_energy_verify_only": {
+  "Evert": {
+   "source": "SI Table 27",
+   "values": {
+    "PBE0|DZVP": [
+     -0.02,
+     0.05,
+     0.06
+    ],
+    "PBE0|TZVP": [
+     -0.01,
+     0.03,
+     0.03
+    ],
+    "PBE0|TZV2P": [
+     0.0,
+     0.02,
+     0.03
+    ],
+    "ADMM-PBE0|TZVP+tzp": [
+     -0.01,
+     0.03,
+     0.04
+    ],
+    "sTDA@PBE0|TZVP": [
+     0.45,
+     0.45,
+     0.18
+    ],
+    "sTDA@ADMM-PBE0|TZVP+tzp": [
+     0.34,
+     0.34,
+     0.17
+    ]
+   },
+   "si": {
+    "PBE0|DZVP": [
+     -0.02,
+     0.05,
+     0.16,
+     0.06
+    ],
+    "PBE0|TZVP": [
+     -0.01,
+     0.03,
+     -0.08,
+     0.03
+    ],
+    "PBE0|TZV2P": [
+     0.0,
+     0.02,
+     0.07,
+     0.03
+    ],
+    "ADMM|DZVP+dzp": [
+     -0.0,
+     0.05,
+     0.17,
+     0.07
+    ],
+    "ADMM|TZVP+dzp": [
+     0.0,
+     0.05,
+     -0.14,
+     0.06
+    ],
+    "ADMM|TZVP+tzp": [
+     -0.01,
+     0.03,
+     -0.08,
+     0.04
+    ],
+    "ADMM|TZV2P+dzp": [
+     0.01,
+     0.05,
+     0.15,
+     0.06
+    ],
+    "ADMM|TZV2P+tzp": [
+     0.01,
+     0.03,
+     0.09,
+     0.04
+    ],
+    "ADMM|TZV2P+tz2p": [
+     0.0,
+     0.03,
+     -0.07,
+     0.03
+    ],
+    "sTDA@PBE0|TZVP": [
+     0.45,
+     0.45,
+     0.84,
+     0.18
+    ],
+    "sTDA@ADMM|TZVP+tzp": [
+     0.34,
+     0.34,
+     0.84,
+     0.17
+    ]
+   }
+  },
+  "Ead": {
+   "source": "SI Table 46",
+   "values": {
+    "PBE0|DZVP": [
+     -0.16,
+     0.3,
+     0.42
+    ],
+    "PBE0|TZVP": [
+     -0.15,
+     0.29,
+     0.41
+    ],
+    "PBE0|TZV2P": [
+     -0.13,
+     0.28,
+     0.4
+    ],
+    "ADMM-PBE0|TZVP+tzp": [
+     -0.14,
+     0.29,
+     0.41
+    ],
+    "sTDA@PBE0|TZVP": [
+     0.23,
+     0.34,
+     0.39
+    ],
+    "sTDA@ADMM-PBE0|TZVP+tzp": [
+     0.1,
+     0.33,
+     0.44
+    ]
+   },
+   "si": {
+    "PBE0|DZVP": [
+     -0.155,
+     0.304,
+     1.011,
+     0.419
+    ],
+    "PBE0|TZVP": [
+     -0.145,
+     0.291,
+     0.926,
+     0.406
+    ],
+    "PBE0|TZV2P": [
+     -0.126,
+     0.284,
+     0.9,
+     0.403
+    ],
+    "ADMM|TZVP+tzp": [
+     -0.141,
+     0.294,
+     0.955,
+     0.413
+    ],
+    "ADMM|TZV2P+tzp": [
+     -0.122,
+     0.291,
+     0.924,
+     0.412
+    ],
+    "sTDA@PBE0|TZVP": [
+     0.232,
+     0.343,
+     1.17,
+     0.393
+    ],
+    "sTDA@ADMM|TZVP+tzp": [
+     0.104,
+     0.326,
+     -1.271,
+     0.438
+    ]
+   }
+  },
+  "Efl": {
+   "source": "SI Table 51",
+   "values": {
+    "PBE0|DZVP": [
+     -0.05,
+     0.06,
+     0.05
+    ],
+    "PBE0|TZVP": [
+     -0.04,
+     0.05,
+     0.04
+    ],
+    "PBE0|TZV2P": [
+     -0.02,
+     0.02,
+     0.02
+    ],
+    "ADMM-PBE0|TZVP+tzp": [
+     -0.05,
+     0.07,
+     0.06
+    ],
+    "sTDA@PBE0|TZVP": [
+     0.27,
+     0.3,
+     0.21
+    ],
+    "sTDA@ADMM-PBE0|TZVP+tzp": [
+     0.14,
+     0.18,
+     0.16
+    ]
+   },
+   "si": {
+    "PBE0|DZVP": [
+     -0.049,
+     0.06,
+     -0.184,
+     0.05
+    ],
+    "PBE0|TZVP": [
+     -0.044,
+     0.051,
+     -0.129,
+     0.04
+    ],
+    "PBE0|TZV2P": [
+     -0.017,
+     0.021,
+     -0.078,
+     0.022
+    ],
+    "ADMM|DZVP+dzp": [
+     -0.104,
+     0.132,
+     -0.347,
+     0.107
+    ],
+    "ADMM|TZVP+dzp": [
+     -0.101,
+     0.129,
+     -0.271,
+     0.105
+    ],
+    "ADMM|TZV2P+dzp": [
+     -0.075,
+     0.099,
+     -0.262,
+     0.088
+    ],
+    "ADMM|TZVP+tzp": [
+     -0.046,
+     0.069,
+     -0.158,
+     0.062
+    ],
+    "ADMM|TZV2P+tzp": [
+     -0.021,
+     0.039,
+     -0.147,
+     0.045
+    ],
+    "ADMM|TZV2P+tz2p": [
+     -0.023,
+     0.037,
+     -0.143,
+     0.041
+    ],
+    "sTDA@PBE0|TZVP": [
+     0.27,
+     0.3,
+     -0.29,
+     0.21
+    ],
+    "sTDA@ADMM|TZVP+tzp": [
+     0.14,
+     0.18,
+     0.44,
+     0.16
+    ]
+   }
+  }
+ },
+ "stda_dihedral_bias_ME": [
+  3.98,
+  4.03
+ ],
+ "expected_inputs": {
+  "assets/ct2c00144_si_001.pdf": "6ea0e0c5787b9ba0b3723b06a2752594980a958a5580cf71d9fc761dcb7ef1aa",
+  "assets/hehn2022_main.pdf": "255c5b1f0a6ea6500a8afadf2252c0200994eaca5e1c9df6e0d7c5f492a0cc27"
+ },
+ "per_item": {
+  "ADMM-PBE0|TZVP+tzp|angle": [
+   {
+    "mol": 1,
+    "label": "c c h",
+    "err": -1.7
+   },
+   {
+    "mol": 2,
+    "label": "h c h",
+    "err": -1.18
+   },
+   {
+    "mol": 3,
+    "label": "h c h",
+    "err": -0.22
+   },
+   {
+    "mol": 4,
+    "label": "h c h",
+    "err": 0.22
+   },
+   {
+    "mol": 5,
+    "label": "c c h1",
+    "err": 0.56
+   },
+   {
+    "mol": 5,
+    "label": "c c o",
+    "err": -1.18
+   },
+   {
+    "mol": 6,
+    "label": "c c h1",
+    "err": 0.63
+   },
+   {
+    "mol": 6,
+    "label": "c c s",
+    "err": -0.88
+   },
+   {
+    "mol": 7,
+    "label": "c n n",
+    "err": 1.9
+   },
+   {
+    "mol": 7,
+    "label": "n c h1",
+    "err": 0.08
+   },
+   {
+    "mol": 8,
+    "label": "c n o",
+    "err": 2.17
+   },
+   {
+    "mol": 8,
+    "label": "h4 c n",
+    "err": -0.04
+   },
+   {
+    "mol": 9,
+    "label": "c n o",
+    "err": 8.29
+   },
+   {
+    "mol": 9,
+    "label": "n c n",
+    "err": -1.98
+   },
+   {
+    "mol": 10,
+    "label": "c2 c1 c3",
+    "err": -0.02
+   },
+   {
+    "mol": 11,
+    "label": "f c f",
+    "err": 0.17
+   },
+   {
+    "mol": 12,
+    "label": "f c h",
+    "err": -0.43
+   },
+   {
+    "mol": 12,
+    "label": "f c o",
+    "err": -0.59
+   },
+   {
+    "mol": 13,
+    "label": "cl c cl",
+    "err": -0.47
+   },
+   {
+    "mol": 14,
+    "label": "cl c h",
+    "err": -1.67
+   },
+   {
+    "mol": 14,
+    "label": "cl c o",
+    "err": -7.79
+   },
+   {
+    "mol": 15,
+    "label": "f c f",
+    "err": 0.33
+   },
+   {
+    "mol": 16,
+    "label": "cl c cl",
+    "err": -0.14
+   },
+   {
+    "mol": 17,
+    "label": "cl c h",
+    "err": -0.24
+   },
+   {
+    "mol": 17,
+    "label": "cl c s",
+    "err": -0.41
+   },
+   {
+    "mol": 18,
+    "label": "f c f",
+    "err": 0.12
+   },
+   {
+    "mol": 19,
+    "label": "c c hald",
+    "err": -0.19
+   },
+   {
+    "mol": 19,
+    "label": "c c o",
+    "err": 1.13
+   },
+   {
+    "mol": 20,
+    "label": "c c c",
+    "err": 1.21
+   },
+   {
+    "mol": 21,
+    "label": "c c c",
+    "err": 0.19
+   },
+   {
+    "mol": 21,
+    "label": "o c c",
+    "err": 5.93
+   },
+   {
+    "mol": 22,
+    "label": "c c c",
+    "err": 3.57
+   },
+   {
+    "mol": 22,
+    "label": "c c h",
+    "err": 0.24
+   },
+   {
+    "mol": 22,
+    "label": "n c c",
+    "err": -0.13
+   },
+   {
+    "mol": 23,
+    "label": "c c o",
+    "err": 4.2
+   },
+   {
+    "mol": 23,
+    "label": "h c o",
+    "err": -2.58
+   },
+   {
+    "mol": 25,
+    "label": "c c c",
+    "err": -0.8
+   },
+   {
+    "mol": 25,
+    "label": "c c h",
+    "err": -1.97
+   },
+   {
+    "mol": 26,
+    "label": "c c h",
+    "err": -0.21
+   },
+   {
+    "mol": 26,
+    "label": "c c o",
+    "err": 1.37
+   },
+   {
+    "mol": 27,
+    "label": "c c c",
+    "err": -0.13
+   },
+   {
+    "mol": 27,
+    "label": "c n c",
+    "err": -0.38
+   },
+   {
+    "mol": 27,
+    "label": "n c o",
+    "err": -0.62
+   },
+   {
+    "mol": 28,
+    "label": "c c c",
+    "err": 0.07
+   },
+   {
+    "mol": 28,
+    "label": "c c o2",
+    "err": 0.44
+   },
+   {
+    "mol": 28,
+    "label": "o2 c o1",
+    "err": 0.39
+   },
+   {
+    "mol": 29,
+    "label": "c n c",
+    "err": -0.04
+   },
+   {
+    "mol": 30,
+    "label": "n c n",
+    "err": 0.75
+   },
+   {
+    "mol": 31,
+    "label": "n c n",
+    "err": 0.24
+   },
+   {
+    "mol": 32,
+    "label": "c c c",
+    "err": 0.33
+   },
+   {
+    "mol": 32,
+    "label": "s c c",
+    "err": 2.58
+   },
+   {
+    "mol": 33,
+    "label": "br c br",
+    "err": -1.28
+   },
+   {
+    "mol": 34,
+    "label": "f c cl",
+    "err": 0.01
+   },
+   {
+    "mol": 34,
+    "label": "f c s",
+    "err": 0.44
+   },
+   {
+    "mol": 35,
+    "label": "c n o",
+    "err": 1.18
+   },
+   {
+    "mol": 35,
+    "label": "f4 c n",
+    "err": -0.04
+   }
+  ],
+  "ADMM-PBE0|TZVP+tzp|bond": [
+   {
+    "mol": 1,
+    "label": "c c",
+    "err": 0.93
+   },
+   {
+    "mol": 1,
+    "label": "c h",
+    "err": 0.59
+   },
+   {
+    "mol": 2,
+    "label": "c h",
+    "err": 0.64
+   },
+   {
+    "mol": 2,
+    "label": "c o",
+    "err": -1.11
+   },
+   {
+    "mol": 3,
+    "label": "c h",
+    "err": 0.48
+   },
+   {
+    "mol": 3,
+    "label": "c s",
+    "err": -1.1
+   },
+   {
+    "mol": 4,
+    "label": "c h",
+    "err": 0.5
+   },
+   {
+    "mol": 4,
+    "label": "c se",
+    "err": -0.91
+   },
+   {
+    "mol": 5,
+    "label": "c c",
+    "err": -0.25
+   },
+   {
+    "mol": 5,
+    "label": "c h1",
+    "err": 0.35
+   },
+   {
+    "mol": 5,
+    "label": "c h2",
+    "err": 0.52
+   },
+   {
+    "mol": 5,
+    "label": "c o",
+    "err": 0.44
+   },
+   {
+    "mol": 6,
+    "label": "c c",
+    "err": -0.14
+   },
+   {
+    "mol": 6,
+    "label": "c h1",
+    "err": 0.56
+   },
+   {
+    "mol": 6,
+    "label": "c h2",
+    "err": 0.63
+   },
+   {
+    "mol": 6,
+    "label": "c s",
+    "err": -0.73
+   },
+   {
+    "mol": 7,
+    "label": "c h1",
+    "err": 0.48
+   },
+   {
+    "mol": 7,
+    "label": "c h2",
+    "err": 0.55
+   },
+   {
+    "mol": 7,
+    "label": "c n",
+    "err": -0.49
+   },
+   {
+    "mol": 7,
+    "label": "n n",
+    "err": 0.51
+   },
+   {
+    "mol": 8,
+    "label": "c h4",
+    "err": 0.52
+   },
+   {
+    "mol": 8,
+    "label": "c n",
+    "err": -0.5
+   },
+   {
+    "mol": 8,
+    "label": "n o",
+    "err": 0.27
+   },
+   {
+    "mol": 9,
+    "label": "c n",
+    "err": -3.61
+   },
+   {
+    "mol": 9,
+    "label": "n c",
+    "err": 1.62
+   },
+   {
+    "mol": 9,
+    "label": "n o",
+    "err": 0.14
+   },
+   {
+    "mol": 10,
+    "label": "c1 c2",
+    "err": -0.51
+   },
+   {
+    "mol": 10,
+    "label": "c1 c3",
+    "err": -0.38
+   },
+   {
+    "mol": 10,
+    "label": "c3 c4",
+    "err": -0.35
+   },
+   {
+    "mol": 11,
+    "label": "c f",
+    "err": 1.58
+   },
+   {
+    "mol": 11,
+    "label": "c o",
+    "err": -0.76
+   },
+   {
+    "mol": 12,
+    "label": "c f",
+    "err": 1.17
+   },
+   {
+    "mol": 12,
+    "label": "c h",
+    "err": 0.95
+   },
+   {
+    "mol": 12,
+    "label": "c o",
+    "err": -0.64
+   },
+   {
+    "mol": 13,
+    "label": "c cl",
+    "err": 2.34
+   },
+   {
+    "mol": 13,
+    "label": "c o",
+    "err": -2.06
+   },
+   {
+    "mol": 14,
+    "label": "c cl",
+    "err": 4.47
+   },
+   {
+    "mol": 14,
+    "label": "c h",
+    "err": 0.82
+   },
+   {
+    "mol": 14,
+    "label": "c o",
+    "err": -2.25
+   },
+   {
+    "mol": 15,
+    "label": "c f",
+    "err": 1.3
+   },
+   {
+    "mol": 15,
+    "label": "c s",
+    "err": -0.87
+   },
+   {
+    "mol": 16,
+    "label": "c cl",
+    "err": -0.05
+   },
+   {
+    "mol": 16,
+    "label": "c s",
+    "err": -0.41
+   },
+   {
+    "mol": 17,
+    "label": "c cl",
+    "err": -0.73
+   },
+   {
+    "mol": 17,
+    "label": "c h",
+    "err": 0.55
+   },
+   {
+    "mol": 17,
+    "label": "c s",
+    "err": -0.49
+   },
+   {
+    "mol": 18,
+    "label": "c f",
+    "err": 1.26
+   },
+   {
+    "mol": 18,
+    "label": "c se",
+    "err": -0.13
+   },
+   {
+    "mol": 19,
+    "label": "c c",
+    "err": -0.86
+   },
+   {
+    "mol": 19,
+    "label": "c hald",
+    "err": 0.53
+   },
+   {
+    "mol": 19,
+    "label": "c o",
+    "err": -0.67
+   },
+   {
+    "mol": 20,
+    "label": "c c",
+    "err": -0.91
+   },
+   {
+    "mol": 20,
+    "label": "c o",
+    "err": -0.29
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": -2.82
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": 1.9
+   },
+   {
+    "mol": 21,
+    "label": "c o",
+    "err": -2.17
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": -2.08
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": -0.17
+   },
+   {
+    "mol": 22,
+    "label": "c h",
+    "err": 0.46
+   },
+   {
+    "mol": 22,
+    "label": "n c",
+    "err": 1.15
+   },
+   {
+    "mol": 23,
+    "label": "c c",
+    "err": -2.72
+   },
+   {
+    "mol": 23,
+    "label": "c h",
+    "err": 1.22
+   },
+   {
+    "mol": 23,
+    "label": "c n",
+    "err": 1.02
+   },
+   {
+    "mol": 23,
+    "label": "c o",
+    "err": -1.17
+   },
+   {
+    "mol": 24,
+    "label": "c c",
+    "err": -0.82
+   },
+   {
+    "mol": 24,
+    "label": "c n",
+    "err": 0.92
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": -0.9
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": 0.46
+   },
+   {
+    "mol": 25,
+    "label": "c h",
+    "err": 0.57
+   },
+   {
+    "mol": 26,
+    "label": "c c",
+    "err": -1.94
+   },
+   {
+    "mol": 26,
+    "label": "c h",
+    "err": 0.87
+   },
+   {
+    "mol": 26,
+    "label": "c o",
+    "err": 0.47
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": -0.84
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": 0.9
+   },
+   {
+    "mol": 27,
+    "label": "c h",
+    "err": 0.43
+   },
+   {
+    "mol": 27,
+    "label": "c o",
+    "err": 0.54
+   },
+   {
+    "mol": 27,
+    "label": "n c",
+    "err": 0.2
+   },
+   {
+    "mol": 27,
+    "label": "n h",
+    "err": 0.79
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.53
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.55
+   },
+   {
+    "mol": 28,
+    "label": "c o1",
+    "err": -0.53
+   },
+   {
+    "mol": 28,
+    "label": "c o2",
+    "err": -0.75
+   },
+   {
+    "mol": 29,
+    "label": "c c",
+    "err": -0.19
+   },
+   {
+    "mol": 29,
+    "label": "c h",
+    "err": 0.6
+   },
+   {
+    "mol": 29,
+    "label": "c n",
+    "err": 0.1
+   },
+   {
+    "mol": 30,
+    "label": "c h",
+    "err": 0.81
+   },
+   {
+    "mol": 30,
+    "label": "c n",
+    "err": -1.57
+   },
+   {
+    "mol": 30,
+    "label": "n h1",
+    "err": 0.94
+   },
+   {
+    "mol": 30,
+    "label": "n h2",
+    "err": 0.98
+   },
+   {
+    "mol": 31,
+    "label": "c h",
+    "err": 0.71
+   },
+   {
+    "mol": 31,
+    "label": "c n",
+    "err": 0.25
+   },
+   {
+    "mol": 31,
+    "label": "n n",
+    "err": 0.53
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": -2.22
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": 0.95
+   },
+   {
+    "mol": 32,
+    "label": "c s",
+    "err": -0.67
+   },
+   {
+    "mol": 33,
+    "label": "c br",
+    "err": 1.75
+   },
+   {
+    "mol": 33,
+    "label": "c s",
+    "err": -0.57
+   },
+   {
+    "mol": 34,
+    "label": "c cl",
+    "err": 0.24
+   },
+   {
+    "mol": 34,
+    "label": "c f",
+    "err": 0.98
+   },
+   {
+    "mol": 34,
+    "label": "c s",
+    "err": -0.74
+   },
+   {
+    "mol": 35,
+    "label": "c n",
+    "err": 0.59
+   },
+   {
+    "mol": 35,
+    "label": "f4 c",
+    "err": 1.4
+   },
+   {
+    "mol": 35,
+    "label": "n o",
+    "err": 0.24
+   }
+  ],
+  "ADMM-PBE0|TZVP+tzp|dihedral": [
+   {
+    "mol": 2,
+    "label": "",
+    "err": 0.74
+   },
+   {
+    "mol": 11,
+    "label": "",
+    "err": -1.01
+   },
+   {
+    "mol": 12,
+    "label": "",
+    "err": -0.78
+   },
+   {
+    "mol": 13,
+    "label": "",
+    "err": 2.81
+   },
+   {
+    "mol": 14,
+    "label": "",
+    "err": 3.94
+   },
+   {
+    "mol": 15,
+    "label": "",
+    "err": -1.42
+   },
+   {
+    "mol": 16,
+    "label": "",
+    "err": 2.49
+   },
+   {
+    "mol": 17,
+    "label": "",
+    "err": 0.0
+   },
+   {
+    "mol": 18,
+    "label": "",
+    "err": -0.07
+   },
+   {
+    "mol": 19,
+    "label": "",
+    "err": -1.95
+   },
+   {
+    "mol": 20,
+    "label": "",
+    "err": -3.81
+   },
+   {
+    "mol": 33,
+    "label": "",
+    "err": 10.63
+   },
+   {
+    "mol": 34,
+    "label": "",
+    "err": -0.37
+   }
+  ],
+  "PBE0|TZVP|angle": [
+   {
+    "mol": 1,
+    "label": "c c h",
+    "err": -1.72
+   },
+   {
+    "mol": 2,
+    "label": "h c h",
+    "err": -1.63
+   },
+   {
+    "mol": 3,
+    "label": "h c h",
+    "err": -0.24
+   },
+   {
+    "mol": 4,
+    "label": "h c h",
+    "err": 0.16
+   },
+   {
+    "mol": 5,
+    "label": "c c h1",
+    "err": 0.54
+   },
+   {
+    "mol": 5,
+    "label": "c c o",
+    "err": -1.15
+   },
+   {
+    "mol": 6,
+    "label": "c c h1",
+    "err": 0.58
+   },
+   {
+    "mol": 6,
+    "label": "c c s",
+    "err": -0.84
+   },
+   {
+    "mol": 7,
+    "label": "c n n",
+    "err": 2.61
+   },
+   {
+    "mol": 7,
+    "label": "n c h1",
+    "err": 0.08
+   },
+   {
+    "mol": 8,
+    "label": "c n o",
+    "err": 3.37
+   },
+   {
+    "mol": 8,
+    "label": "h4 c n",
+    "err": 0.21
+   },
+   {
+    "mol": 9,
+    "label": "c n o",
+    "err": 9.93
+   },
+   {
+    "mol": 9,
+    "label": "n c n",
+    "err": -1.8
+   },
+   {
+    "mol": 10,
+    "label": "c2 c1 c3",
+    "err": 0.01
+   },
+   {
+    "mol": 11,
+    "label": "f c f",
+    "err": 0.18
+   },
+   {
+    "mol": 12,
+    "label": "f c h",
+    "err": -0.45
+   },
+   {
+    "mol": 12,
+    "label": "f c o",
+    "err": -0.28
+   },
+   {
+    "mol": 13,
+    "label": "cl c cl",
+    "err": -0.51
+   },
+   {
+    "mol": 14,
+    "label": "cl c h",
+    "err": -1.7
+   },
+   {
+    "mol": 14,
+    "label": "cl c o",
+    "err": -7.3
+   },
+   {
+    "mol": 15,
+    "label": "f c f",
+    "err": 0.43
+   },
+   {
+    "mol": 16,
+    "label": "cl c cl",
+    "err": -0.11
+   },
+   {
+    "mol": 17,
+    "label": "cl c h",
+    "err": -0.25
+   },
+   {
+    "mol": 17,
+    "label": "cl c s",
+    "err": -0.38
+   },
+   {
+    "mol": 18,
+    "label": "f c f",
+    "err": 0.15
+   },
+   {
+    "mol": 19,
+    "label": "c c hald",
+    "err": -0.34
+   },
+   {
+    "mol": 19,
+    "label": "c c o",
+    "err": 1.21
+   },
+   {
+    "mol": 20,
+    "label": "c c c",
+    "err": 0.77
+   },
+   {
+    "mol": 21,
+    "label": "c c c",
+    "err": 0.26
+   },
+   {
+    "mol": 21,
+    "label": "o c c",
+    "err": 5.65
+   },
+   {
+    "mol": 22,
+    "label": "c c c",
+    "err": 4.09
+   },
+   {
+    "mol": 22,
+    "label": "c c h",
+    "err": 0.31
+   },
+   {
+    "mol": 22,
+    "label": "n c c",
+    "err": -0.04
+   },
+   {
+    "mol": 23,
+    "label": "c c o",
+    "err": 3.81
+   },
+   {
+    "mol": 23,
+    "label": "h c o",
+    "err": -2.28
+   },
+   {
+    "mol": 25,
+    "label": "c c c",
+    "err": -0.5
+   },
+   {
+    "mol": 25,
+    "label": "c c h",
+    "err": -1.97
+   },
+   {
+    "mol": 26,
+    "label": "c c h",
+    "err": -0.22
+   },
+   {
+    "mol": 26,
+    "label": "c c o",
+    "err": 1.28
+   },
+   {
+    "mol": 27,
+    "label": "c c c",
+    "err": -0.19
+   },
+   {
+    "mol": 27,
+    "label": "c n c",
+    "err": -0.31
+   },
+   {
+    "mol": 27,
+    "label": "n c o",
+    "err": -0.53
+   },
+   {
+    "mol": 28,
+    "label": "c c c",
+    "err": 0.15
+   },
+   {
+    "mol": 28,
+    "label": "c c o2",
+    "err": 0.36
+   },
+   {
+    "mol": 28,
+    "label": "o2 c o1",
+    "err": 0.51
+   },
+   {
+    "mol": 29,
+    "label": "c n c",
+    "err": 0.31
+   },
+   {
+    "mol": 30,
+    "label": "n c n",
+    "err": 0.79
+   },
+   {
+    "mol": 31,
+    "label": "n c n",
+    "err": -0.19
+   },
+   {
+    "mol": 32,
+    "label": "c c c",
+    "err": 0.28
+   },
+   {
+    "mol": 32,
+    "label": "s c c",
+    "err": 2.61
+   },
+   {
+    "mol": 33,
+    "label": "br c br",
+    "err": -0.99
+   },
+   {
+    "mol": 34,
+    "label": "f c cl",
+    "err": 0.07
+   },
+   {
+    "mol": 34,
+    "label": "f c s",
+    "err": 0.57
+   },
+   {
+    "mol": 35,
+    "label": "c n o",
+    "err": 2.11
+   },
+   {
+    "mol": 35,
+    "label": "f4 c n",
+    "err": 0.22
+   }
+  ],
+  "PBE0|TZVP|bond": [
+   {
+    "mol": 1,
+    "label": "c c",
+    "err": 0.93
+   },
+   {
+    "mol": 1,
+    "label": "c h",
+    "err": 0.57
+   },
+   {
+    "mol": 2,
+    "label": "c h",
+    "err": 0.69
+   },
+   {
+    "mol": 2,
+    "label": "c o",
+    "err": -1.6
+   },
+   {
+    "mol": 3,
+    "label": "c h",
+    "err": 0.47
+   },
+   {
+    "mol": 3,
+    "label": "c s",
+    "err": -1.22
+   },
+   {
+    "mol": 4,
+    "label": "c h",
+    "err": 0.48
+   },
+   {
+    "mol": 4,
+    "label": "c se",
+    "err": -1.11
+   },
+   {
+    "mol": 5,
+    "label": "c c",
+    "err": -0.32
+   },
+   {
+    "mol": 5,
+    "label": "c h1",
+    "err": 0.33
+   },
+   {
+    "mol": 5,
+    "label": "c h2",
+    "err": 0.5
+   },
+   {
+    "mol": 5,
+    "label": "c o",
+    "err": 0.1
+   },
+   {
+    "mol": 6,
+    "label": "c c",
+    "err": -0.14
+   },
+   {
+    "mol": 6,
+    "label": "c h1",
+    "err": 0.54
+   },
+   {
+    "mol": 6,
+    "label": "c h2",
+    "err": 0.62
+   },
+   {
+    "mol": 6,
+    "label": "c s",
+    "err": -0.83
+   },
+   {
+    "mol": 7,
+    "label": "c h1",
+    "err": 0.48
+   },
+   {
+    "mol": 7,
+    "label": "c h2",
+    "err": 0.52
+   },
+   {
+    "mol": 7,
+    "label": "c n",
+    "err": -1.17
+   },
+   {
+    "mol": 7,
+    "label": "n n",
+    "err": -0.1
+   },
+   {
+    "mol": 8,
+    "label": "c h4",
+    "err": 0.51
+   },
+   {
+    "mol": 8,
+    "label": "c n",
+    "err": -1.38
+   },
+   {
+    "mol": 8,
+    "label": "n o",
+    "err": -0.58
+   },
+   {
+    "mol": 9,
+    "label": "c n",
+    "err": -4.1
+   },
+   {
+    "mol": 9,
+    "label": "n c",
+    "err": 1.23
+   },
+   {
+    "mol": 9,
+    "label": "n o",
+    "err": -0.7
+   },
+   {
+    "mol": 10,
+    "label": "c1 c2",
+    "err": -0.47
+   },
+   {
+    "mol": 10,
+    "label": "c1 c3",
+    "err": -0.4
+   },
+   {
+    "mol": 10,
+    "label": "c3 c4",
+    "err": -0.48
+   },
+   {
+    "mol": 11,
+    "label": "c f",
+    "err": 1.19
+   },
+   {
+    "mol": 11,
+    "label": "c o",
+    "err": -1.17
+   },
+   {
+    "mol": 12,
+    "label": "c f",
+    "err": 0.81
+   },
+   {
+    "mol": 12,
+    "label": "c h",
+    "err": 0.88
+   },
+   {
+    "mol": 12,
+    "label": "c o",
+    "err": -1.17
+   },
+   {
+    "mol": 13,
+    "label": "c cl",
+    "err": 2.27
+   },
+   {
+    "mol": 13,
+    "label": "c o",
+    "err": -2.44
+   },
+   {
+    "mol": 14,
+    "label": "c cl",
+    "err": 4.21
+   },
+   {
+    "mol": 14,
+    "label": "c h",
+    "err": 0.77
+   },
+   {
+    "mol": 14,
+    "label": "c o",
+    "err": -2.59
+   },
+   {
+    "mol": 15,
+    "label": "c f",
+    "err": 0.89
+   },
+   {
+    "mol": 15,
+    "label": "c s",
+    "err": -1.01
+   },
+   {
+    "mol": 16,
+    "label": "c cl",
+    "err": -0.07
+   },
+   {
+    "mol": 16,
+    "label": "c s",
+    "err": -0.54
+   },
+   {
+    "mol": 17,
+    "label": "c cl",
+    "err": -0.73
+   },
+   {
+    "mol": 17,
+    "label": "c h",
+    "err": 0.53
+   },
+   {
+    "mol": 17,
+    "label": "c s",
+    "err": -0.6
+   },
+   {
+    "mol": 18,
+    "label": "c f",
+    "err": 0.82
+   },
+   {
+    "mol": 18,
+    "label": "c se",
+    "err": -0.33
+   },
+   {
+    "mol": 19,
+    "label": "c c",
+    "err": -0.76
+   },
+   {
+    "mol": 19,
+    "label": "c hald",
+    "err": 0.53
+   },
+   {
+    "mol": 19,
+    "label": "c o",
+    "err": -1.19
+   },
+   {
+    "mol": 20,
+    "label": "c c",
+    "err": -0.73
+   },
+   {
+    "mol": 20,
+    "label": "c o",
+    "err": -0.87
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": -2.67
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": 1.7
+   },
+   {
+    "mol": 21,
+    "label": "c o",
+    "err": -2.56
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": -2.2
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": -0.25
+   },
+   {
+    "mol": 22,
+    "label": "c h",
+    "err": 0.44
+   },
+   {
+    "mol": 22,
+    "label": "n c",
+    "err": 0.84
+   },
+   {
+    "mol": 23,
+    "label": "c c",
+    "err": -2.56
+   },
+   {
+    "mol": 23,
+    "label": "c h",
+    "err": 1.16
+   },
+   {
+    "mol": 23,
+    "label": "c n",
+    "err": 0.58
+   },
+   {
+    "mol": 23,
+    "label": "c o",
+    "err": -1.59
+   },
+   {
+    "mol": 24,
+    "label": "c c",
+    "err": -0.89
+   },
+   {
+    "mol": 24,
+    "label": "c n",
+    "err": 0.52
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": -0.92
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": 0.44
+   },
+   {
+    "mol": 25,
+    "label": "c h",
+    "err": 0.56
+   },
+   {
+    "mol": 26,
+    "label": "c c",
+    "err": -1.85
+   },
+   {
+    "mol": 26,
+    "label": "c h",
+    "err": 0.82
+   },
+   {
+    "mol": 26,
+    "label": "c o",
+    "err": 0.05
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": -0.85
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": 0.83
+   },
+   {
+    "mol": 27,
+    "label": "c h",
+    "err": 0.42
+   },
+   {
+    "mol": 27,
+    "label": "c o",
+    "err": 0.15
+   },
+   {
+    "mol": 27,
+    "label": "n c",
+    "err": -0.09
+   },
+   {
+    "mol": 27,
+    "label": "n h",
+    "err": 0.48
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.44
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.47
+   },
+   {
+    "mol": 28,
+    "label": "c o1",
+    "err": -0.98
+   },
+   {
+    "mol": 28,
+    "label": "c o2",
+    "err": -1.07
+   },
+   {
+    "mol": 29,
+    "label": "c c",
+    "err": -0.18
+   },
+   {
+    "mol": 29,
+    "label": "c h",
+    "err": 0.58
+   },
+   {
+    "mol": 29,
+    "label": "c n",
+    "err": -0.27
+   },
+   {
+    "mol": 30,
+    "label": "c h",
+    "err": 0.77
+   },
+   {
+    "mol": 30,
+    "label": "c n",
+    "err": -1.84
+   },
+   {
+    "mol": 30,
+    "label": "n h1",
+    "err": 0.63
+   },
+   {
+    "mol": 30,
+    "label": "n h2",
+    "err": 0.67
+   },
+   {
+    "mol": 31,
+    "label": "c h",
+    "err": 0.64
+   },
+   {
+    "mol": 31,
+    "label": "c n",
+    "err": -0.11
+   },
+   {
+    "mol": 31,
+    "label": "n n",
+    "err": -0.26
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": -2.21
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": 0.94
+   },
+   {
+    "mol": 32,
+    "label": "c s",
+    "err": -0.78
+   },
+   {
+    "mol": 33,
+    "label": "c br",
+    "err": 1.16
+   },
+   {
+    "mol": 33,
+    "label": "c s",
+    "err": -0.61
+   },
+   {
+    "mol": 34,
+    "label": "c cl",
+    "err": 0.23
+   },
+   {
+    "mol": 34,
+    "label": "c f",
+    "err": 0.55
+   },
+   {
+    "mol": 34,
+    "label": "c s",
+    "err": -0.84
+   },
+   {
+    "mol": 35,
+    "label": "c n",
+    "err": -0.4
+   },
+   {
+    "mol": 35,
+    "label": "f4 c",
+    "err": 1.03
+   },
+   {
+    "mol": 35,
+    "label": "n o",
+    "err": -0.58
+   }
+  ],
+  "PBE0|TZVP|dihedral": [
+   {
+    "mol": 2,
+    "label": "",
+    "err": 2.12
+   },
+   {
+    "mol": 11,
+    "label": "",
+    "err": -1.05
+   },
+   {
+    "mol": 12,
+    "label": "",
+    "err": -0.8
+   },
+   {
+    "mol": 13,
+    "label": "",
+    "err": 2.77
+   },
+   {
+    "mol": 14,
+    "label": "",
+    "err": 3.77
+   },
+   {
+    "mol": 15,
+    "label": "",
+    "err": -1.61
+   },
+   {
+    "mol": 16,
+    "label": "",
+    "err": 2.25
+   },
+   {
+    "mol": 17,
+    "label": "",
+    "err": 0.0
+   },
+   {
+    "mol": 18,
+    "label": "",
+    "err": -0.58
+   },
+   {
+    "mol": 19,
+    "label": "",
+    "err": -1.9
+   },
+   {
+    "mol": 20,
+    "label": "",
+    "err": -3.47
+   },
+   {
+    "mol": 33,
+    "label": "",
+    "err": 9.49
+   },
+   {
+    "mol": 34,
+    "label": "",
+    "err": -0.64
+   }
+  ],
+  "sTDA@ADMM-PBE0|TZVP+tzp|angle": [
+   {
+    "mol": 1,
+    "label": "c c h",
+    "err": -2.78
+   },
+   {
+    "mol": 2,
+    "label": "h c h",
+    "err": -3.49
+   },
+   {
+    "mol": 3,
+    "label": "h c h",
+    "err": 0.37
+   },
+   {
+    "mol": 4,
+    "label": "h c h",
+    "err": 0.96
+   },
+   {
+    "mol": 5,
+    "label": "c c h1",
+    "err": 0.86
+   },
+   {
+    "mol": 5,
+    "label": "c c o",
+    "err": -2.4
+   },
+   {
+    "mol": 6,
+    "label": "c c h1",
+    "err": 0.92
+   },
+   {
+    "mol": 6,
+    "label": "c c s",
+    "err": -3.54
+   },
+   {
+    "mol": 7,
+    "label": "c n n",
+    "err": 1.83
+   },
+   {
+    "mol": 7,
+    "label": "n c h1",
+    "err": 0.19
+   },
+   {
+    "mol": 8,
+    "label": "c n o",
+    "err": 3.65
+   },
+   {
+    "mol": 8,
+    "label": "h4 c n",
+    "err": 0.23
+   },
+   {
+    "mol": 9,
+    "label": "c n o",
+    "err": 5.71
+   },
+   {
+    "mol": 9,
+    "label": "n c n",
+    "err": -2.38
+   },
+   {
+    "mol": 10,
+    "label": "c2 c1 c3",
+    "err": 0.11
+   },
+   {
+    "mol": 11,
+    "label": "f c f",
+    "err": 0.36
+   },
+   {
+    "mol": 12,
+    "label": "f c h",
+    "err": -0.94
+   },
+   {
+    "mol": 12,
+    "label": "f c o",
+    "err": -0.51
+   },
+   {
+    "mol": 13,
+    "label": "cl c cl",
+    "err": -1.1
+   },
+   {
+    "mol": 14,
+    "label": "cl c h",
+    "err": -2.93
+   },
+   {
+    "mol": 14,
+    "label": "cl c o",
+    "err": -8.76
+   },
+   {
+    "mol": 15,
+    "label": "f c f",
+    "err": 0.39
+   },
+   {
+    "mol": 16,
+    "label": "cl c cl",
+    "err": -0.43
+   },
+   {
+    "mol": 17,
+    "label": "cl c h",
+    "err": 0.38
+   },
+   {
+    "mol": 17,
+    "label": "cl c s",
+    "err": -0.48
+   },
+   {
+    "mol": 18,
+    "label": "f c f",
+    "err": -0.1
+   },
+   {
+    "mol": 19,
+    "label": "c c hald",
+    "err": -1.32
+   },
+   {
+    "mol": 19,
+    "label": "c c o",
+    "err": 0.58
+   },
+   {
+    "mol": 20,
+    "label": "c c c",
+    "err": 0.31
+   },
+   {
+    "mol": 21,
+    "label": "c c c",
+    "err": 0.1
+   },
+   {
+    "mol": 21,
+    "label": "o c c",
+    "err": 6.19
+   },
+   {
+    "mol": 22,
+    "label": "c c c",
+    "err": 3.89
+   },
+   {
+    "mol": 22,
+    "label": "c c h",
+    "err": -0.5
+   },
+   {
+    "mol": 22,
+    "label": "n c c",
+    "err": -0.4
+   },
+   {
+    "mol": 23,
+    "label": "c c o",
+    "err": 4.91
+   },
+   {
+    "mol": 23,
+    "label": "h c o",
+    "err": -3.43
+   },
+   {
+    "mol": 25,
+    "label": "c c c",
+    "err": -0.39
+   },
+   {
+    "mol": 25,
+    "label": "c c h",
+    "err": -3.29
+   },
+   {
+    "mol": 26,
+    "label": "c c h",
+    "err": 0.25
+   },
+   {
+    "mol": 26,
+    "label": "c c o",
+    "err": 1.08
+   },
+   {
+    "mol": 27,
+    "label": "c c c",
+    "err": -0.23
+   },
+   {
+    "mol": 27,
+    "label": "c n c",
+    "err": -0.41
+   },
+   {
+    "mol": 27,
+    "label": "n c o",
+    "err": -0.79
+   },
+   {
+    "mol": 28,
+    "label": "c c c",
+    "err": 0.23
+   },
+   {
+    "mol": 28,
+    "label": "c c o2",
+    "err": 0.94
+   },
+   {
+    "mol": 28,
+    "label": "o2 c o1",
+    "err": -0.01
+   },
+   {
+    "mol": 29,
+    "label": "c n c",
+    "err": -0.68
+   },
+   {
+    "mol": 30,
+    "label": "n c n",
+    "err": 0.86
+   },
+   {
+    "mol": 31,
+    "label": "n c n",
+    "err": 0.41
+   },
+   {
+    "mol": 32,
+    "label": "c c c",
+    "err": 0.45
+   },
+   {
+    "mol": 32,
+    "label": "s c c",
+    "err": 2.86
+   },
+   {
+    "mol": 33,
+    "label": "br c br",
+    "err": -1.49
+   },
+   {
+    "mol": 34,
+    "label": "f c cl",
+    "err": -0.05
+   },
+   {
+    "mol": 34,
+    "label": "f c s",
+    "err": -0.71
+   },
+   {
+    "mol": 35,
+    "label": "c n o",
+    "err": 1.66
+   },
+   {
+    "mol": 35,
+    "label": "f4 c n",
+    "err": 0.14
+   }
+  ],
+  "sTDA@ADMM-PBE0|TZVP+tzp|bond": [
+   {
+    "mol": 1,
+    "label": "c h",
+    "err": 0.99
+   },
+   {
+    "mol": 1,
+    "label": "c c",
+    "err": 1.45
+   },
+   {
+    "mol": 2,
+    "label": "c h",
+    "err": 1.22
+   },
+   {
+    "mol": 2,
+    "label": "c o",
+    "err": -0.93
+   },
+   {
+    "mol": 3,
+    "label": "c h",
+    "err": 0.41
+   },
+   {
+    "mol": 3,
+    "label": "c s",
+    "err": -0.77
+   },
+   {
+    "mol": 4,
+    "label": "c h",
+    "err": 0.41
+   },
+   {
+    "mol": 4,
+    "label": "c se",
+    "err": -0.66
+   },
+   {
+    "mol": 5,
+    "label": "c c",
+    "err": 0.44
+   },
+   {
+    "mol": 5,
+    "label": "c h1",
+    "err": 0.55
+   },
+   {
+    "mol": 5,
+    "label": "c h2",
+    "err": 0.59
+   },
+   {
+    "mol": 5,
+    "label": "c o",
+    "err": 0.46
+   },
+   {
+    "mol": 6,
+    "label": "c c",
+    "err": 0.07
+   },
+   {
+    "mol": 6,
+    "label": "c h1",
+    "err": 0.63
+   },
+   {
+    "mol": 6,
+    "label": "c h2",
+    "err": 0.62
+   },
+   {
+    "mol": 6,
+    "label": "c s",
+    "err": -0.17
+   },
+   {
+    "mol": 7,
+    "label": "c h1",
+    "err": 0.65
+   },
+   {
+    "mol": 7,
+    "label": "c h2",
+    "err": 0.58
+   },
+   {
+    "mol": 7,
+    "label": "c n",
+    "err": -0.05
+   },
+   {
+    "mol": 7,
+    "label": "n n",
+    "err": 0.6
+   },
+   {
+    "mol": 8,
+    "label": "c h4",
+    "err": 0.58
+   },
+   {
+    "mol": 8,
+    "label": "c n",
+    "err": -1.15
+   },
+   {
+    "mol": 8,
+    "label": "n o",
+    "err": 0.12
+   },
+   {
+    "mol": 9,
+    "label": "c n",
+    "err": -2.88
+   },
+   {
+    "mol": 9,
+    "label": "n c",
+    "err": 1.59
+   },
+   {
+    "mol": 9,
+    "label": "n o",
+    "err": 0.49
+   },
+   {
+    "mol": 10,
+    "label": "c1 c2",
+    "err": -0.23
+   },
+   {
+    "mol": 10,
+    "label": "c1 c3",
+    "err": -0.35
+   },
+   {
+    "mol": 10,
+    "label": "c3 c4",
+    "err": -0.83
+   },
+   {
+    "mol": 11,
+    "label": "c f",
+    "err": 1.16
+   },
+   {
+    "mol": 11,
+    "label": "c o",
+    "err": 0.36
+   },
+   {
+    "mol": 12,
+    "label": "c f",
+    "err": 1.12
+   },
+   {
+    "mol": 12,
+    "label": "c h",
+    "err": 1.47
+   },
+   {
+    "mol": 12,
+    "label": "c o",
+    "err": -0.14
+   },
+   {
+    "mol": 13,
+    "label": "c cl",
+    "err": 3.9
+   },
+   {
+    "mol": 13,
+    "label": "c o",
+    "err": -2.43
+   },
+   {
+    "mol": 14,
+    "label": "c cl",
+    "err": 6.21
+   },
+   {
+    "mol": 14,
+    "label": "c h",
+    "err": 1.33
+   },
+   {
+    "mol": 14,
+    "label": "c o",
+    "err": -2.44
+   },
+   {
+    "mol": 15,
+    "label": "c f",
+    "err": 1.35
+   },
+   {
+    "mol": 15,
+    "label": "c s",
+    "err": 0.42
+   },
+   {
+    "mol": 16,
+    "label": "c cl",
+    "err": 0.43
+   },
+   {
+    "mol": 16,
+    "label": "c s",
+    "err": 0.41
+   },
+   {
+    "mol": 17,
+    "label": "c cl",
+    "err": -1.05
+   },
+   {
+    "mol": 17,
+    "label": "c h",
+    "err": 0.55
+   },
+   {
+    "mol": 17,
+    "label": "c s",
+    "err": 0.05
+   },
+   {
+    "mol": 18,
+    "label": "c f",
+    "err": 1.37
+   },
+   {
+    "mol": 18,
+    "label": "c se",
+    "err": 1.68
+   },
+   {
+    "mol": 19,
+    "label": "c c",
+    "err": -0.73
+   },
+   {
+    "mol": 19,
+    "label": "c hald",
+    "err": 0.93
+   },
+   {
+    "mol": 19,
+    "label": "c o",
+    "err": -0.25
+   },
+   {
+    "mol": 20,
+    "label": "c c",
+    "err": -0.86
+   },
+   {
+    "mol": 20,
+    "label": "c o",
+    "err": 0.32
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": -2.78
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": 2.04
+   },
+   {
+    "mol": 21,
+    "label": "c o",
+    "err": -1.69
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": -2.62
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": -0.11
+   },
+   {
+    "mol": 22,
+    "label": "c h",
+    "err": 0.82
+   },
+   {
+    "mol": 22,
+    "label": "n c",
+    "err": 1.85
+   },
+   {
+    "mol": 23,
+    "label": "c c",
+    "err": -3.3
+   },
+   {
+    "mol": 23,
+    "label": "c h",
+    "err": 1.33
+   },
+   {
+    "mol": 23,
+    "label": "c n",
+    "err": 1.38
+   },
+   {
+    "mol": 23,
+    "label": "c o",
+    "err": -0.69
+   },
+   {
+    "mol": 24,
+    "label": "c c",
+    "err": -1.22
+   },
+   {
+    "mol": 24,
+    "label": "c n",
+    "err": 1.15
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": -1.18
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": 0.88
+   },
+   {
+    "mol": 25,
+    "label": "c h",
+    "err": 0.91
+   },
+   {
+    "mol": 26,
+    "label": "c c",
+    "err": -1.94
+   },
+   {
+    "mol": 26,
+    "label": "c h",
+    "err": 0.82
+   },
+   {
+    "mol": 26,
+    "label": "c o",
+    "err": 0.78
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": -0.94
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": 1.27
+   },
+   {
+    "mol": 27,
+    "label": "c h",
+    "err": 0.42
+   },
+   {
+    "mol": 27,
+    "label": "c o",
+    "err": 0.83
+   },
+   {
+    "mol": 27,
+    "label": "n c",
+    "err": 0.09
+   },
+   {
+    "mol": 27,
+    "label": "n h",
+    "err": 0.78
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.81
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.88
+   },
+   {
+    "mol": 28,
+    "label": "c o1",
+    "err": -0.53
+   },
+   {
+    "mol": 28,
+    "label": "c o2",
+    "err": -0.59
+   },
+   {
+    "mol": 29,
+    "label": "c c",
+    "err": -0.28
+   },
+   {
+    "mol": 29,
+    "label": "c h",
+    "err": 0.63
+   },
+   {
+    "mol": 29,
+    "label": "c n",
+    "err": 0.29
+   },
+   {
+    "mol": 30,
+    "label": "c h",
+    "err": 0.8
+   },
+   {
+    "mol": 30,
+    "label": "c n",
+    "err": -1.72
+   },
+   {
+    "mol": 30,
+    "label": "n h1",
+    "err": 0.68
+   },
+   {
+    "mol": 30,
+    "label": "n h2",
+    "err": 0.54
+   },
+   {
+    "mol": 31,
+    "label": "c h",
+    "err": 0.7
+   },
+   {
+    "mol": 31,
+    "label": "c n",
+    "err": 0.31
+   },
+   {
+    "mol": 31,
+    "label": "n n",
+    "err": 0.65
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": -2.94
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": 1.57
+   },
+   {
+    "mol": 32,
+    "label": "c s",
+    "err": -0.07
+   },
+   {
+    "mol": 33,
+    "label": "c br",
+    "err": 2.33
+   },
+   {
+    "mol": 33,
+    "label": "c s",
+    "err": -0.02
+   },
+   {
+    "mol": 34,
+    "label": "c cl",
+    "err": 0.73
+   },
+   {
+    "mol": 34,
+    "label": "c f",
+    "err": 1.04
+   },
+   {
+    "mol": 34,
+    "label": "c s",
+    "err": 0.31
+   },
+   {
+    "mol": 35,
+    "label": "c n",
+    "err": 0.55
+   },
+   {
+    "mol": 35,
+    "label": "f4 c",
+    "err": 1.46
+   },
+   {
+    "mol": 35,
+    "label": "n o",
+    "err": 0.17
+   }
+  ],
+  "sTDA@ADMM-PBE0|TZVP+tzp|dihedral": [
+   {
+    "mol": 2,
+    "label": "",
+    "err": 8.91
+   },
+   {
+    "mol": 11,
+    "label": "",
+    "err": 0.13
+   },
+   {
+    "mol": 12,
+    "label": "",
+    "err": 1.84
+   },
+   {
+    "mol": 13,
+    "label": "",
+    "err": 4.64
+   },
+   {
+    "mol": 14,
+    "label": "",
+    "err": 6.77
+   },
+   {
+    "mol": 15,
+    "label": "",
+    "err": 1.16
+   },
+   {
+    "mol": 16,
+    "label": "",
+    "err": 7.25
+   },
+   {
+    "mol": 17,
+    "label": "",
+    "err": 0.0
+   },
+   {
+    "mol": 18,
+    "label": "",
+    "err": 2.85
+   },
+   {
+    "mol": 19,
+    "label": "",
+    "err": 2.67
+   },
+   {
+    "mol": 20,
+    "label": "",
+    "err": -0.7
+   },
+   {
+    "mol": 33,
+    "label": "",
+    "err": 14.08
+   },
+   {
+    "mol": 34,
+    "label": "",
+    "err": 2.85
+   }
+  ],
+  "sTDA@PBE0|TZVP|angle": [
+   {
+    "mol": 1,
+    "label": "c c h",
+    "err": -2.79
+   },
+   {
+    "mol": 2,
+    "label": "h c h",
+    "err": -4.32
+   },
+   {
+    "mol": 3,
+    "label": "h c h",
+    "err": 0.35
+   },
+   {
+    "mol": 4,
+    "label": "h c h",
+    "err": 0.93
+   },
+   {
+    "mol": 5,
+    "label": "c c h1",
+    "err": 0.74
+   },
+   {
+    "mol": 5,
+    "label": "c c o",
+    "err": -2.2
+   },
+   {
+    "mol": 6,
+    "label": "c c h1",
+    "err": 0.92
+   },
+   {
+    "mol": 6,
+    "label": "c c s",
+    "err": -3.55
+   },
+   {
+    "mol": 7,
+    "label": "c n n",
+    "err": 2.74
+   },
+   {
+    "mol": 7,
+    "label": "n c h1",
+    "err": -0.04
+   },
+   {
+    "mol": 8,
+    "label": "c n o",
+    "err": 4.57
+   },
+   {
+    "mol": 8,
+    "label": "h4 c n",
+    "err": 0.38
+   },
+   {
+    "mol": 9,
+    "label": "c n o",
+    "err": 8.24
+   },
+   {
+    "mol": 9,
+    "label": "n c n",
+    "err": -2.72
+   },
+   {
+    "mol": 10,
+    "label": "c2 c1 c3",
+    "err": 0.11
+   },
+   {
+    "mol": 11,
+    "label": "f c f",
+    "err": 0.39
+   },
+   {
+    "mol": 12,
+    "label": "f c h",
+    "err": -0.94
+   },
+   {
+    "mol": 12,
+    "label": "f c o",
+    "err": -0.25
+   },
+   {
+    "mol": 13,
+    "label": "cl c cl",
+    "err": -1.93
+   },
+   {
+    "mol": 14,
+    "label": "cl c h",
+    "err": -3.21
+   },
+   {
+    "mol": 14,
+    "label": "cl c o",
+    "err": -8.76
+   },
+   {
+    "mol": 15,
+    "label": "f c f",
+    "err": 0.36
+   },
+   {
+    "mol": 16,
+    "label": "cl c cl",
+    "err": -0.41
+   },
+   {
+    "mol": 17,
+    "label": "cl c h",
+    "err": 0.36
+   },
+   {
+    "mol": 17,
+    "label": "cl c s",
+    "err": -0.46
+   },
+   {
+    "mol": 18,
+    "label": "f c f",
+    "err": -0.11
+   },
+   {
+    "mol": 19,
+    "label": "c c hald",
+    "err": -1.96
+   },
+   {
+    "mol": 19,
+    "label": "c c o",
+    "err": 0.75
+   },
+   {
+    "mol": 20,
+    "label": "c c c",
+    "err": -0.08
+   },
+   {
+    "mol": 21,
+    "label": "c c c",
+    "err": 0.05
+   },
+   {
+    "mol": 21,
+    "label": "o c c",
+    "err": 6.99
+   },
+   {
+    "mol": 22,
+    "label": "c c c",
+    "err": 1.43
+   },
+   {
+    "mol": 22,
+    "label": "c c h",
+    "err": -0.59
+   },
+   {
+    "mol": 22,
+    "label": "n c c",
+    "err": -0.38
+   },
+   {
+    "mol": 23,
+    "label": "c c o",
+    "err": 5.38
+   },
+   {
+    "mol": 23,
+    "label": "h c o",
+    "err": -3.39
+   },
+   {
+    "mol": 25,
+    "label": "c c c",
+    "err": -0.09
+   },
+   {
+    "mol": 25,
+    "label": "c c h",
+    "err": -3.3
+   },
+   {
+    "mol": 26,
+    "label": "c c h",
+    "err": -0.32
+   },
+   {
+    "mol": 26,
+    "label": "c c o",
+    "err": 1.35
+   },
+   {
+    "mol": 27,
+    "label": "c c c",
+    "err": -0.3
+   },
+   {
+    "mol": 27,
+    "label": "c n c",
+    "err": -0.31
+   },
+   {
+    "mol": 27,
+    "label": "n c o",
+    "err": -0.78
+   },
+   {
+    "mol": 28,
+    "label": "c c c",
+    "err": 0.02
+   },
+   {
+    "mol": 28,
+    "label": "c c o2",
+    "err": 0.7
+   },
+   {
+    "mol": 28,
+    "label": "o2 c o1",
+    "err": 0.19
+   },
+   {
+    "mol": 29,
+    "label": "c n c",
+    "err": -0.35
+   },
+   {
+    "mol": 30,
+    "label": "n c n",
+    "err": 0.92
+   },
+   {
+    "mol": 31,
+    "label": "n c n",
+    "err": 0.08
+   },
+   {
+    "mol": 32,
+    "label": "c c c",
+    "err": 0.42
+   },
+   {
+    "mol": 32,
+    "label": "s c c",
+    "err": 2.88
+   },
+   {
+    "mol": 33,
+    "label": "br c br",
+    "err": -1.27
+   },
+   {
+    "mol": 34,
+    "label": "f c cl",
+    "err": -0.04
+   },
+   {
+    "mol": 34,
+    "label": "f c s",
+    "err": -0.56
+   },
+   {
+    "mol": 35,
+    "label": "c n o",
+    "err": 2.4
+   },
+   {
+    "mol": 35,
+    "label": "f4 c n",
+    "err": 0.3
+   }
+  ],
+  "sTDA@PBE0|TZVP|bond": [
+   {
+    "mol": 1,
+    "label": "c h",
+    "err": 0.98
+   },
+   {
+    "mol": 1,
+    "label": "c c",
+    "err": 1.46
+   },
+   {
+    "mol": 2,
+    "label": "c h",
+    "err": 1.46
+   },
+   {
+    "mol": 2,
+    "label": "c o",
+    "err": -1.83
+   },
+   {
+    "mol": 3,
+    "label": "c h",
+    "err": 0.39
+   },
+   {
+    "mol": 3,
+    "label": "c s",
+    "err": -0.86
+   },
+   {
+    "mol": 4,
+    "label": "c h",
+    "err": 0.38
+   },
+   {
+    "mol": 4,
+    "label": "c se",
+    "err": -0.81
+   },
+   {
+    "mol": 5,
+    "label": "c c",
+    "err": 0.75
+   },
+   {
+    "mol": 5,
+    "label": "c h1",
+    "err": 0.55
+   },
+   {
+    "mol": 5,
+    "label": "c h2",
+    "err": 0.55
+   },
+   {
+    "mol": 5,
+    "label": "c o",
+    "err": -0.07
+   },
+   {
+    "mol": 6,
+    "label": "c c",
+    "err": 0.08
+   },
+   {
+    "mol": 6,
+    "label": "c h1",
+    "err": 0.61
+   },
+   {
+    "mol": 6,
+    "label": "c h2",
+    "err": 0.6
+   },
+   {
+    "mol": 6,
+    "label": "c s",
+    "err": -0.25
+   },
+   {
+    "mol": 7,
+    "label": "c h1",
+    "err": 0.64
+   },
+   {
+    "mol": 7,
+    "label": "c h2",
+    "err": 0.52
+   },
+   {
+    "mol": 7,
+    "label": "c n",
+    "err": 0.09
+   },
+   {
+    "mol": 7,
+    "label": "n n",
+    "err": -0.54
+   },
+   {
+    "mol": 8,
+    "label": "c h4",
+    "err": 0.55
+   },
+   {
+    "mol": 8,
+    "label": "c n",
+    "err": -1.78
+   },
+   {
+    "mol": 8,
+    "label": "n o",
+    "err": -0.75
+   },
+   {
+    "mol": 9,
+    "label": "c n",
+    "err": -3.7
+   },
+   {
+    "mol": 9,
+    "label": "n c",
+    "err": 1.46
+   },
+   {
+    "mol": 9,
+    "label": "n o",
+    "err": -0.47
+   },
+   {
+    "mol": 10,
+    "label": "c1 c2",
+    "err": -0.19
+   },
+   {
+    "mol": 10,
+    "label": "c1 c3",
+    "err": -0.37
+   },
+   {
+    "mol": 10,
+    "label": "c3 c4",
+    "err": -0.85
+   },
+   {
+    "mol": 11,
+    "label": "c f",
+    "err": 1.17
+   },
+   {
+    "mol": 11,
+    "label": "c o",
+    "err": -0.6
+   },
+   {
+    "mol": 12,
+    "label": "c f",
+    "err": 0.65
+   },
+   {
+    "mol": 12,
+    "label": "c h",
+    "err": 1.56
+   },
+   {
+    "mol": 12,
+    "label": "c o",
+    "err": -0.78
+   },
+   {
+    "mol": 13,
+    "label": "c cl",
+    "err": 5.4
+   },
+   {
+    "mol": 13,
+    "label": "c o",
+    "err": -4.13
+   },
+   {
+    "mol": 14,
+    "label": "c cl",
+    "err": 6.56
+   },
+   {
+    "mol": 14,
+    "label": "c h",
+    "err": 1.34
+   },
+   {
+    "mol": 14,
+    "label": "c o",
+    "err": -3.14
+   },
+   {
+    "mol": 15,
+    "label": "c f",
+    "err": 0.95
+   },
+   {
+    "mol": 15,
+    "label": "c s",
+    "err": 0.47
+   },
+   {
+    "mol": 16,
+    "label": "c cl",
+    "err": 0.42
+   },
+   {
+    "mol": 16,
+    "label": "c s",
+    "err": 0.32
+   },
+   {
+    "mol": 17,
+    "label": "c cl",
+    "err": -1.04
+   },
+   {
+    "mol": 17,
+    "label": "c h",
+    "err": 0.52
+   },
+   {
+    "mol": 17,
+    "label": "c s",
+    "err": -0.03
+   },
+   {
+    "mol": 18,
+    "label": "c f",
+    "err": 0.95
+   },
+   {
+    "mol": 18,
+    "label": "c se",
+    "err": 1.68
+   },
+   {
+    "mol": 19,
+    "label": "c c",
+    "err": -0.39
+   },
+   {
+    "mol": 19,
+    "label": "c hald",
+    "err": 1.14
+   },
+   {
+    "mol": 19,
+    "label": "c o",
+    "err": -1.12
+   },
+   {
+    "mol": 20,
+    "label": "c c",
+    "err": -0.51
+   },
+   {
+    "mol": 20,
+    "label": "c o",
+    "err": -0.57
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": -2.66
+   },
+   {
+    "mol": 21,
+    "label": "c c",
+    "err": 2.07
+   },
+   {
+    "mol": 21,
+    "label": "c o",
+    "err": -2.67
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": -2.09
+   },
+   {
+    "mol": 22,
+    "label": "c c",
+    "err": 0.16
+   },
+   {
+    "mol": 22,
+    "label": "c h",
+    "err": 0.82
+   },
+   {
+    "mol": 22,
+    "label": "n c",
+    "err": 1.16
+   },
+   {
+    "mol": 23,
+    "label": "c c",
+    "err": -3.18
+   },
+   {
+    "mol": 23,
+    "label": "c h",
+    "err": 1.57
+   },
+   {
+    "mol": 23,
+    "label": "c n",
+    "err": 1.02
+   },
+   {
+    "mol": 23,
+    "label": "c o",
+    "err": -1.49
+   },
+   {
+    "mol": 24,
+    "label": "c c",
+    "err": -0.77
+   },
+   {
+    "mol": 24,
+    "label": "c n",
+    "err": 0.78
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": -1.2
+   },
+   {
+    "mol": 25,
+    "label": "c c",
+    "err": 0.87
+   },
+   {
+    "mol": 25,
+    "label": "c h",
+    "err": 0.9
+   },
+   {
+    "mol": 26,
+    "label": "c c",
+    "err": -1.44
+   },
+   {
+    "mol": 26,
+    "label": "c h",
+    "err": 0.96
+   },
+   {
+    "mol": 26,
+    "label": "c o",
+    "err": 0.12
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": -0.86
+   },
+   {
+    "mol": 27,
+    "label": "c c",
+    "err": 1.29
+   },
+   {
+    "mol": 27,
+    "label": "c h",
+    "err": 0.41
+   },
+   {
+    "mol": 27,
+    "label": "c o",
+    "err": 0.29
+   },
+   {
+    "mol": 27,
+    "label": "n c",
+    "err": -0.13
+   },
+   {
+    "mol": 27,
+    "label": "n h",
+    "err": 0.49
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.86
+   },
+   {
+    "mol": 28,
+    "label": "c c",
+    "err": 1.98
+   },
+   {
+    "mol": 28,
+    "label": "c o1",
+    "err": -0.98
+   },
+   {
+    "mol": 28,
+    "label": "c o2",
+    "err": -1.14
+   },
+   {
+    "mol": 29,
+    "label": "c c",
+    "err": -0.24
+   },
+   {
+    "mol": 29,
+    "label": "c h",
+    "err": 0.62
+   },
+   {
+    "mol": 29,
+    "label": "c n",
+    "err": -0.08
+   },
+   {
+    "mol": 30,
+    "label": "c h",
+    "err": 0.77
+   },
+   {
+    "mol": 30,
+    "label": "c n",
+    "err": -1.94
+   },
+   {
+    "mol": 30,
+    "label": "n h1",
+    "err": 0.37
+   },
+   {
+    "mol": 30,
+    "label": "n h2",
+    "err": 0.23
+   },
+   {
+    "mol": 31,
+    "label": "c h",
+    "err": 0.63
+   },
+   {
+    "mol": 31,
+    "label": "c n",
+    "err": -0.01
+   },
+   {
+    "mol": 31,
+    "label": "n n",
+    "err": -0.11
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": -2.93
+   },
+   {
+    "mol": 32,
+    "label": "c c",
+    "err": 1.56
+   },
+   {
+    "mol": 32,
+    "label": "c s",
+    "err": -0.17
+   },
+   {
+    "mol": 33,
+    "label": "c br",
+    "err": 1.79
+   },
+   {
+    "mol": 33,
+    "label": "c s",
+    "err": -0.07
+   },
+   {
+    "mol": 34,
+    "label": "c cl",
+    "err": 0.74
+   },
+   {
+    "mol": 34,
+    "label": "c f",
+    "err": 0.59
+   },
+   {
+    "mol": 34,
+    "label": "c s",
+    "err": 0.24
+   },
+   {
+    "mol": 35,
+    "label": "c n",
+    "err": 0.24
+   },
+   {
+    "mol": 35,
+    "label": "f4 c",
+    "err": 1.03
+   },
+   {
+    "mol": 35,
+    "label": "n o",
+    "err": -0.72
+   }
+  ],
+  "sTDA@PBE0|TZVP|dihedral": [
+   {
+    "mol": 2,
+    "label": "",
+    "err": 8.97
+   },
+   {
+    "mol": 11,
+    "label": "",
+    "err": -0.33
+   },
+   {
+    "mol": 12,
+    "label": "",
+    "err": 1.44
+   },
+   {
+    "mol": 13,
+    "label": "",
+    "err": 5.24
+   },
+   {
+    "mol": 14,
+    "label": "",
+    "err": 6.84
+   },
+   {
+    "mol": 15,
+    "label": "",
+    "err": 1.1
+   },
+   {
+    "mol": 16,
+    "label": "",
+    "err": 7.19
+   },
+   {
+    "mol": 17,
+    "label": "",
+    "err": 0.0
+   },
+   {
+    "mol": 18,
+    "label": "",
+    "err": 2.65
+   },
+   {
+    "mol": 19,
+    "label": "",
+    "err": 2.81
+   },
+   {
+    "mol": 20,
+    "label": "",
+    "err": -0.17
+   },
+   {
+    "mol": 33,
+    "label": "",
+    "err": 13.29
+   },
+   {
+    "mol": 34,
+    "label": "",
+    "err": 2.73
+   }
+  ]
+ },
+ "per_item_tol": 0.006,
+ "no_raw_data_rows": [],
+ "known_inconsistency": {},
+ "max_sign_ambiguous": [],
+ "reference_revision": "2026-10-27-case02-table14-m1-cc-per-item",
+ "corrections": [
+  {
+   "per_item_key": "sTDA@PBE0|TZVP|bond",
+   "added_item": {
+    "mol": 1,
+    "label": "c c",
+    "err": 1.46
+   },
+   "source": "Public SI Table 14, printed p. 50 (PDF page 50), M1 ES C-C row; independent review record ccb12-m1-cc-independent-review-20261027.json SHA-256 5c37ecbf4c86d701c49964627e38f5bd9f538393198997a2e654a76c254440d"
+  },
+  {
+   "per_item_key": "sTDA@ADMM-PBE0|TZVP+tzp|bond",
+   "added_item": {
+    "mol": 1,
+    "label": "c c",
+    "err": 1.45
+   },
+   "source": "Public SI Table 14, printed p. 50 (PDF page 50), M1 ES C-C row; independent review record ccb12-m1-cc-independent-review-20261027.json SHA-256 5c37ecbf4c86d701c49964627e38f5bd9f538393198997a2e654a76c254440d"
+  }
+ ]
+}

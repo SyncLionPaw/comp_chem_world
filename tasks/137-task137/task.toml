@@ -1,0 +1,25 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/bench20-task-137"
+version = "0.1.0"
+description = "Open research: tensor-property models and spectroscopy"
+keywords = [ "computational-chemistry", "NEP", "bench20",]
+
+[agent]
+timeout_sec = 86400
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+env = { BENCH20_HARBOR_AUDIT = "1" }
+
+[environment]
+os = "linux"
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+gpus = 0
+build_timeout_sec = 1800

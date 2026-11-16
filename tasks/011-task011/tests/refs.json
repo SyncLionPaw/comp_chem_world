@@ -1,0 +1,68 @@
+{
+  "case_id": "case-05",
+  "definition_sha256": "48e52ae969d4d33cb36037c51fd61762e01fb976814c6fcd83b9247e8e3f10f3",
+  "verification_implementation": "implemented",
+  "asset_hashes": {
+    "assets/absorption_distribution_fig2a.csv": "sha256:2d4ea315f046fd7351fc3c661f67be288a86a0395f75784fc43e9e61a60e86d7",
+    "assets/absorption_distribution_fig2a.provenance.json": "sha256:1b70b7ef42d403d45546c6ca5220c580562ef7016586b1b66dbf005119ca9221",
+    "assets/task11_crack_site_coordinates.csv": "sha256:b3d01164eda15303a489bf00206414443deb6d3b69cfb07080c02b4ad8cabf3f",
+    "assets/task11_crack_site_coordinates.provenance.json": "sha256:98df57c2df161ab837944ad41e359b81279bd96eb60daaa47b67ef2f4bb1f464",
+    "assets/task11_fig1b_occupancy_reference.csv": "sha256:dc1abe25b0a2f1683c631ef12c0e61a7ef094222338581e05c9529daf498f1c3",
+    "assets/task11_fig1b_occupancy_reference.provenance.json": "sha256:fbe5ea7b391a8c713be5e46ed6846f6976ed3dc9039f1213b00c15b393c4f263",
+    "assets/task11_ss304_fig3_temperature_reference.csv": "sha256:f50c5eb355f5d607b2522dba4db615832bd0a532d736e1f6f869594431c65af1",
+    "assets/elastic_constants_fig2a.csv": "sha256:03d2c1d0fafda08392113d4c0613f5161e6045cffdccabb971f6db42327b2cc5",
+    "assets/elastic_constants_fig2a.provenance.json": "sha256:b7973e398698a9b961a05656ece7508e8355ac095ecc4770ebf4f5e6f9907067",
+    "assets/gamma_f_fig2b_digitized.csv": "sha256:faf9a81d320e9170a7b37becf1381291631d4842783eb4a9c88b8e55d3cb953e",
+    "assets/gamma_f_fig2b_digitized.provenance.json": "sha256:ee0b06a62a9fd2bc0b8ce3fd1e2421822031c992d38a5759aa9935ab43c7a50f",
+    "assets/lattice_parameters_A0.csv": "sha256:00e0ca417430a742f3647a1264989e550de9b20d96b9e25acc384f19014e1adb",
+    "assets/lattice_parameters_A0.provenance.json": "sha256:41e21d754b399687524d4e9716163e6b9f1c7bf2ac596edb32f499e5a9f07193",
+    "assets/supplementary_materials_web_extract.md": "sha256:bfd48f1fb673811ce289ba73ed27765d3f15f27d7f18b88ccdbd0417778f9304"
+  },
+  "grader_reference_hashes": {},
+  "criteria": [
+    {
+      "criterion": "bulk_constraint_and_reference_shift_invariance",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "docs/Zhou 等 - 2021 - Mechanism and Prediction of Hydrogen Embrittlement in fcc Stainless Steels and High Entropy Alloys.pdf，第2页Eq.(1)及固定实验浓度下均值不影响预测的说明",
+        "rationale": "公开Fig.2(a)密度、SI晶格常数、主文Fig.1(b)列标签与明示注册模型支持可重算的bulk约束、pressure和12列占据；Fig.1(b)的22个数字化区间独立约束模型响应。ν、origin与Gaussian宽度是敏感性而非隐含答案。"
+      },
+      "tolerance": "For each public width interpretation and declared model parameters, report the actual p=0 bulk residual, common-reference-shift invariance and pointwise comparison with Fig.1(b) digitized intervals. Pixel intervals are source-reading ranges, not relaxed model tolerances. Model nonmatches remain assessable scientific results."
+    },
+    {
+      "criterion": "cleavage_emission_and_surface_occupation_distinct",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "docs/Zhou 等 - 2021 - Mechanism and Prediction of Hydrogen Embrittlement in fcc Stainless Steels and High Entropy Alloys.pdf，第2页Fig.1与覆盖度定义",
+        "rationale": "正文Fig.1(a)和方程分别定义C_cleave=mean(c1..c9)、C_emit=mean(c10..c12)，并规定纳米扩散后C_S=min(1,1.5 C_cleave)；列1–12拓扑注册和发射面trace由独立FCC枚举校核。"
+      },
+      "tolerance": "提供逐列ci及其结构注册、C_cleave、C_emit和纳米扩散C_S；证明占据限于[0,1]并保留FCC层/发射面来源与origin敏感性。"
+    },
+    {
+      "criterion": "energy_entropy_and_temperature_response",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "docs/Zhou 等 - 2021 - Mechanism and Prediction of Hydrogen Embrittlement in fcc Stainless Steels and High Entropy Alloys.pdf，第3页自由能公式、Fig.2(b)及SS304温度对照",
+        "rationale": "每个温度重求bulk化学势和各列占据并重算gamma_S；gamma_E通过注明Tref假设的源gamma_F减gamma_S形成条件参考族，温度机制由主文SS304 Cb=4000 appm 300/400 K独立源标签比较。"
+      },
+      "tolerance": "提供C_b、T、Kapp下重新求得的占据、C_S、gamma_E/gamma_S/gamma_F分量与来源区间；明确Tref/固定gamma_E假设，不将反推gamma_E称为独立P3验证。温度源比较或模型不一致须如实判读，非隐式自动通过。"
+    },
+    {
+      "criterion": "thermodynamic_computation_traceable",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "execution_validity",
+        "source": "论文方法与本题冻结的输出契约",
+        "rationale": "由输入密度、几何与能量族到自由能每一步都必须可重算，有限精度误差应来自实际数值计算。"
+      },
+      "tolerance": "Provide reproducible method/source/code hashes, an integration/root-finding refinement or equivalent numerical error bound below source reading uncertainty, bulk constraint, common-reference shift, entropy endpoints, and explicit Gaussian-width, nu, DeltaV and origin sensitivities. Keep conditional gamma_E results and image intervals explicit."
+    }
+  ]
+}

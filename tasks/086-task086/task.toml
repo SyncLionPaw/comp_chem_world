@@ -1,0 +1,71 @@
+schema_version = "1.4"
+artifacts = [ "/app/final/submission.json",]
+
+[task]
+name = "harbor/bench13-task-87"
+description = "Published functional-group failure mechanism reconciliation"
+keywords = [ "infrared-spectroscopy", "structure-elucidation",]
+
+[metadata]
+case_id = "case-04"
+title = "Published functional-group failure mechanism reconciliation"
+handoff_version = "1.0"
+
+[agent]
+timeout_sec = 3600
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"
+
+[metadata.requirements]
+software = [ "Python 3", "openpyxl (optional for inspecting the source workbook)",]
+[[metadata.requirements.inputs]]
+path = "assets/figure4_structure_topk.csv"
+source_path = "docs/42004_2024_1341_MOESM3_ESM.xlsx#Figure 4"
+sha256 = "cbc7d74acccafb2b37999d283e69c24600d105f3ee05c2ebab096fc28072a519"
+
+[[metadata.requirements.inputs]]
+path = "assets/figure5_group_metrics.csv"
+source_path = "docs/42004_2024_1341_MOESM3_ESM.xlsx#Figure 5"
+sha256 = "a06ebf12df982afb11d2f2e824d5549c7fa486147f13339dc7354c9cd3dcb1a9"
+
+[[metadata.requirements.inputs]]
+path = "assets/figure6_error_over_under.csv"
+source_path = "docs/42004_2024_1341_MOESM3_ESM.xlsx#Figure 6"
+sha256 = "bf17893cf7f846256ccb1a3b00c9b8c3453515dfad3c417d3ad7a8cdf13e8408"
+
+[[metadata.requirements.inputs]]
+path = "assets/official_supplementary_data.xlsx"
+source_path = "docs/42004_2024_1341_MOESM3_ESM.xlsx"
+sha256 = "026f82ba924f46574d446fd99659f60b38ad1411bfd211b3549345a18175642a"
+
+[[metadata.requirements.inputs]]
+path = "assets/official_supplementary_information.pdf"
+source_path = "docs/42004_2024_1341_MOESM1_ESM.pdf"
+sha256 = "2d97d6d00d4d2fbf1324a1f2ee0ed59d79e91b5e839bfe1bf666547195526d2d"
+
+[[metadata.requirements.inputs]]
+path = "assets/official_main_article.pdf"
+source_path = "docs/Alberts 等 - 2024 - Leveraging infrared spectroscopy for automated structure elucidation.pdf"
+sha256 = "4c6442973a4a52bfe43e3cff2d198a8c097d9b233e6425a70eced077b056f6d9"
+
+[metadata.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[metadata.compute]
+class = "local"
+network = "no-network"
+
+[metadata.runtime]
+migration_status = "CASE_IMAGE_BUILT_EXISTING_ARTIFACT_REGRADES_VALIDATED"
+
+[metadata.runtime.input_sha256]
+"assets/SOURCES.yaml" = "b518eeb14fbd6c0b8337c851706dc9d6611a2402316d4e011e8eb0a87d021ba1"

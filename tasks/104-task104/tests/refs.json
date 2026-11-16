@@ -1,0 +1,35 @@
+{
+  "compositions": [
+    "Li4",
+    "Li5",
+    "Li6",
+    "Li7"
+  ],
+  "fwhm_eV": 0.5,
+  "main_peak_eV": 61.5,
+  "grid_points": 701,
+  "window_eV": [
+    56.0,
+    67.0
+  ],
+  "shape_tolerance": 0.05,
+  "dos_rounding_epsilon": 1e-12,
+  "dos_rounding_digits": 2,
+  "dos_min_energy_eV": -1.0,
+  "dos_max_index": 2100,
+  "min_dos_points": 3,
+  "min_sites_per_composition": 2,
+  "min_spectrum_points": 20,
+  "prepeak_window_eV": [
+    57.5,
+    58.6
+  ],
+  "min_prepeak_points": 3,
+  "coordination_cutoff_A": 2.75,
+  "singular_lattice_tolerance": 1e-12,
+  "distance_tolerance_A": 0.02,
+  "distortion_tolerance": 0.005,
+  "min_distortion_index": 0.06,
+  "min_longest_bond_A": 2.34,
+  "max_nearest_li_A": 2.6
+}

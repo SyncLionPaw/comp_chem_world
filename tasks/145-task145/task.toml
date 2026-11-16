@@ -1,0 +1,32 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+case_id = "exciton-forward-solver"
+holy_grail = false
+no_reference_solution = false
+
+[task]
+name = "compchemworld/bench22-task-145-exciton-forward-solver"
+description = 'Execute a converged probability-conserving exciton solver'
+
+[agent]
+timeout_sec = 900
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

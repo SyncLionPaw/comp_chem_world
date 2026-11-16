@@ -1,0 +1,70 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/bench20-task-135"
+version = "0.1.0"
+description = "Rotational equivariance of TNEP tensor models"
+keywords = [ "computational-chemistry", "NEP", "bench20",]
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+os = "linux"
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+gpus = 0
+build_timeout_sec = 1800
+
+[metadata.compchembench]
+handoff_version = "1.0"
+case_id = "case-03"
+title = "Rotational equivariance of TNEP tensor models"
+
+[metadata.compchembench.agent_interface]
+reference_solution_provided = true
+
+[metadata.compchembench.reference_solution]
+provided = true
+entrypoint = "solution/solve.sh"
+audience = "author_only"
+
+[metadata.compchembench.requirements]
+software = [ "Python", "NumPy", "C++ compiler", "NEP_CPU or GPUMD",]
+[[metadata.compchembench.requirements.inputs]]
+path = "environment/assets/inputs/test-positions-h2o-200.xyz"
+
+[metadata.compchembench.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[metadata.compchembench.compute]
+class = "local"
+network = "public"
+
+[metadata.compchembench.agent]
+timeout_sec = 7200
+
+[metadata.compchembench.verifier]
+timeout_sec = 900
+isolation = "container"
+
+[metadata.compchembench.environment]
+allow_internet = true
+
+[metadata.compchembench.validation]
+case_delivery_status = "COMPLETE"
+environment_status = "READY"
+agent_result = "PASS"
+formal_agent_evaluation_allowed = true
+
+[metadata.compchembench.runtime.input_sha256]
+"environment/assets/inputs/nep_dipole_water_monomer.txt" = "72cbd55d24670247fedfcc8833191b08f5c9320051c3f4f05111d5508a87d85f"
+"environment/assets/inputs/nep_polarizability_water_monomer.txt" = "34d6ceb279aba965d73d225763bc4aec627af5315a0e63771b412163e0a40247"

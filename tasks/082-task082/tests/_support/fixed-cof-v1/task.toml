@@ -1,0 +1,33 @@
+# Harbor task config migrated from the archived Bench12 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+task_number = 83
+name = "task 83"
+case_id = "case-07-cof-excited-state-screening"
+title = "Holy Grail：sTDA 锚定 ADMM-PBE0 的 COF 激发态筛选"
+description = "面向公开 CURATED COFs 的 05001N2 周期激发态研究。独立科学复核协议与必要证据检查已实现；没有完整作者 Oracle 或本地科学结果。科学状态保持 HOLD，生产 runner/collector 绑定与候选评估尚未完成。"
+execution_class = "remote"
+solution_timeout_sec = 900
+scientific_status = "HOLD_NO_COMPLETE_ORACLE"
+selected_defaults = ["environment.build_timeout_sec=1800 (migration-selected)", "agent.timeout_sec=900 (derived from legacy solution.timeout_sec)", "verifier.environment_mode=separate (Harbor migration-selected)", "verifier.network_mode=no-network (Harbor migration-selected)"]
+
+[task]
+name = "compchembench/task-83"
+description = '面向公开 CURATED COFs 的 05001N2 周期激发态研究。独立科学复核协议与必要证据检查已实现；没有完整作者 Oracle 或本地科学结果。科学状态保持 HOLD，生产 runner/collector 绑定与候选评估尚未完成。'
+
+[agent]
+timeout_sec = 900
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 1800
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "no-network"

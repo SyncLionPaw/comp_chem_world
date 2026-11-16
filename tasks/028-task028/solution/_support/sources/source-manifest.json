@@ -1,0 +1,35 @@
+{
+  "archive_member": {
+    "archive_member": "QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-300-mesmer_out.xml",
+    "locator": "Zenodo record 8214481; original ZIP acquisition SHA/size are recorded in acquisition-manifest.json.",
+    "sha256": "e919fd67260d98c5bbbf2edff3a114ce54ba336e3bdd59556856abea5f4f6516",
+    "source_bytes": 34797678,
+    "source_file": "QC-Files3.zip",
+    "source_md5": "6dd04e3af85174942cdcd07b7778f75d",
+    "source_sha256": "31343ba7f8bceb6ad785765af44f9c6bd8aad88fddc3a33c608e28d2c4dcff71",
+    "source_url": "https://zenodo.org/api/records/8214481/files/QC-Files3.zip/content"
+  },
+  "files": [
+    {
+      "bytes": 93693,
+      "file": "article.xml",
+      "sha256": "f3feac780dbd1c0afef56e1fdf3a9ca15014f6fac6b730964775cddd6ae45057"
+    },
+    {
+      "bytes": 334362,
+      "file": "correction.pdf",
+      "sha256": "ceca37fc6bf9ce017484ad4e15a285fcf7696b0fa06e3f82c7c078989b86d13b"
+    },
+    {
+      "bytes": 2276631,
+      "file": "41467_2023_40675_MOESM1_ESM.docx",
+      "sha256": "52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a"
+    },
+    {
+      "bytes": 68686,
+      "file": "Toluene-ipso-HR-300-mesmer_out.xml",
+      "sha256": "e919fd67260d98c5bbbf2edff3a114ce54ba336e3bdd59556856abea5f4f6516"
+    }
+  ],
+  "schema": "case08-reference-sources/v1"
+}

@@ -1,0 +1,68 @@
+schema_version = "1.4"
+artifacts = ["/app/final", "/trusted/task7"]
+
+[task]
+name = "compchembench/task-07"
+description = "Evidence-bounded paired DFT site decision for a 33-atom CoCrFeNi-H cell"
+authors = []
+keywords = ["remote", "DFT", "materials"]
+
+[agent]
+timeout_sec = 86400.0
+network_mode = "public"
+user = "researcher"
+
+[verifier]
+timeout_sec = 1800.0
+network_mode = "no-network"
+environment_mode = "separate"
+user = "root"
+
+[[verifier.collect]]
+command = "/usr/bin/python3 -I /opt/task7/task07_trusted.py collect"
+service = "main"
+timeout_sec = 900.0
+user = "root"
+
+[verifier.environment]
+os = "linux"
+storage_mb = 10240
+build_timeout_sec = 600.0
+network_mode = "no-network"
+mcp_servers = []
+
+[verifier.environment.env]
+TASK7_ROLE = "verifier"
+TASK7_AGENT_TIMEOUT_SEC = "86400"
+CCB_ANSWER_MODE = "agent"
+HOME = "/root"
+
+[environment]
+os = "linux"
+storage_mb = 10240
+build_timeout_sec = 600.0
+network_mode = "public"
+workdir = "/workspace"
+mcp_servers = []
+
+[environment.env]
+TASK7_ROLE = "agent"
+TASK7_AGENT_TIMEOUT_SEC = "86400"
+HOME = "/home/researcher"
+
+[environment.healthcheck]
+command = "if [ \"$TASK7_ROLE\" = verifier ]; then exit 0; fi; test -f /run/compchembench/task7-ready"
+interval_sec = 5.0
+timeout_sec = 10.0
+start_period_sec = 900.0
+retries = 3
+
+[metadata]
+task_number = 7
+name = "task 7"
+description = "在一个等原子比CoCrFeNi 32金属原子固定几何周期胞中，事前选择两个第一壳层化学环境不同的八面体间隙；完成六项成对自旋极化周期DFT计算，在Harbor Agent期限内审计数值与磁性起始响应，并报告ΔE_A-B的限定偏好或UNDECIDED。此版本不满足v1随机合金代表性或更广能量差收敛合同。"
+execution_class = "remote"
+scientific_contract = "保留Task7原有Verify科学判据与solve，不放宽阈值；历史Oracle证据由作者外部提供。"
+compute_max_allocations = 6
+
+holy_grail = false

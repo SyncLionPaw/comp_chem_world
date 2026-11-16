@@ -1,0 +1,50 @@
+{
+  "schema": "water-case-contract/v2",
+  "contract_version": "2.0",
+  "case_id": "water-dft-relabel-update",
+  "mapping_gate": {
+    "nearest_OH_A_exclusive": 1.25,
+    "nearest_second_gap_A_exclusive_min": 0.2,
+    "H_per_O": 2,
+    "fail_closed": true
+  },
+  "hydrogen_bond": {
+    "OO_A_exclusive_max": 3.5,
+    "angle_vectors": [
+      "O_d->H_d",
+      "O_d->O_a"
+    ],
+    "angle_deg_exclusive_max": 30,
+    "periodic": "minimum image",
+    "network": "directed per H and undirected unique oxygen pairs"
+  },
+  "tetrahedral_order": {
+    "formula": "1-(3/8)*sum_6_pairs((cos(psi)+1/3)^2)",
+    "neighbors": 4,
+    "distance_tie_break": "ascending oxygen atom ID",
+    "summary": [
+      "count",
+      "mean",
+      "population_std_ddof_0",
+      "minimum",
+      "median_even_n_middle_mean",
+      "maximum"
+    ],
+    "clip_negative": false
+  },
+  "grading": {
+    "box_A": 12.4,
+    "oxygen_count": 64,
+    "atom_count": 192,
+    "hydrogen_count": 128,
+    "frames": 201,
+    "step_start": 0,
+    "step_stop": 20000,
+    "step_interval": 100,
+    "box_tilt_tolerance_A": 1e-09,
+    "box_length_tolerance_A": 1e-08,
+    "manifest_sha256": "425e7a5122e5afd54c04874961caed9065744b980c687af2b9ec87103bc10db4",
+    "mapping_value_tolerance": 1e-07,
+    "replica_count": 2
+  }
+}

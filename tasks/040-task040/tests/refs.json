@@ -1,0 +1,24 @@
+{
+  "asset_hashes": {
+    "assets/water_CO2/POSCAR": "sha256:17db5e4c3b16c74e70d33f8bb63a9878e63a2fbdcf7e49aa9f965a4d84b79cd6",
+    "assets/2K_CO2/POSCAR": "sha256:b841719443b0ff4ae4936bd24802923e2cf4504258d1764b1bc103749a41bd7e",
+    "assets/methods.json": "sha256:5b20ce1f3cc3cd0b8d80948a1651d6178e2f14f58364b0b05e95638c523f3a3c",
+    "assets/IS_seed_panel.extxyz": "sha256:104c06cbffe554b48589983f9f0fe40b50d51d50b1aa8cd1a276d29b9f7d9ea2",
+    "assets/IS_seed_provenance.json": "sha256:2942e59495d6ec6f3fcae599d6237b9c64bc446d458f18bdb42e341ebd5578b8",
+    "assets/IS_budget.json": "sha256:190af5ed6e4eaec22c738e2e975bc64250c8dd781ddac3fa894267419a789a9c",
+    "assets/IS_native.tar.gz": "sha256:6d4d0fb6ecc529086d129e65103a2fdc9547d49296e3304f49e93d215ffa0b48",
+    "assets/IS_native_manifest.json": "sha256:62dd92ec99be19790928f8330af1994ce22e032720bd79b0a004bcb915fedebe"
+  },
+  "source_documents": {
+    "docs/Qin 等 - 2023 - Cation-induced changes in the inner- and outer-sphere mechanisms of electrocatalytic CO2 reduction.pdf": "9e7f9ba697b03e58932666bcece864599f17f77512d5754de392fa9a501639e9",
+    "docs/41467_2023_43300_MOESM1_ESM.pdf": "06557bce238f7ca373646a992cf8d087126852eb5ab4817ad3ace698f533cfb9"
+  },
+  "runtime_bound": true,
+  "coverage": "COMPLETE",
+  "implementation": "implemented",
+  "budget_revision": 3,
+  "analysis_interface": "frozen-native/v1",
+  "science_helper": "consolidated",
+  "science_helper_sha256": "sha256:a1adab60ee21b28c78235a3b540304d5c6149cc65a08eb866f5120d203e03aa8",
+  "acceptance_scope": "frozen-native/v1: static evidence numerical/scope/decision consistency; no independent model evaluation"
+}

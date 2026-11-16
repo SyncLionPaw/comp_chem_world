@@ -1,0 +1,18 @@
+{
+  "decision": "needs_check",
+  "evidence": [
+    "The four native run records and their sampled diagnostics are summarized in numerical-comparison.json.",
+    "The result is limited to 50 ps per run and should support only a further bounded numerical check."
+  ],
+  "alternative": "A shorter timestep or stopping is appropriate if the actual native logs show constraint failures, NaNs, or sustained geometry problems.",
+  "inference_limits": [
+    "No equilibration, binding free energy, kinetics, CV generality, or production claim follows from these short trajectories."
+  ],
+  "next_budget": {
+    "max_nodes": 1,
+    "max_cpus": 8,
+    "memory_gib": 8,
+    "walltime": "00:30:00",
+    "max_total_simulated_ps": 200
+  }
+}

@@ -1,0 +1,41 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/case-01-derivative-consistency"
+description = "固定势能的 E/F/H 导数与单位自检"
+
+[agent]
+timeout_sec = 600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1200
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[metadata]
+name = "case-01-derivative-consistency"
+title = "固定势能的 E/F/H 导数与单位自检"
+[[metadata.source_hashes]]
+path = "environment/assets/case01_ts_geometries_001_000.extxyz"
+sha256 = "cf5839cf7d28903fb4b121da935665a4ec5eaae627848f490ad65a36aa02005f"
+
+[[metadata.source_hashes]]
+path = "environment/assets/best_model_state.tar"
+sha256 = "a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3"
+
+[[metadata.source_hashes]]
+path = "environment/assets/newtonnet_model_spec.yml"
+sha256 = "eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf"
+
+[[metadata.source_hashes]]
+path = "environment/assets/output-contract.json"
+sha256 = "4c214603c175d636cabfc11ee669f751d709a4b3db8934a1feb3955171a8c992"
+

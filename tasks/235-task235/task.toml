@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
+
+[task]
+name = "compchemworld/case-05-thermodynamic-integration-curie-point"
+description = "Reproduce free-energy perturbation estimates for paired DFT-GAP sample energies of cubic and tetragonal BaTiO3 cells at the published temperatures using exact double/decimal arithmetic, verify the importance-sampling support of the finite 50-frame samples, and report the conditional free-energy differences with sign controls."
+
+[metadata]
+name = "case-05-thermodynamic-integration-curie-point"
+description = "Reproduce free-energy perturbation estimates for paired DFT-GAP sample energies of cubic and tetragonal BaTiO3 cells at the published temperatures using exact double/decimal arithmetic, verify the importance-sampling support of the finite 50-frame samples, and report the conditional free-energy differences with sign controls."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

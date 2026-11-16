@@ -1,0 +1,47 @@
+{
+  "schema": "bench21-case-refs/1",
+  "case_id": "case-06-path-identity",
+  "kind": "independent-model-path-replay",
+  "verifier": "tests/verify.py",
+  "thresholds": {
+    "index_one_internal_eigenvalue_eV_A2": -0.043364100162398556,
+    "index_one_definition": "strictly below",
+    "force_threshold_eV_A": 0.05,
+    "mode_seed_max_atom_displacement_A": 0.035,
+    "armijo_absolute_eV": 1e-08,
+    "armijo_relative_work": 0.0001
+  },
+  "tolerances": {
+    "starting_coordinates_abs_A": 1e-08,
+    "initial_seed_displacement_abs_A": 0.0002,
+    "accepted_energy_increase_abs_eV": 1e-08,
+    "armijo_energy_abs_eV": 1e-09,
+    "force_stop_abs_eV_A": 1e-07
+  },
+  "limits": {
+    "hessian_calls_max": 40,
+    "hessian_calls_expected": 1,
+    "energy_force_calls_max": 1200,
+    "accepted_steps_per_direction_max": 120,
+    "accepted_steps_total_max": 240,
+    "walltime_seconds_max": 3600,
+    "trajectory_frames_per_direction_max": 122,
+    "event_rows_max": 1200,
+    "submission_event_rows_max": 1205,
+    "submission_csv_rows_max": 1300,
+    "submission_atoms_max": 16,
+    "submission_frames_per_file_max": 122,
+    "submission_total_frames_max": 245
+  },
+  "reference_values": {
+    "input_sha256": {
+      "case06_reference_ts.xyz": "c6d1f0f2faa9e4dd0dfa40ccf96cfb4d2b4c6e99f7bfd907c0d13058650bbcb2",
+      "case06_original_zenodo_000_R.xyz": "5836d06545213c34025ede4e5626b8592de4cb2829b2a775dc3b3e0f5e6d5292",
+      "case06_original_zenodo_000_P.xyz": "611e03e2875519d65e1c5cb6aecb4e6dde9ae534be059867c3f71fa9882723fd",
+      "best_model_state.tar": "a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3",
+      "newtonnet_model_spec.yml": "eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf",
+      "path_protocol.json": "b6a922f12ac849f4ae5228839354408e7312838eecf350ed432a60f1cbacee57"
+    },
+    "model_outputs": "independent replay and graph identity; no frozen path endpoint gold"
+  }
+}

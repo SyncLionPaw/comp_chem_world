@@ -1,0 +1,66 @@
+{
+  "version": "1.1",
+  "case_id": "case-01-bpr-rearrangement-energy-profile",
+  "reference_source_kind": "trusted_author_result",
+  "source_digest": "sha256:6839b9f8f46b7488783d3f738b704fb529f37ffee44560e736c3dd0fba10c574",
+  "independent_check": "scripts/build_gold_p04.py recomputes every band from registered local bytes",
+  "readiness": "READY_FOR_RUNTIME",
+  "verification_coverage": "COMPLETE",
+  "verification_implementation": "planned",
+  "asset_hashes": {
+    "assets/41467_2023_40675_MOESM1_ESM.docx": "sha256:52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a",
+    "assets/41467_2023_40675_MOESM3_ESM.xlsx": "sha256:69969f05b7fb9b75335737bfc4e65cd49218d75da632197d929f6196784b67f1",
+    "assets/Toluene-iBPR-rearrangment/P-C1-DFT.log": "sha256:6c129624447dbab6e34f6195cb32a2aa8c04658f08419510113c8d8f8380f2f0",
+    "assets/Toluene-iBPR-rearrangment/P-C1-F12.out": "sha256:9f7e5ccff2425ed72fa730c8190fa85cd43d4d4e8aef7d230c6e50c47fef8858",
+    "assets/Toluene-iBPR-rearrangment/P-C2-DFT.log": "sha256:249341d49148b71394d84ff7b8f03daf17168c7d2ad29720c6f2d8585b7930b1",
+    "assets/Toluene-iBPR-rearrangment/P-C2-F12.out": "sha256:0cdbf908defe9396e15ef73dd1e597465ebde667a2583d1b4578ef5d2d69f58c",
+    "assets/Toluene-iBPR-rearrangment/Toluene-iBPR-DFT.log": "sha256:d2d7720643c371c07c3e34ea673ac6e70f7e4d610577241e7a7a87e368d168f1",
+    "assets/Toluene-iBPR-rearrangment/Toluene-iBPR-F12.out": "sha256:39fb1698aec8630e572a979d929e5ce11817a639930b1ff7641cfa61f064fa6e",
+    "assets/Toluene-iBPR-rearrangment/Toluene-iBPR-TS-C1-DFT.log": "sha256:f02930ff0889df3b786d4313edb5a2202c993737b5bd32eda272cbeb5e1381e5",
+    "assets/Toluene-iBPR-rearrangment/Toluene-iBPR-TS-C1-F12.out": "sha256:9554d77f3303690a7316f588849e8bc9dcf2ab85c82d89240957cc2daac08eb1",
+    "assets/Toluene-iBPR-rearrangment/Toluene-iBPR-TS-C2-DFT.log": "sha256:b598d6a3f39fc3e01b3057e1410d77fe8e0ade8032c8886b2a6480806496fc7f",
+    "assets/Toluene-iBPR-rearrangment/Toluene-iBPR-TS-C2-F12.out": "sha256:4d2ff3a288cc3da670f36c6085d94875c80d64259b1e695dcbf5975ea3f99777"
+  },
+  "observations": [
+    {
+      "name": "profile_rows_complete",
+      "level": "L1",
+      "expected": "见 verification.md 的 rationale",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Four stationary points, each with both surfaces and a derived energy relative to the ipso-BPR, are required to state a profile at all."
+    },
+    {
+      "name": "native_quantities_traceable",
+      "level": "L2",
+      "expected": "Each reported energy names its file and its label line; 5 of 5 logs and 5 of 5 outputs satisfy this on the reference side.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Each reported energy must name the file and the label it came from. Measured on the deposit: every one of the five logs carries exactly one thermochemistry block at 298.150 K with the four summary labels, and every one of the five Molpro outputs carries the RCCSD(T)-F12A/cc-pVDZ-F12 summary, so an untraceable number is not explainable by missing data."
+    },
+    {
+      "name": "barriers_match_published_profile",
+      "level": "L3",
+      "expected": "Each of the four derived energies within 0.10 kcal/mol of 18.8, 17.9, -51.7 and -49.4; measured maximum deviation 0.048.",
+      "unit": "kcal_per_mol",
+      "source_locator": "gold/tables/derived_ibpr_barriers.csv",
+      "acceptance_rule": "Recomputed from the deposited outputs, the composite rule puts TS-C1 at 18.838, TS-C2 at 17.899, P-C1 at -51.748 and P-C2 at -49.378 kcal/mol against published 18.8, 17.9, -51.7 and -49.4, a maximum absolute deviation of 0.048 kcal/mol, which is the rounding of the published value rather than a method discrepancy."
+    },
+    {
+      "name": "combination_rule_identified_not_assumed",
+      "level": "L3",
+      "expected": "The declared rule must reproduce all four values within 0.10 kcal/mol while every rejected rule misses the closest one by at least 0.52; naming density-functional zero-point, electronic, Gibbs or coupled-cluster-only as the rule fails regardless of the numbers reported.",
+      "unit": "kcal_per_mol",
+      "source_locator": "gold/tables/derived_ibpr_barriers.csv",
+      "acceptance_rule": "The rule must be the coupled-cluster electronic difference plus the density-functional zero-point difference. Measured alternatives miss by 1.0 to 6.6 kcal/mol: density functional zero-point only gives 20.946 and 20.352, density functional electronic only 24.080 and 23.844, coupled-cluster electronic only 21.972 and 21.391, and Gibbs 20.567 and 19.994. Measured over all four stationary points, the closest any rejected rule comes to the published profile is 0.52 kcal/mol and the furthest miss is 6.62, against 0.048 for the adopted rule, so the two are separated by the published rounding itself. A submission that reports a matching number while naming one of the rejected rules is scored as a restatement, not a reconstruction."
+    },
+    {
+      "name": "saddle_and_electronic_state_consistent",
+      "level": "L3",
+      "expected": "Exactly 1 imaginary frequency for TS-C1 and TS-C2, 0 for the ipso-BPR and both products, 57 modes each for 21 atoms, multiplicity 2 throughout; zero tolerance on any deviation.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "The two transition states must each carry exactly one imaginary frequency and the minimum three none, all on doublet surfaces, because a profile assembled from the wrong species type or spin is not this reaction even when its numbers agree."
+    }
+  ]
+}

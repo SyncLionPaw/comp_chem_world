@@ -1,0 +1,60 @@
+{
+  "schema": "case08-gromacs-source-manifest/v1",
+  "source_type": "official, version-pinned GROMACS 2022.6 documentation",
+  "items": [
+    {
+      "id": "molecular-dynamics",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/molecular-dynamics.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/molecular-dynamics.html",
+      "sha256": "82a658bfa89a119b64e6cb27b0d380a7361c6f3191a2c792965e4a808fa332e5",
+      "bytes": 144828,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "kinetic energy and temperature: Eq. 22-25 DOF and T",
+        "temperature coupling: NVT total energy vs conserved quantity",
+        "velocity-rescaling: Eq. 47 Nf and stochastic coupling",
+        "group temperature coupling; neighbor list"
+      ]
+    },
+    {
+      "id": "group-concept",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/group-concept.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/group-concept.html",
+      "sha256": "0ac4fba080b32939992034e0c1cfacdf5bf7f37036dc98c76025157484fc1787",
+      "bytes": 9857,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "temperature coupling groups and degree of freedom assignment"
+      ]
+    },
+    {
+      "id": "constraint-algorithms",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/constraint-algorithms.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/constraint-algorithms.html",
+      "sha256": "b0d41f62c92f06c4fba8301a98e236bfaf18e112b8d1f59fb4a04625f2aa9922",
+      "bytes": 24575,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "SETTLE rigid water",
+        "LINCS bond constraint algorithm"
+      ]
+    },
+    {
+      "id": "mdp-options",
+      "url": "https://manual.gromacs.org/documentation/2022.6/user-guide/mdp-options.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/mdp-options.html",
+      "sha256": "69eacd0119dda925546fcb735549bb92ae77807e2e20d46a1fae2e0c9c96bc36",
+      "bytes": 346267,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "tc-grps/ref-t and v-rescale options",
+        "lincs-warnangle warnings",
+        "constraints=all-bonds and SETTLE special treatment"
+      ]
+    }
+  ]
+}

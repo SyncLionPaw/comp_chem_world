@@ -1,0 +1,35 @@
+{
+  "schema": "case08-edr-postprocess/v1",
+  "job_id": "3968344",
+  "analysis_version": "independent-native-edr-postprocess/v1",
+  "postprocess_script_sha256": "c72667e9be50094e6e8a93f441b8ab7b9119066f4cf7dc72c33974b0b1fa8379",
+  "job_case08_tools_sha256": "9e1b1bd0911e78902f1ae8767a0a5ad147ee2f73df70e0dd3456444315e4e1c2",
+  "gromacs_version": "2022.6",
+  "source_native_manifest_sha256": "9a2b3435742fa96c7f2e2dc01094e49debc5fa374cd5a2726baa587d9833a748",
+  "derived_energy": {
+    "B-dt1fs": {
+      "xvg_sha256": "4703c9593d21240f6d2a4c0dee1d818bf1064744566d0128d9b7c89639ddc239",
+      "xvg_bytes": 67211,
+      "source_edr_path": "runs/B-dt1fs/md.edr",
+      "source_edr_sha256": "7a126a4d668c11ceb3d9d0cf1787e9d7f40328ea515a403dcf0780ab14c8d424"
+    },
+    "B-dt2fs": {
+      "xvg_sha256": "21cd3743e5d330d897887117b569255d5b5efc4c2dc9dc3c958561e4d7623d4c",
+      "xvg_bytes": 67204,
+      "source_edr_path": "runs/B-dt2fs/md.edr",
+      "source_edr_sha256": "0c45f8485540d7fbf17d369eb3849bace8636319538dc29054f990109275acd0"
+    },
+    "U-dt1fs": {
+      "xvg_sha256": "53977e40988b12a8011073b8804f0d1d76fb094186b21d4205775f6f005bd496",
+      "xvg_bytes": 67204,
+      "source_edr_path": "runs/U-dt1fs/md.edr",
+      "source_edr_sha256": "8bdba9e1243bea8314e0149bb14af371c7a86594c996ee94fb201b0a7f585130"
+    },
+    "U-dt2fs": {
+      "xvg_sha256": "dd88a8ba9e8f40f0de10cd68983bf8c726f0b3255cc8b445bda981204a7132e7",
+      "xvg_bytes": 67204,
+      "source_edr_path": "runs/U-dt2fs/md.edr",
+      "source_edr_sha256": "362c3909bb4206332d3c42b53a18abbf28274e263f80bc16daee7a515ee574a1"
+    }
+  }
+}

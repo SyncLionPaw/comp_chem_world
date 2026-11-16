@@ -1,0 +1,1528 @@
+{
+  "allocation_rows": [
+    {
+      "allocated_cores": 8,
+      "cpu_time_raw_seconds": 67112,
+      "elapsed_seconds": 8389,
+      "job_id": "3886957",
+      "sacct_sha256": "58f6bfdde72ac09d19815a62183abe79842f44dbb5dfce189eb63b5f41eac482",
+      "sacct_source": "prepared_jobs/case07/results/3886957/accounting/sacct.psv",
+      "state": "FAILED",
+      "start_utc": null,
+      "end_utc": null,
+      "raw_site_start": "2026-10-03T00:51:48",
+      "raw_site_end": "2026-10-03T03:11:37",
+      "utc_offset_evidence": "unknown; no per-job UTC submission receipt",
+      "raw_site_submit": "2026-10-03T00:51:42",
+      "utc_receipt_path": null
+    },
+    {
+      "allocated_cores": 8,
+      "cpu_time_raw_seconds": 71000,
+      "elapsed_seconds": 8875,
+      "job_id": "3887398",
+      "sacct_sha256": "cca9bb0ed8712cc4aa13ff227574a83405a8b3366671d1c76eb30e210adf7d8a",
+      "sacct_source": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/accounting/sacct.psv",
+      "state": "FAILED",
+      "start_utc": "2026-10-03T11:06:40+00:00",
+      "end_utc": "2026-10-03T13:34:35+00:00",
+      "raw_site_start": "2026-10-03T19:06:40",
+      "raw_site_end": "2026-10-03T21:34:35",
+      "utc_offset_evidence": "+08:00 verified against submitted_utc and raw sacct Submit",
+      "raw_site_submit": "2026-10-03T17:00:05",
+      "utc_receipt_path": "native_outputs/accounting/utc_offset_evidence/3887398_submission_receipt.json"
+    },
+    {
+      "allocated_cores": 8,
+      "cpu_time_raw_seconds": 47560,
+      "elapsed_seconds": 5945,
+      "job_id": "3892162",
+      "sacct_sha256": "df2f4b3dc5f1f6fa70d73ae160f7d9e5c60dda5d36747738518a610c8608e426",
+      "sacct_source": "prepared_jobs/case07_final_3892162/evidence/3892162/accounting/sacct.psv",
+      "state": "FAILED",
+      "start_utc": "2026-10-04T06:51:25+00:00",
+      "end_utc": "2026-10-04T08:30:30+00:00",
+      "raw_site_start": "2026-10-04T14:51:25",
+      "raw_site_end": "2026-10-04T16:30:30",
+      "utc_offset_evidence": "+08:00 verified against submitted_utc and raw sacct Submit",
+      "raw_site_submit": "2026-10-04T14:51:24",
+      "utc_receipt_path": "native_outputs/accounting/utc_offset_evidence/3892162_submission_receipt.json"
+    },
+    {
+      "allocated_cores": 8,
+      "cpu_time_raw_seconds": 9552,
+      "elapsed_seconds": 1194,
+      "job_id": "3893417",
+      "sacct_sha256": "fbc0c9d46dd12ba46ca5b8e58d8e7317b22efa4a0c221f13dbff4b461f499ded",
+      "sacct_source": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/final_sacct.psv",
+      "state": "COMPLETED",
+      "start_utc": "2026-10-04T09:55:31+00:00",
+      "end_utc": "2026-10-04T10:15:25+00:00",
+      "raw_site_start": "2026-10-04T17:55:31",
+      "raw_site_end": "2026-10-04T18:15:25",
+      "utc_offset_evidence": "+08:00 verified against submitted_utc and raw sacct Submit",
+      "raw_site_submit": "2026-10-04T17:55:31",
+      "utc_receipt_path": "native_outputs/accounting/utc_offset_evidence/3893417_submission_receipt.json"
+    }
+  ],
+  "authority": "Sol independent native audit 2026-10-05",
+  "case_id": "case-07-independent-saddle-point-recomputation",
+  "expected_scope": {
+    "C1local": true,
+    "C2validated": false,
+    "F12_migrated": false,
+    "IRC_converged": false,
+    "canonical_revalidated": false,
+    "strict8h": false
+  },
+  "fixture_id": "archived-C1-local-connection-expected-fail",
+  "fixture_manifest": {
+    "barriers.csv": "202959356bdda88896fe437cd2a3e23c360fdda9a3eef60610469f1a107acf6c",
+    "failures.md": "6ff4a2a46496f8a7eab5e982ae5038853f7337d99cfb39dbf60931e28671d18a",
+    "native_outputs/accounting/utc_offset_evidence/3887398_submission_receipt.json": "83b4c57469be2de2170c37f08eefad4720ca9e7e132c3f091fa4b0516778a3e1",
+    "native_outputs/accounting/utc_offset_evidence/3892162_submission_receipt.json": "68b8e9fe4fb60761ac6ac488acea720f81edde380e885d987d6faa1469e0d8fb",
+    "native_outputs/accounting/utc_offset_evidence/3893417_submission_receipt.json": "6eff42ffbbb567fed6a0f926befd981d615a1eadf8342fe6e1da7739cdb1247c",
+    "native_outputs/cycle34_evaluation.json": "8736eb113af95035de7de8c57df1565ecd09aab787f2d71919c0967be540fce4",
+    "native_outputs/cycle34_evaluator_reparse.json": "af0dcd18b714be950bfa70b26602f0979c3c469ace3dfb9e4ceab1b66b6620d3",
+    "native_outputs/final_plus_3893417/AUDIT_SHA256SUMS": "69a34f585159fc5cd74afe2758cc0d78b5a9519290e36ee56e799c3feed0f7d9",
+    "native_outputs/final_plus_3893417/STARTUP_VALIDATION.log": "1735591a7e51332df00b68fb09ed5d051d927ee8b3e97cd32a19786ef954d29e",
+    "native_outputs/final_plus_3893417/accounting/allocation_ledger.json": "cb900ead7fa7023304a08e22f315e32116a4e9c5038dc686967a344137109315",
+    "native_outputs/final_plus_3893417/accounting_SHA256SUMS": "cc5e7a213cce6969557b7d346a784c2f6ee8c7f77cfed1d342a4cdd44e7b6a7e",
+    "native_outputs/final_plus_3893417/allocation_ledger.json": "cb900ead7fa7023304a08e22f315e32116a4e9c5038dc686967a344137109315",
+    "native_outputs/final_plus_3893417/events.json": "ae8d2015bd5113516b2bb770833018a11b17199059f9a014d10ea04eab0da548",
+    "native_outputs/final_plus_3893417/final_sacct.psv": "fbc0c9d46dd12ba46ca5b8e58d8e7317b22efa4a0c221f13dbff4b461f499ded",
+    "native_outputs/final_plus_3893417/final_scontrol.txt": "f02e46be527625eaf9aef4a9a3728f87735414ed5c0f121b14c2c9d635ee6b3a",
+    "native_outputs/final_plus_3893417/plus_frequency/job.hess": "05d35a370fdd9fa6fd6965fedec6519908ebc1e6ca3e68ef534697c33c7ad19a",
+    "native_outputs/final_plus_3893417/plus_frequency/job.inp": "ff41c413a6a012e7c6e12075bf2011e5c015f2604e5e066b25eca70d571ea5bc",
+    "native_outputs/final_plus_3893417/plus_frequency/job.out": "c5a648a4c2dacb68895ae6f7b3434d3132c465927b63e31d189ec1627e619483",
+    "native_outputs/final_plus_3893417/plus_frequency/receipt.json": "217a7d2e003f56356ea548b889edb36913de692a0a5b48c0bcd8f1aa98e80644",
+    "native_outputs/final_plus_3893417/plus_frequency/start.xyz": "64af06b7ca983bd683cce8a1e659fc404d2fa95e03ec9bb8ed80fcef8171d803",
+    "native_outputs/final_plus_3893417/plus_optimization/job.inp": "d89f956607ef3775397c3c02879e7eaf3dfbe82aaf7a53ef826197bd26a8db80",
+    "native_outputs/final_plus_3893417/plus_optimization/job.out": "12dc7e12db7d72859cbe2d2b365c47aa275493a79339e0cd98f2cdac9a006dff",
+    "native_outputs/final_plus_3893417/plus_optimization/job.xyz": "837529c422565179162165f01bbabc410aa959d543839cb007d4bd1e0671ef15",
+    "native_outputs/final_plus_3893417/plus_optimization/receipt.json": "74712ddaad214cd419629dd2177fe92d6db7221d006fe1bc669af8bdcf6d156d",
+    "native_outputs/final_plus_3893417/plus_optimization/start.xyz": "46edccc5e136b1820e6a423b3a9496cd8d99e2bb9a9dbfeb45e38af1eb68427f",
+    "native_outputs/final_plus_3893417/plus_optimization_job.inp": "d89f956607ef3775397c3c02879e7eaf3dfbe82aaf7a53ef826197bd26a8db80",
+    "native_outputs/final_plus_3893417/plus_optimization_job.out": "b944674a5c56cc90a0b7629d05965ac90ab508fbff1016c9e7fdfda66780ae46",
+    "native_outputs/final_plus_3893417/plus_optimization_job.stderr": "427adb53d763f97ac7a385ac84d5e53cb720770af55beeb9ccbb18b926446712",
+    "native_outputs/final_plus_3893417/preflight.json": "b5f2af661fb430f7e80048c095308bf34e0d7aa061ca96481160a8b57f719f25",
+    "native_outputs/final_plus_3893417/process_status.txt": "f90b4fc4346748b9f0bad60d3e23860f03e194e737902c8356c8b77745386bb4",
+    "native_outputs/final_plus_3893417/sacct_terminal_3893417.psv": "fbc0c9d46dd12ba46ca5b8e58d8e7317b22efa4a0c221f13dbff4b461f499ded",
+    "native_outputs/final_plus_3893417/science_report.json": "5f1a768d48e5494535850b42be04ad814511d4bee7629e9c5f989f187dbd15b4",
+    "native_outputs/final_plus_3893417/scontrol_snapshot.txt": "35f90cb85c3760bc3687777293e71cc288a5d37951dde397848fa1b3b9cfe0e9",
+    "native_outputs/final_plus_3893417/slurm_allocation.txt": "cd997a69ddef6b2c31952a1690b502cebff890608a6ac7ac63b0ab01bb3eda9e",
+    "native_outputs/final_plus_3893417/squeue_snapshot.txt": "c76a87bc085f598d66a4a39b1dcc58c97ae921ba767517e505da9694b9742dd1",
+    "native_outputs/final_plus_3893417/submission_intent.json": "547eb1571a30513ac0d824c2d1ca947e0d682e44d47c497a07cc10a0d24c491d",
+    "native_outputs/final_plus_3893417/submission_receipt.json": "6eff42ffbbb567fed6a0f926befd981d615a1eadf8342fe6e1da7739cdb1247c",
+    "native_outputs/manifest.json": "b2505e60e4ff684676b1b961f7afa0768c0521cf3fdf5b1c5859fdafcc4da6a4",
+    "native_outputs/minus_and_plus34_3892162/accounting/SHA256SUMS": "591089156eaddf80db4885add9ffa0a397e7467a54249f4f54b8e03079250181",
+    "native_outputs/minus_and_plus34_3892162/accounting/allocation_ledger.json": "e9d18ce85f4085733cc41b50578a19f3432a96d1e74e5af06c45b636f72671c5",
+    "native_outputs/minus_and_plus34_3892162/accounting/sacct.psv": "df2f4b3dc5f1f6fa70d73ae160f7d9e5c60dda5d36747738518a610c8608e426",
+    "native_outputs/minus_and_plus34_3892162/accounting/scontrol.txt": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/analysis.json": "126fb9428b2733ff706fd22a3fa17072c0ed365e0552d9ae796e8df22b32b6d3",
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.hess": "7496a64ad9374c3256ebb59dd80f2f52a8431449e931805e1e6f9b804c052f03",
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.inp": "ff41c413a6a012e7c6e12075bf2011e5c015f2604e5e066b25eca70d571ea5bc",
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.out": "a03c6317c4dfde18d33d73a34ee094a0fe0bcea668c5eaeea6281aee9ecbcd2f",
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.stderr": "621ed92319ced9cdfe3b333f12f8befd5278d89bbdba4285b98a6adceea2c072",
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/receipt.json": "69810402c9163abbde70c8e0228791ba67a614bd859161f5c72c7ca133407cde",
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/start.xyz": "df9850669794ee94a4750a6c3513a2b34ccf06ac6e04e42dbbf4797336aede05",
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.inp": "d89f956607ef3775397c3c02879e7eaf3dfbe82aaf7a53ef826197bd26a8db80",
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.out": "a13b8c2cf9f232cf8881a63e625cb989943fc1877b7a25d762f5da062eb45433",
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.stderr": "b5b64513b78a14211083c63bcc8af04deb98beb086db30306bae08ed37a685d4",
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.xyz": "41effd6c022ba020bbe3c79412b6f0e3f8ba7f254788018342a40cede16f749d",
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job_trj.xyz": "9fde9b7e90245b5d5c2d111165f087c49d15016f56cbfcff0785b7ef8d4b28c3",
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/receipt.json": "bb9ed95f74e9ad8f6ee9b3e39ac8b241c444fa4e0f33c8c3132e0d938ba065d7",
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/start.xyz": "768d0183e97b12464e903fb4c90fdc87f7c65797d08746d032ac22534695e652",
+    "native_outputs/screening_3886957/C1_p1/extracted_final.xyz": "62132c685c3036bea982b2ace396042b6903ab91cbc9b82f5ee710458dcb7030",
+    "native_outputs/screening_3886957/C1_p1/job.inp": "5179d788b753c3a7e164f2d581ca803817f62d8a26c3fd9f66c26cbdc111538f",
+    "native_outputs/screening_3886957/C1_p1/job.out": "ecdccbaf4dc084536b5d402b8642cf8d539781af64d7e2a3eab8e829fdcb350d",
+    "native_outputs/screening_3886957/C1_p1/job.xyz": "9b814a25667c2c114f92f71481015e441ebf921f4bd67c8627b84117a5658080",
+    "native_outputs/screening_3886957/C1_p1/job_trj.xyz": "4c3e83452995697f86b78c7fcdf8b5c5c1ce5b40bd71a8790e37acf820091431",
+    "native_outputs/screening_3886957/C1_p1/receipt.json": "148812cc26798d495abc2a8ca7b721ebbba6c5ecbdc8902f7a2e2fe5621e2a2d",
+    "native_outputs/screening_3886957/C1_p1/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C1_p1_retry/evaluation_cycle_1.xyz": "eebd3c3e77de92ef4bd81ee4cbc11efc93eed2ba7362b64d864a13bf6575c24c",
+    "native_outputs/screening_3886957/C1_p1_retry/job.inp": "fd7128b32afcdcc2cbd2e8898129d45b6db4ecfd8cffcd540eb9c8e4e300dd91",
+    "native_outputs/screening_3886957/C1_p1_retry/job.out": "372fa85baa08090cc3896f9d6cc7c3929064061001eb03ef8032a5f524868a11",
+    "native_outputs/screening_3886957/C1_p1_retry/job.xyz": "80a32deaf1cb1213c49919cd42ab2fd6b6c527d4fede816cdad2e997dfd19478",
+    "native_outputs/screening_3886957/C1_p1_retry/job_trj.xyz": "870a39d26719a3d207979b5164c88f81f18dafe1b978ff72f0a74bed4795810a",
+    "native_outputs/screening_3886957/C1_p1_retry/receipt.json": "b80b376ece0341e3d48bb1382c962643cc33274e3cb8c61c743aef112dcdb458",
+    "native_outputs/screening_3886957/C1_p1_retry/time.txt": "841783be0690281089dd0b4f324859cd67d31b1df58c79c2b287e5f61da307f9",
+    "native_outputs/screening_3886957/C1_p2/extracted_final.xyz": "05ef0964953afbe43acb3688f9a4e0131cc4b6d1dcf91deb2cc0763017e273c4",
+    "native_outputs/screening_3886957/C1_p2/job.inp": "ee89192d2308304dc6697158d63de6ef9346c3e98af63fbb6015cb7823748b03",
+    "native_outputs/screening_3886957/C1_p2/job.out": "d073930e700833ce9706ec3fd27a89aeb91b05a07a8fe9a0bfb048f4dac92ff3",
+    "native_outputs/screening_3886957/C1_p2/job.xyz": "a74f2de23bf578a21b1968bd5c982eb6067e1d37bdf400b87938ba291c4b6cb0",
+    "native_outputs/screening_3886957/C1_p2/job_trj.xyz": "4929c91109b67a0bd30cd62d74510fa4f7ee799342fb11368bb57ab600ab3847",
+    "native_outputs/screening_3886957/C1_p2/receipt.json": "d866100a6e0981facd48517fd47bda42689d939d50541890fb87611141251f9c",
+    "native_outputs/screening_3886957/C1_p2/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C1_p2_retry/evaluation_cycle_6.xyz": "c2e45abb07a13c98feaa3e5a4043397a8f06fc176120fdc3f6ecf32c73227ecb",
+    "native_outputs/screening_3886957/C1_p2_retry/job.inp": "3514ece5badb44031052578afea94233b82668b360f60935d350577861e439ea",
+    "native_outputs/screening_3886957/C1_p2_retry/job.out": "26da854be52ad217c07acb9266a4f85daac8a45119bd784dfef60e2839435de1",
+    "native_outputs/screening_3886957/C1_p2_retry/job.xyz": "0e20b7aee39b784ad58533d0c5d145686ca0a68c87748eb7603b5cef5ab5ffa9",
+    "native_outputs/screening_3886957/C1_p2_retry/job_trj.xyz": "3ec9395131858330fab08f703a27de8f5c5d45998f7aa17d2ba747eae659428f",
+    "native_outputs/screening_3886957/C1_p2_retry/receipt.json": "64914b9097961a058ca67bbab8aa156afce32f4ab22a82863b90ce36ed7bc78e",
+    "native_outputs/screening_3886957/C1_p2_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C1_p3/extracted_final.xyz": "1721bbff42cce3703103c296b79f4692df50a5dca965d80e00e0b2d4cf3394a3",
+    "native_outputs/screening_3886957/C1_p3/job.inp": "026620cb3af3e738229c1b103025707745fbf35699e9c3a33f0c3b09a3b0c6bf",
+    "native_outputs/screening_3886957/C1_p3/job.out": "d1e54ee604bfd0e572c412646df297863ca485556dd5024d2f28fedc1bf08433",
+    "native_outputs/screening_3886957/C1_p3/job.xyz": "57122dc8f98f2910c5cc1687313edb13b5383733c4e0858c46470236af467f7d",
+    "native_outputs/screening_3886957/C1_p3/job_trj.xyz": "3e5c7b67369975fa1210e648556accc813a149839d69ac494612236c7d8b8567",
+    "native_outputs/screening_3886957/C1_p3/receipt.json": "2797198a7f606bda1ebe5896b450014358154f3ce0b41e549b298ecce4e33c4a",
+    "native_outputs/screening_3886957/C1_p3/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C1_p3_retry/evaluation_cycle_7.xyz": "9cdf93664b63a08cf0e2c35a4ab3b95d639ab3d6c23a0a54ce53cd7490893a5b",
+    "native_outputs/screening_3886957/C1_p3_retry/job.inp": "84977a5977db3d6359c6c6269f345c4ef07774aa904745d152612d818ddf90cf",
+    "native_outputs/screening_3886957/C1_p3_retry/job.out": "e4b5c603699ccd3e2edb33c5c38f60381bb04a59bc51569e26af483a375f1521",
+    "native_outputs/screening_3886957/C1_p3_retry/job.xyz": "a8b9a7fe27a75de2ee829d4d81f4866ec0941d4c0f0398827ffeee5b5913eb1b",
+    "native_outputs/screening_3886957/C1_p3_retry/job_trj.xyz": "995e35456c3001af25eee807879c0a792994d23b7182c0dd678a45ca740de21d",
+    "native_outputs/screening_3886957/C1_p3_retry/receipt.json": "2a715ffe206117ecfd71351dab83633376350e06de2dd5e567fc1f55348960aa",
+    "native_outputs/screening_3886957/C1_p3_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C2_p1/extracted_final.xyz": "71fdabe7c38aef8ccdaa2701aa020e92707a91b9832d86b6140a78abc6934a45",
+    "native_outputs/screening_3886957/C2_p1/job.inp": "e973636dc7f1293e4e6c0a6c5136bd4c8866dafae841cac06942adb3555c1cbf",
+    "native_outputs/screening_3886957/C2_p1/job.out": "4d5cd9f6cd85da2ac33a1795e63ceedeb1170053233d6ca632ccae45e993f7d6",
+    "native_outputs/screening_3886957/C2_p1/job.xyz": "54aac58c26a5a4e26b704db36178b85da9b887640855172a64ba85637cc649b2",
+    "native_outputs/screening_3886957/C2_p1/job_trj.xyz": "1c844780227fa6f8fcd990b9f2f53241081af8d9238a4e6d27f4827ab3b40035",
+    "native_outputs/screening_3886957/C2_p1/receipt.json": "bc6f7ebec740b73ff6da1c2241efce03ebc5c9e1ed660072d248c2d0b4767a4d",
+    "native_outputs/screening_3886957/C2_p1/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C2_p1_retry/evaluation_cycle_1.xyz": "a1d91cb195b86f884d909b0bc42ee39949dfc31def1234536c5bc76a4c172daf",
+    "native_outputs/screening_3886957/C2_p1_retry/job.inp": "357f774976464580a2641e9f05066b3da53fe71d5ca2ea340bdcb9d10dc92efb",
+    "native_outputs/screening_3886957/C2_p1_retry/job.out": "5cd061e8cc091a1ef4fabec248851637271c88702f48dea10932ff4de3910d12",
+    "native_outputs/screening_3886957/C2_p1_retry/job.xyz": "c458efbe39b960d943b3ffbb990314fe80e4427e0b77761fc6d88ae86da9117c",
+    "native_outputs/screening_3886957/C2_p1_retry/job_trj.xyz": "b91fdb29cb33dccfc7ea10d7c02104bdba5920db83b0c75d3d7cf6ac3d3582ab",
+    "native_outputs/screening_3886957/C2_p1_retry/receipt.json": "bc1842a7d32ce06dc135836d0dbb12791f2640496a5837c4fa6b71c7dd6c4405",
+    "native_outputs/screening_3886957/C2_p1_retry/time.txt": "b28a02023f47449533e5a0eaa172865a41809bbcd4e47eb7e920ca6ef793c3e4",
+    "native_outputs/screening_3886957/C2_p2/extracted_final.xyz": "a29b4ea083f7b25a13ccc57a109518de5722d7d9da0bef2d29b9fa906e9bea19",
+    "native_outputs/screening_3886957/C2_p2/job.inp": "66bbed728da15000627e0ac802fa686a446aa2d8343e8c21c2cee27eb9b713f2",
+    "native_outputs/screening_3886957/C2_p2/job.out": "e80830663b056282694d8a88053b8f262a71c11b6995da7de4e63b2d39e6e155",
+    "native_outputs/screening_3886957/C2_p2/job.xyz": "56f6f9434061c7c3bc95c40f820679a3e53b7689289b1ef429991c9845ba6bd6",
+    "native_outputs/screening_3886957/C2_p2/job_trj.xyz": "0ab1b7de4f8ec0e110c6b3a7d63fe92774100817ba9618cb26c5796e01360113",
+    "native_outputs/screening_3886957/C2_p2/receipt.json": "f0198fcbdab5872c27fe5629debe066e286a4061fae5bb5ab0b8f80a2f7f3c9d",
+    "native_outputs/screening_3886957/C2_p2/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C2_p2_retry/evaluation_cycle_6.xyz": "dbccc50dff2bfd9bb6b3a4bbb1a16c1c87735d42304ae1712863e1e58671eef0",
+    "native_outputs/screening_3886957/C2_p2_retry/job.inp": "a338ebee5db7f8b59740d1902b182752388da15b22b318c4c03ca00882b8eac1",
+    "native_outputs/screening_3886957/C2_p2_retry/job.out": "7a50604ad5d465ae31128aeb8496bae46551717794b71a7023418d82d89cbe53",
+    "native_outputs/screening_3886957/C2_p2_retry/job.xyz": "8c0e43434ecfa9e335a34aa913c547c1600de017f59e4f8b019b2fecf4132d11",
+    "native_outputs/screening_3886957/C2_p2_retry/job_trj.xyz": "d9afe76eb847cdf846cc8144ce6b0e7b946e71a2b830f1ae4e439a6e3b38f885",
+    "native_outputs/screening_3886957/C2_p2_retry/receipt.json": "9ebf80c21643f63f581efe3027a3aa680451cbf6152d9d8234a7f094ca867419",
+    "native_outputs/screening_3886957/C2_p2_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C2_p3/extracted_final.xyz": "00ad08e098bf6ab3955214e2db378eb460af4ecd55d3cdb1f3c7fa36bcbdf2cd",
+    "native_outputs/screening_3886957/C2_p3/job.inp": "4deee3c07875e021fb149d1d1d8c1df88f4991ebaa112ba32641ea8e9615d3e1",
+    "native_outputs/screening_3886957/C2_p3/job.out": "4082c02c1761f718680111582e015f28e82f033a77770d2cc0b8747829430175",
+    "native_outputs/screening_3886957/C2_p3/job.xyz": "7b6dff8e58d51deb76895ea97bd20115fd75bf3e1153ee75c855b22b88b45388",
+    "native_outputs/screening_3886957/C2_p3/job_trj.xyz": "0b1949894f24367774378a603e2a38d815e884cf1ea434935fc4ca0f5f82dc5a",
+    "native_outputs/screening_3886957/C2_p3/receipt.json": "dbfde65e67807ee156687ac39ce661249252bab98b468a4f29d89a44f7752fd9",
+    "native_outputs/screening_3886957/C2_p3/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/C2_p3_retry/evaluation_cycle_6.xyz": "d17d7a5f98c6d98999f383279ad8e814086ed538719c8aa62ea24a7e5aa15a1b",
+    "native_outputs/screening_3886957/C2_p3_retry/job.inp": "eb2c3847cf40e545df7b24a7b6136289309fdb2f4bdf8354fe6fe908539031a0",
+    "native_outputs/screening_3886957/C2_p3_retry/job.out": "da35a8025860afc0fd69125f0e0ab6bbc76343a5ad1701efe88aa2ca3e05f443",
+    "native_outputs/screening_3886957/C2_p3_retry/job.xyz": "a8c622ea3bc7de7ffd6af68afbd362d508869d6c442f2905e4567c0a0b06519e",
+    "native_outputs/screening_3886957/C2_p3_retry/job_trj.xyz": "5d89b0e52337c37f879c1d022599158cbbed94ef93b782211738746eb8762da8",
+    "native_outputs/screening_3886957/C2_p3_retry/receipt.json": "7ff5b07d2a11dbb4c8a533c3790abcc2647faa95594d0c14ff5a6a3a6710d513",
+    "native_outputs/screening_3886957/C2_p3_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/accounting/host_timezone.txt": "a767e122f8590d89457dc87b3097ee43274093a354abacd4ce87109b76852740",
+    "native_outputs/screening_3886957/accounting/sacct.psv": "58f6bfdde72ac09d19815a62183abe79842f44dbb5dfce189eb63b5f41eac482",
+    "native_outputs/screening_3886957/final/barriers.csv": "bcc729333acc3857b6a5af8a2baf15d627145a46953538325a3f3b637b23041b",
+    "native_outputs/screening_3886957/final/failures.md": "dfdcf090d98cab9c4d70a1c97dd71ce429162984ce040291572f0af259af9157",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/extracted_final.xyz": "62132c685c3036bea982b2ace396042b6903ab91cbc9b82f5ee710458dcb7030",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job.inp": "5179d788b753c3a7e164f2d581ca803817f62d8a26c3fd9f66c26cbdc111538f",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job.out": "ecdccbaf4dc084536b5d402b8642cf8d539781af64d7e2a3eab8e829fdcb350d",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job.xyz": "9b814a25667c2c114f92f71481015e441ebf921f4bd67c8627b84117a5658080",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job_trj.xyz": "4c3e83452995697f86b78c7fcdf8b5c5c1ce5b40bd71a8790e37acf820091431",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/receipt.json": "148812cc26798d495abc2a8ca7b721ebbba6c5ecbdc8902f7a2e2fe5621e2a2d",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job.inp": "fd7128b32afcdcc2cbd2e8898129d45b6db4ecfd8cffcd540eb9c8e4e300dd91",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job.out": "372fa85baa08090cc3896f9d6cc7c3929064061001eb03ef8032a5f524868a11",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job.xyz": "80a32deaf1cb1213c49919cd42ab2fd6b6c527d4fede816cdad2e997dfd19478",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job_trj.xyz": "870a39d26719a3d207979b5164c88f81f18dafe1b978ff72f0a74bed4795810a",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/receipt.json": "b80b376ece0341e3d48bb1382c962643cc33274e3cb8c61c743aef112dcdb458",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/time.txt": "841783be0690281089dd0b4f324859cd67d31b1df58c79c2b287e5f61da307f9",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/extracted_final.xyz": "05ef0964953afbe43acb3688f9a4e0131cc4b6d1dcf91deb2cc0763017e273c4",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job.inp": "ee89192d2308304dc6697158d63de6ef9346c3e98af63fbb6015cb7823748b03",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job.out": "d073930e700833ce9706ec3fd27a89aeb91b05a07a8fe9a0bfb048f4dac92ff3",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job.xyz": "a74f2de23bf578a21b1968bd5c982eb6067e1d37bdf400b87938ba291c4b6cb0",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job_trj.xyz": "4929c91109b67a0bd30cd62d74510fa4f7ee799342fb11368bb57ab600ab3847",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/receipt.json": "d866100a6e0981facd48517fd47bda42689d939d50541890fb87611141251f9c",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job.inp": "3514ece5badb44031052578afea94233b82668b360f60935d350577861e439ea",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job.out": "26da854be52ad217c07acb9266a4f85daac8a45119bd784dfef60e2839435de1",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job.xyz": "0e20b7aee39b784ad58533d0c5d145686ca0a68c87748eb7603b5cef5ab5ffa9",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job_trj.xyz": "3ec9395131858330fab08f703a27de8f5c5d45998f7aa17d2ba747eae659428f",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/receipt.json": "64914b9097961a058ca67bbab8aa156afce32f4ab22a82863b90ce36ed7bc78e",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/extracted_final.xyz": "1721bbff42cce3703103c296b79f4692df50a5dca965d80e00e0b2d4cf3394a3",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job.inp": "026620cb3af3e738229c1b103025707745fbf35699e9c3a33f0c3b09a3b0c6bf",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job.out": "d1e54ee604bfd0e572c412646df297863ca485556dd5024d2f28fedc1bf08433",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job.xyz": "57122dc8f98f2910c5cc1687313edb13b5383733c4e0858c46470236af467f7d",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job_trj.xyz": "3e5c7b67369975fa1210e648556accc813a149839d69ac494612236c7d8b8567",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/receipt.json": "2797198a7f606bda1ebe5896b450014358154f3ce0b41e549b298ecce4e33c4a",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job.inp": "84977a5977db3d6359c6c6269f345c4ef07774aa904745d152612d818ddf90cf",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job.out": "e4b5c603699ccd3e2edb33c5c38f60381bb04a59bc51569e26af483a375f1521",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job.xyz": "a8b9a7fe27a75de2ee829d4d81f4866ec0941d4c0f0398827ffeee5b5913eb1b",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job_trj.xyz": "995e35456c3001af25eee807879c0a792994d23b7182c0dd678a45ca740de21d",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/receipt.json": "2a715ffe206117ecfd71351dab83633376350e06de2dd5e567fc1f55348960aa",
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/extracted_final.xyz": "71fdabe7c38aef8ccdaa2701aa020e92707a91b9832d86b6140a78abc6934a45",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job.inp": "e973636dc7f1293e4e6c0a6c5136bd4c8866dafae841cac06942adb3555c1cbf",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job.out": "4d5cd9f6cd85da2ac33a1795e63ceedeb1170053233d6ca632ccae45e993f7d6",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job.xyz": "54aac58c26a5a4e26b704db36178b85da9b887640855172a64ba85637cc649b2",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job_trj.xyz": "1c844780227fa6f8fcd990b9f2f53241081af8d9238a4e6d27f4827ab3b40035",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/receipt.json": "bc6f7ebec740b73ff6da1c2241efce03ebc5c9e1ed660072d248c2d0b4767a4d",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job.inp": "357f774976464580a2641e9f05066b3da53fe71d5ca2ea340bdcb9d10dc92efb",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job.out": "5cd061e8cc091a1ef4fabec248851637271c88702f48dea10932ff4de3910d12",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job.xyz": "c458efbe39b960d943b3ffbb990314fe80e4427e0b77761fc6d88ae86da9117c",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job_trj.xyz": "b91fdb29cb33dccfc7ea10d7c02104bdba5920db83b0c75d3d7cf6ac3d3582ab",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/receipt.json": "bc1842a7d32ce06dc135836d0dbb12791f2640496a5837c4fa6b71c7dd6c4405",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/time.txt": "b28a02023f47449533e5a0eaa172865a41809bbcd4e47eb7e920ca6ef793c3e4",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/extracted_final.xyz": "a29b4ea083f7b25a13ccc57a109518de5722d7d9da0bef2d29b9fa906e9bea19",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job.inp": "66bbed728da15000627e0ac802fa686a446aa2d8343e8c21c2cee27eb9b713f2",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job.out": "e80830663b056282694d8a88053b8f262a71c11b6995da7de4e63b2d39e6e155",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job.xyz": "56f6f9434061c7c3bc95c40f820679a3e53b7689289b1ef429991c9845ba6bd6",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job_trj.xyz": "0ab1b7de4f8ec0e110c6b3a7d63fe92774100817ba9618cb26c5796e01360113",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/receipt.json": "f0198fcbdab5872c27fe5629debe066e286a4061fae5bb5ab0b8f80a2f7f3c9d",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job.inp": "a338ebee5db7f8b59740d1902b182752388da15b22b318c4c03ca00882b8eac1",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job.out": "7a50604ad5d465ae31128aeb8496bae46551717794b71a7023418d82d89cbe53",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job.xyz": "8c0e43434ecfa9e335a34aa913c547c1600de017f59e4f8b019b2fecf4132d11",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job_trj.xyz": "d9afe76eb847cdf846cc8144ce6b0e7b946e71a2b830f1ae4e439a6e3b38f885",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/receipt.json": "9ebf80c21643f63f581efe3027a3aa680451cbf6152d9d8234a7f094ca867419",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/extracted_final.xyz": "00ad08e098bf6ab3955214e2db378eb460af4ecd55d3cdb1f3c7fa36bcbdf2cd",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job.inp": "4deee3c07875e021fb149d1d1d8c1df88f4991ebaa112ba32641ea8e9615d3e1",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job.out": "4082c02c1761f718680111582e015f28e82f033a77770d2cc0b8747829430175",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job.xyz": "7b6dff8e58d51deb76895ea97bd20115fd75bf3e1153ee75c855b22b88b45388",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job_trj.xyz": "0b1949894f24367774378a603e2a38d815e884cf1ea434935fc4ca0f5f82dc5a",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/receipt.json": "dbfde65e67807ee156687ac39ce661249252bab98b468a4f29d89a44f7752fd9",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job.inp": "eb2c3847cf40e545df7b24a7b6136289309fdb2f4bdf8354fe6fe908539031a0",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job.out": "da35a8025860afc0fd69125f0e0ab6bbc76343a5ad1701efe88aa2ca3e05f443",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job.xyz": "a8c622ea3bc7de7ffd6af68afbd362d508869d6c442f2905e4567c0a0b06519e",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job_trj.xyz": "5d89b0e52337c37f879c1d022599158cbbed94ef93b782211738746eb8762da8",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/receipt.json": "7ff5b07d2a11dbb4c8a533c3790abcc2647faa95594d0c14ff5a6a3a6710d513",
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/job.inp": "75d39e083d8a5ccc9c2b80e796fe881c8299a5178c943234fdc1e699d1a75e53",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/job.out": "9b8b49da4a31d9179c42a80b421ef146eab4a1bb7b714e1ff8733531288fc9e7",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/receipt.json": "fa1aa4925dc0a01e262d22b8fb0f2d9e1ea774f61394cc04e3b3012b6c64f0e2",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/time.txt": "33cbcaa38102a911f5b5cd1c55e3d9bf03fdfdfd832f3e39b791bd10d8972f52",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/job.inp": "4db1d55c8a4ee41abfcd172fd09f171d52685c964575e38867917272fbd76a00",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/job.out": "fc8b58382511d097a252e856affa505c459d2cf98e7ca161c1cd3aa40094292e",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/receipt.json": "538b75f4db8578dec9e36eea457ad89266c71f1866e4c8b15ee3bd9719cefcde",
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/time.txt": "88e275835d3154f3226a49934eef085e295f2634040c8a7413376d2510b1ebc5",
+    "native_outputs/screening_3886957/final/native_outputs/runtime.json": "9567117f83601c538aae952d1e84316dbebeb16fd3346cd35291de1e987063d9",
+    "native_outputs/screening_3886957/final/resource_usage.csv": "6e3e4f3e4bc6b01dcc27f987ae458d4612ffa33a010cff6a7235cd3a87bdcb97",
+    "native_outputs/screening_3886957/final/ts_search_report.json": "9194d1a984be262a69e996127407132e8f6bc58ae48445fd5a6bb9f40f6c6ca9",
+    "native_outputs/screening_3886957/pilot_final/job.inp": "75d39e083d8a5ccc9c2b80e796fe881c8299a5178c943234fdc1e699d1a75e53",
+    "native_outputs/screening_3886957/pilot_final/job.out": "9b8b49da4a31d9179c42a80b421ef146eab4a1bb7b714e1ff8733531288fc9e7",
+    "native_outputs/screening_3886957/pilot_final/receipt.json": "fa1aa4925dc0a01e262d22b8fb0f2d9e1ea774f61394cc04e3b3012b6c64f0e2",
+    "native_outputs/screening_3886957/pilot_final/time.txt": "33cbcaa38102a911f5b5cd1c55e3d9bf03fdfdfd832f3e39b791bd10d8972f52",
+    "native_outputs/screening_3886957/pilot_screen/job.inp": "4db1d55c8a4ee41abfcd172fd09f171d52685c964575e38867917272fbd76a00",
+    "native_outputs/screening_3886957/pilot_screen/job.out": "fc8b58382511d097a252e856affa505c459d2cf98e7ca161c1cd3aa40094292e",
+    "native_outputs/screening_3886957/pilot_screen/receipt.json": "538b75f4db8578dec9e36eea457ad89266c71f1866e4c8b15ee3bd9719cefcde",
+    "native_outputs/screening_3886957/pilot_screen/time.txt": "88e275835d3154f3226a49934eef085e295f2634040c8a7413376d2510b1ebc5",
+    "native_outputs/screening_3886957/runtime.json": "9567117f83601c538aae952d1e84316dbebeb16fd3346cd35291de1e987063d9",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.engrad": "8b002ffb100d0b0b1c01e8df514f6f401bc77e3feb062bf7ecabba5bd68da504",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.gbw": "8bf24891d5d1cdccdfe840b37acef6958ef896538cbb48c1bdf3f58f880d1986",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.hess": "9de21d79aef8be8d29840cfd1962b96d524fd6708c2dab990700c84e276b9bee",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.inp": "faa5515115c85e68c55194aa89a52a4c023d02c27f66bf53922762aa6dc6dc9c",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.out": "ebea4827ec6cde461500ca1332e10b13935b5422428b8fde531d61160633085f",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.stderr": "3523cdcee6c766825d7f716c4f225078c6c1cb70a3eebb1ded65a5bc7b507f74",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.xyz": "df9850669794ee94a4750a6c3513a2b34ccf06ac6e04e42dbbf4797336aede05",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job_trj.xyz": "0f15ee0f273166d6c64f5cd07fd30f90595ac17aa52b63a183d8156eb1382910",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/receipt.json": "603b5c6307b69f4a40ba0cdb20cb20e568f85be465ec5b7cda3a5f32107ef956",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/start.xyz": "9f77d41772634b789c927f5c3a75baa9bb94787988ef687519cb0c3aef02d036",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/time.txt": "0ca00c27ebdfcdc4d77654f2914780fc21ede5598852b23c088cf028b78aa334",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/extracted_plus.xyz": "1c5a3502e4dacc77fcaffdbe17da60405061b609c635225e532127c7fe4447f4",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job.inp": "03b2c4d458050db88e042bff62c430390bfa4092c0cf6c1b8c6dc0f4e746a6ed",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job.out": "d845d7b3aad9fca451d910e61714fec4b9545f6db25af2337816bf12dc0f99aa",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job.stderr": "5840b3a211fc04b93938c378959249d0d2156af74a09dc0e2eae38cd7b236c4f",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job_IRC_F.xyz": "ebb4f4751988f0a4305b9591ca4311893c07f88e131a8d7be8fe3d635daa72d1",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job_IRC_F_trj.xyz": "84137ea6fe41d18d4e8f06b6c0b39cf0fa15580babdb401261c3a3e436243bce",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/receipt.json": "467991a7d7e80fbd08c6a19014272bc207b5b8291a6c8ea2e9b219b683639d0c",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/seed.hess": "6b7b6d30e8077fce71a1a937126948c6f2bf966c31e6c8157f37286eb2c28163",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/start.xyz": "cd3dd5365a7c266c6bb04188719febb32b25fa857756af6d0bf30c2770ddfad3",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/time.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/extracted_final.xyz": "6fbf421a935a2cc7021272ef55c41880da7c0f0024f3327fa1be3d70d18c87b9",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.001.hess": "658064588ef09853b93f17aca05ba784e2329628b6476b28efc9d3c49ac14360",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.002.hess": "0e21ebca241a76e72e3a9222dc66d0ea50ee178b339e524ffbada21c64a3963e",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.engrad": "7ef24570a205bb5266215f3110d80ff42d84c244d9791aa32217b9f8e19f0588",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.hess": "0e21ebca241a76e72e3a9222dc66d0ea50ee178b339e524ffbada21c64a3963e",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.inp": "be7f017cf5c63ed97a3ccb9cf07ffa70c01a50f2ec355869620ed23be5700bba",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.out": "fb2aec6ba893196dc1251d9d373173972a500a7e54b29fc9a1665ce81d08b0b3",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.stderr": "8127fa96027b78c83094913e18c7f3b31962a79718e7af59de12d3f898f336f7",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.xyz": "a1ee59904396932773cce0a467e6d4efc2a5eaba18a4316e8980feb2bfb097f0",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job_trj.xyz": "b83122faeb26b9e66a8716f6ddaf836768c7ec40f8f8571fc2b27b9d68bf1c3c",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/receipt.json": "5fc6e74032f5bfb9382617c3ee1347b86d2901cc78a83b5752df0ae9d7aefa42",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/start.xyz": "eb86bcca22ca84129b52f4ceea820b65ff8fb6f9b0008aa5b1df762c89b4292a",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/time.txt": "dc09a754f1eda75b5295103e164bb3092a3a1010bbc9149bcdec5b6c9c9f1c02",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_signed_mode/displacement.json": "096033334361167c8b0e076beb4d524f7b94110149258f1d60ced57f27363348",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_signed_mode/minus.xyz": "9f77d41772634b789c927f5c3a75baa9bb94787988ef687519cb0c3aef02d036",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_signed_mode/plus.xyz": "768d0183e97b12464e903fb4c90fdc87f7c65797d08746d032ac22534695e652",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/extracted_final.xyz": "cd3dd5365a7c266c6bb04188719febb32b25fa857756af6d0bf30c2770ddfad3",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.hess": "6b7b6d30e8077fce71a1a937126948c6f2bf966c31e6c8157f37286eb2c28163",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.inp": "62094968eb0be92844a38e82edb3f56521bf9b119c8f88faccaaff3014e99f31",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.out": "c2ceb4f865131287a9988566bcc67076133141bf81237d07abfd9ffd624281a8",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.stderr": "2ce3f183b52e883027976af2f57e9aaf8ab232606a8cff1cef1cdd9b860d0546",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/receipt.json": "83dd584180d00ec90e044027566a5db63c115864d8bf762b919d64fbeec5d3ca",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/start.xyz": "6fbf421a935a2cc7021272ef55c41880da7c0f0024f3327fa1be3d70d18c87b9",
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/time.txt": "36fd2414374f4674cbc072c404f424192ba70f0c14b9765aecd83cbc4f697f19",
+    "native_outputs/ts_and_initial_endpoints_3887398/accounting/sacct.psv": "cca9bb0ed8712cc4aa13ff227574a83405a8b3366671d1c76eb30e210adf7d8a",
+    "native_outputs/ts_and_initial_endpoints_3887398/accounting/scontrol_after.txt": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+    "native_outputs/ts_and_initial_endpoints_3887398/final/failures.md": "6ff4a2a46496f8a7eab5e982ae5038853f7337d99cfb39dbf60931e28671d18a",
+    "native_outputs/ts_and_initial_endpoints_3887398/final/resource_usage.csv": "3b4581391fa62d107500d10810c1dde293ecfb919884ba6e6b98b24e7aa22e7d",
+    "native_outputs/ts_and_initial_endpoints_3887398/final/ts_search_report.json": "d91133eaeae2f50c20decac6f50d912a34a83b465c31bc473c585cfe4330bbb2",
+    "references_uncertainty.md": "f1f00bfc1538ff61c1c7169430fc8545a914cbd4f24e3cca3f1155b7eacae593",
+    "resource_usage.csv": "d3334769a1fe2caf6f11ce3c24e9a9d6c09d6d922853fafee14ba605e61d8218",
+    "source_provenance.json": "76a858237b1b7d9fb18a55efa30b9a6b5f99451235824174e94af9e38ecf8932",
+    "structures/BPR_reference.xyz": "2bc35df2688d451fefca0c33b36ca5592c0730f228cd170fe1418d20835aa23e",
+    "structures/C1_BPR_side_endpoint_3887398.xyz": "df9850669794ee94a4750a6c3513a2b34ccf06ac6e04e42dbbf4797336aede05",
+    "structures/C1_TS_3887398_extracted_final.xyz": "6fbf421a935a2cc7021272ef55c41880da7c0f0024f3327fa1be3d70d18c87b9",
+    "structures/C1_product_endpoint_3893417.xyz": "837529c422565179162165f01bbabc410aa959d543839cb007d4bd1e0671ef15",
+    "structures/C1_product_reference.xyz": "035281f10d2f811d3e44621e2d2a9ca18ae988367fc001742ee8d6b4260dd4db",
+    "structures/C2_product_reference.xyz": "14645412ec9407d5551f90cff071e9fda675d46b80046fdc7e4a6386ea31244e",
+    "structures/atom_mapping.csv": "67562b2522d9b4c09826527ba07a210eef4d4911a8e84c6395ce47e31defe9f0",
+    "structures/structure_index.csv": "454209bce8c057aaf6fd7d2c38dac8bfa936f3a4352e0d6a6da8f1f5dcd2e42a",
+    "ts_search_report.json": "8a19d00c0da085b5768d164aaecbb24d579e5b3486b0f1e3e38821a3563f1dd6"
+  },
+  "fixture_path": "acceptance/compchembench/case07/fixtures/archived-C1-local-connection-expected-fail/final",
+  "mode": "archived_author_evidence",
+  "schema": "case07-archive-registry/v1",
+  "source_files": {
+    "native_outputs/cycle34_evaluation.json": {
+      "sha256": "8736eb113af95035de7de8c57df1565ecd09aab787f2d71919c0967be540fce4",
+      "source_path": "prepared_jobs/case07_final_3892162/cycle34_evaluation.json"
+    },
+    "native_outputs/final_plus_3893417/AUDIT_SHA256SUMS": {
+      "sha256": "69a34f585159fc5cd74afe2758cc0d78b5a9519290e36ee56e799c3feed0f7d9",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/AUDIT_SHA256SUMS"
+    },
+    "native_outputs/final_plus_3893417/STARTUP_VALIDATION.log": {
+      "sha256": "1735591a7e51332df00b68fb09ed5d051d927ee8b3e97cd32a19786ef954d29e",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/STARTUP_VALIDATION.log"
+    },
+    "native_outputs/final_plus_3893417/accounting/allocation_ledger.json": {
+      "sha256": "cb900ead7fa7023304a08e22f315e32116a4e9c5038dc686967a344137109315",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/accounting/allocation_ledger.json"
+    },
+    "native_outputs/final_plus_3893417/accounting_SHA256SUMS": {
+      "sha256": "cc5e7a213cce6969557b7d346a784c2f6ee8c7f77cfed1d342a4cdd44e7b6a7e",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/accounting_SHA256SUMS"
+    },
+    "native_outputs/final_plus_3893417/allocation_ledger.json": {
+      "sha256": "cb900ead7fa7023304a08e22f315e32116a4e9c5038dc686967a344137109315",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/allocation_ledger.json"
+    },
+    "native_outputs/final_plus_3893417/events.json": {
+      "sha256": "ae8d2015bd5113516b2bb770833018a11b17199059f9a014d10ea04eab0da548",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/events.json"
+    },
+    "native_outputs/final_plus_3893417/final_sacct.psv": {
+      "sha256": "fbc0c9d46dd12ba46ca5b8e58d8e7317b22efa4a0c221f13dbff4b461f499ded",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/final_sacct.psv"
+    },
+    "native_outputs/final_plus_3893417/final_scontrol.txt": {
+      "sha256": "f02e46be527625eaf9aef4a9a3728f87735414ed5c0f121b14c2c9d635ee6b3a",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/final_scontrol.txt"
+    },
+    "native_outputs/final_plus_3893417/plus_frequency/job.hess": {
+      "sha256": "05d35a370fdd9fa6fd6965fedec6519908ebc1e6ca3e68ef534697c33c7ad19a",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_frequency/job.hess"
+    },
+    "native_outputs/final_plus_3893417/plus_frequency/job.inp": {
+      "sha256": "ff41c413a6a012e7c6e12075bf2011e5c015f2604e5e066b25eca70d571ea5bc",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_frequency/job.inp"
+    },
+    "native_outputs/final_plus_3893417/plus_frequency/job.out": {
+      "sha256": "c5a648a4c2dacb68895ae6f7b3434d3132c465927b63e31d189ec1627e619483",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_frequency/job.out"
+    },
+    "native_outputs/final_plus_3893417/plus_frequency/receipt.json": {
+      "sha256": "217a7d2e003f56356ea548b889edb36913de692a0a5b48c0bcd8f1aa98e80644",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_frequency/receipt.json"
+    },
+    "native_outputs/final_plus_3893417/plus_frequency/start.xyz": {
+      "sha256": "64af06b7ca983bd683cce8a1e659fc404d2fa95e03ec9bb8ed80fcef8171d803",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_frequency/start.xyz"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization/job.inp": {
+      "sha256": "d89f956607ef3775397c3c02879e7eaf3dfbe82aaf7a53ef826197bd26a8db80",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization/job.inp"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization/job.out": {
+      "sha256": "12dc7e12db7d72859cbe2d2b365c47aa275493a79339e0cd98f2cdac9a006dff",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization/job.out"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization/job.xyz": {
+      "sha256": "837529c422565179162165f01bbabc410aa959d543839cb007d4bd1e0671ef15",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization/job.xyz"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization/receipt.json": {
+      "sha256": "74712ddaad214cd419629dd2177fe92d6db7221d006fe1bc669af8bdcf6d156d",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization/receipt.json"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization/start.xyz": {
+      "sha256": "46edccc5e136b1820e6a423b3a9496cd8d99e2bb9a9dbfeb45e38af1eb68427f",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization/start.xyz"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization_job.inp": {
+      "sha256": "d89f956607ef3775397c3c02879e7eaf3dfbe82aaf7a53ef826197bd26a8db80",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization_job.inp"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization_job.out": {
+      "sha256": "b944674a5c56cc90a0b7629d05965ac90ab508fbff1016c9e7fdfda66780ae46",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization_job.out"
+    },
+    "native_outputs/final_plus_3893417/plus_optimization_job.stderr": {
+      "sha256": "427adb53d763f97ac7a385ac84d5e53cb720770af55beeb9ccbb18b926446712",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/plus_optimization_job.stderr"
+    },
+    "native_outputs/final_plus_3893417/preflight.json": {
+      "sha256": "b5f2af661fb430f7e80048c095308bf34e0d7aa061ca96481160a8b57f719f25",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/preflight.json"
+    },
+    "native_outputs/final_plus_3893417/process_status.txt": {
+      "sha256": "f90b4fc4346748b9f0bad60d3e23860f03e194e737902c8356c8b77745386bb4",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/process_status.txt"
+    },
+    "native_outputs/final_plus_3893417/sacct_terminal_3893417.psv": {
+      "sha256": "fbc0c9d46dd12ba46ca5b8e58d8e7317b22efa4a0c221f13dbff4b461f499ded",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/sacct_terminal_3893417.psv"
+    },
+    "native_outputs/final_plus_3893417/science_report.json": {
+      "sha256": "5f1a768d48e5494535850b42be04ad814511d4bee7629e9c5f989f187dbd15b4",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/science_report.json"
+    },
+    "native_outputs/final_plus_3893417/scontrol_snapshot.txt": {
+      "sha256": "35f90cb85c3760bc3687777293e71cc288a5d37951dde397848fa1b3b9cfe0e9",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/scontrol_snapshot.txt"
+    },
+    "native_outputs/final_plus_3893417/slurm_allocation.txt": {
+      "sha256": "cd997a69ddef6b2c31952a1690b502cebff890608a6ac7ac63b0ab01bb3eda9e",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/slurm_allocation.txt"
+    },
+    "native_outputs/final_plus_3893417/squeue_snapshot.txt": {
+      "sha256": "c76a87bc085f598d66a4a39b1dcc58c97ae921ba767517e505da9694b9742dd1",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/squeue_snapshot.txt"
+    },
+    "native_outputs/final_plus_3893417/submission_intent.json": {
+      "sha256": "547eb1571a30513ac0d824c2d1ca947e0d682e44d47c497a07cc10a0d24c491d",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/submission_intent.json"
+    },
+    "native_outputs/final_plus_3893417/submission_receipt.json": {
+      "sha256": "6eff42ffbbb567fed6a0f926befd981d615a1eadf8342fe6e1da7739cdb1247c",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/submission_receipt.json"
+    },
+    "native_outputs/minus_and_plus34_3892162/accounting/SHA256SUMS": {
+      "sha256": "591089156eaddf80db4885add9ffa0a397e7467a54249f4f54b8e03079250181",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/accounting/SHA256SUMS"
+    },
+    "native_outputs/minus_and_plus34_3892162/accounting/allocation_ledger.json": {
+      "sha256": "e9d18ce85f4085733cc41b50578a19f3432a96d1e74e5af06c45b636f72671c5",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/accounting/allocation_ledger.json"
+    },
+    "native_outputs/minus_and_plus34_3892162/accounting/sacct.psv": {
+      "sha256": "df2f4b3dc5f1f6fa70d73ae160f7d9e5c60dda5d36747738518a610c8608e426",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/accounting/sacct.psv"
+    },
+    "native_outputs/minus_and_plus34_3892162/accounting/scontrol.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/accounting/scontrol.txt"
+    },
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/analysis.json": {
+      "sha256": "126fb9428b2733ff706fd22a3fa17072c0ed365e0552d9ae796e8df22b32b6d3",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/minus_frequency/analysis.json"
+    },
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.hess": {
+      "sha256": "7496a64ad9374c3256ebb59dd80f2f52a8431449e931805e1e6f9b804c052f03",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/minus_frequency/job.hess"
+    },
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.inp": {
+      "sha256": "ff41c413a6a012e7c6e12075bf2011e5c015f2604e5e066b25eca70d571ea5bc",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/minus_frequency/job.inp"
+    },
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.out": {
+      "sha256": "a03c6317c4dfde18d33d73a34ee094a0fe0bcea668c5eaeea6281aee9ecbcd2f",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/minus_frequency/job.out"
+    },
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/job.stderr": {
+      "sha256": "621ed92319ced9cdfe3b333f12f8befd5278d89bbdba4285b98a6adceea2c072",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/minus_frequency/job.stderr"
+    },
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/receipt.json": {
+      "sha256": "69810402c9163abbde70c8e0228791ba67a614bd859161f5c72c7ca133407cde",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/minus_frequency/receipt.json"
+    },
+    "native_outputs/minus_and_plus34_3892162/minus_frequency/start.xyz": {
+      "sha256": "df9850669794ee94a4750a6c3513a2b34ccf06ac6e04e42dbbf4797336aede05",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/minus_frequency/start.xyz"
+    },
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.inp": {
+      "sha256": "d89f956607ef3775397c3c02879e7eaf3dfbe82aaf7a53ef826197bd26a8db80",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/plus_optimization/job.inp"
+    },
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.out": {
+      "sha256": "a13b8c2cf9f232cf8881a63e625cb989943fc1877b7a25d762f5da062eb45433",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/plus_optimization/job.out"
+    },
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.stderr": {
+      "sha256": "b5b64513b78a14211083c63bcc8af04deb98beb086db30306bae08ed37a685d4",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/plus_optimization/job.stderr"
+    },
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job.xyz": {
+      "sha256": "41effd6c022ba020bbe3c79412b6f0e3f8ba7f254788018342a40cede16f749d",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/plus_optimization/job.xyz"
+    },
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/job_trj.xyz": {
+      "sha256": "9fde9b7e90245b5d5c2d111165f087c49d15016f56cbfcff0785b7ef8d4b28c3",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/plus_optimization/job_trj.xyz"
+    },
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/receipt.json": {
+      "sha256": "bb9ed95f74e9ad8f6ee9b3e39ac8b241c444fa4e0f33c8c3132e0d938ba065d7",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/plus_optimization/receipt.json"
+    },
+    "native_outputs/minus_and_plus34_3892162/plus_optimization/start.xyz": {
+      "sha256": "768d0183e97b12464e903fb4c90fdc87f7c65797d08746d032ac22534695e652",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/3892162/plus_optimization/start.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p1/extracted_final.xyz": {
+      "sha256": "62132c685c3036bea982b2ace396042b6903ab91cbc9b82f5ee710458dcb7030",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p1/job.inp": {
+      "sha256": "5179d788b753c3a7e164f2d581ca803817f62d8a26c3fd9f66c26cbdc111538f",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1/job.inp"
+    },
+    "native_outputs/screening_3886957/C1_p1/job.out": {
+      "sha256": "ecdccbaf4dc084536b5d402b8642cf8d539781af64d7e2a3eab8e829fdcb350d",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1/job.out"
+    },
+    "native_outputs/screening_3886957/C1_p1/job.xyz": {
+      "sha256": "9b814a25667c2c114f92f71481015e441ebf921f4bd67c8627b84117a5658080",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1/job.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p1/job_trj.xyz": {
+      "sha256": "4c3e83452995697f86b78c7fcdf8b5c5c1ce5b40bd71a8790e37acf820091431",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p1/receipt.json": {
+      "sha256": "148812cc26798d495abc2a8ca7b721ebbba6c5ecbdc8902f7a2e2fe5621e2a2d",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1/receipt.json"
+    },
+    "native_outputs/screening_3886957/C1_p1/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1/time.txt"
+    },
+    "native_outputs/screening_3886957/C1_p1_retry/job.inp": {
+      "sha256": "fd7128b32afcdcc2cbd2e8898129d45b6db4ecfd8cffcd540eb9c8e4e300dd91",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/C1_p1_retry/job.out": {
+      "sha256": "372fa85baa08090cc3896f9d6cc7c3929064061001eb03ef8032a5f524868a11",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1_retry/job.out"
+    },
+    "native_outputs/screening_3886957/C1_p1_retry/job.xyz": {
+      "sha256": "80a32deaf1cb1213c49919cd42ab2fd6b6c527d4fede816cdad2e997dfd19478",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p1_retry/job_trj.xyz": {
+      "sha256": "870a39d26719a3d207979b5164c88f81f18dafe1b978ff72f0a74bed4795810a",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p1_retry/receipt.json": {
+      "sha256": "b80b376ece0341e3d48bb1382c962643cc33274e3cb8c61c743aef112dcdb458",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/C1_p1_retry/time.txt": {
+      "sha256": "841783be0690281089dd0b4f324859cd67d31b1df58c79c2b287e5f61da307f9",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p1_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/C1_p2/extracted_final.xyz": {
+      "sha256": "05ef0964953afbe43acb3688f9a4e0131cc4b6d1dcf91deb2cc0763017e273c4",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p2/job.inp": {
+      "sha256": "ee89192d2308304dc6697158d63de6ef9346c3e98af63fbb6015cb7823748b03",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2/job.inp"
+    },
+    "native_outputs/screening_3886957/C1_p2/job.out": {
+      "sha256": "d073930e700833ce9706ec3fd27a89aeb91b05a07a8fe9a0bfb048f4dac92ff3",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2/job.out"
+    },
+    "native_outputs/screening_3886957/C1_p2/job.xyz": {
+      "sha256": "a74f2de23bf578a21b1968bd5c982eb6067e1d37bdf400b87938ba291c4b6cb0",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2/job.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p2/job_trj.xyz": {
+      "sha256": "4929c91109b67a0bd30cd62d74510fa4f7ee799342fb11368bb57ab600ab3847",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p2/receipt.json": {
+      "sha256": "d866100a6e0981facd48517fd47bda42689d939d50541890fb87611141251f9c",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2/receipt.json"
+    },
+    "native_outputs/screening_3886957/C1_p2/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2/time.txt"
+    },
+    "native_outputs/screening_3886957/C1_p2_retry/job.inp": {
+      "sha256": "3514ece5badb44031052578afea94233b82668b360f60935d350577861e439ea",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/C1_p2_retry/job.out": {
+      "sha256": "26da854be52ad217c07acb9266a4f85daac8a45119bd784dfef60e2839435de1",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2_retry/job.out"
+    },
+    "native_outputs/screening_3886957/C1_p2_retry/job.xyz": {
+      "sha256": "0e20b7aee39b784ad58533d0c5d145686ca0a68c87748eb7603b5cef5ab5ffa9",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p2_retry/job_trj.xyz": {
+      "sha256": "3ec9395131858330fab08f703a27de8f5c5d45998f7aa17d2ba747eae659428f",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p2_retry/receipt.json": {
+      "sha256": "64914b9097961a058ca67bbab8aa156afce32f4ab22a82863b90ce36ed7bc78e",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/C1_p2_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p2_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/C1_p3/extracted_final.xyz": {
+      "sha256": "1721bbff42cce3703103c296b79f4692df50a5dca965d80e00e0b2d4cf3394a3",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p3/job.inp": {
+      "sha256": "026620cb3af3e738229c1b103025707745fbf35699e9c3a33f0c3b09a3b0c6bf",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3/job.inp"
+    },
+    "native_outputs/screening_3886957/C1_p3/job.out": {
+      "sha256": "d1e54ee604bfd0e572c412646df297863ca485556dd5024d2f28fedc1bf08433",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3/job.out"
+    },
+    "native_outputs/screening_3886957/C1_p3/job.xyz": {
+      "sha256": "57122dc8f98f2910c5cc1687313edb13b5383733c4e0858c46470236af467f7d",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3/job.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p3/job_trj.xyz": {
+      "sha256": "3e5c7b67369975fa1210e648556accc813a149839d69ac494612236c7d8b8567",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p3/receipt.json": {
+      "sha256": "2797198a7f606bda1ebe5896b450014358154f3ce0b41e549b298ecce4e33c4a",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3/receipt.json"
+    },
+    "native_outputs/screening_3886957/C1_p3/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3/time.txt"
+    },
+    "native_outputs/screening_3886957/C1_p3_retry/job.inp": {
+      "sha256": "84977a5977db3d6359c6c6269f345c4ef07774aa904745d152612d818ddf90cf",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/C1_p3_retry/job.out": {
+      "sha256": "e4b5c603699ccd3e2edb33c5c38f60381bb04a59bc51569e26af483a375f1521",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3_retry/job.out"
+    },
+    "native_outputs/screening_3886957/C1_p3_retry/job.xyz": {
+      "sha256": "a8b9a7fe27a75de2ee829d4d81f4866ec0941d4c0f0398827ffeee5b5913eb1b",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p3_retry/job_trj.xyz": {
+      "sha256": "995e35456c3001af25eee807879c0a792994d23b7182c0dd678a45ca740de21d",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C1_p3_retry/receipt.json": {
+      "sha256": "2a715ffe206117ecfd71351dab83633376350e06de2dd5e567fc1f55348960aa",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/C1_p3_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C1_p3_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/C2_p1/extracted_final.xyz": {
+      "sha256": "71fdabe7c38aef8ccdaa2701aa020e92707a91b9832d86b6140a78abc6934a45",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p1/job.inp": {
+      "sha256": "e973636dc7f1293e4e6c0a6c5136bd4c8866dafae841cac06942adb3555c1cbf",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1/job.inp"
+    },
+    "native_outputs/screening_3886957/C2_p1/job.out": {
+      "sha256": "4d5cd9f6cd85da2ac33a1795e63ceedeb1170053233d6ca632ccae45e993f7d6",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1/job.out"
+    },
+    "native_outputs/screening_3886957/C2_p1/job.xyz": {
+      "sha256": "54aac58c26a5a4e26b704db36178b85da9b887640855172a64ba85637cc649b2",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1/job.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p1/job_trj.xyz": {
+      "sha256": "1c844780227fa6f8fcd990b9f2f53241081af8d9238a4e6d27f4827ab3b40035",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p1/receipt.json": {
+      "sha256": "bc6f7ebec740b73ff6da1c2241efce03ebc5c9e1ed660072d248c2d0b4767a4d",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1/receipt.json"
+    },
+    "native_outputs/screening_3886957/C2_p1/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1/time.txt"
+    },
+    "native_outputs/screening_3886957/C2_p1_retry/job.inp": {
+      "sha256": "357f774976464580a2641e9f05066b3da53fe71d5ca2ea340bdcb9d10dc92efb",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/C2_p1_retry/job.out": {
+      "sha256": "5cd061e8cc091a1ef4fabec248851637271c88702f48dea10932ff4de3910d12",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1_retry/job.out"
+    },
+    "native_outputs/screening_3886957/C2_p1_retry/job.xyz": {
+      "sha256": "c458efbe39b960d943b3ffbb990314fe80e4427e0b77761fc6d88ae86da9117c",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p1_retry/job_trj.xyz": {
+      "sha256": "b91fdb29cb33dccfc7ea10d7c02104bdba5920db83b0c75d3d7cf6ac3d3582ab",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p1_retry/receipt.json": {
+      "sha256": "bc1842a7d32ce06dc135836d0dbb12791f2640496a5837c4fa6b71c7dd6c4405",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/C2_p1_retry/time.txt": {
+      "sha256": "b28a02023f47449533e5a0eaa172865a41809bbcd4e47eb7e920ca6ef793c3e4",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p1_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/C2_p2/extracted_final.xyz": {
+      "sha256": "a29b4ea083f7b25a13ccc57a109518de5722d7d9da0bef2d29b9fa906e9bea19",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p2/job.inp": {
+      "sha256": "66bbed728da15000627e0ac802fa686a446aa2d8343e8c21c2cee27eb9b713f2",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2/job.inp"
+    },
+    "native_outputs/screening_3886957/C2_p2/job.out": {
+      "sha256": "e80830663b056282694d8a88053b8f262a71c11b6995da7de4e63b2d39e6e155",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2/job.out"
+    },
+    "native_outputs/screening_3886957/C2_p2/job.xyz": {
+      "sha256": "56f6f9434061c7c3bc95c40f820679a3e53b7689289b1ef429991c9845ba6bd6",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2/job.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p2/job_trj.xyz": {
+      "sha256": "0ab1b7de4f8ec0e110c6b3a7d63fe92774100817ba9618cb26c5796e01360113",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p2/receipt.json": {
+      "sha256": "f0198fcbdab5872c27fe5629debe066e286a4061fae5bb5ab0b8f80a2f7f3c9d",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2/receipt.json"
+    },
+    "native_outputs/screening_3886957/C2_p2/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2/time.txt"
+    },
+    "native_outputs/screening_3886957/C2_p2_retry/job.inp": {
+      "sha256": "a338ebee5db7f8b59740d1902b182752388da15b22b318c4c03ca00882b8eac1",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/C2_p2_retry/job.out": {
+      "sha256": "7a50604ad5d465ae31128aeb8496bae46551717794b71a7023418d82d89cbe53",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2_retry/job.out"
+    },
+    "native_outputs/screening_3886957/C2_p2_retry/job.xyz": {
+      "sha256": "8c0e43434ecfa9e335a34aa913c547c1600de017f59e4f8b019b2fecf4132d11",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p2_retry/job_trj.xyz": {
+      "sha256": "d9afe76eb847cdf846cc8144ce6b0e7b946e71a2b830f1ae4e439a6e3b38f885",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p2_retry/receipt.json": {
+      "sha256": "9ebf80c21643f63f581efe3027a3aa680451cbf6152d9d8234a7f094ca867419",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/C2_p2_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p2_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/C2_p3/extracted_final.xyz": {
+      "sha256": "00ad08e098bf6ab3955214e2db378eb460af4ecd55d3cdb1f3c7fa36bcbdf2cd",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p3/job.inp": {
+      "sha256": "4deee3c07875e021fb149d1d1d8c1df88f4991ebaa112ba32641ea8e9615d3e1",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3/job.inp"
+    },
+    "native_outputs/screening_3886957/C2_p3/job.out": {
+      "sha256": "4082c02c1761f718680111582e015f28e82f033a77770d2cc0b8747829430175",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3/job.out"
+    },
+    "native_outputs/screening_3886957/C2_p3/job.xyz": {
+      "sha256": "7b6dff8e58d51deb76895ea97bd20115fd75bf3e1153ee75c855b22b88b45388",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3/job.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p3/job_trj.xyz": {
+      "sha256": "0b1949894f24367774378a603e2a38d815e884cf1ea434935fc4ca0f5f82dc5a",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p3/receipt.json": {
+      "sha256": "dbfde65e67807ee156687ac39ce661249252bab98b468a4f29d89a44f7752fd9",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3/receipt.json"
+    },
+    "native_outputs/screening_3886957/C2_p3/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3/time.txt"
+    },
+    "native_outputs/screening_3886957/C2_p3_retry/job.inp": {
+      "sha256": "eb2c3847cf40e545df7b24a7b6136289309fdb2f4bdf8354fe6fe908539031a0",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/C2_p3_retry/job.out": {
+      "sha256": "da35a8025860afc0fd69125f0e0ab6bbc76343a5ad1701efe88aa2ca3e05f443",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3_retry/job.out"
+    },
+    "native_outputs/screening_3886957/C2_p3_retry/job.xyz": {
+      "sha256": "a8c622ea3bc7de7ffd6af68afbd362d508869d6c442f2905e4567c0a0b06519e",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p3_retry/job_trj.xyz": {
+      "sha256": "5d89b0e52337c37f879c1d022599158cbbed94ef93b782211738746eb8762da8",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/C2_p3_retry/receipt.json": {
+      "sha256": "7ff5b07d2a11dbb4c8a533c3790abcc2647faa95594d0c14ff5a6a3a6710d513",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/C2_p3_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/C2_p3_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/accounting/host_timezone.txt": {
+      "sha256": "a767e122f8590d89457dc87b3097ee43274093a354abacd4ce87109b76852740",
+      "source_path": "prepared_jobs/case07/results/3886957/accounting/host_timezone.txt"
+    },
+    "native_outputs/screening_3886957/accounting/sacct.psv": {
+      "sha256": "58f6bfdde72ac09d19815a62183abe79842f44dbb5dfce189eb63b5f41eac482",
+      "source_path": "prepared_jobs/case07/results/3886957/accounting/sacct.psv"
+    },
+    "native_outputs/screening_3886957/final/barriers.csv": {
+      "sha256": "bcc729333acc3857b6a5af8a2baf15d627145a46953538325a3f3b637b23041b",
+      "source_path": "prepared_jobs/case07/results/3886957/final/barriers.csv"
+    },
+    "native_outputs/screening_3886957/final/failures.md": {
+      "sha256": "dfdcf090d98cab9c4d70a1c97dd71ce429162984ce040291572f0af259af9157",
+      "source_path": "prepared_jobs/case07/results/3886957/final/failures.md"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/extracted_final.xyz": {
+      "sha256": "62132c685c3036bea982b2ace396042b6903ab91cbc9b82f5ee710458dcb7030",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job.inp": {
+      "sha256": "5179d788b753c3a7e164f2d581ca803817f62d8a26c3fd9f66c26cbdc111538f",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job.out": {
+      "sha256": "ecdccbaf4dc084536b5d402b8642cf8d539781af64d7e2a3eab8e829fdcb350d",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job.xyz": {
+      "sha256": "9b814a25667c2c114f92f71481015e441ebf921f4bd67c8627b84117a5658080",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/job_trj.xyz": {
+      "sha256": "4c3e83452995697f86b78c7fcdf8b5c5c1ce5b40bd71a8790e37acf820091431",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/receipt.json": {
+      "sha256": "148812cc26798d495abc2a8ca7b721ebbba6c5ecbdc8902f7a2e2fe5621e2a2d",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job.inp": {
+      "sha256": "fd7128b32afcdcc2cbd2e8898129d45b6db4ecfd8cffcd540eb9c8e4e300dd91",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job.out": {
+      "sha256": "372fa85baa08090cc3896f9d6cc7c3929064061001eb03ef8032a5f524868a11",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1_retry/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job.xyz": {
+      "sha256": "80a32deaf1cb1213c49919cd42ab2fd6b6c527d4fede816cdad2e997dfd19478",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/job_trj.xyz": {
+      "sha256": "870a39d26719a3d207979b5164c88f81f18dafe1b978ff72f0a74bed4795810a",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/receipt.json": {
+      "sha256": "b80b376ece0341e3d48bb1382c962643cc33274e3cb8c61c743aef112dcdb458",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p1_retry/time.txt": {
+      "sha256": "841783be0690281089dd0b4f324859cd67d31b1df58c79c2b287e5f61da307f9",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p1_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/extracted_final.xyz": {
+      "sha256": "05ef0964953afbe43acb3688f9a4e0131cc4b6d1dcf91deb2cc0763017e273c4",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job.inp": {
+      "sha256": "ee89192d2308304dc6697158d63de6ef9346c3e98af63fbb6015cb7823748b03",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job.out": {
+      "sha256": "d073930e700833ce9706ec3fd27a89aeb91b05a07a8fe9a0bfb048f4dac92ff3",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job.xyz": {
+      "sha256": "a74f2de23bf578a21b1968bd5c982eb6067e1d37bdf400b87938ba291c4b6cb0",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/job_trj.xyz": {
+      "sha256": "4929c91109b67a0bd30cd62d74510fa4f7ee799342fb11368bb57ab600ab3847",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/receipt.json": {
+      "sha256": "d866100a6e0981facd48517fd47bda42689d939d50541890fb87611141251f9c",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job.inp": {
+      "sha256": "3514ece5badb44031052578afea94233b82668b360f60935d350577861e439ea",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job.out": {
+      "sha256": "26da854be52ad217c07acb9266a4f85daac8a45119bd784dfef60e2839435de1",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2_retry/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job.xyz": {
+      "sha256": "0e20b7aee39b784ad58533d0c5d145686ca0a68c87748eb7603b5cef5ab5ffa9",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/job_trj.xyz": {
+      "sha256": "3ec9395131858330fab08f703a27de8f5c5d45998f7aa17d2ba747eae659428f",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/receipt.json": {
+      "sha256": "64914b9097961a058ca67bbab8aa156afce32f4ab22a82863b90ce36ed7bc78e",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p2_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p2_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/extracted_final.xyz": {
+      "sha256": "1721bbff42cce3703103c296b79f4692df50a5dca965d80e00e0b2d4cf3394a3",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job.inp": {
+      "sha256": "026620cb3af3e738229c1b103025707745fbf35699e9c3a33f0c3b09a3b0c6bf",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job.out": {
+      "sha256": "d1e54ee604bfd0e572c412646df297863ca485556dd5024d2f28fedc1bf08433",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job.xyz": {
+      "sha256": "57122dc8f98f2910c5cc1687313edb13b5383733c4e0858c46470236af467f7d",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/job_trj.xyz": {
+      "sha256": "3e5c7b67369975fa1210e648556accc813a149839d69ac494612236c7d8b8567",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/receipt.json": {
+      "sha256": "2797198a7f606bda1ebe5896b450014358154f3ce0b41e549b298ecce4e33c4a",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job.inp": {
+      "sha256": "84977a5977db3d6359c6c6269f345c4ef07774aa904745d152612d818ddf90cf",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job.out": {
+      "sha256": "e4b5c603699ccd3e2edb33c5c38f60381bb04a59bc51569e26af483a375f1521",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3_retry/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job.xyz": {
+      "sha256": "a8b9a7fe27a75de2ee829d4d81f4866ec0941d4c0f0398827ffeee5b5913eb1b",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/job_trj.xyz": {
+      "sha256": "995e35456c3001af25eee807879c0a792994d23b7182c0dd678a45ca740de21d",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/receipt.json": {
+      "sha256": "2a715ffe206117ecfd71351dab83633376350e06de2dd5e567fc1f55348960aa",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C1_p3_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C1_p3_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/extracted_final.xyz": {
+      "sha256": "71fdabe7c38aef8ccdaa2701aa020e92707a91b9832d86b6140a78abc6934a45",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job.inp": {
+      "sha256": "e973636dc7f1293e4e6c0a6c5136bd4c8866dafae841cac06942adb3555c1cbf",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job.out": {
+      "sha256": "4d5cd9f6cd85da2ac33a1795e63ceedeb1170053233d6ca632ccae45e993f7d6",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job.xyz": {
+      "sha256": "54aac58c26a5a4e26b704db36178b85da9b887640855172a64ba85637cc649b2",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/job_trj.xyz": {
+      "sha256": "1c844780227fa6f8fcd990b9f2f53241081af8d9238a4e6d27f4827ab3b40035",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/receipt.json": {
+      "sha256": "bc6f7ebec740b73ff6da1c2241efce03ebc5c9e1ed660072d248c2d0b4767a4d",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job.inp": {
+      "sha256": "357f774976464580a2641e9f05066b3da53fe71d5ca2ea340bdcb9d10dc92efb",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job.out": {
+      "sha256": "5cd061e8cc091a1ef4fabec248851637271c88702f48dea10932ff4de3910d12",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1_retry/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job.xyz": {
+      "sha256": "c458efbe39b960d943b3ffbb990314fe80e4427e0b77761fc6d88ae86da9117c",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/job_trj.xyz": {
+      "sha256": "b91fdb29cb33dccfc7ea10d7c02104bdba5920db83b0c75d3d7cf6ac3d3582ab",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/receipt.json": {
+      "sha256": "bc1842a7d32ce06dc135836d0dbb12791f2640496a5837c4fa6b71c7dd6c4405",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p1_retry/time.txt": {
+      "sha256": "b28a02023f47449533e5a0eaa172865a41809bbcd4e47eb7e920ca6ef793c3e4",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p1_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/extracted_final.xyz": {
+      "sha256": "a29b4ea083f7b25a13ccc57a109518de5722d7d9da0bef2d29b9fa906e9bea19",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job.inp": {
+      "sha256": "66bbed728da15000627e0ac802fa686a446aa2d8343e8c21c2cee27eb9b713f2",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job.out": {
+      "sha256": "e80830663b056282694d8a88053b8f262a71c11b6995da7de4e63b2d39e6e155",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job.xyz": {
+      "sha256": "56f6f9434061c7c3bc95c40f820679a3e53b7689289b1ef429991c9845ba6bd6",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/job_trj.xyz": {
+      "sha256": "0ab1b7de4f8ec0e110c6b3a7d63fe92774100817ba9618cb26c5796e01360113",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/receipt.json": {
+      "sha256": "f0198fcbdab5872c27fe5629debe066e286a4061fae5bb5ab0b8f80a2f7f3c9d",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job.inp": {
+      "sha256": "a338ebee5db7f8b59740d1902b182752388da15b22b318c4c03ca00882b8eac1",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job.out": {
+      "sha256": "7a50604ad5d465ae31128aeb8496bae46551717794b71a7023418d82d89cbe53",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2_retry/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job.xyz": {
+      "sha256": "8c0e43434ecfa9e335a34aa913c547c1600de017f59e4f8b019b2fecf4132d11",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/job_trj.xyz": {
+      "sha256": "d9afe76eb847cdf846cc8144ce6b0e7b946e71a2b830f1ae4e439a6e3b38f885",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/receipt.json": {
+      "sha256": "9ebf80c21643f63f581efe3027a3aa680451cbf6152d9d8234a7f094ca867419",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p2_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p2_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/extracted_final.xyz": {
+      "sha256": "00ad08e098bf6ab3955214e2db378eb460af4ecd55d3cdb1f3c7fa36bcbdf2cd",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3/extracted_final.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job.inp": {
+      "sha256": "4deee3c07875e021fb149d1d1d8c1df88f4991ebaa112ba32641ea8e9615d3e1",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job.out": {
+      "sha256": "4082c02c1761f718680111582e015f28e82f033a77770d2cc0b8747829430175",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job.xyz": {
+      "sha256": "7b6dff8e58d51deb76895ea97bd20115fd75bf3e1153ee75c855b22b88b45388",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/job_trj.xyz": {
+      "sha256": "0b1949894f24367774378a603e2a38d815e884cf1ea434935fc4ca0f5f82dc5a",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/receipt.json": {
+      "sha256": "dbfde65e67807ee156687ac39ce661249252bab98b468a4f29d89a44f7752fd9",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job.inp": {
+      "sha256": "eb2c3847cf40e545df7b24a7b6136289309fdb2f4bdf8354fe6fe908539031a0",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3_retry/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job.out": {
+      "sha256": "da35a8025860afc0fd69125f0e0ab6bbc76343a5ad1701efe88aa2ca3e05f443",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3_retry/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job.xyz": {
+      "sha256": "a8c622ea3bc7de7ffd6af68afbd362d508869d6c442f2905e4567c0a0b06519e",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3_retry/job.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/job_trj.xyz": {
+      "sha256": "5d89b0e52337c37f879c1d022599158cbbed94ef93b782211738746eb8762da8",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3_retry/job_trj.xyz"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/receipt.json": {
+      "sha256": "7ff5b07d2a11dbb4c8a533c3790abcc2647faa95594d0c14ff5a6a3a6710d513",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3_retry/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/C2_p3_retry/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/C2_p3_retry/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/job.inp": {
+      "sha256": "75d39e083d8a5ccc9c2b80e796fe881c8299a5178c943234fdc1e699d1a75e53",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_final/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/job.out": {
+      "sha256": "9b8b49da4a31d9179c42a80b421ef146eab4a1bb7b714e1ff8733531288fc9e7",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_final/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/receipt.json": {
+      "sha256": "fa1aa4925dc0a01e262d22b8fb0f2d9e1ea774f61394cc04e3b3012b6c64f0e2",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_final/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_final/time.txt": {
+      "sha256": "33cbcaa38102a911f5b5cd1c55e3d9bf03fdfdfd832f3e39b791bd10d8972f52",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_final/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/job.inp": {
+      "sha256": "4db1d55c8a4ee41abfcd172fd09f171d52685c964575e38867917272fbd76a00",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_screen/job.inp"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/job.out": {
+      "sha256": "fc8b58382511d097a252e856affa505c459d2cf98e7ca161c1cd3aa40094292e",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_screen/job.out"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/receipt.json": {
+      "sha256": "538b75f4db8578dec9e36eea457ad89266c71f1866e4c8b15ee3bd9719cefcde",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_screen/receipt.json"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/pilot_screen/time.txt": {
+      "sha256": "88e275835d3154f3226a49934eef085e295f2634040c8a7413376d2510b1ebc5",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/pilot_screen/time.txt"
+    },
+    "native_outputs/screening_3886957/final/native_outputs/runtime.json": {
+      "sha256": "9567117f83601c538aae952d1e84316dbebeb16fd3346cd35291de1e987063d9",
+      "source_path": "prepared_jobs/case07/results/3886957/final/native_outputs/runtime.json"
+    },
+    "native_outputs/screening_3886957/final/resource_usage.csv": {
+      "sha256": "6e3e4f3e4bc6b01dcc27f987ae458d4612ffa33a010cff6a7235cd3a87bdcb97",
+      "source_path": "prepared_jobs/case07/results/3886957/final/resource_usage.csv"
+    },
+    "native_outputs/screening_3886957/final/ts_search_report.json": {
+      "sha256": "9194d1a984be262a69e996127407132e8f6bc58ae48445fd5a6bb9f40f6c6ca9",
+      "source_path": "prepared_jobs/case07/results/3886957/final/ts_search_report.json"
+    },
+    "native_outputs/screening_3886957/pilot_final/job.inp": {
+      "sha256": "75d39e083d8a5ccc9c2b80e796fe881c8299a5178c943234fdc1e699d1a75e53",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_final/job.inp"
+    },
+    "native_outputs/screening_3886957/pilot_final/job.out": {
+      "sha256": "9b8b49da4a31d9179c42a80b421ef146eab4a1bb7b714e1ff8733531288fc9e7",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_final/job.out"
+    },
+    "native_outputs/screening_3886957/pilot_final/receipt.json": {
+      "sha256": "fa1aa4925dc0a01e262d22b8fb0f2d9e1ea774f61394cc04e3b3012b6c64f0e2",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_final/receipt.json"
+    },
+    "native_outputs/screening_3886957/pilot_final/time.txt": {
+      "sha256": "33cbcaa38102a911f5b5cd1c55e3d9bf03fdfdfd832f3e39b791bd10d8972f52",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_final/time.txt"
+    },
+    "native_outputs/screening_3886957/pilot_screen/job.inp": {
+      "sha256": "4db1d55c8a4ee41abfcd172fd09f171d52685c964575e38867917272fbd76a00",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_screen/job.inp"
+    },
+    "native_outputs/screening_3886957/pilot_screen/job.out": {
+      "sha256": "fc8b58382511d097a252e856affa505c459d2cf98e7ca161c1cd3aa40094292e",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_screen/job.out"
+    },
+    "native_outputs/screening_3886957/pilot_screen/receipt.json": {
+      "sha256": "538b75f4db8578dec9e36eea457ad89266c71f1866e4c8b15ee3bd9719cefcde",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_screen/receipt.json"
+    },
+    "native_outputs/screening_3886957/pilot_screen/time.txt": {
+      "sha256": "88e275835d3154f3226a49934eef085e295f2634040c8a7413376d2510b1ebc5",
+      "source_path": "prepared_jobs/case07/results/3886957/pilot_screen/time.txt"
+    },
+    "native_outputs/screening_3886957/runtime.json": {
+      "sha256": "9567117f83601c538aae952d1e84316dbebeb16fd3346cd35291de1e987063d9",
+      "source_path": "prepared_jobs/case07/results/3886957/runtime.json"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.engrad": {
+      "sha256": "8b002ffb100d0b0b1c01e8df514f6f401bc77e3feb062bf7ecabba5bd68da504",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job.engrad"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.gbw": {
+      "sha256": "8bf24891d5d1cdccdfe840b37acef6958ef896538cbb48c1bdf3f58f880d1986",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job.gbw"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.hess": {
+      "sha256": "9de21d79aef8be8d29840cfd1962b96d524fd6708c2dab990700c84e276b9bee",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job.hess"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.inp": {
+      "sha256": "faa5515115c85e68c55194aa89a52a4c023d02c27f66bf53922762aa6dc6dc9c",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job.inp"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.out": {
+      "sha256": "ebea4827ec6cde461500ca1332e10b13935b5422428b8fde531d61160633085f",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job.out"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.stderr": {
+      "sha256": "3523cdcee6c766825d7f716c4f225078c6c1cb70a3eebb1ded65a5bc7b507f74",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job.stderr"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job.xyz": {
+      "sha256": "df9850669794ee94a4750a6c3513a2b34ccf06ac6e04e42dbbf4797336aede05",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/job_trj.xyz": {
+      "sha256": "0f15ee0f273166d6c64f5cd07fd30f90595ac17aa52b63a183d8156eb1382910",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/job_trj.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/receipt.json": {
+      "sha256": "603b5c6307b69f4a40ba0cdb20cb20e568f85be465ec5b7cda3a5f32107ef956",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/receipt.json"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/start.xyz": {
+      "sha256": "9f77d41772634b789c927f5c3a75baa9bb94787988ef687519cb0c3aef02d036",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/start.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_endpoint_minus/time.txt": {
+      "sha256": "0ca00c27ebdfcdc4d77654f2914780fc21ede5598852b23c088cf028b78aa334",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_endpoint_minus/time.txt"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/extracted_plus.xyz": {
+      "sha256": "1c5a3502e4dacc77fcaffdbe17da60405061b609c635225e532127c7fe4447f4",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/extracted_plus.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job.inp": {
+      "sha256": "03b2c4d458050db88e042bff62c430390bfa4092c0cf6c1b8c6dc0f4e746a6ed",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/job.inp"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job.out": {
+      "sha256": "d845d7b3aad9fca451d910e61714fec4b9545f6db25af2337816bf12dc0f99aa",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/job.out"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job.stderr": {
+      "sha256": "5840b3a211fc04b93938c378959249d0d2156af74a09dc0e2eae38cd7b236c4f",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/job.stderr"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job_IRC_F.xyz": {
+      "sha256": "ebb4f4751988f0a4305b9591ca4311893c07f88e131a8d7be8fe3d635daa72d1",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/job_IRC_F.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/job_IRC_F_trj.xyz": {
+      "sha256": "84137ea6fe41d18d4e8f06b6c0b39cf0fa15580babdb401261c3a3e436243bce",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/job_IRC_F_trj.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/receipt.json": {
+      "sha256": "467991a7d7e80fbd08c6a19014272bc207b5b8291a6c8ea2e9b219b683639d0c",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/receipt.json"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/seed.hess": {
+      "sha256": "6b7b6d30e8077fce71a1a937126948c6f2bf966c31e6c8157f37286eb2c28163",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/seed.hess"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/start.xyz": {
+      "sha256": "cd3dd5365a7c266c6bb04188719febb32b25fa857756af6d0bf30c2770ddfad3",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/start.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_irc/time.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_irc/time.txt"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/extracted_final.xyz": {
+      "sha256": "6fbf421a935a2cc7021272ef55c41880da7c0f0024f3327fa1be3d70d18c87b9",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/extracted_final.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.001.hess": {
+      "sha256": "658064588ef09853b93f17aca05ba784e2329628b6476b28efc9d3c49ac14360",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.001.hess"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.002.hess": {
+      "sha256": "0e21ebca241a76e72e3a9222dc66d0ea50ee178b339e524ffbada21c64a3963e",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.002.hess"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.engrad": {
+      "sha256": "7ef24570a205bb5266215f3110d80ff42d84c244d9791aa32217b9f8e19f0588",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.engrad"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.hess": {
+      "sha256": "0e21ebca241a76e72e3a9222dc66d0ea50ee178b339e524ffbada21c64a3963e",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.hess"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.inp": {
+      "sha256": "be7f017cf5c63ed97a3ccb9cf07ffa70c01a50f2ec355869620ed23be5700bba",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.inp"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.out": {
+      "sha256": "fb2aec6ba893196dc1251d9d373173972a500a7e54b29fc9a1665ce81d08b0b3",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.out"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.stderr": {
+      "sha256": "8127fa96027b78c83094913e18c7f3b31962a79718e7af59de12d3f898f336f7",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.stderr"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job.xyz": {
+      "sha256": "a1ee59904396932773cce0a467e6d4efc2a5eaba18a4316e8980feb2bfb097f0",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/job_trj.xyz": {
+      "sha256": "b83122faeb26b9e66a8716f6ddaf836768c7ec40f8f8571fc2b27b9d68bf1c3c",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/job_trj.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/receipt.json": {
+      "sha256": "5fc6e74032f5bfb9382617c3ee1347b86d2901cc78a83b5752df0ae9d7aefa42",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/receipt.json"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/start.xyz": {
+      "sha256": "eb86bcca22ca84129b52f4ceea820b65ff8fb6f9b0008aa5b1df762c89b4292a",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/start.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_optts/time.txt": {
+      "sha256": "dc09a754f1eda75b5295103e164bb3092a3a1010bbc9149bcdec5b6c9c9f1c02",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_optts/time.txt"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_signed_mode/displacement.json": {
+      "sha256": "096033334361167c8b0e076beb4d524f7b94110149258f1d60ced57f27363348",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_signed_mode/displacement.json"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_signed_mode/minus.xyz": {
+      "sha256": "9f77d41772634b789c927f5c3a75baa9bb94787988ef687519cb0c3aef02d036",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_signed_mode/minus.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_signed_mode/plus.xyz": {
+      "sha256": "768d0183e97b12464e903fb4c90fdc87f7c65797d08746d032ac22534695e652",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_signed_mode/plus.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/extracted_final.xyz": {
+      "sha256": "cd3dd5365a7c266c6bb04188719febb32b25fa857756af6d0bf30c2770ddfad3",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/extracted_final.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.hess": {
+      "sha256": "6b7b6d30e8077fce71a1a937126948c6f2bf966c31e6c8157f37286eb2c28163",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/job.hess"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.inp": {
+      "sha256": "62094968eb0be92844a38e82edb3f56521bf9b119c8f88faccaaff3014e99f31",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/job.inp"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.out": {
+      "sha256": "c2ceb4f865131287a9988566bcc67076133141bf81237d07abfd9ffd624281a8",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/job.out"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/job.stderr": {
+      "sha256": "2ce3f183b52e883027976af2f57e9aaf8ab232606a8cff1cef1cdd9b860d0546",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/job.stderr"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/receipt.json": {
+      "sha256": "83dd584180d00ec90e044027566a5db63c115864d8bf762b919d64fbeec5d3ca",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/receipt.json"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/start.xyz": {
+      "sha256": "6fbf421a935a2cc7021272ef55c41880da7c0f0024f3327fa1be3d70d18c87b9",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/start.xyz"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/C1_ts_freq/time.txt": {
+      "sha256": "36fd2414374f4674cbc072c404f424192ba70f0c14b9765aecd83cbc4f697f19",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/C1_ts_freq/time.txt"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/accounting/sacct.psv": {
+      "sha256": "cca9bb0ed8712cc4aa13ff227574a83405a8b3366671d1c76eb30e210adf7d8a",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/accounting/sacct.psv"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/accounting/scontrol_after.txt": {
+      "sha256": "e7cbc19b304ce7fb323ea1ccae489c74fbc1bdf5635781d0999740708566b8df",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/accounting/scontrol_after.txt"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/final/failures.md": {
+      "sha256": "6ff4a2a46496f8a7eab5e982ae5038853f7337d99cfb39dbf60931e28671d18a",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/final/failures.md"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/final/resource_usage.csv": {
+      "sha256": "3b4581391fa62d107500d10810c1dde293ecfb919884ba6e6b98b24e7aa22e7d",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/final/resource_usage.csv"
+    },
+    "native_outputs/ts_and_initial_endpoints_3887398/final/ts_search_report.json": {
+      "sha256": "d91133eaeae2f50c20decac6f50d912a34a83b465c31bc473c585cfe4330bbb2",
+      "source_path": "prepared_jobs/case07_final_3892162/evidence/prior_recovery_package/evidence/3887398/final/ts_search_report.json"
+    },
+    "native_outputs/accounting/utc_offset_evidence/3887398_submission_receipt.json": {
+      "sha256": "83b4c57469be2de2170c37f08eefad4720ca9e7e132c3f091fa4b0516778a3e1",
+      "source_path": "prepared_jobs/case07_submission_receipt.json"
+    },
+    "native_outputs/accounting/utc_offset_evidence/3892162_submission_receipt.json": {
+      "sha256": "68b8e9fe4fb60761ac6ac488acea720f81edde380e885d987d6faa1469e0d8fb",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/production_3892162/submission_receipt.json"
+    },
+    "native_outputs/accounting/utc_offset_evidence/3893417_submission_receipt.json": {
+      "sha256": "6eff42ffbbb567fed6a0f926befd981d615a1eadf8342fe6e1da7739cdb1247c",
+      "source_path": "prepared_jobs/case07_followup_audit_3887398/final_3892162_runtime_3893417/submission_receipt.json"
+    }
+  },
+  "activity_window": {
+    "start_utc": null,
+    "end_utc": null,
+    "raw_site_start": "2026-10-03T00:51:48",
+    "raw_site_end": "2026-10-04T18:15:25",
+    "elapsed_seconds": 149017,
+    "pure_queue_excluded_seconds": 0,
+    "queue_exclusion_evidence": null,
+    "basis": "First raw Slurm site start to last raw Slurm site end (149017 s). The first job has no per-job UTC submission receipt, so the cross-job activity span is not labeled UTC. No pure-queue exclusion is certified."
+  }
+}

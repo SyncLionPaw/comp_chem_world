@@ -1,0 +1,5 @@
+oh_addition_site,barrier_kcal_per_mol,si_table7_rate_per_s,mesmer_max_channel_rate_per_s,source_data_figure4_rate_per_s,si_and_source_data_agree,mesmer_agrees_with_si_table7
+ipso,17.9,0.59,0.474626,0.59,yes,yes
+meta,21.0,0.003,0.00340199,0.003,yes,yes
+ortho,23.2,9e-05,3.05224e-05,3e-05,no,no
+para,22.0,0.001,0.000961517,0.00096,yes,yes

@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "case_id": "case-04-bpr-fate-effective-loss-rate",
+  "built_by": {
+    "path": "scripts/build_case04_fate_reference.py",
+    "sha256": "sha256:add4949a0ea3c08cfa51b230e8d68ce727285753272308f9a0348ed41023cea4"
+  },
+  "inputs": [
+    {
+      "path": "docs/41467_2023_40675_MOESM1_ESM.docx",
+      "sha256": "sha256:52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-200-mesmer_out.xml",
+      "sha256": "sha256:6e25c758ad0ac7c3a0473f974ea31dd33746344b281c1f7e7b26db148eefe537"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-225-mesmer_out.xml",
+      "sha256": "sha256:914a4da187f2b77952702778b84818d29344eab1ded434c3c674a46e2965f4b4"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-250-mesmer_out.xml",
+      "sha256": "sha256:b193715b66aa4887e4ee3d96fe9ac3b5c607a3ea1b844c28e4d58adb082407dc"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-255-mesmer_out.xml",
+      "sha256": "sha256:aaada51cb08a8972193f7fbee12ac62b10d13c18cd563abbf995e434e8ebd853"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-260-mesmer_out.xml",
+      "sha256": "sha256:2e060ea36920da0c1c1ac346be94dc0991f7fe91536db930c74373b2b41c5d4b"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-265-mesmer_out.xml",
+      "sha256": "sha256:8f27d782a57da4ff98f4d720970fabd69a00c5be6eff86d0884e70e0756d4310"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-270-mesmer_out.xml",
+      "sha256": "sha256:9905cdaac95762092597f9294a3349babe8367f239ee137b2a119b620ae46727"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-275-mesmer_out.xml",
+      "sha256": "sha256:7824830b91254335da4d51c6f90ab8f8cdae9545267c6398790089ac22b9fb47"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-280-mesmer_out.xml",
+      "sha256": "sha256:b639c098005f248b84fe9a631cfdeab03fd08e63db10d62e95e65a91e48ee4e5"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-285-mesmer_out.xml",
+      "sha256": "sha256:0fd73724fb42f6d63cc36342141943fc24c01ec332a9dea179f6f52833ce5b22"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-290-mesmer_out.xml",
+      "sha256": "sha256:29e1a781d5d90ec68be7f9c40ef29ded4acfc01833b6f0b5bd9a1550a3077d94"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-295-mesmer_out.xml",
+      "sha256": "sha256:1f0febc06b2a6b1e5b2ffcd5fe4f5b8444632f66125e06ad5d96645aee779caa"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-300-mesmer_out.xml",
+      "sha256": "sha256:e919fd67260d98c5bbbf2edff3a114ce54ba336e3bdd59556856abea5f4f6516"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-305-mesmer_out.xml",
+      "sha256": "sha256:0d10af4420299fc1d16b4de01e2856d3462c68e540eec8bc733cdf5aa674486b"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-310-mesmer_out.xml",
+      "sha256": "sha256:4761128d619cb8dfa66bd053eecd265d7d2f5000d6baaf691ccc76c1d57e29b0"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-325-mesmer_out.xml",
+      "sha256": "sha256:1c9461303649e977ab862bb15967247b05e6a3599079a36c4ce3b3cbe7e19e25"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-350-mesmer_out.xml",
+      "sha256": "sha256:ac14cc3d3d9862900447ec203e19f07a9651193b89ae4a2871ee0e83b93a5d51"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-375-mesmer_out.xml",
+      "sha256": "sha256:c6c1a7a440a7083faa99a2e866c2b61fcf8a4ba91c9116eba81333e5ddc8a29a"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-400-mesmer_out.xml",
+      "sha256": "sha256:f6c739a68af204aeee61628116ec917eb4429959946f1c07f4bb48a179bc79f3"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-425-mesmer_out.xml",
+      "sha256": "sha256:7b7ce9ec7325fbe11f3147cef62fcadd9ddea4302e9fa14e55f4a4bdf1e905a8"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-450-mesmer_out.xml",
+      "sha256": "sha256:c42f760bf2abd22625b3f91aab3bf31b2e95734149f2b23f5ed134384b63dd9c"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-475-mesmer_out.xml",
+      "sha256": "sha256:96f53569d357286677e7f0bf8ca9dc2716bc1a3be2bf6c4f81548690740e9704"
+    },
+    {
+      "path": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-500-mesmer_out.xml",
+      "sha256": "sha256:240997ebe177f06cd099b9172cdd09bece1a16ec7b13d1f3091c433d7f1137ad"
+    }
+  ],
+  "evidence_inventory": {
+    "path": "gold/tables/native_gaussian_census.csv",
+    "sha256": "sha256:e2c0602a21004fb542157ea259a94f5ada1d511686a721af2ba3196a960589e4",
+    "missing_native_formulas": [
+      "C7H9O3",
+      "O2"
+    ]
+  },
+  "SI_equation": {
+    "paragraph_index_zero_based": 140,
+    "part": "word/document.xml",
+    "encoding": "OMML fraction and subscript nodes",
+    "formula": "k_eff = k_sink*(k_add/k_return)*[O2] = k_sink*K_eq*[O2]"
+  },
+  "SI_statement": {
+    "paragraph_index_zero_based": 142,
+    "tokens": [
+      "1.310-15",
+      "9.1510-12",
+      "4.9103",
+      "1.5103"
+    ]
+  },
+  "supplied_parameters": {
+    "K_eq_cm3_per_molecule": 1.3e-15,
+    "k_RO2_NO_cm3_per_molecule_s": 9.15e-12,
+    "k_oxy_per_Balkyl_s": 0.22,
+    "K_eq_independently_verified": false
+  },
+  "scenario_assumptions": {
+    "temperature_K": 300,
+    "pressure_Pa": 101325.0,
+    "x_O2": 0.2095,
+    "NO_ppbv": 1,
+    "oxygen_fraction_source": "explicit conventional dry-air scenario, not recovered from SI",
+    "bath_gas_approximation": "use deposited N2-bath k_mer in the dry-air scenario; collision effects of changing composition are not recomputed",
+    "temperature_sweep": "hold SI K_eq and k_NO fixed; scenario only, not thermodynamic prediction"
+  },
+  "prior_ceiling_source": {
+    "url": "https://www.nature.com/articles/s41467-023-40675-2",
+    "section": "Introduction",
+    "rate_per_s": 0.03,
+    "reference_species": "BPR"
+  },
+  "conversion_constants": {
+    "k_B_J_per_K": 1.380649e-23,
+    "N_A_per_mol": 6.02214076e+23,
+    "Pa_per_atm": 101325.0,
+    "m3_per_cm3": 1e-06,
+    "mole_fraction_per_ppbv": 1e-09,
+    "K_eq_L_per_mol": 782878.2988
+  },
+  "baseline": {
+    "source_file": "raw_data/unpacked/QC-Files3-ea12f48ec14a/QC-Files3/Toluene-iBPR-rearrangement-Tdep-MESMER/Toluene-ipso-HR-300-mesmer_out.xml",
+    "temperature_K": 300.0,
+    "source_pressure_Torr": 760.0,
+    "k_C1_per_s": 0.164121,
+    "k_C2_per_s": 0.585048,
+    "k_mer_per_s": 0.749169,
+    "assumed_pressure_Pa": 101325.0,
+    "x_O2": 0.2095,
+    "NO_ppbv": 1.0,
+    "air_molecules_cm3": 2.446313291792483e+19,
+    "O2_molecules_cm3": 5.125026346305252e+18,
+    "NO_molecules_cm3": 24463132917.92483,
+    "K_eq_cm3_per_molecule": 1.3e-15,
+    "q_BPR_over_Balkyl": 6662.534250196828,
+    "k_NO_pseudo_per_s": 0.22383766619901221,
+    "k_eff_MR_per_Balkyl_s": 4991.364121685708,
+    "k_eff_NO_per_Balkyl_s": 1491.3261175350437,
+    "MR_fraction_two_sinks": 0.7699525871971467,
+    "k_MR_per_equilibrated_pool_s": 0.7490565718242196,
+    "scenario_kind": "fixed_K_eq_and_k_NO; native k_mer at 760 Torr"
+  },
+  "derived_comparisons": {
+    "MR_over_NO": 3.3469299994126995,
+    "NO_crossover_ppbv": 3.346929999412699,
+    "BPR_MR_over_prior_BPR_ceiling": 24.9723,
+    "Balkyl_MR_effective_over_Balkyl_oxy": 22688.018734935034
+  },
+  "scientific_limits": [
+    "No deposited B-alkyl C7H9O3 or O2 native thermochemistry in canonical census.",
+    "K_eq and k_RO2+NO remain supplied SI parameters; agreement checks algebra, not independent F12 validation.",
+    "Pre-equilibrium formula needs k_return >> k_mer + k_NO*[NO]; k_return is not supplied.",
+    "Effective coefficient is flux divided by [B-alkyl], not inverse lifetime of the whole radical pool.",
+    "The 0.03/s old ceiling is BPR-based; compare k_mer, never the B-alkyl-based effective coefficient.",
+    "The source SI already contains equation (2); it cannot be claimed hidden when full SI is delivered."
+  ],
+  "tables": {
+    "case04_native_rates.csv": {
+      "path": "gold/tables/case04_native_rates.csv",
+      "rows": 23,
+      "sha256": "sha256:02b4bb95fba1d582c5ebed26d470fd78c80783dd738221493fcce1019e1f1b44"
+    },
+    "case04_fate_sensitivity.csv": {
+      "path": "gold/tables/case04_fate_sensitivity.csv",
+      "rows": 276,
+      "sha256": "sha256:5f0425c85587883e8b1845e66f0cc712c574fddbb4fe9821fbf3bd0be0807baa"
+    },
+    "case04_approximation_sensitivity.csv": {
+      "path": "gold/tables/case04_approximation_sensitivity.csv",
+      "rows": 5,
+      "sha256": "sha256:281332e02c527e7f1c4662c45ef2b55f7fb43cbf2e595a09ba211f56bd1fd781"
+    }
+  },
+  "self_checks": [
+    {
+      "id": "native_channel_sum",
+      "value_per_s": 0.749169,
+      "expected": 0.749169,
+      "passed": true
+    },
+    {
+      "id": "SI_MR_rounding",
+      "relative_deviation": 0.018645739119532267,
+      "passed": true
+    },
+    {
+      "id": "SI_NO_rounding",
+      "relative_deviation": 0.005782588309970804,
+      "passed": true
+    }
+  ]
+}

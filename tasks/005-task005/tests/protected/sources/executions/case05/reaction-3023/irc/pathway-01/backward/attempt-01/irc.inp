@@ -1,0 +1,25 @@
+! WB97X-D3 6-31+G(d) TightSCF DefGrid3 NoRI NoCOSX IRC MOREAD
+%pal nprocs 16 end
+%maxcore 1500
+%scf
+  MaxIter 500
+end
+%cpcm
+  smd true
+  SMDsolvent "acetonitrile"
+end
+%moinp "initial.gbw"
+%irc
+  Direction backward
+  MaxIter 120
+  InitHess read
+  Hess_Filename "initial.hess"
+  HessMode 0
+  TolRMSG 5e-4
+  TolMaxG 2e-3
+  Monitor_Internals
+    {B 1 11}
+    {B 1 0}
+  end
+end
+* xyzfile 0 1 initial.xyz

@@ -1,0 +1,606 @@
+LAMMPS (2 Aug 2023 - Update 4)
+  using 1 OpenMP thread(s) per MPI task
+units real
+atom_style full
+bond_style harmonic
+angle_style harmonic
+pair_style lj/cut/coul/debye 0.1 24.1 15.0
+pair_modify mix arithmetic
+dielectric 80.0
+dihedral_style hybrid quadratic class2
+read_data subsystem.data
+Reading data file ...
+  orthogonal box = (0 0 0) to (300 300 300)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  15589 atoms
+  scanning bonds ...
+  20 = max bonds/atom
+  scanning angles ...
+  20 = max angles/atom
+  scanning dihedrals ...
+  8 = max dihedrals/atom
+  reading bonds ...
+  15230 bonds
+  reading angles ...
+  14225 angles
+  reading dihedrals ...
+  13152 dihedrals
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+    20 = max # of 1-2 neighbors
+    20 = max # of 1-3 neighbors
+    40 = max # of 1-4 neighbors
+    60 = max # of special neighbors
+  special bonds CPU = 0.135 seconds
+  read_data CPU = 0.719 seconds
+include N130_WT.quadratic.in.settings
+# As usual, force-field parameters ("coeffs") go in the "In Settings" section:
+# Pairwise (non-bonded) interactions:
+#           atomType1 atomType2   epsilon sigma cutoff_lj
+pair_coeff  1 * 100.0 26.16 26.16
+pair_coeff  1 1 100.0 52.32 52.32
+pair_coeff  2 2 0.25 18.66 46.66
+pair_coeff  3 3 0.25 3.65 9.11
+pair_coeff  4 4 0.73 5.02 12.54
+pair_coeff  5 5 0.73 5.95 14.88
+pair_coeff  6 6 0.2 10.37 25.92
+pair_coeff  7 7 0.2 10.37 25.92
+pair_coeff  8 8 0.25 3.61 9.01
+pair_coeff  9 9 0.73 5.07 12.67
+pair_coeff  10 10 0.2 10.37 25.92
+pair_coeff  11 11 0.73 5.10 12.74
+pair_coeff  12 12 0.2 10.37 25.92
+pair_coeff  13 13 0.73 5.05 12.63
+pair_coeff  14 14 0.25 3.60 8.99
+pair_coeff  15 15 0.25 3.86 9.64
+pair_coeff  16 16 0.73 4.60 11.49
+pair_coeff  17 17 0.2 10.37 25.92
+pair_coeff  18 18 0.25 3.85 9.62
+pair_coeff  19 19 0.73 4.69 11.72
+pair_coeff  20 20 0.2 10.37 25.92
+pair_coeff  21 21 0.73 4.08 10.21
+pair_coeff  22 22 0.2 10.37 25.92
+pair_coeff  23 23 0.73 4.20 10.50
+pair_coeff  24 24 0.2 10.37 25.92
+pair_coeff  25 25 0.2 10.37 25.92
+pair_coeff  26 26 0.73 4.24 10.59
+pair_coeff  27 27 0.2 10.37 25.92
+pair_coeff  28 28 0.73 4.99 12.46
+pair_coeff  29 29 0.73 4.67 11.69
+pair_coeff  30 30 0.73 4.08 10.19
+pair_coeff  31 31 0.25 3.39 8.47
+pair_coeff  32 32 0.73 4.08 10.20
+pair_coeff  33 33 0.2 10.37 25.92
+pair_coeff  34 34 0.2 10.37 25.92
+pair_coeff  35 35 0.2 10.37 25.92
+pair_coeff  36 36 0.25 3.39 8.47
+pair_coeff  37 37 0.2 10.37 25.92
+pair_coeff  38 38 0.25 3.61 9.04
+pair_coeff  39 39 0.2 10.37 25.92
+pair_coeff  40 40 0.2 10.37 25.92
+pair_coeff  41 41 0.2 10.37 25.92
+pair_coeff  42 42 0.2 10.37 25.92
+pair_coeff  43 43 0.2 10.37 25.92
+pair_coeff  44 44 0.2 8.5 21.25 # rpL5
+pair_coeff  45 45 0.2 8.5 21.25
+pair_coeff  46 46 0.2 8.5 21.25
+pair_coeff  47 47 0.2 8.5 21.25
+pair_coeff  48 48 0.2 8.5 21.25
+pair_coeff  49 49 0.01 2.96 7.39
+pair_coeff  50 50 0.2 8.5 21.25
+pair_coeff  51 51 0.01 3.97 9.92
+pair_coeff  52 52 0.2 8.5 21.25
+pair_coeff  53 53 0.5 5.64 14.09
+pair_coeff  54 54 0.5 5.60 14.01
+pair_coeff  55 55 0.01 3.40 8.50
+pair_coeff  56 56 0.2 8.5 21.25
+pair_coeff  57 57 0.2 8.5 21.25
+pair_coeff  58 58 0.2 8.5 21.25
+pair_coeff  59 59 0.5 4.60 11.51
+pair_coeff  60 60 0.5 4.07 10.18
+
+##             bond-type        k     r0
+bond_coeff 1 60000 24.17 # folded
+bond_coeff 2 60000 27.43
+bond_coeff 3 60000 20.63
+bond_coeff 4 60000 24.50
+bond_coeff 5 7.11 3.70 # Nterm
+bond_coeff 6 0.64 4.63
+bond_coeff 7 0.35 4.69
+bond_coeff 8 0.72 6.68
+bond_coeff 9 2.18 5.28
+bond_coeff 10 2.03 4.40
+bond_coeff 11 1.08 4.69
+bond_coeff 12 0.96 5.24
+bond_coeff 13 1.47 5.31
+bond_coeff 14 1.07 5.24
+bond_coeff 15 1.39 5.44
+bond_coeff 16 0.87 4.49
+bond_coeff 17 10.47 3.65
+bond_coeff 18 2.16 4.78
+bond_coeff 19 0.71 5.85
+bond_coeff 20 0.97 5.12
+bond_coeff 21 1.04 5.03
+bond_coeff 22 1.28 5.07 # A1
+bond_coeff 23 2.31 4.65
+bond_coeff 24 1.70 4.87
+bond_coeff 25 1.28 4.81
+bond_coeff 26 2.40 5.38
+bond_coeff 27 1.67 5.44
+bond_coeff 28 1.51 5.26
+bond_coeff 29 0.72 5.77
+bond_coeff 30 0.44 5.03
+bond_coeff 31 6.16 4.03 # A2
+bond_coeff 32 7.61 3.84
+bond_coeff 33 1.96 5.02
+bond_coeff 34 1.61 5.61
+bond_coeff 35 1.35 5.25
+bond_coeff 36 2.30 4.31
+bond_coeff 37 2.26 4.73
+bond_coeff 38 1.92 4.98
+bond_coeff 39 1.78 4.84
+bond_coeff 40 1.41 5.25
+bond_coeff 41 1.39 5.19
+bond_coeff 42 1.50 5.17
+bond_coeff 43 1.79 5.29
+bond_coeff 44 0.57 7.32 # rpL5
+bond_coeff 45 0.56 6.88
+bond_coeff 46 0.46 6.97
+bond_coeff 47 0.68 5.91
+bond_coeff 48 1.31 4.67
+bond_coeff 49 1.74 4.57
+bond_coeff 50 1.42 5.10
+bond_coeff 51 2.04 4.53
+bond_coeff 52 0.56 5.86
+bond_coeff 53 0.20 5.61
+bond_coeff 54 0.34 4.89
+bond_coeff 55 1.02 5.48
+bond_coeff 56 0.72 6.56
+bond_coeff 57 0.70 6.51
+bond_coeff 58 0.75 6.06
+bond_coeff 59 2.38 4.47
+
+#                angle-type         k    theta0
+angle_coeff  1 6000000 38.08 # folded
+angle_coeff  2 6000000 25.58
+angle_coeff  3 6000000 11.84
+angle_coeff  4 6000000 44.53
+angle_coeff  5 2.90 120.66 # Nterm
+angle_coeff  6 1.46 88.20
+angle_coeff  7 3.21 92.11
+angle_coeff  8 4.47 77.38
+angle_coeff  9 2.47 101.29
+angle_coeff  10 2.31 113.32
+angle_coeff  11 5.70 93.42
+angle_coeff  12 3.42 67.41
+angle_coeff  13 7.12 98.43
+angle_coeff  14 3.62 68.99
+angle_coeff  15 3.95 95.38
+angle_coeff  16 2.45 113.15
+angle_coeff  17 5.48 85.38
+angle_coeff  18 2.50 99.63
+angle_coeff  19 5.60 74.87
+angle_coeff  20 3.33 93.10
+angle_coeff  21 2.71 114.72 # A1
+angle_coeff  22 5.06 72.89
+angle_coeff  23 5.74 111.86
+angle_coeff  24 3.55 82.63
+angle_coeff  25 7.93 78.78
+angle_coeff  26 5.32 103.35
+angle_coeff  27 5.42 64.24
+angle_coeff  28 3.66 96.05
+angle_coeff  29 2.09 106.70 # A2
+angle_coeff  30 4.28 111.79
+angle_coeff  31 4.07 80.47
+angle_coeff  32 3.44 94.31
+angle_coeff  33 3.02 95.35
+angle_coeff  34 2.98 121.51
+angle_coeff  35 5.02 73.45
+angle_coeff  36 2.89 114.27
+angle_coeff  37 4.23 78.12
+angle_coeff  38 2.67 101.09
+angle_coeff  39 4.43 87.34
+angle_coeff  40 3.07 98.51
+angle_coeff  41 4.48 78.73 # rpL5
+angle_coeff  42 3.03 81.96
+angle_coeff  43 4.99 72.83
+angle_coeff  44 3.57 89.60
+angle_coeff  45 1.70 130.68
+angle_coeff  46 4.49 80.25
+angle_coeff  47 2.50 109.36
+angle_coeff  48 2.14 85.62
+angle_coeff  49 2.89 84.48
+angle_coeff  50 2.78 77.81
+angle_coeff  51 1.66 112.64
+angle_coeff  52 5.91 67.05
+angle_coeff  53 2.85 96.20
+angle_coeff  54 4.34 73.48
+angle_coeff  55 2.54 97.07
+
+# dihedral_coeff dihedralType  K  phi0
+dihedral_coeff  1 quadratic 6000000 -43.567711
+dihedral_coeff  2 quadratic 6000000 -18.678424
+dihedral_coeff  3 quadratic 6000000 -121.902500
+dihedral_coeff  51 quadratic 6000000 -148.441906
+dihedral_coeff  52 quadratic 6000000 -128.371194
+dihedral_coeff  53 quadratic 6000000 -123.392191
+dihedral_coeff  4 class2 0.35 192.09 0.17 -36.38 0.05 209.29 # Nterm
+dihedral_coeff  5 class2 0.25 88.11 0.38 94.00 0.00 92.25
+dihedral_coeff  6 class2 0.90 202.93 0.04 -39.07 0.03 150.19
+dihedral_coeff  7 class2 1.17 -3.08 0.21 171.27 0.00 102.96
+dihedral_coeff  8 class2 0.19 51.01 0.37 160.82 0.05 253.04
+dihedral_coeff  9 class2 0.84 174.34 0.54 45.49 0.00 83.18
+dihedral_coeff  10 class2 0.60 201.82 0.22 108.45 0.09 114.99
+dihedral_coeff  11 class2 1.01 144.54 0.16 97.05 0.00 93.28
+dihedral_coeff  12 class2 1.21 204.55 0.17 140.09 0.00 82.42
+dihedral_coeff  13 class2 0.37 129.81 0.13 107.51 0.00 95.26
+dihedral_coeff  14 class2 0.73 216.64 0.32 99.59 0.00 91.89
+dihedral_coeff  15 class2 0.90 252.26 0.23 134.04 0.33 191.76
+dihedral_coeff  16 class2 0.41 150.27 0.29 94.02 0.00 111.68
+dihedral_coeff  17 class2 0.21 199.40 0.49 80.89 0.05 0.95
+dihedral_coeff  18 class2 0.78 236.42 0.60 143.37 0.25 155.83
+dihedral_coeff  19 class2 0.68 197.31 0.25 76.18 0.08 171.15 # A1
+dihedral_coeff  20 class2 0.99 111.89 0.06 44.15 0.00 106.72
+dihedral_coeff  21 class2 1.18 185.92 0.15 42.63 0.05 73.28
+dihedral_coeff  22 class2 0.87 5.23 0.64 141.11 0.12 197.37
+dihedral_coeff  23 class2 1.40 152.90 0.32 40.89 0.00 89.92
+dihedral_coeff  24 class2 1.31 192.95 0.13 102.51 0.05 124.68
+dihedral_coeff  25 class2 0.56 76.81 0.34 86.04 0.18 171.77
+dihedral_coeff  26 class2 0.74 133.14 0.17 80.98 0.00 92.05 # A2
+dihedral_coeff  27 class2 0.68 183.81 0.22 15.86 0.03 63.88
+dihedral_coeff  28 class2 0.28 15.57 0.40 152.34 0.01 186.48
+dihedral_coeff  29 class2 0.14 -19.80 0.44 147.16 0.02 22.56
+dihedral_coeff  30 class2 0.77 181.30 0.22 120.81 0.00 185.70
+dihedral_coeff  31 class2 0.99 193.81 0.26 85.19 0.01 114.23
+dihedral_coeff  32 class2 0.74 154.43 0.16 75.64 0.00 85.07
+dihedral_coeff  33 class2 0.97 188.73 0.15 91.70 0.00 141.62
+dihedral_coeff  34 class2 0.18 143.51 0.21 160.09 0.05 12.22
+dihedral_coeff  35 class2 0.26 200.66 0.36 137.48 0.09 237.57
+dihedral_coeff  36 class2 0.00 99.42 0.39 118.04 0.14 83.38
+dihedral_coeff  37 class2 0.00 92.68 0.59 163.61 0.43 117.77 # rpL5
+dihedral_coeff  38 class2 0.39 -55.81 0.16 84.16 0.08 102.00
+dihedral_coeff  39 class2 0.81 193.10 0.20 162.19 0.00 228.93
+dihedral_coeff  40 class2 0.41 184.88 0.04 140.44 0.01 0.97
+dihedral_coeff  41 class2 0.55 158.94 0.06 94.56 0.06 231.32
+dihedral_coeff  42 class2 0.40 184.10 0.35 66.24 0.00 29.64
+dihedral_coeff  43 class2 0.59 204.96 0.33 104.71 0.07 140.42
+dihedral_coeff  44 class2 0.19 162.15 0.29 102.99 0.04 139.83
+dihedral_coeff  45 class2 0.28 198.62 0.37 90.11 0.20 119.32
+dihedral_coeff  46 class2 0.24 190.76 0.19 90.03 0.11 79.27
+dihedral_coeff  47 class2 0.00 98.76 0.30 83.13 0.15 110.90
+dihedral_coeff  48 class2 0.40 23.30 0.32 134.82 0.05 159.42
+dihedral_coeff  49 class2 0.28 -36.25 0.36 115.95 0.03 -2.61
+dihedral_coeff  50 class2 0.29 175.94 0.23 110.73 0.00 64.62
+dihedral_coeff  4 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  4 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  4 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  4 class2 aat 0.0 0.0 0.0
+dihedral_coeff  4 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  5 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  5 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  5 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  5 class2 aat 0.0 0.0 0.0
+dihedral_coeff  5 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  6 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  6 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  6 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  6 class2 aat 0.0 0.0 0.0
+dihedral_coeff  6 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  7 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  7 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  7 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  7 class2 aat 0.0 0.0 0.0
+dihedral_coeff  7 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  8 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  8 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  8 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  8 class2 aat 0.0 0.0 0.0
+dihedral_coeff  8 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  9 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  9 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  9 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  9 class2 aat 0.0 0.0 0.0
+dihedral_coeff  9 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  10 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  10 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  10 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  10 class2 aat 0.0 0.0 0.0
+dihedral_coeff  10 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  11 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  11 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  11 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  11 class2 aat 0.0 0.0 0.0
+dihedral_coeff  11 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  12 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  12 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  12 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  12 class2 aat 0.0 0.0 0.0
+dihedral_coeff  12 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  13 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  13 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  13 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  13 class2 aat 0.0 0.0 0.0
+dihedral_coeff  13 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  14 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  14 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  14 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  14 class2 aat 0.0 0.0 0.0
+dihedral_coeff  14 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  15 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  15 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  15 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  15 class2 aat 0.0 0.0 0.0
+dihedral_coeff  15 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  16 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  16 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  16 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  16 class2 aat 0.0 0.0 0.0
+dihedral_coeff  16 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  17 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  17 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  17 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  17 class2 aat 0.0 0.0 0.0
+dihedral_coeff  17 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  18 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  18 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  18 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  18 class2 aat 0.0 0.0 0.0
+dihedral_coeff  18 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  19 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  19 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  19 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  19 class2 aat 0.0 0.0 0.0
+dihedral_coeff  19 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  20 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  20 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  20 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  20 class2 aat 0.0 0.0 0.0
+dihedral_coeff  20 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  21 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  21 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  21 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  21 class2 aat 0.0 0.0 0.0
+dihedral_coeff  21 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  22 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  22 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  22 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  22 class2 aat 0.0 0.0 0.0
+dihedral_coeff  22 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  23 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  23 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  23 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  23 class2 aat 0.0 0.0 0.0
+dihedral_coeff  23 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  24 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  24 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  24 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  24 class2 aat 0.0 0.0 0.0
+dihedral_coeff  24 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  25 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  25 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  25 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  25 class2 aat 0.0 0.0 0.0
+dihedral_coeff  25 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  26 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  26 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  26 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  26 class2 aat 0.0 0.0 0.0
+dihedral_coeff  26 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  27 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  27 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  27 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  27 class2 aat 0.0 0.0 0.0
+dihedral_coeff  27 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  28 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  28 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  28 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  28 class2 aat 0.0 0.0 0.0
+dihedral_coeff  28 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  29 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  29 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  29 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  29 class2 aat 0.0 0.0 0.0
+dihedral_coeff  29 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  30 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  30 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  30 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  30 class2 aat 0.0 0.0 0.0
+dihedral_coeff  30 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  31 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  31 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  31 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  31 class2 aat 0.0 0.0 0.0
+dihedral_coeff  31 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  32 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  32 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  32 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  32 class2 aat 0.0 0.0 0.0
+dihedral_coeff  32 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  33 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  33 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  33 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  33 class2 aat 0.0 0.0 0.0
+dihedral_coeff  33 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  34 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  34 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  34 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  34 class2 aat 0.0 0.0 0.0
+dihedral_coeff  34 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  35 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  35 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  35 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  35 class2 aat 0.0 0.0 0.0
+dihedral_coeff  35 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  36 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  36 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  36 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  36 class2 aat 0.0 0.0 0.0
+dihedral_coeff  36 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  37 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  37 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  37 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  37 class2 aat 0.0 0.0 0.0
+dihedral_coeff  37 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  38 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  38 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  38 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  38 class2 aat 0.0 0.0 0.0
+dihedral_coeff  38 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  39 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  39 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  39 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  39 class2 aat 0.0 0.0 0.0
+dihedral_coeff  39 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  40 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  40 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  40 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  40 class2 aat 0.0 0.0 0.0
+dihedral_coeff  40 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  41 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  41 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  41 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  41 class2 aat 0.0 0.0 0.0
+dihedral_coeff  41 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  42 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  42 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  42 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  42 class2 aat 0.0 0.0 0.0
+dihedral_coeff  42 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  43 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  43 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  43 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  43 class2 aat 0.0 0.0 0.0
+dihedral_coeff  43 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  44 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  44 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  44 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  44 class2 aat 0.0 0.0 0.0
+dihedral_coeff  44 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  45 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  45 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  45 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  45 class2 aat 0.0 0.0 0.0
+dihedral_coeff  45 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  46 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  46 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  46 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  46 class2 aat 0.0 0.0 0.0
+dihedral_coeff  46 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  47 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  47 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  47 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  47 class2 aat 0.0 0.0 0.0
+dihedral_coeff  47 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  48 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  48 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  48 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  48 class2 aat 0.0 0.0 0.0
+dihedral_coeff  48 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  49 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  49 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  49 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  49 class2 aat 0.0 0.0 0.0
+dihedral_coeff  49 class2 bb13 0.0 0.0 0.0
+dihedral_coeff  50 class2 mbt 0.0 0.0 0.0 0.0
+dihedral_coeff  50 class2 ebt 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  50 class2 at  0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+dihedral_coeff  50 class2 aat 0.0 0.0 0.0
+dihedral_coeff  50 class2 bb13 0.0 0.0 0.0
+
+velocity all create 300.0 303
+fix 1 all nvt temp 300.0 300.0 100.0
+timestep 0.1
+thermo 2500
+thermo_style custom step temp pe ke etotal
+dump 1 all custom 2500 traj_wt_303.dump id mol type xu yu zu
+dump_modify 1 sort id flush yes
+run 100000
+Generated 1711 of 1770 mixed pair_coeff terms from arithmetic mixing rule
+WARNING: Communication cutoff 54.32 is shorter than a bond length based estimate of 63.7175. This may lead to errors. (src/lammps-patch_2Aug2023_update4/src/comm.cpp:723)
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 54.32
+  ghost atom cutoff = 54.32
+  binsize = 27.16, bins = 12 12 12
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/debye, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+WARNING: Communication cutoff 54.32 is shorter than a bond length based estimate of 63.7175. This may lead to errors. (src/lammps-patch_2Aug2023_update4/src/comm.cpp:723)
+Per MPI rank memory allocation (min/avg/max) = 41.3 | 41.3 | 41.3 Mbytes
+   Step          Temp          PotEng         KinEng         TotEng    
+         0   300            3276.977       13939.46       17216.437    
+      2500   301.64822      3410.4891      14016.045      17426.534    
+      5000   299.96425      3452.4829      13937.799      17390.282    
+      7500   302.09231      3316.0838      14036.679      17352.763    
+     10000   300.81825      3189.7532      13977.48       17167.233    
+     12500   297.66304      3120.4066      13830.874      16951.28     
+     15000   301.5303       3083.9177      14010.566      17094.483    
+     17500   301.18997      3120.4325      13994.752      17115.184    
+     20000   296.71268      3040.1172      13786.715      16826.832    
+     22500   300.78626      3164.743       13975.994      17140.737    
+     25000   299.49995      3150.531       13916.225      17066.757    
+     27500   302.67062      3179.4663      14063.55       17243.017    
+     30000   298.03248      3155.4893      13848.04       17003.529    
+     32500   300.24026      3115.9842      13950.624      17066.608    
+     35000   297.66216      3069.7188      13830.833      16900.551    
+     37500   300.0668       3071.8846      13942.564      17014.449    
+     40000   303.3847       3089.3098      14096.73       17186.039    
+     42500   299.15998      3165.8403      13900.429      17066.269    
+     45000   297.90106      3125.6614      13841.933      16967.595    
+     47500   301.51059      3220.2874      14009.65       17229.937    
+     50000   298.78234      3042.6757      13882.882      16925.558    
+     52500   300.98895      3135.1753      13985.411      17120.587    
+     55000   297.64108      3044.8843      13829.853      16874.737    
+     57500   301.21705      3116.3916      13996.01       17112.402    
+     60000   295.28026      3079.8906      13720.158      16800.049    
+     62500   301.3986       2964.9286      14004.446      16969.374    
+     65000   301.83754      3079.1806      14024.841      17104.022    
+     67500   297.24705      3082.1396      13811.545      16893.684    
+     70000   299.29579      2928.3644      13906.739      16835.103    
+     72500   302.44315      2999.2467      14052.981      17052.227    
+     75000   297.94206      3027.1098      13843.838      16870.948    
+     77500   302.12496      3045.0655      14038.196      17083.262    
+     80000   300.84458      2960.6209      13978.703      16939.324    
+     82500   300.47199      3047.1958      13961.391      17008.587    
+     85000   298.76195      3091.241       13881.934      16973.175    
+     87500   300.16964      3176.7576      13947.342      17124.1      
+     90000   297.57558      3041.403       13826.81       16868.213    
+     92500   300.64931      3102.8489      13969.63       17072.479    
+     95000   296.93314      3027.9595      13796.959      16824.918    
+     97500   303.74193      3011.1049      14113.328      17124.433    
+    100000   298.83897      2983.5591      13885.513      16869.072    
+Loop time of 2004.79 on 1 procs for 100000 steps with 15589 atoms
+
+Performance: 0.431 ns/day, 55.688 hours/ns, 49.881 timesteps/s, 777.589 katom-step/s
+89.4% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 1086.6     | 1086.6     | 1086.6     |   0.0 | 54.20
+Bond    | 838.38     | 838.38     | 838.38     |   0.0 | 41.82
+Neigh   | 7.8805     | 7.8805     | 7.8805     |   0.0 |  0.39
+Comm    | 14.382     | 14.382     | 14.382     |   0.0 |  0.72
+Output  | 3.7631     | 3.7631     | 3.7631     |   0.0 |  0.19
+Modify  | 47.367     | 47.367     | 47.367     |   0.0 |  2.36
+Other   |            | 6.411      |            |       |  0.32
+
+Nlocal:          15589 ave       15589 max       15589 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           7890 ave        7890 max        7890 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:         389536 ave      389536 max      389536 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 389536
+Ave neighs/atom = 24.987876
+Ave special neighs/atom = 7.961383
+Neighbor list builds = 82
+Dangerous builds = 0
+Total wall time: 0:33:25

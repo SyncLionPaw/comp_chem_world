@@ -1,0 +1,28 @@
+schema_version = "1.4"
+metadata = { case_id = "case-06-scattering-convergence", title = "Si 原生散射计算的收敛诊断与数值决策" }
+artifacts = ["/app/final", "/app/controller-seal/evidence", "/app/controller-seal/receipt.json"]
+
+[task]
+name = "compchemworld/case-06-scattering-convergence"
+description = "Si 原生散射计算的收敛诊断与数值决策"
+
+[agent]
+user = "benchagent"
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+network_mode = "no-network"
+
+[[verifier.collect]]
+command = "/opt/case06-runtime/bin/python /app/environment/assets/tools/controller.py collect"
+user = "root"
+service = "main"
+
+[environment]
+build_timeout_sec = 1800
+cpus = 2
+memory_mb = 12288
+network_mode = "no-network"

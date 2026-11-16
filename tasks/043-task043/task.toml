@@ -1,0 +1,100 @@
+schema_version = "1.4"
+artifacts = ["/app/audit.json", "/app/decision.json", "/app/report.md"]
+
+[metadata]
+name = "compchemworld/reline-02-density"
+description = "Short-Trajectory Density Evidence and Sampling Decision"
+case_id = "reline-02-density"
+title = "Short-Trajectory Density Evidence and Sampling Decision"
+software = ["Python 3.12 standard library"]
+inputs = [
+  { path = "environment/assets/native/T323/final.restart", source_path = "environment/assets/native/T323/final.restart", sha256 = "9d7c9255308c13c5178e1319ed4ddad97750e153b77b3a2adba03fd055c1a786" },
+  { path = "environment/assets/native/T323/log.lammps", source_path = "environment/assets/native/T323/log.lammps", sha256 = "dbb74880ac32e09fcae9bfef8d24648def175ec2c463d9d7c55c3f012155c95a" },
+  { path = "environment/assets/native/T323/native-runtime.json", source_path = "environment/assets/native/T323/native-runtime.json", sha256 = "a5a96d407aee13245020c6a8c63b41529ef67d3e50e0c8c84e0a5745fcc5e2ed" },
+  { path = "environment/assets/native/T323/native.in", source_path = "environment/assets/native/T323/native.in", sha256 = "79536cd983ae9b1d81cb374614fb58e8aba9c46a90fa16d73b02063bba6fce58" },
+  { path = "environment/assets/native/T323/native.py", source_path = "environment/assets/native/T323/native.py", sha256 = "d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41" },
+  { path = "environment/assets/native/T323/native.stderr", source_path = "environment/assets/native/T323/native.stderr", sha256 = "64816900c6b235e0c2fba69bb8316ec17b13817b098e9e7fb0aeb879daf30848" },
+  { path = "environment/assets/native/T323/native.stdout", source_path = "environment/assets/native/T323/native.stdout", sha256 = "1a979d02066cb16ca1b6a5aeff2d6af7bd6ae0e68b0f093196020f92ebf19d97" },
+  { path = "environment/assets/native/T323/trajectory.lmp", source_path = "environment/assets/native/T323/trajectory.lmp", sha256 = "d08ac946e463d00b93d4cc4f24619067795faa160505229d7802e251f583e98a" },
+  { path = "environment/assets/native/T333/final.restart", source_path = "environment/assets/native/T333/final.restart", sha256 = "47d41fcf06e3512949d28a06397134c67c750dd3b35e9eacf2c5dc917e9eadef" },
+  { path = "environment/assets/native/T333/log.lammps", source_path = "environment/assets/native/T333/log.lammps", sha256 = "95df4addaf76fc6a52c38db0afa65d27fef2bbbf89c846cc9cbcd266dfde09ef" },
+  { path = "environment/assets/native/T333/native-runtime.json", source_path = "environment/assets/native/T333/native-runtime.json", sha256 = "9f28456ee11420dcd35707f95abfbf83dc67ade119d9c11f789b0e4f56466cb0" },
+  { path = "environment/assets/native/T333/native.in", source_path = "environment/assets/native/T333/native.in", sha256 = "84637167c0f0ee311b8f1f03f402ce409b43c8618abb27273eb757bef71d5cf3" },
+  { path = "environment/assets/native/T333/native.py", source_path = "environment/assets/native/T333/native.py", sha256 = "d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41" },
+  { path = "environment/assets/native/T333/native.stderr", source_path = "environment/assets/native/T333/native.stderr", sha256 = "f63c4914ebd67dc0ba03d879d404c8148af90d486996940bf419890c172b8b94" },
+  { path = "environment/assets/native/T333/native.stdout", source_path = "environment/assets/native/T333/native.stdout", sha256 = "4b4ebeabd854012e40a405fd738b8d6769b694d3718ca5f6fa75175b97b5c55d" },
+  { path = "environment/assets/native/T333/trajectory.lmp", source_path = "environment/assets/native/T333/trajectory.lmp", sha256 = "c942537ae655b0484eb00f9802577b99747db9654cc9fd5f687c2f680e6dc728" },
+  { path = "environment/assets/native/T343/final.restart", source_path = "environment/assets/native/T343/final.restart", sha256 = "05837ffc02bb98affc123650ffdd00c45563691f3b61ef16f98c55db9a982ecd" },
+  { path = "environment/assets/native/T343/log.lammps", source_path = "environment/assets/native/T343/log.lammps", sha256 = "65c05c20b14aab21e1666db1c9888a4f8d081516cf7e8b646b9e731941de4313" },
+  { path = "environment/assets/native/T343/native-runtime.json", source_path = "environment/assets/native/T343/native-runtime.json", sha256 = "d09ff617f1324d05c9979b38d617e7f6719676b673df18c022c73ff93447c53a" },
+  { path = "environment/assets/native/T343/native.in", source_path = "environment/assets/native/T343/native.in", sha256 = "a8682a2e75b728f8c0001e11a9942ef59c57157a1235088fee5b9bb12834b38c" },
+  { path = "environment/assets/native/T343/native.py", source_path = "environment/assets/native/T343/native.py", sha256 = "d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41" },
+  { path = "environment/assets/native/T343/native.stderr", source_path = "environment/assets/native/T343/native.stderr", sha256 = "171dc42eeffc5ac072048cd457d110cce2fd191c4bed9aa0eecded8d477b7edc" },
+  { path = "environment/assets/native/T343/native.stdout", source_path = "environment/assets/native/T343/native.stdout", sha256 = "7c81e7a341156f74d00161a7d4ecc1a59641176c389da600ed91224c12735af6" },
+  { path = "environment/assets/native/T343/trajectory.lmp", source_path = "environment/assets/native/T343/trajectory.lmp", sha256 = "55b8e44ab0393bc91ac3242c5e499f7ad31fcd64fb2432c4723e4d98c9da5319" },
+  { path = "environment/assets/native/T353/final.restart", source_path = "environment/assets/native/T353/final.restart", sha256 = "8b8f97204b1632a7fbd0ec9b5a94d075cc25c6524d8d34b5058c1f57a11b0c5a" },
+  { path = "environment/assets/native/T353/log.lammps", source_path = "environment/assets/native/T353/log.lammps", sha256 = "d1fc0041bfb88656c472ccaa172bd3b7d59a34208afa54f8d67f3ce154ac4c09" },
+  { path = "environment/assets/native/T353/native-runtime.json", source_path = "environment/assets/native/T353/native-runtime.json", sha256 = "228f867ff9c68d2d4623b81868fc14a1ac216cb18592bee2ba9eba50ceb27b05" },
+  { path = "environment/assets/native/T353/native.in", source_path = "environment/assets/native/T353/native.in", sha256 = "f0264529a6cc1f299e812aa88c25e82705e489f694e6fce41995d0c345f81df8" },
+  { path = "environment/assets/native/T353/native.py", source_path = "environment/assets/native/T353/native.py", sha256 = "d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41" },
+  { path = "environment/assets/native/T353/native.stderr", source_path = "environment/assets/native/T353/native.stderr", sha256 = "511ff24393bfdff6fb77f8ec6c08af06a648712e136dab5350c41aceaedc454c" },
+  { path = "environment/assets/native/T353/native.stdout", source_path = "environment/assets/native/T353/native.stdout", sha256 = "c73db05aa029f4d015da412292d5a6884dae4601dfe78f66839d43b3f067cfb0" },
+  { path = "environment/assets/native/T353/trajectory.lmp", source_path = "environment/assets/native/T353/trajectory.lmp", sha256 = "72c1d4d0b7bea343a2a9ffd2b40ba84726fa0b9213538d5cf8db1082b87f2854" },
+  { path = "environment/assets/native/T363/final.restart", source_path = "environment/assets/native/T363/final.restart", sha256 = "0a5fd2f13705fd2eaa565c0422a73212e267b4d92e4f506d99ae2c12c574f568" },
+  { path = "environment/assets/native/T363/log.lammps", source_path = "environment/assets/native/T363/log.lammps", sha256 = "cd715bfa061041e07eaa78878e4d7e1fc6929c5df673f21bcc40cf93514e69e0" },
+  { path = "environment/assets/native/T363/native-runtime.json", source_path = "environment/assets/native/T363/native-runtime.json", sha256 = "b60a5e97cbbb9e337742af8db249237050559aa859207258bec2b0d12a6bd87c" },
+  { path = "environment/assets/native/T363/native.in", source_path = "environment/assets/native/T363/native.in", sha256 = "6c73b399226c0441bed91af4332dd0f2ae0a709132de0a77bc4d98326a8313d7" },
+  { path = "environment/assets/native/T363/native.py", source_path = "environment/assets/native/T363/native.py", sha256 = "d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41" },
+  { path = "environment/assets/native/T363/native.stderr", source_path = "environment/assets/native/T363/native.stderr", sha256 = "0848685d42261caf7734e674c8ce7ed598a85a2c0bcc31d8a157d45400ae4cfc" },
+  { path = "environment/assets/native/T363/native.stdout", source_path = "environment/assets/native/T363/native.stdout", sha256 = "dbaba1fb5e896a5bcdeda76299661930052135d5d1ae9d8744bfc3af5d8ea5d6" },
+  { path = "environment/assets/native/T363/trajectory.lmp", source_path = "environment/assets/native/T363/trajectory.lmp", sha256 = "00a3a04744b7ee612f8eeb9153ed0037cd9badd03b754113caeeeda83f2deed3" },
+  { path = "environment/assets/native/T373/final.restart", source_path = "environment/assets/native/T373/final.restart", sha256 = "e5844a1487256dca0a2c84036fc983685831a3a271c4bccb3836dea4600394bc" },
+  { path = "environment/assets/native/T373/log.lammps", source_path = "environment/assets/native/T373/log.lammps", sha256 = "ebd742f97186096caa4637ba18812284eea50ac1959d3543e59b0f5f71214bc1" },
+  { path = "environment/assets/native/T373/native-runtime.json", source_path = "environment/assets/native/T373/native-runtime.json", sha256 = "66c55c515f257927de9722c0b8777a784659f37802d6ee672baf7e5935ce8c1e" },
+  { path = "environment/assets/native/T373/native.in", source_path = "environment/assets/native/T373/native.in", sha256 = "5defc9f78e2ec811000b56656e95e5503d3294088d2fcaab10e6c84bcf5215e7" },
+  { path = "environment/assets/native/T373/native.py", source_path = "environment/assets/native/T373/native.py", sha256 = "d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41" },
+  { path = "environment/assets/native/T373/native.stderr", source_path = "environment/assets/native/T373/native.stderr", sha256 = "b8903e72b8b1a563291688e38063cfaec2139d042bb405f69f712496be25d55f" },
+  { path = "environment/assets/native/T373/native.stdout", source_path = "environment/assets/native/T373/native.stdout", sha256 = "99ef17887612ffcf3dc97c7d5f31caa91d70ee33b6dc348d53d52671f69430de" },
+  { path = "environment/assets/native/T373/trajectory.lmp", source_path = "environment/assets/native/T373/trajectory.lmp", sha256 = "fab2dc5425afa1ae5b9d162eaf339c900c42cef88ac4f0762e1cab5952e02f96" },
+  { path = "environment/assets/native/env.sh", source_path = "environment/assets/native/env.sh", sha256 = "0aba6913ad6bf9521873b05594ccc3bbb032634302bfa98c156f13ee9162654a" },
+  { path = "environment/assets/native/gpu-identity.csv", source_path = "environment/assets/native/gpu-identity.csv", sha256 = "e28d8135ba10f58a9a96b6b258d70dc10ace49dfd3dcfc832a39c0cda65dc705" },
+  { path = "environment/assets/native/job.sbatch", source_path = "environment/assets/native/job.sbatch", sha256 = "af780a58fb95ad9f98bbf845e9e4679319fcb4b5392ccf32955c7b150899a760" },
+  { path = "environment/assets/native/native.in.template", source_path = "environment/assets/native/native.in.template", sha256 = "200784329880929268c47555e82d1e6eee8cd5e9d6ae7438465768433a98f755" },
+  { path = "environment/assets/native/native.py", source_path = "environment/assets/native/native.py", sha256 = "d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41" },
+  { path = "environment/assets/native/pip-check.txt", source_path = "environment/assets/native/pip-check.txt", sha256 = "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09" },
+  { path = "environment/assets/native/run.sh", source_path = "environment/assets/native/run.sh", sha256 = "9e8d9e3c72d4e0b98bc9b505e38a84d9b5e9ddb04f8a881e5e90bed8517a0021" },
+  { path = "environment/assets/native/slurm.err", source_path = "environment/assets/native/slurm.err", sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+  { path = "environment/assets/native/slurm.out", source_path = "environment/assets/native/slurm.out", sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+  { path = "environment/assets/source-manifest.json", source_path = "environment/assets/source-manifest.json", sha256 = "563ec4d3cd290911260f01b26816e785ff3882c0dc0a410dae46e2cd1619e0ea" },
+  { path = "environment/assets/output-contract.json", source_path = "environment/assets/output-contract.json", sha256 = "6c8752797573a11056477cde4c7606cc9644ea2c03d849ff75c4e40ef9e235a9" },
+  { path = "environment/assets/compute-budget.yaml", source_path = "environment/assets/compute-budget.yaml", sha256 = "0ec5eb28a26c0b3d6ef15302755848bab8f110444c5c59c2983805adb19b1c10" },
+]
+compute = { class = "local", profile = "reline02-density-audit-v2", network = "public", resource_plan = "environment/assets/compute-budget.yaml" }
+status = { readiness = "READY_FOR_RUNTIME" }
+runtime = { revision = "20261024-decision-v2" }
+
+[task]
+name = "compchemworld/reline-02-density"
+description = "Short-Trajectory Density Evidence and Sampling Decision"
+
+[agent]
+timeout_sec = 3600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 120
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.env]
+BENCH07_REVIEW_API_KEY = "${BENCH07_REVIEW_API_KEY:-}"
+BENCH07_REVIEW_BASE_URL = "${BENCH07_REVIEW_BASE_URL:-}"
+BENCH07_REVIEW_MODEL = "${BENCH07_REVIEW_MODEL:-}"
+
+[environment]
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "no-network"

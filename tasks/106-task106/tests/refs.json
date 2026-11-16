@@ -1,0 +1,73 @@
+{
+  "case_id": "case-04-author-neb-v3",
+  "archive_source_id": "author-neb-hop1-archive",
+  "archive_sha256": "7bdcd8aa4e6e12d388af5193ac8b24ddaedf49e33c8e5f9eb49ca9e1ca6ae404",
+  "vasp_sha256": "14e2ac8e6b0de427ef2bff2b09a2cce7ae89010cddff59d933c45b88a5d7eae8",
+  "mpi_sha256": "a780f7fb7c2cb72474515afe655e6d7fe759bb979d953c601d43d48fb5b06335",
+  "paw_titles": [
+    "PAW_PBE Li 17Jan2003",
+    "PAW_PBE Ti 08Apr2002",
+    "PAW_PBE O 08Apr2002"
+  ],
+  "composition": {
+    "Li": 41,
+    "Ti": 40,
+    "O": 96
+  },
+  "atom_count": 177,
+  "resource_limits": {
+    "max_cpus": 64,
+    "max_memory_gib": 64,
+    "max_walltime_seconds": 9000,
+    "max_core_hours": 160
+  },
+  "comparison_tolerance": 2.1e-06,
+  "combined_standard_paw_sha256": "5fc9d862e89819d167ba022ff08c36bfb15a0fb7e01ba74935952a4b6cd490f2",
+  "standard_ti_paw_sha256": "9f765a064614b02ad1ea9b6ae5fc727c54698bfd03536120e34f939afcefc05e",
+  "qualified_hpc_paw": {
+    "policy": "hpc_standard_native_v1",
+    "source_id": "hpc-vasp-6.4.1-testsuite-standard-pbe-v1",
+    "combined_sha256": "cd6427f4cf8df66decf04287c70250fe57efe09514e3adc5f8720edd8c10a0e2",
+    "components": [
+      {"element": "Li", "title": "PAW_PBE Li 17Jan2003", "sha256": "3d9d9bfd1dd25b20a3b919cb3191e6ef627605783dc2e149b9290ff31c32aa6e", "source_path": "/public/software/vasp/vasp.6.4.1/testsuite/POTCARS/POTCAR.LiH_MLFF_8atoms", "component_index": 0},
+      {"element": "Ti", "title": "PAW_PBE Ti 08Apr2002", "sha256": "25f970c4a3fb3651fd88a874985f9a77728d97c413bdcd4eb3fb818f6258cefe", "source_path": "/public/software/vasp/vasp.6.4.1/testsuite/POTCARS/POTCAR.TiO2_PRECFOCK=ACCURATE", "component_index": 0},
+      {"element": "O", "title": "PAW_PBE O 08Apr2002", "sha256": "8a74b9a1f5fdb3d0c3e0183c7873177abdbef07d407b310b7edcd9ed0a3eea64", "source_path": "/public/software/vasp/vasp.6.4.1/testsuite/POTCARS/POTCAR.TiO2_PRECFOCK=ACCURATE", "component_index": 1}
+    ]
+  },
+  "free_text_fields": [
+    "energy_convention",
+    "cross_version_energy_comparison",
+    "method_and_cell_scope",
+    "identity_source",
+    "coordinate_convention"
+  ],
+  "geometry_metrics": [
+    "own-fractional-cells-mapped-to-current-cell-mic-v1"
+  ],
+  "neb_ranks_multiple": 12,
+  "minimum_common_steps": 4,
+  "fresh_nsw": 4,
+  "allowed_nsw": [
+    "4",
+    "200"
+  ],
+  "force_threshold_eV_A": 0.05,
+  "printed_force_ulp": 5e-07,
+  "printed_tangent_ulp": 5e-06,
+  "spring_distance_tolerance": 6e-06,
+  "required_method": {
+    "IMAGES": 3,
+    "IBRION": 3,
+    "IOPT": 1,
+    "SPRING": -5,
+    "POTIM": 0,
+    "ISIF": 2,
+    "ENCUT": 520,
+    "EDIFF": 1e-05,
+    "EDIFFG": -0.05,
+    "ISPIN": 2,
+    "ISMEAR": 0,
+    "SIGMA": 0.05,
+    "NPAR": 4
+  }
+}

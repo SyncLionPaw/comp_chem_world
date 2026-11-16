@@ -1,0 +1,41 @@
+{
+  "schema": "case08-source-manifest/v1",
+  "case_id": "case-08-short-md-stop-go",
+  "execution": "oracle",
+  "sources": {
+    "case08_remote.sh": "c390203f350858b2b2a16e5c80c7a53f4e21485e6e6650cb2ca70f9462b26349",
+    "case08_tools.py": "9e1b1bd0911e78902f1ae8767a0a5ad147ee2f73df70e0dd3456444315e4e1c2"
+  },
+  "inputs": {
+    "NVT-50ps-dt1fs.mdp": "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b",
+    "NVT-50ps-dt2fs.mdp": "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e",
+    "NVT.mdp": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb",
+    "b.gro": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+    "conf_template.pdb": "71b3fd1fa0f6027449d50b8f053f272d847d96adac70802b7e7744635c203ec9",
+    "remote-input-provenance.json": "56651dbc56b4b467b270307cbd3fb247498d239db09eef819cdb3d315e608eca",
+    "topol.top": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+    "u.gro": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479"
+  },
+  "run_plan": {
+    "labels": [
+      "B-dt1fs",
+      "B-dt2fs",
+      "U-dt1fs",
+      "U-dt2fs"
+    ],
+    "max_ps_each": 50,
+    "max_total_ps": 200,
+    "dt_fs": [
+      1,
+      2
+    ]
+  },
+  "allocation": {
+    "host": "ikkem",
+    "partition": "cpu",
+    "nodes": 1,
+    "cpus": 8,
+    "memory_gib": 8,
+    "walltime": "00:30:00"
+  }
+}

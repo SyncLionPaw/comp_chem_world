@@ -1,0 +1,43 @@
+{
+  "overall_assessment": "Reduced-sampling local Oracle: WT/A2 comparisons are computed from three independent velocity seeds of new LAMMPS trajectories; long-time convergence is not claimed.",
+  "outcomes": [
+    {
+      "category": "PD_spatial_structure",
+      "metric": "PD radius of gyration",
+      "unit": "A",
+      "method": "per-chain radius of gyration from unwrapped native coordinates",
+      "uncertainty_method": "95% t interval across three independent velocity seeds",
+      "interval_type": "95% confidence interval",
+      "interval_coverage": "across independent seeds",
+      "decision_rule": "effect resolved only when the A2-minus-WT interval excludes zero",
+      "interpretation": "difference in mean PD chain size between A2 and WT",
+      "wt_estimate": 28.489185613673754,
+      "a2_estimate": 28.155743912185358,
+      "difference_a2_minus_wt": -0.3334417014883968,
+      "difference_interval": [
+        -0.49707632723449274,
+        -0.16980707574230086
+      ],
+      "evidence_direction": "supports_effect"
+    },
+    {
+      "category": "A2_rpL5_association",
+      "metric": "A2-rpL5 contacts per A2 bead",
+      "unit": "rpL5 beads per A2 bead",
+      "method": "minimum-image contacts within 12.5 A",
+      "uncertainty_method": "95% t interval across three independent velocity seeds",
+      "interval_type": "95% confidence interval",
+      "interval_coverage": "across independent seeds",
+      "decision_rule": "effect resolved only when the A2-minus-WT interval excludes zero",
+      "interpretation": "difference in A2-region association with rpL5 between A2 and WT",
+      "wt_estimate": 4.902304086617812,
+      "a2_estimate": 5.952475396288784,
+      "difference_a2_minus_wt": 1.0501713096709722,
+      "difference_interval": [
+        0.7959225401032434,
+        1.3044200792387008
+      ],
+      "evidence_direction": "supports_effect"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "version": "1.1",
+  "case_id": "case-02-mechanistic-feature-gain",
+  "reference_source_kind": "published_result",
+  "source_digest": "sha256:6192b687e714314aab1e21fed822e70fb680bf6aac73d6eeec7b45e36ca45cd0",
+  "independent_check": "scripts/calibrate_modeling_tolerances.py and scripts/build_derived_references.py, both re-runnable on this host",
+  "readiness": "READY_FOR_RUNTIME",
+  "verification_coverage": "COMPLETE",
+  "asset_hashes": {
+    "assets/SC-012-D0SC04896H-s115.csv": "sha256:c99d21c6ed4a6f456104782e980dcbac3b3a22c1bdd3d707d7a6c9eb469efbb1",
+    "assets/SC-012-D0SC04896H-s120.csv": "sha256:37d52b584033c1f7932537241c635b1f93878220500156455aef2e305a3677de",
+    "assets/SC-012-D0SC04896H-s138.csv": "sha256:fa7fe42a938ce314fd0cd5a3f903e9f1a74609b46c5561c123b6ef8242e4a9bc",
+    "assets/SC-012-D0SC04896H-s140.csv": "sha256:25588a3a91bbc5b2f2dd5fc2e62837da7bea01306fdb9ea88be424015ba0e302",
+    "assets/SC-012-D0SC04896H-s141.csv": "sha256:b1323cc8c1f231012c160a6131a1dde38494bc9c2fbbdc4ad803f84b003baefb",
+    "assets/SC-012-D0SC04896H-s142.csv": "sha256:ac88fbffeb4baaf9543fd8e62d3a6b7ce3c1ddc8378af87b742aee5eefedb46e",
+    "assets/SC-012-D0SC04896H-s143.csv": "sha256:c379ec643ba47c152af555065934c23da07e6631f9509d7c0aab5f4e041f36a8",
+    "assets/SC-012-D0SC04896H-s112.csv": "sha256:779c6945388a86e255224b8c6c419913bfa6e0ba7824748f81f6dc829360a1d3",
+    "assets/SC-012-D0SC04896H-s144.csv": "sha256:491aaf156c7dace5044b983ccce5e7924115c900eb9b7848db844f4969b11f2f",
+    "assets/SC-012-D0SC04896H-s118.npy": "sha256:a0621d32a62ccff1bd675c1b410dbcc679dcb7b62241077158a4e19b654d140a",
+    "assets/SC-012-D0SC04896H-s119.npy": "sha256:189f3abea25fa3d4a008dc45b82fbeee69680db1164f0cd72d79b79a107ebdb1",
+    "assets/S5_model_benchmark.csv": "sha256:560748806f107d574fd3195e01ae19c85ccc616a7f9754fde4a643a0b466f09d",
+    "assets/SC-012-D0SC04896H-s007.py": "sha256:82134ca3064eb1f7f23192dfca3fe7c9569e7b11530d26c195b644f96e9e8b3b"
+  },
+  "observations": [
+    {
+      "name": "deliverable_completeness",
+      "level": "L1",
+      "expected": "The comparison table, the feature-set map, the predictions and the notes are all required to score the rest.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "TBD"
+    },
+    {
+      "name": "no_target_leakage",
+      "level": "L2",
+      "expected": "The index sets used for fitting and for the reported test metrics must be disjoint, must be a subset of the released 354 and 89 index files when the frozen split is claimed, and no feature column may be a transform of the experimental target. The released matrices make this checkable because the tar",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "TBD For pinned reference protocols, a trusted dynamic run must map live fit/predict arrays to source rows, enforce current-fold train/validation identities, and match outputs to frozen predictions; static artifacts alone do not prove execution."
+    },
+    {
+      "name": "metrics_recomputable",
+      "level": "L2",
+      "expected": "Reported metrics are recomputed from final/test_predictions.csv; a table that disagrees with its own predictions fails regardless of how good the numbers look.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "see rationale",
+      "acceptance_rule": "TBD"
+    },
+    {
+      "name": "hybrid_advantage",
+      "level": "L3",
+      "expected": "The learned model that uses the mechanistic barrier must beat the barrier used directly and beat a mean baseline. Measured on the released matrices with the frozen 354 and 89 split, the direct quasi-harmonic barrier gives test MAE 2.545 and R2 0.198, a mean predictor gives 2.877, and a Gaussian proc",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "main text p.6, external test MAE 0.77 kcal/mol and raw transition-state barrier MAE 2.93 kcal/mol; measured reproduction on this host gives 0.806 for the same split",
+      "acceptance_rule": "Test MAE at most 1.10 kcal/mol, at least 1.0 kcal/mol better than the barrier used directly which measures 2.545 on the frozen split, and better than the mean predictor at 2.877."
+    },
+    {
+      "name": "transition_state_information_necessary",
+      "level": "L3",
+      "expected": "The agent must report the difference between the transition-state-bearing and the transition-state-free sets under one declared protocol, together with the seed-to-seed spread it observed, and must say which way it went. No minimum magnitude is imposed: the published gap is 0.06 kcal/mol and the mea",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "Table S5 printed MAE, Full 0.80, No TS 0.86, Small 0.88, Only TS 1.03; measured on this host 0.806, 0.797, 0.840 and 1.062 on the frozen split",
+      "acceptance_rule": "Both rows must come from one declared protocol and the agent must state the sign and its seed-to-seed spread. No minimum magnitude, because the published gap is 0.06 kcal/mol and the measured gap here is 0.009 with the opposite sign at full data."
+    },
+    {
+      "name": "feature_set_identification_defensible",
+      "level": "L3",
+      "expected": "Identification is scored on descriptor composition: the submission must map each paper feature-set label to a released file using the feature inventory, namely the presence or absence of the transition-state columns, the average-electrostatic-potential columns and the surface and steric columns, and",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "data/gold/derived/feature_set_identity.csv, traced to author notebooks SC-012-D0SC04896H-s092.ipynb (matrix construction) and s089.ipynb (Small barrier insertion), with exact column and 443-row checks",
+      "acceptance_rule": "Identify the six base matrices by descriptor composition. For s140, distinguish the eleven published columns from the author's appended activation_energy_qh_grimme_ts; an agent lacking the modelling notebook may explicitly leave that appended variant uncertain, but must not claim a guess is proven. A declared alternative barrier for the agent's own model is acceptable. MAE proximity is never identity evidence: s138 sits only 0.003 kcal/mol from the printed Full MAE despite being No TS."
+    }
+  ],
+  "verification_scope": "Portable independent numerical refits for the declared Ridge, KernelRidge, and GaussianProcessRegressor protocols, plus the required five-seed paired Full/No TS ablation.",
+  "verification_limitations": [
+    "The portable static checker alone reports training_execution_verified=false.",
+    "The verifier independently reconstructs declared models and predictions; it never executes candidate training code, so candidate_training_execution_verified remains false.",
+    "Methods or computational declarations outside the explicit supported vocabulary receive REVIEW_REQUIRED without a reward; malformed or contradicted declarations fail, and evaluator asset/hash failures are INFRA_ERROR.",
+    "Harbor reward eligibility requires PASS for both required stages. A review-required or infrastructure result is reported with a nonzero exit and no reward; scientific FAIL maps to reward zero."
+  ]
+}

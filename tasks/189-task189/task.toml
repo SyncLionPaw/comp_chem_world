@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/results"]
+
+[task]
+name = "compchemworld/case-01-transfer"
+description = "Run the supplied full UNEP-v1 NEP4/ZBL model over 43 labeled public calibration frames and 91 unlabeled challenge geometries, diagnose per-frame energies and forces, and quantify multicomponent transferability through stratified force RMSE and same-exact-composition relative-energy errors without inventing withheld challenge labels."
+
+[metadata]
+name = "case-01-transfer"
+description = "Run the supplied full UNEP-v1 NEP4/ZBL model over 43 labeled public calibration frames and 91 unlabeled challenge geometries, diagnose per-frame energies and forces, and quantify multicomponent transferability through stratified force RMSE and same-exact-composition relative-energy errors without inventing withheld challenge labels."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 86400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 10800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 6144
+build_timeout_sec = 2400
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 6144
+build_timeout_sec = 2400
+network_mode = "no-network"

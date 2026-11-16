@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/native-plan.json", "/app/systems", "/app/topology.pdb", "/app/trajectories", "/app/checkpoints", "/app/md-settings.json", "/app/integrators", "/app/states", "/app/code"]
+
+[task]
+name = "compchemworld/case-04-liquid-density-md"
+description = "Build periodic Sage ethanol liquid boxes at 128 and 256 molecules and run independent NPT replicas at 298.15 K and 1 bar under a fixed PME protocol, with evaluator-owned native integration capture. Establish statistical support for the predicted density through equilibration detection, autocorrelation-aware uncertainty, replica agreement and finite-size comparison."
+
+[metadata]
+name = "case-04-liquid-density-md"
+description = "Build periodic Sage ethanol liquid boxes at 128 and 256 molecules and run independent NPT replicas at 298.15 K and 1 bar under a fixed PME protocol, with evaluator-owned native integration capture. Establish statistical support for the predicted density through equilibration detection, autocorrelation-aware uncertainty, replica agreement and finite-size comparison."
+execution_class = "local"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 9000
+network_mode = "public"
+
+[verifier]
+timeout_sec = 9000
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 8
+memory_mb = 8192
+build_timeout_sec = 3600
+network_mode = "public"
+
+[verifier.environment]
+cpus = 8
+memory_mb = 8192
+build_timeout_sec = 3600
+network_mode = "no-network"

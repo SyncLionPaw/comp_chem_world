@@ -1,0 +1,13 @@
+{
+  "system_ids": [
+    "TiS2_GGA",
+    "TiS2_HSE06",
+    "LiTiS2_GGA",
+    "LiTiS2_HSE06"
+  ],
+  "charge_tol_e": 0.002,
+  "required_methods": {
+    "charge_quantity": "bader_basin_electrons",
+    "sulfur_aggregation": "mean_and_two_atom_total"
+  }
+}

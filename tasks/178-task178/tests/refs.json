@@ -1,0 +1,188 @@
+{
+  "output": "claim.json",
+  "assets": [
+    {
+      "path": "environment/assets/frame_early.xyz",
+      "sha256": "7167c8dabcac3a11ba5bd98213cb3daf3416bcfcd7f864a83f49d79b575fb2f2"
+    },
+    {
+      "path": "environment/assets/frame_late.xyz",
+      "sha256": "f59ee58c5e3c6fad03d6fa13a4f6c4b5551962df6f61c926c7c24e40645d3d90"
+    },
+    {
+      "path": "environment/assets/experimental_sans.txt",
+      "sha256": "4b186d26eda6bf504e2dc4589eda0a1fe96158c02be759267cc7d1f5f634f3d6"
+    },
+    {
+      "path": "environment/assets/li_li_rdf_this_work.csv",
+      "sha256": "42e37256afb34ad0673834b5f1f6f0994d59eb836180d4b8d03d0ec8a6dad495"
+    },
+    {
+      "path": "environment/assets/literature/units.txt",
+      "sha256": "c8bb783dbfdec56dc4c63691bd1f2e8553c7cc64b7afd6831391684230eddc77"
+    },
+    {
+      "path": "environment/assets/window_blue.dat",
+      "sha256": "a7fee309902e0224a66d83a15b94a4fdfa976c4ebacb36ae01f0bd514d52ce9d"
+    },
+    {
+      "path": "environment/assets/window_all.dat",
+      "sha256": "37482425fa6397f1c0541e4cda247fbfc304a62806024135a8fed90958c6dc90"
+    },
+    {
+      "path": "environment/assets/angle_li_ow_li.dat",
+      "sha256": "2d419bb9994d0934fdc7054ca94506c72f4e909eada169914d6b909c9d435493"
+    },
+    {
+      "path": "environment/assets/populations/pop_a.dat",
+      "sha256": "7d1e9f06cefdc476c10e6f2e970ea02ba3b3ea51f93dcf180048b9bf9aa90713"
+    },
+    {
+      "path": "environment/assets/populations/pop_b.dat",
+      "sha256": "f21fd5e69a51be20125ab8a709e899a9a780d8cc849837e4d4c0dd5fc6927586"
+    },
+    {
+      "path": "environment/assets/populations/pop_c.dat",
+      "sha256": "9e3f1ba316b0c96a34b3b3ead96611d8b34fa20c0dbc166f357dbe3f846dc1dd"
+    },
+    {
+      "path": "environment/assets/saxs_experiment.dat",
+      "sha256": "b8e4fabb77d13a6a3ef015aa61105071e3422674ec90ddbbeaf88d4795a6e8d7"
+    },
+    {
+      "path": "environment/assets/sfac_xray_calc.csv",
+      "sha256": "60e76fd8f78deda409c53db26b31f2a3f4efdd0017e9a74ddb3a82e74bffce59"
+    },
+    {
+      "path": "environment/assets/scattering_units.txt",
+      "sha256": "7a49897396b344dbb4f5fdf503cce58ce681c2a3d02e4c66ee070db9e75fa1aa"
+    },
+    {
+      "path": "environment/assets/msd_Li_#2.csv",
+      "sha256": "4b9f5d21aaeb2c915c665e3e181bf948fdca880e5121104de44150be8a491018"
+    },
+    {
+      "path": "environment/assets/msd_H2O_#2.csv",
+      "sha256": "c0c4140435c2fb25b5dd82f1d225f236556866f63ed49d120f56ccc5b049f290"
+    },
+    {
+      "path": "environment/assets/msd_C2F6NO4S2_#2.csv",
+      "sha256": "ee0bcce0e1449b85666fdde1e390cd32cf748e061328ede6e79288d2874537c1"
+    },
+    {
+      "path": "environment/assets/nongaussian_Li.dat",
+      "sha256": "f1b98fbf7993048a16dbc58618bafaffcf0168a9acb8f9532d57fb998d83aa6a"
+    },
+    {
+      "path": "environment/assets/nongaussian_Ow.dat",
+      "sha256": "906876cfb1c9909ce6a00624a3d7088e041f18b93ad73f09b21f15aa260511f7"
+    },
+    {
+      "path": "environment/assets/nongaussian_N_ani.dat",
+      "sha256": "463bb144f7891fae5a8725e23d83f5b084d89ffa334b741ff85a842fcbafcff8"
+    },
+    {
+      "path": "environment/assets/vhcf_li_li.csv",
+      "sha256": "60d5cf503df91d8097f63107ae362ee281dc657cea45f38d2f757b79c233fafa"
+    },
+    {
+      "path": "environment/assets/dynamics_units.txt",
+      "sha256": "64037d43c1c8378b8740c5251736916018866ff23f4631ae2edb6e44f7d45551"
+    },
+    {
+      "path": "environment/assets/window_red.dat",
+      "sha256": "b0cbc4433528ecd2d072c774901cca7b31f866c6e46ff96592f80fc8abe3e15e"
+    }
+  ],
+  "gold": {
+    "nanochains_with_short_contacts": true,
+    "contact_distance_A": 2.48,
+    "contact_series": "pop_b",
+    "contact_fraction_percent": 15.545522543495897,
+    "contact_population_is_majority": false,
+    "barrier_comparable_to_kT": true,
+    "transient_exchange": true,
+    "contacts_share_water": true,
+    "contact_cn_higher_than_isolated": true,
+    "xray_s_agrees": true,
+    "xray_s_proves_short_chains": false,
+    "msd_final_A2": {
+      "Li": 13.8218598903,
+      "H2O": 19.0375040383,
+      "TFSI": 6.2446783759
+    },
+    "diffusion_coefficients_quantitatively_reportable": false,
+    "apparent_mobility_order": [
+      "H2O",
+      "Li",
+      "TFSI"
+    ],
+    "dynamic_heterogeneity_specific_to_lithium": false,
+    "vhcf_small_r_mean_before_5ps": 0.01372537437759,
+    "vhcf_small_r_mean_after_20ps": 0.998349350693989,
+    "limits": [
+      "trajectory_about_70ps",
+      "finite_cell"
+    ]
+  },
+  "tolerances": {
+    "msd_relative": 0.05,
+    "contact_distance_A": 0.08,
+    "contact_percent": 1.0,
+    "vhcf_early": 0.05,
+    "vhcf_late": 0.15
+  },
+  "criteria": {
+    "temperature_K": 298.15,
+    "vhcf_radius_step_pm": 17.0,
+    "vhcf_radius_offset_pm": 8.5,
+    "vhcf_time_step_ps": 0.512772,
+    "vhcf_time_offset_ps": 0.256386,
+    "vhcf_small_r_A": 0.5,
+    "vhcf_early_before_ps": 5.0,
+    "vhcf_late_after_ps": 20.0,
+    "nongaussian_time_range_ps": [
+      0.1,
+      30.0
+    ],
+    "li_li_cutoff_A": 3.0,
+    "li_o_cutoff_A": 2.6,
+    "water_OH_cutoff_A": 1.25,
+    "chain_component_min": 3,
+    "positive_g_min": 1e-08,
+    "well_window_A": [
+      2.2,
+      2.7
+    ],
+    "saddle_window_A": [
+      2.7,
+      3.3
+    ],
+    "peak_window_A": [
+      2.2,
+      2.8
+    ],
+    "limits": [
+      "trajectory_about_70ps",
+      "single_density_functional",
+      "finite_cell",
+      "single_concentration"
+    ],
+    "minimum_limits": 2,
+    "xray_q_range_Ainv": [
+      0.5,
+      8.0
+    ],
+    "xray_grid_samples": 300,
+    "xray_calculation_q_scale": 0.1,
+    "xray_experiment_q_scale": 1.0,
+    "xray_agreement_rmse": 0.1,
+    "heterogeneity_peak": 0.1,
+    "contact_series": "pop_b",
+    "barrier_kT_range": [
+      0.5,
+      2.0
+    ],
+    "majority_percent": 50.0
+  }
+}

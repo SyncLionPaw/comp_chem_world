@@ -1,0 +1,79 @@
+{
+  "case_id": "case-04",
+  "definition_sha256": "48e52ae969d4d33cb36037c51fd61762e01fb976814c6fcd83b9247e8e3f10f3",
+  "verification_implementation": "implemented",
+  "asset_hashes": {
+    "assets/absorption_distribution_fig2a.csv": "sha256:2d4ea315f046fd7351fc3c661f67be288a86a0395f75784fc43e9e61a60e86d7",
+    "assets/absorption_distribution_fig2a.provenance.json": "sha256:1b70b7ef42d403d45546c6ca5220c580562ef7016586b1b66dbf005119ca9221",
+    "assets/task10_task_spec.json": "sha256:bc2412a8c5f40c225bf17fb41a03e855fc5ca4f596b711265da68966b09665fb"
+  },
+  "grader_reference_hashes": {},
+  "criteria": [
+    {
+      "criterion": "density_and_width",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Actual Fig2a parameters and SI printed Gaussian density",
+        "rationale": "Normalize n_E; use sigma/sqrt2 as std. Published means/scales are inputs, not synthetic per-site gold."
+      },
+      "tolerance": "Normalize n_E; use sigma/sqrt2 as std. Published means/scales are inputs, not synthetic per-site gold."
+    },
+    {
+      "criterion": "chemical_potential_closure",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Fermi occupancy integral and concentration monotonicity",
+        "rationale": "For all 72 conditions solve Cb=integral n(E)c(E,mu,T)dE. Report eta=mu-Ebar with any common ZP energy zero absorbed; no absolute DFT mu claim. Verified quadrature/root error, root uniqueness and bounded occupations."
+      },
+      "tolerance": "For all 72 conditions solve Cb=integral n(E)c(E,mu,T)dE. Report eta=mu-Ebar with any common ZP energy zero absorbed; no absolute DFT mu claim. Verified quadrature/root error, root uniqueness and bounded occupations."
+    },
+    {
+      "criterion": "low_tail_effect",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Exact Gaussian quantiles and occupation-weighted integrals",
+        "rationale": "Compute all prescribed tail fractions/enrichments and occupied mean energies; distinguish probability mass q from fraction of occupied hydrogen. Compare true integrated contribution with truncation/finite-spectrum effects."
+      },
+      "tolerance": "Compute all prescribed tail fractions/enrichments and occupied mean energies; distinguish probability mass q from fraction of occupied hydrogen. Compare true integrated contribution with truncation/finite-spectrum effects."
+    },
+    {
+      "criterion": "finite_sample_uncertainty",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Exact independent-sampling binomial result P(no below-q sample)=(1-q)^N plus explicit Monte Carlo simulation",
+        "rationale": "All sample absence probabilities correct; MC outputs labelled hypothetical, seeded and convergence/MC uncertainty disclosed. Never assert their site-energy mapping is deposited DFT."
+      },
+      "tolerance": "All sample absence probabilities correct; MC outputs labelled hypothetical, seeded and convergence/MC uncertainty disclosed. Never assert their site-energy mapping is deposited DFT."
+    },
+    {
+      "criterion": "limits_and_scientific_claim",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Translation invariance, occupancy 0..1, concentration conservation, thermal broadening and tail integral constraints",
+        "rationale": "Ebar shifts affect absolute energy, not eta/occupancy at fixed Cb; conclusions about tail richness and finite-sample reliability supported numerically. Distinct alloys use their actual widths."
+      },
+      "tolerance": "Ebar shifts affect absolute energy, not eta/occupancy at fixed Cb; conclusions about tail richness and finite-sample reliability supported numerically. Distinct alloys use their actual widths."
+    },
+    {
+      "criterion": "actual_numerical_work",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "execution_validity",
+        "source": "Code, inputs and numerical outputs are independently reproducible",
+        "rationale": "Probability and concentration calculations actually executed; table copying is insufficient."
+      },
+      "tolerance": "Probability and concentration calculations actually executed; table copying is insufficient."
+    }
+  ]
+}

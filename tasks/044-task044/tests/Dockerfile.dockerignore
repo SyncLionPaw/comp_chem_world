@@ -1,0 +1,12 @@
+**
+!task.toml
+!instruction.md
+!environment/
+!environment/assets/
+!environment/assets/**
+!tests/
+!tests/test.sh
+!tests/verify.py
+!tests/refs.json
+!tests/harbor_runtime/
+!tests/harbor_runtime/*.py

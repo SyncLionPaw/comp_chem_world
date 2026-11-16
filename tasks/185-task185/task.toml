@@ -1,0 +1,41 @@
+schema_version = "1.4"
+artifacts = ["/app/submission"]
+
+[task]
+name = "compchemworld/bench28-task-185"
+description = "Build and assess a water potential using Ai2-Kit"
+
+[metadata]
+holy_grail = true
+reference_solution_provided = false
+scientific_data_provided = false
+reference_model_provided = false
+task_number = 185
+case_id = "water-holygrail-tesla"
+execution_class = "remote"
+assessment_status = "Five 0.2 evidence-completeness components; scientific status remains INCONCLUSIVE and execution/source truth are not authenticated."
+
+[agent]
+timeout_sec = 86400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+user = "root"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[environment]
+workdir = "/app"
+network_mode = "public"
+build_timeout_sec = 1800
+
+[agent_interface]
+reference_solution_provided = false
+
+[verifier.env]
+CCB_OPEN_RESEARCH_REVIEW_FILE = "${CCB_OPEN_RESEARCH_REVIEW_FILE:-}"
+CCB_OPEN_RESEARCH_REVIEW_SHA256 = "${CCB_OPEN_RESEARCH_REVIEW_SHA256:-}"

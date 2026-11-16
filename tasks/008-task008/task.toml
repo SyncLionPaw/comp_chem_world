@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-08"
+description = 'Use the actually acquired three native slab candidate families to determine the analytic zero-temperature energetic lower envelope for 0/50/100% H coverage and conditional reservoir thresholds for stepwise and total surface-excess softening. Preserve energy-convention and sourced random-50% correction sensitivity; do not infer absolute surface energies or an actual hydrogen reservoir.'
+
+[metadata]
+task_number = 8
+name = 'task 8'
+description = 'Use the actually acquired three native slab candidate families to determine the analytic zero-temperature energetic lower envelope for 0/50/100% H coverage and conditional reservoir thresholds for stepwise and total surface-excess softening. Preserve energy-convention and sourced random-50% correction sensitivity; do not infer absolute surface energies or an actual hydrogen reservoir.'
+execution_class = 'local'
+task_id = "task-08"
+solution_timeout_sec = 1800
+title = '表面氢覆盖稳定性与氢致解理软化的条件阈值'
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[environment]
+os = "linux"
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+gpus = 0
+network_mode = "no-network"
+allow_internet = false
+

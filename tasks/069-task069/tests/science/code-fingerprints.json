@@ -1,0 +1,24 @@
+{
+  "case_id": "case-08-short-md-stop-go",
+  "files": {
+    "jobs/case08/qualification-20261017/qualification_preflight.py": "00561ff58f388a780ef73668a5459e468c92f5fe401b31ff278f43a2730ff094",
+    "jobs/case08/qualification-20261017/remote_qualify.sh": "0a1c0a459a6ee0c88c8239ca98ca19b5d0c75d1d0f57e86942d7dbbfbc483427",
+    "jobs/case08/qualification-20261017/submit.sh": "69fcb83607c3da02e605a2affb6d27d63d8e332610961d9e91eb4efa8f416972",
+    "packages/case-08-short-md-stop-go/compute-budget.yaml": "f649a4eab1f89cbfd3a9738224ffd1f2466579bde7aeab77587bfb79ee644349",
+    "packages/case-08-short-md-stop-go/environment/Dockerfile": "e140395e35c3efa0512c870bb83f2a6041db2b6de145f2edbc9f045e030e4a45",
+    "packages/case-08-short-md-stop-go/environment/submit-job.json": "250c7fc6bbeea23fd57b25d456e3d5509799fafa2db77c1ab6667a0b2a111212",
+    "packages/case-08-short-md-stop-go/output-contract.json": "fc4712b545d777582fad6486b219cbb59fd131482a0f37324f5c7c8d69ee4ffe",
+    "packages/case-08-short-md-stop-go/solution/case08_remote.sh": "6843bba1405bd9fa0b327cbe421f5d30471195bb1d84fd5a9a365b1a11188e05",
+    "packages/case-08-short-md-stop-go/solution/case08_tools.py": "258a99679bbccb870cad0ba86c52beac4ce754fe3b9f4531af64c9f3ae9accb7",
+    "packages/case-08-short-md-stop-go/solution/postprocess_decision.py": "c72667e9be50094e6e8a93f441b8ab7b9119066f4cf7dc72c33974b0b1fa8379",
+    "packages/case-08-short-md-stop-go/solution/solve.sh": "0c8afb70b09a6888850fe76d06f98470ea1b4999ae300e6d1d6ce85910548718",
+    "packages/case-08-short-md-stop-go/task.toml": "3e419b342f667a36f1c0630d3e98cc4d083289b5d50651830000c2dade829fa1",
+    "packages/case-08-short-md-stop-go/tests/review_status.py": "0dcfcf1239e9ea199ee69b43a281291ad2d0501ae1e9cf317b45c7ebb83fa83d",
+    "packages/case-08-short-md-stop-go/tests/test.sh": "bc223d0fde616df1ba1ce76224c8312cec83f47946d5247628cdbba34c6a508c",
+    "packages/case-08-short-md-stop-go/tests/test_solve_collect_fixture.py": "218f03752fb87c2d5c352ef08c3f2df63a9c7c73c8cb841ea814d60a52dbfa87",
+    "packages/case-08-short-md-stop-go/tests/test_verifier_fixtures.py": "03877b2e0581dc8f36c727fd1c40adb0b5c70212d0acc73a0b20e4e3365f61b3",
+    "packages/case-08-short-md-stop-go/tests/verification-plan.yaml": "bb483e5261470324e2da59fc1cd4da7aa0e9b3c5174fcc869cfe65ce91e0e744",
+    "packages/case-08-short-md-stop-go/tests/verify.py": "0563a887e7f6386c9190177057b9e16bc2ef95b12306335b232ff8a92fa20321",
+    "packages/case-08-short-md-stop-go/verification.md": "13189b6e4e3421d494914cb74913732b4dd8b73abef6e9db5acbb818089a33f6"
+  }
+}

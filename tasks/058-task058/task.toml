@@ -1,0 +1,25 @@
+schema_version = "1.4"
+artifacts = ["/app/final/results.json", "/app/final/analysis.py", "/app/final/run.log", "/app/final/report.md"]
+
+
+[task]
+name = "compchemworld/case-04-seebeck-validity"
+description = "Seebeck 极性、各向异性与弛豫时间敏感性"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 1800
+cpus = 2
+memory_mb = 2048
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.env]
+TMPDIR = "/tmp"

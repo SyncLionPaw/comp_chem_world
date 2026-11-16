@@ -1,0 +1,52 @@
+# Harbor task config migrated from the archived Bench23 task 152 definition.
+schema_version = "1.4"
+artifacts = [
+  { source = "/app/native", destination = "native" },
+  { source = "/app/report.md", destination = "report.md" },
+  { source = "/app/geometry.xyz", destination = "geometry.xyz" },
+  { source = "/app/result.json", destination = "result.json" },
+  { source = "/app/atom_mapping.json", destination = "atom_mapping.json" },
+]
+
+[task]
+name = "compchemworld/bench23-task-152"
+description = "Optimization convergence and recovery decision under an autonomous bounded remote HPC plan."
+
+[metadata]
+task_number = 152
+name = "task 152"
+description = "判断蛋白-配体几何优化是否收敛，或在记录有依据的恢复后给出条件性结论；计算资源与编排由 Agent 自行决定。"
+case_id = "case03-convergence-recovery"
+execution_class = "remote"
+holy_grail = false
+provenance_profile = "bench23-candidate-submission/v1"
+execution_profile = "harbor-autonomous-remote/v1"
+compute_budget = "Compute resources and orchestration are the agent's own choice; no per-job, per-study or total volume ceiling is declared or scored for this task. Submitted cost records are kept for provenance and checked only for internal consistency."
+execution_cross_check = "This edition installs no operator execution context. The verifier scores the candidate's own evidence and cross-checks its submitted run artifacts, and the report records trusted_execution=UNVERIFIED. No volume, external directory or host-side configuration is required to grade this task."
+credential_scope = "The candidate image supplies site SSH access and the ikkem-slurm client; no credential is stored in this repository or in the task tests."
+
+[agent]
+timeout_sec = 14400
+network_mode = "public"
+
+# The connectivity image ships no `researcher` account, so the agent runs as the image
+# default (root), exactly like bench 01's remote task. The scoring material lives in the
+# separate verifier container, which the agent cannot reach.
+[environment]
+network_mode = "public"
+env = { APP = "/app", TESTS = "/tests", LOGS = "/logs/verifier" }
+cpus = 2
+memory_mb = 4096
+gpus = 0
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+user = "root"
+timeout_sec = 1800
+
+[[verifier.collect]]
+command = "/usr/bin/python3 -I /opt/task152/task152_trusted.py collect"
+service = "main"
+timeout_sec = 900
+user = "root"

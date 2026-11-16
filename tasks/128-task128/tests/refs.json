@@ -1,0 +1,36 @@
+{
+  "schema": "bench19-upstream-refs/1",
+  "case_id": "case-09-smi-vib",
+  "task": "smiles2vib",
+  "kind": "frequencies",
+  "artifact": "final/frequencies.json",
+  "key": null,
+  "value": {
+    "frequencies_cm1": [
+      1086.0629738765817,
+      1202.99334400233,
+      1488.8152866333805,
+      1806.9265943292773,
+      2791.586807710512,
+      2837.568033221284
+    ]
+  },
+  "pipeline": {
+    "method": "GFN2-xTB",
+    "embed_seed": 42,
+    "fmax_eV_per_angstrom": 0.02,
+    "pressure_Pa": 101325.0,
+    "mmff": true
+  },
+  "stack": {
+    "python": "3.12.3",
+    "ase": "3.25.0",
+    "rdkit": "2026.9.1",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "tblite": "0.7.0"
+  },
+  "core_sha256": "5bdb85e58ad8d9b116b9af7bcd1eb36815b3cbf468631e76eed1a9719be41977",
+  "source_repository": "https://github.com/SyncLionPaw/CompChemBench",
+  "source_commit": "3bd6eb6fd3c2967ec8f0f781eadd03513f3030a3"
+}

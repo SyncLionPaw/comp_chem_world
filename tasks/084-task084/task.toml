@@ -1,0 +1,61 @@
+schema_version = "1.4"
+artifacts = [ "/app/final/submission.jsonl",]
+
+[task]
+name = "harbor/bench13-task-85"
+description = "Formula-constrained constitutional-isomer choice"
+keywords = [ "infrared-spectroscopy", "structure-elucidation",]
+
+[metadata]
+case_id = "case-02"
+title = "Formula-constrained constitutional-isomer choice"
+handoff_version = "1.0"
+
+[agent]
+timeout_sec = 7200
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"
+
+[metadata.requirements]
+software = [ "Python 3", "NumPy", "SciPy", "RDKit", "scikit-learn", "PyYAML",]
+[[metadata.requirements.inputs]]
+path = "assets/cohort-train.npz"
+source_path = "derived_data/ir-local/cohort-train.npz"
+sha256 = "1d6c93b082427d6895da6f1cd72ecfe0a04b775b05550ab1495926f03e0ef77a"
+
+[[metadata.requirements.inputs]]
+path = "assets/cohort-validation.npz"
+source_path = "derived_data/ir-local/cohort-validation.npz"
+sha256 = "a454592acac8be98e74142e353e6fb70498fcf858faafd0a234ae07d1d7ca2e7"
+
+[[metadata.requirements.inputs]]
+path = "assets/isomer-query-public.npz"
+source_path = "derived_data/ir-local/isomer-query-public.npz"
+sha256 = "de60ccbe1ee9cf854f7e6d1efedcc0eddc9ef8ba0122f5f589d466ad20400f0b"
+
+[[metadata.requirements.inputs]]
+path = "assets/isomer-candidates-public.json"
+source_path = "derived_data/ir-local/isomer-candidates-public.json"
+sha256 = "0948d0a82e6c4faedcf0113e3c8542b42f477181f6de6e4b9a421c3a38a5df41"
+
+[metadata.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[metadata.compute]
+class = "local"
+network = "no-network"
+
+[metadata.runtime]
+migration_status = "CASE_IMAGE_BUILT_EXISTING_ARTIFACT_REGRADES_VALIDATED"
+
+[metadata.runtime.input_sha256]
+"assets/SOURCES.yaml" = "c3b08d7fcbd76ea70a16e08ad2d53fff9eebfd8c405cc90a2d10dc9910214b1d"

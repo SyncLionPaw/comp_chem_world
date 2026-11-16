@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "case_id": "case-02-water-cv-validation",
+  "review_status": "PASS",
+  "reviewer": "Codex source-only migration; scientific criteria inherited from Sol (independent model scientific audit)",
+  "reviewed_on": "2026-10-27",
+  "criteria": {
+    "trace_and_column_provenance_integrity": {
+      "status": "PASS",
+      "evidence": "Checked 353,353 source rows and the pinned selected native outputs. The candidate reports the documented duplicate-column policy and correctly states that raw duplicate columns are absent from the supplied NPZ, so equality could not be re-audited from this excerpt."
+    },
+    "gauge_aware_pairwise_cv_comparison": {
+      "status": "PASS",
+      "evidence": "Independently recomputed full-record signed Pearson correlations: sw:swb = -0.9347224375603801, sw:swc = -0.9556144867217807, and swb:swc = 0.9828138779953711, each over 353,353 rows. Sign/gauge handling is explicit; one biased trajectory is not treated as independent replication."
+    },
+    "independent_validation_leakage_and_bias_applicability_decision": {
+      "status": "PASS",
+      "evidence": "Candidate identifies one biased archived trajectory and does not claim independent generalization. Its proposed run-held-out plan separates B/U state data and gives each state 5 x 4 ns blocks at 0.25 ps sampling, with a HOLD decision pending independent data."
+    },
+    "published_model_forward_and_native_comparison": {
+      "status": "PASS",
+      "evidence": "Independent replay checked the source-pinned model outputs across all declared descriptor rows and native columns; affine diagnostics do not force model labels to native-column identity. The report preserves mapping uncertainty where residuals do not support identity."
+    },
+    "descriptor_gradient_statistics": {
+      "status": "PASS",
+      "evidence": "Independently replayed all 36 model/descriptor gradient summaries with zero mismatches; the candidate describes these as local sensitivities, not coordinate forces or causal feature importance."
+    }
+  },
+  "input_hashes": {
+    "environment/assets/g4-native-traces.npz": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "environment/assets/trace-provenance.json": "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5",
+    "environment/assets/deep-lda-method.md": "7008a9ae9e93ad8f3990ba65d1393625e2c976dc7d668e8cabad1618b59b8427",
+    "environment/assets/g4-descriptors.csv": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "environment/assets/g4-model-weights.npz": "85ccbf359e268871eea3052cdc6a18ff33f52b1c117d5b40c9d987e4a0365455",
+    "environment/assets/g4-model-export.json": "fa6c370426cdc030c61e078d50dd4356fb1f692cebd2df4f4195801d7310581e"
+  },
+  "source_fingerprints": {
+    "tests/assessment-protocol.json": "3837504b93a6353456dd2b42c9ef48968a5067cd3bf75f9fdbe3dcd85c598fa9",
+    "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+    "tests/evidence/mvp-model/full-g4-model-export.json": "78a2cb3e2aae607592762af6118d66fe541297448ef476a2a194798eb843d80e",
+    "tests/evidence/mvp-model/g4-model-gradient-reference.csv": "e05b47d204cb754e3e1442ba9b5550aeb9066dba50179008fd68cf1a71dfeb94",
+    "tests/evidence/mvp-model/g4-model-torch-reference.csv": "3a8918ed0ed43540d91b82a2df0e589ef40fff7f07c93dbc9374ab6b5baff56e",
+    "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+    "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "tests/g4_model_numpy.py": "a9f3ba5475d5804ae56844b89ca5a466ee63ef11fae292ac92ad0078e66f950d",
+    "tests/mvp_host_evidence.py": "7a507c6ac0e45b93dc4dfcefd923bd27124e6f27e8adac58d97921280052ec19",
+    "tests/mvp_numeric.py": "c3cf465cf55b3e1e2a7fb6cde2b2407233f09b7518921bdee8f9a1198effb5ec",
+    "tests/numeric_evidence.py": "9a86ce0fe5f7c6b70f399e6b1cda9f39ab2604aea5fa9849c707e20319a4c966",
+    "tests/reference-hashes.json": "6b9055ae2fb01f956e3ec8057a67fa0889afa6fdc4dbfb559d51bda2e192c207",
+    "tests/refs.json": "d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e",
+    "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+    "tests/test.sh": "7d842f1ff5ca706eabd34998e70a57bbfebf79e665ad9644ce77b733dd2aa19c",
+    "tests/test_case02_output_time_sources.py": "fe1d371617bf0496b3e2fdfe98f593c22564528823e4e6b049718f4fe3a3d5c7",
+    "tests/verification-plan.yaml": "f75bcc1719c868964afc4d4af794b3053c72eb9bb593c40f8b107e7c85795c86",
+    "tests/verify.py": "cfcfc9ab6e8fe6ed11aae1c38255a871bcf190116c435e2cef7d825cf6b9b598",
+    "contract/instruction.md": "57fd32b2f1da79b1381608abb95e50c9421fe62d7ba38f0ef550a6aff31bbf80",
+    "contract/task.toml": "42c43eea495038398292dee20cd0abf044fedd226b4f43f98e63879f7165280b",
+    "contract/output-contract.json": "8fd31ff25c5c2fff1007fe94689ec1d9517d7ca24a3a1bd9905131c818b96436",
+    "contract/output-contract.yaml": "893b9360f8cf838fdf04d9d2896aa9f67f52617ef837a6a0513d853b92a98e4e"
+  },
+  "candidate_manifest": {
+    "cv-audit.csv": {
+      "sha256": "d9abc4f5305effe821cb86dccb70c9f8c9dc417af8850c0f2b100afde4018e94",
+      "bytes": 2838
+    },
+    "decision.json": {
+      "sha256": "eabe012e8a760a8e2e281f0f9674701d977d149c692c23e80b20915520b1c714",
+      "bytes": 3158
+    },
+    "model-gradient-audit.csv": {
+      "sha256": "18b3391920b8be63da40d110abfb91d5429ede95e817ded7d7b9553587255201",
+      "bytes": 2983
+    },
+    "model-output-audit.csv": {
+      "sha256": "a918e4e387fc2d9a2df60e2569bd04edfb0d1ce24714c89f02ea0d8296206f0c",
+      "bytes": 101551
+    },
+    "rationale.md": {
+      "sha256": "7e11d1a9d9c1bcc53c365a43e3d52d7264c44599c7dcdbf22f444ac665dfd597",
+      "bytes": 570
+    },
+    "validation-plan.json": {
+      "sha256": "d91c0aeb86a4e3b941980ebc8097d39a4322875ebdb8f3e5cb24b1d872ad8f90",
+      "bytes": 1490
+    }
+  },
+  "review_basis": {
+    "previous_record_sha256": "df9cc96a454e317d6005bce3fba4977a7d639a67732591756788446d3591bf4a",
+    "root_reviewed_candidate_index_sha256": "8741a6ef11606d14bbbba2ffaebc42e6f0042ca17bb07891c878e934eb67f5a9",
+    "candidate_root_in_author_snapshot": "/private/tmp/bench10-release-20261018-r1/snapshot/10_Host-Guest-Water-Enhanced-Sampling/jobs/10_Host-Guest-Water-Enhanced-Sampling/case-02-water-cv-validation/oracle/2026-10-17_22-42-18/workspace",
+    "candidate_manifest_unchanged": true,
+    "scientific_scope_changed": false
+  },
+  "source_only_migration": {
+    "kind": "source_only_approval_inheritance",
+    "scientific_review": "Inherited unchanged from the archived prior approval; no new scientific review was performed.",
+    "prior_review": {
+      "archive_path": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-author-review/task-64/author-review.json",
+      "sha256": "5dfb6cecc416fe558794ce10ef1c6cfa1491bfbe64f999cd908eb8a41007efb1",
+      "reviewer": "Sol (independent model scientific audit)",
+      "reviewed_on": "2026-10-18",
+      "review_status": "PASS"
+    },
+    "candidate_output_evidence": {
+      "oracle_workspace_verified_against_prior_candidate_manifest": true,
+      "baseline_test_status": "PASS",
+      "baseline_reward": 1
+    },
+    "removed_helpers": [
+      {
+        "path": "task 64/tests/apo_numeric.py",
+        "sha256": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834",
+        "source_copied_to_archive": false,
+        "dependency_review": "No runtime/test import or read; historical reference-hash entry removed."
+      }
+    ],
+    "reference_hash_index": {
+      "path": "task 64/tests/reference-hashes.json",
+      "archived_original": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-reference-hashes/task-64/reference-hashes.json",
+      "archived_sha256": "cc764d8e281617b42e6c6d5421ee6096990db8d97ee5566e1cf7748db4d498ac",
+      "removed_entries": {
+        "tests/apo_numeric.py": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834"
+      },
+      "new_sha256": "91923e815197d86490fcf486e0eb9b6ad0e2cecfcf3343e60b995a69acb8c5ee"
+    },
+    "not_performed": [
+      "new scientific review",
+      "new oracle/MD/HPC/SSH execution",
+      "new model training",
+      "candidate solve"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+schema_version = "1.4"
+[[artifacts]]
+source = "/app/final"
+destination = "final"
+
+[task]
+name = "harbor/bench13-task-88"
+description = "Open research on molecular structure identification from IR spectra"
+keywords = [ "infrared-spectroscopy", "structure-identification", "open-research",]
+
+[metadata]
+execution_class = "local"
+case_id = "case-05"
+title = "Open research on IR structure identification"
+handoff_version = "2.0"
+
+[agent]
+timeout_sec = 14400
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "public"
+
+[metadata.verification]
+implementation = "implemented"
+verifier = "tests/test.sh"
+mode = "submission_completeness_only_scientific_review_not_performed"
+
+[metadata.holy_grail]
+reference_solution_provided = false
+score_scope = "evidence_completeness_only"
+max_reward = 0.4
+scientific_review_required = true
+checked_claims = ["submission schema", "artifact byte and hash consistency", "claim-to-artifact links", "reproducibility record completeness"]
+unverified_claims = ["scientific correctness", "novelty", "actual remote execution", "data authenticity", "independent reproducibility"]
+
+[agent_interface]
+reference_solution_provided = false

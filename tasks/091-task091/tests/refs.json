@@ -1,0 +1,82 @@
+{
+  "schema": "bench14-case05-reference-manifest/v1",
+  "case_id": "case-05-double-layer-structure",
+  "formal_reference": "Protected Gold under tests/_data/gold/: one public reference request plus four off-grid private probes produced by the frozen case-005 Poisson-Fermi solver.",
+  "reference_manifest": "tests/_data/gold/manifest.json",
+  "reference_manifest_sha256": "4aaf0ad7e6ee46bf6dbad7ceba19707cd3322064e7d46416e9d1873c2760e287",
+  "verifier_sha256": "10d565f4dc34222ff9b91a436dd4badb37de61e217eb9245a640236d4ad0a053",
+  "public_request": {
+    "path": "environment/assets/edl_request.json",
+    "sha256": "0eff1c9468f6c1813c9d44e2bbfe4884f851e1ccc371c5ec1508313ffd592e2b"
+  },
+  "tolerances": {
+    "authority": "environment/assets/edl_request.json#output_contract.numeric_tolerances",
+    "authority_sha256": "c4b5994ea870cac0144b88bbf4b87d05c48031d295eddcbec6d916d319cdc02b",
+    "sharp_relative": 2e-06,
+    "smeared_relative": 5e-06,
+    "metadata_relative": 1e-12,
+    "z_A_absolute": 1e-09,
+    "ion_density_relative_to_n_b_smeared": 0.0002,
+    "fixed_sigma_functional_energy_J_m2": {
+      "relative": 3e-05,
+      "absolute": 1e-08
+    },
+    "rough_constraints": {
+      "ion_density_negative_tolerance_relative_to_n_b": 1e-12,
+      "site_occupancy_negative_tolerance_absolute": 1e-12,
+      "site_occupancy_le_liquid_fraction_absolute": 3e-05,
+      "occupancy_consistency_relative": 2e-05,
+      "far_tail_ion_density_relative_to_n_b": 0.0002,
+      "far_tail_start_in_GC_lengths": 11.5
+    }
+  },
+  "exported_grid": {
+    "output_step_A": 0.05,
+    "domain_gc_lengths": 12.0,
+    "round_domain_up_A": 10.0
+  },
+  "private_probes": [
+    {
+      "request": "private_request_00.json",
+      "output_dir": "private_reference_00",
+      "concentration_mM": 2.73,
+      "Pbar_C_m2": -0.021,
+      "sigma0_C_m2": 0.11
+    },
+    {
+      "request": "private_request_01.json",
+      "output_dir": "private_reference_01",
+      "concentration_mM": 7.4,
+      "Pbar_C_m2": 0.073,
+      "sigma0_C_m2": 0.09
+    },
+    {
+      "request": "private_request_02.json",
+      "output_dir": "private_reference_02",
+      "concentration_mM": 1.45,
+      "Pbar_C_m2": 0.002,
+      "sigma0_C_m2": 0.117
+    },
+    {
+      "request": "private_request_03.json",
+      "output_dir": "private_reference_03",
+      "concentration_mM": 9.3,
+      "Pbar_C_m2": -0.043,
+      "sigma0_C_m2": 0.084
+    }
+  ],
+  "asset_hashes": {
+    "environment/assets/edl_request.json": "sha256:0eff1c9468f6c1813c9d44e2bbfe4884f851e1ccc371c5ec1508313ffd592e2b"
+  },
+  "host_replay": {
+    "oracle": "reward 1 for the frozen reference solver against the current Gold and verifier (fixed-image replay)",
+    "adversarial": "documented negative set rejected, including a solver.py symlinked to private Gold"
+  },
+  "notes": [
+    "Gold is protected mode 0700 with files mode 0600; the verifier imports it with bytecode writing disabled.",
+    "The verifier stages the declared /app/final outputs and accepts a self-contained solver plus regular .py helpers inside final/.",
+    "Near-wall rough averages use direct continuous-BVP composite Gauss panels through 30 A; the far tail uses one-sided FFT convolution with trapezoidal endpoint corrections.",
+    "The PDE residual verifier covers the fourth interior sample through the fourth-from-last; endpoint stencils are not independently PDE-scored.",
+    "The finite-dimensional polarization stability diagnostic is author-side evidence and does not prove global minimality."
+  ]
+}

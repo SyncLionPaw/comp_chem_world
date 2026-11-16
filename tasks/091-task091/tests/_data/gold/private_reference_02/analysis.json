@@ -1,0 +1,104 @@
+{
+  "schema": "bench14.edl.analysis/v1",
+  "conditions": [
+    {
+      "run_id": "private_probe_02",
+      "parameters": {
+        "concentration_mM": 1.45,
+        "sigma0_C_m2": 0.117,
+        "Pbar_C_m2": 0.002,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 920.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -10603644390.888662,
+      "rho_total_wall_C_m3": -10334825681.745337,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.977604659444332e-07,
+        "boundary_residual_max": 8.508985373896066e-29,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.117,
+        "wall_surface_charge_input_C_m2": 0.117,
+        "integrated_mobile_charge_C_m2": -0.1170005009544075,
+        "electroneutrality_residual_C_m2": -5.009544074979777e-07,
+        "electroneutrality_relative_to_input_charge": 4.281661602546818e-06,
+        "electroneutrality_relative_to_Pscale": 5.009544074979777e-06,
+        "occupancy_max": 0.9999999999999999,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 76.21047343101138,
+        "linearized_modes_inverse_A": [
+          [
+            0.012997210361770786,
+            0.0
+          ],
+          [
+            0.27712094849543445,
+            0.0
+          ],
+          [
+            0.5847096736400654,
+            3.0485092800346454
+          ],
+          [
+            0.5847096736400654,
+            -3.0485092800346454
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 76.93958720106123,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          228.63142029303413,
+          533.4733140170797
+        ],
+        "far_field_fit_length_A": 76.9312695469032,
+        "far_field_fit_r_squared": 0.9999999914921996,
+        "far_field_fit_relative_deviation": 0.00945796664738352,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 0.00010810630080848593,
+        "domain_A": 920.0,
+        "adaptive_nodes": 10648
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 10648,
+        "rms_residual_max": 4.977604659444332e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": -0.030653631075781472,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": 9.228728892196614e-16,
+      "stationarity": null,
+      "output_points": 18401,
+      "runtime_seconds": 3.841792876002728
+    }
+  ],
+  "author_reconstruction": true,
+  "field_semantics": {
+    "P1_prime_C_m3": "rough table is the Eq.19 weighted mean of sharp local P1' at z-ell, not d(mean(P1))/dz",
+    "P2_prime_C_m3": "rough table is the Eq.19 weighted mean of sharp local P2' at z-ell, not d(mean(P2))/dz",
+    "P1_second_C_m4": "rough table is the Eq.19 weighted mean of sharp local P1'' at z-ell",
+    "rho1_wall_C_m3": "original sharp-wall -P1'(0), repeated as condition metadata; not rough averaged-interface charge",
+    "rho_total_wall_C_m3": "original sharp-wall -(P1'+P2')(0), repeated as condition metadata; not rough averaged-interface charge",
+    "rough_fields": "the local sharp fields listed here are convolved independently; they are not asserted to satisfy the sharp-interface PDE after convolution"
+  },
+  "roughness": {
+    "equation": "Eq.19 half-space wall-position density",
+    "mean_A": 2.5,
+    "delta_A": 1.5,
+    "integration_step_A": 0.0015625,
+    "quadrature_order": 384,
+    "near_wall_continuous_until_A": 30.0,
+    "near_wall_panel_A": 0.05,
+    "near_wall_gauss_order": 16,
+    "interpretation": "independently convolve each sharp field, including n+ and n-; do not apply ion closure to averaged phi"
+  },
+  "runtime_seconds_total": 3.8439193349986454,
+  "input_sha256": "13939d46edeede40c60520b75af4c0276b5423e9eb9b5bcc26719e390c2f66e3"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "species": {
+    "formula": "H2O",
+    "atom_count": 3,
+    "elements": {
+      "H": 2,
+      "O": 1
+    },
+    "net_charge": 0
+  },
+  "geometry_anchor": {
+    "source": "NIST CCCBDB experimental geometry page 2, https://cccbdb.nist.gov/expgeom2x.asp?casno=7732185",
+    "source_sha256": "20da3e04dba1576269e84aa1c4a4e4ad326c95e7830c0eec3fad8f10d16dccbd",
+    "reference_type": "external equilibrium geometry; not reported by the Ai2-Kit paper",
+    "rOH_A": {
+      "value": 0.958,
+      "tolerance": 0.06,
+      "page_label": "re",
+      "citation": "1979Hoy/Bun:1"
+    },
+    "aHOH_deg": {
+      "value": 104.4776,
+      "tolerance": 6.0,
+      "page_label": "equilibrium",
+      "citation": "1979Hoy/Bun:1"
+    },
+    "citation_doi": "10.1016/0022-2852(79)90019-5",
+    "tolerance_semantics": "benchmark acceptance window, not source uncertainty"
+  },
+  "geometry_repeat_tolerance": 1e-06
+}

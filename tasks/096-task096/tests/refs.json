@@ -1,0 +1,30 @@
+{
+  "schema": "p15-verifier-reference-manifest/v1",
+  "case_id": "case-01-ambient-mcm-force-constant-fit",
+  "files": [
+    {
+      "path": "verify.py",
+      "sha256": "a80add4913a2842d8747a9d06cd059fbc3f59a13034eec7247d72b25d545c0ec",
+      "bytes": 14141
+    }
+  ],
+  "tolerances": {
+    "FIT_RMS_TOL": 1.5,
+    "ALPHA_REL": 0.04,
+    "TABLE_RMS": 1.5
+  },
+  "reference_values": {
+    "mode": "fit/derivation against the provided public data",
+    "public_inputs": [
+      {
+        "path": "public_ambient_s_lb.csv",
+        "sha256": "aee7c65372f64cda1a7e27e57b7fe5240c47191093f5c3304827821be852d457",
+        "bytes": 1073
+      }
+    ],
+    "enforced_by": "tests/verify.py"
+  },
+  "test_inputs": {
+    "public_ambient_s_lb.csv": "N,omega_S_N1_cm1,omega_LB_highest_cm1,branch_S,branch_LB\n2,22.833,41.001,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n3,28.23,50.21576,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n4,30.12,53.57039,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n5,31.018,55.14622,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n6,31.514,56.00841,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n7,31.816,56.53039,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n8,32.002,56.87002,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n9,32.122,57.10326,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n16,32.516,,\"S_N,1 (highest shear; bulk limit E_2g^2)\",highest LB branch (bulk-limit interlayer breathing)\n"
+  }
+}

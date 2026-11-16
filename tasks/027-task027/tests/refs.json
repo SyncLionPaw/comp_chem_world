@@ -1,0 +1,75 @@
+{
+  "version": "1.1",
+  "case_id": "case-07-independent-saddle-point-recomputation",
+  "reference_source_kind": "trusted_author_result",
+  "source_digest": "sha256:6839b9f8f46b7488783d3f738b704fb529f37ffee44560e736c3dd0fba10c574",
+  "independent_check": "Author scalar references are derived from registered Gold bytes; the reduced runtime feasibility and lower-cost accuracy are not yet calibrated.",
+  "readiness": "BLOCKED",
+  "verification_coverage": "PARTIAL",
+  "verification_implementation": "partial",
+  "asset_hashes": {
+    "assets/Figure4/Toluene/Toluene-iBPR-DFT.log": "sha256:d2d7720643c371c07c3e34ea673ac6e70f7e4d610577241e7a7a87e368d168f1",
+    "assets/bpr_skeleton_geometries.csv": "sha256:504e3f981b84b5f46e9bbc41a15c4e57ce9bb0d1384baa75df5a8ec8ca0ca3c3",
+    "assets/ipso_energy_reference.csv": "sha256:a9224bde49cfc8fee17944238392af351fbc645dc98ed077b498b23dcb3d209b",
+    "assets/ipso_energy_reference_provenance.json": "sha256:8d7ae2cde6a0b1685159961fbc66ddb3ce00b663269377943e093ca7e4312ceb",
+    "assets/41467_2023_40675_MOESM1_ESM.docx": "sha256:52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a"
+  },
+  "observations": [
+    {
+      "name": "report_and_outputs_present",
+      "level": "L1",
+      "expected": "五类交付物齐备且可解析，C1/C2 两条通道记录及执行状态齐全；报告完成者至少申报一条 validated。单凭 L1 不构成科学通过，必须同时满足其余六项判据。",
+      "unit": "dimensionless",
+      "source_locator": "output_contract",
+      "acceptance_rule": "L1 只检查五类交付物是否齐备可解析、两通道记录与完成状态是否申报；鞍点、筛查和预算是否有效由 L2/L3 判断。"
+    },
+    {
+      "name": "native_outputs_internally_consistent",
+      "level": "L2",
+      "expected": "新算位垒须从同水平的新 BPR/TS 输出在 0.05 kcal/mol 内复算；C7H9O5、21 原子、电荷 0、多重度 2、57 振动模式，鞍点恰一个虚频，两个端点无虚频。数值噪声规则必须在测评前冻结。",
+      "unit": "kcal_per_mol",
+      "source_locator": "native outputs produced in the attempt",
+      "acceptance_rule": "同水平新输出应独立复算位垒，且分子、电荷、多重度、模式数和驻点分类一致。"
+    },
+    {
+      "name": "saddle_connects_the_claimed_pair",
+      "level": "L3",
+      "expected": "提交从本次鞍点的正负虚频位移或 IRC 到两个同水平极小点的完整原生证据；原子映射及键变化对应 BPR 与该通道指定开环产物。",
+      "unit": "dimensionless",
+      "source_locator": "geometry-only endpoint roles and new native modes/trajectories",
+      "acceptance_rule": "单虚频不够：实际虚频位移或 IRC 及随后的同水平弛豫必须把鞍点连接到映射正确的 BPR 和指定产物。"
+    },
+    {
+      "name": "budgeted_scientific_decisions",
+      "level": "L3",
+      "expected": "每个通道至少三个不同几何点有实际且可解析的能量或梯度筛查结果，纯插值或单点不算完成。失败须如实记录并诊断，但不能替代所需成功点。精修选择引用本次拓扑、能量、收敛和成本证据，解释至少一个合理替代方案，诊断所有实际失败，并预留频率及连接验证预算。",
+      "unit": "dimensionless",
+      "source_locator": "executed pilot/screening records and measured resource usage",
+      "acceptance_rule": "真正的选择来自执行结果：双通道多点筛查、方法试算、通道选择、否决方案和实际失败处理必须有证据支持。"
+    },
+    {
+      "name": "reference_comparison_and_uncertainty",
+      "level": "L3",
+      "expected": "作者 DFT+ZPE/F12+ZPE 参考由标量复算，误差不超过 0.05 kcal/mol。新算 DFT 位垒单列，不强制与论文高水平位垒相差小于 1 kcal/mol。未校准的迁移不能认证 F12 精度、误差界或全局通道排序。",
+      "unit": "kcal_per_mol",
+      "source_locator": "gold/tables/native_ibpr_cluster_energies.csv and derived_ibpr_barriers.csv",
+      "acceptance_rule": "作者参考可由公开标量复算；本次低成本 DFT、沉积 F12 与修正迁移的证据等级必须区分，避免把方法偏差隐藏在强制匹配中。"
+    },
+    {
+      "name": "new_run_provenance",
+      "level": "L3",
+      "expected": "所有搜索和验证输入、原生输出、伴随文件、哈希、时刻及独立运行凭证相符；测评环境隔离沉积鞍点坐标/模式，不得靠复制或改名充当执行。",
+      "unit": "dimensionless",
+      "source_locator": "runtime inputs/outputs, execution receipts and geometry-only public assets",
+      "acceptance_rule": "输入、原生记录、伴随文件和独立运行凭证必须一致，搜索不得使用沉积鞍点坐标或模式；改名或更改文件字节不能证明新计算。"
+    },
+    {
+      "name": "resource_envelope_respected",
+      "level": "L2",
+      "expected": "8 h 活动墙钟期限；记录失败/终止作业、并发用量及实测资源，并保留可核验的资源会计和队列区间。CPU、内存、核时和 scratch 由研究需要与集群当前政策决定，缺失独立测量须进入复核。",
+      "unit": "dimensionless",
+      "source_locator": "resource_usage.csv and runtime/scheduler measurements",
+      "acceptance_rule": "尝试期限、资源会计、并发观察与用量记录须有证据；不应用任务自定 CPU、内存、核时或 scratch 上限。缺失实测数据或来源认证仍须复核。"
+    }
+  ]
+}

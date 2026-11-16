@@ -1,0 +1,150 @@
+{
+  "schema": "case08-reference-solution-manifest/v1",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1785,
+      "sha256": "eceb955131be84e858a02ea8dd3c9ea46bc9787c97b55b98fb858a39f562a45b"
+    },
+    {
+      "path": "data/downstream_network_evidence.csv",
+      "bytes": 4514,
+      "sha256": "78935631238d6486e4a2de0a489fb3e7e26835a8398b16fdfb39e78a650efdb3"
+    },
+    {
+      "path": "data/rate_evidence.csv",
+      "bytes": 2070,
+      "sha256": "b89f2030d723b98f3930effda6e20cbaff96d88f6d1766869fc48ab1089234d4"
+    },
+    {
+      "path": "model/kinetic_screen.py",
+      "bytes": 14330,
+      "sha256": "f77cfadc73403545814cfe3379ba08345e874f3648dbba314639733a0194f43a"
+    },
+    {
+      "path": "reference_runs/baseline-g100qd/Toluene-mech-S2-R1.xml",
+      "bytes": 183572,
+      "sha256": "1e70475aa149051bc238b444921178c1d87418fdbc66da8fa9eb73a1b9a79095"
+    },
+    {
+      "path": "reference_runs/baseline-g100qd/mesmer.log",
+      "bytes": 4482,
+      "sha256": "61f6193df664d07da8cc9eaae13739c992a8add7064b89833cec376e1130a521"
+    },
+    {
+      "path": "reference_runs/baseline-g100qd/mesmer.test",
+      "bytes": 182024,
+      "sha256": "d9af2cdbfcff5ae3ee992f29f24c880c731238d7eec47f350cdc844ec4a04bb1"
+    },
+    {
+      "path": "reference_runs/baseline-g100qd/out.xml",
+      "bytes": 258211,
+      "sha256": "b9430d04dce59aa1d6212407335e6bf62313e7683a8237128412238d2f676689"
+    },
+    {
+      "path": "reference_runs/control-g200qd/Toluene-mech-S2-R1.log",
+      "bytes": 4486,
+      "sha256": "37e103317c23255222e25bcee030542a7c4744e3393c8984381976c251ea7e50"
+    },
+    {
+      "path": "reference_runs/control-g200qd/Toluene-mech-S2-R1.test",
+      "bytes": 109143,
+      "sha256": "951c904ca0072f31bd2bea6836aa1caabb6c5ad0e34daa1708408fa8991b0d74"
+    },
+    {
+      "path": "reference_runs/control-g200qd/Toluene-mech-S2-R1.xml",
+      "bytes": 183599,
+      "sha256": "4850e00664f0719829278422828dca9df8ffc9ad66e3a41de5f138c2592a79f5"
+    },
+    {
+      "path": "reference_runs/control-g200qd/mesmer_out.xml",
+      "bytes": 258213,
+      "sha256": "5616e05aa959a65a4916e9b258d8c9058d77a0fc4645f7804c2a095f47fe9eb1"
+    },
+    {
+      "path": "reference_runs/control-g200qd/run-receipt.json",
+      "bytes": 1355,
+      "sha256": "03ef214bb0d402bb3d3d82a0bd7ef4719ed564e55dd3c09f1c8ab7d177180ccc"
+    },
+    {
+      "path": "reference_runs/control-g50qd/Toluene-mech-S2-R1.log",
+      "bytes": 4489,
+      "sha256": "dee33c5d650a62f2e0e7ebcb4dc4357e15b7157af4f058e5fc6ec155644edcf7"
+    },
+    {
+      "path": "reference_runs/control-g50qd/Toluene-mech-S2-R1.test",
+      "bytes": 343150,
+      "sha256": "9c0e0c2fb398f47a44d9b55a082da13bdbafa5ea0ee57af5576b149c29aa2fa7"
+    },
+    {
+      "path": "reference_runs/control-g50qd/Toluene-mech-S2-R1.xml",
+      "bytes": 183598,
+      "sha256": "a304cdd067041b3e2fcb391a0897ffb2ee5db6158cf43a792b3f6aaa33690fb7"
+    },
+    {
+      "path": "reference_runs/control-g50qd/mesmer_out.xml",
+      "bytes": 258218,
+      "sha256": "c349e1362eaa307c636be3fdbfe05ae34d576b87bd10444935dd15dd54f6807d"
+    },
+    {
+      "path": "reference_runs/control-g50qd/run-receipt.json",
+      "bytes": 1359,
+      "sha256": "94a3f36e098242423de2e90b2a7edbb018e4152a229134916befecee63560a38"
+    },
+    {
+      "path": "solve.py",
+      "bytes": 19250,
+      "sha256": "4e41e4eb89c68a7c3a807ead32cbe92fa3637dccb56a6cbbdba064ea8e350647"
+    },
+    {
+      "path": "solve.sh",
+      "bytes": 225,
+      "sha256": "81ece5b392e33cbb08664072fa2088f4d90a45c2ac7d32ca5e03d511eac8a71d"
+    },
+    {
+      "path": "sources/41467_2023_40675_MOESM1_ESM.docx",
+      "bytes": 2276631,
+      "sha256": "52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a"
+    },
+    {
+      "path": "sources/Toluene-ipso-HR-300-mesmer_out.xml",
+      "bytes": 68686,
+      "sha256": "e919fd67260d98c5bbbf2edff3a114ce54ba336e3bdd59556856abea5f4f6516"
+    },
+    {
+      "path": "sources/acquisition-manifest.json",
+      "bytes": 3804,
+      "sha256": "15f2bcdc1ca621b4a472b295276756c5b3f2c70f5891c63800c940bcfbcd6a5f"
+    },
+    {
+      "path": "sources/article.xml",
+      "bytes": 93693,
+      "sha256": "f3feac780dbd1c0afef56e1fdf3a9ca15014f6fac6b730964775cddd6ae45057"
+    },
+    {
+      "path": "sources/correction.pdf",
+      "bytes": 334362,
+      "sha256": "ceca37fc6bf9ce017484ad4e15a285fcf7696b0fa06e3f82c7c078989b86d13b"
+    },
+    {
+      "path": "sources/rejected-retrievals.json",
+      "bytes": 813,
+      "sha256": "525434b7e5d30ed3aa66398711dada2619d36ece44b07fdcc1c75fdbbc582e3a"
+    },
+    {
+      "path": "sources/source-manifest.json",
+      "bytes": 1333,
+      "sha256": "fedc7e192953daa3ccf5596b15309a24216beac95b440a12cbf0093681421eff"
+    },
+    {
+      "path": "sources/zenodo-record-files.json",
+      "bytes": 2433,
+      "sha256": "263a5da2d6294877b49e97fa3cb0cf2ea47b1ea2812b9e12201e9f5de958bba2"
+    },
+    {
+      "path": "verify_reference.py",
+      "bytes": 5149,
+      "sha256": "9507b4b3fcdd90f32d6716bdaf84b6c0e2ffb7b1b0c97325f9828bf92ddac2ee"
+    }
+  ]
+}

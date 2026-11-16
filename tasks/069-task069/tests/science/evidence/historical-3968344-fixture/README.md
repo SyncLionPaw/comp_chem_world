@@ -1,0 +1,3 @@
+# Historical Case 08 replay fixture
+
+This fixture preserves the submission collected from historical Slurm job 3968344 for offline parser/verifier tests. It is not a current Case 08 execution result and does not authorize or imply an HPC run. The source files were copied byte-for-byte from the Bench10 authoring tree; `provenance.json` records each source/copy relative path, size, SHA-256, and the aggregate manifest hash. The fixture remains under tests/evidence and the Case 08 Agent image copies only `environment/assets/` and `submit-job.json`, so these files are not exposed as candidate inputs.

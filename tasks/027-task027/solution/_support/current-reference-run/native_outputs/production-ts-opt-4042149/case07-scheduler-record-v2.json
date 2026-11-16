@@ -1,0 +1,29 @@
+{
+  "allocation_id": "4042149",
+  "array_job": false,
+  "batch_script_sha256": "00579982ce24cbe4ea3c023334fcf9016dab38b602a787cb3b18328c45c92fb7",
+  "candidate_stage_declaration": {
+    "kind": "extension",
+    "reason": "Independent saddle-search from the actual iteration-23 exploratory NEB peak; nonstationary seed only",
+    "route": "PBE-D3BJ/def2-SVP RI standalone OptTS with fresh Hessian",
+    "stage_id": "extension:optts-after-neb:01"
+  },
+  "cpus": 8,
+  "ended_at_utc": "2026-10-25T11:10:20Z",
+  "exit_code": "0:0",
+  "job_id": "4042149",
+  "memory_gib": 16.0,
+  "p04_scheduler_record_path": "p04-scheduler-record.json",
+  "p04_scheduler_record_sha256": "27eb18917e9d4504ef20b68f81127d426a9e4aeb39eb5849d3de667cb6c63be0",
+  "p04_source_schema": "compchemworld.p04-scheduler-record/v1",
+  "peak_memory_gib": null,
+  "process_cpu_hours": 2.031111111111111,
+  "scheduler": "slurm",
+  "schema": "case07-scheduler-record/v2",
+  "scratch_gib": 0.29778022412210703,
+  "stage_id": "extension:optts-after-neb:01",
+  "started_at_utc": "2026-10-25T10:55:06Z",
+  "state": "COMPLETED",
+  "submitted_at_utc": "2026-10-25T10:55:05Z",
+  "wall_seconds": 914
+}

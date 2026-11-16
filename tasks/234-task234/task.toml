@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final/spatial_correlation_results.json", "/app/final/emergent_correlations_report.md", "/app/final/constructive_controls.json"]
+
+[task]
+name = "compchemworld/case-04-dipole-spatial-correlation"
+description = "Recompute the full spatial dipole correlation tensor of the 5x5x5 BaTiO3 cell grid from the author trajectory under the canonical estimator, run the fixed block-bootstrap contrast and finite-grid exponential fits, and compare the ambient and 30 GPa conditions with bounded, data-derived interpretation."
+
+[metadata]
+name = "case-04-dipole-spatial-correlation"
+description = "Recompute the full spatial dipole correlation tensor of the 5x5x5 BaTiO3 cell grid from the author trajectory under the canonical estimator, run the fixed block-bootstrap contrast and finite-grid exponential fits, and compare the ambient and 30 GPa conditions with bounded, data-derived interpretation."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

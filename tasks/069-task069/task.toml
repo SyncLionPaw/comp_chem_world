@@ -1,0 +1,40 @@
+schema_version = "1.4"
+
+artifacts = [{ source = "/app/submission", destination = "submission" }]
+
+[task]
+name = "compchembench/bench10-task-70"
+description = "在G4真实B/U起始构型上执行受控1fs/2fs短程远端MD，对比稳定性与水几何后决定可继续的设置。"
+
+[metadata]
+case_id = "case-08-short-md-stop-go"
+title = "短程MD数值检验与继续/停止决策"
+objective = "在G4真实B/U起始构型上执行受控1fs/2fs短程远端MD，对比稳定性与水几何后决定可继续的设置。"
+compute = { class = "remote", cpus = 8, memory_mb = 8192, nodes_max = 1, wall_seconds_target = 1800, simulation_ps_max_total = 200 }
+requirements = { software = ["GROMACS 2019.4 or validated equivalent; Python 3 for analysis"], inputs = [{ path = "environment/assets/b.gro", sha256 = "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19" }, { path = "environment/assets/u.gro", sha256 = "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479" }, { path = "environment/assets/topol.top", sha256 = "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7" }, { path = "environment/assets/NVT.mdp", sha256 = "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb" }, { path = "environment/assets/conf_template.pdb", sha256 = "71b3fd1fa0f6027449d50b8f053f272d847d96adac70802b7e7744635c203ec9" }, { path = "environment/assets/NVT-50ps-dt1fs.mdp", sha256 = "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b" }, { path = "environment/assets/NVT-50ps-dt2fs.mdp", sha256 = "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e" }, { path = "environment/assets/remote-input-provenance.json", sha256 = "56651dbc56b4b467b270307cbd3fb247498d239db09eef819cdb3d315e608eca" }] }
+outputs = ["input-audit.json", "remote-provenance.json", "runs/<B-or-U>-dt<1-or-2>fs/", "diagnostics.csv", "numerical-comparison.json", "continuation-decision.json", "scientific-rationale.md"]
+simulation_budget = { class = "remote", nodes_max = 1, cpus = 8, memory_mb = 8192, wall_seconds_target = 1800, simulation_ps_max_total = 200 }
+
+[agent]
+timeout_sec = 2400.0
+network_mode = "public"
+
+[environment]
+build_timeout_sec = 1800.0
+cpus = 8
+memory_mb = 8192
+storage_mb = 10240
+network_mode = "public"
+workdir = "/app"
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 8
+memory_mb = 8192
+storage_mb = 10240
+workdir = "/app"

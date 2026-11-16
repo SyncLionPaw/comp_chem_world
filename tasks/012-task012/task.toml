@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-12"
+description = 'At fixed Cb=0.0058 and task condition T=300 K, quantify intrinsic cleavage/emission competition for six alloys on independent C_surface and C_usf axes from sourced elastic, Fig. 2(b) fracture-energy, and Fig. 2(c) USF inputs. Produce the continuous piecewise-linear phase map, exact per-anchor-cell D=0 contours, 30/50/70 A^2 fluctuation-area sensitivity, exact classification areas, and full-domain robustness certificates. This is not a crack-tip mapping or macroscopic embrittlement prediction.'
+
+[metadata]
+task_number = 12
+name = 'task 12'
+description = 'At fixed Cb=0.0058 and task condition T=300 K, quantify intrinsic cleavage/emission competition for six alloys on independent C_surface and C_usf axes from sourced elastic, Fig. 2(b) fracture-energy, and Fig. 2(c) USF inputs. Produce the continuous piecewise-linear phase map, exact per-anchor-cell D=0 contours, 30/50/70 A^2 fluctuation-area sensitivity, exact classification areas, and full-domain robustness certificates. This is not a crack-tip mapping or macroscopic embrittlement prediction.'
+execution_class = 'local'
+task_id = "task-12"
+solution_timeout_sec = 1800
+title = '六种合金的内禀解理—发射二维竞争边界'
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[environment]
+os = "linux"
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+gpus = 0
+network_mode = "no-network"
+allow_internet = false
+

@@ -1,0 +1,19 @@
+{
+  "elapsed_seconds": 29.0,
+  "ended_at_utc": "2026-10-25T08:07:54Z",
+  "engrad_binding_note": "Exact SHA-256 of the already manifest-bound native EnGrad bytes; no raw file changed.",
+  "engrad_sha256": "91f6d26cde6066ce58fa9f07e6a99b3298f8b7bf1e619d43a97f40503ab93db5",
+  "input_sha256": "667aae397a0d792683bfb6d87586e5c75bc1262236a114b4a89baf8af5ed59fa",
+  "note": "Derived parser-format receipt; original provider receipt remains byte-identical under provider-raw/.",
+  "output_sha256": "847bf3f6bb2beb01692c8236a5f0cd66a7ad8ec1735fe9bd0227369d438e85b6",
+  "provider_job_id": "4040272",
+  "provider_receipt_sha256": "c0a1960b9f2d81761817436acc9ec69ea68caa62f5b1d49d9abc138aea0bd897",
+  "provider_stage_id": "pilot:2",
+  "returncode": 0,
+  "scheduler_elapsed_seconds": 30,
+  "scheduler_record_sha256": "1eb44076547c4fb010d71eef73363da309a4a4b19e18a66421ec14cc2d9d21d4",
+  "schema": "case07-native-stage-parser-alias/v1",
+  "start_xyz_sha256": "9f16f77c201024d45cc1ef56efbb52613361f1fe279ff7e969b278928546e5dc",
+  "started_at_utc": "2026-10-25T08:07:25Z",
+  "status": "normal"
+}

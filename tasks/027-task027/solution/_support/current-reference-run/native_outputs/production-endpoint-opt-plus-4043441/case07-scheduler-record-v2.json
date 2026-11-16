@@ -1,0 +1,29 @@
+{
+  "allocation_id": "4043441",
+  "array_job": false,
+  "batch_script_sha256": "9018dfff7a5fc715c34f1cbf4cf97b3eddc657a6c29f019ef0d66133dad9698f",
+  "candidate_stage_declaration": {
+    "kind": "extension",
+    "reason": "One bounded continuation from the last complete evaluated plus-endpoint trajectory frame (cycle 16) after the prior plus-side optimization timed out. The prior timeout and partial cycle 17 remain resource-only/raw history; no convergence is presumed.",
+    "route": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF Opt TightOpt",
+    "stage_id": "extension:endpoint-opt:plus:continuation:01"
+  },
+  "cpus": 8,
+  "ended_at_utc": "2026-10-25T13:53:34Z",
+  "exit_code": "0:0",
+  "job_id": "4043441",
+  "memory_gib": 16.0,
+  "p04_scheduler_record_path": "p04-scheduler-record.json",
+  "p04_scheduler_record_sha256": "d90ad3d35e692c04fce6423403566a5f96acd8488b7b1a407fcb16f929a4d8f3",
+  "p04_source_schema": "compchemworld.p04-scheduler-record/v1",
+  "peak_memory_gib": null,
+  "process_cpu_hours": 0.4444444444444444,
+  "scheduler": "slurm",
+  "schema": "case07-scheduler-record/v2",
+  "scratch_gib": 0.12403497472405434,
+  "stage_id": "extension:endpoint-opt:plus:continuation:01",
+  "started_at_utc": "2026-10-25T13:50:14Z",
+  "state": "COMPLETED",
+  "submitted_at_utc": "2026-10-25T13:50:13Z",
+  "wall_seconds": 200
+}

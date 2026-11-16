@@ -1,0 +1,32 @@
+{
+  "schema_version": "case01-verifier-reference/v1",
+  "input_sha256": {
+    "M_WT.top": "dceab4ec34f173f55333834419cb899b4314403c1dce94a8e7ab3e52001ddade",
+    "M_WT.rst": "8ed2817e87311600e639a98e84b00279c392a6ee9d3d51094b008ad6a0ac2228",
+    "M_V72I.top": "77ba1507782c2a6a998075408155eae3993323604a3652b843195b535edc01c3",
+    "M_V72I.rst": "cd365a05722db6e96321922d3f1f35a772a9efc233263a93a821ccea689f6209",
+    "minimisation_stage1.in": "a2d899b992b9b2fe93a16103abe4b9afe1e049d05d0ee4a73e2244a673172d3d"
+  },
+  "feature_atom_indices": {
+    "M_WT": [3559, 6214, 7826, 759, 6116],
+    "M_V72I": [3562, 6217, 7829, 759, 6119]
+  },
+  "tolerances": {
+    "dcd_coordinates_rtol": 1e-5,
+    "dcd_coordinates_atol_angstrom": 0.002,
+    "box_volume_rtol": 1e-5,
+    "box_volume_atol_nm3": 1e-4,
+    "density_rtol": 1e-5,
+    "density_atol_g_ml": 1e-5,
+    "descriptor_delta_atol_angstrom": 1e-5,
+    "descriptor_gamma_atol_degree": 1e-4,
+    "rmsf_atol_angstrom": 1e-5,
+    "df_delta_rtol": 1e-5,
+    "df_delta_atol_percent": 1e-5,
+    "zero_wt_df_threshold": 1e-15,
+    "pca_variance_rtol": 1e-5,
+    "pca_variance_atol": 1e-7,
+    "rmsip_rtol": 1e-5,
+    "rmsip_atol": 1e-7
+  }
+}

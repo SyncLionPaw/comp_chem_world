@@ -1,0 +1,32 @@
+# Harbor task config migrated from the archived Bench01 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-05-selectivity-pathway-ranking"
+description = "Five blinded review cases grounded in immutable ORCA evidence from reaction 3023: one complete two-route ranking and four evidence-quality challenges."
+
+[task]
+name = "compchemworld/case-05-selectivity-pathway-ranking"
+description = "Five blinded review cases grounded in immutable ORCA evidence from reaction 3023: one complete two-route ranking and four evidence-quality challenges."
+
+[agent]
+timeout_sec = 3600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

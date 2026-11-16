@@ -1,0 +1,48 @@
+{
+  "topology": "native/subsystem.data",
+  "rdf_subset": 2000,
+  "rdf_subset_seed": 20261027,
+  "rdf_rmax": 30.0,
+  "rdf_dr": 0.5,
+  "a2_cutoff": 12.5,
+  "conditions": {
+    "WT": {
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "trajectories": [
+        "native/wt_101.dump",
+        "native/wt_202.dump",
+        "native/wt_303.dump"
+      ],
+      "logs": [
+        "native/log_wt_101.lammps",
+        "native/log_wt_202.lammps",
+        "native/log_wt_303.lammps"
+      ],
+      "start_step": 20000,
+      "end_step": 100000
+    },
+    "A2": {
+      "seeds": [
+        101,
+        202,
+        303
+      ],
+      "trajectories": [
+        "native/a2_101.dump",
+        "native/a2_202.dump",
+        "native/a2_303.dump"
+      ],
+      "logs": [
+        "native/log_a2_101.lammps",
+        "native/log_a2_202.lammps",
+        "native/log_a2_303.lammps"
+      ],
+      "start_step": 30000,
+      "end_step": 100000
+    }
+  }
+}

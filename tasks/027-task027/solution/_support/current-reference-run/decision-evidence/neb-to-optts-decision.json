@@ -1,0 +1,47 @@
+{
+  "schema": "case07-neb-to-independent-optts-decision/v1",
+  "status": "PREPARE_BOUNDED_TRANSITION_PENDING_OWNED_TERMINAL_AND_EXACT_DRIVER_REVIEW",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "selected_channel": "C2",
+  "source_job_id": "4041353",
+  "snapshot_sha256": "1d398279ae0b740025acae1e9edfe645dbc72f2e66b735dcdb1def165ac1727b",
+  "source_trajectory_path": "acceptance/complete-07-20261025/attempt-1b4461d70eed4d1db4a1af01b86ea882/neb-01/runtime-01/raw/observation-3600/job_MEP_trj.xyz.fragment.bin",
+  "source_trajectory_sha256": "26efb510ec6c8ec50f2bc44e1f2b583445f7e39b8e55b165f529b9ecd1a71f3f",
+  "source_log_sha256": "3ae684f9441105c4114d6e784c9042bcaa7a6a5eae23a8c1b3c1fd70d51fc2c5",
+  "completed_native_iteration": 23,
+  "peak_frame_zero_based": 2,
+  "peak_energy_eh": -646.827829903924,
+  "converged_neb": false,
+  "stationary_ts": false,
+  "rationale": [
+    "Peak remains image2 across iterations5-23 and current profile is single-peaked; hydrogen transfer is represented on the subsequent downhill images.",
+    "Global projected force remains oscillatory around .03 with CI disabled. Chasing whole-path convergence is not required to use a real partial path configuration as an honest independent saddle-search guess.",
+    "Current peak C-C1-5/O-O10-11 elongated and C1-O11 contracting; neighboring frames mainly change C-C/O-O while donor O13-H14 remains near equilibrium. Choose actual ring-opening mode [1,5], not the later downhill H-transfer mode.",
+    "Independent native OptTS convergence and a new full frequency calculation, one reaction imaginary mode and both signed-mode endpoints remain mandatory. The NEB itself supplies no TS/science credit."
+  ],
+  "transition_control": "Only exact owned job4041353 cancellation and terminal confirmation may precede new8CPUjob; preserve cancelled run actual scheduler CPU seconds/all raw/known artifacts. No concurrent new job and no retry/reset.",
+  "independent_optts": {
+    "method_profile": "pbe-d3bj-def2-svp",
+    "ts_mode_bond": [
+      1,
+      5
+    ],
+    "ts_active_atoms": [
+      1,
+      5,
+      10,
+      11,
+      13,
+      14
+    ],
+    "wall_seconds": 1800,
+    "cpus": 8,
+    "memory_gib": 16,
+    "scratch_gib": 20,
+    "input_renderer": "current_reference._orca_input(optts, final_profile=pbe-d3bj-def2-svp, ts_mode_bond=[1,5], ts_active_atoms=[1,5,10,11,13,14])",
+    "initial_hessian": "Fresh native Calc_Hess true per existing renderer; no old approximate Hessian or GBW reused.",
+    "seed_bytes": "Exact extracted frame2 from this iteration23 snapshot; source hash/byte offset plus distinct start.xyz binding required in final prep."
+  },
+  "same_campaign_budget": "Original07:31 anchor and cumulative actual CPU accounting continue. Admission after real terminal NEB ledger with 10800+1800 future reserve recomputed; independentOptTS draws from existing validation reserve.",
+  "not_an_execution_receipt": true
+}

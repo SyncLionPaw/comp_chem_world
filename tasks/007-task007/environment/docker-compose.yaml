@@ -1,0 +1,9 @@
+services:
+  main:
+    volumes:
+      - type: bind
+        source: ${CCB_SLURM_CONFIG:-${HOME}/.config/submit-job/config.json}
+        target: /run/ikkem-slurm/submit-job.json
+        read_only: true
+        bind:
+          create_host_path: false

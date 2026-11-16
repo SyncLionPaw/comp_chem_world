@@ -1,0 +1,10 @@
+Bench 14 case 005 coupled Poisson-Fermi solutions
+c1_pbar_m005: c=1 mM Pbar=-0.05 C/m2 zmax=1110 A nodes=17493 RMS=4.73e-07 charge_rel=1.999e-06 Omega=-0.07350183525 J/m2 stability=None runtime=4.115s
+c1_pbar_000: c=1 mM Pbar=0 C/m2 zmax=1110 A nodes=20519 RMS=1.994e-07 charge_rel=1.493e-07 Omega=-0.02395457609 J/m2 stability=None runtime=3.448s
+c1_pbar_p005: c=1 mM Pbar=0.05 C/m2 zmax=1110 A nodes=9921 RMS=3.876e-07 charge_rel=4.141e-07 Omega=0.006982025864 J/m2 stability=None runtime=2.774s
+c1_pbar_p010: c=1 mM Pbar=0.1 C/m2 zmax=1110 A nodes=8454 RMS=4.475e-07 charge_rel=2.244e-07 Omega=0.01567809578 J/m2 stability=None runtime=2.770s
+c10_pbar_m005: c=10 mM Pbar=-0.05 C/m2 zmax=350 A nodes=17635 RMS=4.797e-07 charge_rel=1.595e-06 Omega=-0.08151496835 J/m2 stability=None runtime=2.109s
+c10_pbar_000: c=10 mM Pbar=0 C/m2 zmax=350 A nodes=5929 RMS=4.961e-07 charge_rel=1.356e-07 Omega=-0.03122880813 J/m2 stability=None runtime=1.580s
+c10_pbar_p005: c=10 mM Pbar=0.05 C/m2 zmax=350 A nodes=7670 RMS=4.959e-07 charge_rel=9.172e-07 Omega=0.00106761766 J/m2 stability=None runtime=1.425s
+c10_pbar_p010: c=10 mM Pbar=0.1 C/m2 zmax=350 A nodes=5182 RMS=4.647e-07 charge_rel=9.038e-07 Omega=0.01013609318 J/m2 stability=None runtime=1.508s
+all conditions completed in 19.734s

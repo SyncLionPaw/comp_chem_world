@@ -1,0 +1,99 @@
+{
+  "case_id": "case-02",
+  "definition_sha256": "48e52ae969d4d33cb36037c51fd61762e01fb976814c6fcd83b9247e8e3f10f3",
+  "verification_implementation": "implemented",
+  "asset_hashes": {
+    "assets/16ef8decf678a00b.txt": "sha256:bd964c5fbe4286a8d1ad65275470b0382adb307c30189122666997aa8a5350a6",
+    "assets/48133b49fc839171.txt": "sha256:456834903e221d0ab32b5c5c8895797d1999543c83bc60de174f98b9a161b21b",
+    "assets/4b617d6d4ffadb89.txt": "sha256:eb7f2a08d55f88a4a958aff0641202cf88622515a160cffcdb7f7303d4445e46",
+    "assets/aac30a13e5b44287.txt": "sha256:a61e0079c25fd0729f19eee5ba690a3335d6dd5b8fcbf4ae067cc496c7d746de",
+    "assets/b7a9069a2b582f8d.txt": "sha256:b4dfbe66ad8c1d20988f39d238412bf4eb5c1048b4d6a540a20ecb2b7db42d76",
+    "assets/task08_task_spec.json": "sha256:24028a039ceae9fb9cf55d7120601376c5c804c6d1c8ee0fee544fd699e20f29",
+    "assets/cc5f00f90374dd0f.txt": "sha256:a7779cf1a13312c0acb66ee21dfdf2aca11e6c566791223ea61276111476d2c7",
+    "assets/d016b726d6fb99ac.txt": "sha256:5a8bef4e3521b7f590b238ebb02146e30580b334871c3a0d9f766e6044efa310",
+    "assets/ed4c3ccec7e9cf8f.txt": "sha256:07377c4bc560d8415067ab48cde90cf0ce0ab86566cf99a0c38e58ddd8be9e0d",
+    "assets/f227101d778b6068.txt": "sha256:5242fd3f0eafddd48d4a41b41ad9a171078b7a32750710590a97049f30d06634",
+    "assets/geometry_inputs.zip": "sha256:11819cc50ac5854f10de704fe07fb36c74bdace0379848a38149fdee959308a0",
+    "assets/native_slab_slice.csv": "sha256:d68ba233403794aa51404c4638675ed83f7abb07fc33f448dfcc0a6478b97f3f"
+  },
+  "grader_reference_hashes": {},
+  "criteria": [
+    {
+      "criterion": "native_three_coverage_inputs",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "source-hash-bound nine-row native slice, source archive audit, and original geometry inventory",
+        "rationale": "The inference is limited to three acquired alloy cohorts and requires H counts 0/20/40, 180 metal atoms and a shared two-face in-plane area within each cohort."
+      },
+      "tolerance": "Require exactly 9 native records, one per alloy and coverage; H counts 0/20/40 and 180 metals; area from |a×b|. Preserve the documented geometry join and magnetic-parent uncertainty; do not claim source-wide completion."
+    },
+    {
+      "criterion": "native_energy_contrasts",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "execution_validity",
+        "source": "Native sigma0, energy_without_entropy and TOTEN values in the bound slice",
+        "rationale": "Recompute each record-level d=E100−2E50+E0 and area normalization from the native rows."
+      },
+      "tolerance": "All 18 convention×correction groups must be recomputed from the 9 rows. Energy display-rounding propagation is 2e−8 eV for d; the conditional −0.06 J/m² scenario is separate from that bound."
+    },
+    {
+      "criterion": "analytic_three_state_coverage_hull",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Obtained native E0/E50/E100 with H counts 0/20/40 and the frozen grand-potential model",
+        "rationale": "The three affine grand potentials determine every full-real-domain stable interval and coexistence tie analytically; the 401-point plot cannot certify complete boundaries."
+      },
+      "tolerance": "Independently recompute all 18 convention/correction groups. d>0: coverage 50 stable on [−d/40,d/40] with ties at both endpoints; d<0: 0/100 coexist at 0; d=0: all three are collinear candidates tied at 0. Include exact lower-hull segments, inclusive finite endpoints and unbounded domains. Scope is a zero-temperature three-candidate energetic hull, not continuous thermodynamic equilibrium."
+    },
+    {
+      "criterion": "conditional_softening_thresholds",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Native candidate grand-potential differences and exact algebra in the declared hydrogen-reservoir coordinate",
+        "rationale": "Surface-excess changes are identifiable as conditions on unknown mu_tilde; stable coverage does not itself establish hydrogen-induced softening."
+      },
+      "tolerance": "Recompute: 0→50 decreases iff mu_tilde>−d/40; 50→100 iff mu_tilde>d/40; both steps iff mu_tilde>|d|/40; total 0→100 iff mu_tilde>0. Equality is a zero-increment tie. Propagate native rounding 2e−8 eV to d-derived thresholds separately from the approximate source correction and unresolved geometry/magnetic effects; do not assert an actual reservoir or absolute gamma_s."
+    },
+    {
+      "criterion": "affine_reference_invariance",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Energy-count algebra for E_N→E_N+a+bN_H and matching mu_H→mu_H+b",
+        "rationale": "The curvature and grand-potential representation should be independent of arbitrary linear metal and hydrogen reference choices."
+      },
+      "tolerance": "Recompute the transformation on source records: d invariant; mu_star shifts by b; mu_tilde, Omega at each coverage, and normalized surface excess are invariant. Report actual floating-point residuals; do not hard-code zero residuals."
+    },
+    {
+      "criterion": "conditional_physical_interpretation",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Native cohort applicability limits and source correction provenance",
+        "rationale": "The output must distinguish a candidate nonlinear coverage contrast from an absolute surface free energy or same-parent causal interaction."
+      },
+      "tolerance": "State that no absolute gamma_s/gamma_E/gamma_F, actual reservoir, confirmed common magnetic parent, continuous-coverage equilibrium, configurational entropy, ZPE curvature or unique H-H interaction is inferred. Do not represent the −0.06 J/m² random-50 correction as an uncertainty band. Source boundary: partial geometry joins do not prove same-parent identity; gamma_s, gamma_E, gamma_F, finite-temperature free energies and actual reservoir stay unclaimed."
+    },
+    {
+      "criterion": "actual_computation",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "execution_validity",
+        "source": "Local source and reproducible numerical outputs",
+        "rationale": "The contrasts, hulls and thresholds must be computed from source rows, not copied from the hidden reference."
+      },
+      "tolerance": "Run the local solver and independently reproduce the declared output row counts: 18 contrast rows, 21,654 grid surface rows, 18 hull groups and 72 thresholds."
+    }
+  ]
+}

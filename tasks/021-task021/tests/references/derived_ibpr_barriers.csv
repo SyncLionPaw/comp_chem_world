@@ -1,0 +1,5 @@
+species,reference,dft_zero_point,dft_electronic,dft_gibbs,f12_only,f12_plus_dft_zpe,published_kcal_per_mol,abs_deviation_f12_plus_dft_zpe
+C1,BPR,20.946,24.080,20.567,21.972,18.838,18.8,0.038
+C2,BPR,20.352,23.844,19.994,21.391,17.899,17.9,0.001
+P-C1,BPR,-55.365,-52.925,-58.318,-49.309,-51.748,-51.7,0.048
+P-C2,BPR,-52.626,-49.923,-55.379,-46.675,-49.378,-49.4,0.022

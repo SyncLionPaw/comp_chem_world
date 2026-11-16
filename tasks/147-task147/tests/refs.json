@@ -1,0 +1,14 @@
+{
+  "schema": "bench22-inputs/v1",
+  "inputs": {
+    "benchmark.json": "f82ae678765607ab1e3a10a3ac1518d6c9f13e58829cd49f33b0a04d63be5605"
+  },
+  "acceptance": {
+    "max_abs_gradient_hartree_per_bohr": 0.0001,
+    "max_entry_antisymmetry_ratio": 0.0001,
+    "frobenius_antisymmetry_ratio": 0.0001,
+    "max_frequency_spectrum_delta_cm-1": 0.1,
+    "geometry_match_angstrom": 1e-09,
+    "frequency_match_cm-1": 0.01
+  }
+}

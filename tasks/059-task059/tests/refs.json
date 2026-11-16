@@ -1,0 +1,67 @@
+{
+  "case_id": "case-05-first-principles-inputs",
+  "criteria": [
+    {
+      "criterion": "native_generation",
+      "description": "原生输入/输出建立结构、电子态、响应和应变能带计算链，不以照抄 SI 数值证明执行。",
+      "level": "L2",
+      "necessary": true
+    },
+    {
+      "criterion": "physical_tensors",
+      "description": "弹性稳定性、对称性、正介电响应与 static-high 的物理顺序必须符合所用近似；形变势须同能量基准。",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "rationale": "弹性稳定性、对称性、正介电响应与 static-high 的物理顺序必须符合所用近似；形变势须同能量基准。",
+        "source": "docs/41467_2021_22440_MOESM1_ESM.pdf Methods C; Table4",
+        "type": "scientific_constraint"
+      }
+    },
+    {
+      "criterion": "applicable_numerical_reference",
+      "description": "Use the native parameter-reference family declared below for applicable comparisons, limited to its stated structures, methods, observables, source settings, and tolerances; this does not assert completion of every scientific question in Case05.",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "rationale": "Scientific comparisons are tied to source-bound native runs, method identity, structure, observables, and the finite reference domain and tolerances declared in the shared component reference.",
+        "source": "tests/verify.py (inlined Case05 component-reference calculation)",
+        "type": "scientific_reference_family"
+      }
+    }
+  ],
+  "evidence_documents": {
+    "literature/paper.pdf": {
+      "doi": "10.1038/s41467-021-22440-7",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0",
+      "source_path": "environment/assets/literature/paper.pdf",
+      "title": "Efficient calculation of carrier scattering rates from first principles"
+    },
+    "literature/supplementary.pdf": {
+      "doi": "10.1038/s41467-021-22440-7",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0",
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "title": "Efficient calculation of carrier scattering rates from first principles"
+    }
+  },
+  "pbe_gap_convergence_contract": {
+    "direct_quantity": "pbe_direct_gap",
+    "fundamental_quantity": "pbe_bandgap",
+    "native_report_match_tolerance_eV": 0.0003,
+    "native_source_members": [
+      "OUTCAR",
+      "vasprun.xml"
+    ],
+    "setting_drift_tolerance_eV": 0.03
+  },
+  "public_input_hashes": {
+    "author/inputs/GaAs.POSCAR": "5ee56495ec8c7888bfa8e324ae8276eed5cb23bf2d497b1c3e5e42add722fc72",
+    "author/inputs/methods-context.md": "01ec86aa4b4bf5c232f7070b44a3282074be3f3b1f06c55fd2041a42613eda78"
+  },
+  "schema": "case05.reference-contract/v2",
+  "source_family_contract": {
+    "component_reference": "tests/verify.py#candidate-component-reference-v1",
+    "numeric_values_in_refs": false,
+    "schema": "case05.native-parameter-reference-family/v1"
+  }
+}

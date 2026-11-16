@@ -1,0 +1,30 @@
+schema_version = "1.4"
+artifacts = ["/app/outputs"]
+
+[task]
+name = "compchemworld/bench24-task-161"
+description = "How transferable is a unified Si–O interatomic model?"
+
+[metadata]
+task_number = 161
+holy_grail = true
+research_mode = "auto_research"
+execution_class = "remote"
+
+[agent]
+network_mode = "public"
+timeout_sec = 43200
+
+[environment]
+network_mode = "public"
+cpus = 2
+memory_mb = 8192
+build_timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[verifier.environment]
+network_mode = "no-network"

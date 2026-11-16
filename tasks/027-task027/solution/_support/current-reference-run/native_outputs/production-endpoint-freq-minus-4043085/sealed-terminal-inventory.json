@@ -1,0 +1,145 @@
+{
+  "full_remote_inventory": [
+    {
+      "bytes": 2902,
+      "path": "job.bibtex",
+      "sha256": "e7b2d19511e02fbd41b666c8237b22e02eca3762afa93042e4f6f3ecaf581390"
+    },
+    {
+      "bytes": 1451808,
+      "path": "job.densities",
+      "sha256": "004e12bb4f51a15f98f0323430e495b55906d25d7d695b7f1b81cba9c105bdab"
+    },
+    {
+      "bytes": 3160,
+      "path": "job.densitiesinfo",
+      "sha256": "19d45091c264e0592cdb79d3865cdf60273dc9d020be76b58d3a121671786c95"
+    },
+    {
+      "bytes": 1813372,
+      "path": "job.gbw",
+      "sha256": "e9e7d4a646820641d7de6bfdc88e5ebed5ec76e9ba59e51ed2f15ac7398ec05e"
+    },
+    {
+      "bytes": 180961,
+      "path": "job.hess",
+      "sha256": "cce2c7c786733ba03ea5931d66f5ad53ffc8d6af51615b2de2a95c86fc097c97"
+    },
+    {
+      "bytes": 216,
+      "path": "job.inp",
+      "sha256": "7cdabe03da5061097d8b9a7f3fa3caa4963bc752af0212dc6da8596b40003716"
+    },
+    {
+      "bytes": 312350,
+      "path": "job.property.txt",
+      "sha256": "e1f0ed739529ab8a26123d94b0992611e624b0daec4c969129fea0a14f05d7ce"
+    },
+    {
+      "bytes": 2043,
+      "path": "job.sbatch",
+      "sha256": "a900eb76a82e4a770e32c7316bc62a55e6ad0b0a09d6480f3bacc2332610dc70"
+    },
+    {
+      "bytes": 221,
+      "path": "native-stage-receipt.json",
+      "sha256": "e746516611c1196c9dfaac6a2e34a0b09201c07e083347c6dc6f6b2837b47050"
+    },
+    {
+      "bytes": 2,
+      "path": "native.exitcode",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 0,
+      "path": "orca.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 157001,
+      "path": "orca.stdout",
+      "sha256": "2be965332c9f9b786864f820a1ad7c778fc6cef0f1f594bddfa236b5df20d14d"
+    },
+    {
+      "bytes": 2995,
+      "path": "p04-scheduler-record.json",
+      "sha256": "403d0800786e742b7fd58b7ab1558959cd054308f8368cb259602c0e1cc2ec3c"
+    },
+    {
+      "bytes": 64,
+      "path": "slurm-4043085.err",
+      "sha256": "2804f173dae0ebba12034a4a14f0b05a3dcd0e06c8e44464cecfb431b2887f90"
+    },
+    {
+      "bytes": 0,
+      "path": "slurm-4043085.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1628,
+      "path": "start.xyz",
+      "sha256": "51c3e2b02adee59ded6f2c1e12b836bcbffe7572cdc51032b7c4d79e0ca5d82e"
+    }
+  ],
+  "job_id": "4043085",
+  "locally_downloaded_files": [
+    {
+      "bytes": 180961,
+      "path": "job.hess",
+      "sha256": "cce2c7c786733ba03ea5931d66f5ad53ffc8d6af51615b2de2a95c86fc097c97"
+    },
+    {
+      "bytes": 216,
+      "path": "job.inp",
+      "sha256": "7cdabe03da5061097d8b9a7f3fa3caa4963bc752af0212dc6da8596b40003716"
+    },
+    {
+      "bytes": 2043,
+      "path": "job.sbatch",
+      "sha256": "a900eb76a82e4a770e32c7316bc62a55e6ad0b0a09d6480f3bacc2332610dc70"
+    },
+    {
+      "bytes": 221,
+      "path": "native-stage-receipt.json",
+      "sha256": "e746516611c1196c9dfaac6a2e34a0b09201c07e083347c6dc6f6b2837b47050"
+    },
+    {
+      "bytes": 2,
+      "path": "native.exitcode",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 0,
+      "path": "orca.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 157001,
+      "path": "orca.stdout",
+      "sha256": "2be965332c9f9b786864f820a1ad7c778fc6cef0f1f594bddfa236b5df20d14d"
+    },
+    {
+      "bytes": 64,
+      "path": "slurm-4043085.err",
+      "sha256": "2804f173dae0ebba12034a4a14f0b05a3dcd0e06c8e44464cecfb431b2887f90"
+    },
+    {
+      "bytes": 0,
+      "path": "slurm-4043085.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1628,
+      "path": "start.xyz",
+      "sha256": "51c3e2b02adee59ded6f2c1e12b836bcbffe7572cdc51032b7c4d79e0ca5d82e"
+    },
+    {
+      "bytes": 2995,
+      "path": "p04-scheduler-record.json",
+      "sha256": "403d0800786e742b7fd58b7ab1558959cd054308f8368cb259602c0e1cc2ec3c",
+      "source": "canonical local ledger; sealed inventory hash matched"
+    }
+  ],
+  "omitted_files_remain_remote_with_sealed_hashes": true,
+  "stage_id": "extension:endpoint-frequency:minus:01"
+}

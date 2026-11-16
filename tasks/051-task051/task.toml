@@ -1,0 +1,34 @@
+# Native Harbor task configuration; original Bench08 definition preserved in metadata.
+schema_version = "1.4"
+artifacts = [
+  "/app/submission.py",
+]
+
+[metadata]
+name = "bench08/task-51-archived-ala2-nn-ves-reconstruction"
+description = "Reconstruct the pinned archived Ala2 NN-VES network, angular derivatives and Cartesian bias force, then independently analyze the three finite historical trajectories and static VES reweighting. Report the forced freeze and scientific evidence limits accurately."
+
+[task]
+name = "bench08/task-51-archived-ala2-nn-ves-reconstruction"
+description = "Reconstruct the pinned archived Ala2 NN-VES network, angular derivatives and Cartesian bias force, then independently analyze the three finite historical trajectories and static VES reweighting. Report the forced freeze and scientific evidence limits accurately."
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 180
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 1
+memory_mb = 896
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 896
+build_timeout_sec = 1800
+network_mode = "no-network"

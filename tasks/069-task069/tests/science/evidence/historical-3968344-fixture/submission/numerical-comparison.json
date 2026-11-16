@@ -1,0 +1,790 @@
+{
+  "schema": "case08-numerical-comparison/v1",
+  "statistics": {
+    "by_run_and_timeblock": {
+      "B-dt1fs": {
+        "full-0-50ps": {
+          "Temperature": {
+            "n": 500,
+            "mean": 299.4586426960001,
+            "sd_population": 3.9462719275685085
+          },
+          "Potential": {
+            "n": 500,
+            "mean": -90214.57176561005,
+            "sd_population": 296.56168424866104
+          },
+          "Kinetic En.": {
+            "n": 500,
+            "mean": 16246.19091602001,
+            "sd_population": 214.0926215359759
+          },
+          "Total Energy": {
+            "n": 500,
+            "mean": -73968.38092186602,
+            "sd_population": 387.08467807853566
+          },
+          "Conserved En.": {
+            "n": 500,
+            "mean": -73657.72020313199,
+            "sd_population": 4.7207304188524
+          },
+          "Constr. rmsd": {
+            "n": 500,
+            "mean": 5.715999999999972e-06,
+            "sd_population": 8.940604006441622e-07
+          },
+          "T-OCB": {
+            "n": 500,
+            "mean": 297.3069815199998,
+            "sd_population": 21.600660221894692
+          },
+          "T-MOL": {
+            "n": 500,
+            "mean": 291.058065602,
+            "sd_population": 58.0771253822054
+          },
+          "T-Water_and_ions": {
+            "n": 500,
+            "mean": 299.55796416600026,
+            "sd_population": 3.6952816179192105
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "0-25ps": {
+          "Temperature": {
+            "n": 250,
+            "mean": 300.0208366719999,
+            "sd_population": 4.058475562484218
+          },
+          "Potential": {
+            "n": 250,
+            "mean": -90161.17156250401,
+            "sd_population": 288.28553525355835
+          },
+          "Kinetic En.": {
+            "n": 250,
+            "mean": 16276.690910152014,
+            "sd_population": 220.17989258736696
+          },
+          "Total Energy": {
+            "n": 250,
+            "mean": -73884.48062497603,
+            "sd_population": 371.4855509626205
+          },
+          "Conserved En.": {
+            "n": 250,
+            "mean": -73661.70131250798,
+            "sd_population": 2.4416355351544343
+          },
+          "Constr. rmsd": {
+            "n": 250,
+            "mean": 5.739999999999999e-06,
+            "sd_population": 9.425497334358541e-07
+          },
+          "T-OCB": {
+            "n": 250,
+            "mean": 298.168509632,
+            "sd_population": 22.09557617145432
+          },
+          "T-MOL": {
+            "n": 250,
+            "mean": 297.01307412800014,
+            "sd_population": 57.98169818392985
+          },
+          "T-Water_and_ions": {
+            "n": 250,
+            "mean": 300.08827647600015,
+            "sd_population": 3.8256723481162354
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "25-50ps": {
+          "Temperature": {
+            "n": 251,
+            "mean": 298.9016302828683,
+            "sd_population": 3.74079417515026
+          },
+          "Potential": {
+            "n": 251,
+            "mean": -90267.78812870121,
+            "sd_population": 294.52919246300627
+          },
+          "Kinetic En.": {
+            "n": 251,
+            "mean": 16215.972033752993,
+            "sd_population": 202.9450787344067
+          },
+          "Total Energy": {
+            "n": 251,
+            "mean": -74051.81626619122,
+            "sd_population": 383.47764313904025
+          },
+          "Conserved En.": {
+            "n": 251,
+            "mean": -73653.72145792433,
+            "sd_population": 2.6383265823113167
+          },
+          "Constr. rmsd": {
+            "n": 251,
+            "mean": 5.693227091633464e-06,
+            "sd_population": 8.406468910555383e-07
+          },
+          "T-OCB": {
+            "n": 251,
+            "mean": 296.53301276494034,
+            "sd_population": 21.06247638719401
+          },
+          "T-MOL": {
+            "n": 251,
+            "mean": 285.29330876892413,
+            "sd_population": 57.52349710712209
+          },
+          "T-Water_and_ions": {
+            "n": 251,
+            "mean": 299.02961505976083,
+            "sd_population": 3.4734262480818967
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        }
+      },
+      "B-dt2fs": {
+        "full-0-50ps": {
+          "Temperature": {
+            "n": 500,
+            "mean": 300.46210003399943,
+            "sd_population": 4.243536155601857
+          },
+          "Potential": {
+            "n": 500,
+            "mean": -90153.20906251598,
+            "sd_population": 283.3850170425554
+          },
+          "Kinetic En.": {
+            "n": 500,
+            "mean": 16300.630410131991,
+            "sd_population": 230.21981372164052
+          },
+          "Total Energy": {
+            "n": 500,
+            "mean": -73852.57865621606,
+            "sd_population": 379.1772283030139
+          },
+          "Conserved En.": {
+            "n": 500,
+            "mean": -73513.33703122604,
+            "sd_population": 12.124983827380278
+          },
+          "Constr. rmsd": {
+            "n": 500,
+            "mean": 2.248199999999997e-05,
+            "sd_population": 3.3659584073484923e-06
+          },
+          "T-OCB": {
+            "n": 500,
+            "mean": 302.98709268799973,
+            "sd_population": 21.568394360856086
+          },
+          "T-MOL": {
+            "n": 500,
+            "mean": 307.00544429800004,
+            "sd_population": 57.77711389895127
+          },
+          "T-Water_and_ions": {
+            "n": 500,
+            "mean": 300.35973646199994,
+            "sd_population": 3.9388562051144054
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "0-25ps": {
+          "Temperature": {
+            "n": 250,
+            "mean": 300.78184230399967,
+            "sd_population": 3.913363347341124
+          },
+          "Potential": {
+            "n": 250,
+            "mean": -90141.87268754395,
+            "sd_population": 279.97205217818885
+          },
+          "Kinetic En.": {
+            "n": 250,
+            "mean": 16317.97705074399,
+            "sd_population": 212.307306294096
+          },
+          "Total Energy": {
+            "n": 250,
+            "mean": -73823.89568748005,
+            "sd_population": 342.938872196227
+          },
+          "Conserved En.": {
+            "n": 250,
+            "mean": -73504.26484372403,
+            "sd_population": 5.701080867678406
+          },
+          "Constr. rmsd": {
+            "n": 250,
+            "mean": 2.2563999999999993e-05,
+            "sd_population": 3.289666244469186e-06
+          },
+          "T-OCB": {
+            "n": 250,
+            "mean": 303.7347308799999,
+            "sd_population": 19.99918614307074
+          },
+          "T-MOL": {
+            "n": 250,
+            "mean": 310.57242193600007,
+            "sd_population": 55.836695800936056
+          },
+          "T-Water_and_ions": {
+            "n": 250,
+            "mean": 300.65298500800003,
+            "sd_population": 3.66839640687608
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "25-50ps": {
+          "Temperature": {
+            "n": 251,
+            "mean": 300.13058347808743,
+            "sd_population": 4.522091894975899
+          },
+          "Potential": {
+            "n": 251,
+            "mean": -90164.76045815543,
+            "sd_population": 285.7581717944195
+          },
+          "Kinetic En.": {
+            "n": 251,
+            "mean": 16282.64499033865,
+            "sd_population": 245.33199479876777
+          },
+          "Total Energy": {
+            "n": 251,
+            "mean": -73882.11541329882,
+            "sd_population": 409.64615605424285
+          },
+          "Conserved En.": {
+            "n": 251,
+            "mean": -73522.49561128285,
+            "sd_population": 9.919614783532026
+          },
+          "Constr. rmsd": {
+            "n": 251,
+            "mean": 2.241832669322709e-05,
+            "sd_population": 3.4439598359212704e-06
+          },
+          "T-OCB": {
+            "n": 251,
+            "mean": 302.2205256414343,
+            "sd_population": 22.962723824427506
+          },
+          "T-MOL": {
+            "n": 251,
+            "mean": 303.3156812310759,
+            "sd_population": 59.354014771128206
+          },
+          "T-Water_and_ions": {
+            "n": 251,
+            "mean": 300.05539913147413,
+            "sd_population": 4.166709991084265
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        }
+      },
+      "U-dt1fs": {
+        "full-0-50ps": {
+          "Temperature": {
+            "n": 500,
+            "mean": 299.9139994439998,
+            "sd_population": 4.144062380403732
+          },
+          "Potential": {
+            "n": 500,
+            "mean": -90200.58600001199,
+            "sd_population": 293.60221482864483
+          },
+          "Kinetic En.": {
+            "n": 500,
+            "mean": 16270.894919936003,
+            "sd_population": 224.8231344402729
+          },
+          "Total Energy": {
+            "n": 500,
+            "mean": -73929.691031254,
+            "sd_population": 403.36342887768456
+          },
+          "Conserved En.": {
+            "n": 500,
+            "mean": -73610.99890627997,
+            "sd_population": 1.959702331648371
+          },
+          "Constr. rmsd": {
+            "n": 500,
+            "mean": 5.323999999999984e-06,
+            "sd_population": 9.268354762308142e-07
+          },
+          "T-OCB": {
+            "n": 500,
+            "mean": 298.799039214,
+            "sd_population": 22.560798915535692
+          },
+          "T-MOL": {
+            "n": 500,
+            "mean": 297.6895133319998,
+            "sd_population": 58.7529781183375
+          },
+          "T-Water_and_ions": {
+            "n": 500,
+            "mean": 299.9563662820003,
+            "sd_population": 3.8414379840051525
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "0-25ps": {
+          "Temperature": {
+            "n": 250,
+            "mean": 300.28269237200004,
+            "sd_population": 4.397889238184457
+          },
+          "Potential": {
+            "n": 250,
+            "mean": -90211.79665623602,
+            "sd_population": 293.6157608560887
+          },
+          "Kinetic En.": {
+            "n": 250,
+            "mean": 16290.897167988001,
+            "sd_population": 238.59375225048885
+          },
+          "Total Energy": {
+            "n": 250,
+            "mean": -73920.89934378395,
+            "sd_population": 416.7890377015244
+          },
+          "Conserved En.": {
+            "n": 250,
+            "mean": -73611.46656253198,
+            "sd_population": 2.2977214132260633
+          },
+          "Constr. rmsd": {
+            "n": 250,
+            "mean": 5.340000000000008e-06,
+            "sd_population": 9.340235543068493e-07
+          },
+          "T-OCB": {
+            "n": 250,
+            "mean": 297.5142343520001,
+            "sd_population": 22.623321071050945
+          },
+          "T-MOL": {
+            "n": 250,
+            "mean": 297.92901878799995,
+            "sd_population": 60.33479761646575
+          },
+          "T-Water_and_ions": {
+            "n": 250,
+            "mean": 300.3743244640002,
+            "sd_population": 4.05013335859069
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "25-50ps": {
+          "Temperature": {
+            "n": 251,
+            "mean": 299.55216511553783,
+            "sd_population": 3.832266872682632
+          },
+          "Potential": {
+            "n": 251,
+            "mean": -90187.51313499999,
+            "sd_population": 294.0535693763476
+          },
+          "Kinetic En.": {
+            "n": 251,
+            "mean": 16251.264769055773,
+            "sd_population": 207.90761247050693
+          },
+          "Total Energy": {
+            "n": 251,
+            "mean": -73936.2484125737,
+            "sd_population": 390.1034763429926
+          },
+          "Conserved En.": {
+            "n": 251,
+            "mean": -73610.53109440235,
+            "sd_population": 1.3986134651936453
+          },
+          "Constr. rmsd": {
+            "n": 251,
+            "mean": 5.3107569721115596e-06,
+            "sd_population": 9.185146422941553e-07
+          },
+          "T-OCB": {
+            "n": 251,
+            "mean": 300.21476613944213,
+            "sd_population": 22.475428799592773
+          },
+          "T-MOL": {
+            "n": 251,
+            "mean": 297.42891465338636,
+            "sd_population": 57.01343608971463
+          },
+          "T-Water_and_ions": {
+            "n": 251,
+            "mean": 299.5417312868523,
+            "sd_population": 3.5654251044340266
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        }
+      },
+      "U-dt2fs": {
+        "full-0-50ps": {
+          "Temperature": {
+            "n": 500,
+            "mean": 299.82442945800034,
+            "sd_population": 3.802056387469166
+          },
+          "Potential": {
+            "n": 500,
+            "mean": -90180.80362500397,
+            "sd_population": 277.7357562758484
+          },
+          "Kinetic En.": {
+            "n": 500,
+            "mean": 16266.035503930005,
+            "sd_population": 206.2686907290164
+          },
+          "Total Energy": {
+            "n": 500,
+            "mean": -73914.76807813997,
+            "sd_population": 367.67001215310654
+          },
+          "Conserved En.": {
+            "n": 500,
+            "mean": -73491.94998439198,
+            "sd_population": 18.862802171421084
+          },
+          "Constr. rmsd": {
+            "n": 500,
+            "mean": 2.1197999999999996e-05,
+            "sd_population": 3.5098142400987545e-06
+          },
+          "T-OCB": {
+            "n": 500,
+            "mean": 298.4769113779996,
+            "sd_population": 21.111377764527365
+          },
+          "T-MOL": {
+            "n": 500,
+            "mean": 302.3836343320002,
+            "sd_population": 55.21491604501767
+          },
+          "T-Water_and_ions": {
+            "n": 500,
+            "mean": 299.8531900719998,
+            "sd_population": 3.598758755997947
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "0-25ps": {
+          "Temperature": {
+            "n": 250,
+            "mean": 299.59892140799974,
+            "sd_population": 3.9008048244754123
+          },
+          "Potential": {
+            "n": 250,
+            "mean": -90195.53656251193,
+            "sd_population": 284.93874793219027
+          },
+          "Kinetic En.": {
+            "n": 250,
+            "mean": 16253.801234375998,
+            "sd_population": 211.62601576950397
+          },
+          "Total Energy": {
+            "n": 250,
+            "mean": -73941.73512500002,
+            "sd_population": 372.83036941089495
+          },
+          "Conserved En.": {
+            "n": 250,
+            "mean": -73475.90996876,
+            "sd_population": 10.025765678452926
+          },
+          "Constr. rmsd": {
+            "n": 250,
+            "mean": 2.1451999999999997e-05,
+            "sd_population": 3.347789718605396e-06
+          },
+          "T-OCB": {
+            "n": 250,
+            "mean": 296.88828235999983,
+            "sd_population": 20.52562601772293
+          },
+          "T-MOL": {
+            "n": 250,
+            "mean": 298.50073137600026,
+            "sd_population": 54.127569518169445
+          },
+          "T-Water_and_ions": {
+            "n": 250,
+            "mean": 299.68348108400005,
+            "sd_population": 3.740578220671617
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        },
+        "25-50ps": {
+          "Temperature": {
+            "n": 251,
+            "mean": 300.04394337450185,
+            "sd_population": 3.68077511186811
+          },
+          "Potential": {
+            "n": 251,
+            "mean": -90166.50015562547,
+            "sd_population": 269.08504191454176
+          },
+          "Kinetic En.": {
+            "n": 251,
+            "mean": 16277.944581095615,
+            "sd_population": 199.68891037151894
+          },
+          "Total Energy": {
+            "n": 251,
+            "mean": -73888.5556835458,
+            "sd_population": 359.9032802180868
+          },
+          "Conserved En.": {
+            "n": 251,
+            "mean": -73508.06010336253,
+            "sd_population": 9.867850184082172
+          },
+          "Constr. rmsd": {
+            "n": 251,
+            "mean": 2.0940239043824685e-05,
+            "sd_population": 3.640248440395008e-06
+          },
+          "T-OCB": {
+            "n": 251,
+            "mean": 300.0007573386454,
+            "sd_population": 21.54595622283725
+          },
+          "T-MOL": {
+            "n": 251,
+            "mean": 306.1552095418325,
+            "sd_population": 55.928749455108495
+          },
+          "T-Water_and_ions": {
+            "n": 251,
+            "mean": 300.0190873585658,
+            "sd_population": 3.436424334792456
+          },
+          "Box-X": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Y": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          },
+          "Box-Z": {
+            "n": 0,
+            "mean": null,
+            "sd_population": null
+          }
+        }
+      }
+    }
+  },
+  "paired_parameter_diff": {
+    "B": {
+      "same_coordinate_input": true,
+      "same_velocity_seed_expected": 20261003,
+      "velocity_vector_hashes": {
+        "dt1fs": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6",
+        "dt2fs": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6"
+      }
+    },
+    "U": {
+      "same_coordinate_input": true,
+      "same_velocity_seed_expected": 20261003,
+      "velocity_vector_hashes": {
+        "dt1fs": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6",
+        "dt2fs": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6"
+      }
+    }
+  },
+  "warning_counts": {
+    "B-dt1fs": 0,
+    "B-dt2fs": 0,
+    "U-dt1fs": 0,
+    "U-dt2fs": 0
+  },
+  "geometry_method": "PBC minimum-image O-H/H-H and H-O-H angle for first 20 WAT molecules in each GROMACS sampled GRO frame; frame time read from native GRO title.",
+  "limitations": [
+    "Short NVT probes do not demonstrate equilibration, free energy, kinetics, or production readiness.",
+    "NVT total energy is not required to be conserved; finite thermostat temperature is interpreted as a trace, not against a universal cutoff.",
+    "Water geometry follows the same first 20 topology-ordered waters for each sampled frame and is a diagnostic only."
+  ],
+  "postprocess_warning_method": "Independent whole-word event matching over native md.log and mdrun.console.log; does not count the GROMACS parameter name lincs-warnangle or nwall."
+}

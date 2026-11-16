@@ -1,0 +1,23 @@
+{
+  "variant": "R1-O2-g50-qd-control",
+  "returncode": 0,
+  "wall_s": 805.801,
+  "peak_process_tree_rss_bytes": 319094784,
+  "cpu_limit_s": 900,
+  "aggregate_rss_cap_bytes": 2147483648,
+  "file_size_cap_bytes": 134217728,
+  "input_sha256": "a304cdd067041b3e2fcb391a0897ffb2ee5db6158cf43a792b3f6aaa33690fb7",
+  "source_input_sha256": "1e70475aa149051bc238b444921178c1d87418fdbc66da8fa9eb73a1b9a79095",
+  "executable_sha256": "10c9ba30534310b68652bb6b98e9bb2377f410c5853848e956ee256713f8920b",
+  "architecture": "arm64",
+  "population_point_count": 161,
+  "temperatures_K": [
+    300.0
+  ],
+  "population_sum_max_abs_error": 0.0022673784380000672,
+  "minimum_population": 0.0,
+  "output_xml_sha256": "c349e1362eaa307c636be3fdbfe05ae34d576b87bd10444935dd15dd54f6807d",
+  "test_sha256": "9c0e0c2fb398f47a44d9b55a082da13bdbafa5ea0ee57af5576b149c29aa2fa7",
+  "log_sha256": "dee33c5d650a62f2e0e7ebcb4dc4357e15b7157af4f058e5fc6ec155644edcf7",
+  "stderr_stdout_tail": "\nWARNING: Chemically significant eigenvalues (CSE) not well separated from internal energy relaxation eigenvals (IEREs).\n\nThe last CSE = -6.34335e+08 and the first IERE = -6.53505e+08\n(last CSE)/(first IERE) ratio = 0.970667, which is less than an order of magnitude\n\nResults obtained from Bartis Widom eigenvalue-vector analysis may be unreliable\n -- Total time elapsed: 805 seconds.\n\n"
+}

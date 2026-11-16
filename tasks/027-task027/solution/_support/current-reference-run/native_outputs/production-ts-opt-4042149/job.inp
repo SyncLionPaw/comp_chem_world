@@ -1,0 +1,14 @@
+! UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF OptTS TightOpt
+%pal nprocs 8 end
+%maxcore 1400
+%scf
+  MaxIter 400
+end
+%geom
+  Calc_Hess true
+  MaxIter 60
+  Recalc_Hess 10
+  TS_Mode { B 1 5 } end
+  TS_Active_Atoms { 1 5 10 11 13 14 } end
+end
+* xyzfile 0 2 start.xyz

@@ -1,0 +1,89 @@
+{
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "full_remote_inventory": [
+    {
+      "bytes": 2474,
+      "path": "job.bibtex",
+      "sha256": "3129c22b5ab8cfe01c2976803a7e9a3acc2c56862c3bbb49d0759854406e5a27"
+    },
+    {
+      "bytes": 1451808,
+      "path": "job.densities",
+      "sha256": "6ebbbeb878cbace47b8afbe9cccac3fbd5bd6f6f0e0cfdb641408bd73f6d8476"
+    },
+    {
+      "bytes": 3160,
+      "path": "job.densitiesinfo",
+      "sha256": "88def324694864f53df6927f01190455958e5cce0239fce017c0dddc78e41a6a"
+    },
+    {
+      "bytes": 2531,
+      "path": "job.engrad",
+      "sha256": "aab88ffecadaa05ec350af28af8b2a6065a532d94b4512c0fadf3dfc1ccb7423"
+    },
+    {
+      "bytes": 1813372,
+      "path": "job.gbw",
+      "sha256": "191906a1a7138e66dc262dbae49947cb69bfcb3b5142b3c3cd79a40b5508782d"
+    },
+    {
+      "bytes": 128,
+      "path": "job.inp",
+      "sha256": "ee3b1bd6f1bd54d5e3766d57ad31fdde0d02c6b699d09d126f15be1d7dab9652"
+    },
+    {
+      "bytes": 29383,
+      "path": "job.property.txt",
+      "sha256": "1f092bd535bccdab1980e167badbf0a0276fa0ac681ae3c507f2e2ee6840f75f"
+    },
+    {
+      "bytes": 1931,
+      "path": "job.sbatch",
+      "sha256": "638e7a9f6a68993e583108453565bd918c39fa31b6ce82fa09663f873a9e46a7"
+    },
+    {
+      "bytes": 195,
+      "path": "native-stage-receipt.json",
+      "sha256": "4522b5f5dbdf44179ea5d19677a93ba4cb4ed04392d2f2db82f4394a2ba7e590"
+    },
+    {
+      "bytes": 2,
+      "path": "native.exitcode",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 0,
+      "path": "orca.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 84371,
+      "path": "orca.stdout",
+      "sha256": "9d8aeb2748a1454b4053718d726afb429efd97684f007d98dff0e64a6a83c479"
+    },
+    {
+      "bytes": 2879,
+      "path": "p04-scheduler-record.json",
+      "sha256": "3a0551586743bd38ab36708a6d97e8c79d848da40a83d38ae030c40650dda577"
+    },
+    {
+      "bytes": 64,
+      "path": "slurm-4040646.err",
+      "sha256": "2804f173dae0ebba12034a4a14f0b05a3dcd0e06c8e44464cecfb431b2887f90"
+    },
+    {
+      "bytes": 0,
+      "path": "slurm-4040646.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 948,
+      "path": "start.xyz",
+      "sha256": "c9fe38309d9df8887882fc7446109cff7457afac89ffe07e2c7f31a98cd017a4"
+    }
+  ],
+  "job_id": "4040646",
+  "locally_downloaded_files": [],
+  "stage_id": "screen:C1:1",
+  "virtual_scheduler_record": true
+}

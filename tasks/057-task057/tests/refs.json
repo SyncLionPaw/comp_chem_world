@@ -1,0 +1,178 @@
+{
+  "case_id": "case-03-relaxation-model",
+  "criteria": [
+    {
+      "criterion": "deliverables",
+      "level": "L1",
+      "necessary": true,
+      "description": "所有冻结输出可解析，条件、单位和方向可追溯。"
+    },
+    {
+      "criterion": "analysis_execution",
+      "level": "L2",
+      "necessary": true,
+      "description": "提交分析脚本和执行日志，审查脚本与原始数组、输出对应关系。"
+    },
+    {
+      "criterion": "matched_model_metrics",
+      "level": "L3",
+      "necessary": true,
+      "description": "作者三模型同条件数组可独立重算；SRT=CRT*300/T，CRT lifetime=10 fs；误差以作者 AMSET 为参照而非实验。",
+      "verification_basis": {
+        "type": "author_artifact",
+        "rationale": "作者三模型同条件数组可独立重算；SRT=CRT*300/T，CRT lifetime=10 fs；误差以作者 AMSET 为参照而非实验。",
+        "source": "docs/41467_2021_22440_MOESM1_ESM.pdf Fig.8; raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility"
+      }
+    },
+    {
+      "criterion": "model_limits",
+      "level": "L3",
+      "necessary": true,
+      "description": "主文 pp.5–6 解释 SRT 改善温度依赖而不改变 300 K 值；数据未必含 300 K，不能移植论文全套 MSE=3.2/0.9。",
+      "verification_basis": {
+        "type": "paper_result",
+        "rationale": "主文 pp.5–6 解释 SRT 改善温度依赖而不改变 300 K 值；数据未必含 300 K，不能移植论文全套 MSE=3.2/0.9。",
+        "source": "author/evidence/paper.txt pp.5–6"
+      }
+    }
+  ],
+  "public_input_hashes": {
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/AMSET_transport.json": "9144fc3cbfd783981b3945e683eb71d757c226b6b8bc75e3cf3364918c929022",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/CRT_transport.json": "014bbe803501e36eaca8c1289649078a13d14558cd7371c309ae4a2d6b2db48c",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/SRT_transport.json": "5595decbd861ab7e2ce1a843ec86b6a001e315b94221df426630284c4f2a458d",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/AMSET_transport.json": "5c79e929bd18fd2adec571d20458cd14bdd0c5cf658c31850ceeacddc8fae4e7",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/CRT_transport.json": "e47e6619452332b5120b80baceb62f925b57266bed240304fe2081356c39c03c",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/SRT_transport.json": "32dba12c88261b289b7cf26dcf775cad910f992b8a61835a8f040187c8593443",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/AMSET_transport.json": "827b8d73fed98b7f84d9d96b58f5094b31265d64d5874da5dcf725560f3d143a",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/CRT_transport.json": "e66d24d9c778dd0290a47de45a5834e5d4421ac25bc617bd4bcb7be3a358fca6",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/SRT_transport.json": "fde5f45038e30c8bed9ac0cce0a82b23f7341c4340c727b4c83a1f0f2fab4f0d"
+  },
+  "reference_contract": {
+    "kind": "public-array-recomputation-v1",
+    "derivation": "decode-sha256-verified-author-arrays-and-recompute-case-specific-observables",
+    "values": "derived-from-public-inputs-not-copied-gold-arrays"
+  },
+  "numeric_tolerances": {
+    "reported_value_rtol": 1e-06,
+    "reported_value_atol": 1e-08,
+    "input_grid_rtol": 1e-12
+  },
+  "evidence_provenance": {
+    "paper": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "supplementary": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  },
+  "task_metadata": {
+    "handoff_version": "1.0",
+    "case_id": "case-03-relaxation-model",
+    "title": "常数与温度缩放弛豫时间的适用性评估",
+    "artifacts": [
+      "/app/final/results.json",
+      "/app/final/analysis.py",
+      "/app/final/run.log",
+      "/app/final/report.md"
+    ],
+    "requirements": {
+      "software": [
+        "Python >=3.11",
+        "NumPy"
+      ],
+      "inputs": [
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/AMSET_transport.json",
+          "sha256": "9144fc3cbfd783981b3945e683eb71d757c226b6b8bc75e3cf3364918c929022"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/CRT_transport.json",
+          "sha256": "014bbe803501e36eaca8c1289649078a13d14558cd7371c309ae4a2d6b2db48c"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/SRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/SRT_transport.json",
+          "sha256": "5595decbd861ab7e2ce1a843ec86b6a001e315b94221df426630284c4f2a458d"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/AMSET_transport.json",
+          "sha256": "5c79e929bd18fd2adec571d20458cd14bdd0c5cf658c31850ceeacddc8fae4e7"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/CRT_transport.json",
+          "sha256": "e47e6619452332b5120b80baceb62f925b57266bed240304fe2081356c39c03c"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/SRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/SRT_transport.json",
+          "sha256": "32dba12c88261b289b7cf26dcf775cad910f992b8a61835a8f040187c8593443"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/AMSET_transport.json",
+          "sha256": "827b8d73fed98b7f84d9d96b58f5094b31265d64d5874da5dcf725560f3d143a"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/CRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/CRT_transport.json",
+          "sha256": "e66d24d9c778dd0290a47de45a5834e5d4421ac25bc617bd4bcb7be3a358fca6"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/SRT_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/SRT_transport.json",
+          "sha256": "fde5f45038e30c8bed9ac0cce0a82b23f7341c4340c727b4c83a1f0f2fab4f0d"
+        }
+      ]
+    },
+    "verification": {
+      "implementation": "implemented",
+      "scientific_implementation": "implemented",
+      "scientific_verifier": "tests/verify.py",
+      "scoring_scope": "full",
+      "verifier": "tests/verify.py"
+    },
+    "compute": {
+      "class": "local",
+      "cpus": 2,
+      "memory_mb": 2048,
+      "network": "no-network"
+    },
+    "environment": {
+      "build_timeout_sec": 1800,
+      "cpus": 2,
+      "memory_mb": 2048,
+      "allow_internet": false
+    },
+    "agent": {
+      "timeout_sec": 1800,
+      "allow_internet": false
+    },
+    "verifier": {
+      "timeout_sec": 300,
+      "isolation": "container",
+      "extra_tmpfs": [
+        "/dev/shm:rw,exec,nosuid,nodev,size=512m"
+      ]
+    }
+  },
+  "scoring_integrity": {
+    "tests/verify.py": "ce45e9b8eee4041b484daa05a38c3ca7d8ba053079eaa2da68f632fb02760485",
+    "tests/test.sh": "8e84a4ef50048099db38b5dd71710eea4a75a43f8057a8469a6b9f1e2c5c4291"
+  },
+  "evidence_documents": {
+    "environment/assets/literature/paper.pdf": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "environment/assets/literature/supplementary.pdf": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  }
+}

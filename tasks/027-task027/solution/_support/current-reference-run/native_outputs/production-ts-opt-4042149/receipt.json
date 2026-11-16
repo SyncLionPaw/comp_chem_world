@@ -1,0 +1,18 @@
+{
+  "derived_from_actual_bytes": true,
+  "elapsed_seconds": 914,
+  "ended_at_utc": "2026-10-25T11:10:19Z",
+  "execution_outcome": null,
+  "input_sha256": "f664ddf8f3b6b219dd379472b7d4c75dacc77e0d6eb80ff0539345439903d645",
+  "output_sha256": "8a9947c1865a08278a8d37ae50227f53447b78f754051d3f7f782ec7762bc23a",
+  "provider_job_id": "4042149",
+  "provider_receipt_sha256": "5e0816b2e1beaef2af00d01f4c41c10971a8a02d85d7cbde670db1fe7bfd5789",
+  "provider_stage_id": "extension:optts-after-neb:01",
+  "returncode": 0,
+  "scheduler_elapsed_seconds": 914,
+  "scheduler_record_sha256": "27eb18917e9d4504ef20b68f81127d426a9e4aeb39eb5849d3de667cb6c63be0",
+  "schema": "case07-native-stage-parser-alias/v1",
+  "start_xyz_sha256": "2d2a755e234481c429a35a647089f235454392344482109ab44eea1a8a6cd988",
+  "started_at_utc": "2026-10-25T10:55:07Z",
+  "status": "normal"
+}

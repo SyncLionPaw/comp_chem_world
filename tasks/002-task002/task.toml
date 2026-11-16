@@ -1,0 +1,32 @@
+# Harbor task config migrated from the archived Bench01 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-02-mechanistic-feature-gain"
+description = "Assess on public released data whether a model using transition-state information improves experimental activation-barrier prediction over a declared direct computed barrier, train-only linear correction, training mean and a model without transition-state information. Use the frozen 354/89 split for the preferred scored comparison, declare and defend the protocol, and disclose that labels are public rather than blind."
+
+[task]
+name = "compchemworld/case-02-mechanistic-feature-gain"
+description = "Assess on public released data whether a model using transition-state information improves experimental activation-barrier prediction over a declared direct computed barrier, train-only linear correction, training mean and a model without transition-state information. Use the frozen 354/89 split for the preferred scored comparison, declare and defend the protocol, and disclose that labels are public rather than blind."
+
+[agent]
+timeout_sec = 14400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 600
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 600
+network_mode = "no-network"

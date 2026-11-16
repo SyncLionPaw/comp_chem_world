@@ -1,0 +1,36 @@
+schema_version = "1.4"
+artifacts = ["/app/final/native-labels.json", "/app/runs/cp2k-label-v2"]
+
+[task]
+name = "compchemworld/bench28-task-180"
+description = "Run three fresh periodic-water CP2K labels"
+
+[metadata]
+task_number = 180
+case_id = "water-periodic-seed-labels"
+execution_class = "remote"
+assessment_status = "Automatic verifier score; runner execution provenance remains unauthenticated."
+
+[agent]
+timeout_sec = 86400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+user = "root"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[environment]
+workdir = "/app"
+network_mode = "public"
+build_timeout_sec = 1800
+
+[[verifier.collect]]
+command = "python3 /usr/local/bin/bench28-remote-lifecycle.py"
+service = "main"
+timeout_sec = 600
+user = "root"

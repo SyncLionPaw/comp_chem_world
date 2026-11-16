@@ -1,0 +1,20 @@
+{
+  "schema": "case07-sol-plus-opt-review/v1",
+  "status": "PLUS_BPR_OPT_ACCEPTED_FREQUENCY_PENDING",
+  "job_id": "4043441",
+  "normal_termination": true,
+  "native_exitcode": 0,
+  "all_five_optimization_tolerances_met": true,
+  "rms_gradient": 1.02941e-05,
+  "max_gradient": 6.04721e-05,
+  "energy_au": -646.850168318121,
+  "actual_graph": "public BPR",
+  "geometry_sha256": "b3e2b8f5e98719d38198fc3b8fc7b6d6508344859ca7c76c4e65d7285e819e5b",
+  "raw_stdout_sha256": "2886ff3a6950435b86d9beed2310c6005cf4ea1e24ad34bda1cfe5a502972436",
+  "prior_chain": "4043114 TIMEOUT last complete cycle16 -> actual4043441 start; preserve resource-only failed segment",
+  "admission": "One independent AnFreq at exact converged geometry, same final method, 1800s/8CPU/16GiB/20GiB; original clock and97400CPU-s history preserved; no retry",
+  "limitations": [
+    "No independent minimum frequency yet",
+    "No final bundle/Oracle reward claimed"
+  ]
+}

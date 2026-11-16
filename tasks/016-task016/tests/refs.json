@@ -1,0 +1,440 @@
+{
+  "schema": "autosolvate-private-refs/v1",
+  "case_id": "case-03-audit",
+  "runtime": {
+    "schema": "autosolvate-scorer/v1",
+    "case_id": "case-03-audit",
+    "inputs": [
+      {
+        "path": "inputs/neutral.prmtop",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/neutral.prmtop",
+        "sha256": "80b05d9e0133ee161c2ead9e4e4c11dcfd2023efff88d544e4110a83121c2dec"
+      },
+      {
+        "path": "inputs/legacy-qmmm.nc",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/legacy-qmmm.nc",
+        "sha256": "a26550dca2d1212c8a6fc0ccf6fa87df552cab95feab36c3228e76723ea10bd6"
+      },
+      {
+        "path": "inputs/short-npt.nc",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/short-npt.nc",
+        "sha256": "518d89130a3b3e1c25ac3be59bc7e04bcbc7eb782983d95fbfd5c09620f4e511"
+      },
+      {
+        "path": "inputs/short-npt-diagnostics.csv",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/short-npt-diagnostics.csv",
+        "sha256": "d6155659029e9d00ac64ac40fc925d2ce25de0ae8da534fd3a2a5905b99e6f57"
+      },
+      {
+        "path": "inputs/native-stages.csv",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/native-stages.csv",
+        "sha256": "27a6e647f6678c72404567f5dda5b68b0dfc82f4ccaa39ed0147e08912ba9a5a"
+      },
+      {
+        "path": "inputs/provenance.json",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/provenance.json",
+        "sha256": "8ac39c1a28df958ce0b124f987850eda9f7dfe740bf0310de42971c1d049b073"
+      },
+      {
+        "path": "inputs/controls/index.json",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/controls/index.json",
+        "sha256": "f9ba8780e3f967d2386abbb102b4f8d07f1b7a28e7578fee4a462705aea1d8ea"
+      },
+      {
+        "path": "inputs/controls/series-a.csv",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/controls/series-a.csv",
+        "sha256": "8fc8823bc717da0e6e7bf15758e9c10bb66575da882cd376d123220d9de59ade"
+      },
+      {
+        "path": "inputs/controls/series-b.csv",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/controls/series-b.csv",
+        "sha256": "b877fcb4a8d8fa6729aa98af888c0374f2de3ca0bd1a6161a2e1bf57e4fc66e7"
+      },
+      {
+        "path": "inputs/controls/series-c.csv",
+        "source_path": "author-evidence/derived-inputs/case-03-audit/controls/series-c.csv",
+        "sha256": "6a5e86517c9a65edf15802013e08a97f07bff616117b51d2a054a0b66c904039"
+      }
+    ],
+    "output_paths": [
+      "audit.json",
+      "analysis.py",
+      "analysis.md"
+    ],
+    "output_types": {
+      "audit.json": "file",
+      "analysis.py": "file",
+      "analysis.md": "file"
+    },
+    "python_modules": [
+      "numpy",
+      "scipy",
+      "parmed",
+      "openmm"
+    ]
+  },
+  "tolerances": {
+    "native_and_statistical_comparison": 1e-06,
+    "constant_series_abs_threshold_native_units": 1e-12,
+    "volume_A3": 0.01,
+    "orthorhombic_angle_atol_degree": 1e-08,
+    "orthorhombic_angle_rtol": 1e-05
+  },
+  "reference": {
+    "datasets": {
+      "legacy": {
+        "frames": 100,
+        "atoms": 24003,
+        "start_time_ps": 0.05050000175833702,
+        "end_time_ps": 0.10000000149011612,
+        "duration_ps": 0.0494999997317791,
+        "interval_ps": 0.0005000000237487257,
+        "box_source": "trajectory_cell_lengths",
+        "volumes_A3": [
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324,
+          244821.71890333324
+        ],
+        "densities_g_ml": [
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723,
+          0.9778275213207723
+        ],
+        "density_statistical_inefficiency": null,
+        "effective_density_samples": 1.0,
+        "density_relative_change": 0.0,
+        "supports_ten_independent_equilibrium_clusters": false,
+        "reason_codes": [
+          "observation_too_short_for_independent_equilibrium_ensemble",
+          "constant_density_does_not_establish_uncorrelated_frames",
+          "fewer_than_ten_effective_density_observations"
+        ]
+      },
+      "short_npt": {
+        "frames": 3,
+        "atoms": 24003,
+        "start_time_ps": 16.00000000000201,
+        "end_time_ps": 18.000000000000902,
+        "duration_ps": 1.9999999999988916,
+        "interval_ps": 0.9999999999994458,
+        "box_source": "trajectory_cell_lengths",
+        "volumes_A3": [
+          266220.58085437503,
+          263426.85730802536,
+          259343.15393083903
+        ],
+        "densities_g_ml": [
+          0.8992295554027337,
+          0.9087661638115136,
+          0.923075897444272
+        ],
+        "density_statistical_inefficiency": 1.0,
+        "effective_density_samples": 3.0,
+        "density_relative_change": 0.026518636868934194,
+        "supports_ten_independent_equilibrium_clusters": false,
+        "reason_codes": [
+          "observation_too_short_for_independent_equilibrium_ensemble",
+          "fewer_than_ten_effective_density_observations",
+          "too_few_frames_for_stationarity_and_uncertainty"
+        ],
+        "temperature_mean_K": 299.2008613710575,
+        "temperature_sd_K": 3.892058030792181
+      }
+    },
+    "diagnostic_controls": {
+      "D1": {
+        "observations": 1024,
+        "declared_duration_ps": 1023.0,
+        "metadata_consistent": true,
+        "observables": {
+          "density_g_ml": {
+            "statistical_inefficiency": 1.0422470164343585,
+            "effective_observations": 982.4926182117714,
+            "block_mean_range_in_sample_sd": 0.11721719755895509,
+            "passes_declared_stationarity_screen": true
+          },
+          "temperature_K": {
+            "statistical_inefficiency": 1.0897574352546957,
+            "effective_observations": 939.6586495972592,
+            "block_mean_range_in_sample_sd": 0.15920185485576682,
+            "passes_declared_stationarity_screen": true
+          },
+          "local_solvent_coordinate_A": {
+            "statistical_inefficiency": 1.0,
+            "effective_observations": 1024.0,
+            "block_mean_range_in_sample_sd": 0.07797117727919207,
+            "passes_declared_stationarity_screen": true
+          }
+        },
+        "eligible_for_declared_observable_summary": true,
+        "establishes_molecular_equilibrium": false,
+        "verdict": "eligible_observable_summary",
+        "reason_codes": [
+          "declared_observable_summary_requirements_met"
+        ]
+      },
+      "D2": {
+        "observations": 1024,
+        "declared_duration_ps": 1023.0,
+        "metadata_consistent": true,
+        "observables": {
+          "density_g_ml": {
+            "statistical_inefficiency": 1.0422470164343585,
+            "effective_observations": 982.4926182117714,
+            "block_mean_range_in_sample_sd": 0.11721719755895509,
+            "passes_declared_stationarity_screen": true
+          },
+          "temperature_K": {
+            "statistical_inefficiency": 1.0897574352546957,
+            "effective_observations": 939.6586495972592,
+            "block_mean_range_in_sample_sd": 0.15920185485576682,
+            "passes_declared_stationarity_screen": true
+          },
+          "local_solvent_coordinate_A": {
+            "statistical_inefficiency": 353.19043603042564,
+            "effective_observations": 2.899285755041757,
+            "block_mean_range_in_sample_sd": 1.8038692893878554,
+            "passes_declared_stationarity_screen": false
+          }
+        },
+        "eligible_for_declared_observable_summary": false,
+        "establishes_molecular_equilibrium": false,
+        "verdict": "insufficient_sampling_evidence",
+        "reason_codes": [
+          "insufficient_effective_observations:local_solvent_coordinate_A",
+          "stationarity_not_supported:local_solvent_coordinate_A"
+        ]
+      },
+      "D3": {
+        "observations": 3,
+        "declared_duration_ps": 1999.9999999988922,
+        "metadata_consistent": false,
+        "observables": {
+          "density_g_ml": {
+            "statistical_inefficiency": 1.0,
+            "effective_observations": 3.0,
+            "block_mean_range_in_sample_sd": null,
+            "passes_declared_stationarity_screen": false
+          },
+          "temperature_K": {
+            "statistical_inefficiency": 1.0,
+            "effective_observations": 3.0,
+            "block_mean_range_in_sample_sd": null,
+            "passes_declared_stationarity_screen": false
+          }
+        },
+        "eligible_for_declared_observable_summary": false,
+        "establishes_molecular_equilibrium": false,
+        "verdict": "metadata_inconsistent",
+        "reason_codes": [
+          "time_metadata_disagrees_with_native_reference",
+          "too_few_observations_for_declared_audit",
+          "insufficient_effective_observations:density_g_ml",
+          "stationarity_not_supported:density_g_ml",
+          "insufficient_effective_observations:temperature_K",
+          "stationarity_not_supported:temperature_K"
+        ]
+      }
+    },
+    "duration_ratio_short_to_legacy": 40.40404062295151,
+    "recommendation": {
+      "extend_sampling": true,
+      "location": "remote",
+      "reason": "Statistical adequacy cannot be inferred from frame count or successful execution."
+    }
+  }
+}

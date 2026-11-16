@@ -1,0 +1,46 @@
+{
+  "version": "2.0",
+  "case_id": "case-06-hybrid-end-to-end-barrier",
+  "scoring_contract": {
+    "version": "case06-open-research-evidence/v1",
+    "mode": "open_research_evidence_with_required_human_review",
+    "entrypoint": "tests/test.sh",
+    "verifier": "tests/verify.py",
+    "reward": "Mean of five binary evidence components, 0–1. Always REVIEW_REQUIRED, never automatic scientific PASS. INFRA_ERROR has no reward.",
+    "components": [
+      "research_report",
+      "provenance_links",
+      "execution_documentation",
+      "quantitative_evidence_links",
+      "optional_numerical_consistency"
+    ],
+    "component_weight": 0.2,
+    "optional_checks_policy": "No checks yields zero on the optional numerical component only; the research route remains accepted for human review.",
+    "numerical_tolerance": {
+      "relative": 1e-06,
+      "absolute": 1e-08
+    }
+  },
+  "source_restrictions": null,
+  "model_restrictions": null,
+  "scientific_status": "REVIEW_REQUIRED",
+  "verification_coverage": "EVIDENCE_ONLY",
+  "human_review": {
+    "required": true,
+    "criteria": [
+      "Relevance to experimental SNAr activation free energies and justified research scope",
+      "Source authenticity, physical quantities, units and conditions",
+      "Actual execution and reproducibility appropriate to the selected method",
+      "Independent validation, label exposure, duplicates and correlated observations",
+      "Appropriate controls, uncertainty, applicability and sufficiency of evidence",
+      "Whether conclusions follow from evidence, including negative or inconclusive results"
+    ],
+    "decision": "Reviewer records supported/refuted/inconclusive and rationale separately; automatic reward is not an overall success verdict."
+  },
+  "limitations": [
+    "No execution authentication or source-truth certification.",
+    "No universal scientific-correctness test.",
+    "No automatic acceptance of the scientific conclusion."
+  ],
+  "legacy_policy": "Files in tests/_support and tests/protected are inactive historical implementation/reference material, not imported or consulted by the open verifier."
+}

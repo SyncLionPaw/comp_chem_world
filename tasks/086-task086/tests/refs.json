@@ -1,0 +1,23 @@
+{
+  "schema": "ir-aggregate-reconciliation-reference/v1",
+  "source": "public official paper tables; hashes pin the exact bytes the scorer reads from environment/assets/",
+  "input_sha256": {
+    "figure4_structure_topk.csv": "cbc7d74acccafb2b37999d283e69c24600d105f3ee05c2ebab096fc28072a519",
+    "figure5_group_metrics.csv": "a06ebf12df982afb11d2f2e824d5549c7fa486147f13339dc7354c9cd3dcb1a9",
+    "figure6_error_over_under.csv": "bf17893cf7f846256ccb1a3b00c9b8c3453515dfad3c417d3ad7a8cdf13e8408",
+    "official_supplementary_data.xlsx": "026f82ba924f46574d446fd99659f60b38ad1411bfd211b3549345a18175642a",
+    "official_supplementary_information.pdf": "2d97d6d00d4d2fbf1324a1f2ee0ed59d79e91b5e839bfe1bf666547195526d2d",
+    "official_main_article.pdf": "4c6442973a4a52bfe43e3cff2d198a8c097d9b233e6425a70eced077b056f6d9"
+  },
+  "tolerances": {
+    "default_near": 5.1e-07,
+    "aggregate_match": 2e-06,
+    "note": "near(a,b,tol) compares recomputed aggregates against the official source rows"
+  },
+  "criteria": [
+    "Figure 4 macro top-1 recomputed from source rows must match the submission within 2e-6",
+    "macro_f1 and count-weighted F1 recomputed from source rows must match within 2e-6",
+    "evidence refs must use the frozen source-location labels"
+  ],
+  "reported_classes": 15
+}

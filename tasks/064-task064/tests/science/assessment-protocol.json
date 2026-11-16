@@ -1,0 +1,117 @@
+{
+  "case_id": "case-03-binding-free-energy-stop-rule",
+  "expected_outputs": [
+    "FES.csv",
+    "blocks.csv",
+    "thermodynamics.json",
+    "sensitivity.csv",
+    "sampling-decision.json",
+    "audit-report.md",
+    "provenance.json"
+  ],
+  "output_contract": {
+    "required_paths": [
+      "FES.csv",
+      "blocks.csv",
+      "thermodynamics.json",
+      "sensitivity.csv",
+      "sampling-decision.json",
+      "audit-report.md",
+      "provenance.json"
+    ],
+    "schemas": {
+      "FES.csv": "z_nm,probability,F_kJ_mol,F_kcal_mol; blank F denotes zero-count bin (+infinity)",
+      "blocks.csv": "block,time_start_ps,time_end_ps,eligible_rows,weight_sum_scaled,max_log_weight,deltaG_kJ_mol,deltaG_kcal_mol; max_log_weight is the actual block maximum m_i. weight_sum_scaled uses one consistent convention across rows: local L_i=sum exp(log_weight-m_i), or global G_i=sum exp(log_weight-M) with M=max_i m_i. Recover global-scale block mass B_i=L_i*exp(m_i-M) for local scaling, or B_i=G_i for global scaling; p_i=B_i/sum_j B_j. Both conventions recover the same block masses and normalized weights. Existing numeric tolerances are unchanged.",
+      "thermodynamics.json": "protocol,source{path,public_input_sha256,raw_source_sha256},counts,thermodynamics{deltaG_kcal_mol,deltaG_kJ_mol,weighted_block_mean_kcal_mol,weighted_block_mean_kJ_mol,weighted_block_sd_kcal_mol,weighted_block_formal_se_kcal_mol,frame_effective_sample_size,block_effective_sample_size}; units explicit; independently recomputed tolerance 1e-6; protocol.bin_edge_assignment identifies the coherent bin assignment: histogram edges, floor((z/1.8)*bins), or floor(z/(1.8/bins)); baseline and sensitivities use one selected assignment and are independently replayed",
+      "sensitivity.csv": "variant,changed_choice,parameter_unit,parameter_value,deltaG_kcal_mol,block_sd_kcal_mol,block_formal_se_kcal_mol,frame_ess,block_ess,interpretation; optional time-window columns: window_start_ps,window_end_ps. Optional unsupported columns: support_status,unsupported_reason. Burn-in uses ps, bin-count uses bins, time-window uses start/end ps; supported alternatives are independently recomputed with numerical tolerance 1e-5. Bin-count is a positive integer up to the published computational cap of 144 bins. If a requested sensitivity has truly empty required unbound-bin support, declare support_status=unsupported and give unsupported_reason. An optional baseline comparison row has variant or changed_choice exactly baseline or reference, must replay at 20000 ps or 72 bins with baseline values, and if window endpoints are present they span 20000 ps to final source time; it does not replace a distinct changed sensitivity.",
+      "sampling-decision.json": "supported_use,precision_claim,stop_or_continue,dominant_uncertainty,next_evidence",
+      "audit-report.md": "时间、重复列、单位、wall/z mask、块与ESS边界；不得声称完整论文复现",
+      "provenance.json": "public_input_sha256,raw_source_sha256,protocol_id,scope"
+    },
+    "review_limits": {
+      "max_required_text_file_bytes": 45000,
+      "max_total_required_text_bytes": 120000,
+      "max_csv_bytes": 10000000,
+      "max_csv_columns": 128,
+      "max_csv_record_chars": 12000,
+      "max_artifact_files": 128,
+      "max_artifact_path_chars": 512,
+      "csv_fields_may_contain_embedded_newlines": false,
+      "max_review_view_chars": 180000,
+      "extra_artifact_policy": "Non-text extras are retained by SHA-256, media type and byte size; the judge does not parse them, and scientific numeric claims require independent replay."
+    },
+    "scientific_criteria": [
+      {
+        "criterion": "baseline_reweighted_fes_and_funnel_standard_state_integral",
+        "necessary": true,
+        "required_evidence": "A fixed reproducible baseline is derived from the complete acquired one-replica record; the global numerical result was independently cross-checked.",
+        "accepted_methods": "Fixed baseline values are checked numerically. Accept more than one sensitivity protocol if it is predeclared, correctly recomputed, and conclusions respect one-replica/time-correlation limits. No full paper-reproduction claim.",
+        "inference_limits": "按baseline protocol输出固定FES/ΔG，再改变一个合理分析选择重算敏感性。给出粗略用途、精度边界和下一步采样/停止决定；不能以接近paper数字代替收敛论证。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "burnin_or_window_sensitivity_and_sampling_decision",
+        "necessary": true,
+        "required_evidence": "At least one predeclared non-baseline burn-in, bin-count, or time-window sensitivity is independently recomputed; report block/frame ESS and one-replica/time-correlation limits. The trusted 10ns example is illustrative, not a required variant; similarity to a paper number alone does not establish convergence.",
+        "accepted_methods": "Fixed baseline values are checked numerically. Accept more than one sensitivity protocol if it is predeclared, correctly recomputed, and conclusions respect one-replica/time-correlation limits. No full paper-reproduction claim.",
+        "inference_limits": "按baseline protocol输出固定FES/ΔG，再改变一个合理分析选择重算敏感性。给出粗略用途、精度边界和下一步采样/停止决定；不能以接近paper数字代替收敛论证。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "units_scope_and_uncertainty_accounting",
+        "necessary": true,
+        "required_evidence": "Native PLUMED units resolve the prose typo; the acquired record is one 176.7ns replica, not the full published multi-CV/multi-walker analysis.",
+        "accepted_methods": "Fixed baseline values are checked numerically. Accept more than one sensitivity protocol if it is predeclared, correctly recomputed, and conclusions respect one-replica/time-correlation limits. No full paper-reproduction claim.",
+        "inference_limits": "按baseline protocol输出固定FES/ΔG，再改变一个合理分析选择重算敏感性。给出粗略用途、精度边界和下一步采样/停止决定；不能以接近paper数字代替收敛论证。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      }
+    ]
+  },
+  "inputs": {
+    "environment/assets/g4-thermodynamic-records.npz": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "environment/assets/record-provenance.json": "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5",
+    "environment/assets/thermodynamic-method.md": "ef05a71bcedee02f442aed45aec53d9498552f3d111a4c71dcf2b8b89c5f1e51"
+  },
+  "criteria": [
+    {
+      "criterion": "baseline_reweighted_fes_and_funnel_standard_state_integral",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_reference_from_native_record",
+        "source": "packages/case-03-binding-free-energy-stop-rule/tests/refs.json",
+        "source_sha256": "9aac4414dcfeab8bd4b31e37999b4f93a7cb9affbc699f526e3ec5f387985c26",
+        "rationale": "A fixed reproducible baseline is derived from the complete acquired one-replica record; the global numerical result was independently cross-checked."
+      }
+    },
+    {
+      "criterion": "burnin_or_window_sensitivity_and_sampling_decision",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_reference_and_author_method",
+        "source": "packages/case-03-binding-free-energy-stop-rule/tests/refs.json",
+        "source_sha256": "9aac4414dcfeab8bd4b31e37999b4f93a7cb9affbc699f526e3ec5f387985c26",
+        "rationale": "At least one predeclared non-baseline burn-in, bin-count, or time-window sensitivity is independently recomputed; report block/frame ESS and one-replica/time-correlation limits. The trusted 10ns example is illustrative, not a required variant; similarity to a paper number alone does not establish convergence."
+      }
+    },
+    {
+      "criterion": "units_scope_and_uncertainty_accounting",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "native_input_and_author_source",
+        "source": "packages/case-03-binding-free-energy-stop-rule/tests/refs.json",
+        "source_sha256": "9aac4414dcfeab8bd4b31e37999b4f93a7cb9affbc699f526e3ec5f387985c26",
+        "rationale": "Native PLUMED units resolve the prose typo; the acquired record is one 176.7ns replica, not the full published multi-CV/multi-walker analysis."
+      }
+    }
+  ],
+  "review_policy": "数值检查与必要科学评审分开；当前只提供数值诊断。重新接入后必须逐项评审必要科学判据，不得由文件存在或数值通过直接授予科学 PASS。",
+  "contract_fingerprints": {
+    "instruction.md": "a9fc9128d8ff964c646677a0be4bb4fd1b5fc5b9759be56739d6d498e5e05948",
+    "task.toml": "d2d60ac437c4900a043282664a19024e03b8a1f28489c5e8b6defaf9c24317d3",
+    "output-contract.yaml": "47b785e3e4de47419c8c3467ee148952e8afc4c460976f05cd30364562ea36c4",
+    "output-contract.json": "2f890266ce78e0e2a20403e74cde168fe6b7db74926021419654a6f77710c533"
+  }
+}

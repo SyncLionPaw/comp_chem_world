@@ -1,0 +1,19 @@
+{
+  "tests/assessment-protocol.json": "3837504b93a6353456dd2b42c9ef48968a5067cd3bf75f9fdbe3dcd85c598fa9",
+  "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+  "tests/evidence/mvp-model/full-g4-model-export.json": "78a2cb3e2aae607592762af6118d66fe541297448ef476a2a194798eb843d80e",
+  "tests/evidence/mvp-model/g4-model-gradient-reference.csv": "e05b47d204cb754e3e1442ba9b5550aeb9066dba50179008fd68cf1a71dfeb94",
+  "tests/evidence/mvp-model/g4-model-torch-reference.csv": "3a8918ed0ed43540d91b82a2df0e589ef40fff7f07c93dbc9374ab6b5baff56e",
+  "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+  "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+  "tests/g4_model_numpy.py": "a9f3ba5475d5804ae56844b89ca5a466ee63ef11fae292ac92ad0078e66f950d",
+  "tests/mvp_host_evidence.py": "7a507c6ac0e45b93dc4dfcefd923bd27124e6f27e8adac58d97921280052ec19",
+  "tests/mvp_numeric.py": "c3cf465cf55b3e1e2a7fb6cde2b2407233f09b7518921bdee8f9a1198effb5ec",
+  "tests/numeric_evidence.py": "9a86ce0fe5f7c6b70f399e6b1cda9f39ab2604aea5fa9849c707e20319a4c966",
+  "tests/refs.json": "d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e",
+  "tests/test.sh": "7d842f1ff5ca706eabd34998e70a57bbfebf79e665ad9644ce77b733dd2aa19c",
+  "tests/verification-plan.yaml": "f75bcc1719c868964afc4d4af794b3053c72eb9bb593c40f8b107e7c85795c86",
+  "tests/verify.py": "cfcfc9ab6e8fe6ed11aae1c38255a871bcf190116c435e2cef7d825cf6b9b598",
+  "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+  "tests/test_case02_output_time_sources.py": "fe1d371617bf0496b3e2fdfe98f593c22564528823e4e6b049718f4fe3a3d5c7"
+}

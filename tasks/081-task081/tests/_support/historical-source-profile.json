@@ -1,0 +1,980 @@
+{
+  "archive_url": "https://archive.materialscloud.org/api/records/c9peh-kt938/files/DATA_MATERIALS_CLOUD.zip/content",
+  "canonical_atom_maps": {
+    "M14": [
+      0,
+      1,
+      3,
+      2
+    ],
+    "M19": [
+      0,
+      3,
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
+    "M2": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "M29": [
+      5,
+      0,
+      1,
+      4,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9
+    ],
+    "M3": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "central_directory_sha256": "b1c44c8dab2eb8191e9c8c1fa73b5ed483533e3d55140944208426d880a7c8bc",
+  "full_archive_md5_verified": false,
+  "members": {
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "9bf3ae9d",
+      "sha256": "b7980f3f48462990f25acf09828994df9999a11e74ce699ed415a7e4f43be53d",
+      "uncompressed_bytes": 3368
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "c85109b3",
+      "sha256": "9c77de20457918aadec8ad7e3b964950a3faf84760e799d4df9728148cba0cfd",
+      "uncompressed_bytes": 326422
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/excitedstate1/S14Formylchloride-pos-1.xyz": {
+      "crc32": "89f6af5c",
+      "sha256": "2c304d52346bad842d0520cd0f8b6f76b98fc7c53dd965a10ad2cf598ab9f67b",
+      "uncompressed_bytes": 3399
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "60f10d5f",
+      "sha256": "ddd47bcfeeec4c3d36794f67296a9a9e9b5bbd82f38c1f851d8b5aa25ce5a044",
+      "uncompressed_bytes": 3248
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out": {
+      "crc32": "3a11186b",
+      "sha256": "e1de9ee2b10f0fbf2359ac2dd480c04040e1fde9bab7e1e4f29ba783c6f188d4",
+      "uncompressed_bytes": 183576
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/groundstate1/S14Formylchloride-pos-1.xyz": {
+      "crc32": "58a0de10",
+      "sha256": "a9b857bfa3c9220b4ba9754fd0ee9aab4158d9c87c60f42cd51955684959770b",
+      "uncompressed_bytes": 3399
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/CP2K_pbe0_stda.inp": {
+      "crc32": "8ec8c555",
+      "sha256": "1536cf822b313f6fc3b040ca84d2e0246e3a943613e27691716491ecda1b33c9",
+      "uncompressed_bytes": 2676
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/CP2K_pbe0_stda.out": {
+      "crc32": "6ff28a4e",
+      "sha256": "f3d139fd59abcd6c013598b16f3d3f7a87d66175fbc6dcc8ca58f8714d44d1a5",
+      "uncompressed_bytes": 1565695
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/S14Formylchloride-pos-1.xyz": {
+      "crc32": "daee2f05",
+      "sha256": "f55c1b061e38a651f9bddb9110de5b70643b07810655e4ad8fde622347a008a7",
+      "uncompressed_bytes": 19776
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/cp2k_S14Formylchloride_excitedstate1": {
+      "crc32": "4f06b626",
+      "sha256": "7420c4ef024039ea20098fc0ba836587fcdce38149df16f7e8c6d8325251a564",
+      "uncompressed_bytes": 127
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/run_script_uzh1.sh": {
+      "crc32": "bf4ad9f6",
+      "sha256": "87f146c7dbfcdf59dd53513d7a52b86cbf7a46290ded3fa9ac681e90c730fb42",
+      "uncompressed_bytes": 4397
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/CP2K_pbe0_stda.inp": {
+      "crc32": "812f8b11",
+      "sha256": "6747de752c4e19eac00982954b660bae4d4c9fbb13f09516500be00cb095c092",
+      "uncompressed_bytes": 2677
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/CP2K_pbe0_stda.out": {
+      "crc32": "259b4d9b",
+      "sha256": "8c9a321bb2eef0b80d45a227c34699bfbb8d44c2bd82362eb7f61c3eb1a15196",
+      "uncompressed_bytes": 701899
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/S14Formylchloride-pos-1.xyz": {
+      "crc32": "50852486",
+      "sha256": "f2cb11279d244ce14e63b77d5db2e08be6ac265f0240da80c07be8fc8a2adb8b",
+      "uncompressed_bytes": 9579
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/cp2k_S14Formylchloride_excitedstate1": {
+      "crc32": "4f06b626",
+      "sha256": "7420c4ef024039ea20098fc0ba836587fcdce38149df16f7e8c6d8325251a564",
+      "uncompressed_bytes": 127
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/CP2K_pbe0_stda.inp": {
+      "crc32": "9d36f74b",
+      "sha256": "da79b9f89c28607deaed4f23bd407015cd3d41829387ff0f9bcf64614ac5af77",
+      "uncompressed_bytes": 3166
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/CP2K_pbe0_stda.out": {
+      "crc32": "296e5558",
+      "sha256": "658ab00bb4c172de0e8904097b42b523e5dcca9fae52989469715ec779b3eaf2",
+      "uncompressed_bytes": 856260
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/CP2K_pbe0_vibanalysis.out": {
+      "crc32": "b8b8c4f1",
+      "sha256": "742059fc98248c1555081a2b44ff6df6ec190b9b6d99b3c388844c4d8eb5854c",
+      "uncompressed_bytes": 55318
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-VIBRATIONS-1.eig": {
+      "crc32": "4ce22db5",
+      "sha256": "dce10b8a3b6ac7fb66d47df6f1f243d13f65954b2fdf23fe462b8812004bf1c0",
+      "uncompressed_bytes": 1364
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-VIBRATIONS-1.eig.bak-1": {
+      "crc32": "00000000",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-VIBRATIONS-1.mol": {
+      "crc32": "20e3465c",
+      "sha256": "97865ffdc29f763fa26f85b90c043aba6284294c22807d750b0b247de2f6826c",
+      "uncompressed_bytes": 1788
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-pos-1.xyz": {
+      "crc32": "1430d0b9",
+      "sha256": "97d0cb4c6f74e97cc1727f6ca8cd8369d9f6591d6c1a2eb551eb7a4a6a1cbfdc",
+      "uncompressed_bytes": 7107
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-0.out": {
+      "crc32": "1fe9bd2b",
+      "sha256": "ce249ce2f6a1d608536491f273d72d0e9f652c391dbf806d798a5fb9620390fe",
+      "uncompressed_bytes": 289282
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-1.out": {
+      "crc32": "4d0c1eaf",
+      "sha256": "6b965f729a427f3af3a2fda26376e2793c0a85a08a7fdd21cd74f30e497b1b2c",
+      "uncompressed_bytes": 289173
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-10.out": {
+      "crc32": "0f673288",
+      "sha256": "ef33945bd0824c86f24259a002deb6cf08ac841c997969061f5ef68df3d1226d",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-11.out": {
+      "crc32": "2c6ac6ee",
+      "sha256": "de0ea8670c895d1dc8037a957d4fffbf32e1bece73e04dc0f3153b27ad691a8d",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-12.out": {
+      "crc32": "9c72275d",
+      "sha256": "fadd6311099ae464c2765f7c14937a338b2b0644b33a82e0542db55905041583",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-13.out": {
+      "crc32": "fae4b230",
+      "sha256": "db910010676d6d7da193e2f2656a49e864631bd2c0d10c1c823a2e2b04a859e0",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-14.out": {
+      "crc32": "e614eebc",
+      "sha256": "52a1e65a656dc9e98a0cefe70b49e7c3b90c13a66b93f0f6db0de19c850cb5f5",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-15.out": {
+      "crc32": "00eaa242",
+      "sha256": "1af7aab79e48c39f3e6925389c40ee37605832143ee1b438848b0d3ab3bf3494",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-16.out": {
+      "crc32": "bf599651",
+      "sha256": "9546c2d602f57d8ac1102389e7380a824b79ededc8a6c179c34083469da4ed3d",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-17.out": {
+      "crc32": "4a311773",
+      "sha256": "fe8bf3b1d36b7ef7b9562c59811f1e846bd58f866b2328921ca80ef44896af92",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-18.out": {
+      "crc32": "f6df506f",
+      "sha256": "aaa64d29a61a15ac84075776ce5a88f7fd5588eb0f3bc8e4afcb3f6e7cb6da49",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-19.out": {
+      "crc32": "1cef7ac0",
+      "sha256": "3df14e134110147e4f4e6be8b5c8abb4e86e9a173b9970d19e2b9c09979cd86e",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-2.out": {
+      "crc32": "5fa7ddfc",
+      "sha256": "435f0dce347f32182960d46c1fbe536ca58a4bfe171f2ea1212f263ba6817f74",
+      "uncompressed_bytes": 288960
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-20.out": {
+      "crc32": "b499ff8f",
+      "sha256": "73e08ea5c4f866aaeb9f20dee14ee85a91bed6350890c7f9b4c1493fa3d902db",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-21.out": {
+      "crc32": "4b9431f3",
+      "sha256": "5935250fd469a5f64a74dda77a775f8c2f7486a043a9616497137828b8eab558",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-22.out": {
+      "crc32": "8797b904",
+      "sha256": "be6911c8131a7cf7f329dad14b94efb75d3831f79e1194abb7f76968d72ddb54",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-23.out": {
+      "crc32": "08dc785f",
+      "sha256": "9a93f40ebcf4b54882d5e6a0b01f97707c27d982bf0c37caaa1bf56aedcbb100",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-24.out": {
+      "crc32": "a58db5ec",
+      "sha256": "516bf66409d1867425769ab40bb63760bc4aa183983aca0c75a8d22de7f650a4",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-25.out": {
+      "crc32": "8a4b5469",
+      "sha256": "2fbb7cc5858705962e1280b797388e37995634f30257ac9308d1b07dd2e63ac2",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-26.out": {
+      "crc32": "49777d38",
+      "sha256": "7c1b9a88f7a8035a18331f483b66e1e88020233b202e9e73c64fdb45063be3d1",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-27.out": {
+      "crc32": "9423e4ce",
+      "sha256": "1043825d0a55c826c5d4e3f4210e893245166d18f7a1254d943e082ed9f543b8",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-28.out": {
+      "crc32": "fbc45250",
+      "sha256": "3fdd37057ca63595692059aedab02c20863af8ef3be77d48fa535b74bd4a1747",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-29.out": {
+      "crc32": "bfe90579",
+      "sha256": "c2b0483de2609d2a37534ff80dad3a4f845b8784f42dc074402ad6ba8cdd6b69",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-3.out": {
+      "crc32": "12f96838",
+      "sha256": "1523f732a0b355ee9baec11b639fa87f6d7d1e9a0cea6d6748e13e1625494ad0",
+      "uncompressed_bytes": 288960
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-30.out": {
+      "crc32": "1077f004",
+      "sha256": "4ec94152e03c8eef4f4fb1291d58b87f69f9a03b4f7f38376a021d4d299b0dcb",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-31.out": {
+      "crc32": "cfb160cc",
+      "sha256": "4de23af9fc708f00490e81c9a33880900cfc964cb9f64cf8ed010dc402f26f5d",
+      "uncompressed_bytes": 146659
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-4.out": {
+      "crc32": "c5ca1452",
+      "sha256": "7cba2af34411ce2daffc5806f220feb2d5c186390c09304618bda2cceb77811a",
+      "uncompressed_bytes": 288312
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-5.out": {
+      "crc32": "f862f9ac",
+      "sha256": "675ba3b3faf4e942aee40306553fde45c5de54bec8e74a5d64a98d53371c9f92",
+      "uncompressed_bytes": 288474
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-6.out": {
+      "crc32": "e5851706",
+      "sha256": "7abed4cb1d12db5f699e984fde7ff80430cf891c70ce32610d1201ddedcd45d4",
+      "uncompressed_bytes": 288391
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-7.out": {
+      "crc32": "8e157bb4",
+      "sha256": "81a8792241e1896037b677947f4639d8eecf98d900f6ea402fb6ffb084468400",
+      "uncompressed_bytes": 288474
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-8.out": {
+      "crc32": "4cc417d5",
+      "sha256": "f556e0e75e3f207ce9895e2593ec9696032babf01bde4b1fcb259b0826ec0080",
+      "uncompressed_bytes": 146654
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-9.out": {
+      "crc32": "57758fd3",
+      "sha256": "9f198e92c254553349becb68a4dfd36db94a8b2b87f7316a8441e244a228c9fd",
+      "uncompressed_bytes": 146654
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/cp2k_S14Formylchloride_excitedstate1": {
+      "crc32": "4f06b626",
+      "sha256": "7420c4ef024039ea20098fc0ba836587fcdce38149df16f7e8c6d8325251a564",
+      "uncompressed_bytes": 127
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "9706f971",
+      "sha256": "ec7079ad42390a8d0eae308d078ce1e3755ca5bb202d333efeb925b3275220ad",
+      "uncompressed_bytes": 3889
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "6e97cb06",
+      "sha256": "b12493b63f2e4f8bc917679c84aef480700a2cb09fdb294ed558a0cf18ee1c0e",
+      "uncompressed_bytes": 450626
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S14Formylchloride-pos-1.xyz": {
+      "crc32": "dd93f7c6",
+      "sha256": "619a807b11324a953f654789c8f719cc3caf0e9b6ab2bb369f019fcfc85b41e5",
+      "uncompressed_bytes": 5253
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "171264fb",
+      "sha256": "e0d6ffb61833de77daf30943572143951cd1be19691a59e9f8e786170836fbe4",
+      "uncompressed_bytes": 3927
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out": {
+      "crc32": "8cdbc59e",
+      "sha256": "b560386b41d8ef1328182845c79e47e80de8a6734f8383d42a3bba8efed98954",
+      "uncompressed_bytes": 152296
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S14Formylchloride-pos-1.xyz": {
+      "crc32": "14de5e39",
+      "sha256": "00043a1a06844e2e0317c6417d2218945e5b7e75421de62dc09d4e624d1d1ea0",
+      "uncompressed_bytes": 1854
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "66d1bca2",
+      "sha256": "1ba0ed8b4671cdd22d99121d779fad17478c485ba4efcd7458d501b6615f7bfa",
+      "uncompressed_bytes": 3459
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "539ae17b",
+      "sha256": "64fee55e8e7483f8157ab6ab1dc3e400ee2ed465844dd4eeb83ea3848d7fb1c6",
+      "uncompressed_bytes": 265096
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/S19Acetaldehyde-pos-1.xyz": {
+      "crc32": "b12c05f4",
+      "sha256": "aa49a25792cd1e52eb6a4a814d505aa93a9e23ba73a454065998c26669ae5c0b",
+      "uncompressed_bytes": 4536
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "889487ed",
+      "sha256": "40c81ba0dce9bf96dcdb8a2650c653df23816d3763657efbf821a98687abceb6",
+      "uncompressed_bytes": 3341
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out": {
+      "crc32": "a9355718",
+      "sha256": "e53192d3b7d5ed432ededccdb3a40ebb0f717195caadf2b1808bf56ee6891a69",
+      "uncompressed_bytes": 127679
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/S19Acetaldehyde-pos-1.xyz": {
+      "crc32": "db185f2b",
+      "sha256": "2ba3156f3cdefaf3b31a89e1b26df204cb16369aa829239966fc90c06566072a",
+      "uncompressed_bytes": 2520
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp": {
+      "crc32": "c4ede824",
+      "sha256": "eadfbea3e1f522dbb6bea52496b2871a58e9cc0af092bcbd66534b4cb5863cba",
+      "uncompressed_bytes": 2590
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out": {
+      "crc32": "606caae9",
+      "sha256": "36577275a1dc3bf0dd7998f41fdfe8d91bcb65f10b475e55bae4a3685fb888fd",
+      "uncompressed_bytes": 670878
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/S19Acetaldehyde-pos-1.xyz": {
+      "crc32": "b6d50b58",
+      "sha256": "a91fea460c0e17fe4938b1387ca520b0da0ea1e2a47872a8cd4270e0ae7c4f9c",
+      "uncompressed_bytes": 10080
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "4472f4ee",
+      "sha256": "f5ba56e9ce5d57910324df28b2d07e178e36ff7d2ec6355d515b18bbe721b4c9",
+      "uncompressed_bytes": 3980
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "6cf24cab",
+      "sha256": "6021f7a7c216d579c116e27c5edf005e542073a07280c240a803910b2e004d2b",
+      "uncompressed_bytes": 274586
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S19Acetaldehyde-pos-1.xyz": {
+      "crc32": "1361e4f2",
+      "sha256": "66aa7181ddce6afdf966bf03cdf0953e00a91592b88c5f6e85e668ef9097c344",
+      "uncompressed_bytes": 4536
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "dc20934c",
+      "sha256": "0813bfe732fa49022a5f87093141d0990d3fb6fad5e1a2884dbad353d60160dd",
+      "uncompressed_bytes": 4020
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out": {
+      "crc32": "42cb8ada",
+      "sha256": "054ee7dcd754a2c0ed554a6dc9a6b5d3bd3d5bd60bbf1ff6ad9e01eab76b04c1",
+      "uncompressed_bytes": 134496
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S19Acetaldehyde-pos-1.xyz": {
+      "crc32": "9fc633a6",
+      "sha256": "c1b4b0fc83b600749d9b814ae50d60a860fd6057b64d046349d66020198cd51c",
+      "uncompressed_bytes": 2520
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "f87ef968",
+      "sha256": "6a470ac5e77a2112688b39e07dafb31d62cae590090ae3c293ce4ff07d856a8b",
+      "uncompressed_bytes": 3507
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "673cdb4f",
+      "sha256": "5194bad43c30e859dca8dd9e5e5e66b7458b3e5a582757bda7288834451f96ee",
+      "uncompressed_bytes": 169491
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/excitedstate1/S29Pyrazine-pos-1.xyz": {
+      "crc32": "c19a6399",
+      "sha256": "79cdfbb6a581196d64c0f47c9f36b499bba93fbf81599d936fbe34489292a1dc",
+      "uncompressed_bytes": 2796
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "f5766d9d",
+      "sha256": "2f23e8b781d9944ccb81b1897872c6bdbc73e57771c212aa4fb1b79c236d03bd",
+      "uncompressed_bytes": 3389
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out": {
+      "crc32": "22c3efa5",
+      "sha256": "f57b3b233f60b89952d28de624816bd1e8e872f787bf2769a34bdd097e9e1dd7",
+      "uncompressed_bytes": 112956
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/groundstate1/S29Pyrazine-pos-1.xyz": {
+      "crc32": "8e2c3359",
+      "sha256": "e514544539b80fcd2f548bca7bd349975a388288999269bd4cfce323826f2e4e",
+      "uncompressed_bytes": 2097
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp": {
+      "crc32": "5ebc491d",
+      "sha256": "ac453e9623125c2230301a92012b9f902c3e6bf4eb331e2f9e95096804b0d2da",
+      "uncompressed_bytes": 4046
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out": {
+      "crc32": "4f356087",
+      "sha256": "aa1c0ca88dcd2752408b2ccfff455a244080d60a56785ce984b257a4b833a7d3",
+      "uncompressed_bytes": 486680
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP_STDA/S29Pyrazine-pos-1.xyz": {
+      "crc32": "896e7a3c",
+      "sha256": "168f551f7cd3a88b5f77f8c6aa58bf92be0836fd9a8dcb7b601b2d04490ce001",
+      "uncompressed_bytes": 8388
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP_STDA/cp2k_S29Pyrazine_excitedstate1": {
+      "crc32": "900b3d75",
+      "sha256": "570c4f6ff2f2fb85db23bd309a4a8c328b5fa134c65bfa86f24e968beb1d41f3",
+      "uncompressed_bytes": 309
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "e59b0fc2",
+      "sha256": "4f211a49c56a385b863b52568a99774cddbb7ca70a0b42e62b04a5f8906d9480",
+      "uncompressed_bytes": 4028
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "0ef6f8ad",
+      "sha256": "21ff6981e09297b4635331fd7fe2ba7269c4cbdad77d6b2fe5b6014b918ddfa5",
+      "uncompressed_bytes": 161261
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S29Pyrazine-pos-1.xyz": {
+      "crc32": "9dba379a",
+      "sha256": "ccc9f0d6485cf394298482f88e40aab2c936af63330bd836791b83d5b23d344e",
+      "uncompressed_bytes": 2097
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "557d30dd",
+      "sha256": "c5bd011c4285dc0a15417312cff3cd3d7a6ecd0433bf100e76779fc80b9dd425",
+      "uncompressed_bytes": 4068
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out": {
+      "crc32": "72742a54",
+      "sha256": "6f711d4fd13013e4f46c4f8fd42444da4ef50642a975e589f7ee8d3b4365e4a0",
+      "uncompressed_bytes": 129633
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S29Pyrazine-pos-1.xyz": {
+      "crc32": "db474848",
+      "sha256": "36688395109d4b13d695cc7a1f21b2cef9ce1036284455ab862ec79a5a517335",
+      "uncompressed_bytes": 2796
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "08dd66ba",
+      "sha256": "603018140fed4ec019ee7b2061a08ee1d95f2e0992a09450f67748bcb4ce8bab",
+      "uncompressed_bytes": 3335
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "37f5d7ac",
+      "sha256": "b4c2dc8673f5383578effc8ef05ac88f89fe5bda6cbb43587d1339e377aa170e",
+      "uncompressed_bytes": 201813
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/S2Formaldehyde-pos-1.xyz": {
+      "crc32": "2fb8e5f1",
+      "sha256": "c262795de1f27976ed125c016fe34ae7d8055cfc3b2f7e21f3ae609b147dec34",
+      "uncompressed_bytes": 1854
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "481ea3bb",
+      "sha256": "5342655d014caed9cbcc849512b803d29b12a6785e0ef200496d680a93ab137f",
+      "uncompressed_bytes": 3217
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out": {
+      "crc32": "08b05ae6",
+      "sha256": "9ec39ff3c4157cc0ee6d44ea31b51de6ed5fc2f1f2a86fe92374dd8a1f799680",
+      "uncompressed_bytes": 114775
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/S2Formaldehyde-pos-1.xyz": {
+      "crc32": "8970bc48",
+      "sha256": "36bee5e831699ddda9944608d3f6b2c4a1421d03573e446b62f55bc8050b1ee4",
+      "uncompressed_bytes": 1236
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp": {
+      "crc32": "fcaf7ba6",
+      "sha256": "7c8f52ab6dba53ef8977df4331bab57343a812ed6a5a089a5a1d90a92a9f996b",
+      "uncompressed_bytes": 2490
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out": {
+      "crc32": "b50db969",
+      "sha256": "67d0462e1828dff2c9876cad3ac5b6f984879f082f6ac973bc4aafa90d87fcf8",
+      "uncompressed_bytes": 596579
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/S2Formaldehyde-pos-1.xyz": {
+      "crc32": "f2f645bd",
+      "sha256": "25095b0a8aafdb7f1db0c18798570a23777e19bb55061ee6d73c45029755a94c",
+      "uncompressed_bytes": 4944
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "04b973ed",
+      "sha256": "80e33ca109c1ebf9a7a3d55391dfe9e5f928f7573acc5a62ddd8d8325c3a171b",
+      "uncompressed_bytes": 3856
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "8ffd1701",
+      "sha256": "e49afbe132169ac190c7708c38cb114f276b87d46b92c35de08cffe7698dcf20",
+      "uncompressed_bytes": 209683
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S2Formaldehyde-pos-1.xyz": {
+      "crc32": "847d6816",
+      "sha256": "24923e7c6fd3c962616363a96bc5ed3cce43ec6db212b6ab3e860e8cc4d5b418",
+      "uncompressed_bytes": 1854
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "4129fa0d",
+      "sha256": "845590d952edb6ed581da6f3c8f576c031cfdaa41a0bb1a7236ccf61c9f02606",
+      "uncompressed_bytes": 3896
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out": {
+      "crc32": "e1ac61c1",
+      "sha256": "617544bd9bcfdf497fef9c5f0cd1ec71b86911f7298906264dc87df740448543",
+      "uncompressed_bytes": 121829
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S2Formaldehyde-pos-1.xyz": {
+      "crc32": "b0e99dc1",
+      "sha256": "acca3b122a86d99bfcf240c3359750b9bd7ffeefabbd7ed4b0fd98b737a9f7b4",
+      "uncompressed_bytes": 1236
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "58a4371a",
+      "sha256": "81c0f35d9a50ef182e702a7fde2e01782c958315f1cc6b6a6beeb8bfec8ffdaa",
+      "uncompressed_bytes": 3315
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "4fe6feeb",
+      "sha256": "f2d1023e759c2a809125d60e932f13f342fffd76f23af278d08cf47b79e10985",
+      "uncompressed_bytes": 161129
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/S3Thioformaldehyde-pos-1.xyz": {
+      "crc32": "8adc3d99",
+      "sha256": "9ec9099d4c66c42465b35ffa1bccc96b8a9e2df4ef2ad755b8a4ed97cda87aee",
+      "uncompressed_bytes": 1236
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "2cbbd52f",
+      "sha256": "26b8f49c53194f331ec411a7cea30d1096344765537ab7bd9be2c6f8e7f2c64a",
+      "uncompressed_bytes": 3197
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out": {
+      "crc32": "712bd4f8",
+      "sha256": "6c975c5ee500863a5df1450d52db23fc28fd0ff4666b1919b46424a99493559d",
+      "uncompressed_bytes": 112658
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/S3Thioformaldehyde-pos-1.xyz": {
+      "crc32": "929d3fa0",
+      "sha256": "25553d078277c398c071863ff8a9cd2360099c9abdf8128b8781a4c1f5629351",
+      "uncompressed_bytes": 1236
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp": {
+      "crc32": "1d5a18ad",
+      "sha256": "764e5691668e0b487250249df68607edccc1c7e2486ab695509f1f5fcbfa04a4",
+      "uncompressed_bytes": 2251
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out": {
+      "crc32": "2b42a13c",
+      "sha256": "2b3bb38693f44747ebb2dd215ebb67a67e88eafa657108ce9e633ed2798c005b",
+      "uncompressed_bytes": 1575207
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/S3Thioformaldehyde-pos-1.xyz": {
+      "crc32": "4b90ab49",
+      "sha256": "e76f714beee74b47baa6106b4f9b9e085de41734f752a6915795257df4d65bed",
+      "uncompressed_bytes": 16686
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp": {
+      "crc32": "885d48bc",
+      "sha256": "470f27c304c1709283969090949773c69a42dfd988348243f97f8eeff2ea71c4",
+      "uncompressed_bytes": 3836
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out": {
+      "crc32": "18f966e6",
+      "sha256": "344cbd3e4091a6a5369bbebd1afbe8c7af448e1adc4e783deffc8af730cd175d",
+      "uncompressed_bytes": 168918
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S3Thioformaldehyde-pos-1.xyz": {
+      "crc32": "c7512f2e",
+      "sha256": "0a02a5710fd2f6dd83b716b594d2905027264845fd2ef4b18f571681b18995cc",
+      "uncompressed_bytes": 1236
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp": {
+      "crc32": "e7504701",
+      "sha256": "c51e086cc432e94044ef4c6c385597de6e42bc089536c095a8b8c452fc9a0894",
+      "uncompressed_bytes": 3876
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out": {
+      "crc32": "74b60554",
+      "sha256": "49598ec733b3f61d3c6db0a3aafe4385abbb7539c8ea4854d6d0460849f3d9ea",
+      "uncompressed_bytes": 112157
+    },
+    "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S3Thioformaldehyde-pos-1.xyz": {
+      "crc32": "97d110ca",
+      "sha256": "853ef4fd9a4a1ed37b0d9b9206b18e09d20494d93d21885cab2e0d4af7de8af9",
+      "uncompressed_bytes": 927
+    }
+  },
+  "official_archive_md5": "77975e70e8b7aae15b8aff649ef4eb53",
+  "official_archive_size_bytes": 345291040,
+  "records": {
+    "M14/ES/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S14Formylchloride-pos-1.xyz"
+      }
+    },
+    "M14/ES/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/excitedstate1/S14Formylchloride-pos-1.xyz"
+      }
+    },
+    "M14/ES/stda-pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/CP2K_pbe0_stda.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/CP2K_pbe0_stda.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.2/S14Formylchloride-pos-1.xyz"
+      }
+    },
+    "M14/ES/stda-pbe0-tzvp-aex0.25-remedy": {
+      "minimum_candidate_members": [
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-13.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-12.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-10.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/CP2K_pbe0_stda.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-11.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-29.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-15.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/cp2k_S14Formylchloride_excitedstate1",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-14.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-28.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/CP2K_pbe0_stda.inp",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-VIBRATIONS-1.eig",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-16.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-17.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-6.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-7.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-5.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/CP2K_pbe0_vibanalysis.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-4.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-0.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-1.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-3.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-2.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-9.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-8.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-VIBRATIONS-1.mol",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-VIBRATIONS-1.eig.bak-1",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-26.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-27.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-pos-1.xyz",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-25.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-31.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-19.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-18.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-30.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-24.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-20.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-21.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-23.out",
+        "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/vib_analysis/S14Formylchloride-r-22.out"
+      ],
+      "minimum_inventory_status": "native_vibration_candidate_requires_content_review",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/CP2K_pbe0_stda.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/CP2K_pbe0_stda.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP_STDA/fraction_0.25/S14Formylchloride-pos-1.xyz"
+      }
+    },
+    "M14/GS/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S14Formylchloride-pos-1.xyz"
+      }
+    },
+    "M14/GS/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M14Formylchloride/CP2K_pbe0_geoopt_TZVP/groundstate1/S14Formylchloride-pos-1.xyz"
+      }
+    },
+    "M19/ES/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S19Acetaldehyde-pos-1.xyz"
+      }
+    },
+    "M19/ES/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/S19Acetaldehyde-pos-1.xyz"
+      }
+    },
+    "M19/ES/stda-pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/S19Acetaldehyde-pos-1.xyz"
+      }
+    },
+    "M19/GS/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S19Acetaldehyde-pos-1.xyz"
+      }
+    },
+    "M19/GS/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M19Acetaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/S19Acetaldehyde-pos-1.xyz"
+      }
+    },
+    "M2/ES/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S2Formaldehyde-pos-1.xyz"
+      }
+    },
+    "M2/ES/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/S2Formaldehyde-pos-1.xyz"
+      }
+    },
+    "M2/ES/stda-pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/S2Formaldehyde-pos-1.xyz"
+      }
+    },
+    "M2/GS/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S2Formaldehyde-pos-1.xyz"
+      }
+    },
+    "M2/GS/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M2Formaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/S2Formaldehyde-pos-1.xyz"
+      }
+    },
+    "M29/ES/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S29Pyrazine-pos-1.xyz"
+      }
+    },
+    "M29/ES/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/excitedstate1/S29Pyrazine-pos-1.xyz"
+      }
+    },
+    "M29/ES/stda-pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP_STDA/S29Pyrazine-pos-1.xyz"
+      }
+    },
+    "M29/GS/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S29Pyrazine-pos-1.xyz"
+      }
+    },
+    "M29/GS/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M29Pyrazine/CP2K_pbe0_geoopt_TZVP/groundstate1/S29Pyrazine-pos-1.xyz"
+      }
+    },
+    "M3/ES/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/excitedstate1/S3Thioformaldehyde-pos-1.xyz"
+      }
+    },
+    "M3/ES/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/excitedstate1/S3Thioformaldehyde-pos-1.xyz"
+      }
+    },
+    "M3/ES/stda-pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "no_native_vibration_members_in_complete_directory",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP_STDA/S3Thioformaldehyde-pos-1.xyz"
+      }
+    },
+    "M3/GS/admm-tzvp-tzp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_admm_TZVP-tzp/groundstate1/S3Thioformaldehyde-pos-1.xyz"
+      }
+    },
+    "M3/GS/pbe0-tzvp": {
+      "minimum_candidate_members": [],
+      "minimum_inventory_status": "not_required",
+      "roles": {
+        "input": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.inp",
+        "output": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/CP2K_pbe0.out",
+        "trajectory": "DATA_MATERIALS_CLOUD/Molecular_test_set/M3Thioformaldehyde/CP2K_pbe0_geoopt_TZVP/groundstate1/S3Thioformaldehyde-pos-1.xyz"
+      }
+    }
+  },
+  "reviewed_science_facts": {
+    "budget_proposal_only": {
+      "authorization": "NOT_AUTHORIZED; no calculation in this task",
+      "basis": "first low-cost ordinary route with optimizer scalar max/RMS below 1e-5 but no Hessian/internal curvature; pilot cost is not reliable full-matrix extrapolation",
+      "budget_scope": "separate from prior M14-only 20 CPUh authorization",
+      "first_candidate": "M3/ES/stda-pbe0-tzvp curvature evidence",
+      "resources": "4 CPU, maximum 3 hours wall time (12 CPUh)"
+    },
+    "m14_default": {
+      "aex": 0.2,
+      "anomaly": "last concatenated output cwd says fraction_0.4; cwd and HFX_INFO FRACTION are not sTDA aEX evidence",
+      "classification": "physical_dissociation_candidate",
+      "confidence": "medium"
+    },
+    "m14_remedy": {
+      "aex": 0.25,
+      "center_force_raw_max_ha_bohr": 0.000321885,
+      "energy_delta_hartree": 5.76e-06,
+      "legacy_vib_stationarity": "FAIL_at_own_center",
+      "optimizer_endpoint_energy_hartree": -37.121660339065514,
+      "optimizer_xyz_minus_vib_center_translation_angstrom": [
+        -0.024085,
+        -0.00846,
+        0.012994
+      ],
+      "overall_minimum": "UNVERIFIED",
+      "projected_force_max_ha_bohr": 0.0001721601759459,
+      "projected_force_rms_ha_bohr": 0.0001219327245212,
+      "transfer_to_optimizer_endpoint": "UNVERIFIED until numerical-grid-phase error is calibrated; rigidly aligned internal geometry correspondence remains valid",
+      "vib_center_energy_hartree": -37.121654579
+    },
+    "minimum_recalculation_decisions": {
+      "m14_remedy": "PENDING additional same-surface stationarity/endpoint evidence; do not automatically repeat VIB",
+      "ordinary_14": "PENDING route-specific evidence search; absence of VIB alone does not prove recalculation is necessary"
+    },
+    "optimizer_source_correspondence": {
+      "record_count": 26,
+      "scope": "reviewed author-source pairing only; not fresh process authentication or exact native per-run aEX echo"
+    },
+    "ordinary_minimum_required_count": 14
+  },
+  "schema": "case06-trusted-public-source-profile/v1",
+  "source_record": "Materials Cloud c9peh-kt938"
+}

@@ -1,0 +1,56 @@
+                      :-) GROMACS - gmx grompp, 2022.6 (-:
+
+Executable:   /public/software/hpcsoftware/gromacs-2022.6/bin/gmx
+Data prefix:  /public/software/hpcsoftware/gromacs-2022.6
+Working dir:  /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/runs/U-dt2fs
+Command line:
+  gmx grompp -f /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/inputs/NVT-50ps-dt2fs.mdp -c /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/inputs/u.gro -p /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/inputs/topol.top -n /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/index-U.ndx -o topol.tpr -po mdout.mdp -pp processed.top
+
+Ignoring obsolete mdp entry 'ns-type'
+Generating 1-4 interactions: fudge = 0.5
+Group 'non-Water' with 233 atoms can be activated for interactive molecular dynamics (IMD).
+Number of degrees of freedom in T-Coupling group OCB is 371.91
+Number of degrees of freedom in T-Coupling group MOL is 53.99
+Number of degrees of freedom in T-Coupling group Water_and_ions is 12624.10
+
+GROMACS reminds you: "Aber wenn der Quarterback kommt, um dir die Brille abzunehmen, sag ihm: Danke, die bleibt wo sie ist" (Wir sind Helden)
+
+Setting the LD random seed to 2078539576
+
+Generated 91 of the 91 non-bonded parameter combinations
+
+Generated 91 of the 91 1-4 parameter combinations
+
+Excluding 3 bonded neighbours molecule type 'MOL'
+
+turning all bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'OCB'
+
+turning all bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'Na+'
+
+turning all bonds into constraints...
+
+Excluding 3 bonded neighbours molecule type 'WAT'
+
+turning all bonds into constraints...
+
+Velocities were taken from a Maxwell distribution at 300 K
+
+The largest distance between excluded atoms is 0.435 nm
+
+Determining Verlet buffer for a tolerance of 0.0001 kJ/mol/ps at 300 K
+
+Calculated rlist for 1x1 atom pair-list as 1.083 nm, buffer size 0.083 nm
+
+Set rlist, assuming 4x4 atom pair-list, to 1.055 nm, buffer size 0.055 nm
+
+Note that mdrun will redetermine rlist based on the actual pair-list setup
+Calculating fourier grid dimensions for X Y Z
+Using a fourier grid of 42x42x42, spacing 0.096 0.096 0.096
+
+Estimate for the relative computational load of the PME mesh part: 0.34
+
+This run will generate roughly 6 Mb of data

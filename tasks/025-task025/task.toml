@@ -1,0 +1,35 @@
+# Harbor-native task configuration (schema 1.4).
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+task_number = 25
+name = 'case-05-aromatic-bpr-rate-consistency'
+description = 'Assemble the ring-opening rate coefficient of every bicyclic peroxy radical isomer the authors computed across seven aromatic precursors, reconcile the deposited master-equation outputs with the published rate grid cell by cell, and state which cells cannot be reconciled and why.'
+source_doi = '10.1038/s41467-023-40675-2'
+
+[task]
+name = "compchemworld/case-05-aromatic-bpr-rate-consistency"
+description = 'Assemble the ring-opening rate coefficient of every bicyclic peroxy radical isomer the authors computed across seven aromatic precursors, reconcile the deposited master-equation outputs with the published rate grid cell by cell, and state which cells cannot be reconciled and why.'
+tags = []
+
+[agent]
+timeout_sec = 14400
+network_mode = 'no-network'
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

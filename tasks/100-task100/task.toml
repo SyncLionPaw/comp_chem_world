@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-101"
+description = "case05-generic-native-modes-v4: analyze the byte-locked public full-cell N=2 seed-24101 instance, run the full 250 ps NPT + 50 ps NVE protocol using candidate-selected HPC resources/orchestration, and report all two interlayer modes with candidate-submitted native execution and spectral evidence. Synthetic fixtures are construction-only."
+
+[metadata]
+name = "case-05-few-layer-md-mode-assignment"
+task_type = "scientific"
+execution_class = "hpc"
+qualification_status = "CANDIDATE_PROVENANCE_REFACTOR_PENDING_ORACLE"
+
+[agent]
+timeout_sec = 25200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

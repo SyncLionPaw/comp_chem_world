@@ -1,0 +1,99 @@
+{
+  "case_id": "case-07-holy-grail",
+  "criteria": [
+    {
+      "criterion": "research_scope_and_methods",
+      "level": "L3",
+      "necessary": true,
+      "description": "研究问题、范围、方法和近似是否适当且透明。"
+    },
+    {
+      "criterion": "independent_accuracy_basis",
+      "level": "L3",
+      "necessary": true,
+      "description": "核心定量主张是否有独立、可复核的准确性依据。"
+    },
+    {
+      "criterion": "comparison_fairness",
+      "level": "L3",
+      "necessary": true,
+      "description": "自主选择的比较是否公平；不强制 CRT 或固定模型。"
+    },
+    {
+      "criterion": "execution_and_numerical_reliability",
+      "level": "L3",
+      "necessary": true,
+      "description": "执行或可复算分析、数值误差、收敛和失败分支是否可信。"
+    },
+    {
+      "criterion": "cost_boundary",
+      "level": "L3",
+      "necessary": true,
+      "description": "成本是否对应可信作业、硬件和研究范围。"
+    },
+    {
+      "criterion": "uncertainty_and_applicability",
+      "level": "L3",
+      "necessary": true,
+      "description": "不确定性、模型限制和适用范围是否诚实处理。"
+    },
+    {
+      "criterion": "conclusion_supported_by_evidence",
+      "level": "L3",
+      "necessary": true,
+      "description": "结论是否回答所选问题且不超出证据。"
+    }
+  ],
+  "public_input_hashes": {},
+  "evidence_documents": {},
+  "verification_code_hashes": {
+    "tests/verify.py": "e57080a443c919d32a5445d3ca71bef46cfbcb489e4138e52b8ab0e9b08aec93"
+  },
+  "local_reanalysis_parser_sha256": "1b27461f3c56e04056dbb92401b90356b30db22e4140e63da29ff634ae3dc3ef",
+  "reanalysis_plan_format_sha256": "a94610e01c794e0e09279677d351fbeabff93fc2e3920855376618bb1b06c564",
+  "reviewer_code_sha256": "912f3898ac15971acc43efaa652f43297610ec8cd8052bee511eb80ee4d8a55f",
+  "native_reconstruction_code_sha256": "4d4fe0ab9910528477110eb15d578cea3fb2319412552e54196dfd07485ba4af",
+  "native_reconstruction_wrapper_sha256": "939dc13c5738069ae2434aab88ffb12deef9ebc541e51002dbe8105d19ee33af",
+  "native_adapter_registry": [
+    {
+      "id": "amset-0.5.1-live-vasprun-hdf-rates-v1",
+      "version": "1",
+      "source_sha256": "4d4fe0ab9910528477110eb15d578cea3fb2319412552e54196dfd07485ba4af",
+      "wrapper_sha256": "939dc13c5738069ae2434aab88ffb12deef9ebc541e51002dbe8105d19ee33af",
+      "source_path": "environment/assets/science/native_rebuild.py",
+      "wrapper_path": "environment/assets/science/reconstruct.py",
+      "receipt_schema": "case07.native-reconstruction/v1",
+      "supported_format": "AMSET 0.5.1 supported HDF mesh + vasprun/settings"
+    }
+  ],
+  "numeric_contract": {
+    "kind": "research-selected-no-fixed-gold-v1",
+    "reference_values": "derived-from-the-submitted-research-scope-and-trusted-evidence",
+    "near_formula": "abs(a-b)<=tol*max(1,abs(b))",
+    "tolerances": {
+      "scaled_near_default": 1e-08,
+      "evidence_comparison": 2e-07
+    }
+  },
+  "review_rubric_text": "# 科学审查范围\n\n审查对象由提交者选择。以提交报告中的研究问题和结论范围为准，检查关键数字、对照、执行证据、来源和资源成本能否互相印证。不要要求固定材料、输入结构、温度、浓度、晶向、计算阶段或结果条目数。不要把作者数据、软件示例或历史作业误认为本次候选执行。\n\n1. **研究范围与方法**：研究对象和方法是否足以回答提交者提出的有界问题，近似和关键参数是否透明。\n2. **独立准确性依据**：主要定量结论是否有独立可复核的准确性依据，比较对象、条件、单位和数据来源是否匹配。\n3. **自主比较的公平性**：研究者选择的比较对象、条件和指标是否适当且可比；若使用拟合参数，是否区分拟合与独立验证；若不设置对照，是否说明理由及其对结论的限制。不得强制要求 CRT 或其他固定模型。\n4. **执行与数值可靠性**：所称计算或可复算分析是否有对应的可信证据；收敛、误差、失败分支和重算选择是否如实说明。\n5. **成本边界**：成本是否对应实际作业、硬件和声明的研究范围，是否区分累计作业资源与墙钟时间。\n6. **不确定性与适用边界**：结论是否处理实验定义、模型局限、数值不确定性和样本范围；证据不足时是否适当收窄结论。\n7. **结论与证据一致性**：正面、负面、有限或不确定结论均可接受；只要该结论回答所选问题、边界诚实且有可复核证据支持，相应criterion应判为pass。空泛地称为“有限”不能替代对核心问题的回答。\n\n审查员不得运行候选代码或把候选自述当成受信记录。执行 ID、作业编号和文件路径必须能在 evaluator 提供的冻结快照或重建证据中找到；本地再分析必须有可信的回放记录。缺少必要科学工作或结论与证据冲突应判为fail。`limited`仅表示受信证据不足以明确裁决该criterion，最终无有效分；不得仅因候选结论有边界就判为limited。\n",
+  "private_reference_inputs": [
+    {
+      "name": "amset-supporting-data-v1.0.2.zip",
+      "sha256": "508b3ec12193e64477a17484588a2b813efeaaec78fb52193ab4fb5eddb7407a",
+      "doi": "10.5281/zenodo.4574805",
+      "article_doi": "10.1038/s41467-021-22440-5",
+      "license": "CC BY 4.0"
+    },
+    {
+      "name": "41467_2021_22440_MOESM4_ESM.xlsx",
+      "sha256": "590c17695bd1c90277e3aa0584eba4f74ee868f7d9baccdd93ff270198f73220",
+      "article_doi": "10.1038/s41467-021-22440-5",
+      "license": "CC BY 4.0 subject to third-party credit-line exclusions"
+    },
+    {
+      "name": "source-data-audit.json",
+      "sha256": "1765e0b2f15ac163b7bf9b0e3840816047e7cf160a90c7f7c6de27e1f8cea9e1",
+      "role": "derived source mapping; not candidate input"
+    }
+  ]
+}

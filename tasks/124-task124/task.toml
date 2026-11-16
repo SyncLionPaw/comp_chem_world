@@ -1,0 +1,30 @@
+schema_version = "1.4"
+handoff_version = "1.0"
+case_id = "case-05-gibbs"
+title = "按名称计算吉布斯自由能"
+artifacts = ["/app/final/thermo.json"]
+
+[metadata]
+name = "chemgraph-task-124"
+case_id = "case-05-gibbs"
+title = "按名称计算吉布斯自由能"
+description = "Compute the Gibbs free energy of a named molecule"
+
+[task]
+name = "compchemworld/chemgraph-task-124"
+description = "Compute the Gibbs free energy of a named molecule"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"
+workdir = "/app"

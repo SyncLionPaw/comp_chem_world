@@ -1,0 +1,16 @@
+molecule,oh_addition_site,file,temperature_K,pressure_Torr,k_prod1_per_s,k_prod2_per_s,published_k_298_per_s,matches_which_definition,relative_deviation_best
+benzene,ipso,Benzene-BPR_out.xml,300,760,0.00431948,0.00119897,0.005,,0.10368999999999985
+ethylbenzene,ipso,E-Benzene-iBPR-HR_out.xml,298,760,0.0974317,0.777573,0.96,,0.08853677083333333
+ethylbenzene,ortho,E-Benzene-oBPR-HR_out.xml,298,760,1.56965e-05,3.74761e-06,1.6e-05,channel_prod1;max_channel,0.018968749999999878
+ethylbenzene,para,E-Benzene-pBPR-HR_out.xml,298,760,0.00110027,0.00150729,0.00150729,channel_prod2;max_channel,0.0
+isopropylbenzene,ipso,I-Benzene-iBPR-HR_out.xml,298.15,760,2.29864,0.475629,2.8,sum_channels,0.009189642857142839
+m-xylene,ipso,M-xylene-iBPR_out.xml,298.15,760,3.54323,1.66121,3.5,channel_prod1;max_channel,0.012351428571428538
+m-xylene,meta,M-xylene-mBPR_out.xml,298.15,760,0.0110259,0.0073999,0.01,,0.10258999999999997
+m-xylene,para,M-xylene-pBPR_out.xml,298.15,760,1.02748e-05,6.86548e-06,1e-05,channel_prod1;max_channel,0.027479999999999945
+o-xylene,ipso,O-Xylene-iBPR-HR-mesmer_out.xml,300,760,0.0018898,0.0020894,0.002,channel_prod2;max_channel,0.04469999999999995
+p-xylene,ipso,P-xylene-iBPR-HR_out.xml,298.15,760,0.704154,0.656936,0.86,,0.18121627906976748
+p-xylene,ortho,P-xylene-oBPR_out.xml,298.15,760,6.92771e-08,5.38143e-05,6.9e-08,channel_prod1,0.004015942028985534
+toluene,ipso,Toluene-iBPR-HR_out.xml,298,760,0.132008,0.474626,0.59,sum_channels,0.028193220338983117
+toluene,meta,Toluene-mBPR_out.xml,298.15,760,0.00193429,0.00340199,0.003,,0.13399666666666668
+toluene,ortho,Toluene-oBPR_out.xml,298.15,760,9.5364e-06,3.05224e-05,3e-05,channel_prod2;max_channel,0.01741333333333323
+toluene,para,Toluene-pBPR-HR_out.xml,298.15,760,0.000137384,0.000961517,0.00096,channel_prod2;max_channel,0.0015802083333332547

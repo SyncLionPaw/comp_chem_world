@@ -1,0 +1,59 @@
+{
+  "schema": "bench14-case08-reference-manifest/v1",
+  "case_id": "case-08-trajectory-response",
+  "formal_reference": "Hash-bound private reference tests/_data/private_reference.npz regenerated from the accepted sample by the independent implementation tests/_support/reference.py.",
+  "reference": "tests/_data/private_reference.npz",
+  "reference_sha256": "a17920533a230c1c54df7e9b53bdb1bb358e11e243708dd685a3b08b7a4fe8e8",
+  "reference_code": "tests/_support/reference.py",
+  "reference_code_sha256": "77141186935edf550341d5c6166a4b04c16a6b755b1bbe37aea5aa98944d4d86",
+  "source_acceptance": "tests/_data/source_acceptance.json",
+  "source_acceptance_sha256": "3453cc062604d9d44a318556b038afdee36b821204ee79452ce709a4ed078914",
+  "verifier_sha256": "fa7e0ba8fad349257e1b830e76c38795c43b22769d30404b41d36424bed8b438",
+  "tolerances": {
+    "curve_default_rtol": 4e-06,
+    "curve_default_atol": 2e-09,
+    "eps_w_rtol": 2e-07,
+    "eps_w_atol": 1e-08,
+    "feature_rtol": 2e-05,
+    "feature_atol": 1e-08,
+    "box_A_atol": 0.002,
+    "volume_A3": {
+      "rtol": 2e-07,
+      "atol": 1e-05
+    }
+  },
+  "statistics": {
+    "block_length_ps": 1000.0,
+    "bootstrap_seed": 20261008,
+    "bootstrap_resamples": 2000,
+    "resolution_floor_k_Ainv": "h/sqrt(12)",
+    "resolution_floor_delta_k_Ainv": "h/sqrt(6)"
+  },
+  "asset_hashes": {
+    "environment/assets/analysis_contract.json": "sha256:dfb642437c61f34853d94e8003d84e3b33a4dff9f94daf70036e00ce7bd45b68",
+    "environment/assets/production.gro": "sha256:0aab1455468bb9dd2a708bfce87f8f93206ea1e93550c2b29f321559ce418f50",
+    "environment/assets/production.log": "sha256:7d36b274e494aa0d7405c0cfef85b8ae366bed9ae3b23efec028a0f5db4e0c93",
+    "environment/assets/production.tpr": "sha256:2561032bae33817f454bd26ec1ddad171b28aa718638998b5ca8ebf4d62f0ef5",
+    "environment/assets/source_manifest.json": "sha256:878f5fb8c6f9702f1b6c48a2d7c7799c97562357dbdb7a437e894480baaf09ec",
+    "environment/assets/topol.top": "sha256:1072dc72d08d1ea95e12d78a464fefffc962e86c115b43de17189f14ee8ab94e",
+    "environment/assets/trajectory_sample.npz": "sha256:cd3d5163a42fa47117c8aca7a731e5fd1334139e8496e82787f86495f779738c"
+  },
+  "host_replay": {
+    "oracle": "reward 1 for the isolated Oracle/Gold replays",
+    "adversarial": "reversed rows, every-other frame subset, integer-box translation and alternate reciprocal-vector replays passed; corrupted chi(k) and a forged input SHA-256 were rejected"
+  },
+  "dataset": {
+    "source_job_id": "9136",
+    "selected_frames": 200,
+    "saved_interval_ps": 100.0,
+    "temperature_K": 300,
+    "waters": 9033,
+    "atoms": 27099,
+    "shells": 62
+  },
+  "notes": [
+    "Source acceptance comes from corrected production job 9136; the verifier rejects incomplete, legacy or mismatched source evidence as an L0 ERROR before reading any candidate output.",
+    "Science failures return FAIL/reward 0; damaged private source or reference material is an infrastructure ERROR with no reward and no stale verdict file.",
+    "This case uses direct reciprocal-vector Fourier sums on the sampled trajectory; the separate case-001 CIC 256/384 mesh gates do not gate this case."
+  ]
+}

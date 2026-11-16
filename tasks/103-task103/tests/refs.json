@@ -1,0 +1,44 @@
+{
+  "carriers": [
+    "Li4_plus_delta",
+    "Li5_plus_delta",
+    "Li7_minus_delta"
+  ],
+  "groups": {
+    "Li4_plus_delta": [
+      "NEB_Li4+x",
+      [
+        "neb_hop_1",
+        "neb_hop_2",
+        "neb_hop_3",
+        "neb_hop_4",
+        "neb_hop_5"
+      ]
+    ],
+    "Li5_plus_delta": [
+      "NEB_Li5+x",
+      [
+        "neb_hop_1",
+        "neb_hop_2",
+        "neb_hop_3",
+        "neb_hop_4",
+        "neb_hop_5",
+        "neb_hop_6",
+        "neb_hop_7"
+      ]
+    ],
+    "Li7_minus_delta": [
+      "",
+      [
+        "NEB_Li7-x"
+      ]
+    ]
+  },
+  "tolerance_meV": 8.0,
+  "pair_cutoff_A": 2.6,
+  "reference_barriers_meV": {
+    "Li4_plus_delta": 343.343,
+    "Li5_plus_delta": 199.369,
+    "Li7_minus_delta": 455.574
+  }
+}

@@ -1,0 +1,29 @@
+# Harbor task config migrated from the archived Bench23 task 150 definition.
+schema_version = "1.4"
+artifacts = ["/app/report.md", "/app/result.json"]
+
+[task]
+name = "compchemworld/bench23-task-150"
+description = "Diagnose whether a neutral paired 1XBB geometry pair supports a tolerance-based acceptance decision, using only the deposited XYZ/context inputs and the CCD mapping."
+
+[metadata]
+task_number = 150
+name = "task 150"
+description = "在同一中性 1XBB 配对几何上判断是否存在可接受的容差决策，仅使用随包的 XYZ/上下文输入与 CCD 映射。"
+case_id = "case01-surrogate-diagnosis"
+execution_class = "local"
+holy_grail = false
+
+[agent]
+timeout_sec = 900
+
+[environment]
+network_mode = "no-network"
+env = { APP = "/app", TESTS = "/tests", LOGS = "/logs/verifier" }
+cpus = 2
+memory_mb = 2048
+gpus = 0
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 120

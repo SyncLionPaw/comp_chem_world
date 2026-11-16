@@ -1,0 +1,31 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-35"
+description = "Does N130–rpL5 form a heterogeneous network fluid?"
+
+[metadata]
+task_number = 35
+holy_grail = true
+research_mode = "auto_research"
+execution_class = "remote"
+
+[agent]
+network_mode = "public"
+timeout_sec = 86400
+
+[environment]
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+storage_mb = 32768
+build_timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[verifier.environment]
+network_mode = "no-network"

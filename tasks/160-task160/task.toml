@@ -1,0 +1,69 @@
+schema_version = "1.4"
+artifacts = ["/app/outputs", "/app/case07-artifacts/trusted"]
+
+[task]
+name = "compchemworld/bench24-task-160"
+description = "Si–O 势的三阶段主动学习基准（已有 SCAN 标签 oracle）"
+
+[metadata]
+case_id = "case-06"
+execution_class = "local"
+reference_solution_required = true
+
+[agent]
+timeout_sec = 43200
+user = "researcher"
+network_mode = "public"
+
+[environment]
+cpus = 2
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "public"
+workdir = "/app"
+
+[environment.env]
+CCB_CASE07_ROLE = "agent"
+CCB_CASE07_AGENT_USER = "researcher"
+HOME = "/home/researcher"
+CASE07_QUERY_CLIENT = "/usr/local/bin/case07-query"
+
+[environment.healthcheck]
+command = "if [ \"$CCB_CASE07_ROLE\" = verifier ]; then exit 0; fi; test -S /run/case07/query.sock && test -s /trusted/case07/runtime-closure.json"
+interval_sec = 5.0
+timeout_sec = 10.0
+start_period_sec = 900.0
+retries = 3
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+user = "root"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.env]
+APP = "/app"
+TESTS = "/tests"
+LOGS = "/logs/verifier"
+
+# LearningEnvironment creates the trial-local service and private records.
+
+[verifier.environment.env]
+CCB_CASE07_ROLE = "verifier"
+CCB_CASE07_CASE = "case-06"
+APP = "/app"
+TESTS = "/tests"
+LOGS = "/logs/verifier"
+HOME = "/root"
+
+[[verifier.collect]]
+command = "/usr/bin/python3 -B -I /opt/case07/entrypoint.py collect"
+service = "main"
+timeout_sec = 180.0
+user = "root"

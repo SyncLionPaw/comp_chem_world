@@ -1,0 +1,36 @@
+quantity,species_column,value,unit
+x-B-RONO2,benzene,0,kcal/mol
+x-B-RONO2,toluene-ipso,0,kcal/mol
+x-B-RONO2,toluene-ortho,0,kcal/mol
+x-B-RONO2,toluene-meta,0,kcal/mol
+x-B-RONO2,toluene-para,0,kcal/mol
+x-B-RO + NO2,benzene,41.1,kcal/mol
+x-B-RO + NO2,toluene-ipso,40.5,kcal/mol
+x-B-RO + NO2,toluene-ortho,41.1,kcal/mol
+x-B-RO + NO2,toluene-meta,38.4,kcal/mol
+x-B-RO + NO2,toluene-para,41,kcal/mol
+TSrearrangement,benzene,22.2,kcal/mol
+TSrearrangement,toluene-ipso,19.4,kcal/mol
+TSrearrangement,toluene-ortho,25.5,kcal/mol
+TSrearrangement,toluene-meta,21.2,kcal/mol
+TSrearrangement,toluene-para,21.9,kcal/mol
+x-RB-RONO2,benzene,-48.8,kcal/mol
+x-RB-RONO2,toluene-ipso,-53.4,kcal/mol
+x-RB-RONO2,toluene-ortho,-51.2,kcal/mol
+x-RB-RONO2,toluene-meta,-46,kcal/mol
+x-RB-RONO2,toluene-para,-42.5,kcal/mol
+x-RB-RO + NO2,benzene,-6.5,kcal/mol
+x-RB-RO + NO2,toluene-ipso,-13.1,kcal/mol
+x-RB-RO + NO2,toluene-ortho,-9.3,kcal/mol
+x-RB-RO + NO2,toluene-meta,-5.7,kcal/mol
+x-RB-RO + NO2,toluene-para,-0.3,kcal/mol
+kx-B-RONO2 => x-B-RO + NO2,benzene,9.3e-12,
+kx-B-RONO2 => x-B-RO + NO2,toluene-ipso,1.6e-11,
+kx-B-RONO2 => x-B-RO + NO2,toluene-ortho,1.3e-13,
+kx-B-RONO2 => x-B-RO + NO2,toluene-meta,1e-09,
+kx-B-RONO2 => x-B-RO + NO2,toluene-para,7.6e-12,
+kx-B-RONO2 => x-RB-RO + NO2,benzene,0.00049,
+kx-B-RONO2 => x-RB-RO + NO2,toluene-ipso,0.1,
+kx-B-RONO2 => x-RB-RO + NO2,toluene-ortho,3.6e-08,
+kx-B-RONO2 => x-RB-RO + NO2,toluene-meta,0.0006,
+kx-B-RONO2 => x-RB-RO + NO2,toluene-para,0.0001,

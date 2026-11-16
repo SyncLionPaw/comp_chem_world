@@ -1,0 +1,38 @@
+case_id: case-01-water-rearrangement-descriptor
+readiness: READY_FOR_RUNTIME
+evidence_coverage: COMPLETE
+implementation: partial
+criteria:
+- criterion: coordinate_cn_units_pbc_and_closed_form_checks
+  level: L2
+  necessary: true
+  verification_basis:
+    type: derived_coordinate_reference
+    source: packages/case-01-water-rearrangement-descriptor/tests/refs.json
+    source_sha256: cb4c920fef463cd4aeaba9403c79ef63d3c375ce3eab2b16176fa2529021dbf8
+    rationale: Real uniformly selected coordinates and explicit atom IDs/box vectors support recomputing switching
+      CNs; closed-form test distances and lattice-translation invariance are recorded in the derived reference.
+- criterion: matched_z_water_feature_complementarity_and_selection
+  level: L3
+  necessary: true
+  verification_basis:
+    type: acquired_method_and_derived_coordinate_contrast
+    source: packages/case-01-water-rearrangement-descriptor/tests/refs.json
+    source_sha256: cb4c920fef463cd4aeaba9403c79ef63d3c375ce3eab2b16176fa2529021dbf8
+    rationale: A real frame pair is matched within 0.02 nm in coordinate z and radius in the bound-like z range
+      while V1–V8 CN differs; compare feature families and explain support limits. Multiple reasonable feature subsets
+      are acceptable.
+- criterion: sampling_scope_and_validation_boundary
+  level: L3
+  necessary: true
+  verification_basis:
+    type: author_training_protocol_and_source_sampling_constraint
+    source: packages/case-01-water-rearrangement-descriptor/tests/refs.json
+    source_sha256: cb4c920fef463cd4aeaba9403c79ef63d3c375ce3eab2b16176fa2529021dbf8
+    rationale: Use the mounted, source-hashed training-design.json to describe the reported B/U state protocol and
+      its limits. The sparse biased excerpt is not those ten training trajectories and cannot establish equilibrium
+      frequencies, CV optimality, or causal importance; the underlying trajectories, labels, weights and held-out
+      results are unavailable.
+review_policy: Accept equivalent feature selections when they are supported by same-coordinate measurements, explicit
+  criteria, and accurate sampling limitations; no single hidden ranking is required.
+verifier: tests/test.sh

@@ -1,0 +1,24 @@
+{
+  "scope_version": "audit-v2-joint-fix-r2",
+  "scope": {
+    "case_count": 5,
+    "participant_bundle": "environment/assets/participant-audit-v2.zip",
+    "historical_full_scope": "full-209-v1 archived and incomplete",
+    "historical_core_scope": "core-v1 archived"
+  },
+  "bundle_sha256": "675e72f69fb387a928c91a47b0f14af0e0f838f94b1e94cc6f9be8f3704ec514",
+  "public_policy": {
+    "substantial_ts_imaginary_frequency_cm-1_below": -100.0,
+    "minimum_negative_mode_count": 0,
+    "soft_mode_equivocal_abs_frequency_cm-1_below": 10.0,
+    "barrier_tolerance_kcal_mol": 0.02,
+    "near_degeneracy_cutoff_kcal_mol": 1.0,
+    "hartree_to_kcal_mol": 627.509474
+  },
+  "validation": {
+    "protected_grader": "tests/protected/runtime/audit-v2/evaluator/grade.py",
+    "required_native_observations": true,
+    "private_expected_outcomes_in_participant_bundle": false
+  },
+  "participant_tree_sha256": "372c52ce873ce2ea8987db7c60abbc43c653ee835d6d0d6462e5a1f97ba6e3e5"
+}

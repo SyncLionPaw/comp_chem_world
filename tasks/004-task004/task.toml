@@ -1,0 +1,32 @@
+# Harbor task config migrated from the archived Bench01 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-04-uncertainty-applicability-domain"
+description = "Assess uncertainty calibration, applicability to unseen substrates and nucleophiles, predicted-risk filtering, and experimental repeatability using the frozen split and a reproducible, independently refittable protocol."
+
+[task]
+name = "compchemworld/case-04-uncertainty-applicability-domain"
+description = "Assess uncertainty calibration, applicability to unseen substrates and nucleophiles, predicted-risk filtering, and experimental repeatability using the frozen split and a reproducible, independently refittable protocol."
+
+[agent]
+timeout_sec = 14400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 600
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 600
+network_mode = "no-network"

@@ -1,0 +1,13 @@
+services:
+  main:
+    build:
+      context: ../environment
+    tmpfs:
+      - /root/.ssh:rw,noexec,nosuid,nodev,size=1m,mode=0700
+    volumes:
+      - type: bind
+        source: .
+        target: /tests
+        read_only: true
+        bind:
+          create_host_path: false

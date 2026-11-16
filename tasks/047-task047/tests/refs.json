@@ -1,0 +1,76 @@
+{
+  "input_hashes": {
+    "inputs/system-spec.json": "e484b4c1964b4fc2c0e7a154ce2e53f131545243e83758b7fdc9fd0e5e5c8a0f",
+    "inputs/conductivity-audit.csv": "d6422037b9d52118327dd7c990a35347082f042a908306a62fe5cad6a3bff57e"
+  },
+  "reference_type": "derived_reference",
+  "source": "SI TableS1/S2 + paper Table4 GK column",
+  "constants": {
+    "e_C": 1.602176634e-19,
+    "kB_J_K": 1.380649e-23,
+    "zeta_cubic": 2.837297
+  },
+  "numeric_acceptance": {
+    "rtol": 1e-06,
+    "atol": 1e-15
+  },
+  "qualification_granted": false,
+  "reference_bundle_schema": "compchembench.reference-data/v1",
+  "scientific_values": {
+    "input_hashes": {
+      "inputs/system-spec.json": "e484b4c1964b4fc2c0e7a154ce2e53f131545243e83758b7fdc9fd0e5e5c8a0f",
+      "inputs/conductivity-audit.csv": "d6422037b9d52118327dd7c990a35347082f042a908306a62fe5cad6a3bff57e"
+    },
+    "reference_type": "derived_reference",
+    "source": "SI TableS1/S2 + paper Table4 GK column",
+    "constants": {
+      "e_C": 1.602176634e-19,
+      "kB_J_K": 1.380649e-23,
+      "zeta_cubic": 2.837297
+    },
+    "numeric_acceptance": {
+      "rtol": 1e-06,
+      "atol": 1e-15
+    },
+    "qualification_granted": false
+  },
+  "documents": {
+    "assessment-protocol.json": {
+      "runtime_path": "assessment-protocol.json",
+      "encoding": "utf-8",
+      "data": "{\n  \"case_id\": \"reline-06-ne-audit\",\n  \"evidence_coverage\": \"COMPLETE\",\n  \"expected_outputs\": [\n    \"results.csv\",\n    \"analysis.json\",\n    \"calculations.py\"\n  ],\n  \"criteria\": [\n    {\n      \"criterion\": \"deliverables\",\n      \"level\": \"L1\",\n      \"necessary\": true,\n      \"description\": \"全部温度唯一齐全，数值表、修正状态、单位、温度分类和科学解释齐全，计算程序可重放。\"\n    },\n    {\n      \"criterion\": \"replay_calculation\",\n      \"level\": \"L2\",\n      \"necessary\": true,\n      \"description\": \"给定表和确定性扰动表均由提交脚本复算，数值匹配独立评价；在下游隔离环境运行提交代码。\"\n    },\n    {\n      \"criterion\": \"ne_and_gamma\",\n      \"level\": \"L3\",\n      \"necessary\": true,\n      \"description\": \"严格从已修正D和64离子对计算NE、gamma及单独列出的Yeh–Hummer增量，不重复加到D。\",\n      \"verification_basis\": {\n        \"type\": \"derived_reference\",\n        \"source\": \"SI S1/S2 tables p6-7; paper Eq14/Table4 p8\",\n        \"rationale\": \"精确的代数关系与已获得输入足以评价本题，无需轨迹或未获取Gold。\"\n      },\n      \"tolerance\": \"根据给定舍入输入独立重算，每项rtol=1e-6, atol=1e-15。\"\n    },\n    {\n      \"criterion\": \"interpretation\",\n      \"level\": \"L3\",\n      \"necessary\": true,\n      \"description\": \"识别323/333K gamma>1，不把gamma限制为[0,1]或当作配对比例；gamma<1不能唯一证明某个配对机制，显著性需要不确定性。\",\n      \"verification_basis\": {\n        \"type\": \"scientific_constraint\",\n        \"source\": \"paper Table4 p8; scientific charge-current decomposition\",\n        \"rationale\": \"gamma是两个输运估计之比，异粒子电流相关可提升或抑制总值；原始表中大于1直接反驳普适百分比解释。\"\n      },\n      \"tolerance\": \"所要求科学命题及温度集合须完全满足；根据解释文字和实际计算证据独立审查，不以关键词或提交者的结论布尔值替代科学判断。\"\n    }\n  ],\n  \"numeric_policy\": {\n    \"version\": \"local-completion/1.0\",\n    \"scope\": \"Scientific acceptance margins are explicit benchmark design choices, not published statistical confidence intervals and not calibrated agent-pass thresholds.\",\n    \"training\": {\n      \"centered_energy_max_eV_atom\": 0.0012722801259634833,\n      \"force_max_eV_A\": 0.07437986675415861,\n      \"baseline\": {\n        \"raw_energy_rmse_eV_atom\": 0.006988340370703414,\n        \"centered_energy_rmse_eV_atom\": 0.006912000930206439,\n        \"force_component_rmse_eV_A\": 0.9309019712900323\n      },\n      \"rationale\": \"Same 1000 configurations/labels, four obtained author model evaluations. Allow seed/implementation variation but reject mere constant energy/zero force and a materially worse learned surface; this is not Fig.2 blind-test reproduction.\"\n    },\n    \"density\": {\n      \"reference\": [\n        1.143,\n        1.138,\n        1.134,\n        1.129,\n        1.124,\n        1.118\n      ],\n      \"reference_rounding_g_cm3\": 0.0005,\n      \"equivalence_margin_g_cm3\": 0.015,\n      \"sem_max_g_cm3\": 0.003,\n      \"minimum_independent_blocks\": 8,\n      \"rationale\": \"Margin ~1.3% of density is smaller than the paper reported 3–3.5% systematic DFT bias; precision and negative temperature slope are separately required, so a flat curve/giant error bar cannot establish agreement.\"\n    },\n    \"diffusion\": {\n      \"relative_equivalence_margin\": 0.3,\n      \"readout_margin_1e-11_m2_s\": 0.03,\n      \"max_ci95_halfwidth_relative\": 0.2,\n      \"activation_energy_reference_kJ_mol\": {\n        \"cation\": 48.26,\n        \"anion\": 46.83,\n        \"urea\": 46.76\n      },\n      \"activation_energy_equivalence_relative\": 0.1,\n      \"rationale\": \"Fig.5 same-size MSD diffusion is obtained separately from TableS2 VACF values. Fig.S6 repeat scatter is about 8–15% relative SD; 30% reference equivalence margin permits repeat variation while independent precision and 10% activation-energy tests prevent uninformative agreement. These margins are benchmark policies, not author uncertainties.\"\n    },\n    \"collective\": {\n      \"T_K\": 363,\n      \"peak_time_equivalence_ps\": 0.03,\n      \"NC_equivalence_absolute\": 0.08,\n      \"GK_reference_S_m\": 1.162,\n      \"NE_reference_S_m\": 1.39,\n      \"transport_equivalence_relative\": 0.3,\n      \"max_transport_ci95_halfwidth_relative\": 0.2,\n      \"coordination_relative_margin\": 0.2,\n      \"shell_radius_margin_A\": 0.5,\n      \"rationale\": \"363 K Fig.6 curves and Table3/4 are acquired. Compare nine ordered pairs with count/mass normalization and initial-shell validity before amplitudes; AA has a weak maximum and is not forced to have a pronounced peak. Conductivity is noisy, therefore plateau stability/precision and no fabricated execution are mandatory in addition to means.\"\n    },\n    \"rdf\": {\n      \"source_condition\": {\n        \"T_K\": 375,\n        \"atoms\": 684\n      },\n      \"r_grid_A\": [\n        0,\n        9\n      ],\n      \"peak_position_equivalence_A\": 0.2,\n      \"relative_first_peak_height_margin\": 0.3,\n      \"integrated_abs_difference_relative\": 0.25,\n      \"rationale\": \"Compare acquired Fig.3 solid/dashed curves on a common grid; finite AIMD and digitization uncertainty are distinct. Different temperature/size/method requires an explicit justified comparability estimate; absent that, the relevant claim is inconclusive, not supported.\"\n    },\n    \"statistics\": {\n      \"confidence\": 0.95,\n      \"repeat_resampling\": \"independent trajectories, not overlapping time origins\",\n      \"block_averaging\": \"choose a block size on the error plateau, show at least 8 effectively independent blocks when block-based uncertainty is used\",\n      \"convergence\": \"predeclared nested windows/extended sampling must be compared with errors; a fixed trajectory length does not demonstrate convergence\",\n      \"sources\": [\n        \"https://manual.gromacs.org/current/onlinehelp/gmx-analyze.html\",\n        \"https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html\",\n        \"https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html\"\n      ]\n    },\n    \"decision_rule\": \"Reference matching alone is insufficient. Every necessary native-execution, mathematical and scientific criterion must be adjudicated; uncertainty too large to resolve a claim gives inconclusive, never an automatic scientific PASS.\",\n    \"runtime\": \"fixed shared local image bound\",\n    \"qualification_granted\": false\n  },\n  \"author_model_sha256\": [\n    \"a5eaa05beba8e11234c0891348e4336491404e998188b201f57c0abe4c35e773\",\n    \"06fa7f85d95e9509b5195848cb6dcb982df510be29fd38a59a32b923fbf95206\",\n    \"b21dde0c555875ea197f85270727fdc48645ca13d029fc044aa56cec57b69e8a\",\n    \"5d7a90ac1e1f203eeb8380e1a2defc23b05c2a3c77b065af88fbf45db799503a\"\n  ],\n  \"core_scientific_adjudication\": \"mandatory independent review of every necessary L2/L3 criterion; agent self assertions are not scoring evidence\",\n  \"scoring_implementation\": \"implemented\",\n  \"runtime_bound\": true,\n  \"qualification_granted\": false\n}\n",
+      "sha256": "51daa969a020cea7596925a7fd0346297623e4ab3c1bc532df5518746165384c",
+      "size": 7031,
+      "media_type": "application/json",
+      "kind": "original_scientific_data"
+    },
+    "evidence/reference-values.json": {
+      "runtime_path": "evidence/reference-values.json",
+      "encoding": "utf-8",
+      "data": "{\n  \"paper\": {\n    \"title\": \"Efficient Molecular Dynamics Simulations of Deep Eutectic Solvents with First-Principles Accuracy Using Machine Learning Interatomic Potentials\",\n    \"doi\": \"10.1021/acs.jctc.3c00944\"\n  },\n  \"density_MLIP_g_cm3\": [\n    1.143,\n    1.138,\n    1.134,\n    1.129,\n    1.124,\n    1.118\n  ],\n  \"density_exp_g_cm3\": [\n    1.183,\n    1.178,\n    1.173,\n    1.167,\n    1.162,\n    1.157\n  ],\n  \"activation_energies_kJ_mol\": {\n    \"cation\": 48.26,\n    \"anion\": 46.83,\n    \"urea\": 46.76\n  },\n  \"paper_independent_test\": {\n    \"n_304\": 50,\n    \"n_684\": 50,\n    \"centered_energy_rmse_meV_atom\": [\n      0.92,\n      5.48\n    ],\n    \"force_rmse_eV_A_approx\": 0.05,\n    \"inputs_acquired\": false\n  },\n  \"sigma_NE_printed\": [\n    0.245,\n    0.361,\n    0.61,\n    0.941,\n    1.39,\n    1.962\n  ],\n  \"gamma_printed\": [\n    1.15,\n    1.08,\n    0.96,\n    0.89,\n    0.84,\n    0.79\n  ],\n  \"coordination_table3\": {\n    \"ordered_pairs\": [\n      \"CC\",\n      \"CA\",\n      \"CU\",\n      \"AA\",\n      \"AC\",\n      \"AU\",\n      \"UU\",\n      \"UC\",\n      \"UA\"\n    ],\n    \"N\": [\n      4.89,\n      3.31,\n      9.54,\n      2.86,\n      3.31,\n      3.63,\n      4.91,\n      4.77,\n      1.81\n    ],\n    \"R_A\": [\n      8.0,\n      6.5,\n      7.4,\n      7.0,\n      6.5,\n      5.3,\n      6.2,\n      7.4,\n      5.3\n    ]\n  },\n  \"sources\": {\n    \"density\": \"paper Table1 PDF p5\",\n    \"activation\": \"paper Table2 PDF p6\",\n    \"coordination\": \"paper Table3 PDF p7\",\n    \"conductivity\": \"paper Table4 PDF p8\",\n    \"thermophysical\": \"SI TableS1 PDF p6\",\n    \"diffusion\": \"SI TableS2 PDF p7\"\n  },\n  \"tolerance_policy\": \"Printed values are provenance, not uncalibrated numerical Gold. NE-audit references are derived from the supplied rounded inputs, not hidden unrounded source values.\"\n}\n",
+      "sha256": "7e7724b262022184b5a0ee44ad0415d079086181bda4cce0a609b9ec178dc872",
+      "size": 1755,
+      "media_type": "application/json",
+      "kind": "original_scientific_data"
+    },
+    "review-rubric.md": {
+      "runtime_path": "review-rubric.md",
+      "encoding": "utf-8",
+      "data": "# NE 电导率与相关因子的科学审计：完整科学审查规范\n\n定义和任务信息边界不变。判据证据覆盖COMPLETE；自动程序实施implemented，共享本地运行环境已绑定。\n\n## Preflight\n\n核验task.toml公开输入及tests/reference-hashes.json。损坏的输入/参考、缺依赖或未完成的科学审查是环境/未接入状态，不得输出reward。\n\n## 必要执行与交付核验\n\n以下审查仅适用于各题冻结契约所要求的运行，不额外要求NE审计执行训练或MD。涉及训练/MD时须提交可重放的原生输入、版本、实际种子/时间、日志、模型或restart与轨迹；核验哈希及相互对应关系。原生日志的步数/原子数/盒/温度须与轨迹一致。抽样重放推断或分析与结果相容。不能把文件存在当作执行证明，不能把作者既有模型冒充新训练。允许等价科学软件及原生格式，由审查者解析或通过提交的分析程序重放。\n\n统计审查采用独立轨迹和有效独立分块。核实分子重建、连续去周期及COM质量；MSD/VACF、相关函数和电流应能从原生位置/速度再算。所有不能自动核验的科研判断必须由科学审查者据实际产物作出有理由的逐判据PASS/FAIL/环境错误记录，并引用产物的路径与哈希。不得用Agent自行填写的布尔值替代科学审查。\n\n方法中立的HG允许结论与论文不同或有限域，但必须评价实际科研工作和相容条件；不是用“inconclusive”跳过结构/输运生成。主张的真假与任务是否被科学地完成分别判断；HG的上述数值接受范围用于判断主张相容性，实际计算得到不相容结果并正确证实contradicted，也可完成对应科学审查，不能强迫新方法复现作者结果。独立量子基准不足时禁止给出尺寸泛化的强支持结论，已归档的独立测试Case和当前Case03仍保留其不可替换的输入要求。\n\n## 判据与决策\n\n### L1 / deliverables\n\n全部温度唯一齐全，数值表、修正状态、单位、温度分类和科学解释齐全，计算程序可重放。\n\n按冻结产物及数值重放契约检查。\n\n### L2 / replay_calculation\n\n给定表和确定性扰动表均由提交脚本复算，数值匹配独立评价；在下游隔离环境运行提交代码。\n\n按冻结产物及数值重放契约检查。\n\n### L3 / ne_and_gamma\n\n严格从已修正D和64离子对计算NE、gamma及单独列出的Yeh–Hummer增量，不重复加到D。\n\n根据给定舍入输入独立重算，每项rtol=1e-6, atol=1e-15。\n\n### L3 / interpretation\n\n识别323/333K gamma>1，不把gamma限制为[0,1]或当作配对比例；gamma<1不能唯一证明某个配对机制，显著性需要不确定性。\n\n所要求科学命题及温度集合须完全满足；根据解释文字和实际计算证据独立审查，不以关键词或提交者的结论布尔值替代科学判断。\n\n## 最终记录\n\n逐项必要判据均满足且有对应实际产物才可输出科学PASS；任一必要判据不满足为FAIL。环境失败、原生证据无法审查或缺少人工科学裁决时不给reward。人工裁决需记录判据ID、所核验产物/参考哈希、复算过程和理由。当前只交付评价条件，不声称Agent结果或正式校准已经通过。所有接受margin是可审计的benchmark定义选择，已标明来源与理由，不是假造的作者统计误差。\n",
+      "sha256": "fd194595b9212cab8bc2d9e6349e7ef73a0b8b835aea6b21917293fae8426efd",
+      "size": 3454,
+      "media_type": "text/markdown",
+      "kind": "original_scientific_data"
+    },
+    "reference-hashes.json": {
+      "runtime_path": "reference-hashes.json",
+      "encoding": "utf-8",
+      "data": "{\n  \"inputs/conductivity-audit.csv\": \"d6422037b9d52118327dd7c990a35347082f042a908306a62fe5cad6a3bff57e\",\n  \"inputs/system-spec.json\": \"e484b4c1964b4fc2c0e7a154ce2e53f131545243e83758b7fdc9fd0e5e5c8a0f\",\n  \"tests/assessment-protocol.json\": \"51daa969a020cea7596925a7fd0346297623e4ab3c1bc532df5518746165384c\",\n  \"tests/evidence/reference-values.json\": \"7e7724b262022184b5a0ee44ad0415d079086181bda4cce0a609b9ec178dc872\",\n  \"tests/review-rubric.md\": \"fd194595b9212cab8bc2d9e6349e7ef73a0b8b835aea6b21917293fae8426efd\",\n  \"tests/test.sh\": \"3fda6621fdcfb2962e83c50fa120c861628c5e4e684a1b07a0a08fed30f6d975\",\n  \"tests/verify.py\": \"d8d99b2e3aa85d2fdc08e32b4efac808b6f15481d241b5a8b1b83e114f481eb3\"\n}\n",
+      "sha256": "d4cbfc0278dcd23dffe5955c8c85c5d87357c2db57016e3b1c5ae291b6f09922",
+      "size": 689,
+      "media_type": "application/json",
+      "kind": "input_and_verifier_integrity",
+      "predecessor_sha256": "0b48086b76e2b2ab054f1e03d424d582c44f47654fa3f5cf04c3573899a2bd8c"
+    }
+  }
+}

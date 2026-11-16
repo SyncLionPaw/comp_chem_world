@@ -1,0 +1,88 @@
+{
+  "schema": "case03-reference-policy/v2",
+  "source_pins": {
+    "task_config_sha256": "61b7aa71df99f3bca15d45ec157130e737d41dcfb1010946af4b1a9b4bdf0b5b",
+    "profile_sha256": "23305e8c0d625fbc6884f2830583e0f4fbab1b087d0962c821f14da063b964b9",
+    "scorer_source_closure_sha256": "10d0afa9bb4e81ea887cffd3c8d7c4ec20d9d8284e40ca5c834e6dbc4eafda19",
+    "scorer_source_files": {
+      "score_case03_v2_once.py": "29a9c538c7a1761fd8bed3cda8cfe5171a0e7af0b90689d00dd345fb4ef8fa00",
+      "score_redesign_trusted.py": "b3305875faed0b360a86f7f4f5a52558d0a5d3dd024231c42a36e29daa04742f",
+      "case03_v2_protocol.py": "7b1c95ba0e02284d067b3de4821960ab6a0ef24f8f28c24b0321eecd55c9f52e",
+      "case03_v2_public_diagnostics.py": "0b606a2ffa4e8fc499cbd78f726471d5ef3f3c7d633a8abc3f96b8e7054dbc94"
+    },
+    "template_sha256": "e997251219b205efb8c0004ddd8d8401c89a8e8e45f5cde9400b75a36a67e179",
+    "baseline_sha256": "840834c2b94fc2efdb7c454f11a60f5af3bee917f12594e90ad6a82b3155ecc5",
+    "public_manifest_sha256": "73b3166d6617dc8f76997f4b303a5c08668a4cba943d943e82c4a516744838a7",
+    "trainval_sha256": "f9035b3ed2b0a89b75e65d594095a6ba3ca6a598ede3f015b31a81bbed9c1634",
+    "heldout_geometry_sha256": "916ca740359efff09829589b7878e7484078b1ccb7193f121361b9cc9972df44"
+  },
+  "dataset": {
+    "trainval_rows": 4999,
+    "train_rows": 4499,
+    "validation_rows": 500,
+    "heldout_geometry_rows": 1000,
+    "trainval_split_rule": "train=first4499,val=last500",
+    "heldout_row_id_rule": "ASE row IDs 1..1000",
+    "coordinate_preprocessing": "subtract per-structure ASE mass-weighted center of mass",
+    "energy_preprocessing": "subtract train-only mean S0 Hartree energy"
+  },
+  "experiment": {
+    "model": "painn",
+    "intervention": "nac_head_only",
+    "primary_strata": [
+      "low_gap",
+      "geometry_ood"
+    ],
+    "primary_metric": "phase_aligned_nac_mae",
+    "phase_loss": "physical_four_global_gauge",
+    "seed": 20261007,
+    "decision_policy_id": "adopt_if_ci_lower_positive_guards_pass_and_COM_centered_only_else_retain",
+    "predeclared_stop_condition": "retain_if_ci_lower_not_positive_or_registered_guard_fails",
+    "adoption_scope": "COM_centered_only",
+    "fallback_action": "retain",
+    "primary_risks": [
+      "painn_origin_dependent_nac",
+      "limited_nac_head_capacity",
+      "geometry_ood_extrapolation",
+      "correlated_geometry_resampling"
+    ]
+  },
+  "resources": {
+    "slurm_wall_seconds": 1200,
+    "target_whole_attempt_seconds": 600,
+    "whole_attempt_seconds": 1200,
+    "training_seconds": 300,
+    "terminal_capture_and_seal_seconds": 600,
+    "single_score_seconds": 120,
+    "post_feedback_decision_seconds": 120,
+    "queue_wait_budgeted": false
+  },
+  "public_diagnosis": {
+    "low_gap_rule": "train_p10_gap",
+    "train_gap_percentile": 10,
+    "low_gap_threshold_ha_train_only": 0.012576539999997749,
+    "low_gap_threshold_abs_tolerance_ha": 2e-15,
+    "geometry_ood_rule": "validation_top10pct_geometry_distance",
+    "geometry_ood_validation_fraction": 0.1
+  },
+  "statistics": {
+    "minimum_primary_sample_count": 100,
+    "paired_unit": "heldout_structure",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20261007,
+    "delta_definition": "baseline_minus_tuned"
+  },
+  "scientific_guards": {
+    "energy_output_max_abs_delta_ha": 2e-06,
+    "force_output_max_abs_delta_ha_per_bohr": 2e-06,
+    "gap_output_max_abs_delta_ha": 2e-06,
+    "rotation_nac_residual_max_abs_per_bohr": 0.0001,
+    "permutation_nac_residual_max_abs_per_bohr": 0.0001,
+    "translation_origin_term_residual_max_abs_ha_per_bohr": 5e-06
+  },
+  "tolerances": {
+    "training_clock_consistency_seconds": 0.01,
+    "aggregate_delta_abs_au": 1e-12,
+    "score_duration_consistency_seconds": 1e-09
+  }
+}

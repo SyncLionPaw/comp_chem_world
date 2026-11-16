@@ -1,0 +1,12 @@
+{
+  "record_type": "engineering_contract_correction",
+  "date": "2026-10-18",
+  "case": "case-08-short-md-stop-go",
+  "frozen_baseline_manifest": "authoring/integration-20261017/frozen/baseline-manifest.json",
+  "frozen_output_contract_sha256": "f9dadfd3033f3ca7deba9b57cb00dcb28d634a1daa17ecb88ca01bf081b5c46e",
+  "frozen_instruction_sha256": "cb8c7329bc1a08be8876e8b8ec86aa53b232ededbe4ff48f2ad62c29efc116bd",
+  "reason": "Verifier previously treated reference examples as mandatory, despite the frozen contract allowing equivalent analysis windows, water selections, and coordination methods.",
+  "correction": "Keep provenance, physical settings, actual paired TPR coordinate/velocity vectors, positive nsteps, and per-run/total time caps as hard checks. Permit any integer velocity seed when actual paired velocities match. Permit shorter runs and differing paired durations within the caps. Recompute recognized diagnostics with published unit-specific tolerances; route unsupported alternative methods/windows/sampling to NOT_VERIFIED/manual review rather than candidate FAIL.",
+  "scientific_adjudication": "The previously approved scientific PASS for job 3968344 is unchanged; this record changes only method-neutral verifier treatment and does not authorize another simulation.",
+  "numerical_tolerance_basis": "The previous 1e-9 comparison tolerance was not specified by the frozen contract and is tighter than the representations being checked. GROMACS XVG values are decimal-rounded; GRO coordinates are quantized to 0.001 nm, with propagated uncertainty in derived distances and angles. The explicit unit-specific tolerances in output-contract.json reflect those representations and preserve materially meaningful discrepancy detection."
+}

@@ -1,0 +1,62 @@
+# Full hpc task set. Classification is based on the task environment image/runtime.
+job_name: comp-chem-world-hpc
+n_concurrent_trials: 4
+
+tasks:
+  - path: tasks/006-task006
+  - path: tasks/007-task007
+  - path: tasks/018-task018
+  - path: tasks/027-task027
+  - path: tasks/028-task028
+  - path: tasks/034-task034
+  - path: tasks/035-task035
+  - path: tasks/045-task045
+  - path: tasks/046-task046
+  - path: tasks/048-task048
+  - path: tasks/059-task059
+  - path: tasks/069-task069
+  - path: tasks/070-task070
+  - path: tasks/075-task075
+  - path: tasks/081-task081
+  - path: tasks/082-task082
+  - path: tasks/088-task088
+  - path: tasks/100-task100
+  - path: tasks/101-task101
+  - path: tasks/105-task105
+  - path: tasks/106-task106
+  - path: tasks/119-task119
+  - path: tasks/137-task137
+  - path: tasks/147-task147
+  - path: tasks/148-task148
+  - path: tasks/152-task152
+  - path: tasks/154-task154
+  - path: tasks/159-task159
+  - path: tasks/160-task160
+  - path: tasks/161-task161
+  - path: tasks/164-task164
+  - path: tasks/165-task165
+  - path: tasks/166-task166
+  - path: tasks/172-task172
+  - path: tasks/180-task180
+  - path: tasks/181-task181
+  - path: tasks/185-task185
+  - path: tasks/189-task189
+  - path: tasks/190-task190
+  - path: tasks/191-task191
+  - path: tasks/194-task194
+  - path: tasks/197-task197
+  - path: tasks/199-task199
+  - path: tasks/220-task220
+  - path: tasks/221-task221
+  - path: tasks/222-task222
+  - path: tasks/223-task223
+  - path: tasks/224-task224
+  - path: tasks/239-task239
+  - path: tasks/240-task240
+
+agents:
+  - name: claude-code
+    model_name: deepseek/deepseek-flash
+    kwargs:
+      version: "2.1.317"
+

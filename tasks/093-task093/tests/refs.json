@@ -1,0 +1,48 @@
+{
+  "schema": "bench14-case07-reference-manifest/v1",
+  "case_id": "case-07-hydration-solver-recovery",
+  "formal_reference": "Hidden case-003 variational reference model tests/_support/force_model_gold.py evaluated over the full 2-20 A pressure curve.",
+  "reference_model": "tests/_support/force_model_gold.py",
+  "reference_model_sha256": "0454369708be0821e2e99dfff283f07c5896507af45f4e1f1c2f2f6a0323eec6",
+  "verifier_sha256": "c4de8cd90af83a4a594854f67eeb6edf91a92773ca7de771008054e96fe3c4e6",
+  "tolerances": {
+    "curve_rtol": 2e-05,
+    "curve_atol": 0.001,
+    "grid_start_A": 2.0,
+    "grid_step_A": 0.1,
+    "grid_points": 181,
+    "minimum_sign_changes_4_to_20_A": 7,
+    "public_defect_sign_changes_expected_at_least": 2
+  },
+  "hidden_shifts": [
+    {
+      "P0_C_per_m2": 0.08,
+      "alpha": 0.5
+    },
+    {
+      "P0_C_per_m2": 0.12,
+      "alpha": 0.5
+    },
+    {
+      "P0_C_per_m2": 0.1,
+      "alpha": 0.35
+    },
+    {
+      "P0_C_per_m2": 0.1,
+      "alpha": 0.65
+    }
+  ],
+  "asset_hashes": {
+    "environment/assets/defective_solver.py": "sha256:3706aca706390cdacb8af9684c320b1583eb9f6e047d63fab751cd306d97734e",
+    "environment/assets/defective_force_model.py": "sha256:93b6f680cd259bc8987f27f14b11ccd9468cfd98e295aa219142cb354ba7f158"
+  },
+  "host_replay": {
+    "oracle": "reward 1 after public defect inputs were moved to read-only shared-image mounts",
+    "adversarial": "original defective program, hard-coded curves and shift-insensitive answers rejected"
+  },
+  "notes": [
+    "The verifier executes the submitted repair and compares the full curve at the public inputs and four hidden P0/alpha shifts; a sign count or exit status alone is insufficient.",
+    "Private references are inaccessible to the candidate; the verifier drops groups/UID with no-new-privileges, kills the process group and verifies a denied private-file/reward access probe.",
+    "Physical derivation is covered by case 003; this case tests recovery and hidden-parameter robustness."
+  ]
+}

@@ -1,0 +1,37 @@
+# Native Harbor task configuration; original Bench08 definition preserved in metadata.
+schema_version = "1.4"
+artifacts = [
+  "/app/statistics.json",
+  "/app/analysis-contract.json",
+  "/app/diagnosis.md",
+  "/app/intervention.md",
+]
+
+[metadata]
+name = "bench08/task-54-frozen-deepves-diagnosis"
+description = "基于两条真实匿名轨迹与作者源码给出机器可判的范围受限描述、竞争机制及受控可证伪复算方案；不得把观察关联写成因果。"
+
+[task]
+name = "bench08/task-54-frozen-deepves-diagnosis"
+description = "基于两条真实匿名轨迹与作者源码给出机器可判的范围受限描述、竞争机制及受控可证伪复算方案；不得把观察关联写成因果。"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

@@ -1,0 +1,61 @@
+schema_version = "1.4"
+artifacts = [ "/app/final/submission.csv", "/app/final/model.npz",]
+
+[task]
+name = "harbor/bench13-task-86"
+description = "Robustness to controlled spectral perturbations"
+keywords = [ "infrared-spectroscopy", "structure-elucidation",]
+
+[metadata]
+case_id = "case-03"
+title = "Robustness to controlled spectral perturbations"
+handoff_version = "1.0"
+
+[agent]
+timeout_sec = 3600
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"
+
+[metadata.requirements]
+software = [ "Python 3", "NumPy", "SciPy", "scikit-learn", "RDKit", "PyYAML",]
+[[metadata.requirements.inputs]]
+path = "assets/cohort-train.npz"
+source_path = "derived_data/ir-local/cohort-train.npz"
+sha256 = "1d6c93b082427d6895da6f1cd72ecfe0a04b775b05550ab1495926f03e0ef77a"
+
+[[metadata.requirements.inputs]]
+path = "assets/cohort-validation.npz"
+source_path = "derived_data/ir-local/cohort-validation.npz"
+sha256 = "a454592acac8be98e74142e353e6fb70498fcf858faafd0a234ae07d1d7ca2e7"
+
+[[metadata.requirements.inputs]]
+path = "assets/cohort-blind-test.npz"
+source_path = "derived_data/ir-local/cohort-blind-test.npz"
+sha256 = "97d8efce7e2cba35ee9ca2d67a6a2c3fe50c8a0bd7745c3bed01905de6874c96"
+
+[[metadata.requirements.inputs]]
+path = "assets/axis-cm-1.npy"
+source_path = "derived_data/ir-local/axis-cm-1.npy"
+sha256 = "772e01ff5c4e632c725c3e70220c865246f42f7576febfd360e4f63242bfcfcd"
+
+[metadata.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[metadata.compute]
+class = "local"
+network = "no-network"
+
+[metadata.runtime]
+migration_status = "CASE_IMAGE_BUILT_EXISTING_ARTIFACT_REGRADES_VALIDATED"
+
+[metadata.runtime.input_sha256]
+"assets/SOURCES.yaml" = "c51421a7574d5f9d99db2afbbe31b5b5c066a5364ef865fcabb8221137131057"

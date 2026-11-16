@@ -1,0 +1,55 @@
+{
+  "schema": "case06-v2-diagnostic-contract/v1",
+  "case_id": "case-06-scattering-convergence",
+  "scientific_revision": "2.1",
+  "diagnosis_outcomes": [
+    "CONVERGED_WITHIN_TESTED_BUDGET",
+    "DEMONSTRATED_NOT_CONVERGED",
+    "INSUFFICIENT_EVIDENCE"
+  ],
+  "diagnosis_completion_rules": {
+    "converged_branch": "complete_native_matrix_and_independent_reconstruction; latest valid adjacent pair on each tested axis including followup parent pair has all 54 components <=2%; outcome is limited to tested settings and is not absolute accuracy",
+    "nonconverged_branch": "complete_native_matrix_and_independent_reconstruction; at least one latest valid 54-component pair remains >2% after followup; identify limiting condition and interpret controlled followup",
+    "insufficient_branch": "missing run, matrix pair, execution ownership, supported solver, independent reconstruction, sealed followup plan, or unresolved numeric comparison",
+    "latest_pair_rule": "classify each axis using its latest valid adjacent pair; coarse earlier pairs may exceed 2%; if followup resolves a prior exceedance, do not retain DEMONSTRATED_NOT_CONVERGED on that basis alone",
+    "followup_parent_rule": "coupled_fit_mesh compares mesh-3 to followup-5; effective_window compares window-2 to followup-5 at matching mesh/profile; if followup changes mesh, do not extrapolate the original mesh-3 window result",
+    "if_both_axes_pass": "the evaluator derives the expected target as the global maximum among 108 deltas (54 per axis), applies a stable channel/concentration/direction tie-break, verifies the candidate plan selected that target, and seals the plan; a mismatch is INSUFFICIENT_EVIDENCE"
+  },
+  "evaluator_disposition": {
+    "separate_from_diagnosis_outcome": true,
+    "unsupported_solver_or_missing_execution_owner": "ENVIRONMENT_ERROR_NO_REWARD",
+    "meaning": "scientific diagnosis may be INSUFFICIENT_EVIDENCE while evaluator disposition is ENVIRONMENT_ERROR_NO_REWARD; no reward is emitted"
+  },
+  "minimum_unique_runs": 5,
+  "run_ids": [
+    "mesh-1",
+    "mesh-2",
+    "mesh-3",
+    "window-2",
+    "followup-5"
+  ],
+  "public_input_hashes": {
+    "environment/assets/inputs/vasprun.xml.gz": "ee056b820a620344b624ca28843172c7101e0dc79bb69350464910c2cfd67041",
+    "environment/assets/inputs/wavefunction.h5": "3da3ec2367dcb6611d99cca60141ef0986d41c32f736170517120cdfa7e800fb",
+    "environment/assets/inputs/deformation.h5": "8e3f7ad582477cf792c0793c1f6ed55c52a3ee87a583cabb0a0cbe4c51fff527",
+    "environment/assets/inputs/si-physical-settings.yaml": "85eb68c40d6c799ac2e2f7022dfd75d7a019bfc97175c9e52e26b4faf2fdd68f"
+  },
+  "source_input_hashes": {
+    "raw_data/unpacked/41467_2021_22440_MOESM3_ESM-6c6bbbb4b802/amset-src/examples/Si/vasprun.xml.gz": "ee056b820a620344b624ca28843172c7101e0dc79bb69350464910c2cfd67041",
+    "raw_data/unpacked/41467_2021_22440_MOESM3_ESM-6c6bbbb4b802/amset-src/examples/Si/wavefunction.h5": "3da3ec2367dcb6611d99cca60141ef0986d41c32f736170517120cdfa7e800fb",
+    "raw_data/unpacked/41467_2021_22440_MOESM3_ESM-6c6bbbb4b802/amset-src/examples/Si/deformation.h5": "8e3f7ad582477cf792c0793c1f6ed55c52a3ee87a583cabb0a0cbe4c51fff527",
+    "author/inputs/si-physical-settings.yaml": "85eb68c40d6c799ac2e2f7022dfd75d7a019bfc97175c9e52e26b4faf2fdd68f"
+  },
+  "absolute_accuracy_claim": false,
+  "numeric_contract": {
+    "kind": "trusted-native-hdf-dynamic-comparison-v1",
+    "relative_change": {
+      "formula": "abs(old-new)/abs(new)",
+      "threshold": 0.02
+    }
+  },
+  "scientific_reference_sources": {
+    "common/paper.pdf": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0",
+    "common/supplementary.pdf": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+  }
+}

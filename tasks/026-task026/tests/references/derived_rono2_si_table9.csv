@@ -1,0 +1,31 @@
+species_column,quantity,file_stem,includes_free_no2,formula,multiplicity,n_imaginary,dft_zero_point_kcal_per_mol,f12_plus_dft_zpe_kcal_per_mol,si_table9_kcal_per_mol,abs_deviation
+benzene,x-B-RO + NO2,B-RO,True,C6H7O4,2.0,0,36.643,41.051,41.1,0.049
+benzene,TSrearrangement,TS-C1,False,C6H7NO6,1.0,1,24.969,22.749,22.2,0.549
+benzene,TSrearrangement,TS-C2,False,C6H7NO6,1.0,1,25.368,22.163,22.2,0.037
+benzene,x-RB-RONO2,RB-RONO2,False,C6H7NO6,1.0,0,-50.649,-48.820,-48.8,0.020
+benzene,x-RB-RO + NO2,RB-RO,True,C6H7O4,2.0,0,-13.958,-6.589,-6.5,0.089
+toluene-ipso,x-B-RO + NO2,B-RO,True,C7H9O4,2.0,0,36.094,40.484,40.5,0.016
+toluene-ipso,TSrearrangement,TS,False,C7H9NO6,1.0,1,21.422,19.356,19.4,0.044
+toluene-ipso,x-RB-RONO2,RB-RONO2,False,C7H9NO6,1.0,0,-56.999,-53.429,-53.4,0.029
+toluene-ipso,x-RB-RO + NO2,RB-RO,True,C7H9O4,2.0,0,-21.448,-13.115,-13.1,0.015
+toluene-ortho,x-B-RO + NO2,B-RO,True,C7H9O4,2.0,0,36.652,41.039,41.1,0.061
+toluene-ortho,TSrearrangement,TS-C1,False,C7H9NO6,1.0,1,29.640,25.563,25.5,0.063
+toluene-ortho,TSrearrangement,TS-C2,False,C7H9NO6,1.0,1,28.796,25.408,25.5,0.092
+toluene-ortho,x-RB-RONO2,RB-C1-RONO2,False,C7H9NO6,1.0,0,-44.932,-43.323,-51.2,7.877
+toluene-ortho,x-RB-RONO2,RB-C2-RONO2,False,C7H9NO6,1.0,0,-54.002,-51.292,-51.2,0.092
+toluene-ortho,x-RB-RO + NO2,RB-C1-RO,True,C7H9O4,2.0,0,-10.644,-3.693,-9.3,5.607
+toluene-ortho,x-RB-RO + NO2,RB-C2-RO,True,C7H9O4,2.0,0,-16.963,-9.358,-9.3,0.058
+toluene-meta,x-B-RO + NO2,B-RO,True,C7H9O4,2.0,0,-13.503,-6.617,38.4,45.017
+toluene-meta,TSrearrangement,TS-C1,False,C7H9NO6,1.0,1,24.976,21.691,21.2,0.491
+toluene-meta,TSrearrangement,TS-C2,False,C7H9NO6,1.0,1,24.431,21.213,21.2,0.013
+toluene-meta,x-RB-RONO2,RB-C1-RONO2,False,C7H9NO6,1.0,0,-47.056,-45.083,-46,0.917
+toluene-meta,x-RB-RONO2,RB-C2-RONO2,False,C7H9NO6,1.0,0,-47.612,-45.982,-46,0.018
+toluene-meta,x-RB-RO + NO2,RB-C1-RO,True,C7H9O4,2.0,0,-13.503,-6.617,-5.7,0.917
+toluene-meta,x-RB-RO + NO2,RB-C2-RO,True,C7H9O4,2.0,0,-13.940,-5.741,-5.7,0.041
+toluene-para,x-B-RO + NO2,B-RO,True,C7H9O4,2.0,0,36.544,40.994,41,0.006
+toluene-para,TSrearrangement,TS-C1,False,C7H9NO6,1.0,1,26.131,23.555,21.9,1.655
+toluene-para,TSrearrangement,TS-C2,False,C7H9NO6,1.0,1,25.080,21.880,21.9,0.020
+toluene-para,x-RB-RONO2,RB-C1-RONO2,False,C7H9NO6,1.0,0,-51.356,-49.484,-42.5,6.984
+toluene-para,x-RB-RONO2,RB-C2-RONO2,False,C7H9NO6,1.0,0,-44.070,-42.497,-42.5,0.003
+toluene-para,x-RB-RO + NO2,RB-C1-RO,True,C7H9O4,2.0,0,-13.703,-6.138,-0.3,5.838
+toluene-para,x-RB-RO + NO2,RB-C2-RO,True,C7H9O4,2.0,0,-9.515,-0.239,-0.3,0.061

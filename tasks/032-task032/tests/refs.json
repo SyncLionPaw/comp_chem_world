@@ -1,0 +1,366 @@
+{
+  "case_id": "case-04-network",
+  "asset_hashes": {
+    "assets/rpL5_example_traj.dcd": "sha256:afa817cee901bce5e73b63ee27c6d3f66257cb6ee365eaca9a30ee1956389fdf",
+    "assets/rpL5_init.data": "sha256:ad8c61a813894c311f5b835c777795b56171ae05ceb18060f27fc5cd281d0ea6",
+    "assets/RDFs_rpL5_charged_A0Pep.txt": "sha256:500d64ab6d7a0327dffc56d1d9d712ddb02ef3d500bf5eb03fab0e2491610279",
+    "assets/RDFs_rpL5_charged_A1Pep.txt": "sha256:1ec26bfa510cb87fddcc04f7ba158c2d7b1dddcfda6dc845b1001321d31d461d",
+    "assets/RDFs_rpL5_charged_A2Pep.txt": "sha256:f05e4f69cfc2366d7f8f83be599b4fb2f60b96d6c972633c71cee19169334741",
+    "assets/selections.json": "sha256:f450288492ff9b024b571645bc69a98040d2cb5eee95ff1b12139c6635a2a538"
+  },
+  "source_provenance": [
+    {
+      "path": "environment/assets/rpL5_example_traj.dcd",
+      "source_path": "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/03_degrees_example/rpL5_example_traj.dcd",
+      "sha256": "afa817cee901bce5e73b63ee27c6d3f66257cb6ee365eaca9a30ee1956389fdf"
+    },
+    {
+      "path": "environment/assets/rpL5_init.data",
+      "source_path": "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/03_degrees_example/rpL5_init.data",
+      "sha256": "ad8c61a813894c311f5b835c777795b56171ae05ceb18060f27fc5cd281d0ea6"
+    },
+    {
+      "path": "environment/assets/RDFs_rpL5_charged_A0Pep.txt",
+      "source_path": "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A0Pep.txt",
+      "sha256": "500d64ab6d7a0327dffc56d1d9d712ddb02ef3d500bf5eb03fab0e2491610279"
+    },
+    {
+      "path": "environment/assets/RDFs_rpL5_charged_A1Pep.txt",
+      "source_path": "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A1Pep.txt",
+      "sha256": "1ec26bfa510cb87fddcc04f7ba158c2d7b1dddcfda6dc845b1001321d31d461d"
+    },
+    {
+      "path": "environment/assets/RDFs_rpL5_charged_A2Pep.txt",
+      "source_path": "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A2Pep.txt",
+      "sha256": "f05e4f69cfc2366d7f8f83be599b4fb2f60b96d6c972633c71cee19169334741"
+    },
+    {
+      "path": "environment/assets/selections.json",
+      "source_path": "inputs/selections.json",
+      "sha256": "f450288492ff9b024b571645bc69a98040d2cb5eee95ff1b12139c6635a2a538"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "graphs",
+      "level": "L1",
+      "necessary": true,
+      "description": "交付完整 11 帧网络、度数组与分析代码。"
+    },
+    {
+      "criterion": "native_contact_replay",
+      "level": "L2",
+      "necessary": true,
+      "description": "基于真实 DCD/拓扑及周期边界重算分子接触，不以复制已处理数组代替计算。"
+    },
+    {
+      "criterion": "molecular_edges",
+      "level": "L3",
+      "necessary": true,
+      "description": "边以任意酸性/碱性珠子对相邻定义，每个分子对只计一次，无自环、对称、保留全部 1728 节点；与原始轨迹独立重算一致。",
+      "verification_basis": {
+        "type": "derived_reference",
+        "source": "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/03_degrees_example/rpL5_example_traj.dcd",
+        "rationale": "边以任意酸性/碱性珠子对相邻定义，每个分子对只计一次，无自环、对称、保留全部 1728 节点；与原始轨迹独立重算一致。"
+      }
+    },
+    {
+      "criterion": "cutoffs",
+      "level": "L3",
+      "necessary": true,
+      "description": "阈值选择有据可查：所给平均 RDF 首极小值为 13.75/12.75/12.25 Å，作者固定截断为 13/13/12.5 Å，二者不得混称。说明选取方法及 bin/窗口敏感性，按提交值重算图。",
+      "verification_basis": {
+        "type": "author_artifact",
+        "source": [
+          "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A0Pep.txt",
+          "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A1Pep.txt",
+          "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A2Pep.txt",
+          "acceptance/network-cutoff-review.json"
+        ],
+        "rationale": "阈值选择有据可查：所给平均 RDF 首极小值为 13.75/12.75/12.25 Å，作者固定截断为 13/13/12.5 Å，二者不得混称。说明选取方法及 bin/窗口敏感性，按提交值重算图。"
+      }
+    }
+  ],
+  "coverage": "COMPLETE",
+  "missing_inputs": [],
+  "implementation": "implemented",
+  "grading_mode": "deterministic_checks_and_evaluator_controlled_scientific_review",
+  "original_verification_hashes": {
+    "numeric_check.py": "61dcd2eab65cbc2b2d9203398f635b3713c9f0634b16eed40e0899a2291139e9",
+    "rubric.json": "ec0a4ac693d4028a48d23aad2830252e8134ebd6826c22eb263f5e79cc8f7774",
+    "evidence/paper.pdf": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040",
+    "evidence/supplementary.pdf": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e",
+    "verify.py": "599f9ab8cc5dabaa247d5a746f85472171ae913936d5b41b84ab702d8e481ca3"
+  },
+  "rubric": {
+    "schema_version": "local-science-rubric/v1",
+    "case_id": "case-04-network",
+    "criteria": {
+      "graphs": "审查 11 帧、1728 节点、NPZ 类型及代码、报告，分物种/整体度分布包含孤立节点。",
+      "native_contact_replay": "重放提交代码，确认它实际从 DCD/拓扑选取酸性和碱性珠子、周期 minimum image、严格 d<cutoff、分子对去重；参考数组相等不能单独证明代码有效。",
+      "molecular_edges": "与独立接触计算逐项核对；无自环、对称、全节点及正确分子映射。报告不能从 11 帧推出完整系综双峰或渗流。",
+      "cutoffs": "阈值选择有据可查：所给平均 RDF 首极小值为 13.75/12.75/12.25 Å，作者固定截断为 13/13/12.5 Å，二者不得混称。说明选取方法及 bin/窗口敏感性，按提交值重算图。 自动首壳范围筛选不能取代对方法和阈值来源的科学审查。"
+    },
+    "assessment_policy": "每项必要判据必须由评测阶段控制的审查逐项给出 PASS/FAIL、理由、提交文件 SHA-256 和真实引文。审查不能从字符串命中或文件存在推断科学正确。允许科学等价方法；不得用作者模板或唯一参数作为唯一 Gold。",
+    "trusted_stage": "Assessment/replay 路径由评测器提供，不能来自 Agent final/。执行候选代码必须在不含 tests、solution、Gold 或评测凭据的隔离数据环境；verify.py 本身不执行候选代码。",
+    "verification_basis": {
+      "graphs": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "native_contact_replay": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "molecular_edges": {
+        "type": "derived_reference",
+        "source": "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/03_degrees_example/rpL5_example_traj.dcd",
+        "rationale": "边以任意酸性/碱性珠子对相邻定义，每个分子对只计一次，无自环、对称、保留全部 1728 节点；与原始轨迹独立重算一致。"
+      },
+      "cutoffs": {
+        "type": "author_artifact",
+        "source": [
+          "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A0Pep.txt",
+          "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A1Pep.txt",
+          "raw_data/unpacked/Pappulab_n130-liquid-structure_76032b9f.zip.verified/n130-liquid-structure-76032b9f877219e6560491d5fca52bb29c1e5740/01_rdfs/data/RDFs_rpL5_charged_A2Pep.txt",
+          "acceptance/network-cutoff-review.json"
+        ],
+        "rationale": "阈值选择有据可查：所给平均 RDF 首极小值为 13.75/12.75/12.25 Å，作者固定截断为 13/13/12.5 Å，二者不得混称。说明选取方法及 bin/窗口敏感性，按提交值重算图。"
+      }
+    },
+    "reference_precision": "自动 close 的 1e-5 相对/1e-7 绝对容差仅用于浮点序列化与重放一致性，不是科学接受阈值。科学容差、模型/窗口与不确定度由逐项有依据审查决定。"
+  },
+  "approvals": [
+    {
+      "schema": "bench05-local-oracle-approval/v1",
+      "case_id": "case-04-network",
+      "policy_sha256": "464b9c3b9b82cac38acf54b2e07949c1928b67fcc7abab2a1f0f7ba70f26f8a3",
+      "verifier_sha256": "f0bf7f1e98b3342ac59ba9e90ff3d19461f9bf5e5ef4f8058bc799d44b26fbae",
+      "test_entry_sha256": "2c34b04a6f62cc728ce4e6c3671ac2e6daaa042af6addc72ea65e8ae37fd4e26",
+      "submission_files": {
+        "degrees.npz": "5434566625c6db3d46305c042ff846d01ed02ebd726b2516ddf9c73b00e6f433",
+        "degree_statistics.json": "01a6035c44a3e7f8c5c173f288abe87ec36ea5869c9be54e931f0fa0a137768b",
+        "analysis.py": "764ae41e61497a6007bc553b4fa11fac6e53f4686f33c1ffdbc4fafdd856e042",
+        "report.md": "a1d7deaa216587eb33a5589b7471b26facabd8ce7706e8c4e6d3f7b273ebede7",
+        "graphs.npz": "e2e6bd8c70b7801636837ad18ff9311ad1db9a83a0ca403dadd42577a5d07607",
+        "cutoffs.json": "37f1c052569ad189d8cab907bb58ab81ffdf79bf1d54e639bbed5f5b1f5c31a0"
+      },
+      "reviewer": {
+        "id": "Sol6.1-medium /root/sol_strict_layout",
+        "role": "independent scientific and verification reviewer; not implementer"
+      },
+      "reviewed_at": "2026-10-27T03:27:00Z",
+      "preflight": {
+        "evaluation_stage_controlled": true,
+        "references_reviewed": true,
+        "execution_and_code_reviewed": true,
+        "method_neutrality_checked": true
+      },
+      "replay": {
+        "execution_id": "bench05-layout-task32-isolated-data-only-replay-01",
+        "image_id": "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--pull=never",
+          "--network",
+          "none",
+          "--cpus",
+          "2",
+          "--memory",
+          "4096m",
+          "--user",
+          "65534:65534",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task32/environment/assets/RDFs_rpL5_charged_A0Pep.txt:/input/RDFs_rpL5_charged_A0Pep.txt:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task32/environment/assets/RDFs_rpL5_charged_A1Pep.txt:/input/RDFs_rpL5_charged_A1Pep.txt:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task32/environment/assets/RDFs_rpL5_charged_A2Pep.txt:/input/RDFs_rpL5_charged_A2Pep.txt:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task32/environment/assets/rpL5_example_traj.dcd:/input/rpL5_example_traj.dcd:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task32/environment/assets/rpL5_init.data:/input/rpL5_init.data:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task32/environment/assets/selections.json:/input/selections.json:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/oracle/final/analysis.py:/source/analysis.py:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/replay/output:/app/replay-output",
+          "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+          "/opt/netfluids/bin/python",
+          "/source/analysis.py",
+          "--input-dir",
+          "/input",
+          "--output-dir",
+          "/app/replay-output"
+        ],
+        "exit_code": 0,
+        "analysis_sha256": "764ae41e61497a6007bc553b4fa11fac6e53f4686f33c1ffdbc4fafdd856e042",
+        "input_hashes": {
+          "assets/rpL5_example_traj.dcd": "sha256:afa817cee901bce5e73b63ee27c6d3f66257cb6ee365eaca9a30ee1956389fdf",
+          "assets/rpL5_init.data": "sha256:ad8c61a813894c311f5b835c777795b56171ae05ceb18060f27fc5cd281d0ea6",
+          "assets/RDFs_rpL5_charged_A0Pep.txt": "sha256:500d64ab6d7a0327dffc56d1d9d712ddb02ef3d500bf5eb03fab0e2491610279",
+          "assets/RDFs_rpL5_charged_A1Pep.txt": "sha256:1ec26bfa510cb87fddcc04f7ba158c2d7b1dddcfda6dc845b1001321d31d461d",
+          "assets/RDFs_rpL5_charged_A2Pep.txt": "sha256:f05e4f69cfc2366d7f8f83be599b4fb2f60b96d6c972633c71cee19169334741",
+          "assets/selections.json": "sha256:f450288492ff9b024b571645bc69a98040d2cb5eee95ff1b12139c6635a2a538"
+        },
+        "submission_files": {
+          "degrees.npz": "5434566625c6db3d46305c042ff846d01ed02ebd726b2516ddf9c73b00e6f433",
+          "degree_statistics.json": "01a6035c44a3e7f8c5c173f288abe87ec36ea5869c9be54e931f0fa0a137768b",
+          "analysis.py": "764ae41e61497a6007bc553b4fa11fac6e53f4686f33c1ffdbc4fafdd856e042",
+          "report.md": "a1d7deaa216587eb33a5589b7471b26facabd8ce7706e8c4e6d3f7b273ebede7",
+          "graphs.npz": "e2e6bd8c70b7801636837ad18ff9311ad1db9a83a0ca403dadd42577a5d07607",
+          "cutoffs.json": "37f1c052569ad189d8cab907bb58ab81ffdf79bf1d54e639bbed5f5b1f5c31a0"
+        },
+        "output_files": {
+          "degrees.npz": "5434566625c6db3d46305c042ff846d01ed02ebd726b2516ddf9c73b00e6f433",
+          "degree_statistics.json": "01a6035c44a3e7f8c5c173f288abe87ec36ea5869c9be54e931f0fa0a137768b",
+          "report.md": "a1d7deaa216587eb33a5589b7471b26facabd8ce7706e8c4e6d3f7b273ebede7",
+          "graphs.npz": "e2e6bd8c70b7801636837ad18ff9311ad1db9a83a0ca403dadd42577a5d07607",
+          "cutoffs.json": "37f1c052569ad189d8cab907bb58ab81ffdf79bf1d54e639bbed5f5b1f5c31a0"
+        },
+        "isolation": "isolated_data_only_runtime"
+      },
+      "judgments": {
+        "graphs": {
+          "verdict": "PASS",
+          "rationale": "Reviewed all11frames,50328source beads and1728 sorted molecule/residue nodes, complete uint8 adjacency and integer degrees, species/overall histograms including zero-degree nodes in the optional statistics artifact, code and report. The original deterministic baseline contact/degree checks are preserved; no new required sensitivity filename or schema is imposed.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "a1d7deaa216587eb33a5589b7471b26facabd8ce7706e8c4e6d3f7b273ebede7",
+              "quote": "按排序 molecule/residue ID 保留全部 1728 个节点；PD 珠子 type 1 标识 N130，其他分子为 rpL5。"
+            }
+          ]
+        },
+        "native_contact_replay": {
+          "verdict": "PASS",
+          "rationale": "Inspected source code reading actual topology/DCD/selections and computing periodic minimum-image strict contacts, molecular pair deduplication and diagonal removal. Current same-byte Oracle source was actually replayed in an offline data-only exact image and all produced files match byte-for-byte. Independently authored scipy cKDTree plus explicit minimum-image calculations from raw coordinates (without candidate imports) match complete baseline edge sets/degrees on frames0/5/10 for all3tracts.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "a1d7deaa216587eb33a5589b7471b26facabd8ce7706e8c4e6d3f7b273ebede7",
+              "quote": "逐帧采用周期盒 minimum-image 距离和严格 d<cutoff。任意珠子对接触形成一条无权分子边，多个珠子接触只计一次；无自环、对称。"
+            }
+          ]
+        },
+        "molecular_edges": {
+          "verdict": "PASS",
+          "rationale": "All11baseline adjacency/degree arrays remain checked against raw native contacts with exact shapes/dtypes. Independent alternate spatial algorithm verified baseline edges and per-species mapping on3frames, plus all27 baseline/perturbed metric sets. Symmetry, no loops and isolated nodes are retained. Conclusions explicitly stop at this11frame example; no ensemble-wide bimodality/percolation or independent-replicate uncertainty is inferred.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "a1d7deaa216587eb33a5589b7471b26facabd8ce7706e8c4e6d3f7b273ebede7",
+              "quote": "This 11-frame sample is not a set of independent replicates and does not establish ensemble-wide bimodality or percolation."
+            }
+          ]
+        },
+        "cutoffs": {
+          "verdict": "PASS",
+          "rationale": "Independently inspected RDF bins: first minima13.75/12.75/12.25 Å and neighboring0.5Å bins, distinct from author operational13/13/12.5Å. Current reference actually recomputed baseline and +/-0.5Å contacts over all11frames and reports degree/edge/isolate changes; alternate cKDTree recomputation agrees on27checked sets. A1 minimum is shallow and the adjacent13.25Å bin is nearly tied; report discloses this. Perturbations are sensitivity, not confidence intervals or an imposed universal candidate method.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "a1d7deaa216587eb33a5589b7471b26facabd8ce7706e8c4e6d3f7b273ebede7",
+              "quote": "The shallow A1 minimum is not uniquely localized: its adjacent bin at 13.25 Å has a similarly low RDF value."
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "solve_sha256": "1abb88c74ec712d410055e24df5f50fce61ae03835daf2ba2ac654606449607a",
+        "oracle_execution_id": "bench05-layout-task32-oracle-20261027-01",
+        "raw_evidence": {
+          "oracle": {
+            "argv.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/oracle/argv.json",
+              "sha256": "f151fd4cb5fcf193df24bbd3cd3ee1c7c67d35abb016d3e9d3a7a741e689a260"
+            },
+            "input-binding.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/oracle/input-binding.json",
+              "sha256": "c4613f69f949f3304378bfadaf6786bbe4b8c6e1e2a69daf96e1c02ada6e181a"
+            },
+            "stdout.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/oracle/stdout.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/oracle/stderr.log",
+              "sha256": "c5b35438e2aac9af16941f1215788fda820adbc16035055e6fab0dfe34210abf"
+            },
+            "exit-code": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/oracle/exit-code",
+              "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+            }
+          },
+          "replay": {
+            "argv.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/replay/argv.json",
+              "sha256": "35756ed3e69af382ec15f809d66c5e581048f17a20fb50cb64b58767a5481418"
+            },
+            "input-binding.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/replay/input-binding.json",
+              "sha256": "4f30b2c9b86b49d67a417008a9b4be7d37f860d02ce0bfa9993de6e27934cbbb"
+            },
+            "stdout.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/replay/stdout.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/replay/stderr.log",
+              "sha256": "c5b35438e2aac9af16941f1215788fda820adbc16035055e6fab0dfe34210abf"
+            },
+            "exit-code": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/replay/exit-code",
+              "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+            }
+          }
+        },
+        "independent_checker": {
+          "path": "/private/tmp/bench05-strict-layout-20261027/sol/task32-independent-tree-check.py",
+          "sha256": "71722e31227077d7be356aca82e8dd04971fdbadc4400983e6d64c43ed708672",
+          "execution_path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task32/independent-tree-check-01",
+          "result_sha256": "3b3894c92c2668c0b2ee1e982f6ee0283bdce121d7bbe608896fa567f574f3be"
+        },
+        "scope": "Existing exact image current source execution; no fresh Dockerfile build or current parent-tag admission claimed. Optional cutoff statistics support current Oracle review only; not a required candidate format.",
+        "reviewed_primary_reference": {
+          "path": "acceptance/layout-migration-20261027/task32/original-tree/tests/evidence/paper.pdf",
+          "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040",
+          "sections": "Main graph construction and first-RDF-minimum methods, Figure5, Figure6; provided source RDF bins inspected directly."
+        },
+        "input_note_limitation": "The selections metadata error note is not treated as independently established RDF uncertainty semantics; no author_error confidence claim is made."
+      }
+    }
+  ],
+  "schema": "bench05-local-science-refs/v2",
+  "historical_receipt_provenance": [
+    {
+      "original_path": "tests/approved/author-reference/assessment.json",
+      "sha256": "5297587aa1558d659e7449306e1da7a8fb5eb4557991c42c5fcddf1e396adc81",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/approved/author-reference/replay.json",
+      "sha256": "cf88596d31c8bea93573bb7e1bfd360b339a52f4f3515af2c377006d4db0615c",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/rubric.json",
+      "sha256": "ec0a4ac693d4028a48d23aad2830252e8134ebd6826c22eb263f5e79cc8f7774",
+      "use": "original byte digest; current canonical rubric digest is computed from refs.rubric"
+    }
+  ],
+  "reference_sources": [
+    {
+      "path": "tests/evidence/paper.pdf",
+      "source": "evidence/paper.pdf",
+      "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040"
+    },
+    {
+      "path": "tests/evidence/supplementary.pdf",
+      "source": "evidence/supplementary.pdf",
+      "sha256": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e"
+    }
+  ],
+  "policy_sha256": "464b9c3b9b82cac38acf54b2e07949c1928b67fcc7abab2a1f0f7ba70f26f8a3"
+}

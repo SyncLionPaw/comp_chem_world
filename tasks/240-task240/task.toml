@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/fps_reaction_error_propagation.json"]
+
+[task]
+name = "compchemworld/case-04-fps-reaction-space-error-propagation"
+description = "Reconstruct all eight Rad-6 source models across kernel type, FPS order and N=500/4000, and compute complete molecular and reaction-energy error propagation with coverage and balanced factorial contrasts."
+
+[metadata]
+name = "case-04-fps-reaction-space-error-propagation"
+description = "Reconstruct all eight Rad-6 source models across kernel type, FPS order and N=500/4000, and compute complete molecular and reaction-energy error propagation with coverage and balanced factorial contrasts."
+execution_class = "remote"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 86400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 10800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 1800
+cpus = 8
+memory_mb = 32768
+network_mode = "public"
+
+[verifier.environment]
+build_timeout_sec = 1800
+cpus = 8
+memory_mb = 32768
+network_mode = "no-network"

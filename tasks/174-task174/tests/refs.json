@@ -1,0 +1,88 @@
+{
+  "output": "environments.json",
+  "assets": [
+    {
+      "path": "environment/assets/li_li_rdf_this_work.csv",
+      "sha256": "42e37256afb34ad0673834b5f1f6f0994d59eb836180d4b8d03d0ec8a6dad495"
+    },
+    {
+      "path": "environment/assets/literature/units.txt",
+      "sha256": "c8bb783dbfdec56dc4c63691bd1f2e8553c7cc64b7afd6831391684230eddc77"
+    },
+    {
+      "path": "environment/assets/literature/mendez-morales.dat",
+      "sha256": "0a11db8d1fe16b12fadab431cbc9d47e75d6426bafe1b3f51d7ee363f2c9a3ef"
+    },
+    {
+      "path": "environment/assets/literature/li-zhujie.dat",
+      "sha256": "22a05a62d74b906e734b331cc4415cee7b568d667d508c0453c685c00adccda6"
+    },
+    {
+      "path": "environment/assets/literature/triolo.dat",
+      "sha256": "37a6601127b64535c195015544ca828d935e55c62aa1211bf9815b0ebccace69"
+    },
+    {
+      "path": "environment/assets/literature/cheng-yu.dat",
+      "sha256": "030527927753742c0519f4bffe6e1b7d655f7bbdf08a24b8a80ac4711d520ffb"
+    },
+    {
+      "path": "environment/assets/literature/kuhnel-reber.dat",
+      "sha256": "84cf7f7e8255922e3b55d5aa4dc17c9c3b6a57031befbd768a7c352a576ffe19"
+    }
+  ],
+  "gold": {
+    "r_first_maximum_A": 2.475,
+    "g_first_maximum": 1.789599034,
+    "r_boundary_I_II_A": 3.0,
+    "r_boundary_II_III_A": 4.205,
+    "barrier_I_II_kcal_mol": 0.6472588359587719,
+    "barrier_comparable_to_kT": true,
+    "curves_with_maximum_below_3A_and_g_at_least_0.6": [
+      "li-zhujie.dat",
+      "triolo.dat"
+    ],
+    "any_literature_curve_matches_aimd_peak_near_2.5A": false
+  },
+  "tolerances": {
+    "peak_position_A": 0.08,
+    "peak_height": 0.15,
+    "boundary_A": 0.08,
+    "barrier_kcal_mol": 0.12,
+    "literature_position_A": 0.1,
+    "literature_height_relative": 0.2
+  },
+  "criteria": {
+    "temperature_K": 298.15,
+    "rdf_scale": 0.01,
+    "peak_window_A": [
+      2.2,
+      2.8
+    ],
+    "well_window_A": [
+      2.2,
+      2.7
+    ],
+    "saddle_window_A": [
+      2.7,
+      3.3
+    ],
+    "second_trough_window_A": [
+      3.6,
+      4.5
+    ],
+    "positive_g_min": 1e-08,
+    "literature_maximum_A": 3.0,
+    "literature_minimum_g": 0.6,
+    "barrier_kT_range": [
+      0.5,
+      2.0
+    ],
+    "literature_scales": {
+      "mendez-morales.dat": 1.0,
+      "li-zhujie.dat": 1.0,
+      "triolo.dat": 1.0,
+      "cheng-yu.dat": 10.0,
+      "kuhnel-reber.dat": 1.0
+    }
+  }
+}

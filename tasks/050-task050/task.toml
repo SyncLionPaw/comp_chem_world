@@ -1,0 +1,34 @@
+# Native Harbor task configuration; original Bench08 definition preserved in metadata.
+schema_version = "1.4"
+artifacts = [
+  "/app/solution",
+]
+
+[metadata]
+name = "bench08/task-50-archived-online-ves-analysis"
+description = "Recompute post-recorded-update weighted FES, conservative support diagnostics, and finite-domain accuracy from a supplied historical trajectory."
+
+[task]
+name = "bench08/task-50-archived-online-ves-analysis"
+description = "Recompute post-recorded-update weighted FES, conservative support diagnostics, and finite-domain accuracy from a supplied historical trajectory."
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

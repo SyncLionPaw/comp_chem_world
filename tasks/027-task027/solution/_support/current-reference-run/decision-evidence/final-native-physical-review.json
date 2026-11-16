@@ -1,0 +1,60 @@
+{
+  "schema": "case07-sol-physical-results-review/v1",
+  "status": "NATIVE_PHYSICAL_RESULTS_ACCEPTED_FINAL_BUNDLE_ORACLE_PENDING",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "final_method": "UKS PBE-D3BJ/def2-SVP def2/J RI DefGrid3 VeryTightSCF",
+  "ts": {
+    "opt_job": "4042149",
+    "frequency_job": "4042346",
+    "energy_au": -646.840213437313,
+    "zpe_au": 0.15034575,
+    "physical_imaginary_count": 1,
+    "imaginary_frequency_cm1": -282.71877765865,
+    "mode_index": 6
+  },
+  "minus_C2": {
+    "opt_job": "4042849",
+    "frequency_job": "4043085",
+    "energy_au": -646.920194627162,
+    "zpe_au": 0.15139313,
+    "physical_imaginary_count": 0,
+    "lowest_physical_frequency_cm1": 33.77807954086595
+  },
+  "plus_BPR": {
+    "opt_job": "4043441",
+    "frequency_job": "4043648",
+    "energy_au": -646.850168318778,
+    "zpe_au": 0.1546376,
+    "physical_imaginary_count": 0,
+    "lowest_physical_frequency_cm1": 69.76701091810367,
+    "hessian_sha256": "a779278ec28fbd182296ad3eb35ed9230551a7c0e3ef2ee142e5d1c3f8efda9d"
+  },
+  "mode_count_each_frequency": 63,
+  "barrier": {
+    "definition": "[(E_TS+ZPE_TS)-(E_BPR+ZPE_BPR)]*627.5094740631",
+    "electronic_kcal_mol": 6.246782432448795,
+    "zpe_corrected_kcal_mol": 3.5536058962175963
+  },
+  "connection_checks": [
+    "Actual sole TS imaginary mode gives signed \u00b10.12/max-atom seeds with ring-opening direction",
+    "Actual negative seed -> TIMEOUT complete frame -> converged C2 -> independent zero-imaginary frequency",
+    "Actual positive seed -> TIMEOUT complete frame -> converged BPR -> independent zero-imaginary frequency",
+    "Both failed initial Opt allocations remain resource-only; final strict opt_chain provenance still required in final bundle"
+  ],
+  "independent_check": "Current native_parser.stage_facts expected_imaginary=0 on byte-identical transparent local alias for4043648, complete63 table/Hess comparison and actual BPR graph PASS",
+  "resources": {
+    "known_terminal_allocations": 18,
+    "actual_allocated_cpu_seconds": 99832,
+    "original_anchor_utc": "2026-10-25T07:31:12.861034Z"
+  },
+  "method_limitations": [
+    "This is a PBE-D3BJ/def2-SVP same-level DFT result, not a reproduction of author17.9kcal composite F12 barrier",
+    "Approximate profile/basis, dispersion and electronic-structure differences can materially affect barrier; no F12 accuracy claim",
+    "Do not compare 3.5536 to17.9 as equal-level numerical agreement"
+  ],
+  "pending": [
+    "Complete immutable bundle plus full public/private audit and strict chain/resource review",
+    "Actual current normal model=None Oracle",
+    "Exact-manifest independent per-run overlay production regrade1.0; original protected reviews remain PENDING"
+  ]
+}

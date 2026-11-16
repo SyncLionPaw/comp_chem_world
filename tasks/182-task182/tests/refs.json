@@ -1,0 +1,63 @@
+{
+  "schema": "water-case-contract/v2",
+  "contract_version": "2.0",
+  "case_id": "water-exploration-selection",
+  "method": {
+    "dr_A": 0.05,
+    "rmax_A": "L/2=6.2",
+    "pair_convention": "unordered distinct O-O pairs",
+    "normalization": "finite-N Nframes*N_O*(N_O-1)/2",
+    "first_peak_center_window_A": [
+      2.4,
+      3.1
+    ],
+    "minimum_smoothing": "centered three-bin arithmetic mean",
+    "first_minimum_center_window_A": [
+      3.0,
+      4.0
+    ],
+    "locked_minimum_center_A": 3.525,
+    "locked_first_shell_upper_bin_edge_A": 3.55,
+    "coordination_factor": "(N_O-1)/V"
+  },
+  "segments_ps": {
+    "early": "0<=t<=5.00",
+    "late": "5.00<t<=10.00"
+  },
+  "grading": {
+    "box_A": 12.4,
+    "oxygen_count": 64,
+    "atom_count": 192,
+    "hydrogen_count": 128,
+    "frames": 201,
+    "step_start": 0,
+    "step_stop": 20000,
+    "step_interval": 100,
+    "box_tilt_tolerance_A": 1e-09,
+    "box_length_tolerance_A": 1e-08,
+    "cutoff_tolerance_A": 1e-09,
+    "value_tolerance": 1e-06,
+    "manifest_sha256": "425e7a5122e5afd54c04874961caed9065744b980c687af2b9ec87103bc10db4",
+    "rmax_A": 6.2,
+    "cutoff_A": 3.55,
+    "time_ps_per_step": 0.0005,
+    "segments": [
+      {
+        "segment": "all",
+        "start_step": 0,
+        "end_step": 20000
+      },
+      {
+        "segment": "early_0_5ps",
+        "start_step": 0,
+        "end_step": 10000
+      },
+      {
+        "segment": "late_5_10ps",
+        "start_step": 10100,
+        "end_step": 20000
+      }
+    ],
+    "replica_count": 2
+  }
+}

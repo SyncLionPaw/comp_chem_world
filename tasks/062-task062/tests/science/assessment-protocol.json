@@ -1,0 +1,112 @@
+{
+  "case_id": "case-01-water-rearrangement-descriptor",
+  "expected_outputs": [
+    "feature-audit.csv",
+    "geometry-check.json",
+    "decision.json",
+    "research-rationale.md"
+  ],
+  "output_contract": {
+    "required_paths": [
+      "feature-audit.csv",
+      "geometry-check.json",
+      "decision.json",
+      "research-rationale.md"
+    ],
+    "schemas": {
+      "feature-audit.csv": "feature,family,unit,summary_metric,matched_z_support,include_or_exclude,reason; 可增加统计字段",
+      "geometry-check.json": "source_sha256,frames_checked,units,normalization,pbc_method,closed_form_checks,translation_invariance",
+      "decision.json": "selected_features,excluded_or_redundant,alternatives,scope_limit,additional_validation",
+      "research-rationale.md": "实证、选择理由、替代方案与可推翻结论的下一项证据"
+    },
+    "review_limits": {
+      "max_required_text_file_bytes": 45000,
+      "max_total_required_text_bytes": 120000,
+      "max_csv_bytes": 10000000,
+      "max_csv_columns": 128,
+      "max_csv_record_chars": 12000,
+      "max_artifact_files": 128,
+      "max_artifact_path_chars": 512,
+      "csv_fields_may_contain_embedded_newlines": false,
+      "max_review_view_chars": 180000,
+      "extra_artifact_policy": "Non-text extras are retained by SHA-256, media type and byte size; the judge does not parse them, and scientific numeric claims require independent replay."
+    },
+    "scientific_criteria": [
+      {
+        "criterion": "coordinate_cn_units_pbc_and_closed_form_checks",
+        "necessary": true,
+        "required_evidence": "Real uniformly selected coordinates and explicit atom IDs/box vectors support recomputing switching CNs; closed-form test distances and lattice-translation invariance are recorded in the derived reference.",
+        "accepted_methods": "Accept equivalent feature selections when they are supported by same-coordinate measurements, explicit criteria, and accurate sampling limitations; no single hidden ranking is required.",
+        "inference_limits": "按`geometry-method.md`重算抽查坐标特征；阅读`training-design.json`概述公开的B/U训练设计和缺失的原始验证数据；以同一坐标定义的z/r配对和敏感性支持特征选择。样本均匀覆盖存档时间，但仍来自单条偏置轨迹，不用于平衡频率。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "matched_z_water_feature_complementarity_and_selection",
+        "necessary": true,
+        "required_evidence": "A real frame pair is matched within 0.02 nm in coordinate z and radius in the bound-like z range while V1–V8 CN differs; compare feature families and explain support limits. Multiple reasonable feature subsets are acceptable.",
+        "accepted_methods": "Accept equivalent feature selections when they are supported by same-coordinate measurements, explicit criteria, and accurate sampling limitations; no single hidden ranking is required.",
+        "inference_limits": "按`geometry-method.md`重算抽查坐标特征；阅读`training-design.json`概述公开的B/U训练设计和缺失的原始验证数据；以同一坐标定义的z/r配对和敏感性支持特征选择。样本均匀覆盖存档时间，但仍来自单条偏置轨迹，不用于平衡频率。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "sampling_scope_and_validation_boundary",
+        "necessary": true,
+        "required_evidence": "Use the mounted, source-hashed training-design.json to describe the reported B/U state protocol and its limits. The sparse biased excerpt is not those ten training trajectories and cannot establish equilibrium frequencies, CV optimality, or causal importance; the underlying trajectories, labels, weights and held-out results are unavailable.",
+        "accepted_methods": "Accept equivalent feature selections when they are supported by same-coordinate measurements, explicit criteria, and accurate sampling limitations; no single hidden ranking is required.",
+        "inference_limits": "按`geometry-method.md`重算抽查坐标特征；阅读`training-design.json`概述公开的B/U训练设计和缺失的原始验证数据；以同一坐标定义的z/r配对和敏感性支持特征选择。样本均匀覆盖存档时间，但仍来自单条偏置轨迹，不用于平衡频率。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      }
+    ]
+  },
+  "inputs": {
+    "environment/assets/g4-coordinate-samples.npz": "574c49fdc457fec2b57d3d81e9fadde6bb59e269e5676568b0d69d7a37e14550",
+    "environment/assets/coordinate-provenance.json": "ec950e3438e0e982dd2f9ff8644879d3b2415976781d9d4a4052fbb050ccec20",
+    "environment/assets/g4-descriptors.csv": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "environment/assets/descriptor-provenance.json": "0cdaef45fc096bd1aca62229c665a1736a3ae336a59caf847cc5c34b22c5effd",
+    "environment/assets/geometry-method.md": "d863e5b015aefb9b08a6bffab712e829c374289ca36a9847ad8369607226f0d6",
+    "environment/assets/training-design.json": "4d32952da3ad9a87752d5f973048ee4f57c403fa43b91b1810750f1d90b75c95",
+    "environment/assets/atom-metadata.json": "96621e325309550e179312f83aa62681c9139e0c53024657ea34a2ac4dcbe4db"
+  },
+  "criteria": [
+    {
+      "criterion": "coordinate_cn_units_pbc_and_closed_form_checks",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_coordinate_reference",
+        "source": "packages/case-01-water-rearrangement-descriptor/tests/refs.json",
+        "source_sha256": "cb4c920fef463cd4aeaba9403c79ef63d3c375ce3eab2b16176fa2529021dbf8",
+        "rationale": "Real uniformly selected coordinates and explicit atom IDs/box vectors support recomputing switching CNs; closed-form test distances and lattice-translation invariance are recorded in the derived reference."
+      }
+    },
+    {
+      "criterion": "matched_z_water_feature_complementarity_and_selection",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "acquired_method_and_derived_coordinate_contrast",
+        "source": "packages/case-01-water-rearrangement-descriptor/tests/refs.json",
+        "source_sha256": "cb4c920fef463cd4aeaba9403c79ef63d3c375ce3eab2b16176fa2529021dbf8",
+        "rationale": "A real frame pair is matched within 0.02 nm in coordinate z and radius in the bound-like z range while V1–V8 CN differs; compare feature families and explain support limits. Multiple reasonable feature subsets are acceptable."
+      }
+    },
+    {
+      "criterion": "sampling_scope_and_validation_boundary",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "author_training_protocol_and_source_sampling_constraint",
+        "source": "packages/case-01-water-rearrangement-descriptor/tests/refs.json",
+        "source_sha256": "cb4c920fef463cd4aeaba9403c79ef63d3c375ce3eab2b16176fa2529021dbf8",
+        "rationale": "Use the mounted, source-hashed training-design.json to describe the reported B/U state protocol and its limits. The sparse biased excerpt is not those ten training trajectories and cannot establish equilibrium frequencies, CV optimality, or causal importance; the underlying trajectories, labels, weights and held-out results are unavailable."
+      }
+    }
+  ],
+  "review_policy": "数值检查与必要科学评审分开；当前只提供数值诊断。重新接入后必须逐项评审必要科学判据，不得由文件存在或数值通过直接授予科学 PASS。",
+  "contract_fingerprints": {
+    "instruction.md": "7322dd5ccf08ce475bbe53b5909f4d82992b9155256342adcda19bdd239aeece",
+    "task.toml": "42a39e0d6592a42fd9d01291a7444365fa385d0ac3bbfabb056930a752cc2516",
+    "output-contract.yaml": "7d1acdbf60821245bf02338eb56ac61e2a1650ddc5366f22396f3660bac34aa7",
+    "output-contract.json": "81812c36c99db1c30c6ba082d9bee146055546067ecf67657385b601730b46ad"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "case07-plus-endpoint-continuation-decision/v1",
+  "status": "ADMIT_ONE_BOUNDED_CONTINUATION_NOT_ENDPOINT_SUCCESS",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "source_job_id": "4043114",
+  "source_state": "TIMEOUT",
+  "source_elapsed_seconds": 1827,
+  "prior_actual_cpu_seconds": 95800,
+  "last_complete_frame_index": 15,
+  "last_complete_cycle": 16,
+  "frame_sha256": "3ac0242fd71c25930b82a2f9654aa44cdac80c12245b9fe0d0b54604918846b5",
+  "trajectory_sha256": "c39f868983174c0f49f27ca043549b63d512cd0f798ec9864cd7db3059eae40f",
+  "energy_au": -646.849529649894,
+  "rms_gradient": 0.0010153572,
+  "max_gradient": 0.0026708072,
+  "graph_matches_public_bpr": true,
+  "rationale": "Last complete evaluated frame has BPR topology; last three energies decrease and ring closing progressed. Gradients remain unconverged. A single restart at this exact frame preserves evidence and avoids partial cycle17 pose. No method or threshold change.",
+  "admission": {
+    "continuation_wall_seconds": 2400,
+    "cpu_count": 8,
+    "memory_mib": 16384,
+    "scratch_gib": 20,
+    "future_frequency_wall_seconds": 1800,
+    "overhead_reserve_seconds": 1800,
+    "total_wall_reserve_seconds": 6000,
+    "clock_anchor": "2026-10-25T07:31:12.861034+00:00",
+    "deadline_utc": "2026-10-25T15:31:12.861034+00:00",
+    "recheck_actual_remaining_before_submit": true,
+    "automatic_retry": false
+  },
+  "requirements": [
+    "Same exact Opt input/method; start from selected complete frame, not job.xyz cycle17",
+    "Preserve TIMEOUT as resource-only and strict plus opt_chain linkage",
+    "Final convergence, BPR graph and new independent zero-imaginary frequency still required",
+    "No further automatic continuation; final current Oracle and regrade still required"
+  ]
+}

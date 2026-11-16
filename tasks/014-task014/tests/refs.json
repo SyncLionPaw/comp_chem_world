@@ -1,0 +1,78 @@
+{
+  "schema": "autosolvate-private-refs/v1",
+  "case_id": "case-01",
+  "runtime": {
+    "schema": "autosolvate-scorer/v1",
+    "case_id": "case-01",
+    "inputs": [
+      {
+        "path": "inputs/naphthalene_radical.xyz",
+        "source_path": "raw_data/unpacked/Liu-group_AutoSolvate_b8de0da6-45d45f71a679/Liu-group-AutoSolvate-b8de0da/autosolvate/tests/inputs/resp_classes/naphthalene_radical.xyz",
+        "sha256": "81954f8c5ad81a81575a91a24c9a53ff1c479543437a97ab262ec4a6727477a0"
+      },
+      {
+        "path": "inputs/naphthalene_radical_orca.esp",
+        "source_path": "raw_data/unpacked/Liu-group_AutoSolvate_b8de0da6-45d45f71a679/Liu-group-AutoSolvate-b8de0da/autosolvate/tests/inputs/resp_classes/naphthalene_radical_orca.esp",
+        "sha256": "a7e843dec64c44831f1f54fe3eb98b586ea84121ceb42e31daae213ba4ef091e"
+      }
+    ],
+    "output_paths": [
+      "charges.json",
+      "fit-input.json",
+      "fit.log",
+      "fit.py",
+      "analysis.md"
+    ],
+    "output_types": {
+      "charges.json": "file",
+      "fit-input.json": "file",
+      "fit.log": "file",
+      "fit.py": "file",
+      "analysis.md": "file"
+    },
+    "python_modules": [
+      "numpy",
+      "scipy",
+      "parmed",
+      "openmm"
+    ]
+  },
+  "tolerances": {
+    "mapping_bohr": 1e-06,
+    "charge_sum_e": 1e-06,
+    "atomic_charge_e": 0.0005,
+    "objective": 1e-07,
+    "reported_fit_metrics": 1e-08
+  },
+  "reference": {
+    "charge": 1,
+    "multiplicity": 2,
+    "charges": [
+      -0.09065485716936664,
+      -0.0855125742745426,
+      -0.046867514667164795,
+      0.052836708944920964,
+      -0.05979702631405304,
+      -0.08203825030642933,
+      -0.0837948049278058,
+      -0.04929890420868737,
+      0.04861564739072864,
+      -0.047513479425659914,
+      0.17584547064329747,
+      0.17562943197683703,
+      0.18369649849172875,
+      0.18340828034944448,
+      0.1796247699415953,
+      0.17460863163292023,
+      0.18469429399719678,
+      0.18651767792503987
+    ],
+    "objective": 0.0006135077253998054,
+    "esp_rmse_hartree_per_e": 0.0007155868768907125,
+    "projected_gradient_max": 1.0520901580490793e-09,
+    "uniform_objective": 0.09676278531881734,
+    "atoms": 18,
+    "grid_points": 1003,
+    "converged": true
+  }
+}

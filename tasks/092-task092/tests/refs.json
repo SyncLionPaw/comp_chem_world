@@ -1,0 +1,50 @@
+{
+  "schema": "bench14-case06-reference-manifest/v1",
+  "case_id": "case-06-capacitance-parsons-zobel",
+  "formal_reference": "Hidden author-generated BVP sweeps and curve refinements plus the independent analysis implementation tests/_support/reference_analysis.py.",
+  "hidden_manifest": "tests/_data/hidden_manifest.json",
+  "hidden_manifest_sha256": "d726b2b898ae88504c21c4259dddacf4ab768107ef004f5927cb811ba41786b8",
+  "source_solver_snapshot": "tests/_support/private/edl_solver_8074b275.py",
+  "source_solver_sha256": "8074b275c0291f6e6273f5691fbbc9a24e03e42d4d6e27407e0434d3aea95a90",
+  "verifier_sha256": "e61c677a52b32f127830685b68b1a826d92ce400f767850931973f4449711533",
+  "tolerances": {
+    "curve_and_points_rtol": 1e-07,
+    "curve_and_points_atol_F_m2": 1e-09,
+    "fit_rtol": 1e-07,
+    "fit_atol": 1e-08,
+    "phi_pzc_atol_V": 1e-10,
+    "note": "These compare exact derived metrics for a fixed finite dataset, not a tolerance on continuous physical C or experimental fit accuracy."
+  },
+  "derivative_steps_C_m2": {
+    "h": 0.001,
+    "h2": 0.0005,
+    "h3": 0.00025,
+    "author_reference_h8": 0.000125
+  },
+  "hidden_branches": [
+    "c1.3_p0.015",
+    "c1.3_p0.025",
+    "c2.4_p0.015",
+    "c2.4_p0.025",
+    "c3.7_p0.015",
+    "c3.7_p0.025",
+    "c6.1_p0.015",
+    "c6.1_p0.025",
+    "c9.2_p0.015",
+    "c9.2_p0.025"
+  ],
+  "asset_hashes": {
+    "environment/assets/reference_sweeps.csv": "sha256:ba7854c9f9937401f7e618a7e25927ba7895beb28187ad52672fc574c2c4d0bd",
+    "environment/assets/curve_refinement.csv": "sha256:61e5180e335609c854c264980a85ee55d8a333ab0dfbc3696593e027f6b96c0a",
+    "environment/assets/analysis_contract.json": "sha256:3b4e8a8701071007b55e1893ea62c8831d695251558067c1b3f038be97b8987a"
+  },
+  "host_replay": {
+    "oracle": "reward 1 against the hidden sweeps with the independent analysis implementation",
+    "adversarial": "coarse-as-fine, wrong-fit, branch/center mutation, 1000x unit, mixed-branch and lookup-only outputs rejected"
+  },
+  "notes": [
+    "Candidate code is replayed unprivileged against hidden sweeps; it cannot read private evaluator files or write the reward path.",
+    "Malformed candidate output is a scientific failure (reward 0); missing or corrupt private references and unavailable isolation are environment errors (exit 2, no reward).",
+    "This is an author-parameter reconstruction of the paper's analysis route, not an exact reproduction of the printed Figure 8 slopes."
+  ]
+}

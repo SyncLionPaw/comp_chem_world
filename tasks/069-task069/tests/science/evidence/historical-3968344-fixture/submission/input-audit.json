@@ -1,0 +1,90 @@
+{
+  "schema": "case08-input-audit/v1",
+  "job_id": "3968344",
+  "inputs": {
+    "NVT-50ps-dt1fs.mdp": {
+      "sha256": "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b"
+    },
+    "NVT-50ps-dt2fs.mdp": {
+      "sha256": "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e"
+    },
+    "NVT.mdp": {
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb"
+    },
+    "b.gro": {
+      "sha256": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19"
+    },
+    "conf_template.pdb": {
+      "sha256": "71b3fd1fa0f6027449d50b8f053f272d847d96adac70802b7e7744635c203ec9"
+    },
+    "remote-input-provenance.json": {
+      "sha256": "56651dbc56b4b467b270307cbd3fb247498d239db09eef819cdb3d315e608eca"
+    },
+    "topol.top": {
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7"
+    },
+    "u.gro": {
+      "sha256": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479"
+    }
+  },
+  "run_inputs": [
+    {
+      "run": "B-dt1fs",
+      "dt_fs": 1,
+      "nsteps": 50000,
+      "duration_ps": 50.0,
+      "coordinate_sha256": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+      "topology_sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "tpr_sha256": "c090e7b311622610777c29d2dc728572b92798176bd5498a553d887b85961341",
+      "final_coordinate_sha256": "4bb1dd065ad18dfa62799ee4d01822f133b663840b7ad058e765ddccfb4fff14",
+      "seed": 20261003,
+      "x_vector_sha256": "587d0773bf5caaa7f971cf8377603107d3e7b786c81b3c997e958af3098ce92b",
+      "v_vector_sha256": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6",
+      "actual_duration_ps": 50.0
+    },
+    {
+      "run": "B-dt2fs",
+      "dt_fs": 2,
+      "nsteps": 25000,
+      "duration_ps": 50.0,
+      "coordinate_sha256": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+      "topology_sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "tpr_sha256": "e6a5b16b5d0b62440f15f450eaeda574e7c3f13b67ec47012a808c44bbb4d49a",
+      "final_coordinate_sha256": "4ff7aa630bb37a688f3e8a94817a70a51a061aa81c67010fb4ce92cf8fd228d9",
+      "seed": 20261003,
+      "x_vector_sha256": "587d0773bf5caaa7f971cf8377603107d3e7b786c81b3c997e958af3098ce92b",
+      "v_vector_sha256": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6",
+      "actual_duration_ps": 50.0
+    },
+    {
+      "run": "U-dt1fs",
+      "dt_fs": 1,
+      "nsteps": 50000,
+      "duration_ps": 50.0,
+      "coordinate_sha256": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479",
+      "topology_sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "tpr_sha256": "6e0104bc7cd2531ff9256fb04cb0a20d24befe19345ef148ab88938ecb823405",
+      "final_coordinate_sha256": "1fd83485fad5faab4ae56371f6c3327dec29c5686d9631c43cc648700762e7f4",
+      "seed": 20261003,
+      "x_vector_sha256": "8792abbf6880e06a2b3ac846b82c1189d85c9d2a53ac8120eddbf7259ef2db1a",
+      "v_vector_sha256": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6",
+      "actual_duration_ps": 50.0
+    },
+    {
+      "run": "U-dt2fs",
+      "dt_fs": 2,
+      "nsteps": 25000,
+      "duration_ps": 50.0,
+      "coordinate_sha256": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479",
+      "topology_sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+      "tpr_sha256": "b92aa004447e9edd1cd9d62238bd4e39ac4e4d25585b263cab67b92a987b1c23",
+      "final_coordinate_sha256": "badcdfd05cc1db1e0bb70a5fa9a27484aa84193268b8fbbe6d8c7afa632efa5b",
+      "seed": 20261003,
+      "x_vector_sha256": "8792abbf6880e06a2b3ac846b82c1189d85c9d2a53ac8120eddbf7259ef2db1a",
+      "v_vector_sha256": "87d32f117dc91a4ec134aeb15a55127e0ba98206e702b2fc20135462e58b7fb6",
+      "actual_duration_ps": 50.0
+    }
+  ],
+  "missing_or_unavailable": [],
+  "paired_velocity_policy": "GROMACS gen_seed=20261003 for each paired timestep pair; actual TPR dump vector hashes retained and compared by the independent verifier."
+}

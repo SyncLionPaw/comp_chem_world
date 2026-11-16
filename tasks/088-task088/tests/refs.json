@@ -1,0 +1,99 @@
+{
+  "schema": "bench14-case01-reference-manifest/v1",
+  "case_id": "case-01-water-md-response",
+  "formal_reference": "No all-PASS author reference is required. tests/verify.py re-extracts the candidate's declared schedule from the audited native TPR/trajectory and recomputes the response and its uncertainty independently; the frozen V6 grader criteria are the authority for the recorded gates below.",
+  "verifier": "tests/verify.py",
+  "verifier_sha256": "2b903d853c3fe66c56fb0708260701067050bc69c37ead798ba5b1750e4ea665",
+  "verifier_entrypoint": "tests/test.sh",
+  "verifier_entrypoint_sha256": "b27b1970a5885a7afca7433103ed8c751fbb159aebf4bbfcd064b4d51c9bf702",
+  "verifier_package": "tests/_support/verifier/",
+  "verifier_package_sha256": {
+    "candidate_reextract.py": "f8055d3853a17fa068fcfe09bc5fff954122c922cc674a75836814074a0794ff",
+    "check_submission.py": "21fe518f8fac866a483043f540efa4f7288ad48e8171092871b5b4a601c67a8d",
+    "historical_archive.py": "f4c649ab0b18a159a68e1650c7d8b2fb3322dd2552a824b5a2b2574171796305",
+    "native_audit.py": "5e947f6c8b2c8c3b2e6416f291c01fa802b6a5762bd2aba57cdd8fe467cbeac1",
+    "reference/recompute.py": "ea9ebf5334d69d4af028e43a7dbe66be81927336b1ec026468783dcb07f87735",
+    "reference/science-plan-2026-10-06.md": "f075a15c82b625a22a1b37a3548075ff8e483ed824a5554fe083f549e0875dac",
+    "reference/summarize.py": "d43fc3effb6a384b9f06bea0b99668feff1826f9c1d355b6823ca0d53fcfa6cb",
+    "science_score.py": "b360e6f6ebf2acf1d91123670c586ad0d75b98761c94a96b20aaa30649144fde",
+    "uncertainty_audit.py": "5e1ba7c0341ca5fde891c72cb6887b827301b2de29ab434daacf508b4c3864bb"
+  },
+  "immutable_science_plan": {
+    "path": "tests/_support/verifier/reference/science-plan-2026-10-06.md",
+    "sha256": "f075a15c82b625a22a1b37a3548075ff8e483ed824a5554fe083f549e0875dac"
+  },
+  "required_candidate_outputs": [
+    "final/chi_k.csv",
+    "final/observables.json",
+    "final/md_production.log"
+  ],
+  "tolerances": {
+    "direct_probe_per_vector_simultaneous_95_upper_bound": 0.01,
+    "direct_probe_regime": "k < 2.5 Angstrom^-1 (paper A6 direct-Fourier validation domain)",
+    "mesh_per_bin_limit_rule": "max(1% of |384-mesh curve|, 3 x full-curve 1 ns block SE)",
+    "preregistered_reblocking_se_ratio_upper_bound": 1.5,
+    "serialization_half_last_place_support_limit": 5e-07,
+    "resolution_floor_bins": {
+      "reporting_bin_width_Ainv": 0.05,
+      "half_width_Ainv": 0.025
+    },
+    "supported_primary_cic_meshes": [
+      256,
+      384,
+      512
+    ],
+    "re_extraction_caps": {
+      "selected_frames": 5000,
+      "reporting_bins": 250,
+      "candidate_blocks": 200,
+      "reciprocal_workspace_GiB": 16,
+      "wall_limit_hours": 2
+    },
+    "required_production_length_ns": 20.0,
+    "production_length_source": "production.log nsteps * dt"
+  },
+  "recorded_gate_evidence": {
+    "wavenumber_unit": "Angstrom^-1",
+    "reciprocal_fundamental_2pi_over_L": 0.09664418631765641,
+    "low_k_trough_bootstrap_support": 0.4664,
+    "low_k_minimum_status": "unresolved",
+    "tail_bin_1ns_over_2ns_se_ratio": 1.5597632388261828,
+    "tail_bin_ratio_verdict": "exceeds the preregistered 1.5 bound; the author reference stays PARTIAL and is not an all-PASS Gold"
+  },
+  "asset_hashes": {
+    "environment/assets/protocol.json": "sha256:d7647d42dc0c3b91a59c3b98836c7487a297f417052ed8b82dd873a8a9b3b73c",
+    "environment/assets/output-contract.json": "sha256:8254abe12ec5fda02142a422d1a08a0f8b29923f263150adda175778e79db0d5",
+    "environment/assets/runtime-instructions.md": "sha256:9ee1091df43035c33fd48358593f4876fd11d63ec791dd75ea466b44986c8c19",
+    "tests/refs.json": "sha256:self-excluded"
+  },
+  "host_replay": {
+    "historical_author_oracle": "PASS, reward 1, L1/L2/L3 PASS (2026-10-17, frozen V6 grader, sealed V4 answer from historical job9806)",
+    "historical_author_oracle_status": "author-only route; neither a fresh Agent run nor a new MD run",
+    "historical_9136_9241": "PARTIAL; the recorded tail reblocking gate remains failed",
+    "agent_evaluation": "NOT_RUN",
+    "qualification": "NOT_EVALUATED",
+    "runtime_bound": false
+  },
+  "notes": [
+    "The default fresh route cross-checks candidate-submitted execution records, actual scripts/streams/order, and native artifact paths and SHA-256 values for internal consistency only.",
+    "The verifier distinguishes candidate scientific failure from unavailable runtime or unsupported audit methods: missing prerequisites return ERROR with no reward.",
+    "Unsupported estimators, finer-than-saved cadence, irregular bins and unequal paired numerical-audit block counts return not-evaluated with no reward.",
+    "The verifier package, including tests/_support/verifier/reference/, is mounted read-only for grading; execution evidence remains outside Agent-writable paths.",
+    "Candidate-consistent execution evidence does not authenticate scheduler origin; a mutually consistent fabricated evidence set cannot be distinguished from scheduler-origin evidence by hashes alone.",
+    "Freshness uses CASE01_EVAL_STARTED_AT_UTC injected by the single-trial host launcher and the grader's current UTC time; scheduler and native stage log windows must fall inside it. A direct Harbor run without this context is NOT_VERIFIED and cannot earn a science PASS.",
+    "The unused legacy broker helper was removed; the candidate image copies protocol.json, output-contract.json, and runtime-instructions.md. The active grader uses no legacy broker client."
+  ],
+  "evidence_model": {
+    "route": "candidate_submitted_artifact_consistency_with_explicit_external_and_historical_routes",
+    "compute": "Remote production compute follows the unchanged task scientific requirements; candidate-declared resource fields and scheduler summaries do not establish execution provenance.",
+    "execution_evidence": "The default fresh route checks the candidate-provided scheduler/accounting record, job/allocation/resource/time fields, submitted batch/workflow script, stdout/stderr, ordered stages, and native file hashes for consistency. It also requires scheduler and EM/NVT/NPT/production log windows to fall between evaluator-injected CASE01_EVAL_STARTED_AT_UTC and grader current UTC. Missing or inconsistent evidence returns FAIL with zero reward and science NOT_EVALUATED; missing evaluator window returns freshness NOT_VERIFIED with no reward. This is not independent scheduler or execution-origin attestation; fully consistent fabrication remains indistinguishable.",
+    "native_stage_evidence": "The verifier independently re-extracts and audits candidate-native TPR, log, trajectory, and energy evidence and recomputes the scientific response under the existing gates. A short infrastructure run is not scientific evidence and cannot satisfy the 20 ns requirement.",
+    "downgrade": "The separate case01-infra-short-execution-receipt-v1 with scope infra-short-gromacs is an infrastructure diagnostic only. It cannot satisfy the unchanged 20 ns native/scientific gates. Runtime or required dependency failures remain ERROR with no reward.",
+    "adapter": "tests/_support/candidate_provenance.py",
+    "adapter_sha256": "3e5634817ced697480c87cd9dcd251f442d3e2c695ffa9622f9b592463f87b11",
+    "freshness_launcher": "tests/_support/harbor_run.py",
+    "freshness_launcher_sha256": "688b7cc14034d79705de586b5aa120e9fdfd10157b94f20075cd45f0b547cda4",
+    "verifier_entrypoint_sha256": "b27b1970a5885a7afca7433103ed8c751fbb159aebf4bbfcd064b4d51c9bf702",
+    "operator_route": "Explicit evaluator external receipt and historical archive routes remain available. Candidate-artifact consistency does not establish independent_scheduler_attested or execution_origin_attested."
+  }
+}

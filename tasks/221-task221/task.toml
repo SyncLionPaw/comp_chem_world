@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/case-02-lambda-distribution-analysis"
+description = "Run one 20 ns constant-pH MD production trajectory per Asp, Glu and His tripeptide at pH 4.0, 4.5 and 6.5 using independently selected computing resources, reconstruct each titration-coordinate lambda distribution from the native channels, and report binned distributions, endpoint protonation populations against the Henderson-Hasselbalch prediction, and bimodality diagnostics with two separated endpoint peaks and a lower central region, delivering lambda_distributions.json, protonation_fractions.json and bimodality_analysis.json under /app/final."
+
+[metadata]
+name = "case-02-lambda-distribution-analysis"
+description = "Run one 20 ns constant-pH MD production trajectory per Asp, Glu and His tripeptide at pH 4.0, 4.5 and 6.5 using independently selected computing resources, reconstruct each titration-coordinate lambda distribution from the native channels, and report binned distributions, endpoint protonation populations against the Henderson-Hasselbalch prediction, and bimodality diagnostics with two separated endpoint peaks and a lower central region, delivering lambda_distributions.json, protonation_fractions.json and bimodality_analysis.json under /app/final."
+execution_class = "remote"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 172800
+network_mode = "public"
+
+[verifier]
+timeout_sec = 10800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

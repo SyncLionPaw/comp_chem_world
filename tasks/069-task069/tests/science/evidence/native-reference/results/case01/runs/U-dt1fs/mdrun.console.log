@@ -1,0 +1,31 @@
+                      :-) GROMACS - gmx mdrun, 2022.6 (-:
+
+Executable:   /public/software/hpcsoftware/gromacs-2022.6/bin/gmx
+Data prefix:  /public/software/hpcsoftware/gromacs-2022.6
+Working dir:  /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01
+Command line:
+  gmx mdrun -s /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/runs/U-dt1fs/topol.tpr -deffnm /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/runs/U-dt1fs/md -ntmpi 1 -ntomp 8
+
+Reading file /public/home/xjchen/10_Host-Guest-Water-Enhanced-Sampling/case01/runs/U-dt1fs/topol.tpr, VERSION 2022.6 (single precision)
+Changing nstlist from 20 to 40, rlist from 1.06 to 1.141
+
+Using 1 MPI thread
+
+Non-default thread affinity set, disabling internal thread affinity
+
+Using 8 OpenMP threads 
+
+IMD: None of the -imd switches was used.
+IMD: This run will not accept incoming IMD connections
+starting mdrun 'Generic title'
+50000 steps,     50.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:      350.952       43.888      799.7
+                 (ns/day)    (hour/ns)
+Performance:       98.435        0.244
+
+GROMACS reminds you: "O My God, They Killed Kenny !" (South Park)
+

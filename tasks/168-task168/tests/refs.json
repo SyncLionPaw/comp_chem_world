@@ -1,0 +1,51 @@
+{
+  "case_id": "case-02-eliashberg-numerics",
+  "scoring_scope": "full",
+  "asset_hashes": {
+    "assets/a2f-unstrained.csv": "sha256:2e762422166e6ae69bcd3926e3735a401562be2c3607044959d960c1e5df57b6"
+  },
+  "evidence_documents": {
+    "provenance": "a2f-unstrained.csv is a synthetic reconstruction calibrated to the paper anchors lambda=1.9 and AD Tc(mu*=0.16)=19.4 K (Campi et al., Nano Lett. 2021, DOI 10.1021/acs.nanolett.0c05125); header documents the disclaimer"
+  },
+  "overall_scoring_ready": true,
+  "criteria": {
+    "mu_star": [
+      0.16,
+      0.1
+    ],
+    "bands_cm1": [
+      [
+        0,
+        200
+      ],
+      [
+        200,
+        300
+      ],
+      [
+        300,
+        360
+      ],
+      [
+        360,
+        450
+      ],
+      [
+        450,
+        null
+      ]
+    ],
+    "lambda_rel_tolerance": 0.02,
+    "omega_log_rel_tolerance": 0.02,
+    "tc_abs_tolerance_K": 0.6,
+    "band_rel_tolerance": 0.08,
+    "band_abs_tolerance": 0.01,
+    "ratio_self_rel_tolerance": 0.02,
+    "ratio_reference_rel_tolerance": 0.03,
+    "ad_surrogate_max_ratio": 1.1,
+    "dominant_bands": [
+      "lambda_0_200_cm1",
+      "lambda_300_360_cm1"
+    ]
+  }
+}

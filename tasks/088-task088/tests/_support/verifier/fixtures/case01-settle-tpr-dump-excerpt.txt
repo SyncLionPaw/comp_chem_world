@@ -1,0 +1,229 @@
+   constraint-algorithm           = Lincs
+
+   ffparams:
+      atnr=2
+      ntypes=5
+         functype[0]=LJ_SR, c6= 2.61706416e-03, c12= 2.63345464e-06
+         functype[1]=LJ_SR, c6= 0.00000000e+00, c12= 0.00000000e+00
+         functype[2]=LJ_SR, c6= 0.00000000e+00, c12= 0.00000000e+00
+         functype[3]=LJ_SR, c6= 0.00000000e+00, c12= 0.00000000e+00
+         functype[4]=SETTLE, doh= 1.00000001e-01, dhh= 1.63299993e-01
+      reppow                         = 12
+      fudgeQQ                        = 0.833333
+
+   atomtypes:
+      atomtype[  0]={atomnumber=   8}
+      atomtype[  1]={atomnumber=   1}
+   moltype (0):
+      name="SOL"
+      atoms:
+         atom (3):
+            atom[     0]={type=  0, typeB=  0, ptype=    Atom, m= 1.59994e+01, q=-8.47600e-01, mB= 1.59994e+01, qB=-8.47600e-01, resind=    0, atomnumber=  8}
+            atom[     1]={type=  1, typeB=  1, ptype=    Atom, m= 1.00800e+00, q= 4.23800e-01, mB= 1.00800e+00, qB= 4.23800e-01, resind=    0, atomnumber=  1}
+            atom[     2]={type=  1, typeB=  1, ptype=    Atom, m= 1.00800e+00, q= 4.23800e-01, mB= 1.00800e+00, qB= 4.23800e-01, resind=    0, atomnumber=  1}
+         atom (3):
+            atom[0]={name="OW"}
+            atom[1]={name="HW1"}
+            atom[2]={name="HW2"}
+         type (3):
+            type[0]={name="OW",nameB="OW"}
+            type[1]={name="HW",nameB="HW"}
+            type[2]={name="HW",nameB="HW"}
+         residue (1):
+            residue[0]={name="SOL", nr=1, ic=' '}
+      excls:
+         numLists=3
+         numElements=9
+         excls[0][num=3]={0, 1, 2}
+         excls[1][num=3]={0, 1, 2}
+         excls[2][num=3]={0, 1, 2}
+      Bond:
+         nr: 0
+      G96Bond:
+         nr: 0
+      Morse:
+         nr: 0
+      Cubic Bonds:
+         nr: 0
+      Connect Bonds:
+         nr: 0
+      Harmonic Pot.:
+         nr: 0
+      FENE Bonds:
+         nr: 0
+      Tab. Bonds:
+         nr: 0
+      Tab. Bonds NC:
+         nr: 0
+      Restraint Pot.:
+         nr: 0
+      Angle:
+         nr: 0
+      G96Angle:
+         nr: 0
+      Restricted Angles:
+         nr: 0
+      Lin. Angle:
+         nr: 0
+      Bond-Cross:
+         nr: 0
+      BA-Cross:
+         nr: 0
+      U-B:
+         nr: 0
+      Quartic Angles:
+         nr: 0
+      Tab. Angles:
+         nr: 0
+      Proper Dih.:
+         nr: 0
+      Ryckaert-Bell.:
+         nr: 0
+      Restricted Dih.:
+         nr: 0
+      CBT Dih.:
+         nr: 0
+      Fourier Dih.:
+         nr: 0
+      Improper Dih.:
+         nr: 0
+      Periodic Improper Dih.:
+         nr: 0
+      Tab. Dih.:
+         nr: 0
+      CMAP Dih.:
+         nr: 0
+      GB 1-2 Pol. (unused):
+         nr: 0
+      GB 1-3 Pol. (unused):
+         nr: 0
+      GB 1-4 Pol. (unused):
+         nr: 0
+      GB Polarization (unused):
+         nr: 0
+      Nonpolar Sol. (unused):
+         nr: 0
+      LJ-14:
+         nr: 0
+      Coulomb-14:
+         nr: 0
+      LJC-14 q:
+         nr: 0
+      LJC Pairs NB:
+         nr: 0
+      LJ (SR):
+         nr: 0
+      Buck.ham (SR):
+         nr: 0
+      LJ (unused):
+         nr: 0
+      B.ham (unused):
+         nr: 0
+      Disper. corr.:
+         nr: 0
+      Coulomb (SR):
+         nr: 0
+      Coul (unused):
+         nr: 0
+      RF excl.:
+         nr: 0
+      Coul. recip.:
+         nr: 0
+      LJ recip.:
+         nr: 0
+      DPD:
+         nr: 0
+      Polarization:
+         nr: 0
+      Water Pol.:
+         nr: 0
+      Thole Pol.:
+         nr: 0
+      Anharm. Pol.:
+         nr: 0
+      Position Rest.:
+         nr: 0
+      Flat-bottom posres:
+         nr: 0
+      Dis. Rest.:
+         nr: 0
+      D.R.Viol. (nm):
+         nr: 0
+      Orient. Rest.:
+         nr: 0
+      Ori. R. RMSD:
+         nr: 0
+      Angle Rest.:
+         nr: 0
+      Angle Rest. Z:
+         nr: 0
+      Dih. Rest.:
+         nr: 0
+      Dih. Rest. Viol.:
+         nr: 0
+      Constraint:
+         nr: 0
+      Constr. No Conn.:
+         nr: 0
+      Settle:
+         nr: 4
+         iatoms:
+            0 type=4 (SETTLE)   0   1   2
+      Virtual site 1:
+         nr: 0
+      Virtual site 2:
+         nr: 0
+      Virtual site 2fd:
+         nr: 0
+      Virtual site 3:
+         nr: 0
+      Virtual site 3fd:
+         nr: 0
+      Virtual site 3fad:
+         nr: 0
+      Virtual site 3out:
+         nr: 0
+      Virtual site 4fd:
+         nr: 0
+      Virtual site 4fdn:
+         nr: 0
+      Virtual site N:
+         nr: 0
+      COM Pull En.:
+         nr: 0
+      Density fitting:
+         nr: 0
+      Quantum En.:
+         nr: 0
+      Potential:
+         nr: 0
+      Kinetic En.:
+         nr: 0
+      Total Energy:
+         nr: 0
+      Conserved En.:
+         nr: 0
+      Temperature:
+         nr: 0
+      Vir. Temp. (not used):
+         nr: 0
+      Pres. DC:
+         nr: 0
+      Pressure:
+         nr: 0
+      dH/dl constr.:
+         nr: 0
+      dVremain/dl:
+         nr: 0
+      dEkin/dl:
+         nr: 0
+      dVcoul/dl:
+         nr: 0
+      dVvdw/dl:
+         nr: 0
+      dVbonded/dl:
+         nr: 0
+      dVrestraint/dl:
+         nr: 0
+      dVtemperature/dl:
+         nr: 0

@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-10"
+description = 'Reconstruct the published absorption-energy probability model, determine the chemical-potential offset at prescribed bulk concentration and temperature, and quantify rare-low-energy-tail control plus finite-spectrum sampling uncertainty across six alloys. This is not reconstruction of 295 site DFT energies.'
+
+[metadata]
+task_number = 10
+name = 'task 10'
+description = 'Reconstruct the published absorption-energy probability model, determine the chemical-potential offset at prescribed bulk concentration and temperature, and quantify rare-low-energy-tail control plus finite-spectrum sampling uncertainty across six alloys. This is not reconstruction of 295 site DFT energies.'
+execution_class = 'local'
+task_id = "task-10"
+solution_timeout_sec = 1800
+title = '吸氢能低尾的占据富集与有限谱采样偏差'
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[environment]
+os = "linux"
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+gpus = 0
+network_mode = "no-network"
+allow_internet = false
+

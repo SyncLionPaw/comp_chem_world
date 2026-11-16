@@ -1,0 +1,37 @@
+{
+  "schema": "case06-science-profile/v2",
+  "status": "reviewed",
+  "acceptance_mode": "empirical-3pm/v1",
+  "reference_sha256": "e8b4adef1e1d9d30870ee3fa2c17f88b4bdd1540f82f96f5994ee35cbac3100e",
+  "same_method_residual_limit_pm": 3.0,
+  "minimum_frequency_review_band_cm1": 10.0,
+  "aggregation": "tracked-SI-bond-rows/equal-weight-after-symmetry-means",
+  "scope": {
+    "molecules": [
+      "M2",
+      "M3",
+      "M14",
+      "M19",
+      "M29"
+    ],
+    "excluded_null_targets": [
+      "M14/ES/stda-pbe0-tzvp"
+    ],
+    "tracked_rows": {
+      "PBE0": 13,
+      "ADMM": 13,
+      "sTDA_default": 10
+    }
+  },
+  "review": {
+    "review_id": "root-sol-empirical-3pm-2026-10-08",
+    "evidence": [
+      {
+        "id": "case06-policy-review",
+        "path": "science-profile-policy.md",
+        "sha256": "fa6d9ecec41bed58ea581e1366b51c84f179d76066c34b2c49da5548e37a484c"
+      }
+    ]
+  },
+  "notes": "Empirical task rule only; not a rigorous force/curvature error bound. M14 class and L3 minimum require native evidence."
+}

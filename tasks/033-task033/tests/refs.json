@@ -1,0 +1,299 @@
+{
+  "case_id": "case-05-dynamics",
+  "asset_hashes": {
+    "assets/msd.csv": "sha256:38d5eafaf2383f4a680b81639527329af9cef77cbd988a24dbc3908f261f3b2d"
+  },
+  "source_provenance": [
+    {
+      "path": "environment/assets/msd.csv",
+      "source_path": "inputs/msd.csv",
+      "sha256": "38d5eafaf2383f4a680b81639527329af9cef77cbd988a24dbc3908f261f3b2d"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "fit_outputs",
+      "level": "L1",
+      "necessary": true,
+      "description": "交付指数、拟合诊断和可重放分析。"
+    },
+    {
+      "criterion": "fit_windows",
+      "level": "L2",
+      "necessary": true,
+      "description": "重算所声明窗口的幂律；Methods 早期 ≤30 ps、晚期 ≥400 ps 为参考，必须给出窗口敏感性。"
+    },
+    {
+      "criterion": "two_regimes",
+      "level": "L3",
+      "necessary": true,
+      "description": "PD 早期指数 >1、晚期 <1，酸性区段及肽的所考察区间以次扩散为主，结论来自实际拟合。",
+      "verification_basis": {
+        "type": "paper_result",
+        "source": "Source Data Figure 7c and Main Methods MSD",
+        "rationale": "PD 早期指数 >1、晚期 <1，酸性区段及肽的所考察区间以次扩散为主，结论来自实际拟合。"
+      }
+    },
+    {
+      "criterion": "limited_inference",
+      "level": "L3",
+      "necessary": true,
+      "description": "平均 MSD 的区间交叉不能独立证明单分子指数双峰；不能由平均曲线伪造 5 次独立重复误差。",
+      "verification_basis": {
+        "type": "paper_result",
+        "source": "Main Fig.7b vs Fig.7c; statistical identifiability",
+        "rationale": "平均 MSD 的区间交叉不能独立证明单分子指数双峰；不能由平均曲线伪造 5 次独立重复误差。"
+      }
+    }
+  ],
+  "coverage": "COMPLETE",
+  "missing_inputs": [],
+  "implementation": "implemented",
+  "grading_mode": "deterministic_checks_and_evaluator_controlled_scientific_review",
+  "original_verification_hashes": {
+    "numeric_check.py": "82362b0a48c3b035032b1cb9c9fec8f0bb596a4d936b68a35971adeba6c87538",
+    "rubric.json": "041919513e339beab438e1ed1c72d9da5a180d2b2df46fcc6d07f80fbaebfd44",
+    "evidence/paper.pdf": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040",
+    "evidence/supplementary.pdf": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e",
+    "verify.py": "599f9ab8cc5dabaa247d5a746f85472171ae913936d5b41b84ab702d8e481ca3"
+  },
+  "rubric": {
+    "schema_version": "local-science-rubric/v1",
+    "case_id": "case-05-dynamics",
+    "criteria": {
+      "fit_outputs": "完整指数、幅度、拟合曲线、残差、代码和解释；结果必须覆盖所有物种及早晚窗口。",
+      "fit_windows": "时间 t/t_D 与 t_D=100 ps、MSD Å²、目标函数和所声明窗口须一致。检查实际重放及不同窗口敏感性；支持经合理解释的不同目标函数。",
+      "two_regimes": "PD 在有据可查的早期区间 >1、晚期 <1；酸性区段及肽在所检验窗口次扩散。不能用不相干窗口硬造结论；比较对窗口敏感性负责。",
+      "limited_inference": "区分平均时间交叉与单分子指数分布，不能从平均曲线宣称单分子双峰、五次独立轨迹误差或唯一微观机制。"
+    },
+    "assessment_policy": "每项必要判据必须由评测阶段控制的审查逐项给出 PASS/FAIL、理由、提交文件 SHA-256 和真实引文。审查不能从字符串命中或文件存在推断科学正确。允许科学等价方法；不得用作者模板或唯一参数作为唯一 Gold。",
+    "trusted_stage": "Assessment/replay 路径由评测器提供，不能来自 Agent final/。执行候选代码必须在不含 tests、solution、Gold 或评测凭据的隔离数据环境；verify.py 本身不执行候选代码。",
+    "verification_basis": {
+      "fit_outputs": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "fit_windows": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "two_regimes": {
+        "type": "paper_result",
+        "source": "Source Data Figure 7c and Main Methods MSD",
+        "rationale": "PD 早期指数 >1、晚期 <1，酸性区段及肽的所考察区间以次扩散为主，结论来自实际拟合。"
+      },
+      "limited_inference": {
+        "type": "paper_result",
+        "source": "Main Fig.7b vs Fig.7c; statistical identifiability",
+        "rationale": "平均 MSD 的区间交叉不能独立证明单分子指数双峰；不能由平均曲线伪造 5 次独立重复误差。"
+      }
+    },
+    "reference_precision": "自动 close 的 1e-5 相对/1e-7 绝对容差仅用于浮点序列化与重放一致性，不是科学接受阈值。科学容差、模型/窗口与不确定度由逐项有依据审查决定。"
+  },
+  "approvals": [
+    {
+      "schema": "bench05-local-oracle-approval/v1",
+      "case_id": "case-05-dynamics",
+      "policy_sha256": "aa0bb67a0dcc1ab58b16cfea447f1fd93ff6f5c63878290964d68262717a70da",
+      "verifier_sha256": "f3608c953be974285c6bedb83e9a08d6dc8dda05f220a4234bd505334e4fc204",
+      "test_entry_sha256": "2c34b04a6f62cc728ce4e6c3671ac2e6daaa042af6addc72ea65e8ae37fd4e26",
+      "submission_files": {
+        "exponents.json": "c985c36c42563b42f216d340388e5ded5f1dbc3256051c4fdbd581e53f86e9f7",
+        "analysis.py": "efbea73aa6f957c6cf83ffd53f27a1c1cd596ea3fe33bb1620a99b04b96d93eb",
+        "report.md": "8e2c0bb00ba33ed7029e264a9c6d0a81edc7e7bb943f1700445da5ad13a2af73",
+        "fits.csv": "809f80ab5ca874778ca6ea3145bd0f1493e08a8852a32898ad5c07160d1a89d6"
+      },
+      "reviewer": {
+        "id": "Sol6.1-medium /root/sol_strict_layout",
+        "role": "independent scientific and verification reviewer; not implementer"
+      },
+      "reviewed_at": "2026-10-27T03:22:47Z",
+      "preflight": {
+        "evaluation_stage_controlled": true,
+        "references_reviewed": true,
+        "execution_and_code_reviewed": true,
+        "method_neutrality_checked": true
+      },
+      "replay": {
+        "execution_id": "bench05-layout-task33-isolated-data-only-replay-02",
+        "image_id": "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--pull=never",
+          "--network",
+          "none",
+          "--cpus",
+          "2",
+          "--memory",
+          "4096m",
+          "--user",
+          "65534:65534",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task33/environment/assets/msd.csv:/input/msd.csv:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/oracle-02/final/analysis.py:/source/analysis.py:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/replay-02/output:/app/replay-output",
+          "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+          "/opt/netfluids/bin/python",
+          "/source/analysis.py",
+          "--input-dir",
+          "/input",
+          "--output-dir",
+          "/app/replay-output"
+        ],
+        "exit_code": 0,
+        "analysis_sha256": "efbea73aa6f957c6cf83ffd53f27a1c1cd596ea3fe33bb1620a99b04b96d93eb",
+        "input_hashes": {
+          "assets/msd.csv": "sha256:38d5eafaf2383f4a680b81639527329af9cef77cbd988a24dbc3908f261f3b2d"
+        },
+        "submission_files": {
+          "exponents.json": "c985c36c42563b42f216d340388e5ded5f1dbc3256051c4fdbd581e53f86e9f7",
+          "analysis.py": "efbea73aa6f957c6cf83ffd53f27a1c1cd596ea3fe33bb1620a99b04b96d93eb",
+          "report.md": "8e2c0bb00ba33ed7029e264a9c6d0a81edc7e7bb943f1700445da5ad13a2af73",
+          "fits.csv": "809f80ab5ca874778ca6ea3145bd0f1493e08a8852a32898ad5c07160d1a89d6"
+        },
+        "output_files": {
+          "exponents.json": "c985c36c42563b42f216d340388e5ded5f1dbc3256051c4fdbd581e53f86e9f7",
+          "report.md": "8e2c0bb00ba33ed7029e264a9c6d0a81edc7e7bb943f1700445da5ad13a2af73",
+          "fits.csv": "809f80ab5ca874778ca6ea3145bd0f1493e08a8852a32898ad5c07160d1a89d6"
+        },
+        "isolation": "isolated_data_only_runtime"
+      },
+      "judgments": {
+        "fit_outputs": {
+          "verdict": "PASS",
+          "rationale": "Reviewed all five species and both time regimes, declared windows, amplitudes, actual curves and residuals. Independent linear algebra recomputation on supplied mean MSDs supports all reported numerical fits; current source-bound Oracle and isolated replay are byte-identical.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "8e2c0bb00ba33ed7029e264a9c6d0a81edc7e7bb943f1700445da5ad13a2af73",
+              "quote": "按声明窗口做 natural-log OLS，保存实际残差与拟合曲线。"
+            }
+          ]
+        },
+        "fit_windows": {
+          "verdict": "PASS",
+          "rationale": "Checked t/t_D with t_D=100 ps and MSD Å², natural-log OLS implementation, point membership and alternate windows. Primary early .05–.3 and late4–24.95 map to5–30ps and400–2495ps; alternate early .05–.25 and late5–24.95 are explicitly examined. No tolerance or objective was altered by consolidation.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "8e2c0bb00ba33ed7029e264a9c6d0a81edc7e7bb943f1700445da5ad13a2af73",
+              "quote": "早期 0.05–0.3 对应 5–30 ps，晚期 4–24.95 对应 400–2495 ps。"
+            }
+          ]
+        },
+        "two_regimes": {
+          "verdict": "PASS",
+          "rationale": "Independent np.linalg.lstsq yields PD exponents 1.790388 early and0.439899 late, alternate1.809059/0.442740; all A0/A1/A2/rpL5 exponents remain below1 in both examined primary and alternate windows. Thus the directional regime comparison is supported by measured supplied mean curves and is not a choice of unrelated windows.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "8e2c0bb00ba33ed7029e264a9c6d0a81edc7e7bb943f1700445da5ad13a2af73",
+              "quote": "PD 早期指数 1.790388>1，晚期 0.439899<1，支持早期超扩散与晚期次扩散的区间交叉；"
+            }
+          ]
+        },
+        "limited_inference": {
+          "verdict": "PASS",
+          "rationale": "The report separates average-curve temporal crossover from molecular exponent distributions and does not fabricate five independent trajectory errors or a unique microscopic mechanism. The primary paper distinguishes Figure7b molecular distribution from Figure7c mean curves; the supplied mean CSV cannot identify the former independently.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "8e2c0bb00ba33ed7029e264a9c6d0a81edc7e7bb943f1700445da5ad13a2af73",
+              "quote": "不能从平均 MSD 的时间交叉独立推出单分子指数双峰。"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "solve_sha256": "40d33597198da7801774e29f2e21af23a51a4067ebef0267e16009af19e145bc",
+        "oracle_execution_id": "bench05-layout-task33-oracle-20261027-02",
+        "raw_evidence": {
+          "oracle": {
+            "argv.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/oracle-02/argv.json",
+              "sha256": "4fe0d5013e2c787a075506d45a46e9c95a169be13676ab3a086e36e1c66d2762"
+            },
+            "input-binding.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/oracle-02/input-binding.json",
+              "sha256": "aec537c944f163a67fe61ad6f0bcfb6b38daa218a97bfa1b123b2982174b9f90"
+            },
+            "stdout.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/oracle-02/stdout.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/oracle-02/stderr.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "exit-code": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/oracle-02/exit-code",
+              "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+            }
+          },
+          "replay": {
+            "argv.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/replay-02/argv.json",
+              "sha256": "0bdd12ec5ce47c13cff542a3abdd21dbae990fcd8b96b93a89b6e053fe1675ce"
+            },
+            "input-binding.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/replay-02/input-binding.json",
+              "sha256": "f7f8f09e5b2b2c246716b62d8f10e0d8c222e3c75e4a475d9e9d6e5e16999263"
+            },
+            "stdout.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/replay-02/stdout.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/replay-02/stderr.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "exit-code": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task33/replay-02/exit-code",
+              "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+            }
+          }
+        },
+        "source_equivalence_review": "/private/tmp/bench05-strict-layout-20261027/sol/tasks30-31-33-source-equivalence.json",
+        "environment_scope": "Existing exact case image executing current sources; no fresh Dockerfile build or current base-tag equivalence claimed.",
+        "reviewed_primary_reference": {
+          "path": "acceptance/layout-migration-20261027/task33/original-tree/tests/evidence/paper.pdf",
+          "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040"
+        },
+        "independent_science_check": "/private/tmp/bench05-strict-layout-20261027/sol/task33-independent-MSD-summary.json"
+      }
+    }
+  ],
+  "schema": "bench05-local-science-refs/v2",
+  "historical_receipt_provenance": [
+    {
+      "original_path": "tests/approved/author-reference/assessment.json",
+      "sha256": "facb0b1c9e49c0c4bc65f9b90c35dcea6e8a3be64214fbb1c53c0cb577c822f9",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/approved/author-reference/replay.json",
+      "sha256": "baf80b77606e6ba62be5447cae5e0414494185f587a8ded70dce23bc84bbc22d",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/rubric.json",
+      "sha256": "041919513e339beab438e1ed1c72d9da5a180d2b2df46fcc6d07f80fbaebfd44",
+      "use": "original byte digest; current canonical rubric digest is computed from refs.rubric"
+    }
+  ],
+  "reference_sources": [
+    {
+      "path": "tests/evidence/paper.pdf",
+      "source": "evidence/paper.pdf",
+      "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040"
+    },
+    {
+      "path": "tests/evidence/supplementary.pdf",
+      "source": "evidence/supplementary.pdf",
+      "sha256": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e"
+    }
+  ],
+  "policy_sha256": "aa0bb67a0dcc1ab58b16cfea447f1fd93ff6f5c63878290964d68262717a70da"
+}

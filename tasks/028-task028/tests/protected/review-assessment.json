@@ -1,0 +1,6 @@
+{
+  "schema_version": "compchemworld.case08.review-assessment/v3",
+  "case_id": "case-08-end-to-end-rearrangement-claim",
+  "status": "PENDING",
+  "note": "No candidate submission has been reviewed. A future review must be signed by the evaluator key and bind the exact candidate file manifest, rubric, and independently reviewed execution receipts. No author-side host controller or fixed runner context is required by the scoring contract."
+}

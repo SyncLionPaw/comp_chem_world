@@ -1,0 +1,34 @@
+# Harbor task config migrated from the archived Bench01 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-06-hybrid-end-to-end-barrier"
+description = "Investigate whether and under what conditions experimental activation free energies of unseen SNAr reactions can be predicted reliably from historical evidence and scientific computations that you execute. Only the research question and execution environment are supplied."
+[task]
+name = "compchemworld/case-06-hybrid-end-to-end-barrier"
+description = "Investigate whether and under what conditions experimental activation free energies of unseen SNAr reactions can be predicted reliably from historical evidence and scientific computations that you execute. Only the research question and execution environment are supplied."
+
+[agent]
+timeout_sec = 7200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[agent_interface]
+reference_solution_provided = false

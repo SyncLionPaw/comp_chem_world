@@ -1,0 +1,32 @@
+# Harbor task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-03-potential"
+description = "定电势近似与路径排序稳健性"
+
+[task]
+name = "compchemworld/case-03-potential"
+description = "定电势近似与路径排序稳健性"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

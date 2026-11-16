@@ -1,0 +1,259 @@
+{
+ "schema": "bench12-refs/v1",
+ "t3_timings": {
+  "GS_SCF": [
+   301.0,
+   137.0,
+   134.0
+  ],
+  "ES_energy_gradient": [
+   1919.0,
+   403.0,
+   148.0
+  ],
+  "ERI": [
+   687.0,
+   86.0,
+   33.0
+  ],
+  "DERI": [
+   1265.0,
+   11.0,
+   7.0
+  ],
+  "Total": [
+   2220.0,
+   540.0,
+   282.0
+  ]
+ },
+ "t3_derived": {
+  "eri_share_pct": 30.945945945945947,
+  "deri_share_pct": 56.981981981981974,
+  "speedup_admm": 4.111111111111111,
+  "speedup_stda": 7.872340425531915,
+  "speedup_deri": 115.0
+ },
+ "t4_cofs": [
+  {
+   "id": "05000N2",
+   "atoms": 84,
+   "basis": 2076,
+   "abs_admm": 15758.0,
+   "abs_stda": 2157.0,
+   "opt_admm": 9590.0,
+   "opt_admm_step": 461.0,
+   "opt_stda": 8937.0,
+   "opt_stda_step": 329.0
+  },
+  {
+   "id": "05001N2",
+   "atoms": 192,
+   "basis": 4848,
+   "abs_admm": 33678.0,
+   "abs_stda": 2472.0,
+   "opt_admm": 77332.0,
+   "opt_admm_step": 1556.0,
+   "opt_stda": 33837.0,
+   "opt_stda_step": 637.0
+  },
+  {
+   "id": "15100N2",
+   "atoms": 300,
+   "basis": 7440,
+   "abs_admm": 36907.0,
+   "abs_stda": 2623.0,
+   "opt_admm": 155696.0,
+   "opt_admm_step": 1729.0,
+   "opt_stda": 37804.0,
+   "opt_stda_step": 433.0
+  },
+  {
+   "id": "15101N2",
+   "atoms": 192,
+   "basis": 5028,
+   "abs_admm": 30931.0,
+   "abs_stda": 1932.0,
+   "opt_admm": 67962.0,
+   "opt_admm_step": 1680.0,
+   "opt_stda": 29258.0,
+   "opt_stda_step": 417.0
+  },
+  {
+   "id": "20610N2",
+   "atoms": 240,
+   "basis": 5700,
+   "abs_admm": 30014.0,
+   "abs_stda": 2119.0,
+   "opt_admm": 59603.0,
+   "opt_admm_step": 1086.0,
+   "opt_stda": 16627.0,
+   "opt_stda_step": 266.0
+  },
+  {
+   "id": "20611N2",
+   "atoms": 262,
+   "basis": 6188,
+   "abs_admm": 27965.0,
+   "abs_stda": 1993.0,
+   "opt_admm": 136122.0,
+   "opt_admm_step": 1818.0,
+   "opt_stda": 35955.0,
+   "opt_stda_step": 362.0
+  }
+ ],
+ "t5": {
+  "rows": {
+   "05000N2": {
+    "Evert": {
+     "ADMM": 4.71,
+     "sTDA": 4.95
+    },
+    "Ead": {
+     "ADMM": 4.4,
+     "sTDA": 3.87
+    },
+    "Efl": {
+     "ADMM": 4.49,
+     "sTDA": 4.16
+    },
+    "stokes": {
+     "ADMM": 0.22,
+     "sTDA": 0.79
+    }
+   },
+   "05001N2": {
+    "Evert": {
+     "ADMM": 3.77,
+     "sTDA": 3.44
+    },
+    "Ead": {
+     "ADMM": 2.6,
+     "sTDA": 2.14
+    },
+    "Efl": {
+     "ADMM": 2.97,
+     "sTDA": 2.56
+    },
+    "stokes": {
+     "ADMM": 0.8,
+     "sTDA": 0.88
+    }
+   },
+   "15100N2": {
+    "Evert": {
+     "ADMM": 3.54,
+     "sTDA": 3.08
+    },
+    "Ead": {
+     "ADMM": 2.27,
+     "sTDA": 1.85
+    },
+    "Efl": {
+     "ADMM": 2.43,
+     "sTDA": 1.98
+    },
+    "stokes": {
+     "ADMM": 1.11,
+     "sTDA": 1.1
+    }
+   },
+   "15101N2": {
+    "Evert": {
+     "ADMM": 3.1,
+     "sTDA": 2.67
+    },
+    "Ead": {
+     "ADMM": 2.04,
+     "sTDA": 1.46
+    },
+    "Efl": {
+     "ADMM": 2.18,
+     "sTDA": 1.68
+    },
+    "stokes": {
+     "ADMM": 0.92,
+     "sTDA": 0.98
+    }
+   },
+   "20610N2": {
+    "Evert": {
+     "ADMM": 3.97,
+     "sTDA": 3.67
+    },
+    "Ead": {
+     "ADMM": 2.82,
+     "sTDA": 2.45
+    },
+    "Efl": {
+     "ADMM": 3.08,
+     "sTDA": 2.74
+    },
+    "stokes": {
+     "ADMM": 0.89,
+     "sTDA": 0.93
+    }
+   },
+   "20611N2": {
+    "Evert": {
+     "ADMM": 3.21,
+     "sTDA": 3.1
+    },
+    "Ead": {
+     "ADMM": 2.47,
+     "sTDA": 1.96
+    },
+    "Efl": {
+     "ADMM": 2.65,
+     "sTDA": 2.25
+    },
+    "stokes": {
+     "ADMM": 0.56,
+     "sTDA": 0.85
+    }
+   }
+  },
+  "mae_row": {
+   "Evert": 0.31,
+   "Ead": 0.42,
+   "Efl": 0.4,
+   "stokes": 0.17
+  }
+ },
+ "t5_recomputed_mae": {
+  "Evert": 0.31166666666666676,
+  "Ead": 0.47833333333333333,
+  "Efl": 0.405,
+  "stokes": 0.17499999999999996
+ },
+ "t52_bookkeeping": {
+  "05000N2": {
+   "atoms": 84,
+   "basis": 2076
+  },
+  "05001N2": {
+   "atoms": 192,
+   "basis": 4848
+  },
+  "15100N2": {
+   "atoms": 300,
+   "basis": 7440
+  },
+  "15101N2": {
+   "atoms": 192,
+   "basis": 5028
+  },
+  "20610N2": {
+   "atoms": 240,
+   "basis": 5700
+  },
+  "20611N2": {
+   "atoms": 262,
+   "basis": 6188
+  }
+ },
+ "expected_inputs": {
+  "assets/ct2c00144_si_001.pdf": "6ea0e0c5787b9ba0b3723b06a2752594980a958a5580cf71d9fc761dcb7ef1aa",
+  "assets/hehn2022_main.pdf": "255c5b1f0a6ea6500a8afadf2252c0200994eaca5e1c9df6e0d7c5f492a0cc27"
+ }
+}

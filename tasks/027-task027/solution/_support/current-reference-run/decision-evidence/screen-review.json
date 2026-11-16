@@ -1,0 +1,53 @@
+{
+  "schema": "case07-screen-review-path-decision/v1",
+  "status": "SCREENS_ACCEPTED_PATH_PREPARATION_PROPOSED",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "screen_summary_sha256": "0f4eb4a8c80a2187debce4345ab2b6135bc66060d255d3b0c5224f318f28f6c8",
+  "sealed_audit_sha256": "6ae19cbc5c4111d1460152f6359ec17558e067a2552591e823aff87d6a8c9c7a",
+  "independent_checks": {
+    "local_artifacts_rehashed": 66,
+    "six_native_outputs_normal_scf_final_energy": true,
+    "engrad_parse": true,
+    "actual_cpu_seconds_including_pilot": 2712,
+    "close": "CONFIRMED"
+  },
+  "selected_channel": "C2",
+  "rationale": [
+    "At each matched interpolation fraction C2 has lower energy AND smaller gradient components; C2 RMS gradients .01994,.03164,.03819 vs C1 .03217,.05913,.07458. Thus lower unrelaxed strain is supported by gradients, not just maximum energy.",
+    "C2 three point compute costs 21\u201335s vs C1 28\u2013157s do not prove later NEB cost, but give no measured computational advantage for C1.",
+    "Both channels require C-C/O-O cleavage and H transfer. Prior C2 local r2SCAN saddle searches failed to finish that coupled topology; they do not establish that the C2 mapped endpoints are invalid. New endpoint-to-endpoint NEB at the frozen PBE level replaces that failed local-seed strategy.",
+    "No true barrier or channel competitiveness is inferred from these unrelaxed screens. C2 remains provisional pending actual endpoint stability and mapped graph checks."
+  ],
+  "path_preopt": {
+    "species": [
+      "bpr",
+      "C2"
+    ],
+    "templates": {
+      "bpr": {
+        "start.xyz": "6f4a381d28525ebc4b7fc87f4dd5e672f18d1eddfb4c861b8e073763df8a20f8",
+        "job.inp": "9be81fe7598ac85aeac3f03f9fbf8e2127c48090708e6832a088247ce7bc2978"
+      },
+      "C2": {
+        "start.xyz": "9ab89ea0b33ff7cfe7a8387cc0a7c9bc13628cfb0d8d49c98effa6323fb51a82",
+        "job.inp": "9be81fe7598ac85aeac3f03f9fbf8e2127c48090708e6832a088247ce7bc2978"
+      }
+    },
+    "template_root": "acceptance/complete-07-20261025/sol-next-route-local-preparation",
+    "method": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF Opt TightOpt",
+    "jobs": 2,
+    "execution": "HOST_PYTHON_TYPED_SERVICE sequential once",
+    "per_job": {
+      "cpus": 8,
+      "memory_gib": 16,
+      "wall_seconds": 1200,
+      "scratch_gib": 20
+    },
+    "maximum_requested_wall_seconds": 2400,
+    "maximum_reserved_cpu_seconds": 19200,
+    "stop": "Native failure, no converged optimization, wrong atom mapping or wrong reactant/product graph stops this phase for review. No automatic retry. Preserve original clock and all seven prior allocations.",
+    "credit": "Path preparation only; not final signed-mode/IRC endpoint connection validation."
+  },
+  "later_admission": "NEB not released here. After both actual endpoint geometries and cost are examined, freeze mapped endpoint hashes and select bounded images/ranks. Reserve actual remaining time for independent TS full frequency and signed-mode connected endpoint opt/frequencies.",
+  "not_complete": true
+}

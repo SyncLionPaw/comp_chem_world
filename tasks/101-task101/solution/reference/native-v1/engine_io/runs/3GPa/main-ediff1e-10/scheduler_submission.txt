@@ -1,0 +1,4 @@
+job_id=3899465
+submitted_utc=2026-10-06T10:43:59Z
+submit_command=sbatch /public/home/xjchen/15_Layered-Materials-Pressure-Lattice-Dynamics/case06/engine_io/jobs/3GPa/main-ediff1e-10/run.slurm
+test_only_output=sbatch: Job 3899464 to start at 2026-10-06T19:33:59 using 16 processors on nodes cu009 in partition cpu 

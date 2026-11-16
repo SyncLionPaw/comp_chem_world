@@ -1,0 +1,30 @@
+schema_version = "1.4"
+handoff_version = "1.0"
+case_id = "case-10-smi-gibbs"
+title = "从 SMILES 计算吉布斯自由能"
+artifacts = ["/app/final/thermo.json"]
+
+[metadata]
+name = "chemgraph-task-129"
+case_id = "case-10-smi-gibbs"
+title = "从 SMILES 计算吉布斯自由能"
+description = "Compute the Gibbs free energy from SMILES"
+
+[task]
+name = "compchemworld/chemgraph-task-129"
+description = "Compute the Gibbs free energy from SMILES"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"
+workdir = "/app"

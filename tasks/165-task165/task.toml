@@ -1,0 +1,108 @@
+schema_version = "1.4"
+artifacts = ["/app/outputs", "/app/bench25-artifacts"]
+
+[task]
+name = "compchembench/bench25-case04"
+description = "Low-budget butene dynamics reliability decision and short-trajectory validation."
+authors = []
+keywords = ["computational-chemistry", "nonadiabatic-dynamics"]
+
+[metadata.compchembench]
+handoff_version = "1.0"
+case_id = "case-04"
+readiness = "ROOT_CAPTURE_CONNECTED_SCIENCE_RECEIPT_PENDING"
+compute_class = "local"
+compute_execution = "local"
+compute_network = "candidate-selected"
+profile_id = "bench25-case04-agent-selected-v1"
+resource_request_policy = { schema = "compchembench/bench25-agent-selected-resource-request/v1", max_wall_seconds = 300 }
+
+[metadata.compchembench.requirements]
+software = ["python", "pytorch", "schnetpack", "spainn", "sharc", "ase", "numpy"]
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/databases/03_3Sing_C4H8.db"
+source_path = "environment/assets/databases/03_3Sing_C4H8.db"
+sha256 = "52cb7f039931cdb9f1082722ca127a1e3e89bd8c1b3bd0bcdea5a488e38c0a9d"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/databases/06_3Sing_C4H8_grid.db"
+source_path = "environment/assets/databases/06_3Sing_C4H8_grid.db"
+sha256 = "c96d27459e77ab5220dddc407a9969425c3878ae1c6427838dc44c8f350a431b"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/sharc-v3.0.0.zip"
+source_path = "environment/assets/sharc-v3.0.0.zip"
+sha256 = "f47daa3b5c3be8a5946d9d802fab669a1d8e5eea57ce97141b030d1f9d2e6f65"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/pilot-baseline/weights/painn_state_dict.pt"
+source_path = "environment/assets/pilot-baseline/weights/painn_state_dict.pt"
+sha256 = "a3b5db7ed33806ac6371ab6fd10511eb2aaf3580f42d2b13ea8e091294e80a87"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/pilot-baseline/initial_conditions/a03_equiv_s1_40.json"
+source_path = "environment/assets/pilot-baseline/initial_conditions/a03_equiv_s1_40.json"
+sha256 = "96e52569ef2cf7a404a4a84a927a186fd6e510bf19b18088261c8c61a2176a4e"
+
+[metadata.compchembench.verification]
+implementation = "implemented"
+verifier = "tests/verify.py"
+
+[environment]
+allow_internet = true
+build_timeout_sec = 1800
+
+[environment.env]
+CCB_BENCH25_ROLE = "agent"
+CCB_BENCH25_CASE = "case-04"
+CCB_BENCH25_AGENT_USER = "researcher"
+HOME = "/home/researcher"
+
+[environment.healthcheck]
+command = "if [ \"$CCB_BENCH25_ROLE\" = verifier ]; then exit 0; fi; test -S /run/bench25-capture/request.sock && test -s /run/bench25-capture/public-attempt.json && test -s /trusted/capture.key && test -s /trusted/case04-broker-health.json && test -x /opt/bench25/sharc/bin/sharc2.x && test -x /opt/bench25/sharc/bin/data_extractor.x && find /opt/bench25/sharc/pysharc -name 'sharc*.so' -type f -print -quit | grep -q ."
+interval_sec = 5.0
+timeout_sec = 10.0
+start_period_sec = 900.0
+retries = 3
+
+[agent]
+timeout_sec = 86400.0
+user = "researcher"
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = "separate"
+user = "root"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[verifier.environment.env]
+CCB_BENCH25_ROLE = "verifier"
+CCB_BENCH25_CASE = "case-04"
+HOME = "/root"
+APP = "/app"
+TESTS = "/tests"
+LOGS = "/logs/verifier"
+
+[[verifier.collect]]
+command = "/usr/bin/python3 -B -I /opt/bench25/bench25_capture.py collect"
+service = "main"
+timeout_sec = 120.0
+user = "root"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/pilot-baseline/weights/best_inference_model"
+source_path = "environment/assets/pilot-baseline/weights/best_inference_model"
+sha256 = "6365499f367fdba5d0299ec91632ddfd961fe695809dbed80f5e8ffbc85bc31c"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/pilot-baseline/source-profile-r20261007-02/SHA256SUMS"
+source_path = "environment/assets/pilot-baseline/source-profile-r20261007-02/SHA256SUMS"
+sha256 = "c09b8e3b711ab48d00e68c2222e08ed27b8c50cb42a75747a9ed0733385c3110"
+
+[metadata]
+execution_class = "local"

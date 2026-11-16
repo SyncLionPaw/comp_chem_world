@@ -1,0 +1,132 @@
+{
+  "case_id": "case-01-elastic-collision",
+  "criteria": [
+    {
+      "criterion": "schema",
+      "level": "L1",
+      "necessary": true,
+      "description": "每个 a 的 rates/ratio 与两个求积网格均可解析。"
+    },
+    {
+      "criterion": "quadrature_execution",
+      "level": "L2",
+      "necessary": true,
+      "description": "重算提交 nodes/weights 的正权求积；节点在 [-1,1]、权重归一、低阶矩正确，最终 rates 必须来自该求积。"
+    },
+    {
+      "criterion": "elastic_rates",
+      "level": "L3",
+      "necessary": true,
+      "description": "SI Eq. 4/6/8 的等速弹性特化可解析积分；rates 与独立闭式解相对误差不超过 3e-4。",
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "SI Eq. 4/6/8 的等速弹性特化可解析积分；rates 与独立闭式解相对误差不超过 3e-4。",
+        "source": "docs/41467_2021_22440_MOESM1_ESM.pdf pp.1–2"
+      }
+    },
+    {
+      "criterion": "forward_scattering",
+      "level": "L3",
+      "necessary": true,
+      "description": "MRTA/SERTA rate ratio 随 a 单调增加且小于 1；最强前向散射是 a=0.001，不能把非弹性 POP 直接套用此等速几何因子。",
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "MRTA/SERTA rate ratio 随 a 单调增加且小于 1；最强前向散射是 a=0.001，不能把非弹性 POP 直接套用此等速几何因子。",
+        "source": "docs/41467_2021_22440_MOESM1_ESM.pdf Eq.4–8"
+      }
+    }
+  ],
+  "public_input_hashes": {
+    "environment/assets/author/inputs/elastic-angular.json": "0edbc857892116392099c11e655d822292062dd43fe7c41b61aa1f984fa7904b"
+  },
+  "reference_contract": {
+    "kind": "analytic-elastic-rates-v1",
+    "derivation": "equal-speed-elastic-specialization-of-SI-equations-4-6-8",
+    "values": "closed-form-from-screening-parameter-grid"
+  },
+  "numeric_tolerances": {
+    "analytic_rate_rtol": 0.0003,
+    "analytic_rate_atol": 1e-14,
+    "quadrature_weight_sum_atol": 1e-08,
+    "quadrature_first_moment_atol": 0.001,
+    "quadrature_second_moment_atol": 0.001,
+    "quadrature_refinement_relative": 0.001,
+    "submitted_quadrature_rtol": 1e-10,
+    "submitted_quadrature_atol": 1e-14,
+    "rate_ratio_rtol": 1e-10,
+    "rate_ratio_atol": 1e-14
+  },
+  "evidence_provenance": {
+    "paper": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "supplementary": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  },
+  "task_metadata": {
+    "handoff_version": "1.0",
+    "case_id": "case-01-elastic-collision",
+    "title": "弹性碰撞算符与前向散射数值验证",
+    "artifacts": [
+      "/app/final/results.json",
+      "/app/final/quadratures.json"
+    ],
+    "requirements": {
+      "software": [
+        "Python >=3.11",
+        "NumPy"
+      ],
+      "inputs": [
+        {
+          "path": "environment/assets/author/inputs/elastic-angular.json",
+          "source_path": "author/inputs/elastic-angular.json",
+          "sha256": "0edbc857892116392099c11e655d822292062dd43fe7c41b61aa1f984fa7904b"
+        }
+      ]
+    },
+    "verification": {
+      "implementation": "implemented",
+      "scientific_implementation": "implemented",
+      "scientific_verifier": "tests/verify.py",
+      "scoring_scope": "full",
+      "verifier": "tests/verify.py"
+    },
+    "compute": {
+      "class": "local",
+      "cpus": 2,
+      "memory_mb": 2048,
+      "network": "no-network"
+    },
+    "environment": {
+      "build_timeout_sec": 1800,
+      "cpus": 2,
+      "memory_mb": 2048,
+      "allow_internet": false
+    },
+    "agent": {
+      "timeout_sec": 1800,
+      "allow_internet": false
+    },
+    "verifier": {
+      "timeout_sec": 300,
+      "isolation": "container"
+    }
+  },
+  "scoring_integrity": {
+    "tests/verify.py": "bd60c6b41664e86b8834673f8ebe723ce1f0a891a305112fadbc66b0d0cf3884",
+    "tests/test.sh": "8e84a4ef50048099db38b5dd71710eea4a75a43f8057a8469a6b9f1e2c5c4291"
+  },
+  "evidence_documents": {
+    "environment/assets/literature/paper.pdf": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "environment/assets/literature/supplementary.pdf": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  }
+}

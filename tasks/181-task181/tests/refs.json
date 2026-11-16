@@ -1,0 +1,30 @@
+{
+  "schema": "bench28-task181-grading/v1",
+  "trajectory": {
+    "start_step": 0,
+    "stop_step": 20000,
+    "step_interval": 100,
+    "expected_frames": 201,
+    "atom_count": 192,
+    "box_length_angstrom": 12.4,
+    "oxygen_count": 64,
+    "hydrogen_count": 128
+  },
+  "tolerances": {
+    "start_coordinate_angstrom": 5.1e-12,
+    "box_edge_angstrom": 1e-07,
+    "box_tilt_angstrom": 1e-08
+  },
+  "input_manifest_sha256": "9639b23004bd5b34d28284563ad10e074786d1560f21cdb7103390899457408d",
+  "historical_reference_manifest_sha256": "5e2ca2f9c40252aee20f10551f8e8bbd962ecb1572a0cd77453fbdb940a91e1f",
+  "historical_replay_sha256": {
+    "0": {
+      "dump.lammpstrj": "f19d5fa808a7018ca2b509973ffd53739bb38f48cb3d85933967ccef9480c5f4",
+      "log.lammps": "770115ed89d3c5bb5a43876eb0327c1701631a4746f7470e7ec439e03d3a3a80"
+    },
+    "1": {
+      "dump.lammpstrj": "758aa696c2e4c1acbf93621db538fefbf639700f72bf99baf2b2edaed4b36d9a",
+      "log.lammps": "925926a86a979758ee6313c5b06855bf294df8f582077b267e9f07862d3b8968"
+    }
+  }
+}

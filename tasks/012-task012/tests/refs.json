@@ -1,0 +1,66 @@
+{
+  "case_id": "case-06",
+  "definition_sha256": "48e52ae969d4d33cb36037c51fd61762e01fb976814c6fcd83b9247e8e3f10f3",
+  "verification_implementation": "implemented",
+  "asset_hashes": {
+    "assets/elastic_constants_fig2a.csv": "sha256:03d2c1d0fafda08392113d4c0613f5161e6045cffdccabb971f6db42327b2cc5",
+    "assets/elastic_constants_fig2a.provenance.json": "sha256:c93fe5d850a6a49bdd8c7411db15993396b7a5d40fb8f8cc939bb58c97ea7100",
+    "assets/gamma_f_fig2b_digitized.csv": "sha256:faf9a81d320e9170a7b37becf1381291631d4842783eb4a9c88b8e55d3cb953e",
+    "assets/gamma_f_fig2b_digitized.provenance.json": "sha256:c48d11d4f35b321dec7c3f126ed9c7165f379130e568398979ab804b9ce6cca1",
+    "assets/gamma_usf_fig2c_parameters.csv": "sha256:84359d2e18ec9d8575d297b6defb7c55cdca8ee7340685e60844b018dd3824d3",
+    "assets/gamma_usf_fig2c_parameters.provenance.json": "sha256:06b1bdf4616d29991e0ca67d6cf304e25fa99b5280d92989c048e17b99fc763c"
+  },
+  "grader_reference_hashes": {},
+  "criteria": [
+    {
+      "criterion": "independent_two_axis_competition",
+      "level": "L3",
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "完整独立C_surface与C_usf二维映射及D符号区间给出内禀解理/发射竞争，不把两个覆盖度强行相等。"
+      },
+      "necessary": true,
+      "tolerance": "独立重算六合金101×101×3面积网格；校验插值锚点、物理单位、D_low/D_center/D_high及KIc/KIe公式。"
+    },
+    {
+      "criterion": "exact_piecewise_competition_boundaries",
+      "level": "L3",
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "三条D边界在每个源锚点矩形内为仿射线；矩形边交点及无根单元共同决定连续二维竞争边界。"
+      },
+      "necessary": true,
+      "tolerance": "独立重建每个矩形每条边界的端点全集；检测缺失、额外或重复线段。无边界必须由源输入和极值证书支持。"
+    },
+    {
+      "criterion": "interval_area_and_global_robustness",
+      "level": "L3",
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "rationale": "Fig.2(b)读图区间与USF DFT波动尺度决定局部不确定区域和全域竞争稳健性。"
+      },
+      "necessary": true,
+      "tolerance": "独立核验30/50/70 A^2波动缩放，重算半平面裁剪面积及9锚点极值；三类区域面积和为1。"
+    },
+    {
+      "criterion": "critical_K_consistency",
+      "level": "L2",
+      "verification_basis": {
+        "type": "execution_validity",
+        "rationale": "临界KI数值是相图D判据的平方根表达，需与输入单位和区间传播一致。"
+      },
+      "necessary": true,
+      "tolerance": "重算KIc=sqrt(alpha*gamma_F[J/m²]/1000)、KIe=sqrt(beta*(gamma_usf[mJ/m²]/1000)/1000)，并核对符号关系。"
+    },
+    {
+      "criterion": "sourced_inputs_and_digitization_interval",
+      "level": "L2",
+      "verification_basis": {
+        "type": "execution_validity",
+        "rationale": "三类外部物性曲线须保留Fig.2来源、单位、图像读数区间和provenance。"
+      },
+      "necessary": true,
+      "tolerance": "确认六种合金、Fig.2(a)/(b)/(c)、gamma_F的±0.05 J/m²区间及gamma_usf的108 A^2面积输入；不可重复施加熵或50%修正。"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
+
+[task]
+name = "compchemworld/case-02-soap-gap-energy-barrier"
+description = "Compare paired observed QE and GAP energy profiles along two BaTiO3 switching pathways, quantify the relative barrier offset per 40-atom cell against the supplied reference archive, and assess why the candidate correction is blocked by the historical predictions and fixed record denominators."
+
+[metadata]
+name = "case-02-soap-gap-energy-barrier"
+description = "Compare paired observed QE and GAP energy profiles along two BaTiO3 switching pathways, quantify the relative barrier offset per 40-atom cell against the supplied reference archive, and assess why the candidate correction is blocked by the historical predictions and fixed record denominators."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

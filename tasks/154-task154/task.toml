@@ -1,0 +1,28 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/bench23-task-154"
+description = "Can the 5HLS–62G protein–ligand structure be defensibly refined?"
+
+[metadata]
+task_number = 154
+holy_grail = true
+research_mode = "auto_research"
+execution_class = "remote"
+
+[agent]
+network_mode = "public"
+
+[environment]
+network_mode = "public"
+cpus = 2
+memory_mb = 4096
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 600
+
+[verifier.environment]
+network_mode = "no-network"

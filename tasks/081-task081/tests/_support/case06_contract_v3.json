@@ -1,0 +1,16 @@
+{
+  "schema": "case06-science-contract/v3",
+  "contract_version": "case06-v3",
+  "status": "IMPLEMENTED_ORACLE_AGENT_PROVIDER_PENDING",
+  "required_optimizer_records": 26,
+  "si_geometry_bonds": 36,
+  "m14_remedy_geometry_bonds": 3,
+  "historical_oracle": "pinned author-native archive; independently revalidated by v3 shared science core",
+  "agent_execution": "fresh host-launched CP2K only; requires trusted host receipt mounted outside candidate directory",
+  "minimum_curvature_gate": "not part of v3 contract; v2 remains unchanged and retains its minimum gate",
+  "minimum_claim": "optimizer convergence does not certify same-surface positive curvature or a minimum",
+  "bond_rule_pm": 3.0,
+  "m14_default": "native physical dissociation classification required; input/runtime failures do not count as physical failure",
+  "m14_remedy": "separate aEX=0.25 historical route and three SI-14 bonds; not mixed into the 36-row baseline",
+  "source_binding": "reviewed archive correspondence is accepted only for host Oracle; it is not fresh execution attestation or exact per-run aEX echo"
+}

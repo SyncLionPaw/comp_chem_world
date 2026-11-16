@@ -1,0 +1,33 @@
+{
+  "limitations": {
+    "candidate_energy_drift_threshold_is_preregistered_positive_value": true,
+    "no_fixed_candidate_drift_threshold": true,
+    "probe_is_short_prefix_only": true
+  },
+  "native_tolerances": {
+    "energy_consistency": 1e-06,
+    "initial_population": 1e-06,
+    "kinetic_potential_identity_ev": 1e-07,
+    "one_hot_population": 1e-07,
+    "population_bounds": 1e-08,
+    "population_sum": 1e-06,
+    "surface_sum": 1e-07,
+    "time_grid_fs": 1e-06
+  },
+  "probe_policy": {
+    "dt_fs": 0.5,
+    "duration_fs": {
+      "maximum": 10.0,
+      "minimum": 5.0
+    },
+    "fixed_ic_pool_sha256": "96e52569ef2cf7a404a4a84a927a186fd6e510bf19a18088261c8c61a2176a4e",
+    "fixed_model_sha256": "a3b5db7ed33806ac6371ab6fd10511eb2aaf3580f42d2b13ea8e091294e80a87",
+    "fixed_pool_size": 40,
+    "fixed_training_db_sha256": "52cb7f039931cdb9f1082722ca127a1e3e89bd8c1b3bd0bcdea5a488e38c0a9d",
+    "max_wall_seconds": 300,
+    "model_source_sha256": "c09b8e3b711ab48d00e68c2222e08ed27b8c50cb42a75747a9ed0733385c3110",
+    "runtime_adapter_sha256": "8b00da02f268bbdcdbfc9d5d76d005489476b977924492f94af5c0e5129d98bf",
+    "schema": "bench25-case04-probe-plan/v3"
+  },
+  "schema": "bench25-case04-scientific-refs/v1"
+}

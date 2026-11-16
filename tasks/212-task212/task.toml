@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/outputs"]
+
+[task]
+name = "compchemworld/case-06-adsorption-heat-propagation"
+description = "Estimate paired CO2 adsorption-heat and Henry changes under DDEC3, PQeq and zero framework charge on DOTSOV02 and ICOYIK. Check sampling and numerical sensitivity before assigning a direction or magnitude."
+
+[metadata]
+name = "case-06-adsorption-heat-propagation"
+description = "Estimate paired CO2 adsorption-heat and Henry changes under DDEC3, PQeq and zero framework charge on DOTSOV02 and ICOYIK. Check sampling and numerical sensitivity before assigning a direction or magnitude."
+execution_class = "local"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

@@ -1,0 +1,15 @@
+! WB97X-D3 6-31+G(d) TightSCF DefGrid3 NoRI NoCOSX TightOpt Opt MOREAD
+%pal nprocs 16 end
+%maxcore 1500
+%scf
+  MaxIter 500
+end
+%cpcm
+  smd true
+  SMDsolvent "acetonitrile"
+end
+%moinp "initial.gbw"
+%geom
+  MaxIter 160
+end
+* xyzfile 0 1 initial.xyz

@@ -1,0 +1,62 @@
+{
+  "case_id": "case-07-independent-saddle-point-recomputation",
+  "definition_revision": "2.1",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "report_sha256": "3f4a41efa1ea53295cf1e29a475aee222f2114962ad9d91e1791c356b5c65a73",
+  "artifact_manifest_sha256": "cc83e6d3f3889bd3d56d0ba9b08565a50c4d2db9f74e82cd3165d0f3da942faf",
+  "reviewer_id": "Sol6.1 /root/sol61_release_plan",
+  "reviewed_at_utc": "2026-10-26T06:43:13.839339Z",
+  "schema": "case07-native-review/v3",
+  "criteria_sha256": "0230c959cdb5d3f29348681901f2a33a253ff55a382b99caa329575fc0f25e51",
+  "unsupported_evidence": {
+    "class": "UnsupportedEvidence",
+    "message": "candidate declares a nonstandard native route; protected review v3 is required"
+  },
+  "method": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3",
+  "engine": "ORCA 6.0.1",
+  "route": "NEB exploratory peak → independent TS optimization and AnFreq; endpoint proof pending",
+  "criteria": {
+    "native_outputs_internally_consistent": {
+      "status": "PASS",
+      "reason": "Independent final3 exact-run review: Executed the published current fresh_native.audit_fresh_native against this exact frozen 424-file artifact. It returns native PASS for six production stages, shared method/atom mapping, full Hessian/frequency consistency, TS one imaginary mode and endpoint minima; computed same-level barrier agrees. All current artifact bytes and active common grader source bytes match accepted run05.",
+      "evidence_paths": [
+        "native_outputs/production-ts-opt-4042149/job.out",
+        "native_outputs/production-ts-freq-4042346/job.out",
+        "native_outputs/production-endpoint-opt-minus-4042849/job.out",
+        "native_outputs/production-endpoint-freq-minus-4043085/job.out",
+        "native_outputs/production-endpoint-opt-plus-4043441/job.out",
+        "native_outputs/production-endpoint-opt-plus-freq-4043648/job.out"
+      ],
+      "scientific_basis": "Raw ORCA optimization/frequency/Hessian evidence was parsed on this current output; historical paper energies and cancelled NEB are not stationary-point proof.",
+      "checks": [
+        "Current raw-byte parser result native_status PASS",
+        "Six production stage energies/frequencies and atom identities consistent",
+        "PBE same-level barrier remains separate from F12 reference"
+      ]
+    },
+    "saddle_connects_the_claimed_pair": {
+      "status": "PASS",
+      "reason": "Independent final3 exact-run review: The same independent current direct parser returns connection PASS. It validates deterministic signed TS-mode seeds, exact linked recovery/continuation frames and converged mapped endpoints. Both endpoint graph roles and independently computed frequencies support the claimed BPR-to-C2 connection.",
+      "evidence_paths": [
+        "native_outputs/production-ts-opt-4042149/job.out",
+        "native_outputs/production-ts-freq-4042346/job.out",
+        "native_outputs/production-endpoint-opt-minus-4042849/job.out",
+        "native_outputs/production-endpoint-freq-minus-4043085/job.out",
+        "native_outputs/production-endpoint-opt-plus-4043441/job.out",
+        "native_outputs/production-endpoint-opt-plus-freq-4043648/job.out",
+        "native_outputs/validation/displacement.json",
+        "native_outputs/validation/seed-minus.xyz",
+        "native_outputs/validation/seed-plus.xyz",
+        "native_outputs/jobs/4042480/job_trj.xyz",
+        "native_outputs/jobs/4043114/job_trj.xyz"
+      ],
+      "scientific_basis": "Signed eigenvector displacements and both relaxed mapped minima establish the local connection; an exploratory NEB trajectory alone receives no such credit.",
+      "checks": [
+        "Current direct connection_status PASS",
+        "Signed displacement/Hessian seed hashes checked",
+        "Recovery-chain frame continuity and endpoint graph roles checked",
+        "No convergence credit for TIMEOUT stages"
+      ]
+    }
+  }
+}

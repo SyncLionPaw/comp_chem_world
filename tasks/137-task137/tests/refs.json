@@ -1,0 +1,39 @@
+{
+  "contract_version": 1,
+  "scientific_gold": null,
+  "scientific_gold_status": "NONE; scientific truth remains unverified",
+  "required_target_ids": [
+    "rank1_dipole",
+    "rank2_polarizability",
+    "accuracy",
+    "efficiency",
+    "infrared_spectroscopy",
+    "raman_spectroscopy"
+  ],
+  "resource_limits": {
+    "gpu_count": 1,
+    "gpu_memory_gb": 80.0,
+    "gpu_hours": 24.0,
+    "cpu_cores": 8,
+    "memory_gib": 32.0
+  },
+  "automatic_audit_score": {
+    "maximum": 0.6,
+    "components": {
+      "source_artifact_integrity": 0.15,
+      "numeric_recomputation": 0.3,
+      "resource_accounting": 0.05
+    },
+    "review_status": "REVIEW_REQUIRED",
+    "scientific_review_status": "PENDING",
+    "research_success": "INCONCLUSIVE"
+  },
+  "scientific_constraint": {
+    "target_ids": [
+      "rank1_dipole",
+      "rank2_polarizability"
+    ],
+    "absolute_tolerance": 1e-07
+  },
+  "resource_evidence": "declared evidence is not trusted execution provenance"
+}

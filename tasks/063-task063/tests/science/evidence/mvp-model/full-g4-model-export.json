@@ -1,0 +1,898 @@
+{
+  "schema": "host-guest-g4-torchscript-export/v1",
+  "scope": "Published author TorchScript inference and descriptor-level gradients only; not model training, coordinate forces, or molecular dynamics.",
+  "torch_version": "2.10.0",
+  "numpy_version": "2.5.3",
+  "python_version": "3.12.14",
+  "device": "cpu",
+  "input_descriptors": {
+    "path": "authoring/derived/decision-data/g4-descriptors.csv",
+    "sha256": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "rows": 64,
+    "columns": [
+      "d1_normalized",
+      "d2_normalized",
+      "d3_normalized",
+      "d4_normalized",
+      "d5_normalized",
+      "d6_normalized",
+      "d7_normalized",
+      "d8_normalized",
+      "d9_normalized",
+      "d10_normalized",
+      "d11_normalized",
+      "d12_normalized"
+    ],
+    "dtype": "float32"
+  },
+  "model_architecture": {
+    "input_width": 12,
+    "linear_layers": [
+      [
+        12,
+        10
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        8,
+        6
+      ],
+      [
+        6,
+        4
+      ]
+    ],
+    "hidden_activations": "ReLU after first three linear layers",
+    "output": "s = h @ lda.T",
+    "plumed_transform": "sw = s + s^3",
+    "gradient_scope": "d(sw)/d(normalized d1..d12)"
+  },
+  "models": {
+    "a": {
+      "model_id": "a",
+      "model_path": "raw_data/unpacked/Deep-LDA_SAMPL5-9bea077f92b9/OAMe_G4/modelG4_a.pt",
+      "model_sha256": "35cdcbdf0c3efa5fc33eb29e888221970e72ebee3638520e91d17c1909bca490",
+      "torchscript_output_shape": [
+        64,
+        1
+      ],
+      "raw_output_min_max": [
+        -1.1062936782836914,
+        1.1405564546585083
+      ],
+      "sw_min_max": [
+        -2.460270643234253,
+        2.6242709159851074
+      ],
+      "gradient_raw_shape": [
+        64,
+        12
+      ],
+      "gradient_sw_shape": [
+        64,
+        12
+      ],
+      "finite_difference_checks": [
+        {
+          "step": 0.01,
+          "gate_role": "pass_gate",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 21,
+          "valid_probes": 747,
+          "valid_probes_by_feature": [
+            63,
+            61,
+            64,
+            61,
+            63,
+            62,
+            60,
+            62,
+            63,
+            62,
+            62,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.00010508298873901367,
+          "gate_passed": true,
+          "max_abs_error": 0.00010508298873901367,
+          "median_abs_error": 9.059906005859375e-06,
+          "p95_abs_error": 4.7469140554312617e-05,
+          "median_scaled_error": 1.5086770872585475e-05,
+          "p95_scaled_error": 0.00028456427389755845
+        },
+        {
+          "step": 0.003,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 6,
+          "valid_probes": 762,
+          "valid_probes_by_feature": [
+            64,
+            63,
+            64,
+            64,
+            64,
+            63,
+            63,
+            64,
+            63,
+            63,
+            63,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.00040772929787635803,
+          "gate_passed": null,
+          "max_abs_error": 0.00040772929787635803,
+          "median_abs_error": 3.0249357223510742e-05,
+          "p95_abs_error": 0.0001625060976948589,
+          "median_scaled_error": 4.873817306361161e-05,
+          "p95_scaled_error": 0.0009424897143617272
+        },
+        {
+          "step": 0.001,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.0009709000587463379,
+          "gate_passed": null,
+          "max_abs_error": 0.0009709000587463379,
+          "median_abs_error": 8.991360664367676e-05,
+          "p95_abs_error": 0.0004817487788386643,
+          "median_scaled_error": 0.00015523761976510286,
+          "p95_scaled_error": 0.003780747065320611
+        },
+        {
+          "step": 0.0003,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.003767043352127075,
+          "gate_passed": null,
+          "max_abs_error": 0.003767043352127075,
+          "median_abs_error": 0.00031679868698120117,
+          "p95_abs_error": 0.0016090914141386747,
+          "median_scaled_error": 0.0005047686281614006,
+          "p95_scaled_error": 0.010171023197472095
+        },
+        {
+          "step": 0.0001,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.011465735733509064,
+          "gate_passed": null,
+          "max_abs_error": 0.011465735733509064,
+          "median_abs_error": 0.0008996725082397461,
+          "p95_abs_error": 0.004748058505356312,
+          "median_scaled_error": 0.0014842068776488304,
+          "p95_scaled_error": 0.027772869914770126
+        }
+      ],
+      "numpy_replay": {
+        "max_abs_s": 0.0,
+        "max_abs_sw": 0.0,
+        "max_abs_ds_dd": 0.0,
+        "max_abs_dsw_dd": 4.76837158203125e-07,
+        "absolute_tolerance": 2e-05,
+        "verified": true
+      }
+    },
+    "b": {
+      "model_id": "b",
+      "model_path": "raw_data/unpacked/Deep-LDA_SAMPL5-9bea077f92b9/OAMe_G4/modelG4_b.pt",
+      "model_sha256": "a823a8233e93e649a02b425dd0c65d8bb8de030a925c81f67f25d7cd236531a1",
+      "torchscript_output_shape": [
+        64,
+        1
+      ],
+      "raw_output_min_max": [
+        -1.1390962600708008,
+        1.187157392501831
+      ],
+      "sw_min_max": [
+        -2.617119550704956,
+        2.860269069671631
+      ],
+      "gradient_raw_shape": [
+        64,
+        12
+      ],
+      "gradient_sw_shape": [
+        64,
+        12
+      ],
+      "finite_difference_checks": [
+        {
+          "step": 0.01,
+          "gate_role": "pass_gate",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 41,
+          "valid_probes": 727,
+          "valid_probes_by_feature": [
+            61,
+            61,
+            60,
+            60,
+            61,
+            60,
+            61,
+            59,
+            59,
+            64,
+            59,
+            62
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.00010982155799865723,
+          "gate_passed": true,
+          "max_abs_error": 0.00010982155799865723,
+          "median_abs_error": 7.987022399902344e-06,
+          "p95_abs_error": 4.239380359649658e-05,
+          "median_scaled_error": 1.5023297237348743e-05,
+          "p95_scaled_error": 0.00043402903247624636
+        },
+        {
+          "step": 0.003,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 11,
+          "valid_probes": 757,
+          "valid_probes_by_feature": [
+            63,
+            63,
+            62,
+            62,
+            63,
+            63,
+            63,
+            63,
+            63,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.00034928321838378906,
+          "gate_passed": null,
+          "max_abs_error": 0.00034928321838378906,
+          "median_abs_error": 2.968311309814453e-05,
+          "p95_abs_error": 0.00017926990403793752,
+          "median_scaled_error": 5.770541974925436e-05,
+          "p95_scaled_error": 0.0015199705958366394
+        },
+        {
+          "step": 0.001,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 4,
+          "valid_probes": 764,
+          "valid_probes_by_feature": [
+            64,
+            63,
+            64,
+            64,
+            64,
+            63,
+            63,
+            64,
+            63,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.0010430440306663513,
+          "gate_passed": null,
+          "max_abs_error": 0.0010430440306663513,
+          "median_abs_error": 9.259581565856934e-05,
+          "p95_abs_error": 0.000473247462650761,
+          "median_scaled_error": 0.0001580101961735636,
+          "p95_scaled_error": 0.0044754501432180405
+        },
+        {
+          "step": 0.0003,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.004117488861083984,
+          "gate_passed": null,
+          "max_abs_error": 0.004117488861083984,
+          "median_abs_error": 0.00031620264053344727,
+          "p95_abs_error": 0.0015535115962848067,
+          "median_scaled_error": 0.0005268067470751703,
+          "p95_scaled_error": 0.01599237509071827
+        },
+        {
+          "step": 0.0001,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.013472557067871094,
+          "gate_passed": null,
+          "max_abs_error": 0.013472557067871094,
+          "median_abs_error": 0.0008923131972551346,
+          "p95_abs_error": 0.00542830815538764,
+          "median_scaled_error": 0.0015237550251185894,
+          "p95_scaled_error": 0.05182516574859619
+        }
+      ],
+      "numpy_replay": {
+        "max_abs_s": 0.0,
+        "max_abs_sw": 0.0,
+        "max_abs_ds_dd": 0.0,
+        "max_abs_dsw_dd": 7.152557373046875e-07,
+        "absolute_tolerance": 2e-05,
+        "verified": true
+      }
+    },
+    "c": {
+      "model_id": "c",
+      "model_path": "raw_data/unpacked/Deep-LDA_SAMPL5-9bea077f92b9/OAMe_G4/modelG4_c.pt",
+      "model_sha256": "f833d61dc0328a1b1a6a4ceb09ef8410b401a416f09da5808acebeeb607fc66e",
+      "torchscript_output_shape": [
+        64,
+        1
+      ],
+      "raw_output_min_max": [
+        -1.1168186664581299,
+        1.2332565784454346
+      ],
+      "sw_min_max": [
+        -2.5098085403442383,
+        3.108943462371826
+      ],
+      "gradient_raw_shape": [
+        64,
+        12
+      ],
+      "gradient_sw_shape": [
+        64,
+        12
+      ],
+      "finite_difference_checks": [
+        {
+          "step": 0.01,
+          "gate_role": "pass_gate",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 14,
+          "valid_probes": 754,
+          "valid_probes_by_feature": [
+            62,
+            63,
+            62,
+            61,
+            64,
+            64,
+            64,
+            63,
+            63,
+            63,
+            61,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.00011563301086425781,
+          "gate_passed": true,
+          "max_abs_error": 0.00011563301086425781,
+          "median_abs_error": 8.881092071533203e-06,
+          "p95_abs_error": 4.011592682218179e-05,
+          "median_scaled_error": 1.1467634976725094e-05,
+          "p95_scaled_error": 0.00022057769820094109
+        },
+        {
+          "step": 0.003,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.000385284423828125,
+          "gate_passed": null,
+          "max_abs_error": 0.000385284423828125,
+          "median_abs_error": 2.9027462005615234e-05,
+          "p95_abs_error": 0.00012808424071408808,
+          "median_scaled_error": 3.7937254091957584e-05,
+          "p95_scaled_error": 0.0009084451012313366
+        },
+        {
+          "step": 0.001,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.0011287331581115723,
+          "gate_passed": null,
+          "max_abs_error": 0.0011287331581115723,
+          "median_abs_error": 9.460095316171646e-05,
+          "p95_abs_error": 0.0004383563937153667,
+          "median_scaled_error": 0.0001240560523001477,
+          "p95_scaled_error": 0.0029726200737059116
+        },
+        {
+          "step": 0.0003,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.0036657750606536865,
+          "gate_passed": null,
+          "max_abs_error": 0.0036657750606536865,
+          "median_abs_error": 0.0002918317914009094,
+          "p95_abs_error": 0.0013536423211917281,
+          "median_scaled_error": 0.00038253908860497177,
+          "p95_scaled_error": 0.007678184192627668
+        },
+        {
+          "step": 0.0001,
+          "gate_role": "diagnostic_only",
+          "dtype": "float32",
+          "probes": 768,
+          "probe_indexing": "row-major: each (input_row, descriptor_index) receives exactly one +h/-h perturbation",
+          "relu_kink_excluded": 0,
+          "valid_probes": 768,
+          "valid_probes_by_feature": [
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64,
+            64
+          ],
+          "all_features_have_non_kink_probe": true,
+          "max_allowed_abs_error_rule": "0.01 + 0.01*max(abs(FD),abs(predicted))",
+          "max_gate_residual_abs": 0.009547829627990723,
+          "gate_passed": null,
+          "max_abs_error": 0.009547829627990723,
+          "median_abs_error": 0.0009173452854156494,
+          "p95_abs_error": 0.004521659109741449,
+          "median_scaled_error": 0.0012149302056059241,
+          "p95_scaled_error": 0.02477055974304676
+        }
+      ],
+      "numpy_replay": {
+        "max_abs_s": 0.0,
+        "max_abs_sw": 0.0,
+        "max_abs_ds_dd": 0.0,
+        "max_abs_dsw_dd": 9.5367431640625e-07,
+        "absolute_tolerance": 2e-05,
+        "verified": true
+      }
+    }
+  },
+  "numpy_export_replay": {
+    "status": "verified",
+    "per_model": {
+      "a": {
+        "max_abs_s": 0.0,
+        "max_abs_sw": 0.0,
+        "max_abs_ds_dd": 0.0,
+        "max_abs_dsw_dd": 4.76837158203125e-07,
+        "absolute_tolerance": 2e-05,
+        "verified": true
+      },
+      "b": {
+        "max_abs_s": 0.0,
+        "max_abs_sw": 0.0,
+        "max_abs_ds_dd": 0.0,
+        "max_abs_dsw_dd": 7.152557373046875e-07,
+        "absolute_tolerance": 2e-05,
+        "verified": true
+      },
+      "c": {
+        "max_abs_s": 0.0,
+        "max_abs_sw": 0.0,
+        "max_abs_ds_dd": 0.0,
+        "max_abs_dsw_dd": 9.5367431640625e-07,
+        "absolute_tolerance": 2e-05,
+        "verified": true
+      }
+    }
+  },
+  "native_trace_mapping": {
+    "status": "computed_not_assumed",
+    "native_trace_path": "packages/case-02-water-cv-validation/environment/assets/g4-native-traces.npz",
+    "native_trace_sha256": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "time_join_tolerance_ps": 0.01,
+    "joined_rows": 64,
+    "comparisons": [
+      {
+        "model_id": "a",
+        "native_column": "node0",
+        "n": 64,
+        "pearson_r": -0.9553112051962133,
+        "affine_scale": -0.9684180859417267,
+        "affine_offset": -0.16538076507691046,
+        "affine_rmse": 0.23846549649978757,
+        "affine_max_abs": 0.6595461203057276,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "a",
+        "native_column": "node1",
+        "n": 64,
+        "pearson_r": 0.9826595373076067,
+        "affine_scale": 1.0000157525431015,
+        "affine_offset": -0.08048663778823671,
+        "affine_rmse": 0.15016144693393815,
+        "affine_max_abs": 0.5329640204633193,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "a",
+        "native_column": "node2",
+        "n": 64,
+        "pearson_r": 0.9801290574501608,
+        "affine_scale": 1.0213437741463476,
+        "affine_offset": 0.06498407139117116,
+        "affine_rmse": 0.1644920555915563,
+        "affine_max_abs": 0.5012082456882332,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "a",
+        "native_column": "sw",
+        "n": 64,
+        "pearson_r": -0.9408991394177082,
+        "affine_scale": -0.980813225934261,
+        "affine_offset": -0.29438598450247966,
+        "affine_rmse": 0.5469761513679984,
+        "affine_max_abs": 1.865831162350133,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "a",
+        "native_column": "swb",
+        "n": 64,
+        "pearson_r": 0.984124022512203,
+        "affine_scale": 1.0321414903069124,
+        "affine_offset": -0.16695199126016275,
+        "affine_rmse": 0.28838376723812803,
+        "affine_max_abs": 0.8681890289985017,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "a",
+        "native_column": "swc",
+        "n": 64,
+        "pearson_r": 0.9772174654463383,
+        "affine_scale": 1.0267734967092317,
+        "affine_offset": 0.11530052360958361,
+        "affine_rmse": 0.3454923458578995,
+        "affine_max_abs": 0.9524342952575824,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "b",
+        "native_column": "node0",
+        "n": 64,
+        "pearson_r": -0.9339798670455988,
+        "affine_scale": -0.9304256099855263,
+        "affine_offset": -0.23980185780067975,
+        "affine_rmse": 0.2882587213468484,
+        "affine_max_abs": 0.7734098283678289,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "b",
+        "native_column": "node1",
+        "n": 64,
+        "pearson_r": 0.9999980783540292,
+        "affine_scale": 1.0000669024414628,
+        "affine_offset": -6.19708184813883e-06,
+        "affine_rmse": 0.001587652717030411,
+        "affine_max_abs": 0.0055747004844166614,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "b",
+        "native_column": "node2",
+        "n": 64,
+        "pearson_r": 0.982750306207605,
+        "affine_scale": 1.006370714676539,
+        "affine_offset": 0.14579211761126792,
+        "affine_rmse": 0.15336054858859316,
+        "affine_max_abs": 0.4673333782490631,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "b",
+        "native_column": "sw",
+        "n": 64,
+        "pearson_r": -0.9299491505259004,
+        "affine_scale": -0.9243867715214295,
+        "affine_offset": -0.4488352814750959,
+        "affine_rmse": 0.5938129182735086,
+        "affine_max_abs": 1.86072583982238,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "b",
+        "native_column": "swb",
+        "n": 64,
+        "pearson_r": 0.9999967570321484,
+        "affine_scale": 1.0000904321211452,
+        "affine_offset": -0.00019665419648534632,
+        "affine_rmse": 0.004138110976232745,
+        "affine_max_abs": 0.01762607061844612,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "b",
+        "native_column": "swc",
+        "n": 64,
+        "pearson_r": 0.9852607373386715,
+        "affine_scale": 0.9871562142072615,
+        "affine_offset": 0.27999354220155814,
+        "affine_rmse": 0.27845617194051864,
+        "affine_max_abs": 0.793666124703754,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "c",
+        "native_column": "node0",
+        "n": 64,
+        "pearson_r": -0.9627814584987945,
+        "affine_scale": -0.9366709759728771,
+        "affine_offset": -0.10436659783427901,
+        "affine_rmse": 0.2180388750713056,
+        "affine_max_abs": 0.6607724674769866,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "c",
+        "native_column": "node1",
+        "n": 64,
+        "pearson_r": 0.9828438203923338,
+        "affine_scale": 0.9599079851508849,
+        "affine_offset": -0.1431050237341803,
+        "affine_rmse": 0.14936834812448793,
+        "affine_max_abs": 0.4375269271285533,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "c",
+        "native_column": "node2",
+        "n": 64,
+        "pearson_r": 0.9999980868090618,
+        "affine_scale": 1.0000671818817017,
+        "affine_offset": -8.758706704303787e-06,
+        "affine_rmse": 0.0016221196797187002,
+        "affine_max_abs": 0.005940805720734965,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "c",
+        "native_column": "sw",
+        "n": 64,
+        "pearson_r": -0.9519268171537951,
+        "affine_scale": -0.944340505484883,
+        "affine_offset": -0.18544735601089352,
+        "affine_rmse": 0.49471287020366417,
+        "affine_max_abs": 1.4875808197671407,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "c",
+        "native_column": "swb",
+        "n": 64,
+        "pearson_r": 0.9853231307970315,
+        "affine_scale": 0.9834445901225337,
+        "affine_offset": -0.28027500309090586,
+        "affine_rmse": 0.2773629700751975,
+        "affine_max_abs": 0.77372664375018,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      },
+      {
+        "model_id": "c",
+        "native_column": "swc",
+        "n": 64,
+        "pearson_r": 0.9999967469445786,
+        "affine_scale": 0.9999167217677342,
+        "affine_offset": -0.0001883860756222433,
+        "affine_rmse": 0.004152126422149886,
+        "affine_max_abs": 0.012589277505786867,
+        "max_abs_time_delta_ps": 0.008391000010306016
+      }
+    ],
+    "interpretation": "Affine gauge diagnostics only; no model-to-column identity is asserted unless a unique, predeclared residual criterion is met by the verifier."
+  },
+  "exported_weights": {
+    "path": "g4-model-weights.npz",
+    "sha256": "85ccbf359e268871eea3052cdc6a18ff33f52b1c117d5b40c9d987e4a0365455"
+  },
+  "torch_reference": {
+    "path": "g4-model-torch-reference.csv",
+    "sha256": "3a8918ed0ed43540d91b82a2df0e589ef40fff7f07c93dbc9374ab6b5baff56e",
+    "rows": 192
+  },
+  "gradient_reference": {
+    "path": "g4-model-gradient-reference.csv",
+    "sha256": "e05b47d204cb754e3e1442ba9b5550aeb9066dba50179008fd68cf1a71dfeb94",
+    "rows": 36
+  },
+  "limitations": [
+    "B/U training trajectories, labels, and independent run-level validation are unavailable.",
+    "The 64 coordinate-derived descriptor rows are a sparse excerpt from one historical biased trajectory, not equilibrium samples.",
+    "This verifies descriptor-level gradients only; it does not establish CV optimality or validate the coordinate-force chain.",
+    "The archived descriptors use the legacy NL_CUTOFF=1.0 setup and must remain paired with the legacy model/COLVAR; corrected neighbor-list settings need new dynamics."
+  ],
+  "elapsed_seconds": 0.6210514580016024
+}

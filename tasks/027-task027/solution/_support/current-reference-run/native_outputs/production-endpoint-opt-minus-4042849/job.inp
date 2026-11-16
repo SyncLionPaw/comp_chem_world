@@ -1,0 +1,10 @@
+! UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF Opt TightOpt
+%pal nprocs 8 end
+%maxcore 1400
+%scf
+  MaxIter 400
+end
+%geom
+  MaxIter 100
+end
+* xyzfile 0 2 start.xyz

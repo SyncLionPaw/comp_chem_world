@@ -1,0 +1,42 @@
+{
+  "output": "scattering.json",
+  "assets": [
+    {
+      "path": "environment/assets/saxs_experiment.dat",
+      "sha256": "b8e4fabb77d13a6a3ef015aa61105071e3422674ec90ddbbeaf88d4795a6e8d7"
+    },
+    {
+      "path": "environment/assets/sfac_xray_calc.csv",
+      "sha256": "60e76fd8f78deda409c53db26b31f2a3f4efdd0017e9a74ddb3a82e74bffce59"
+    },
+    {
+      "path": "environment/assets/units.txt",
+      "sha256": "7a49897396b344dbb4f5fdf503cce58ce681c2a3d02e4c66ee070db9e75fa1aa"
+    }
+  ],
+  "gold": {
+    "experimental_vertical_shift": -1.0146895859491865,
+    "q_min_Ainv": 0.5,
+    "q_max_Ainv": 8.0,
+    "rmse_unshifted": 1.0177491878852392,
+    "rmse_shifted": 0.0788571721996967,
+    "qualitative_agreement": true,
+    "total_s_uniquely_proves_short_li_chains": false,
+    "rationale": "Total X-ray agreement supports consistency but cannot uniquely identify short Li-Li chains."
+  },
+  "tolerances": {
+    "shift": 0.01,
+    "q_Ainv": 0.01,
+    "rmse": 0.005
+  },
+  "criteria": {
+    "q_range_Ainv": [
+      0.5,
+      8.0
+    ],
+    "grid_samples": 300,
+    "experiment_q_scale": 1.0,
+    "calculation_q_scale": 0.1,
+    "agreement_rmse": 0.1
+  }
+}

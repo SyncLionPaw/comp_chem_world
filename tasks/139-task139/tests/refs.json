@@ -1,0 +1,79 @@
+{
+  "case_id": "case-02-curvature-bias",
+  "kind": "positive-hessian-curvature-bias",
+  "limits": {
+    "diagnostics_rows": 6,
+    "min_hypotheses": 2
+  },
+  "reference_values": {
+    "series_1_p": {
+      "mean_signed_bias_dft_gt_10": -15.671232732408615,
+      "median_pred_reference_ratio_dft_gt_10": 1.0092155171755872,
+      "metric_id": "series_1_p",
+      "positive_eigenvalue_sample_count": 36671,
+      "region": "P",
+      "rmse_kcal_mol_A2": 1037.6518873191526,
+      "sample_count": 47448,
+      "series": "series_1"
+    },
+    "series_1_r": {
+      "mean_signed_bias_dft_gt_10": 10.277329652099295,
+      "median_pred_reference_ratio_dft_gt_10": 1.0089588558474532,
+      "metric_id": "series_1_r",
+      "positive_eigenvalue_sample_count": 37985,
+      "region": "R",
+      "rmse_kcal_mol_A2": 56.35037311242985,
+      "sample_count": 47448,
+      "series": "series_1"
+    },
+    "series_1_ts": {
+      "mean_signed_bias_dft_gt_10": -2.7256132075424855,
+      "median_pred_reference_ratio_dft_gt_10": 1.0072657731072199,
+      "metric_id": "series_1_ts",
+      "positive_eigenvalue_sample_count": 37021,
+      "region": "TS",
+      "rmse_kcal_mol_A2": 1056.9106770902185,
+      "sample_count": 47448,
+      "series": "series_1"
+    },
+    "series_2_p": {
+      "mean_signed_bias_dft_gt_10": -196.9237519563151,
+      "median_pred_reference_ratio_dft_gt_10": 0.8036922761020631,
+      "metric_id": "series_2_p",
+      "positive_eigenvalue_sample_count": 36671,
+      "region": "P",
+      "rmse_kcal_mol_A2": 272.5884986508574,
+      "sample_count": 47448,
+      "series": "series_2"
+    },
+    "series_2_r": {
+      "mean_signed_bias_dft_gt_10": -139.94270648261352,
+      "median_pred_reference_ratio_dft_gt_10": 0.878640167602651,
+      "metric_id": "series_2_r",
+      "positive_eigenvalue_sample_count": 37985,
+      "region": "R",
+      "rmse_kcal_mol_A2": 196.07620218471405,
+      "sample_count": 47448,
+      "series": "series_2"
+    },
+    "series_2_ts": {
+      "mean_signed_bias_dft_gt_10": -234.3262368965365,
+      "median_pred_reference_ratio_dft_gt_10": 0.7218127593734298,
+      "metric_id": "series_2_ts",
+      "positive_eigenvalue_sample_count": 37021,
+      "region": "TS",
+      "rmse_kcal_mol_A2": 318.1216090606203,
+      "sample_count": 47448,
+      "series": "series_2"
+    }
+  },
+  "schema": "bench21-case-refs/1",
+  "thresholds": {
+    "positive_subset_dft_eigenvalue_kcal_mol_A2": 10.0
+  },
+  "tolerances": {
+    "median_pred_reference_ratio_dft_gt_10_abs": 1e-06,
+    "other_numeric_abs": 0.001
+  },
+  "verifier": "tests/verify.py"
+}

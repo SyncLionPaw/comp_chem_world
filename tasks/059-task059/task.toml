@@ -1,0 +1,21 @@
+schema_version = "1.4"
+artifacts = ["/app/final/parameters.json", "/app/final/native", "/app/final/convergence.json", "/app/final/report.md"]
+
+[task]
+name = "compchemworld/bench09__case-05-first-principles-inputs"
+description = "Generate and qualify first-principles scattering parameters from a structure."
+
+[agent]
+timeout_sec = 86400
+network_mode = "public"
+
+[environment]
+build_timeout_sec = 1800
+cpus = 2
+memory_mb = 4096
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"

@@ -1,0 +1,17 @@
+workbook_row,molecule,oh_addition_site,k_298_per_s,column_header_present_in_workbook,row_mapping
+1,benzene,ipso,0.005,no,inferred; pinned by MESMER cross-check
+2,toluene,ipso,0.59,yes,inferred; pinned by MESMER cross-check
+2,toluene,ortho,3e-05,yes,inferred; pinned by MESMER cross-check
+2,toluene,meta,0.003,yes,inferred; pinned by MESMER cross-check
+2,toluene,para,0.00096,yes,inferred; pinned by MESMER cross-check
+3,m-xylene,ipso,3.5,yes,inferred; pinned by MESMER cross-check
+3,m-xylene,ortho,6e-07,yes,inferred; pinned by MESMER cross-check
+3,m-xylene,meta,0.01,yes,inferred; pinned by MESMER cross-check
+3,m-xylene,para,1e-05,yes,inferred; pinned by MESMER cross-check
+4,p-xylene,ipso,0.86,yes,inferred; pinned by MESMER cross-check
+4,p-xylene,ortho,6.9e-08,yes,inferred; pinned by MESMER cross-check
+5,o-xylene,ipso,0.002,yes,inferred; pinned by MESMER cross-check
+6,ethylbenzene,ipso,0.96,yes,inferred; pinned by MESMER cross-check
+6,ethylbenzene,ortho,1.6e-05,yes,inferred; pinned by MESMER cross-check
+6,ethylbenzene,para,0.00150729,yes,inferred; pinned by MESMER cross-check
+7,isopropylbenzene,ipso,2.8,yes,inferred; pinned by MESMER cross-check

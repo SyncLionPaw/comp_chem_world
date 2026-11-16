@@ -1,0 +1,38 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+execution_class = "local"
+case_id = "holy-grail-emitter-design"
+holy_grail = true
+no_reference_solution = true
+submission_reward = "submission_checks"
+submission_reward_definition = "Deterministic packet, provenance, and numeric checks only; no scientific reward or scientific truth claim."
+
+[agent_interface]
+reference_solution_provided = false
+
+[task]
+name = "compchemworld/bench22-task-149-holy-grail-emitter-design"
+description = 'Investigate whether and under what conditions RISC can be accelerated in MR-TADF emitters without sacrificing radiative rate, single-exciton PLQY, or narrow emission. Only the research question and execution environment are supplied; scientific validity requires independent human review.'
+
+[agent]
+timeout_sec = 43200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

@@ -1,0 +1,22 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[metadata]
+name = "case-06-capacitance-parsons-zobel"
+case_id = "case-06-capacitance-parsons-zobel"
+title = "Differential capacitance and the Parsons-Zobel slope"
+description = "Differential capacitance and the Parsons-Zobel slope"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 2048
+network_mode = "no-network"

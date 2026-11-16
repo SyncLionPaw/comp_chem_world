@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
+
+[task]
+name = "compchemworld/case-03-constrained-md-order-disorder-mechanism"
+description = "Analyse four finite NVT BaTiO3 trajectories at 20, 80, 130 and 250 K to extract the Ti off-centering distributions over the observed frames, test what the fixed observation denominators can identify about order-disorder mechanisms, and bound the resulting claims to the supplied records."
+
+[metadata]
+name = "case-03-constrained-md-order-disorder-mechanism"
+description = "Analyse four finite NVT BaTiO3 trajectories at 20, 80, 130 and 250 K to extract the Ti off-centering distributions over the observed frames, test what the fixed observation denominators can identify about order-disorder mechanisms, and bound the resulting claims to the supplied records."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

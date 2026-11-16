@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = [{ source = "/app/final", destination = "final" }]
+
+[task]
+name = "compchemworld/hsp60-case-01-monomer-dynamics"
+description = "Compare WT and V72I monomer dynamics and report evidence-bounded rigidity and allosteric-rewiring conclusions. Run fresh HPC dynamics with resources and software environment selected for the task."
+
+[agent]
+timeout_sec = 43200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[metadata]
+case_id = "case-01-monomer-dynamics"
+task_number = 70
+title = "Hsp60 V72I 单体动力学：柔性与变构通信"

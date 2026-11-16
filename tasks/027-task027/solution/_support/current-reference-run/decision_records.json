@@ -1,0 +1,921 @@
+{
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "decision_events": [
+    {
+      "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+      "event": "screen_path_review",
+      "evidence_path": "decision-evidence/screen-review.json",
+      "evidence_sha256": "d0a04075063f250b3b1985d83d65683de424386ff17bcb0d9ce8f05aeb85d5a8"
+    },
+    {
+      "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+      "event": "neb_seed_decision",
+      "evidence_path": "decision-evidence/neb-to-optts-decision.json",
+      "evidence_sha256": "302136ce164df415be0b3b5e02a41b860725d53bcf7b0ad940fa20e2d54d4b83"
+    },
+    {
+      "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+      "event": "ts_frequency_review",
+      "evidence_path": "decision-evidence/ts-frequency-review.json",
+      "evidence_sha256": "1b896a24ce0e029a002f9b43b0adf3f3a51b6017d2e82812333ed8a1198013b9"
+    },
+    {
+      "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+      "event": "endpoint_minus_frequency_review",
+      "evidence_path": "decision-evidence/minus-frequency-review.json",
+      "evidence_sha256": "152ee6081249d2c78fe3dd2b4b030f735df8c4835bd21176547669e915e816f3"
+    },
+    {
+      "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+      "event": "plus_endpoint_timeout_continuation_admission",
+      "evidence_path": "decision-evidence/plus-endpoint-continuation-decision.json",
+      "evidence_sha256": "36bb2c92aa9a97d220a4476154b79e3a1c9fd40c94863f4525e1e1f2892c2c5d",
+      "scientific_stage_credit": false,
+      "source_job_id": "4043114"
+    },
+    {
+      "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+      "event": "plus_endpoint_opt_review",
+      "evidence_path": "decision-evidence/plus-converged-review.json",
+      "evidence_sha256": "338cdd0600c5ef7b6b643d9e068f29e391d2cec099cb1adc1349c0459b9865db",
+      "job_id": "4043441"
+    },
+    {
+      "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+      "event": "final_native_physical_review",
+      "evidence_path": "decision-evidence/final-native-physical-review.json",
+      "evidence_sha256": "bd3b2c59dc8c6c5a5fc81b8fc82a48322065d865f970c62ebdaa35804af851ac",
+      "job_ids": [
+        "4042149",
+        "4042346",
+        "4042849",
+        "4043085",
+        "4043441",
+        "4043648"
+      ]
+    }
+  ],
+  "draft_status": "ALL_REQUIRED_NATIVE_STAGES_ASSEMBLED; CURRENT ORACLE NOT YET RUN",
+  "execution_index": {
+    "jobs": [
+      {
+        "batch_script": "native_outputs/jobs/4040272/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4040272/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "pilot:1"
+        ],
+        "stderr": "native_outputs/jobs/4040272/slurm-4040272.err",
+        "stdout": "native_outputs/jobs/4040272/slurm-4040272.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4040646/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4040646/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "screen:C1:1"
+        ],
+        "stderr": "native_outputs/jobs/4040646/slurm-4040646.err",
+        "stdout": "native_outputs/jobs/4040646/slurm-4040646.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4040820/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4040820/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "screen:C1:2"
+        ],
+        "stderr": "native_outputs/jobs/4040820/slurm-4040820.err",
+        "stdout": "native_outputs/jobs/4040820/slurm-4040820.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4040826/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4040826/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "screen:C1:3"
+        ],
+        "stderr": "native_outputs/jobs/4040826/slurm-4040826.err",
+        "stdout": "native_outputs/jobs/4040826/slurm-4040826.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4040830/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4040830/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "screen:C2:1"
+        ],
+        "stderr": "native_outputs/jobs/4040830/slurm-4040830.err",
+        "stdout": "native_outputs/jobs/4040830/slurm-4040830.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4040834/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4040834/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "screen:C2:2"
+        ],
+        "stderr": "native_outputs/jobs/4040834/slurm-4040834.err",
+        "stdout": "native_outputs/jobs/4040834/slurm-4040834.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4040840/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4040840/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "screen:C2:3"
+        ],
+        "stderr": "native_outputs/jobs/4040840/slurm-4040840.err",
+        "stdout": "native_outputs/jobs/4040840/slurm-4040840.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4041080/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4041080/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "extension:path-preopt:bpr:01"
+        ],
+        "stderr": "native_outputs/jobs/4041080/slurm-4041080.err",
+        "stdout": "native_outputs/jobs/4041080/slurm-4041080.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4041082/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4041082/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "extension:path-preopt:c2:01"
+        ],
+        "stderr": "native_outputs/jobs/4041082/slurm-4041082.err",
+        "stdout": "native_outputs/jobs/4041082/slurm-4041082.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4041353/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4041353/case07-scheduler-record-v2.json",
+        "stage_ids": [],
+        "stderr": "native_outputs/jobs/4041353/slurm-4041353.err",
+        "stdout": "native_outputs/jobs/4041353/slurm-4041353.out"
+      },
+      {
+        "batch_script": "native_outputs/production-ts-opt-4042149/job.sbatch",
+        "scheduler_record": "native_outputs/production-ts-opt-4042149/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "production:ts_opt"
+        ],
+        "stderr": "native_outputs/production-ts-opt-4042149/slurm-4042149.err",
+        "stdout": "native_outputs/production-ts-opt-4042149/slurm-4042149.out"
+      },
+      {
+        "batch_script": "native_outputs/production-ts-freq-4042346/job.sbatch",
+        "scheduler_record": "native_outputs/production-ts-freq-4042346/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "production:ts_freq"
+        ],
+        "stderr": "native_outputs/production-ts-freq-4042346/slurm-4042346.err",
+        "stdout": "native_outputs/production-ts-freq-4042346/slurm-4042346.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4042480/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4042480/case07-scheduler-record-v2.json",
+        "stage_ids": [],
+        "stderr": "native_outputs/jobs/4042480/slurm-4042480.err",
+        "stdout": "native_outputs/jobs/4042480/slurm-4042480.out"
+      },
+      {
+        "batch_script": "native_outputs/production-endpoint-opt-minus-4042849/job.sbatch",
+        "scheduler_record": "native_outputs/production-endpoint-opt-minus-4042849/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "production:endpoint_minus_opt"
+        ],
+        "stderr": "native_outputs/production-endpoint-opt-minus-4042849/slurm-4042849.err",
+        "stdout": "native_outputs/production-endpoint-opt-minus-4042849/slurm-4042849.out"
+      },
+      {
+        "batch_script": "native_outputs/production-endpoint-freq-minus-4043085/job.sbatch",
+        "scheduler_record": "native_outputs/production-endpoint-freq-minus-4043085/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "production:endpoint_minus_freq"
+        ],
+        "stderr": "native_outputs/production-endpoint-freq-minus-4043085/slurm-4043085.err",
+        "stdout": "native_outputs/production-endpoint-freq-minus-4043085/slurm-4043085.out"
+      },
+      {
+        "batch_script": "native_outputs/production-endpoint-opt-plus-freq-4043648/job.sbatch",
+        "scheduler_record": "native_outputs/production-endpoint-opt-plus-freq-4043648/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "production:endpoint_plus_freq"
+        ],
+        "stderr": "native_outputs/production-endpoint-opt-plus-freq-4043648/slurm-4043648.err",
+        "stdout": "native_outputs/production-endpoint-opt-plus-freq-4043648/slurm-4043648.out"
+      },
+      {
+        "batch_script": "native_outputs/jobs/4043114/job.sbatch",
+        "scheduler_record": "native_outputs/jobs/4043114/case07-scheduler-record-v2.json",
+        "stage_ids": [],
+        "stderr": "native_outputs/jobs/4043114/slurm-4043114.err",
+        "stdout": "native_outputs/jobs/4043114/slurm-4043114.out"
+      },
+      {
+        "batch_script": "native_outputs/production-endpoint-opt-plus-4043441/job.sbatch",
+        "scheduler_record": "native_outputs/production-endpoint-opt-plus-4043441/case07-scheduler-record-v2.json",
+        "stage_ids": [
+          "production:endpoint_plus_opt"
+        ],
+        "stderr": "native_outputs/production-endpoint-opt-plus-4043441/slurm-4043441.err",
+        "stdout": "native_outputs/production-endpoint-opt-plus-4043441/slurm-4043441.out"
+      }
+    ]
+  },
+  "later_stage_status": "PENDING",
+  "native_extra_stages": [
+    {
+      "outcome": "COMPLETED",
+      "reason": "Fresh mapped BPR path preoptimization after the independently reviewed six-screen C2 decision; not a final connected endpoint or NEB.",
+      "route": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF Opt TightOpt",
+      "stage_id": "extension:path-preopt:bpr:01",
+      "stage_path": "native_outputs/jobs/4041080"
+    },
+    {
+      "outcome": "COMPLETED",
+      "reason": "Fresh mapped C2 path preoptimization after the independently reviewed six-screen C2 decision; not a final connected endpoint or NEB.",
+      "route": "UKS PBE D3BJ def2-SVP def2/J RI DefGrid3 VeryTightSCF Opt TightOpt",
+      "stage_id": "extension:path-preopt:c2:01",
+      "stage_path": "native_outputs/jobs/4041082"
+    }
+  ],
+  "native_route": "NEB exploratory peak \u2192 independent TS optimization and AnFreq; endpoint proof pending",
+  "neb_seed": {
+    "rule": "If later selected, actual NEB peak/CI source must be distinct from generated start.xyz and coordinate-identical to it; endpoints are not TS seeds.",
+    "sha256": null,
+    "source_path": null,
+    "status": "PENDING_NOT_ASSERTED"
+  },
+  "optts_seed_decision": {
+    "rationale": "The source is the actual iteration-23 NEB peak selected in the hash-bound Sol decision; it is an exploratory nonstationary guess only. The standalone TS optimization and independent full frequency stage are separately indexed; no endpoint or barrier result is inferred.",
+    "schema": "case07-optts-decision/v1",
+    "selected_channel": "C2",
+    "source_decision_path": "decision-evidence/neb-to-optts-decision.json",
+    "source_decision_sha256": "302136ce164df415be0b3b5e02a41b860725d53bcf7b0ad940fa20e2d54d4b83",
+    "source_path": "native_outputs/exploratory-neb-peak-4041353.xyz",
+    "source_sha256": "2d2a755e234481c429a35a647089f235454392344482109ab44eea1a8a6cd988",
+    "ts_opt_start_xyz_sha256": "2d2a755e234481c429a35a647089f235454392344482109ab44eea1a8a6cd988"
+  },
+  "partial_path_index": {
+    "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+    "pilot": "native_outputs/pilot-4040272",
+    "resource_history_extras": [
+      {
+        "allocated_cpu_seconds": 1960,
+        "full_remote_inventory_count": 19,
+        "index_schema": "split-full-remote-plus-local-subset",
+        "job_id": "4041080",
+        "local_subset_descriptor_count": 11,
+        "provider_stage_id": "extension:path-preopt:bpr:01",
+        "scheduler_record": "native_outputs/jobs/4041080/p04-scheduler-record.json",
+        "screen_refinement": false,
+        "stage_credit": false,
+        "status": "COMPLETED"
+      },
+      {
+        "allocated_cpu_seconds": 2520,
+        "full_remote_inventory_count": 19,
+        "index_schema": "split-full-remote-plus-local-subset",
+        "job_id": "4041082",
+        "local_subset_descriptor_count": 11,
+        "provider_stage_id": "extension:path-preopt:C2:01",
+        "scheduler_record": "native_outputs/jobs/4041082/p04-scheduler-record.json",
+        "screen_refinement": false,
+        "stage_credit": false,
+        "status": "COMPLETED"
+      }
+    ],
+    "schema": "case07-reference-stage-map-preparation/v1",
+    "screening": {
+      "C1": [
+        "native_outputs/screen-C1-1",
+        "native_outputs/screen-C1-2",
+        "native_outputs/screen-C1-3"
+      ],
+      "C2": [
+        "native_outputs/screen-C2-1",
+        "native_outputs/screen-C2-2",
+        "native_outputs/screen-C2-3"
+      ]
+    },
+    "validation": null,
+    "validation_status": "LATER_REQUIRED_STAGES_PENDING"
+  },
+  "path_index": {
+    "pilot": "native_outputs/pilot-4040272",
+    "screening": {
+      "C1": [
+        "native_outputs/screen-C1-1",
+        "native_outputs/screen-C1-2",
+        "native_outputs/screen-C1-3"
+      ],
+      "C2": [
+        "native_outputs/screen-C2-1",
+        "native_outputs/screen-C2-2",
+        "native_outputs/screen-C2-3"
+      ]
+    },
+    "validation": {
+      "displacement": "native_outputs/validation/displacement.json",
+      "endpoint_minus": {
+        "freq": "native_outputs/production-endpoint-freq-minus-4043085",
+        "opt": "native_outputs/production-endpoint-opt-minus-4042849",
+        "opt_chain": {
+          "schema": "case07-endpoint-opt-chain/v1",
+          "segments": [
+            {
+              "energy_au": -646.879437290345,
+              "frame_xyz_path": "native_outputs/production-endpoint-opt-minus-4042849/start.xyz",
+              "frame_xyz_sha256": "62b065c474115c6bd2c569fa6005791db9288df2ebfc84bcee65264812777eb2",
+              "inventory_path": "native_outputs/jobs/4042480/recovery-inventory.json",
+              "inventory_sha256": "ffaac9c49b85f797fdd67a1e5655a261fc14a29dfa8cc9e1e50c156a35344031",
+              "last_complete_frame_index": 15,
+              "provider_stage_id": "extension:endpoint-opt:minus:01",
+              "scheduler_record_path": "native_outputs/jobs/4042480/p04-scheduler-record.json",
+              "scheduler_record_sha256": "f0a1561ea56d4002641ecacd5fa8a458e786ce465bb97284ae6c482b9c82d400",
+              "stage_path": "native_outputs/jobs/4042480",
+              "trajectory_path": "native_outputs/jobs/4042480/job_trj.xyz",
+              "trajectory_sha256": "b79b392947a307bd58c0066fcf0db24d041de3cf1e8f5b40270dbabd949bfc07"
+            }
+          ]
+        }
+      },
+      "endpoint_plus": {
+        "freq": "native_outputs/production-endpoint-opt-plus-freq-4043648",
+        "opt": "native_outputs/production-endpoint-opt-plus-4043441",
+        "opt_chain": {
+          "schema": "case07-endpoint-opt-chain/v1",
+          "segments": [
+            {
+              "energy_au": -646.849529649894,
+              "frame_xyz_path": "native_outputs/validation/plus-timeout-frame-15.xyz",
+              "frame_xyz_sha256": "3ac0242fd71c25930b82a2f9654aa44cdac80c12245b9fe0d0b54604918846b5",
+              "inventory_path": "native_outputs/jobs/4043114/recovery-inventory.json",
+              "inventory_sha256": "343695fe0034d5445174e6e389c5409c5bcb14ddb8040c9c7509312684120486",
+              "last_complete_frame_index": 15,
+              "provider_stage_id": "extension:endpoint-opt:plus:01",
+              "scheduler_record_path": "native_outputs/jobs/4043114/p04-scheduler-record.json",
+              "scheduler_record_sha256": "b8b5d542d9ef5dfac7f4111c7ffb9b35e4d480748a5d6a904990281e8a545c24",
+              "stage_path": "native_outputs/jobs/4043114",
+              "trajectory_path": "native_outputs/jobs/4043114/job_trj.xyz",
+              "trajectory_sha256": "c39f868983174c0f49f27ca043549b63d512cd0f798ec9864cd7db3059eae40f"
+            }
+          ]
+        }
+      },
+      "seed_minus": "native_outputs/validation/seed-minus.xyz",
+      "seed_plus": "native_outputs/validation/seed-plus.xyz",
+      "ts_freq": "native_outputs/production-ts-freq-4042346",
+      "ts_opt": "native_outputs/production-ts-opt-4042149"
+    }
+  },
+  "planned_stage_ids": [
+    "pilot_bpr",
+    "screen_c1_p1",
+    "screen_c1_p2",
+    "screen_c1_p3",
+    "screen_c2_p1",
+    "screen_c2_p2",
+    "screen_c2_p3"
+  ],
+  "provider_aliases": [
+    {
+      "alias_output": "native_outputs/pilot-4040272/job.out",
+      "byte_identical": true,
+      "derived_receipt": "native_outputs/pilot-4040272/receipt.json",
+      "job_id": "4040272",
+      "job_out_sha256": "847bf3f6bb2beb01692c8236a5f0cd66a7ad8ec1735fe9bd0227369d438e85b6",
+      "logical_stage_id": "pilot_bpr",
+      "native_elapsed_seconds": 29.0,
+      "provider_ended_at_utc": "2026-10-25T08:07:54Z",
+      "provider_receipt_sha256": "c0a1960b9f2d81761817436acc9ec69ea68caa62f5b1d49d9abc138aea0bd897",
+      "provider_stage_id": "pilot:2",
+      "provider_started_at_utc": "2026-10-25T08:07:25Z",
+      "scheduler_elapsed_seconds": 30,
+      "source_provider_receipt": "native_outputs/jobs/4040272/native-stage-receipt.json",
+      "source_stdout": "native_outputs/jobs/4040272/orca.stdout",
+      "stdout_sha256": "847bf3f6bb2beb01692c8236a5f0cd66a7ad8ec1735fe9bd0227369d438e85b6"
+    },
+    {
+      "alias_output": "native_outputs/screen-C1-1/job.out",
+      "byte_identical": true,
+      "derived_receipt": "native_outputs/screen-C1-1/receipt.json",
+      "job_id": "4040646",
+      "job_out_sha256": "9d8aeb2748a1454b4053718d726afb429efd97684f007d98dff0e64a6a83c479",
+      "logical_stage_id": "screen_c1_p1",
+      "native_elapsed_seconds": 154.0,
+      "provider_ended_at_utc": "2026-10-25T08:39:03Z",
+      "provider_receipt_sha256": "4522b5f5dbdf44179ea5d19677a93ba4cb4ed04392d2f2db82f4394a2ba7e590",
+      "provider_stage_id": "screen:C1:1",
+      "provider_started_at_utc": "2026-10-25T08:36:29Z",
+      "scheduler_elapsed_seconds": 157,
+      "source_provider_receipt": "native_outputs/jobs/4040646/native-stage-receipt.json",
+      "source_stdout": "native_outputs/jobs/4040646/orca.stdout",
+      "stdout_sha256": "9d8aeb2748a1454b4053718d726afb429efd97684f007d98dff0e64a6a83c479"
+    },
+    {
+      "alias_output": "native_outputs/screen-C1-2/job.out",
+      "byte_identical": true,
+      "derived_receipt": "native_outputs/screen-C1-2/receipt.json",
+      "job_id": "4040820",
+      "job_out_sha256": "a7e1becf719c4f75b9b8968a0e38ee2ef05b7849ed72bd3a3ffdc389f482428a",
+      "logical_stage_id": "screen_c1_p2",
+      "native_elapsed_seconds": 33.0,
+      "provider_ended_at_utc": "2026-10-25T08:50:31Z",
+      "provider_receipt_sha256": "b48fa0f3fa56f1053d9acf2bda683fc4af5268ee9430d5655f2a3fb0050eb53c",
+      "provider_stage_id": "screen:C1:2",
+      "provider_started_at_utc": "2026-10-25T08:49:58Z",
+      "scheduler_elapsed_seconds": 34,
+      "source_provider_receipt": "native_outputs/jobs/4040820/native-stage-receipt.json",
+      "source_stdout": "native_outputs/jobs/4040820/orca.stdout",
+      "stdout_sha256": "a7e1becf719c4f75b9b8968a0e38ee2ef05b7849ed72bd3a3ffdc389f482428a"
+    },
+    {
+      "alias_output": "native_outputs/screen-C1-3/job.out",
+      "byte_identical": true,
+      "derived_receipt": "native_outputs/screen-C1-3/receipt.json",
+      "job_id": "4040826",
+      "job_out_sha256": "8e0735557fafd59f6650bcaccdb57eda03289619c9e91c5ee2d12457412d23b8",
+      "logical_stage_id": "screen_c1_p3",
+      "native_elapsed_seconds": 28.0,
+      "provider_ended_at_utc": "2026-10-25T08:52:01Z",
+      "provider_receipt_sha256": "17aee9f80ccd56957ec1d0ecb8ee9b28122d40d7ae5a291d2900ed613bc6b2d9",
+      "provider_stage_id": "screen:C1:3",
+      "provider_started_at_utc": "2026-10-25T08:51:33Z",
+      "scheduler_elapsed_seconds": 28,
+      "source_provider_receipt": "native_outputs/jobs/4040826/native-stage-receipt.json",
+      "source_stdout": "native_outputs/jobs/4040826/orca.stdout",
+      "stdout_sha256": "8e0735557fafd59f6650bcaccdb57eda03289619c9e91c5ee2d12457412d23b8"
+    },
+    {
+      "alias_output": "native_outputs/screen-C2-1/job.out",
+      "byte_identical": true,
+      "derived_receipt": "native_outputs/screen-C2-1/receipt.json",
+      "job_id": "4040830",
+      "job_out_sha256": "894564bd9087a57515be1ebb23d3c6324ce90a7efbf07d86ae16ad2181ac34be",
+      "logical_stage_id": "screen_c2_p1",
+      "native_elapsed_seconds": 21.0,
+      "provider_ended_at_utc": "2026-10-25T08:54:02Z",
+      "provider_receipt_sha256": "73c7b63c85c05491a3b468d311f847508104ea6741d1ca71f14a446bce547d35",
+      "provider_stage_id": "screen:C2:1",
+      "provider_started_at_utc": "2026-10-25T08:53:41Z",
+      "scheduler_elapsed_seconds": 21,
+      "source_provider_receipt": "native_outputs/jobs/4040830/native-stage-receipt.json",
+      "source_stdout": "native_outputs/jobs/4040830/orca.stdout",
+      "stdout_sha256": "894564bd9087a57515be1ebb23d3c6324ce90a7efbf07d86ae16ad2181ac34be"
+    },
+    {
+      "alias_output": "native_outputs/screen-C2-2/job.out",
+      "byte_identical": true,
+      "derived_receipt": "native_outputs/screen-C2-2/receipt.json",
+      "job_id": "4040834",
+      "job_out_sha256": "3abe3b6e93845ce2384270cf9bc13174de427301c6f5fb522c12ddbcf4bcd2fe",
+      "logical_stage_id": "screen_c2_p2",
+      "native_elapsed_seconds": 34.0,
+      "provider_ended_at_utc": "2026-10-25T08:55:34Z",
+      "provider_receipt_sha256": "cd1928a12b052361f1aa5a7703601814ae3ea98e2f09b030e173a71bd4512df7",
+      "provider_stage_id": "screen:C2:2",
+      "provider_started_at_utc": "2026-10-25T08:55:00Z",
+      "scheduler_elapsed_seconds": 34,
+      "source_provider_receipt": "native_outputs/jobs/4040834/native-stage-receipt.json",
+      "source_stdout": "native_outputs/jobs/4040834/orca.stdout",
+      "stdout_sha256": "3abe3b6e93845ce2384270cf9bc13174de427301c6f5fb522c12ddbcf4bcd2fe"
+    },
+    {
+      "alias_output": "native_outputs/screen-C2-3/job.out",
+      "byte_identical": true,
+      "derived_receipt": "native_outputs/screen-C2-3/receipt.json",
+      "job_id": "4040840",
+      "job_out_sha256": "6f8306dabbb4c81ed5c6934a5381e242dd0f3af352446b178eb41610f38f5039",
+      "logical_stage_id": "screen_c2_p3",
+      "native_elapsed_seconds": 34.0,
+      "provider_ended_at_utc": "2026-10-25T08:57:27Z",
+      "provider_receipt_sha256": "09e02a5c6b413970d3bceeb1d26db55cdfe12df8e15df77730ab4630fc2235c1",
+      "provider_stage_id": "screen:C2:3",
+      "provider_started_at_utc": "2026-10-25T08:56:53Z",
+      "scheduler_elapsed_seconds": 35,
+      "source_provider_receipt": "native_outputs/jobs/4040840/native-stage-receipt.json",
+      "source_stdout": "native_outputs/jobs/4040840/orca.stdout",
+      "stdout_sha256": "6f8306dabbb4c81ed5c6934a5381e242dd0f3af352446b178eb41610f38f5039"
+    }
+  ],
+  "required_later_evidence": [
+    "standalone TS optimization",
+    "complete TS frequency/Hessian",
+    "two endpoint optimization/frequency pairs",
+    "mode connection",
+    "barrier calculation and independent exact-manifest review"
+  ],
+  "resource_history": [
+    {
+      "classification": "screening_stage",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 16,
+      "full_inventory_files_locally_verified": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.engrad",
+        "job.gbw",
+        "job.inp",
+        "job.property.txt",
+        "job.sbatch",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4040272.err",
+        "slurm-4040272.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4040272.json",
+      "index_schema": "case07-p04-collection-index/v1",
+      "index_sha256": "47e340d1e6cb72d9cb8a38f3700d8cac71698f5816063567bae18af1e3a013af",
+      "job_id": "4040272",
+      "local_subset_descriptor_count": 16,
+      "provider_stage_id": "pilot:2",
+      "remote_only_inventory_paths": []
+    },
+    {
+      "classification": "screening_stage",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 16,
+      "full_inventory_files_locally_verified": [
+        "job.engrad",
+        "job.inp",
+        "job.sbatch",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4040646.err",
+        "slurm-4040646.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4040646.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "7d28266324127db6d3e2d71fd2447a275c56d132e167bc41d0a0b1acd6889e29",
+      "job_id": "4040646",
+      "local_subset_descriptor_count": 0,
+      "provider_stage_id": "screen:C1:1",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.gbw",
+        "job.property.txt"
+      ]
+    },
+    {
+      "classification": "screening_stage",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 16,
+      "full_inventory_files_locally_verified": [
+        "job.engrad",
+        "job.inp",
+        "job.sbatch",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4040820.err",
+        "slurm-4040820.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4040820.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "8d2da5bbb8abd192eab8acc117a02c43ae1d59b0a4a77441311d1138312008a9",
+      "job_id": "4040820",
+      "local_subset_descriptor_count": 8,
+      "provider_stage_id": "screen:C1:2",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.gbw",
+        "job.property.txt"
+      ]
+    },
+    {
+      "classification": "screening_stage",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 16,
+      "full_inventory_files_locally_verified": [
+        "job.engrad",
+        "job.inp",
+        "job.sbatch",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4040826.err",
+        "slurm-4040826.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4040826.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "1248f296000c1796179480c99703404fbf08e4bbb86c82821ab81e8a7d029a6b",
+      "job_id": "4040826",
+      "local_subset_descriptor_count": 8,
+      "provider_stage_id": "screen:C1:3",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.gbw",
+        "job.property.txt"
+      ]
+    },
+    {
+      "classification": "screening_stage",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 16,
+      "full_inventory_files_locally_verified": [
+        "job.engrad",
+        "job.inp",
+        "job.sbatch",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4040830.err",
+        "slurm-4040830.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4040830.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "36c8d1c04500f3d66add4ba8eeb08a1e348e897f89864bb20d0281234c754b80",
+      "job_id": "4040830",
+      "local_subset_descriptor_count": 8,
+      "provider_stage_id": "screen:C2:1",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.gbw",
+        "job.property.txt"
+      ]
+    },
+    {
+      "classification": "screening_stage",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 16,
+      "full_inventory_files_locally_verified": [
+        "job.engrad",
+        "job.inp",
+        "job.sbatch",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4040834.err",
+        "slurm-4040834.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4040834.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "89ce940bb1b3bd7b17e3a0b4a993d77299b3b4b4ccf59347da795ed605f5a6c5",
+      "job_id": "4040834",
+      "local_subset_descriptor_count": 8,
+      "provider_stage_id": "screen:C2:2",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.gbw",
+        "job.property.txt"
+      ]
+    },
+    {
+      "classification": "screening_stage",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 16,
+      "full_inventory_files_locally_verified": [
+        "job.engrad",
+        "job.inp",
+        "job.sbatch",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4040840.err",
+        "slurm-4040840.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4040840.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "fc5bc37ef0da2fdc6dbe304773e58ae1715b043fd5824dbb7d2cecb413a007bb",
+      "job_id": "4040840",
+      "local_subset_descriptor_count": 8,
+      "provider_stage_id": "screen:C2:3",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.gbw",
+        "job.property.txt"
+      ]
+    },
+    {
+      "classification": "resource_history_extra",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 19,
+      "full_inventory_files_locally_verified": [
+        "job.inp",
+        "job.sbatch",
+        "job.xyz",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4041080.err",
+        "slurm-4041080.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4041080.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "5954319c99bb1e97ce098028d957afbdd0511a5b6a35d30098a3a8a83d3a8af2",
+      "job_id": "4041080",
+      "local_subset_descriptor_count": 11,
+      "provider_stage_id": "extension:path-preopt:bpr:01",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.engrad",
+        "job.gbw",
+        "job.opt",
+        "job.property.txt",
+        "job_trj.xyz"
+      ]
+    },
+    {
+      "classification": "resource_history_extra",
+      "expected_lifecycle_count": 7,
+      "full_inventory_count": 19,
+      "full_inventory_files_locally_verified": [
+        "job.inp",
+        "job.sbatch",
+        "job.xyz",
+        "native-stage-receipt.json",
+        "native.exitcode",
+        "orca.stderr",
+        "orca.stdout",
+        "p04-scheduler-record.json",
+        "slurm-4041082.err",
+        "slurm-4041082.out",
+        "start.xyz"
+      ],
+      "index_path": "provider-indexes/4041082.json",
+      "index_schema": "split-full-remote-plus-local-subset",
+      "index_sha256": "8c7a6d8524e852c57e3d59bff842735c0aa50b32bc9b92eba4ce26c3d9442a6f",
+      "job_id": "4041082",
+      "local_subset_descriptor_count": 11,
+      "provider_stage_id": "extension:path-preopt:C2:01",
+      "remote_only_inventory_paths": [
+        "job.bibtex",
+        "job.densities",
+        "job.densitiesinfo",
+        "job.engrad",
+        "job.gbw",
+        "job.opt",
+        "job.property.txt",
+        "job_trj.xyz"
+      ]
+    },
+    {
+      "allocated_cpu_seconds": 34656,
+      "classification": "exploratory_neb_cancelled",
+      "inventory_path": "native_outputs/jobs/4041353/sealed-terminal-inventory.json",
+      "inventory_sha256": "e342db48e114696a7e571d1298fece7154a5bff296391ff7151af6da88ac90ca",
+      "job_id": "4041353",
+      "native_stage_credit": false,
+      "p04_expected_output_count": 7,
+      "p04_scheduler_record_path": "native_outputs/jobs/4041353/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "50b73c34ca446bff3b750b112d9f5b5b319203683c664871a73a98d4553d99b8",
+      "provider_stage_id": "extension:neb-ts:01",
+      "resource_only": true,
+      "status": "CANCELLED"
+    },
+    {
+      "allocated_cpu_seconds": 7312,
+      "classification": "production_ts_opt",
+      "inventory_path": "native_outputs/jobs/4042149/sealed-terminal-inventory.json",
+      "inventory_sha256": "93f4e5d3fa33eed040cb1e93d3ba9c77d72bc16046c0e38ee7785654ce8652c5",
+      "job_id": "4042149",
+      "native_stage_credit": true,
+      "p04_expected_output_count": 7,
+      "p04_scheduler_record_path": "native_outputs/production-ts-opt-4042149/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "27eb18917e9d4504ef20b68f81127d426a9e4aeb39eb5849d3de667cb6c63be0",
+      "provider_stage_id": "extension:optts-after-neb:01",
+      "resource_only": false,
+      "status": "COMPLETED"
+    },
+    {
+      "allocated_cpu_seconds": 5880,
+      "classification": "production_ts_frequency",
+      "inventory_path": "native_outputs/jobs/4042346/sealed-terminal-inventory.json",
+      "inventory_sha256": "d00747a5c9628329293fedb54489fa15c0d1c4d3c9ee115fa65a3c6292eb213c",
+      "job_id": "4042346",
+      "native_stage_credit": true,
+      "p04_expected_output_count": 7,
+      "p04_scheduler_record_path": "native_outputs/production-ts-freq-4042346/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "3cdf225e65b82242c98420e99bc9965f6e3e5df6f8cb7c3acd27a251039b27bf",
+      "provider_stage_id": "production:ts_freq",
+      "resource_only": false,
+      "status": "COMPLETED"
+    },
+    {
+      "allocated_cpu_seconds": 14432,
+      "classification": "endpoint_minus_opt_timeout_resource_only",
+      "inventory_path": "native_outputs/jobs/4042480/recovery-inventory.json",
+      "inventory_sha256": "ffaac9c49b85f797fdd67a1e5655a261fc14a29dfa8cc9e1e50c156a35344031",
+      "job_id": "4042480",
+      "native_stage_credit": false,
+      "p04_expected_output_count": 7,
+      "p04_scheduler_record_path": "native_outputs/jobs/4042480/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "f0a1561ea56d4002641ecacd5fa8a458e786ce465bb97284ae6c482b9c82d400",
+      "provider_stage_id": "extension:endpoint-opt:minus:01",
+      "resource_only": true,
+      "status": "TIMEOUT"
+    },
+    {
+      "allocated_cpu_seconds": 6736,
+      "classification": "endpoint_minus_opt_continuation_completed",
+      "inventory_path": "native_outputs/production-endpoint-opt-minus-4042849/collection-index.json",
+      "inventory_sha256": "77131ab46989a5e441d1721582c5a6aecfe65eb97d6cf26f4483a6a22f7be29d",
+      "job_id": "4042849",
+      "native_stage_credit": true,
+      "p04_expected_output_count": 7,
+      "p04_scheduler_record_path": "native_outputs/production-endpoint-opt-minus-4042849/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "376e7df2d5a978de72584f16e144bad3509bd370fcdcad8e1ca63d38f81d77bf",
+      "provider_stage_id": "extension:endpoint-opt:minus:continuation:01",
+      "resource_only": false,
+      "status": "COMPLETED"
+    },
+    {
+      "allocated_cpu_seconds": 4976,
+      "classification": "endpoint_minus_frequency_completed",
+      "inventory_path": "native_outputs/production-endpoint-freq-minus-4043085/sealed-terminal-inventory.json",
+      "inventory_sha256": "d4819d92f7c54164197d0232619567817c1978fc0881c3a477750ba16880e8e2",
+      "job_id": "4043085",
+      "native_stage_credit": true,
+      "p04_expected_output_count": 7,
+      "p04_scheduler_record_path": "native_outputs/production-endpoint-freq-minus-4043085/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "403d0800786e742b7fd58b7ab1558959cd054308f8368cb259602c0e1cc2ec3c",
+      "provider_stage_id": "extension:endpoint-frequency:minus:01",
+      "resource_only": false,
+      "status": "COMPLETED"
+    },
+    {
+      "allocated_cpu_seconds": 14616,
+      "classification": "endpoint_plus_opt_timeout_resource_only",
+      "inventory_path": "native_outputs/jobs/4043114/recovery-inventory.json",
+      "inventory_sha256": "343695fe0034d5445174e6e389c5409c5bcb14ddb8040c9c7509312684120486",
+      "job_id": "4043114",
+      "native_stage_credit": false,
+      "p04_scheduler_record_path": "native_outputs/jobs/4043114/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "b8b5d542d9ef5dfac7f4111c7ffb9b35e4d480748a5d6a904990281e8a545c24",
+      "provider_stage_id": "extension:endpoint-opt:plus:01",
+      "recovery_manifest_path": "native_outputs/jobs/4043114/recovery-manifest.json",
+      "recovery_manifest_sha256": "25119f35d88cc008caea73b238721d640679596e01f966dbe23edd595eade089",
+      "resource_only": true,
+      "status": "TIMEOUT"
+    },
+    {
+      "allocated_cpu_seconds": 1600,
+      "classification": "endpoint_plus_opt_continuation_completed",
+      "inventory_path": "native_outputs/production-endpoint-opt-plus-4043441/collection-index.json",
+      "inventory_sha256": "c6271883cd15cd1bbe710721c3b9c53837fecd44129b296903dafa2463d80768",
+      "job_id": "4043441",
+      "native_stage_credit": true,
+      "p04_scheduler_record_path": "native_outputs/production-endpoint-opt-plus-4043441/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "d90ad3d35e692c04fce6423403566a5f96acd8488b7b1a407fcb16f929a4d8f3",
+      "provider_stage_id": "extension:endpoint-opt:plus:continuation:01",
+      "resource_only": false,
+      "status": "COMPLETED"
+    },
+    {
+      "allocated_cpu_seconds": 2432,
+      "classification": "endpoint_plus_frequency_completed",
+      "inventory_path": "native_outputs/production-endpoint-opt-plus-freq-4043648/collection-index.json",
+      "inventory_sha256": "2cd6961cc460505999f408b40ed3e52e8e983cb8090cb498e6dfe789bcd99697",
+      "job_id": "4043648",
+      "native_stage_credit": true,
+      "p04_scheduler_record_path": "native_outputs/production-endpoint-opt-plus-freq-4043648/p04-scheduler-record.json",
+      "p04_scheduler_record_sha256": "37109c9e7dbf4a656c7b72390b853e440fee3b7d2e3d127faf5f6649d04e1fc7",
+      "provider_stage_id": "extension:endpoint-frequency:plus:01",
+      "resource_only": false,
+      "status": "COMPLETED"
+    }
+  ],
+  "resource_history_actual_allocation_count": 18,
+  "resource_history_actual_cpu_seconds": 99832,
+  "resource_history_prior_nine_allocations_cpu_seconds": 7192,
+  "schema": "case07-finalization-decisions/v1",
+  "scope": "Partial native parser input map only; not a finalizer path_index, candidate, reward, or authenticated execution claim.",
+  "screening_route_decision": "not included; any parser rule result requires independent review",
+  "selected_channel": "C2"
+}

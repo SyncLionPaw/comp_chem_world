@@ -1,0 +1,13 @@
+services:
+  main:
+    build:
+      context: ../environment
+    tmpfs:
+      - /dev/shm:rw,exec,nosuid,nodev,size=128m
+    volumes:
+      - type: bind
+        source: .
+        target: /tests
+        read_only: true
+        bind:
+          create_host_path: false

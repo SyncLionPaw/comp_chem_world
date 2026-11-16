@@ -1,0 +1,220 @@
+{
+  "schema": "ihf008-source-acceptance/v1",
+  "status": "PASS",
+  "source_job_id": "9136",
+  "checks": {
+    "native_exclusions": true,
+    "native_settings": true,
+    "production_completed": true,
+    "trajectory_frames": true,
+    "temperature": true,
+    "density": true
+  },
+  "public_sha256": {
+    "trajectory_sample.npz": "cd3d5163a42fa47117c8aca7a731e5fd1334139e8496e82787f86495f779738c",
+    "analysis_contract.json": "dfb642437c61f34853d94e8003d84e3b33a4dff9f94daf70036e00ce7bd45b68",
+    "source_manifest.json": "878f5fb8c6f9702f1b6c48a2d7c7799c97562357dbdb7a437e894480baaf09ec",
+    "production.log": "7d36b274e494aa0d7405c0cfef85b8ae366bed9ae3b23efec028a0f5db4e0c93",
+    "production.tpr": "2561032bae33817f454bd26ec1ddad171b28aa718638998b5ca8ebf4d62f0ef5",
+    "production.gro": "0aab1455468bb9dd2a708bfce87f8f93206ea1e93550c2b29f321559ce418f50",
+    "topol.top": "1072dc72d08d1ea95e12d78a464fefffc962e86c115b43de17189f14ee8ab94e"
+  },
+  "reference_sha256": "a17920533a230c1c54df7e9b53bdb1bb358e11e243708dd685a3b08b7a4fe8e8",
+  "source_xtc_sha256": "11eb9901e0d67eee48dfe1f71d6d229c305008b96e284f9feb652913c36c52f4",
+  "source_tpr_sha256": "2561032bae33817f454bd26ec1ddad171b28aa718638998b5ca8ebf4d62f0ef5",
+  "source_edr_sha256": "0e9707c67ef6e4694d6029639af45f9b1b9f74c574bcb6b56afc28c755d7da53",
+  "actual_native_audits": {
+    "exclusions": {
+      "tpr": "/bench/.work/008-repair/source-stage/production.tpr",
+      "sha256": "2561032bae33817f454bd26ec1ddad171b28aa718638998b5ca8ebf4d62f0ef5",
+      "atoms": 27099,
+      "waters": 9033,
+      "atom_order_and_count_pass": true,
+      "SPC_E_charges_pass": true,
+      "settle_bond_pairs": 18066,
+      "settle_bond_layout_pass": true,
+      "molecule_exclusion_blocks": [
+        {
+          "n_atoms_with_exclusion_rows": 3,
+          "n_exclusion_entries": 9,
+          "row_index": [
+            0,
+            3,
+            6,
+            9
+          ],
+          "excluded_local_indices": [
+            0,
+            1,
+            2,
+            0,
+            1,
+            2,
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "all_intramolecular_nonbonded_pairs_excluded": true,
+      "status": "PASS"
+    },
+    "settings": {
+      "schema": "case01-tpr-settings-v1",
+      "kind": "production",
+      "observed": {
+        "integrator": "md",
+        "dt_ps": 0.002,
+        "nsteps": 10000000,
+        "tcoupl": "V-rescale",
+        "ref_t_K": 300.0,
+        "tau_t_ps": 0.5,
+        "pcoupl": "No",
+        "coulombtype": "PME",
+        "rcoulomb_nm": 0.9,
+        "rvdw_nm": 0.9,
+        "pbc": "xyz",
+        "nstxout_compressed": 500,
+        "nstenergy": 500,
+        "vdwtype": "Cut-off",
+        "vdw_modifier": "Potential-shift",
+        "epsilon_r": 1.0,
+        "epsilon_surface": 0.0,
+        "settle_geometry_nm": [
+          0.100000001,
+          0.163299993
+        ]
+      },
+      "expected": {
+        "integrator": "md",
+        "dt_ps": 0.002,
+        "nsteps": 10000000,
+        "tcoupl": "V-rescale",
+        "ref_t_K": 300.0,
+        "tau_t_ps": 0.5,
+        "pcoupl": "No",
+        "coulombtype": "PME",
+        "rcoulomb_nm": 0.9,
+        "rvdw_nm": 0.9,
+        "pbc": "xyz",
+        "nstxout_compressed": 500,
+        "vdwtype": "Cut-off",
+        "vdw_modifier": "Potential-shift",
+        "epsilon_r": 1.0,
+        "epsilon_surface": 0.0,
+        "settle_geometry_nm": [
+          0.1,
+          0.1633
+        ]
+      },
+      "failures": {},
+      "status": "PASS",
+      "tpr_sha256": "2561032bae33817f454bd26ec1ddad171b28aa718638998b5ca8ebf4d62f0ef5",
+      "dump_sha256": "0ef2d4b3df0adefc63679a108b768c20591308fef3b9bb886ede06db7f137f03"
+    }
+  },
+  "physical_source_audit": {
+    "status": "PASS",
+    "method": "Independent header-labelled production.log temperature parsing; complete log time-grid; native gmx-check evidence and final-GRO densities",
+    "records": 2001,
+    "time_range_ps": [
+      0,
+      20000
+    ],
+    "mean_temperature_K": 299.9636521739131,
+    "first10ns_temperature_K": 299.94653999999997,
+    "last10ns_temperature_K": 299.9807472527473,
+    "half_run_temperature_delta_K": 0.03420725274730785,
+    "temperature_gate_K": [
+      295,
+      305
+    ],
+    "half_run_temperature_delta_max_K": 3,
+    "density_gate_g_cm3": [
+      0.9,
+      1.1
+    ],
+    "density": {
+      "npt.gro": {
+        "box_nm": [
+          6.50136,
+          6.50136,
+          6.50136
+        ],
+        "density_g_cm3": 0.9833530736775433
+      },
+      "production.gro": {
+        "box_nm": [
+          6.50136,
+          6.50136,
+          6.50136
+        ],
+        "density_g_cm3": 0.9833530736775433
+      }
+    },
+    "normally_completed": true,
+    "source_sha256": {
+      "production.log": "7d36b274e494aa0d7405c0cfef85b8ae366bed9ae3b23efec028a0f5db4e0c93",
+      "production.edr": "0e9707c67ef6e4694d6029639af45f9b1b9f74c574bcb6b56afc28c755d7da53",
+      "production.gro": "0aab1455468bb9dd2a708bfce87f8f93206ea1e93550c2b29f321559ce418f50",
+      "npt.gro": "d807b763d4df48281275e65e87be788106d2ab340ea2efcd0daf9bce699cc17f",
+      "production-trajectory-check.txt": "232bfad639cb1126dd42bfb96e92bf0e7a7df1ce64b0e5b99821930699d08702",
+      "production-edr-check.txt": "0bee9b187f91a900b5634732b718a3bc7b4f3c57d16df21149c7f0b55ec274f1"
+    }
+  },
+  "extraction_report": {
+    "status": "PASS",
+    "source_job_id": "9136",
+    "source_paths": {
+      "tpr": "/public/home/xjchen/14_Interficial-Hydration-Force/case01/corrected-spce/production.tpr",
+      "xtc": "/public/home/xjchen/14_Interficial-Hydration-Force/case01/corrected-spce/production.xtc"
+    },
+    "source_tpr_sha256": "2561032bae33817f454bd26ec1ddad171b28aa718638998b5ca8ebf4d62f0ef5",
+    "source_xtc_sha256": "11eb9901e0d67eee48dfe1f71d6d229c305008b96e284f9feb652913c36c52f4",
+    "source_hash_checked_at_open_and_close": true,
+    "read_only_xtc_reader_no_offset_cache": true,
+    "source_frames": 20001,
+    "source_time_ps": [
+      0,
+      20000
+    ],
+    "sample_frames": 200,
+    "frame_indices": "0:20000:100",
+    "sample_times_ps": [
+      0,
+      19900
+    ],
+    "sample_stride_ps": 100,
+    "atoms": 27099,
+    "waters": 9033,
+    "box_dimensions_A_deg": [
+      65.01358795166016,
+      65.01358795166016,
+      65.01358795166016,
+      90,
+      90,
+      90
+    ],
+    "max_box_edge_change_A": 0.0,
+    "density_range_g_cm3": [
+      0.9833536203836054,
+      0.9833536203836054
+    ],
+    "sample_npz_bytes": 39137619,
+    "sample_npz_sha256": "cd3d5163a42fa47117c8aca7a731e5fd1334139e8496e82787f86495f779738c",
+    "extractor_sha256": "b757b077dcd937709e34d7e48737cd2e32480dacc98a3ed008bf43d700e2e42d",
+    "report": "extractor stderr; full source frame scan passed before stdout emission"
+  },
+  "private_reference_generation": {
+    "script": "evidence/generate_private_reference.py",
+    "script_sha256": "bc6cdcd8f7bdbbc2407e27884c79275646a944a181b1cd34c89d1629525f32b5",
+    "reference_code_sha256": "77141186935edf550341d5c6166a4b04c16a6b755b1bbe37aea5aa98944d4d86",
+    "sample_sha256": "cd3d5163a42fa47117c8aca7a731e5fd1334139e8496e82787f86495f779738c",
+    "reference_sha256": "a17920533a230c1c54df7e9b53bdb1bb358e11e243708dd685a3b08b7a4fe8e8",
+    "runtime_image_id": "sha256:5230a3afee0c39fee9f2a8c89b2e9df9f2885867fa8fc6e0fd12a2c972e7d372",
+    "network": "disabled",
+    "cpus": 2,
+    "memory_mb": 4096,
+    "BLAS_threads": 1
+  }
+}

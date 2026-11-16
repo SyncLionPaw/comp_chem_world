@@ -1,0 +1,18 @@
+   ffparams:
+      atnr=2
+      ntypes=5
+         functype[0]=LJ_SR, c6= 2.61706416e-03, c12= 2.63345464e-06
+         functype[1]=LJ_SR, c6= 0.00000000e+00, c12= 0.00000000e+00
+         functype[2]=LJ_SR, c6= 0.00000000e+00, c12= 0.00000000e+00
+         functype[3]=LJ_SR, c6= 0.00000000e+00, c12= 0.00000000e+00
+      atomtypes:
+      atomtype[  0]={atomnumber=   8}
+      atomtype[  1]={atomnumber=   1}
+   moltype (0):
+      name="SOL"
+      atoms:
+         atom (3):
+            atom[     0]={type=  0, typeB=  0, ptype=    Atom, m= 1.59994e+01, q=-8.47600e-01, mB= 1.59994e+01, qB=-8.47600e-01, resind=    0, atomnumber=  8}
+            atom[     1]={type=  1, typeB=  1, ptype=    Atom, m= 1.00800e+00, q= 4.23800e-01, mB= 1.00800e+00, qB= 4.23800e-01, resind=    0, atomnumber=  1}
+            atom[     2]={type=  1, typeB=  1, ptype=    Atom, m= 1.00800e+00, q= 4.23800e-01, mB= 1.00800e+00, qB= 4.23800e-01, resind=    0, atomnumber=  1}
+         atom (3):

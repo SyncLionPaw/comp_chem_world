@@ -1,0 +1,11 @@
+{
+  "schema_version": "case06-verifier-reference/v1",
+  "public_input_sha256": "7bf078fa6419f1e59b632019a8990349a986e16d166dafec6c81c66e3db2b976",
+  "hartree_to_kcal": 627.509474,
+  "tolerances": {
+    "endpoint_energy_hartree_abs": 2e-5,
+    "barrier_kcal_mol_abs": 0.02,
+    "facile_threshold_kcal_mol": 3.0,
+    "facile_threshold_abs": 1e-9
+  }
+}

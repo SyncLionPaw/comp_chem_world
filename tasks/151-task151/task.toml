@@ -1,0 +1,29 @@
+# Harbor task config migrated from the archived Bench23 task 151 definition.
+schema_version = "1.4"
+artifacts = ["/app/model.pdb", "/app/input.inp", "/app/design.json", "/app/partition.json", "/app/report.md"]
+
+[task]
+name = "compchemworld/bench23-task-151"
+description = "Decide and document a static multiscale QM/MM partition for the mixed 5HLS ligand environment from the frozen PQR/PDB/GJF/MOL2 inputs."
+
+[metadata]
+task_number = 151
+name = "task 151"
+description = "在冻结的 5HLS 配体环境输入上做出并记录静态多尺度分区决策。"
+case_id = "case02-boundary-design"
+execution_class = "local"
+holy_grail = false
+
+[agent]
+timeout_sec = 3600
+
+[environment]
+network_mode = "no-network"
+env = { APP = "/app", TESTS = "/tests", LOGS = "/logs/verifier" }
+cpus = 4
+memory_mb = 8192
+gpus = 0
+
+[verifier]
+environment_mode = "separate"
+timeout_sec = 120

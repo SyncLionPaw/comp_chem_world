@@ -1,0 +1,29 @@
+schema_version = "1.4"
+case_id = "case-02"
+artifacts = ["/app/outputs"]
+
+[metadata]
+name = "compchemworld/case-02"
+
+[task]
+name = "compchemworld/case-02"
+description = "2D 势能面上的锥形交叉区定位与 Franck–Condon 激发分析"
+
+[agent]
+timeout_sec = 3600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"

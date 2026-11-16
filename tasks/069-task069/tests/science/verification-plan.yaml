@@ -1,0 +1,38 @@
+case_id: case-08-short-md-stop-go
+readiness: READY_FOR_RUNTIME
+evidence_coverage: COMPLETE
+implementation: review-gated
+criteria:
+- criterion: bounded_remote_native_engine_run_and_provenance
+  level: L2
+  necessary: true
+  verification_basis:
+    type: acquired_native_start_conditions_and_engine_artifact_constraints
+    source: packages/case-08-short-md-stop-go/tests/refs.json
+    source_sha256: 0ffaa906a67369ef30c8ed6023d672b0e114926c66a2b5640219f85408379a58
+    rationale: 包内四条原生参考轨迹及输入支持执行产物、时间步和预算的数值核对；未来候选必须提供本次真实执行与资源记录。
+- criterion: paired_timestep_intervention_and_physical_parameter_control
+  level: L3
+  necessary: true
+  verification_basis:
+    type: native_method_and_controlled_simulation_design
+    source: packages/case-08-short-md-stop-go/tests/refs.json
+    source_sha256: 0ffaa906a67369ef30c8ed6023d672b0e114926c66a2b5640219f85408379a58
+    rationale: 包内生产 TPR、配对检查与 mdout.mdp 支持初态和物理参数对照；引擎可能自动调整邻域参数，须如实审计。
+- criterion: numerical_temperature_constraint_and_water_geometry_diagnosis
+  level: L3
+  necessary: true
+  verification_basis:
+    type: acquired_native_topology_and_molecular_dynamics_constraints
+    source: packages/case-08-short-md-stop-go/tests/refs.json
+    source_sha256: 0ffaa906a67369ef30c8ed6023d672b0e114926c66a2b5640219f85408379a58
+    rationale: 包内官方 GROMACS 文档、processed.top、原生能量和独立 audit 支持自由度、约束与水几何诊断；能量修正趋势是线索而非普适阈值。
+- criterion: bounded_go_stop_decision_and_inference_scope
+  level: L3
+  necessary: true
+  verification_basis:
+    type: scientific_dynamics_constraint_and_actual_native_run_record
+    source: packages/case-08-short-md-stop-go/tests/refs.json
+    source_sha256: 0ffaa906a67369ef30c8ed6023d672b0e114926c66a2b5640219f85408379a58
+    rationale: 原生参考与科学评审判据支持多种有界的继续/停止判断；不得由短轨迹推断平衡或生产准备充分。
+review_policy: 自动入口先核验公开输入、候选结构、TPR配对、有效MDP约束，并从本次原生能量与采样GRO独立复算诊断。确定性矛盾返回FAIL；可信输入或评分器损坏返回INFRASTRUCTURE_ERROR；证据完整但缺少与候选哈希绑定的私有作者审核时返回REVIEW_REQUIRED且不发奖励。审核记录必须绑定真实job、accounting及原生证据哈希。包内归档轨迹仅作解析器夹具和科学参考，绝不授予当前候选奖励；允许有充分证据的真实安全早停并交由人工判定。

@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "case_id": "case-01-water-rearrangement-descriptor",
+  "review_status": "PASS",
+  "reviewer": "Codex source-only migration; scientific criteria inherited from Root (independent scientific reviewer)",
+  "reviewed_on": "2026-10-27",
+  "input_hashes": {
+    "environment/assets/g4-coordinate-samples.npz": "574c49fdc457fec2b57d3d81e9fadde6bb59e269e5676568b0d69d7a37e14550",
+    "environment/assets/coordinate-provenance.json": "ec950e3438e0e982dd2f9ff8644879d3b2415976781d9d4a4052fbb050ccec20",
+    "environment/assets/g4-descriptors.csv": "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66",
+    "environment/assets/descriptor-provenance.json": "0cdaef45fc096bd1aca62229c665a1736a3ae336a59caf847cc5c34b22c5effd",
+    "environment/assets/geometry-method.md": "d863e5b015aefb9b08a6bffab712e829c374289ca36a9847ad8369607226f0d6",
+    "environment/assets/training-design.json": "4d32952da3ad9a87752d5f973048ee4f57c403fa43b91b1810750f1d90b75c95",
+    "environment/assets/atom-metadata.json": "96621e325309550e179312f83aa62681c9139e0c53024657ea34a2ac4dcbe4db"
+  },
+  "source_fingerprints": {
+    "tests/assessment-protocol.json": "c80bcba2ed90b7a6dbba700c8ccfd2ab0e827efdc81ce6596ceafc55911269cc",
+    "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+    "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+    "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "tests/numeric_evidence.py": "13aa57d0a28234adb7f5e2dd5a9d27b0c9b2304fb79e5837eae110faa15272b9",
+    "tests/reference-hashes.json": "f60c72fc08b64d43d5a5a86a293e2f6f7fad1c660a97e25c5b0cc0f483ec0aae",
+    "tests/refs.json": "cb4c920fef463cd4aeaba9403c79ef63d3c375ce3eab2b16176fa2529021dbf8",
+    "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+    "tests/test.sh": "0ae6d7fe88171c1abfbea56f980d4e8922f7412adadb0b80132082dc9dfca0ef",
+    "tests/verification-plan.yaml": "6384429cb1b8e324ebb41c170176b5a50d3d66a7514bf0e743f4d831abf7116a",
+    "tests/verify.py": "602c3cbc1882bdb38f7c4fb87a3727d7866af5b72b0334e4d9377861e8895f84",
+    "contract/instruction.md": "7322dd5ccf08ce475bbe53b5909f4d82992b9155256342adcda19bdd239aeece",
+    "contract/task.toml": "42a39e0d6592a42fd9d01291a7444365fa385d0ac3bbfabb056930a752cc2516",
+    "contract/output-contract.yaml": "7d1acdbf60821245bf02338eb56ac61e2a1650ddc5366f22396f3660bac34aa7",
+    "contract/output-contract.json": "81812c36c99db1c30c6ba082d9bee146055546067ecf67657385b601730b46ad"
+  },
+  "candidate_manifest": {
+    "decision.json": {
+      "sha256": "283f584eabd53f803bf40fe9b0aa03f186a51096e61bd19500b30b9e479fedfc",
+      "bytes": 3217
+    },
+    "feature-audit.csv": {
+      "sha256": "2fb0c56ab4e58f5bad5b7138feea3711b47352bd8722c0fdbbacaec094451368",
+      "bytes": 3436
+    },
+    "geometry-check.json": {
+      "sha256": "7e29c9de00ef332626f0c018d713d77a8e02614060d2ab5cedb90f404a42b470",
+      "bytes": 2638
+    },
+    "research-rationale.md": {
+      "sha256": "30f94e8e40648aebba6c90883496eb9dfb7f63ab9c4d511cff7e58307a736954",
+      "bytes": 1517
+    }
+  },
+  "criteria": {
+    "coordinate_cn_units_pbc_and_closed_form_checks": {
+      "status": "PASS",
+      "evidence": "Independently recomputed the public-coordinate closed-form switching values, nm/dimensionless normalization, PBC minimum-image calculation, and lattice-translation invariant distance; all reported checks match."
+    },
+    "matched_z_water_feature_complementarity_and_selection": {
+      "status": "PASS",
+      "evidence": "The real pair (frames 3084 and 8272) matches within 0.003516 nm in z and 0.000367 nm in radius while the V1–V8 vector distance is 1.862 CN. Independent CN recomputation confirms the dynamic family-SD leaders L4/V3; the reported 12-feature correlations (including max |r|=0.728271 for L1–L3 and 0.893963 for V2–V3) and five-feature shortlist L4/V3/V5/V2/V4 follow the stated descriptive selection rule. This is not predictive feature validation."
+    },
+    "sampling_scope_and_validation_boundary": {
+      "status": "PASS",
+      "evidence": "The cited training design reports five B and five U trajectories of 4 ns each, but these underlying trajectories, labels, weights and held-out outcomes are unavailable. The 64 frames are a sparse biased excerpt and are correctly not used to claim equilibrium frequency, CV optimality, predictive performance or causality. The candidate requests independent run-level held-out validation and ablations."
+    }
+  },
+  "review_basis": {
+    "previous_record_sha256": "6dcfd1401f64f9b33200d60aaecf0b6e1ff5bd00bd302d574e538582db0c43df",
+    "root_reviewed_candidate_index_sha256": "8741a6ef11606d14bbbba2ffaebc42e6f0042ca17bb07891c878e934eb67f5a9",
+    "candidate_root_in_author_snapshot": "/private/tmp/bench10-release-20261018-r1/snapshot/10_Host-Guest-Water-Enhanced-Sampling/authoring/integration-20261017/oracle-candidates/case01",
+    "candidate_manifest_unchanged": true,
+    "scientific_scope_changed": false
+  },
+  "source_only_migration": {
+    "kind": "source_only_approval_inheritance",
+    "scientific_review": "Inherited unchanged from the archived prior approval; no new scientific review was performed.",
+    "prior_review": {
+      "archive_path": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-author-review/task-63/author-review.json",
+      "sha256": "c8735adb04a147c6e73bdad5a224284d608d98e0b5bbc32a964c3075823d61d2",
+      "reviewer": "Root (independent scientific reviewer)",
+      "reviewed_on": "2026-10-18",
+      "review_status": "PASS"
+    },
+    "candidate_output_evidence": {
+      "oracle_workspace_verified_against_prior_candidate_manifest": true,
+      "baseline_test_status": "PASS",
+      "baseline_reward": 1
+    },
+    "removed_helpers": [
+      {
+        "path": "task 63/tests/apo_numeric.py",
+        "sha256": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834",
+        "source_copied_to_archive": false,
+        "dependency_review": "No runtime/test import or read; historical reference-hash entry removed."
+      }
+    ],
+    "reference_hash_index": {
+      "path": "task 63/tests/reference-hashes.json",
+      "archived_original": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-reference-hashes/task-63/reference-hashes.json",
+      "archived_sha256": "b0dc4660549e12587c1127682e46201bf97639fe9c1a5df7a9b295096edfd166",
+      "removed_entries": {
+        "tests/apo_numeric.py": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834"
+      },
+      "new_sha256": "6aeee5fe376eab79fd99a0f735f4182e4da3f7102b3622f773a3f5d2938271cc"
+    },
+    "not_performed": [
+      "new scientific review",
+      "new oracle/MD/HPC/SSH execution",
+      "new model training",
+      "candidate solve"
+    ]
+  }
+}

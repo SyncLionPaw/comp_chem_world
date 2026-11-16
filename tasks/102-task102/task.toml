@@ -1,0 +1,37 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-103"
+description = "Autonomous research on pressure-dependent 2H-MoS2 lattice dynamics, coupled elastic response, and the cited paper claims, using public sources discovered by the agent."
+
+[metadata]
+name = "case-07-md-mcm-experiment-reproduction"
+task_type = "holy_grail"
+execution_class = "local"
+qualification_status = "HARBOR_RUNTIME_VALIDATION_PENDING"
+
+[agent]
+timeout_sec = 7200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[agent_interface]
+reference_solution_provided = false

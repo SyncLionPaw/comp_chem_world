@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/bias_grid.csv", "/app/diagnostics.csv", "/app/analysis.py", "/app/analysis.md", "/app/code", "/app/decision_certificate.json"]
+
+[task]
+name = "compchemworld/case-03-cha-metad-bias"
+description = "Reconstruct the accumulated bias and collective-variable derivatives of two ordinary CHA metadynamics histories from their native HILLS, COLVAR and PLUMED inputs using the source kernel conventions, and audit printing, time-alignment and grid-resolution differences against the native observations. Deliver coarse and twice-refined bias grids, complete per-row diagnostics and a decision certificate covering the grid-spacing and alignment-loss sensitivity family, without running PLUMED or MD."
+
+[metadata]
+name = "case-03-cha-metad-bias"
+description = "Reconstruct the accumulated bias and collective-variable derivatives of two ordinary CHA metadynamics histories from their native HILLS, COLVAR and PLUMED inputs using the source kernel conventions, and audit printing, time-alignment and grid-resolution differences against the native observations. Deliver coarse and twice-refined bias grids, complete per-row diagnostics and a decision certificate covering the grid-spacing and alignment-loss sensitivity family, without running PLUMED or MD."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 4096
+build_timeout_sec = 2400
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 4096
+build_timeout_sec = 2400
+network_mode = "no-network"

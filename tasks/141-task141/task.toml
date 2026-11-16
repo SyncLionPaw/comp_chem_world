@@ -1,0 +1,63 @@
+schema_version = "1.4"
+artifacts = [ "/app/final",]
+
+[task]
+name = "compchemworld/case-04-saddle-search"
+description = "有限预算下的全 Hessian 与准牛顿搜索比较"
+
+[agent]
+timeout_sec = 2700
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1200
+environment_mode = "separate"
+network_mode = "public"
+
+[verifier.env]
+API_KEY = "${API_KEY:-}"
+BASE_URL = "${BASE_URL:-}"
+HTTPS_PROXY = ""
+https_proxy = ""
+HTTP_PROXY = ""
+http_proxy = ""
+ALL_PROXY = ""
+all_proxy = ""
+NO_PROXY = ""
+no_proxy = ""
+
+[environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "public"
+
+[metadata]
+name = "case-04-saddle-search"
+title = "有限预算下的全 Hessian 与准牛顿搜索比较"
+[[metadata.source_hashes]]
+path = "environment/assets/case04_initial_guesses_001_079.extxyz"
+sha256 = "a7e8abaa64bae363e5859244d78a1c0372e28ef6e382b1c1e0dc9fcfbf5a8590"
+
+[[metadata.source_hashes]]
+path = "environment/assets/best_model_state.tar"
+sha256 = "a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3"
+
+[[metadata.source_hashes]]
+path = "environment/assets/newtonnet_model_spec.yml"
+sha256 = "eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf"
+
+[[metadata.source_hashes]]
+path = "environment/assets/protocol.json"
+sha256 = "25f112314af07aa72abc21db07c8bdfe3e4e3141a03ded258f92f3aecb263177"
+
+[[metadata.source_hashes]]
+path = "environment/assets/output-contract.json"
+sha256 = "da794314017b4d7d8fdb909d889b07e34125cd8ae260f26547e7163545530ce9"
+

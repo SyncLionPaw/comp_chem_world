@@ -1,0 +1,38 @@
+schema_version = "1.4"
+artifacts = ["/app/outputs"]
+
+[task]
+name = "compchemworld/bench24-task-158"
+description = "SiO 热处理结晶动力学联判"
+
+[metadata]
+case_id = "case-04"
+execution_class = "local"
+reference_solution_required = true
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+workdir = "/app"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.env]
+APP = "/app"
+TESTS = "/tests"
+LOGS = "/logs/verifier"

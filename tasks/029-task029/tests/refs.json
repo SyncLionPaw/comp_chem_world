@@ -1,0 +1,327 @@
+{
+  "case_id": "case-01-sans",
+  "asset_hashes": {
+    "assets/sans.csv": "sha256:3df80bfe0e1675002788126a1cef6f87287fcdd08bd4aa8fd0a22175955d428a"
+  },
+  "source_provenance": [
+    {
+      "path": "environment/assets/sans.csv",
+      "source_path": "inputs/sans.csv",
+      "sha256": "3df80bfe0e1675002788126a1cef6f87287fcdd08bd4aa8fd0a22175955d428a"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "analysis_deliverables",
+      "level": "L1",
+      "necessary": true,
+      "description": "提交峰位置、诊断序列、分析代码和科学报告。"
+    },
+    {
+      "criterion": "valid_spectral_analysis",
+      "level": "L2",
+      "necessary": true,
+      "description": "实际分析所给带误差曲线，重放方法与诊断匹配。"
+    },
+    {
+      "criterion": "robust_lengths",
+      "level": "L3",
+      "necessary": true,
+      "description": "可靠结构对应约 55 Å 和 77 Å；允许经不确定度支持的等价峰模型，不对低 q 噪声硬指派。",
+      "verification_basis": {
+        "type": "paper_result",
+        "source": "docs/41467_2024_47602_MOESM1_ESM.pdf; main Fig.1e",
+        "rationale": "可靠结构对应约 55 Å 和 77 Å；允许经不确定度支持的等价峰模型，不对低 q 噪声硬指派。"
+      }
+    },
+    {
+      "criterion": "form_structure_distinction",
+      "level": "L3",
+      "necessary": true,
+      "description": "I(q) 包含形状与结构贡献；150 mM 实验和 20 mM 模型不能要求逐峰严格吻合。",
+      "verification_basis": {
+        "type": "paper_result",
+        "source": "Main Results network fluids and Methods",
+        "rationale": "I(q) 包含形状与结构贡献；150 mM 实验和 20 mM 模型不能要求逐峰严格吻合。"
+      }
+    }
+  ],
+  "coverage": "COMPLETE",
+  "missing_inputs": [],
+  "implementation": "implemented",
+  "grading_mode": "deterministic_checks_and_evaluator_controlled_scientific_review",
+  "rubric": {
+    "schema_version": "local-science-rubric/v1",
+    "case_id": "case-01-sans",
+    "criteria": {
+      "analysis_deliverables": "检查全部产物与诊断数据；峰和方法字段不可缺省。",
+      "valid_spectral_analysis": "审查代码与数据来源、背景/峰模型、测量误差权重；重放应生成相同数值。",
+      "robust_lengths": "依据原曲线和 SI Fig.2 评估约 55/77 Å 的两处可靠特征。允许合理峰模型产生有据可查的数 Å 差别；区分峰形宽度、采样分辨率、参数 CI 与模型系统误差。不能仅凭宽区间包含论文数字通过，不能从低 q 噪声强指派。",
+      "form_structure_distinction": "报告必须正确区分形状因子、结构因子、背景与 I(q)，保留 150 mM 实验/20 mM 模型区别。"
+    },
+    "assessment_policy": "每项必要判据必须由评测阶段控制的审查逐项给出 PASS/FAIL、理由、提交文件 SHA-256 和真实引文。审查不能从字符串命中或文件存在推断科学正确。允许科学等价方法；不得用作者模板或唯一参数作为唯一 Gold。",
+    "trusted_stage": "Assessment/replay 路径由评测器提供，不能来自 Agent final/。执行候选代码必须在不含 tests、solution、Gold 或评测凭据的隔离数据环境；verify.py 本身不执行候选代码。",
+    "verification_basis": {
+      "analysis_deliverables": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "valid_spectral_analysis": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "robust_lengths": {
+        "type": "paper_result",
+        "source": "docs/41467_2024_47602_MOESM1_ESM.pdf; main Fig.1e",
+        "rationale": "可靠结构对应约 55 Å 和 77 Å；允许经不确定度支持的等价峰模型，不对低 q 噪声硬指派。"
+      },
+      "form_structure_distinction": {
+        "type": "paper_result",
+        "source": "Main Results network fluids and Methods",
+        "rationale": "I(q) 包含形状与结构贡献；150 mM 实验和 20 mM 模型不能要求逐峰严格吻合。"
+      }
+    },
+    "reference_precision": "自动 close 的 1e-5 相对/1e-7 绝对容差仅用于浮点序列化与重放一致性，不是科学接受阈值。科学容差、模型/窗口与不确定度由逐项有依据审查决定。"
+  },
+  "approvals": [
+    {
+      "schema": "bench05-local-oracle-approval/v1",
+      "case_id": "case-01-sans",
+      "policy_sha256": "8a53aebfb5be62e7cf89b93f6ea3280c1574b9f0a4f4fe8cc413563b4dac3b69",
+      "verifier_sha256": "4fd6c37c9bfe21bbfceca6ab4a803be390212e33753c19e567b8c02549a63f71",
+      "test_entry_sha256": "2c34b04a6f62cc728ce4e6c3671ac2e6daaa042af6addc72ea65e8ae37fd4e26",
+      "submission_files": {
+        "analysis.py": "49e775a74bb667571dc296fd8a8753a25b7f3513ea8b7f51e4784f627f926701",
+        "report.md": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+        "diagnostics.csv": "50155079c17a1c80a7a2d89df67c3fe86781e80665bc6019da43c0981bfacfd4",
+        "peaks.json": "ffd7467d1fa003d9d82ec75cc3150c48bb8e1d5f4be182dcb0237bd756d8a9ff"
+      },
+      "reviewer": {
+        "id": "Sol6.1-medium /root/sol_strict_layout",
+        "role": "independent scientific and verification reviewer; not implementer"
+      },
+      "reviewed_at": "2026-10-27T03:06:35Z",
+      "preflight": {
+        "evaluation_stage_controlled": true,
+        "references_reviewed": true,
+        "execution_and_code_reviewed": true,
+        "method_neutrality_checked": true
+      },
+      "replay": {
+        "execution_id": "bench05-layout-task29-isolated-data-only-replay-04",
+        "image_id": "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--pull=never",
+          "--network",
+          "none",
+          "--cpus",
+          "2",
+          "--memory",
+          "4096m",
+          "--user",
+          "65534:65534",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task29/environment/assets/sans.csv:/input/sans.csv:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/oracle-02/final/analysis.py:/source/analysis.py:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/replay-04/output:/app/replay-output",
+          "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+          "/opt/netfluids/bin/python",
+          "/source/analysis.py",
+          "--input-dir",
+          "/input",
+          "--output-dir",
+          "/app/replay-output"
+        ],
+        "exit_code": 0,
+        "analysis_sha256": "49e775a74bb667571dc296fd8a8753a25b7f3513ea8b7f51e4784f627f926701",
+        "input_hashes": {
+          "assets/sans.csv": "sha256:3df80bfe0e1675002788126a1cef6f87287fcdd08bd4aa8fd0a22175955d428a"
+        },
+        "submission_files": {
+          "analysis.py": "49e775a74bb667571dc296fd8a8753a25b7f3513ea8b7f51e4784f627f926701",
+          "report.md": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+          "diagnostics.csv": "50155079c17a1c80a7a2d89df67c3fe86781e80665bc6019da43c0981bfacfd4",
+          "peaks.json": "ffd7467d1fa003d9d82ec75cc3150c48bb8e1d5f4be182dcb0237bd756d8a9ff"
+        },
+        "output_files": {
+          "diagnostics.csv": "50155079c17a1c80a7a2d89df67c3fe86781e80665bc6019da43c0981bfacfd4",
+          "peaks.json": "ffd7467d1fa003d9d82ec75cc3150c48bb8e1d5f4be182dcb0237bd756d8a9ff",
+          "report.md": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919"
+        },
+        "isolation": "isolated_data_only_runtime"
+      },
+      "judgments": {
+        "analysis_deliverables": {
+          "verdict": "PASS",
+          "rationale": "独立检查完整的140个输入q bin、diagnostics、非空两峰JSON、只使用公开sans.csv的可重现代码及科学报告；数值checker逐bin验证原强度、背景扣除、q区间及2π/q单位换算。",
+          "evidence": [
+            {
+              "path": "analysis.py",
+              "sha256": "49e775a74bb667571dc296fd8a8753a25b7f3513ea8b7f51e4784f627f926701",
+              "quote": "raw = read(assets / 'sans.csv')"
+            },
+            {
+              "path": "report.md",
+              "sha256": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+              "quote": "仅分析给定的单次实验曲线，采用误差加权的幂律背景与两个 Gaussian 特征。"
+            }
+          ]
+        },
+        "valid_spectral_analysis": {
+          "verdict": "PASS",
+          "rationale": "独立读代码确认使用原measurement error作为curve_fit sigma，三个有明确记录的q窗口、九参数幂律背景+双Gaussian模型；当前固定镜像实际运行和独立数据隔离重放使用完全同一analysis.py字节，数值与报告重放逐字节相同。报告承认reduced chi-square约8.78说明模型失配，未把形式协方差等同总不确定度。",
+          "evidence": [
+            {
+              "path": "analysis.py",
+              "sha256": "49e775a74bb667571dc296fd8a8753a25b7f3513ea8b7f51e4784f627f926701",
+              "quote": "params, covariance = curve_fit(model,q[keep],y[keep],sigma=error[keep],absolute_sigma=True,"
+            },
+            {
+              "path": "report.md",
+              "sha256": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+              "quote": "误差权重只描述测量误差，模型 reduced chi-square 约 8.78，提示模型失配，不能将很小的形式协方差直接作为总科学不确定度。"
+            }
+          ]
+        },
+        "robust_lengths": {
+          "verdict": "PASS",
+          "rationale": "当前解给出q=0.0803416/0.1091897 Å^-1，对应78.2059/57.5437 Å；三窗口中心范围分别0.0802189–0.0804737和0.1091652–0.1091897。另独立用未扣背景原曲线的5/7/9/11点Savitzky–Golay平滑检查局部极大位置，稳定得到约0.079–0.0799与0.108 Å^-1，两特征有实际数据支持，非仅靠宽区间包含论文数字。对论文近似77/55Å的数Å模型偏差、分辨率/model bound非校准CI及低q不可唯一指派均明确限定。参考主文p2/Fig1e、SI Fig2及SANS sample表。",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+              "quote": "78.21 Å 和 57.54 Å。相对发表的约 77 Å 和 55 Å，这一峰模型存在数 Å 的系统差别；不宣称逐位重现。"
+            },
+            {
+              "path": "report.md",
+              "sha256": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+              "quote": "两处数据特征在窗口调整后保持，定位范围覆盖发表的近似长度。边界为误差模型、窗口差别与两个相邻 q-bin 宽度形成的保守分辨率范围，不是置信水平已校准的 CI。"
+            },
+            {
+              "path": "report.md",
+              "sha256": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+              "quote": "低 q 数据不支持唯一可靠峰指派，不能用所有波动构造额外结构。"
+            }
+          ]
+        },
+        "form_structure_distinction": {
+          "verdict": "PASS",
+          "rationale": "报告正确区分形状因子、结构因子、背景及测量I(q)，明确实验150mM与原子Monte Carlo20mM差异且本题未提供RDF，所以不做数值峰匹配。已读主文对两种盐浓度及CG参数来源导致不完全吻合的解释和SI SANS样品表，报告与之相容。",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919",
+              "quote": "I(q) 同时包含形状因子与结构因子及背景，不能直接写成 S(q)=I(q)。150 mM NaCl SANS 数据是本题唯一散射输入；论文中的 20 mM ABSINTH 原子级 Monte Carlo 计算是独立参考，并非本题提供的 RDF 输入，因此不作 SANS 与 RDF 的数值峰匹配。"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "oracle_execution_id": "bench05-layout-task29-oracle-20261027-02",
+        "solve_sha256": "e72e193592ff3bf4abce869c4e5f1d474aa13f2b087baea222115222b1c656c4",
+        "docker_evidence_sha256": "8a6879488665e93640cfc9ebd30ec7bc18592a41150abae4b49240580186c1ed",
+        "docker_evidence_path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/docker-evidence-replay-04.json",
+        "raw_evidence": {
+          "oracle": {
+            "argv_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/oracle-02/argv.json",
+            "argv_sha256": "c68d818d805ca7bb153e6fe52c5df23bf1cded1dd99763e66674a23cfe49af37",
+            "stdout_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/oracle-02/stdout.log",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/oracle-02/stderr.log",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "exit_code_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/oracle-02/exit-code",
+            "exit_code": 0,
+            "input_binding_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/oracle-02/input-binding.json",
+            "input_binding_sha256": "0e10d4c3e2f203ecaa4474bacfbe10299764a2d8a55583c431603a249ec01fb2",
+            "submission_files": {
+              "analysis.py": "49e775a74bb667571dc296fd8a8753a25b7f3513ea8b7f51e4784f627f926701",
+              "diagnostics.csv": "50155079c17a1c80a7a2d89df67c3fe86781e80665bc6019da43c0981bfacfd4",
+              "peaks.json": "ffd7467d1fa003d9d82ec75cc3150c48bb8e1d5f4be182dcb0237bd756d8a9ff",
+              "report.md": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919"
+            }
+          },
+          "replay": {
+            "argv_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/replay-04/argv.json",
+            "argv_sha256": "f174c52c0cfebd0834bc8d90ef664affa12be3d0ff8aaa41cd1de3cec7693c0a",
+            "stdout_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/replay-04/stdout.log",
+            "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "stderr_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/replay-04/stderr.log",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "exit_code_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/replay-04/exit-code",
+            "exit_code": 0,
+            "input_binding_file": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/replay-04/input-binding.json",
+            "input_binding_sha256": "0fa416ad7d9a78f7c0bd01f31bae387992a914cf6121f584fc067234019fbdfd",
+            "analysis_sha256": "49e775a74bb667571dc296fd8a8753a25b7f3513ea8b7f51e4784f627f926701",
+            "input_hashes": {
+              "assets/sans.csv": "sha256:3df80bfe0e1675002788126a1cef6f87287fcdd08bd4aa8fd0a22175955d428a"
+            },
+            "output_files": {
+              "diagnostics.csv": "50155079c17a1c80a7a2d89df67c3fe86781e80665bc6019da43c0981bfacfd4",
+              "peaks.json": "ffd7467d1fa003d9d82ec75cc3150c48bb8e1d5f4be182dcb0237bd756d8a9ff",
+              "report.md": "28d71b8405549eec48bd53d8110531c64de999f278247fe06d3928c9c5b61919"
+            }
+          }
+        },
+        "independent_source_equivalence": "/private/tmp/bench05-strict-layout-20261027/sol/task29-source-equivalence.json",
+        "independent_curve_check": "/private/tmp/bench05-strict-layout-20261027/sol/task29-independent-curve-inspection.json",
+        "reviewed_references": [
+          {
+            "path": "acceptance/layout-migration-20261027/task29/original-tree/tests/evidence/paper.pdf",
+            "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040",
+            "sections": "Main p2 Results/Fig1e; model salt dependence paragraph"
+          },
+          {
+            "path": "acceptance/layout-migration-20261027/task29/original-tree/tests/evidence/supplementary.pdf",
+            "sha256": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e",
+            "sections": "SI p3 Fig2 and pp16–18 SANS sample/data reduction table"
+          }
+        ],
+        "scope": "Current staged source and exact current Oracle output; does not reissue or modify historical receipts. No fresh Docker build claimed because Dockerfile/public assets unchanged."
+      }
+    }
+  ],
+  "policy_sha256": "8a53aebfb5be62e7cf89b93f6ea3280c1574b9f0a4f4fe8cc413563b4dac3b69",
+  "schema": "bench05-local-science-refs/v2",
+  "reference_sources": [
+    {
+      "path": "tests/evidence/paper.pdf",
+      "source": "docs/41467_2024_47602_MOESM1_ESM.pdf; main article reference",
+      "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040"
+    },
+    {
+      "path": "tests/evidence/supplementary.pdf",
+      "source": "docs/41467_2024_47602_MOESM1_ESM.pdf; supplementary information",
+      "sha256": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e"
+    }
+  ],
+  "historical_receipt_provenance": [
+    {
+      "original_path": "tests/approved/author-reference/assessment.json",
+      "sha256": "189e26e685029e38c4df22abae2740cbb6c5111bbd4ffd93b5788d91a5270b56",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/approved/author-reference/replay.json",
+      "sha256": "bfc6ed142b468f911ba62a4bd9ab785ffdf61367499611733cce866193502ab4",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/approved/current-20261027-salt-context/assessment.json",
+      "sha256": "25a359d70db3cd8b4a8f91abbbd008297ac09c557922164f9e78143edef68212",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/approved/current-20261027-salt-context/replay.json",
+      "sha256": "5d3173acbed2065515eb11f955f208bbd2b2df41951daff1a829efc1f66f1b16",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/rubric.json",
+      "sha256": "25b199e2d57f7920fd902c528d7f3f082b2118fb037a3d02abe3c28d723cd131",
+      "use": "original byte digest; current canonical rubric digest is computed from refs.rubric"
+    }
+  ]
+}

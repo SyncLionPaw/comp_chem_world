@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/path.traj", "/app/profile.csv", "/app/convergence.json", "/app/native", "/app/analysis.md"]
+
+[task]
+name = "compchemworld/case-02-nnp-path-convergence"
+description = "Independently optimize the O1 and O4 endpoints of the O1-to-O4 proton hop in dry FAU zeolite with the designated SiAlOH1 neural-network potential, run CI-NEB with tightening and image-refinement stages, and check path connectivity, projected-residual termination and independent energy-force derivatives. Report forward/reverse barriers and the reaction energy on a consistent endpoint energy gauge, retaining native optimization histories and derivative samples under native/."
+
+[metadata]
+name = "case-02-nnp-path-convergence"
+description = "Independently optimize the O1 and O4 endpoints of the O1-to-O4 proton hop in dry FAU zeolite with the designated SiAlOH1 neural-network potential, run CI-NEB with tightening and image-refinement stages, and check path connectivity, projected-residual termination and independent energy-force derivatives. Report forward/reverse barriers and the reaction energy on a consistent endpoint energy gauge, retaining native optimization histories and derivative samples under native/."
+execution_class = "local"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 259200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 10800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 2400
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 2400
+network_mode = "no-network"

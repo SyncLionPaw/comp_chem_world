@@ -1,0 +1,10 @@
+{
+  "schema": "bench22-inputs/v1",
+  "inputs": {
+    "benchmark.json": "4735d1cbbaddc9fe0b7f6f5b6861a6f713776380e4bdc0e6f4f1a75c98635d24"
+  },
+  "acceptance": {
+    "rtol": 2e-07,
+    "atol": 2e-07
+  }
+}

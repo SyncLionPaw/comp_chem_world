@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = [{ source = "/app/final", destination = "final" }]
+
+[task]
+name = "compchemworld/hsp60-case-04-post-hydrolysis"
+description = "Analyze the supplied measurements of ring-pocket opening and apical-domain recovery after ATP hydrolysis."
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[metadata]
+case_id = "case-04-post-hydrolysis"
+task_number = 73
+title = "ATP 水解后双环口袋打开与顶端回落"

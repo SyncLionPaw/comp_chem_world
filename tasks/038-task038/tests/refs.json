@@ -1,0 +1,94 @@
+{
+  "asset_hashes": {
+    "assets/kinetics.json": "sha256:88aefc2c5dfdf8667e58bf3f1e9d37768f1921008344d5ecfb5077da4457596d"
+  },
+  "source_documents": {
+    "docs/Qin 等 - 2023 - Cation-induced changes in the inner- and outer-sphere mechanisms of electrocatalytic CO2 reduction.pdf": "9e7f9ba697b03e58932666bcece864599f17f77512d5754de392fa9a501639e9",
+    "docs/41467_2023_43300_MOESM1_ESM.pdf": "06557bce238f7ca373646a992cf8d087126852eb5ab4817ad3ace698f533cfb9"
+  },
+  "runtime_bound": true,
+  "coverage": "COMPLETE",
+  "implementation": "implemented",
+  "mode": "potential",
+  "required": [
+    "robustness.json",
+    "analysis.py",
+    "report.md"
+  ],
+  "case_id": "case-03-potential",
+  "evidence_files": {
+    "verify.py": "965ddad7aba9df490467306b1915d31fa4d828fa9b02fe4425726ac5454622ac"
+  },
+  "reference": {
+    "numeric": {
+      "K_vs_water_OS_log10_rate": -28.89472826259074,
+      "K_IS_vs_OS_log10_rate": 38.97428463326193,
+      "water_fermi_shift_eV": 0.08000000000000007,
+      "K_fermi_shift_eV": -0.27999999999999936,
+      "OS_barrier_gap_lower_eV": 1.54,
+      "K_pathway_gap_lower_eV": 2.04
+    },
+    "claims": {
+      "K_slower_OS_than_water": {
+        "verdict": "conditional",
+        "evidence": [
+          "result:/OS_barrier_gap_lower_eV",
+          "input:/assumptions/0",
+          "input:/assumptions/1"
+        ],
+        "scope": "specified_equal_prefactor_and_barrier_bounds"
+      },
+      "K_IS_faster_than_K_OS": {
+        "verdict": "conditional",
+        "evidence": [
+          "result:/K_pathway_gap_lower_eV",
+          "input:/assumptions/0",
+          "input:/assumptions/1"
+        ],
+        "scope": "specified_equal_prefactor_and_barrier_bounds"
+      },
+      "fermi_spread_is_SEM": {
+        "verdict": "not_established",
+        "evidence": [
+          "input:/fermi_levels_eV",
+          "input:/not_provided/0"
+        ],
+        "scope": "missing_effective_sample_count"
+      },
+      "strict_constant_electrode_potential": {
+        "verdict": "not_established",
+        "evidence": [
+          "result:/water_fermi_shift_eV",
+          "result:/K_fermi_shift_eV",
+          "input:/not_provided/1"
+        ],
+        "scope": "Fermi_is_not_electrode_inner_potential"
+      },
+      "barrier_bounds_are_measured_uncertainty": {
+        "verdict": "not_established",
+        "evidence": [
+          "input:/assumptions/1",
+          "input:/not_provided/2"
+        ],
+        "scope": "conditional_sensitivity_only"
+      },
+      "experimental_TOF_determined": {
+        "verdict": "not_established",
+        "evidence": [
+          "input:/assumptions/0",
+          "input:/barriers_eV"
+        ],
+        "scope": "relative_model_rates_not_measured_TOF"
+      },
+      "short_range_causality_proven": {
+        "verdict": "not_established",
+        "evidence": [
+          "input:/not_provided/1",
+          "input:/not_provided/2"
+        ],
+        "scope": "kinetic_ordering_not_causal_control"
+      }
+    },
+    "provenance": "frozen conditional bounds and actual acquired published input; claims are based on SI S.1.2 and missing measurements"
+  }
+}

@@ -1,0 +1,37 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = [
+  "/app/reranking_summary.json",
+  "/app/statistical_significance.json",
+]
+
+[task]
+name = "compchemworld/case-04-multi-target-pose-reranking"
+description = "Rerank docking poses across four kinase targets by combining OpenBPMD CompScore summaries with the initial induced-fit docking scores, check top-pose consistency with the crystal-reference RMSD cutoffs, reproduce the published Wilcoxon signed-rank comparison against the reported Figure S1 constants, and report the reranking summary together with the paired statistical significance of the score differences."
+
+[metadata]
+name = "case-04-multi-target-pose-reranking"
+description = "Rerank docking poses across four kinase targets by combining OpenBPMD CompScore summaries with the initial induced-fit docking scores, check top-pose consistency with the crystal-reference RMSD cutoffs, reproduce the published Wilcoxon signed-rank comparison against the reported Figure S1 constants, and report the reranking summary together with the paired statistical significance of the score differences."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

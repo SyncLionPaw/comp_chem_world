@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The group concept &#8212; GROMACS 2022.6 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Molecular Dynamics" href="molecular-dynamics.html" />
+    <link rel="prev" title="Periodic boundary conditions" href="periodic-boundary-conditions.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="molecular-dynamics.html" title="Molecular Dynamics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="periodic-boundary-conditions.html" title="Periodic boundary conditions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GROMACS 2022.6</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../algorithms.html" accesskey="U">Algorithms</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The group concept</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="the-group-concept">
+<span id="groupconcept"></span><h1>The group concept<a class="headerlink" href="#the-group-concept" title="Permalink to this headline">¶</a></h1>
+<p>The GROMACS MD and analysis programs use user-defined <em>groups</em> of atoms
+to perform certain actions on. The maximum number of groups is 256, but
+each atom can only belong to six different groups, one each of the
+following:</p>
+<dl class="simple">
+<dt>temperature-coupling group</dt><dd><p>The temperature coupling parameters (reference temperature, time
+constant, number of degrees of freedom, see <a class="reference internal" href="molecular-dynamics.html#update"><span class="std std-ref">The leap-frog integrator</span></a>) can be
+defined for each T-coupling group separately. For example, in a
+solvated macromolecule the solvent (that tends to generate more
+heating by force and integration errors) can be coupled with a
+shorter time constant to a bath than is a macromolecule, or a
+surface can be kept cooler than an adsorbing molecule. Many
+different T-coupling groups may be defined. See also center of mass
+groups below.</p>
+</dd>
+</dl>
+<p>freeze group</p>
+<blockquote>
+<div><p>Atoms that belong to a freeze group are kept stationary in the
+dynamics. This is useful during equilibration, <em>e.g.</em> to avoid badly
+placed solvent molecules giving unreasonable kicks to protein atoms,
+although the same effect can also be obtained by putting a
+restraining potential on the atoms that must be protected. The
+freeze option can be used, if desired, on just one or two
+coordinates of an atom, thereby freezing the atoms in a plane or on
+a line. When an atom is partially frozen, constraints will still be
+able to move it, even in a frozen direction. A fully frozen atom can
+not be moved by constraints. Many freeze groups can be defined.
+Frozen coordinates are unaffected by pressure scaling; in some cases
+this can produce unwanted results, particularly when constraints are
+also used (in this case you will get very large pressures).
+Accordingly, it is recommended to avoid combining freeze groups with
+constraints and pressure coupling. For the sake of equilibration it
+could suffice to start with freezing in a constant volume
+simulation, and afterward use position restraints in conjunction
+with constant pressure.</p>
+</div></blockquote>
+<p>accelerate group</p>
+<blockquote>
+<div><p>On each atom in an “accelerate group” an acceleration
+<span class="math notranslate nohighlight">\(\mathbf{a}^g\)</span> is imposed. This is equivalent to
+a mass-weighted external force. This feature makes it possible to
+drive the system into a non-equilibrium state to compute,
+for example, transport properties.</p>
+</div></blockquote>
+<p>energy-monitor group</p>
+<blockquote>
+<div><p>Mutual interactions between all energy-monitor groups are compiled
+during the simulation. This is done separately for Lennard-Jones and
+Coulomb terms. In principle up to 256 groups could be defined, but
+that would lead to 256<span class="math notranslate nohighlight">\(\times\)</span>256 items! Better use this
+concept sparingly.</p>
+<p>All non-bonded interactions between pairs of energy-monitor groups
+can be excluded (see details in the User Guide). Pairs of particles
+from excluded pairs of energy-monitor groups are not put into the
+pair list. This can result in a significant speedup for simulations
+where interactions within or between parts of the system are not
+required.</p>
+</div></blockquote>
+<p>center of mass group</p>
+<blockquote>
+<div><p>In GROMACS, the center of mass (COM) motion can be removed, for
+either the complete system or for groups of atoms. The latter is
+useful, <em>e.g.</em> for systems where there is limited friction (<em>e.g.</em>
+gas systems) to prevent center of mass motion to occur. It makes
+sense to use the same groups for temperature coupling and center of
+mass motion removal.</p>
+</div></blockquote>
+<p>Compressed position output group</p>
+<blockquote>
+<div><p>In order to further reduce the size of the compressed trajectory
+file (<a class="reference internal" href="../file-formats.html#xtc"><span class="std std-ref">xtc</span></a> or <a class="reference internal" href="../file-formats.html#tng"><span class="std std-ref">tng</span></a>), it is possible to
+store only a subset of all particles. All x-compression groups that
+are specified are saved, the rest are not. If no such groups are
+specified, than all atoms are saved to the compressed trajectory
+file.</p>
+</div></blockquote>
+<p>The use of groups in GROMACS tools is described in
+sec. <a class="reference internal" href="../analysis/using-groups.html#usinggroups"><span class="std std-ref">Using Groups</span></a>.</p>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="periodic-boundary-conditions.html"
+                        title="previous chapter">Periodic boundary conditions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="molecular-dynamics.html"
+                        title="next chapter">Molecular Dynamics</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference-manual/algorithms/group-concept.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="molecular-dynamics.html" title="Molecular Dynamics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="periodic-boundary-conditions.html" title="Periodic boundary conditions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">GROMACS 2022.6</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference Manual</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../algorithms.html" >Algorithms</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">The group concept</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2023, GROMACS development team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>

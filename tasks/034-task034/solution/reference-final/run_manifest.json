@@ -1,0 +1,70 @@
+{
+  "model_identity": "N130-rpL5 coarse-grained LAMMPS model, reduced 34-pentamer subsystem (34 pentamers + 495 rpL5 peptides, 15,589 beads)",
+  "intervention_identity": "A2 charge neutralization of atom types 33,34,35,37,39,40,41,42,43 plus self-LJ epsilon 0.25 kcal/mol, sigma 3.39 A, cutoff 8.47 A",
+  "protocol_rationale": "300 A periodic subsystem extracted from the author-equilibrated 50,328-bead configuration (34 pentamers + 495 rpL5 peptides); three independent velocity seeds per condition; 0.1 fs NVT at 300 K for 100 ps; production windows 2-10 ps WT and 3-10 ps A2; legacy quadratic convention reproduced exactly.",
+  "environment": {
+    "engine": "LAMMPS 2Aug2023_update4",
+    "image_id": "sha256:dbb0abb0c10a026e505fa936f446c514f4cb1fe60b64f0698421742ef2cb6424",
+    "units": "real",
+    "timestep_fs": 0.1,
+    "thermostat": "Nose-Hoover 300 K, 100 fs damping",
+    "initial_configuration_sha256": "3f73b5f37e9d9bb649d593a7ab5e71f0786f431599b2d998cc9481fc4b66ac42"
+  },
+  "provenance": [
+    {
+      "name": "AllSys.in.init",
+      "sha256": "4197061c705b8f560d143117da3aaecdc756fb5f4e73c5297c6217ab8fc03011"
+    },
+    {
+      "name": "N130_WT.in.settings",
+      "sha256": "6a6e4d7b282dd03746d1f4ecaf53a1ac6c0bf00af45906faf057950ad96f3c39"
+    },
+    {
+      "name": "WT.data",
+      "sha256": "067412acfbef775252cea4698d8a980b2006c785982eb3b587a473bfb4335c06"
+    },
+    {
+      "name": "methods.yaml",
+      "sha256": "f0debb74c272db7e79be14873c8cd1657917a42c77ba14b9fd6b84693ecc7d15"
+    }
+  ],
+  "analysis_replay": {
+    "argv": [
+      "python3",
+      "analysis.py"
+    ],
+    "inputs": [
+      "analysis.py",
+      "run_metadata.json",
+      "native/subsystem.data",
+      "native/wt_101.dump",
+      "native/wt_202.dump",
+      "native/wt_303.dump",
+      "native/a2_101.dump",
+      "native/a2_202.dump",
+      "native/a2_303.dump",
+      "native/log_wt_101.lammps",
+      "native/log_wt_202.lammps",
+      "native/log_wt_303.lammps",
+      "native/log_a2_101.lammps",
+      "native/log_a2_202.lammps",
+      "native/log_a2_303.lammps"
+    ],
+    "outputs": [
+      "analysis/pd_structure.csv",
+      "analysis/a2_rpl5_contacts.csv",
+      "analysis/interchain_rdf.csv",
+      "analysis/summary.json",
+      "analysis/diagnostics.json"
+    ],
+    "dependencies": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3"
+    },
+    "resources": {
+      "cpus": 1,
+      "memory_mb": 2048,
+      "wall_seconds": 300
+    }
+  }
+}

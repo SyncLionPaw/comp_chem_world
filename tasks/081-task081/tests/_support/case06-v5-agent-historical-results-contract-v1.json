@@ -1,0 +1,1165 @@
+{
+  "comparison_csv": {
+    "checker_representation_tolerance_pm": {
+      "ccsd_pm": 1e-09,
+      "computed_mean_pm": 0.02,
+      "delta_ccsd_pm": 0.02,
+      "delta_cp2k_pm": 0.02,
+      "published_cp2k_pm": 1e-09
+    },
+    "columns": [
+      {
+        "description": "One of M2, M3, M14, M19, M29.",
+        "name": "molecule",
+        "type": "string"
+      },
+      {
+        "description": "One of pbe0-tzvp, admm-tzvp-tzp, stda-pbe0-tzvp.",
+        "name": "route",
+        "type": "string"
+      },
+      {
+        "description": "Lowercase canonical bond label from tracked_rows (for example, c o).",
+        "name": "label",
+        "type": "string"
+      },
+      {
+        "formula": "mean of canonical symmetry-equivalent bond lengths from the manifest-bound selected XYZ endpoint.",
+        "name": "computed_mean_pm",
+        "type": "number",
+        "unit": "pm"
+      },
+      {
+        "formula": "the matching published method value in the SI; do not substitute a different method column.",
+        "name": "published_cp2k_pm",
+        "type": "number",
+        "unit": "pm"
+      },
+      {
+        "formula": "the matching published CCSD value in the SI.",
+        "name": "ccsd_pm",
+        "type": "number",
+        "unit": "pm"
+      },
+      {
+        "formula": "computed_mean_pm - published_cp2k_pm.",
+        "name": "delta_cp2k_pm",
+        "type": "number",
+        "unit": "pm"
+      },
+      {
+        "formula": "computed_mean_pm - ccsd_pm.",
+        "name": "delta_ccsd_pm",
+        "type": "number",
+        "unit": "pm"
+      }
+    ],
+    "delimiter": ",",
+    "encoding": "UTF-8",
+    "filename": "comparison.csv",
+    "number_format": "Finite decimal numbers in pm; no unit suffix in cells.",
+    "required_header_in_order": [
+      "molecule",
+      "route",
+      "label",
+      "computed_mean_pm",
+      "published_cp2k_pm",
+      "ccsd_pm",
+      "delta_cp2k_pm",
+      "delta_ccsd_pm"
+    ],
+    "row_count": 36,
+    "rows_must_match": "Exactly the tracked_comparison_rows identities; values are independently recomputed from the selected native trajectory endpoint and frozen SI references.",
+    "unique_key": [
+      "molecule",
+      "route",
+      "label"
+    ],
+    "reference_columns": {
+      "published_cp2k_pm": {
+        "pbe0-tzvp": "SI Table 3, conventional CP2K MOLOPT PBE0/TZVP column (PBE0|TZVP), paired by tracked molecule and bond label.",
+        "admm-tzvp-tzp": "SI Table 3, CP2K ADMM-PBE0/TZVP+tzp column (ADMM|TZVP+tzp), paired by tracked molecule and bond label.",
+        "stda-pbe0-tzvp": "SI Table 14, sTDA@PBE0/TZVP column (sTDA@PBE0|TZVP), paired by normalized molecule and bond label; the three M14 default targets are null and excluded."
+      },
+      "ccsd_pm": "SI Table 3 EOM-CCSD reference column (the same EOM-CCSD reference is paired to SI Table 14 rows by molecule and normalized bond label; do not use Table 14 method values for this column).",
+      "remedy": "M14 aEX=0.25 remedy is outside comparison.csv; its three geometry checks use the printed SI Table 14 footnote c parameter values."
+    },
+    "calculation_and_gate": {
+      "native_geometry": "Use the endpoint frame selected by the CP2K output/trajectory energy and optimizer-step closure check. For each canonical bond label, calculate Euclidean Cartesian distance in angstrom and multiply by 100 to obtain pm; symmetry-equivalent listed atom-pair distances are averaged arithmetically.",
+      "delta_definitions": {
+        "delta_cp2k_pm": "computed_mean_pm - published_cp2k_pm",
+        "delta_ccsd_pm": "computed_mean_pm - ccsd_pm"
+      },
+      "rowwise_geometry_gate": "The frozen empirical-3pm/v1 rule is applied to unrounded native endpoint coordinates: residual interval uses the SI printed half-unit 0.005 pm plus independently accounted author-coordinate and candidate-coordinate rounding uncertainty, subject to the frozen profile caps. The CSV display comparison tolerances below are not the scientific acceptance gate. The SI printed bond value carries a 0.005 pm half-unit; native coordinate precision is propagated separately from the actual XYZ endpoint tokens. This rowwise 3 pm gate is distinct from the 0.02 pm CSV display tolerance.",
+      "format_tolerances_are_not_scientific_gates": true
+    },
+    "native_distance_units": {
+      "xyz_coordinates": "angstrom (Å)",
+      "bond_distance_output": "picometer (pm)",
+      "conversion": "Euclidean distance in Å multiplied by 100"
+    }
+  },
+  "coordinate_order": {
+    "basis": "Canonical molecular atom order for candidate and Oracle native trajectory frames; candidate coordinates must come from the submitted route calculation.",
+    "canonical_bonds_zero_based": {
+      "M14": {
+        "c cl": [
+          [
+            0,
+            2
+          ]
+        ],
+        "c h": [
+          [
+            0,
+            3
+          ]
+        ],
+        "c o": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "M19": {
+        "c c": [
+          [
+            0,
+            2
+          ]
+        ],
+        "c hald": [
+          [
+            0,
+            3
+          ]
+        ],
+        "c o": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "M2": {
+        "c h": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "c o": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "M29": {
+        "c c": [
+          [
+            1,
+            2
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "c h": [
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            5
+          ]
+        ],
+        "c n": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            5,
+            0
+          ]
+        ]
+      },
+      "M3": {
+        "c h": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "c s": [
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    },
+    "species_by_molecule": {
+      "M14": [
+        "C",
+        "O",
+        "Cl",
+        "H"
+      ],
+      "M19": [
+        "C",
+        "O",
+        "C",
+        "H",
+        "H",
+        "H",
+        "H"
+      ],
+      "M2": [
+        "C",
+        "O",
+        "H",
+        "H"
+      ],
+      "M29": [
+        "N",
+        "C",
+        "C",
+        "N",
+        "C",
+        "C",
+        "H",
+        "H",
+        "H",
+        "H"
+      ],
+      "M3": [
+        "C",
+        "S",
+        "H",
+        "H"
+      ]
+    },
+    "symmetry_rule": "For a label with multiple index pairs, calculate each listed distance in pm and report their arithmetic mean. The pairs are canonical atom indices.",
+    "canonical_bonds_zero_based_note": "Index pairs follow the fixed canonical atom order shown in species_by_molecule; they are measurement topology, not a supplied starting geometry.",
+    "coordinate_units": "XYZ input and CP2K trajectory Cartesian coordinates are in angstrom (Å); convert a Cartesian bond distance to pm by multiplying by 100."
+  },
+  "gold_measurements_included": false,
+  "purpose": "Public Agent analysis contract for source-pinned historical native CP2K records; no fresh calculation or scheduler claim.",
+  "report_md": {
+    "filename": "report.md",
+    "required_coordinate_provenance": "Describe the pinned public historical source correspondence and unknown launcher/scheduler metadata; do not imply fresh execution.",
+    "scope": "Do not claim a minimum, stationarity, or positive curvature; minimum and curvature are outside v5 assessment.",
+    "allowed_m14_default_classifications": [
+      "physical_dissociation",
+      "runtime_failure",
+      "launch_failure",
+      "oom",
+      "ordinary_nonconvergence",
+      "UNVERIFIED"
+    ],
+    "allowed_m14_remedy_classifications": [
+      "geometry_validated",
+      "failed",
+      "UNVERIFIED"
+    ],
+    "required_topics": [
+      "The 26 public historical native routes and how endpoints were selected.",
+      "The 36 non-null SI bond comparisons and the fixed empirical 3.0 pm interval rule.",
+      "The 13 paired PBE0/ADMM bond differences.",
+      "The native M14 default aEX=0.2 physical-dissociation assessment.",
+      "The three individual M14 aEX=0.25 remedy bond checks.",
+      "Historical execution limits and the exclusion of minimum/stationarity/curvature claims."
+    ],
+    "summary_linkage": "The scientific summary is independently recomputed from the native files; a duplicate report hash line is not required."
+  },
+  "route_inventory": {
+    "M14_default_sTDA": "No SI comparison row: its target is null; report its native classifier separately. The remedy is separately reported and is not one of the 36 comparison rows.",
+    "additional_route": "M14/ES/stda-pbe0-tzvp-aex0.25-remedy (outside the 25 baseline routes; total route records=26)",
+    "excited_state_additional_route": "stda-pbe0-tzvp",
+    "molecules": [
+      "M2",
+      "M3",
+      "M14",
+      "M19",
+      "M29"
+    ],
+    "ordinary_routes": [
+      "pbe0-tzvp",
+      "admm-tzvp-tzp"
+    ],
+    "record_count": 26,
+    "row_count": 36,
+    "tracked_comparison_rows": [
+      {
+        "label": "c cl",
+        "molecule": "M14",
+        "ref_id": "bond|ES|M14|c cl",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c cl",
+        "molecule": "M14",
+        "ref_id": "bond|ES|M14|c cl",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M14",
+        "ref_id": "bond|ES|M14|c h",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M14",
+        "ref_id": "bond|ES|M14|c h",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M14",
+        "ref_id": "bond|ES|M14|c o",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M14",
+        "ref_id": "bond|ES|M14|c o",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c c",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c c",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c c",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c c",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c c",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c c",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c hald",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c hald",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c hald",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c hald",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c hald",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c hald",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c o",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c o",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M19",
+        "ref_id": "bond|ES|M19|c o",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c c",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c c",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c c",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c c",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c c",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c c",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c h",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c h",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c h",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c n",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c n",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c n",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c n",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c n",
+        "molecule": "M29",
+        "ref_id": "bond|ES|M29|c n",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M2",
+        "ref_id": "bond|ES|M2|c h",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M2",
+        "ref_id": "bond|ES|M2|c h",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M2",
+        "ref_id": "bond|ES|M2|c h",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M2",
+        "ref_id": "bond|ES|M2|c o",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M2",
+        "ref_id": "bond|ES|M2|c o",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c o",
+        "molecule": "M2",
+        "ref_id": "bond|ES|M2|c o",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M3",
+        "ref_id": "bond|ES|M3|c h",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M3",
+        "ref_id": "bond|ES|M3|c h",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c h",
+        "molecule": "M3",
+        "ref_id": "bond|ES|M3|c h",
+        "route": "stda-pbe0-tzvp"
+      },
+      {
+        "label": "c s",
+        "molecule": "M3",
+        "ref_id": "bond|ES|M3|c s",
+        "route": "pbe0-tzvp"
+      },
+      {
+        "label": "c s",
+        "molecule": "M3",
+        "ref_id": "bond|ES|M3|c s",
+        "route": "admm-tzvp-tzp"
+      },
+      {
+        "label": "c s",
+        "molecule": "M3",
+        "ref_id": "bond|ES|M3|c s",
+        "route": "stda-pbe0-tzvp"
+      }
+    ],
+    "baseline_route_count": 25,
+    "remedy_route_count": 1,
+    "route_ids": [
+      "M14/ES/admm-tzvp-tzp",
+      "M14/ES/pbe0-tzvp",
+      "M14/ES/stda-pbe0-tzvp",
+      "M14/GS/admm-tzvp-tzp",
+      "M14/GS/pbe0-tzvp",
+      "M19/ES/admm-tzvp-tzp",
+      "M19/ES/pbe0-tzvp",
+      "M19/ES/stda-pbe0-tzvp",
+      "M19/GS/admm-tzvp-tzp",
+      "M19/GS/pbe0-tzvp",
+      "M2/ES/admm-tzvp-tzp",
+      "M2/ES/pbe0-tzvp",
+      "M2/ES/stda-pbe0-tzvp",
+      "M2/GS/admm-tzvp-tzp",
+      "M2/GS/pbe0-tzvp",
+      "M29/ES/admm-tzvp-tzp",
+      "M29/ES/pbe0-tzvp",
+      "M29/ES/stda-pbe0-tzvp",
+      "M29/GS/admm-tzvp-tzp",
+      "M29/GS/pbe0-tzvp",
+      "M3/ES/admm-tzvp-tzp",
+      "M3/ES/pbe0-tzvp",
+      "M3/ES/stda-pbe0-tzvp",
+      "M3/GS/admm-tzvp-tzp",
+      "M3/GS/pbe0-tzvp",
+      "M14/ES/stda-pbe0-tzvp-aex0.25-remedy"
+    ]
+  },
+  "schema": "case06-v5-agent-historical-results-contract/v1",
+  "scientific_summary_json": {
+    "canonical_output_from": "Derived from native route results and independently recomputed by the verifier.",
+    "decimal_serialization": "Summary statistic measurements are decimal strings with 9 fractional digits; counts are JSON integers. The checker compares parsed measurements within 5e-10 pm.",
+    "filename": "scientific-summary.json",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "admm_minus_pbe0": {
+          "additionalProperties": false,
+          "properties": {
+            "count": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "mae_pm": {
+              "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+              "type": "string"
+            },
+            "max_abs_pm": {
+              "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+              "type": "string"
+            },
+            "signed_mean_pm": {
+              "pattern": "^-?(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+              "type": "string"
+            },
+            "worst_ref_ids": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "count",
+            "signed_mean_pm",
+            "mae_pm",
+            "max_abs_pm",
+            "worst_ref_ids"
+          ],
+          "type": "object"
+        },
+        "m14": {
+          "additionalProperties": false,
+          "properties": {
+            "default": {
+              "additionalProperties": false,
+              "properties": {
+                "aex": {
+                  "const": 0.2
+                },
+                "comparison_target": {
+                  "const": "null_target_excluded"
+                },
+                "status": {
+                  "enum": [
+                    "physical_dissociation",
+                    "runtime_failure",
+                    "launch_failure",
+                    "oom",
+                    "ordinary_nonconvergence",
+                    "UNVERIFIED"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "aex",
+                "comparison_target"
+              ],
+              "type": "object"
+            },
+            "remedy": {
+              "additionalProperties": false,
+              "properties": {
+                "aex": {
+                  "const": 0.25
+                },
+                "route": {
+                  "const": "M14/ES/stda-pbe0-tzvp-aex0.25-remedy"
+                },
+                "status": {
+                  "enum": [
+                    "geometry_validated",
+                    "failed",
+                    "UNVERIFIED"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "route",
+                "aex"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "default",
+            "remedy"
+          ],
+          "type": "object"
+        },
+        "methods": {
+          "additionalProperties": false,
+          "properties": {
+            "admm-tzvp-tzp": {
+              "additionalProperties": false,
+              "properties": {
+                "published_method_column": {
+                  "const": "ADMM|TZVP+tzp"
+                },
+                "same_method_paper_residual": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "mae_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "max_abs_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "signed_mean_pm": {
+                      "pattern": "^-?(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "worst_ref_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "signed_mean_pm",
+                    "mae_pm",
+                    "max_abs_pm",
+                    "worst_ref_ids"
+                  ],
+                  "type": "object"
+                },
+                "vs_eom_ccsd": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "mae_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "max_abs_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "signed_mean_pm": {
+                      "pattern": "^-?(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "worst_ref_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "signed_mean_pm",
+                    "mae_pm",
+                    "max_abs_pm",
+                    "worst_ref_ids"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "published_method_column",
+                "vs_eom_ccsd",
+                "same_method_paper_residual"
+              ],
+              "type": "object"
+            },
+            "pbe0-tzvp": {
+              "additionalProperties": false,
+              "properties": {
+                "published_method_column": {
+                  "const": "PBE0|TZVP"
+                },
+                "same_method_paper_residual": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "mae_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "max_abs_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "signed_mean_pm": {
+                      "pattern": "^-?(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "worst_ref_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "signed_mean_pm",
+                    "mae_pm",
+                    "max_abs_pm",
+                    "worst_ref_ids"
+                  ],
+                  "type": "object"
+                },
+                "vs_eom_ccsd": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "mae_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "max_abs_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "signed_mean_pm": {
+                      "pattern": "^-?(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "worst_ref_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "signed_mean_pm",
+                    "mae_pm",
+                    "max_abs_pm",
+                    "worst_ref_ids"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "published_method_column",
+                "vs_eom_ccsd",
+                "same_method_paper_residual"
+              ],
+              "type": "object"
+            },
+            "stda-pbe0-tzvp": {
+              "additionalProperties": false,
+              "properties": {
+                "published_method_column": {
+                  "const": "sTDA@PBE0|TZVP"
+                },
+                "same_method_paper_residual": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "mae_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "max_abs_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "signed_mean_pm": {
+                      "pattern": "^-?(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "worst_ref_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "signed_mean_pm",
+                    "mae_pm",
+                    "max_abs_pm",
+                    "worst_ref_ids"
+                  ],
+                  "type": "object"
+                },
+                "vs_eom_ccsd": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "count": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "mae_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "max_abs_pm": {
+                      "pattern": "^(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "signed_mean_pm": {
+                      "pattern": "^-?(?:0|[1-9][0-9]*)\\.[0-9]{9}$",
+                      "type": "string"
+                    },
+                    "worst_ref_ids": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array",
+                      "uniqueItems": true
+                    }
+                  },
+                  "required": [
+                    "count",
+                    "signed_mean_pm",
+                    "mae_pm",
+                    "max_abs_pm",
+                    "worst_ref_ids"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "published_method_column",
+                "vs_eom_ccsd",
+                "same_method_paper_residual"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "pbe0-tzvp",
+            "admm-tzvp-tzp",
+            "stda-pbe0-tzvp"
+          ],
+          "type": "object"
+        },
+        "minimum_status": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "const": "OUT_OF_SCOPE_FOR_V3"
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "const": "not_assessed"
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "status": {
+                  "const": "not-assessed"
+                }
+              },
+              "required": [
+                "status"
+              ],
+              "type": "object"
+            }
+          ],
+          "description": "Optional. If absent or marked not_assessed, the verifier records that minimum and curvature are outside scope. No additional claims are accepted."
+        },
+        "schema": {
+          "const": "case06-scientific-summary/v1"
+        },
+        "summary_basis": {
+          "const": {
+            "aggregation": "tracked-SI-bond-rows/equal-weight-after-symmetry-means",
+            "interpretation": "aggregates are descriptive; only rowwise reviewed policy gates reward",
+            "m14_default_stda": "null target excluded; remedy reported separately",
+            "method_counts": {
+              "ADMM|TZVP+tzp": 13,
+              "PBE0|TZVP": 13,
+              "sTDA@PBE0|TZVP": 10
+            },
+            "scope": "five tracked case06 molecules, not the full paper dataset",
+            "source": "checker-recomputed from native final XYZ and frozen tests/refs.json",
+            "tracked_rows": 13
+          }
+        },
+        "units": {
+          "const": {
+            "bond_length": "pm",
+            "signed_delta": "candidate minus reference"
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "units",
+        "summary_basis",
+        "methods",
+        "admm_minus_pbe0",
+        "m14"
+      ],
+      "type": "object"
+    },
+    "calculation_rules": {
+      "input": "Recompute all quantities from the pinned public historical native members and the paper/SI targets; do not copy or trust candidate aggregates.",
+      "row_scope": "Only ES bond reference items with a non-null target for the route are included. There are 13 tracked bond identities; PBE0 and ADMM each have 13 rows, sTDA has 10 rows because the three M14 default targets are null. The per-method published reference mapping is explicit: conventional PBE0 uses SI Table 3 PBE0|TZVP; ADMM-PBE0 uses SI Table 3 ADMM|TZVP+tzp; sTDA uses SI Table 14 sTDA@PBE0|TZVP. All vs_eom_ccsd rows use the paired SI Table 3 EOM-CCSD column (refs.json values.CCSD); Table 14 sTDA values are never substituted as EOM-CCSD references.",
+      "vs_eom_ccsd": "For each route row, delta_pm = computed_mean_pm - the matched SI Table 3 EOM-CCSD value (refs.json values.CCSD); for Table 14 sTDA rows, pair by the same normalized molecule and bond label. Calculate signed mean, mean absolute error (MAE), maximum absolute delta, and all ref_id values exactly tied at the maximum absolute delta.",
+      "same_method_paper_residual": "For each route row, delta_pm = computed_mean_pm - that route's published method value: PBE0 and ADMM from their distinct SI Table 3 CP2K columns; sTDA from SI Table 14 sTDA@PBE0/TZVP column. Calculate the same four statistics.",
+      "admm_minus_pbe0": "For each of 13 tracked ES bond identities, delta_pm = ADMM-PBE0 computed_mean_pm - conventional PBE0 computed_mean_pm; then calculate the same four statistics.",
+      "stats": "count is the number of rows; signed_mean_pm is arithmetic mean(delta_pm); mae_pm is arithmetic mean(abs(delta_pm)); max_abs_pm is max(abs(delta_pm)); worst_ref_ids contains every reference row id exactly tied at max_abs_pm, sorted lexically by the canonical builder (the verifier compares this field as a set).",
+      "precision": "Use Decimal arithmetic for summary aggregation. Serialize finite summary numeric measurements as decimal strings rounded to exactly 9 fractional digits using decimal ROUND_HALF_EVEN; the verifier accepts parsed numeric differences <= 5e-10 pm. Determine maximum ties from unrounded Decimal deltas before serialization. CSV computed geometry/residual display tolerance is 0.02 pm and published/SI value display tolerance is 1e-9 pm; these are representation checks only.",
+      "decimal_rounding_mode": "ROUND_HALF_EVEN"
+    }
+  },
+  "evidence_mode": {
+    "candidate": "candidate_historical_native_results",
+    "oracle": "historical_oracle_archive"
+  },
+  "evidence_policy": {
+    "candidate_evidence": "The Agent analyzes raw public historical native input/output/trajectory members mounted under /app/inputs/public-source. It must submit its own provenance, comparison.csv, scientific-summary.json, and report.md. The verifier independently checks source hashes and recomputes all scientific quantities.",
+    "historical_execution": "Historical launcher_exit_code and stderr must be null; scheduler/allocation evidence is unavailable and must be reported as NOT_AVAILABLE. Do not claim fresh execution.",
+    "formal_oracle_evidence": "The separately pinned historical archive adapter remains the formal Oracle path.",
+    "fresh_hpc_execution": false,
+    "minimum_curvature": "outside v5 assessment"
+  },
+  "native_records": {
+    "route_count": 26,
+    "categories": [
+      "M14/ES/admm-tzvp-tzp",
+      "M14/ES/pbe0-tzvp",
+      "M14/ES/stda-pbe0-tzvp",
+      "M14/GS/admm-tzvp-tzp",
+      "M14/GS/pbe0-tzvp",
+      "M19/ES/admm-tzvp-tzp",
+      "M19/ES/pbe0-tzvp",
+      "M19/ES/stda-pbe0-tzvp",
+      "M19/GS/admm-tzvp-tzp",
+      "M19/GS/pbe0-tzvp",
+      "M2/ES/admm-tzvp-tzp",
+      "M2/ES/pbe0-tzvp",
+      "M2/ES/stda-pbe0-tzvp",
+      "M2/GS/admm-tzvp-tzp",
+      "M2/GS/pbe0-tzvp",
+      "M29/ES/admm-tzvp-tzp",
+      "M29/ES/pbe0-tzvp",
+      "M29/ES/stda-pbe0-tzvp",
+      "M29/GS/admm-tzvp-tzp",
+      "M29/GS/pbe0-tzvp",
+      "M3/ES/admm-tzvp-tzp",
+      "M3/ES/pbe0-tzvp",
+      "M3/ES/stda-pbe0-tzvp",
+      "M3/GS/admm-tzvp-tzp",
+      "M3/GS/pbe0-tzvp",
+      "M14/ES/stda-pbe0-tzvp-aex0.25-remedy"
+    ],
+    "per_route_candidate_artifacts": [
+      "input",
+      "output",
+      "trajectory"
+    ],
+    "public_source_root": "/app/inputs/public-source/DATA_MATERIALS_CLOUD/",
+    "scheduler_provenance_status": "NOT_AVAILABLE_HISTORICAL",
+    "unavailable_historical_launcher_fields": "launcher_exit_code=null; stderr=null; scheduler/allocation/job ID are unavailable."
+  },
+  "candidate_manifest": {
+    "filename": "provenance.json",
+    "schema": "case06-v5-historical-candidate-provenance/v1",
+    "top_level_fields": [
+      "schema",
+      "evidence_mode",
+      "source_record",
+      "archive_url",
+      "source_manifest_sha256",
+      "execution_authenticity",
+      "launcher_exit_code",
+      "stderr",
+      "scheduler_provenance_status",
+      "records"
+    ],
+    "fixed_values": {
+      "evidence_mode": "candidate_historical_native_results",
+      "source_record": "Materials Cloud c9peh-kt938",
+      "archive_url": "https://archive.materialscloud.org/api/records/c9peh-kt938/files/DATA_MATERIALS_CLOUD.zip/content",
+      "execution_authenticity": "historical_unverified",
+      "launcher_exit_code": null,
+      "stderr": null,
+      "scheduler_provenance_status": "NOT_AVAILABLE_HISTORICAL"
+    },
+    "route_count": 26,
+    "route_fields": [
+      "id",
+      "artifacts"
+    ],
+    "artifact_roles": [
+      "input",
+      "output",
+      "trajectory"
+    ],
+    "artifact_fields": [
+      "member",
+      "path",
+      "bytes",
+      "sha256"
+    ],
+    "artifact_paths": "path is the exact source path /app/inputs/public-source/<member>; each member is pinned in the public source manifest and mapped to the matching route role.",
+    "source_manifest_sha256": "7b8bcd1ca122877c07a7eed70a16e64414b5ae309f0829ab984d14fdcb08c387",
+    "path_policy": "No symlinks, absolute paths outside the exact public-source root, traversal, duplicate route IDs, duplicate member/role claims, or unlisted members. This is source identity, not execution authentication.",
+    "execution_order": "Historical source ordering is not a candidate execution order and is not required.",
+    "route_record_fields": [
+      "id",
+      "artifacts"
+    ],
+    "artifact_declaration_fields": [
+      "member",
+      "path",
+      "bytes",
+      "sha256"
+    ],
+    "scheduler_provenance": "NOT_AVAILABLE_HISTORICAL; do not fabricate receipt, scheduler_record, allocation, batch logs, or job ID.",
+    "required_top_level_fields": [
+      "records"
+    ],
+    "defaultable_top_level_fields": {
+      "schema": "The fixed candidate provenance schema label.",
+      "evidence_mode": "Defaults to historical candidate analysis only when absent; explicit values retain their existing permission branch.",
+      "source_record": "Copied from the trusted public source manifest.",
+      "archive_url": "Copied from the trusted public source manifest.",
+      "source_manifest_sha256": "Copied from the trusted public source manifest.",
+      "execution_authenticity": "historical_unverified",
+      "launcher_exit_code": null,
+      "stderr": null,
+      "scheduler_provenance_status": "NOT_AVAILABLE_HISTORICAL"
+    },
+    "unknown_fields_rejected": true,
+    "required_artifact_fields": [
+      "member"
+    ],
+    "defaultable_artifact_fields": {
+      "path": "Exact /app/inputs/public-source path derived from the trusted route/member mapping.",
+      "bytes": "Pinned byte count copied from the trusted member inventory.",
+      "sha256": "Pinned member digest copied from the trusted member inventory."
+    },
+    "normalization_policy": "Only absent fixed metadata and absent path/bytes/sha256 are filled in a private verifier copy from the trusted manifest. Explicit nulls or incorrect values, unknown fields, missing routes/roles/member identities, duplicates, and role swaps are rejected. The candidate files are not rewritten."
+  },
+  "source_manifest_sha256": "7b8bcd1ca122877c07a7eed70a16e64414b5ae309f0829ab984d14fdcb08c387"
+}

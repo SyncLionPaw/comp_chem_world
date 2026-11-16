@@ -1,0 +1,15 @@
+{
+  "structure_ids": [
+    "TiS2_P-3m1",
+    "TiS2_R-3m",
+    "TiS2_R3m",
+    "LiTiS2_P-3m1",
+    "LiTiS2_R-3m",
+    "NaTiS2_P-3m1",
+    "NaTiS2_R-3m"
+  ],
+  "length_tol_A": 0.001,
+  "required_methods": {
+    "interlayer_rule": "c_over_nTi_if_a_b_hexagonal_and_nTi_1_or_3"
+  }
+}

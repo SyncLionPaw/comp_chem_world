@@ -1,0 +1,41 @@
+{
+  "case_id": "case-04-epc-input-preparation",
+  "scoring_scope": "full",
+  "asset_hashes": {
+    "assets/computational-brief.md": "sha256:fd3aff30abaf695177f18b4e368b5e9d6c2882aaf7cd81e6a4cc6664c9124eb9",
+    "assets/W2N3-monolayer.poscar": "sha256:813ec6c3b966b65a52de525769e37905d554726c882df7767354e72e7668a5c4"
+  },
+  "overall_scoring_ready": true,
+  "criteria": {
+    "qe_target": "7.2",
+    "qe_structure_match_tolerance_A": 0.001,
+    "ecutwfc_min_Ry": 60,
+    "degauss_Ry": [
+      0.005,
+      0.02
+    ],
+    "dense_k": [
+      64,
+      64,
+      1
+    ],
+    "coarse_k_min_in_plane": 12,
+    "q_grid": [
+      4,
+      4,
+      1
+    ],
+    "cell_a_A": [
+      2.82,
+      2.98
+    ],
+    "cell_c_min_A": 20,
+    "budget_total_core_hours_max": 300,
+    "budget_ph_core_hours_max": 40,
+    "budget_sum_abs_tolerance": 1e-06,
+    "mu_star": [
+      0.16,
+      0.1
+    ]
+  }
+}

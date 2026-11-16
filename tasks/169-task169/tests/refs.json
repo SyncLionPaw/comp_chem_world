@@ -1,0 +1,57 @@
+{
+  "case_id": "case-03-tuning-phase-diagram",
+  "scoring_scope": "full",
+  "asset_hashes": {
+    "assets/a2f-tuning-series.csv": "sha256:4fea395ece4908607b96c254301cdf76a666d020160ee1f9d517c226107c4f5a"
+  },
+  "evidence_documents": {
+    "provenance": "a2f-tuning-series.csv is a synthetic reconstruction: anchor members calibrated to paper-stated values (lambda 1.9/1.0/3.5, Tc 19->12 K, hole instability >0.175 h/u.c., electron-doping Tc 0.4-1.6 K), intermediate members disclosed interpolations (Campi et al., Nano Lett. 2021, DOI 10.1021/acs.nanolett.0c05125)"
+  },
+  "overall_scoring_ready": true,
+  "criteria": {
+    "members": [
+      "strain_-2p0pct",
+      "strain_-1p0pct",
+      "strain_-0p5pct",
+      "strain_0p0pct",
+      "strain_+0p5pct",
+      "strain_+1p0pct",
+      "hole_0p10h",
+      "hole_0p15h",
+      "hole_0p20h",
+      "electron_0p5e",
+      "electron_1p0e"
+    ],
+    "soft_frequency_cutoff_cm1": 12.0,
+    "soft_lambda_fraction_max": 0.3,
+    "lambda_omega_rel_tolerance": 0.03,
+    "tc_abs_tolerance_K": 1.0,
+    "soft_fraction_abs_tolerance": 0.05,
+    "hole_bracket_abs_tolerance": 1e-09,
+    "electron_tc_abs_tolerance_K": 1.0,
+    "electron_paper_tc_range_K": [
+      0.4,
+      1.6
+    ],
+    "electron_range_margin_K": 0.1,
+    "exceeds_known_lambda": 2.6,
+    "extreme_lambda_rel_tolerance": 0.03,
+    "trend_comparison_points": {
+      "compression_lambda": [
+        "strain_-2p0pct",
+        "strain_0p0pct"
+      ],
+      "compression_omega_log": [
+        "strain_-2p0pct",
+        "strain_0p0pct"
+      ],
+      "hole_lambda": [
+        "hole_0p10h",
+        "strain_0p0pct"
+      ],
+      "expansion_lambda": "strain_+1p0pct",
+      "electron_tc": "electron_1p0e",
+      "extreme_coupling": "strain_+1p0pct"
+    }
+  }
+}

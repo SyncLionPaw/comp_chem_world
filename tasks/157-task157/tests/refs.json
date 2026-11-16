@@ -1,0 +1,687 @@
+{
+  "eV_A2_to_J_m2": 16.02176634,
+  "geometry_area_tolerance_A2": 1e-06,
+  "geometry_span_tolerance_A": 0.0001,
+  "cell_vector_tolerance_A": 1e-07,
+  "fit_slope_tolerance_eV_per_atom": 2e-07,
+  "fit_intercept_tolerance_eV": 1e-05,
+  "fit_rmse_tolerance_eV": 2e-07,
+  "fit_rmse_max_eV": 0.004,
+  "fit_window_area_comparison_tolerance_eV_per_A2": 1e-07,
+  "relaxed_surface_energy_uncertainty_max_eV_per_A2": 0.002,
+  "minimum_relaxation_drop_eV_per_A2": 0.03,
+  "published_cleaved_rounding_uncertainty_eV_per_A2": [
+    0.0005,
+    0.001
+  ],
+  "relaxed_published_tolerance_from_private_reference": true,
+  "private_reference": {
+    "metadata": {
+      "reference_type": "independent E(N) fit cross-checked to private published relaxed row",
+      "input_sha256": {
+        "inputs/cleaved_dft_surface_energies.csv": "8faf31537be5c3017058d1dcf5d8c3218e69de864c3dad2f6656e63884a6e89a",
+        "inputs/method-note.md": "151bbebf7ed20966697c14258a5d3a299563a4697ebee8355187d5dbe68f9715",
+        "inputs/surfaces/alpha_quartz/001/surface.0.xyz": "4a5f7d1c3510e61a109e418547eb49d8c162e0ef4f1d672b3767213d5d636128",
+        "inputs/surfaces/alpha_quartz/001/surface.1.xyz": "61ea2866d58d9f60463583dab8b24438cfb8c877df05b172767eb6b724a6f14a",
+        "inputs/surfaces/alpha_quartz/001/surface.2.xyz": "1ff8dbf0aa2fcf2b832a330e065397dfbd77c5d41e86c866d2f400f18157567e",
+        "inputs/surfaces/alpha_quartz/001/surface.3.xyz": "3b4be6f3899410ad0a3fc492117da6dc53fc5191f6278397e70a8bc8cd75d415",
+        "inputs/surfaces/alpha_quartz/011/surface.0.xyz": "6647ad1a7271eb92b7f444146da22b7f71ee5d6c3705bca71e4360313f32da45",
+        "inputs/surfaces/alpha_quartz/011/surface.1.xyz": "048127a53dfe440260e852075d98851bc5e043ec07f6a492d944e6ceffe38f1d",
+        "inputs/surfaces/alpha_quartz/011/surface.2.xyz": "fbfb9104a5251f2573d23468598e58216d1f9a0c02ce6c46301c8e87d02dda4a",
+        "inputs/surfaces/alpha_quartz/011/surface.3.xyz": "519e12c2c07ac842b96fa4fe0a145c46bc5043feb887c36275bf72cccd2cfc1a",
+        "inputs/surfaces/alpha_quartz/011/surface.4.xyz": "4c546c3e2e44d46a7a23802a0252ab1beb751f7c287a2ba09558503657584325",
+        "inputs/surfaces/alpha_quartz/011/surface.5.xyz": "7212535a8c6ecbb6bfc7db94173ddd809e48ef202a6989cdf432c0ad1576df7f",
+        "inputs/surfaces/alpha_quartz/011/surface.6.xyz": "be478b02bbac04b520e800943ff9069eac9f6b89760e75bc470b2de379a40da1",
+        "inputs/surfaces/alpha_quartz/011/surface.7.xyz": "4ba28668b4023f7950b8f70091d32ac7b8e9923580e9951e0a9b5a54cb0a16cf",
+        "inputs/surfaces/alpha_quartz/011/surface.8.xyz": "601639f28f12b36d7e5abf1ac1dfdf8cfd6d01a15d411a8aa4086b7cd31a1dfc",
+        "inputs/surfaces/alpha_quartz/100_alpha/surface.0.xyz": "b43711ca55bec73ac97b005844948bc453735effc496c68e3702174d81780981",
+        "inputs/surfaces/alpha_quartz/100_alpha/surface.1.xyz": "4f0233a9e6278cf6d0a58fd2adb8f7fa7248bbc74baaa4f9099054d48d490811",
+        "inputs/surfaces/alpha_quartz/100_alpha/surface.2.xyz": "0dcb6f7de4fbb5e384fdfc07e874e1c1ca7a999af6652433fee93dd2a6f97f54",
+        "inputs/surfaces/alpha_quartz/100_alpha/surface.3.xyz": "89161918db1e31e21a2456f963c2bc97fc50a2ec09bca7302fe45484ec553f27",
+        "inputs/surfaces/alpha_quartz/100_alpha/surface.4.xyz": "27507ff0c5a8828bb687fc0bf258b484cef5a25dcbb058a1ff2bfc3f2b689d16",
+        "inputs/surfaces/alpha_quartz/100_alpha/surface.5.xyz": "ad216ed451485dcbc0ee0aac70bfba6d1cc8881eb627ba4ccb91f475d12c9cd0",
+        "inputs/surfaces/alpha_quartz/100_alpha/surface.6.xyz": "d1d31fcc722a0d5bec550a538d2106a46ee4991bbb848b8804406e68809e7b69",
+        "inputs/surfaces/alpha_quartz/100_beta/surface.0.xyz": "d688e31b4898fef6755218ac8e952f55f4e61f0b55cae852a09c67dd679e7b26",
+        "inputs/surfaces/alpha_quartz/100_beta/surface.1.xyz": "a18505e69eaee1460432d974180f895d2198f701db48c2b25cb7f55871136fe0",
+        "inputs/surfaces/alpha_quartz/100_beta/surface.2.xyz": "b3110454213ac1b0ec3b6f66115aa59a63aa81593994e47833a148593f4c7745",
+        "inputs/surfaces/alpha_quartz/100_beta/surface.3.xyz": "9e0b6b1d3464fde071087b82eaa40abedca6b44b5f45b3fa1b059f4032e7bb4e",
+        "inputs/surfaces/alpha_quartz/100_beta/surface.4.xyz": "577193cf442018b7a6c10991e3a55f3648e2a279d6bc834fc523bd3271f80810",
+        "inputs/surfaces/alpha_quartz/100_beta/surface.5.xyz": "a366e64c09fcf85061b914eb26ca85085764fae883e6800ea7f784afd18cfaab",
+        "inputs/surfaces/alpha_quartz/101/surface.0.xyz": "af649b9565b52080708e5d17ea8343c9b1bf50a275b727fdcff255d5eae31b4b",
+        "inputs/surfaces/alpha_quartz/101/surface.1.xyz": "67ee0d0c51d192cd30ae3a3e6f20e18d8b7992a072fc06ca81d9cbb8d04f81b0",
+        "inputs/surfaces/alpha_quartz/101/surface.2.xyz": "7138074311dd1c09296f5f5f7b79a5651d301367a70e37f76b102495286b5336",
+        "inputs/surfaces/alpha_quartz/101/surface.3.xyz": "60ecb56f1db3da8a49a0dc2f99e6d5e493f1c9d85516c1c11e1c2e4fdbd5f3f9",
+        "inputs/surfaces/alpha_quartz/101/surface.4.xyz": "2ec5edb29ea09b6b25f4ff7fa81b04b8808e2281c3fff231e055d7a57e56bb99",
+        "inputs/surfaces/alpha_quartz/101/surface.5.xyz": "fe062d0a4077d831815b386234b092d18bcfdb720ebd7492054d411be9891a07",
+        "inputs/surfaces/alpha_quartz/101/surface.6.xyz": "432d25f8fbc7ec6c2cc98de159f0a529ccb6d44b43ab910641b45bc2463cd460",
+        "inputs/surfaces/alpha_quartz/101/surface.7.xyz": "6b62c1f9b045b9ca2c21b523c6beae771f19f9b09694b1da30e75190747b82ec",
+        "inputs/surfaces/alpha_quartz/101/surface.8.xyz": "3491ede6265c5566d7163f566b0fcbd66bbc8897c56efeae26fd4b1a3a25be20",
+        "inputs/surfaces/alpha_quartz/README.txt": "d3cc2fd0e8d5ac2e1cf4b53a507472423a5f667ee4e420bb279e9c57f6949356"
+      },
+      "source_provenance": {
+        "workbook_sha256": "3ae495f5d0c61657d572e6170caac953aa53cadb43d4725b17e4b17d6129ecde",
+        "cleaved_cells": {
+          "001": "I2:I3",
+          "011": "J2:J3",
+          "100_alpha": "G2:G3",
+          "100_beta": "H2:H3",
+          "101": "K2:K3"
+        },
+        "relaxed_cells_hidden": {
+          "001": "I4",
+          "011": "J4",
+          "100_alpha": "G4",
+          "100_beta": "H4",
+          "101": "K4"
+        }
+      },
+      "tolerance_basis": "source precision half-unit 0.0005 eV/A2 plus full measured range over contiguous thick-slab windows with E(N) RMSE <=0.004 eV",
+      "orientations": {
+        "001": {
+          "published_relaxed_eV_per_A2": 0.162,
+          "gamma_reference_eV_per_A2": 0.1622666332434208,
+          "comparison_tolerance_eV_per_A2": 0.0006604402986111475,
+          "gamma_last4_eV_per_A2": 0.16210619294480966,
+          "area_A2": 20.77418222683205,
+          "expected_counts": [
+            15,
+            24,
+            33,
+            42
+          ],
+          "expected_file_names": [
+            "surface.0.xyz",
+            "surface.1.xyz",
+            "surface.2.xyz",
+            "surface.3.xyz"
+          ]
+        },
+        "011": {
+          "published_relaxed_eV_per_A2": 0.14,
+          "gamma_reference_eV_per_A2": 0.13984497682892033,
+          "comparison_tolerance_eV_per_A2": 0.0008543403140766344,
+          "gamma_last4_eV_per_A2": 0.14019931714299697,
+          "area_A2": 33.630875535513454,
+          "expected_counts": [
+            9,
+            18,
+            27,
+            36,
+            45,
+            54,
+            63,
+            72,
+            81
+          ],
+          "expected_file_names": [
+            "surface.0.xyz",
+            "surface.1.xyz",
+            "surface.2.xyz",
+            "surface.3.xyz",
+            "surface.4.xyz",
+            "surface.5.xyz",
+            "surface.6.xyz",
+            "surface.7.xyz",
+            "surface.8.xyz"
+          ]
+        },
+        "100_alpha": {
+          "published_relaxed_eV_per_A2": 0.139,
+          "gamma_reference_eV_per_A2": 0.13854055923073652,
+          "comparison_tolerance_eV_per_A2": 0.0006274807897099772,
+          "gamma_last4_eV_per_A2": 0.13859023963708353,
+          "area_A2": 26.4474789333288,
+          "expected_counts": [
+            3,
+            12,
+            21,
+            30,
+            39,
+            48,
+            57
+          ],
+          "expected_file_names": [
+            "surface.0.xyz",
+            "surface.1.xyz",
+            "surface.2.xyz",
+            "surface.3.xyz",
+            "surface.4.xyz",
+            "surface.5.xyz",
+            "surface.6.xyz"
+          ]
+        },
+        "100_beta": {
+          "published_relaxed_eV_per_A2": 0.171,
+          "gamma_reference_eV_per_A2": 0.17074106822746674,
+          "comparison_tolerance_eV_per_A2": 0.0006004972158820672,
+          "gamma_last4_eV_per_A2": 0.1708415654433488,
+          "area_A2": 26.4474789333288,
+          "expected_counts": [
+            15,
+            24,
+            33,
+            42,
+            51,
+            60
+          ],
+          "expected_file_names": [
+            "surface.0.xyz",
+            "surface.1.xyz",
+            "surface.2.xyz",
+            "surface.3.xyz",
+            "surface.4.xyz",
+            "surface.5.xyz"
+          ]
+        },
+        "101": {
+          "published_relaxed_eV_per_A2": 0.148,
+          "gamma_reference_eV_per_A2": 0.14813281929213185,
+          "comparison_tolerance_eV_per_A2": 0.0006459229352125668,
+          "gamma_last4_eV_per_A2": 0.14814890285102036,
+          "area_A2": 33.630875535479554,
+          "expected_counts": [
+            9,
+            18,
+            27,
+            36,
+            45,
+            54,
+            63,
+            72,
+            81
+          ],
+          "expected_file_names": [
+            "surface.0.xyz",
+            "surface.1.xyz",
+            "surface.2.xyz",
+            "surface.3.xyz",
+            "surface.4.xyz",
+            "surface.5.xyz",
+            "surface.6.xyz",
+            "surface.7.xyz",
+            "surface.8.xyz"
+          ]
+        }
+      },
+      "cleaved_values_eV_per_A2": {
+        "100_alpha": 0.188,
+        "100_beta": 0.226,
+        "001": 0.222,
+        "011": 0.187,
+        "101": 0.193
+      }
+    },
+    "surface": {
+      "orientation_summary": {
+        "001": {
+          "area_A2": 20.77418222683205,
+          "bulk_mu_eV_per_atom": -10.555111146666668,
+          "fit_last3": {
+            "slope": -10.555111146666668,
+            "intercept": 6.741913216666694,
+            "rmse": 0.0004599069645411925,
+            "n_points": 3
+          },
+          "fit_last4": {
+            "slope": -10.554925979111118,
+            "intercept": 6.735247184666944,
+            "rmse": 0.0015725806520092945,
+            "n_points": 4
+          },
+          "gamma_relaxed_eV_per_A2": 0.1622666332434208,
+          "gamma_relaxed_J_per_m2": 2.5997980826045644,
+          "fit_window_drift_eV_per_A2": 0.0001604402986111475,
+          "valid_window_gamma_eV_per_A2": {
+            "3": 0.1622666332434208,
+            "4": 0.16210619294480966
+          },
+          "uncertainty_eV_per_A2": 0.0001604402986111475,
+          "published_relaxed_eV_per_A2": 0.162,
+          "published_comparison_tolerance_eV_per_A2": 0.0006604402986111475,
+          "gamma_cleaved_eV_per_A2": 0.222,
+          "relaxation_energy_drop_eV_per_A2": 0.0597333667565792
+        },
+        "011": {
+          "area_A2": 33.630875535513454,
+          "bulk_mu_eV_per_atom": -10.555420304444452,
+          "fit_last3": {
+            "slope": -10.555420304444452,
+            "intercept": 9.406218020000365,
+            "rmse": 0.0001187797971141266,
+            "n_points": 3
+          },
+          "fit_last4": {
+            "slope": -10.555738085111113,
+            "intercept": 9.430051570000217,
+            "rmse": 0.0026128602617161408,
+            "n_points": 4
+          },
+          "gamma_relaxed_eV_per_A2": 0.13984497682892033,
+          "gamma_relaxed_J_per_m2": 2.240563542575676,
+          "fit_window_drift_eV_per_A2": 0.00035434031407663436,
+          "valid_window_gamma_eV_per_A2": {
+            "3": 0.13984497682892033,
+            "4": 0.14019931714299697
+          },
+          "uncertainty_eV_per_A2": 0.00035434031407663436,
+          "published_relaxed_eV_per_A2": 0.14,
+          "published_comparison_tolerance_eV_per_A2": 0.0008543403140766344,
+          "gamma_cleaved_eV_per_A2": 0.187,
+          "relaxation_energy_drop_eV_per_A2": 0.04715502317107967
+        },
+        "100_alpha": {
+          "area_A2": 26.4474789333288,
+          "bulk_mu_eV_per_atom": -10.555214562777772,
+          "fit_last3": {
+            "slope": -10.555214562777772,
+            "intercept": 7.328097043332989,
+            "rmse": 0.00031418875609337993,
+            "n_points": 3
+          },
+          "fit_last4": {
+            "slope": -10.555266089111118,
+            "intercept": 7.330724886333513,
+            "rmse": 0.0005032354669208626,
+            "n_points": 4
+          },
+          "gamma_relaxed_eV_per_A2": 0.13854055923073652,
+          "gamma_relaxed_J_per_m2": 2.2196644686077907,
+          "fit_window_drift_eV_per_A2": 0.00012748078970997723,
+          "valid_window_gamma_eV_per_A2": {
+            "3": 0.13854055923073652,
+            "4": 0.13859023963708353,
+            "5": 0.1386680400204465
+          },
+          "uncertainty_eV_per_A2": 0.00012748078970997723,
+          "published_relaxed_eV_per_A2": 0.139,
+          "published_comparison_tolerance_eV_per_A2": 0.0006274807897099772,
+          "gamma_cleaved_eV_per_A2": 0.188,
+          "relaxation_energy_drop_eV_per_A2": 0.04945944076926348
+        },
+        "100_beta": {
+          "area_A2": 26.4474789333288,
+          "bulk_mu_eV_per_atom": -10.555248536666664,
+          "fit_last3": {
+            "slope": -10.555248536666664,
+            "intercept": 9.031341609999963,
+            "rmse": 0.0007948870169640649,
+            "n_points": 3
+          },
+          "fit_last4": {
+            "slope": -10.555346977333329,
+            "intercept": 9.036657405999762,
+            "rmse": 0.0010620721043936945,
+            "n_points": 4
+          },
+          "gamma_relaxed_eV_per_A2": 0.17074106822746674,
+          "gamma_relaxed_J_per_m2": 2.7355734997824697,
+          "fit_window_drift_eV_per_A2": 0.00010049721588206717,
+          "valid_window_gamma_eV_per_A2": {
+            "3": 0.17074106822746674,
+            "4": 0.1708415654433488
+          },
+          "uncertainty_eV_per_A2": 0.00010049721588206717,
+          "published_relaxed_eV_per_A2": 0.171,
+          "published_comparison_tolerance_eV_per_A2": 0.0006004972158820672,
+          "gamma_cleaved_eV_per_A2": 0.226,
+          "relaxation_energy_drop_eV_per_A2": 0.05525893177253327
+        },
+        "101": {
+          "area_A2": 33.630875535479554,
+          "bulk_mu_eV_per_atom": -10.555468410000003,
+          "fit_last3": {
+            "slope": -10.555468410000003,
+            "intercept": 9.96367281666674,
+            "rmse": 0.00015490352552670515,
+            "n_points": 3
+          },
+          "fit_last4": {
+            "slope": -10.555482834111121,
+            "intercept": 9.964754625001035,
+            "rmse": 0.00017899731263195786,
+            "n_points": 4
+          },
+          "gamma_relaxed_eV_per_A2": 0.14813281929213185,
+          "gamma_relaxed_J_per_m2": 2.3733494179839805,
+          "fit_window_drift_eV_per_A2": 0.00014592293521256683,
+          "valid_window_gamma_eV_per_A2": {
+            "3": 0.14813281929213185,
+            "4": 0.14814890285102036,
+            "5": 0.14805682579529986,
+            "6": 0.14801965600064984,
+            "7": 0.1480029799158078
+          },
+          "uncertainty_eV_per_A2": 0.00014592293521256683,
+          "published_relaxed_eV_per_A2": 0.148,
+          "published_comparison_tolerance_eV_per_A2": 0.0006459229352125668,
+          "gamma_cleaved_eV_per_A2": 0.193,
+          "relaxation_energy_drop_eV_per_A2": 0.04486718070786816
+        }
+      },
+      "summary": {
+        "method": {
+          "fit": "per-orientation ordinary least squares E_cell=N*mu+intercept; compare last 3 and last 4 slabs",
+          "surface_energy": "gamma=intercept/(2A); A=|a cross b|; two equivalent faces",
+          "conversion_eV_per_A2_to_J_per_m2": 16.02176634,
+          "geometry": "normal is normalized cross product of first two cell vectors; atomic span is max-minus-min projection"
+        },
+        "orientation_audit": {
+          "001": {
+            "n_slabs": 4,
+            "N_atoms": [
+              15,
+              24,
+              33,
+              42
+            ],
+            "area_A2": 20.77418222683205,
+            "stoichiometry": "Si:O=1:2"
+          },
+          "011": {
+            "n_slabs": 9,
+            "N_atoms": [
+              9,
+              18,
+              27,
+              36,
+              45,
+              54,
+              63,
+              72,
+              81
+            ],
+            "area_A2": 33.630875535513454,
+            "stoichiometry": "Si:O=1:2"
+          },
+          "100_alpha": {
+            "n_slabs": 7,
+            "N_atoms": [
+              3,
+              12,
+              21,
+              30,
+              39,
+              48,
+              57
+            ],
+            "area_A2": 26.4474789333288,
+            "stoichiometry": "Si:O=1:2"
+          },
+          "100_beta": {
+            "n_slabs": 6,
+            "N_atoms": [
+              15,
+              24,
+              33,
+              42,
+              51,
+              60
+            ],
+            "area_A2": 26.4474789333288,
+            "stoichiometry": "Si:O=1:2"
+          },
+          "101": {
+            "n_slabs": 9,
+            "N_atoms": [
+              9,
+              18,
+              27,
+              36,
+              45,
+              54,
+              63,
+              72,
+              81
+            ],
+            "area_A2": 33.630875535479554,
+            "stoichiometry": "Si:O=1:2"
+          }
+        },
+        "bulk_reference": {
+          "001": {
+            "mu_eV_per_atom": -10.555111146666668,
+            "method": "orientation-specific E(N) slope; last 3 thick slabs"
+          },
+          "011": {
+            "mu_eV_per_atom": -10.555420304444452,
+            "method": "orientation-specific E(N) slope; last 3 thick slabs"
+          },
+          "100_alpha": {
+            "mu_eV_per_atom": -10.555214562777772,
+            "method": "orientation-specific E(N) slope; last 3 thick slabs"
+          },
+          "100_beta": {
+            "mu_eV_per_atom": -10.555248536666664,
+            "method": "orientation-specific E(N) slope; last 3 thick slabs"
+          },
+          "101": {
+            "mu_eV_per_atom": -10.555468410000003,
+            "method": "orientation-specific E(N) slope; last 3 thick slabs"
+          }
+        },
+        "surface_energy": {
+          "001": {
+            "area_A2": 20.77418222683205,
+            "bulk_mu_eV_per_atom": -10.555111146666668,
+            "fit_last3": {
+              "slope": -10.555111146666668,
+              "intercept": 6.741913216666694,
+              "rmse": 0.0004599069645411925,
+              "n_points": 3
+            },
+            "fit_last4": {
+              "slope": -10.554925979111118,
+              "intercept": 6.735247184666944,
+              "rmse": 0.0015725806520092945,
+              "n_points": 4
+            },
+            "gamma_relaxed_eV_per_A2": 0.1622666332434208,
+            "gamma_relaxed_J_per_m2": 2.5997980826045644,
+            "fit_window_drift_eV_per_A2": 0.0001604402986111475,
+            "valid_window_gamma_eV_per_A2": {
+              "3": 0.1622666332434208,
+              "4": 0.16210619294480966
+            },
+            "uncertainty_eV_per_A2": 0.0001604402986111475,
+            "published_relaxed_eV_per_A2": 0.162,
+            "published_comparison_tolerance_eV_per_A2": 0.0006604402986111475,
+            "gamma_cleaved_eV_per_A2": 0.222,
+            "relaxation_energy_drop_eV_per_A2": 0.0597333667565792
+          },
+          "011": {
+            "area_A2": 33.630875535513454,
+            "bulk_mu_eV_per_atom": -10.555420304444452,
+            "fit_last3": {
+              "slope": -10.555420304444452,
+              "intercept": 9.406218020000365,
+              "rmse": 0.0001187797971141266,
+              "n_points": 3
+            },
+            "fit_last4": {
+              "slope": -10.555738085111113,
+              "intercept": 9.430051570000217,
+              "rmse": 0.0026128602617161408,
+              "n_points": 4
+            },
+            "gamma_relaxed_eV_per_A2": 0.13984497682892033,
+            "gamma_relaxed_J_per_m2": 2.240563542575676,
+            "fit_window_drift_eV_per_A2": 0.00035434031407663436,
+            "valid_window_gamma_eV_per_A2": {
+              "3": 0.13984497682892033,
+              "4": 0.14019931714299697
+            },
+            "uncertainty_eV_per_A2": 0.00035434031407663436,
+            "published_relaxed_eV_per_A2": 0.14,
+            "published_comparison_tolerance_eV_per_A2": 0.0008543403140766344,
+            "gamma_cleaved_eV_per_A2": 0.187,
+            "relaxation_energy_drop_eV_per_A2": 0.04715502317107967
+          },
+          "100_alpha": {
+            "area_A2": 26.4474789333288,
+            "bulk_mu_eV_per_atom": -10.555214562777772,
+            "fit_last3": {
+              "slope": -10.555214562777772,
+              "intercept": 7.328097043332989,
+              "rmse": 0.00031418875609337993,
+              "n_points": 3
+            },
+            "fit_last4": {
+              "slope": -10.555266089111118,
+              "intercept": 7.330724886333513,
+              "rmse": 0.0005032354669208626,
+              "n_points": 4
+            },
+            "gamma_relaxed_eV_per_A2": 0.13854055923073652,
+            "gamma_relaxed_J_per_m2": 2.2196644686077907,
+            "fit_window_drift_eV_per_A2": 0.00012748078970997723,
+            "valid_window_gamma_eV_per_A2": {
+              "3": 0.13854055923073652,
+              "4": 0.13859023963708353,
+              "5": 0.1386680400204465
+            },
+            "uncertainty_eV_per_A2": 0.00012748078970997723,
+            "published_relaxed_eV_per_A2": 0.139,
+            "published_comparison_tolerance_eV_per_A2": 0.0006274807897099772,
+            "gamma_cleaved_eV_per_A2": 0.188,
+            "relaxation_energy_drop_eV_per_A2": 0.04945944076926348
+          },
+          "100_beta": {
+            "area_A2": 26.4474789333288,
+            "bulk_mu_eV_per_atom": -10.555248536666664,
+            "fit_last3": {
+              "slope": -10.555248536666664,
+              "intercept": 9.031341609999963,
+              "rmse": 0.0007948870169640649,
+              "n_points": 3
+            },
+            "fit_last4": {
+              "slope": -10.555346977333329,
+              "intercept": 9.036657405999762,
+              "rmse": 0.0010620721043936945,
+              "n_points": 4
+            },
+            "gamma_relaxed_eV_per_A2": 0.17074106822746674,
+            "gamma_relaxed_J_per_m2": 2.7355734997824697,
+            "fit_window_drift_eV_per_A2": 0.00010049721588206717,
+            "valid_window_gamma_eV_per_A2": {
+              "3": 0.17074106822746674,
+              "4": 0.1708415654433488
+            },
+            "uncertainty_eV_per_A2": 0.00010049721588206717,
+            "published_relaxed_eV_per_A2": 0.171,
+            "published_comparison_tolerance_eV_per_A2": 0.0006004972158820672,
+            "gamma_cleaved_eV_per_A2": 0.226,
+            "relaxation_energy_drop_eV_per_A2": 0.05525893177253327
+          },
+          "101": {
+            "area_A2": 33.630875535479554,
+            "bulk_mu_eV_per_atom": -10.555468410000003,
+            "fit_last3": {
+              "slope": -10.555468410000003,
+              "intercept": 9.96367281666674,
+              "rmse": 0.00015490352552670515,
+              "n_points": 3
+            },
+            "fit_last4": {
+              "slope": -10.555482834111121,
+              "intercept": 9.964754625001035,
+              "rmse": 0.00017899731263195786,
+              "n_points": 4
+            },
+            "gamma_relaxed_eV_per_A2": 0.14813281929213185,
+            "gamma_relaxed_J_per_m2": 2.3733494179839805,
+            "fit_window_drift_eV_per_A2": 0.00014592293521256683,
+            "valid_window_gamma_eV_per_A2": {
+              "3": 0.14813281929213185,
+              "4": 0.14814890285102036,
+              "5": 0.14805682579529986,
+              "6": 0.14801965600064984,
+              "7": 0.1480029799158078
+            },
+            "uncertainty_eV_per_A2": 0.00014592293521256683,
+            "published_relaxed_eV_per_A2": 0.148,
+            "published_comparison_tolerance_eV_per_A2": 0.0006459229352125668,
+            "gamma_cleaved_eV_per_A2": 0.193,
+            "relaxation_energy_drop_eV_per_A2": 0.04486718070786816
+          }
+        },
+        "reconstruction_effect": {
+          "001": {
+            "drop_eV_per_A2": 0.0597333667565792,
+            "drop_J_per_m2": 0.9570340448754355,
+            "significant": true
+          },
+          "011": {
+            "drop_eV_per_A2": 0.04715502317107967,
+            "drop_J_per_m2": 0.7555067630043243,
+            "significant": true
+          },
+          "100_alpha": {
+            "drop_eV_per_A2": 0.04945944076926348,
+            "drop_J_per_m2": 0.7924276033122093,
+            "significant": true
+          },
+          "100_beta": {
+            "drop_eV_per_A2": 0.05525893177253327,
+            "drop_J_per_m2": 0.8853456930575301,
+            "significant": true
+          },
+          "101": {
+            "drop_eV_per_A2": 0.04486718070786816,
+            "drop_J_per_m2": 0.7188514856360194,
+            "significant": true
+          }
+        },
+        "ranking": {
+          "cleaved_low_to_high": [
+            "011",
+            "100_alpha",
+            "101",
+            "001",
+            "100_beta"
+          ],
+          "relaxed_low_to_high": [
+            "100_alpha",
+            "011",
+            "101",
+            "001",
+            "100_beta"
+          ],
+          "cleaved_near_degenerate": [
+            "100_alpha",
+            "011"
+          ],
+          "relaxed_near_degenerate": [
+            "100_alpha",
+            "011"
+          ],
+          "rank_change_robust": false,
+          "rank_change_near_degenerate": [
+            "100_alpha",
+            "011"
+          ],
+          "rank_change_confidence": "the Alpha-100/011 pair is near-degenerate; its internal ordering is not robust at three-decimal source precision and observed fit-window drift"
+        },
+        "uncertainty": {
+          "relaxed_surface_energy_eV_per_A2": {
+            "001": 0.0001604402986111475,
+            "011": 0.00035434031407663436,
+            "100_alpha": 0.00012748078970997723,
+            "100_beta": 0.00010049721588206717,
+            "101": 0.00014592293521256683
+          },
+          "tolerance_basis": "three-decimal source row half-unit (0.0005 eV/A2) plus full observed range over contiguous thick-slab windows with E(N) RMSE <=0.004 eV"
+        },
+        "figure_panels": [
+          "orientation_specific_E_N_fits",
+          "cleaved_vs_relaxed_surface_energy"
+        ],
+        "limitations": [
+          "cleaved atomic geometries were not supplied; only published cleaved energy values are compared",
+          "surface energies are symmetric two-face slab averages",
+          "100_alpha and 011 are near-degenerate at the source rounding/fit-window scale"
+        ]
+      }
+    }
+  }
+}

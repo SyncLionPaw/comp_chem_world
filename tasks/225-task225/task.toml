@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/case-06-henderson-hasselbalch-fitting"
+description = "Analyse the 81 pre-generated synthetic lambda trajectories for the Asp, Glu and His tripeptides (nine pH values, three replicas each) in full at their 1 ps sampling interval without running new dynamics, classify endpoint protonation populations with the frozen lambda thresholds, compute replica populations before the three-replica mean and SEM, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals from the measured populations, delivering pka_results.json and titration_curves.csv under /app/final."
+
+[metadata]
+name = "case-06-henderson-hasselbalch-fitting"
+description = "Analyse the 81 pre-generated synthetic lambda trajectories for the Asp, Glu and His tripeptides (nine pH values, three replicas each) in full at their 1 ps sampling interval without running new dynamics, classify endpoint protonation populations with the frozen lambda thresholds, compute replica populations before the three-replica mean and SEM, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals from the measured populations, delivering pka_results.json and titration_curves.csv under /app/final."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

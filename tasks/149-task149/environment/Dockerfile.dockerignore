@@ -1,0 +1,7 @@
+**
+!Dockerfile
+!assets/
+!assets/requirements.lock.txt
+!assets/output-interface.md
+!assets/tools/
+!assets/tools/literature.py

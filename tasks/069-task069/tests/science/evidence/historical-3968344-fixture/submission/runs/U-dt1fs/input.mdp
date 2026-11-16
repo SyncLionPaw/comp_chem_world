@@ -1,0 +1,70 @@
+define		=
+
+; Integrator stuff
+integrator = md ; steep or md 
+dt = 0.001 ; task cap: 1 fs
+nsteps = 50000 ; hard cap: 50 ps per run
+init-step = 0 ; 
+continuation = no 
+
+; neighbour search
+cutoff-scheme = verlet ; the other is bad
+nstlist = 20 ; preserve 0.02 ps physical-time neighbor-list cadence  ;frequency of update of neighbours, with verlet-buf-tol its a minimum
+verlet-buffer-tolerance = 0.0001 ; kj/mol/ps might need to put -1. 
+ns-type = grid
+
+
+; Pbc 
+pbc = xyz ; xyz or xy 
+
+; Vdw 
+rvdw = 1.0
+vdwtype = cut-off ; PME or User to look for table /user 
+DispCorr = EnerPres ; corrections to energy and pressure or No
+
+;Electrostatic
+coulombtype = PME ; User if look for table
+rcoulomb = 1.0
+pme-order =  4
+fourierspacing =  0.1
+ewald-rtol = 1.e-5 ; splitting between real and reciprocal
+ewald-geometry = 3d ; 3d or 3dc
+
+IMD-group                = non-Water
+
+; T and P 
+tcoupl = v-rescale ; none, nose-hoover, v-rescale
+nsttcouple = 20 ; preserve 0.02 ps physical-time coupling cadence ; 10 if not used 
+tc-grps = OCB MOL  Water_and_ions
+tau-t = 0.1 0.1 0.1 ; ps
+ref-t = 300 300 300 ; K 
+pcoupl =  no ;
+pcoupltype = isotropic ;
+compressibility     = 4.5e-5	            ; isothermal compressibility of water, bar^-1
+refcoord-scaling = com
+tau-p = 5.0 ; ps 
+ref-p = 1.0 ; bar
+
+; Constraints
+constraints = all-bonds ; constraints  distances
+constraint-algorithm = LINCS ; or SHAKE
+lincs_iter	            = 2
+lincs_order	            = 4
+
+;Generate velocities
+gen_vel		= yes		; assign velocities from Maxwell distribution
+gen_temp	= 300		; temperature for Maxwell distribution
+gen_seed = 20261003 ; same start and seed across paired timestep variants
+
+
+; OUTPUT
+; Output control
+nstenergy = 100 ; output every 0.1 ps
+nstlog = 100 ; output every 0.1 ps
+nstxout-compressed = 500 ; output every 0.5 ps
+                                ; nstxout-compressed replaces nstxtcout
+
+; COM removal . There are more options like removing from groups or the frequency
+comm-mode = linear    ; linear, angular (removes linear and angular motion) or none
+nstcomm = 100 ; preserve 0.1 ps physical-time COM-removal cadence ; frequency of removal of com motion
+nstcalcenergy = 100 ; match the 0.1 ps physical-time cadence

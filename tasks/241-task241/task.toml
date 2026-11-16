@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/hess_cycle_consistency_assessment.json", "/app/thermodynamic_consistency_report.md"]
+
+[task]
+name = "compchemworld/case-05-indirect-vs-direct-re-hess-cycle"
+description = "Assess indirect versus direct reaction energies on the frozen Rad-6 RE model slice using only the supplied public predictions: recompute every closed reaction cycle from the source network rows, demonstrate with a source-derived S-transpose counterexample that cycle closure does not identify absolute prediction accuracy, and deliver hess_cycle_consistency_assessment.json plus thermodynamic_consistency_report.md under /app."
+
+[metadata]
+name = "case-05-indirect-vs-direct-re-hess-cycle"
+description = "Assess indirect versus direct reaction energies on the frozen Rad-6 RE model slice using only the supplied public predictions: recompute every closed reaction cycle from the source network rows, demonstrate with a source-derived S-transpose counterexample that cycle closure does not identify absolute prediction accuracy, and deliver hess_cycle_consistency_assessment.json plus thermodynamic_consistency_report.md under /app."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+build_timeout_sec = 120
+cpus = 4
+memory_mb = 8192
+network_mode = "no-network"
+
+[verifier.environment]
+build_timeout_sec = 120
+cpus = 4
+memory_mb = 8192
+network_mode = "no-network"

@@ -1,0 +1,33 @@
+schema_version = "1.4"
+artifacts = ["/app/barriers.json", "/app/report.md"]
+
+[metadata]
+capability = "C5-C6-C7-C13"
+scope = "workflow"
+execution_class = "local"
+created = "2026-10-04"
+task_id = "task-151-migration"
+title = "共嵌相关的 CI-NEB 势垒"
+description = "Interpret deposited CI-NEB image energies for Li, Mg and Na."
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+
+[verifier.env]
+APP = "/app"
+TESTS = "/tests"
+LOGS = "/logs/verifier"
+
+[agent]
+timeout_sec = 1800
+
+[environment]
+cpus = 2
+memory_mb = 2048
+network_mode = "public"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048

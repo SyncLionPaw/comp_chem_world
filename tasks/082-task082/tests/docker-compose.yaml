@@ -1,0 +1,16 @@
+services:
+  main:
+    build:
+      context: ..
+      dockerfile: tests/Dockerfile
+    volumes:
+      - type: bind
+        source: .
+        target: /trusted-tests
+        read_only: true
+    command: ["sh", "-c", "cp -a /trusted-tests/. /tests/ && touch /tests/.ready && exec sleep infinity"]
+    healthcheck:
+      test: ["CMD", "test", "-f", "/tests/.ready"]
+      interval: 1s
+      timeout: 1s
+      retries: 30

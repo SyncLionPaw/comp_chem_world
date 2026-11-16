@@ -1,0 +1,48 @@
+{
+  "artifacts": {
+    "source-map.json": {
+      "content": "ewogICJtYXBwaW5nIjogewogICAgInJ1bi1BLmNzdiI6ICJXb2xmZVx1MjAxM1F1YXBwIENPTFZBUi4zIiwKICAgICJydW4tQi5jc3YiOiAiQWxhMiBzaW11bGF0aW9uL0NPTFZBUi4wIgogIH0sCiAgInNvdXJjZV9zaGEyNTYiOiB7CiAgICAicnVuLUEuY3N2IjogIjM2ZThlZWU4ZWFjNjUyMDczZjllZWQ3NTYwOGUxYWVjZWIzNDkzYzY2ZDFhZTc4ZGI4MGMzMDg1YTUzZGJlNzciLAogICAgInJ1bi1CLmNzdiI6ICI0ZjBlY2IwNWVlOTM4Nzg2ZDdlOTAxMjYxZDE5YzFkYWUyOTM0N2ZjNDUzNWM3ZmFkZWY0OWQ4OTdjOTMwODdjIgogIH0sCiAgInB1Ymxpc2hlZF9hc3NldF9zaGEyNTYiOiB7CiAgICAicnVuLUEuY3N2IjogImVkMTM2ZGFhNTdkYTY3Nzk4ZmRhZjk5ODllYzFiYWI1ODc1MzE5ODcyMmYyMzFlYjY5ZDdkMGNiZjk5YjIyMWYiLAogICAgInJ1bi1CLmNzdiI6ICIwMjhiZDAzMWNjMDNhNDFkY2JkZGFkM2UxNjc0NjExYTNlMzAxMGM3NWM3YmE5MDA1ODBhOTI3NmE5ZWQ2ZjY2IgogIH0sCiAgInNvdXJjZV9hcmNoaXZlX2NvbW1pdCI6ICI5NTNmNjkyM2QxYWNkNzFhNzUyNDUwYjNjZmE3NWIwZThmNjQ5YTFlIiwKICAibm90ZSI6ICJBbGEyIHJlZmVyZW5jZSBDT0xWQVIgaXMgbWV0YWR5bmFtaWNzIGFuZCBpbnRlbnRpb25hbGx5IG5vdCB1c2VkLiIsCiAgIm1ldGFkYXRhX3NoYTI1NiI6ICIxYmQ3ZjYwZDBiN2U0NDdjNGJhMTRmZWNjMzIzMzczZTU0YzMyODJiMDMyMzA5YzM4MmM4NjYwZjc3YjdkYjcxIiwKICAic3RhdGljX3J1bGVfc291cmNlX3NoYTI1NiI6ICJlZmZjYWY2ZTYwZTg3ZGY0MjIxNGIyOWM0YTgwZWIxNjRhZmI0ZmVmYzBkMDNkMTZlZjMyZGY4YjM1N2M0MmQ3Igp9Cg==",
+      "encoding": "base64",
+      "sha256": "5dfb67dc62049b3c6b7ff46ef9e95706864c90d3fa5c7bd191c41a9743074a96",
+      "size": 850
+    }
+  },
+  "case": "54",
+  "reference_tolerance_literals": [
+    {
+      "line": 15,
+      "literal_source": "5e-5",
+      "module": "verify.py",
+      "name": "THRESHOLD"
+    },
+    {
+      "line": 16,
+      "literal_source": "\"0872ff66a6f8f53be0020e34bff389eb53d87d6431a9aae26069d74dbe33eb2e\"",
+      "module": "verify.py",
+      "name": "PUBLIC_RENDERER_SHA"
+    },
+    {
+      "line": 17,
+      "literal_source": "\"ea49110454defabc08a0a654230d34a10da08f1e27865291d4b968bea807db81\"",
+      "module": "verify.py",
+      "name": "PUBLIC_SCHEMA_SHA"
+    },
+    {
+      "line": 18,
+      "literal_source": "0.00831446261815324",
+      "module": "verify.py",
+      "name": "R_KJ"
+    }
+  ],
+  "runtime_modules": {
+    "grade.py": {
+      "sha256": "c2d3cab1bcf1f604fe3f3f9077ae640b1ce668f350915015cf9e22b736ea8500",
+      "size": 8285
+    },
+    "verify.py": {
+      "sha256": "c64ebe2f8777833a4639396dd3376192cbe235d14c11eaf2c44264295dd3614e",
+      "size": 84439
+    }
+  },
+  "schema": "ccw-tests-refs/v1"
+}

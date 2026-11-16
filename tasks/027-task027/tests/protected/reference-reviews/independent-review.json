@@ -1,0 +1,35 @@
+{
+  "case_id": "case-07-independent-saddle-point-recomputation",
+  "definition_revision": "2.1",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "report_sha256": "3f4a41efa1ea53295cf1e29a475aee222f2114962ad9d91e1791c356b5c65a73",
+  "artifact_manifest_sha256": "cc83e6d3f3889bd3d56d0ba9b08565a50c4d2db9f74e82cd3165d0f3da942faf",
+  "reviewer_id": "Sol6.1 /root/sol61_release_plan",
+  "reviewed_at_utc": "2026-10-26T06:43:13.839339Z",
+  "schema": "case07-independent-review/v2",
+  "scientific_criteria_sha256": "2297f0445e10cf028e43e5821c95bd81066762d430ebbc9a0431d314ac3651ef",
+  "criteria": {
+    "budgeted_scientific_decisions": {
+      "status": "PASS",
+      "reason": "Independent final3 exact-run review: Current frozen flat-package execution was independently reviewed. The six raw screening evaluations are parsed successfully, C2 selection explicitly uses matched gradients/energies and retains C1 unresolved. Hash-linked decisions abandon an unconverged NEB seed, require independent OptTS/frequency and signed endpoint validation, and charge failed/TIMEOUT allocations. The complete 424-file current artifact is byte-identical to accepted run05; no new HPC execution is asserted.",
+      "evidence_paths": [
+        "ts_search_report.json",
+        "failures.md",
+        "decision-evidence/screen-review.json",
+        "decision-evidence/neb-to-optts-decision.json",
+        "decision-evidence/ts-frequency-review.json",
+        "decision-evidence/final-native-physical-review.json"
+      ]
+    },
+    "reference_comparison_and_uncertainty": {
+      "status": "PASS",
+      "reason": "Independent final3 exact-run review: The current grader recomputes pinned author C1/C2 DFT+ZPE and composite levels; current direct native parsing independently gives the separate C2 PBE-D3BJ/def2-SVP barrier 3.553605896217 kcal/mol. The uncertainty statement explicitly calls differences method dependence rather than calibrated uncertainty. C1 remains unresolved; neither a new F12 result nor a global channel ranking is credited.",
+      "evidence_paths": [
+        "barriers.csv",
+        "references_uncertainty.md",
+        "failures.md",
+        "decision-evidence/final-native-physical-review.json"
+      ]
+    }
+  }
+}

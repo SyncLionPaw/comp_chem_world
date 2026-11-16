@@ -1,0 +1,51 @@
+{
+  "frequency": {
+    "clear_failure_below_cm-1": -20.0,
+    "expected_modes": 87,
+    "failure_comparison": "<",
+    "unresolved_comparison": "inclusive",
+    "unresolved_interval_cm-1": [
+      -20.0,
+      0.0
+    ],
+    "vibrational_mode_start_index": 7
+  },
+  "inputs": {
+    "1BR5_NEO_A_500.pdb": {
+      "package_path": "environment/assets/1BR5_NEO_A_500.pdb",
+      "runtime_path": "assets/1BR5_NEO_A_500.pdb",
+      "sha256": "6a0944b888a972ecbc42198c809a5590c426d6840d2b1fcaaa85eef08e015081"
+    },
+    "1br5_candidate.xyz": {
+      "package_path": "environment/assets/1br5_candidate.xyz",
+      "runtime_path": "assets/1br5_candidate.xyz",
+      "sha256": "4577723bf344560381954776313ff391e75da6d6243a1c6dd27a662579deae9f"
+    },
+    "1br5_reference.xyz": {
+      "package_path": "environment/assets/1br5_reference.xyz",
+      "runtime_path": "assets/1br5_reference.xyz",
+      "sha256": "dcd2a67f393172737605cd770bc235418bd653d1a52451d310c9948363bafae2"
+    },
+    "NEO.cif": {
+      "package_path": "environment/assets/NEO.cif",
+      "runtime_path": "assets/NEO.cif",
+      "sha256": "032d8e009325672f60a6636e3a76f9f65c27e367445c047de025ff3a0119b680"
+    }
+  },
+  "optimized_geometry_energy_tolerance_eh": 1e-06,
+  "resource_limits": {
+    "cores": 8,
+    "memory_gib": 16,
+    "study_cpu_minutes": 960,
+    "study_cpu_seconds": 57600,
+    "wall_seconds": 7200
+  },
+  "scf_stability": {
+    "exact_zero_status": "unresolved",
+    "expected_lowest_eigenvalues": 3,
+    "failure_comparison": "<",
+    "negative_eigenvalue_failure_threshold_eh": 0.0
+  },
+  "schema": "case03-frozen-references/v1",
+  "source": "Extracted verbatim from the pre-migration task manifest and verifier constants; hashes identify supplied inputs, thresholds retain the existing decision boundaries."
+}

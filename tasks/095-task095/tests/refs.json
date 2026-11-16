@@ -1,0 +1,48 @@
+{
+  "schema": "bench14-case09-reference-manifest/v1",
+  "case_id": "case-09-roughness-scope-judgment",
+  "formal_reference": "No numeric answer key. Scoring consumes an evaluator-provided trusted review bound to the submitted answer, evidence bundle and public question.",
+  "verifier_sha256": "5fbd529817400d3283b378891bb6740bca38e0a89194ed0e3a22e3999fdd156c",
+  "trusted_review_policy": "tests/_data/trusted-review-policy.json",
+  "trusted_review_policy_sha256": "7c4feb46263d630601b4f73fe8b63555abbaee58ba105c8e9a559e6a1d698bb4",
+  "question_sha256": "02637e207cb60f115ea6c1f1cc11b4910b337c78782505cb2aebb7fac017f7af",
+  "review_schemas": [
+    "ihf-case09-trusted-scientific-review/v1",
+    "ihf-case09-trusted-scientific-review/v2",
+    "ihf-case09-trusted-scientific-review/v3"
+  ],
+  "review_dimensions": [
+    "mechanism",
+    "roughness_causality",
+    "experimental_scope",
+    "reproducibility",
+    "uncertainty"
+  ],
+  "required_outputs": [
+    "/app/final/answer.md",
+    "/app/final/evidence.zip"
+  ],
+  "bounds": {
+    "answer_bytes": 2000000,
+    "bundle_bytes": 100000000,
+    "review_bytes": 2000000,
+    "zip_members": 5000,
+    "unpacked_bytes": 200000000,
+    "curve_rows": 50000
+  },
+  "asset_hashes": {
+    "environment/assets/requirements.lock.txt": "sha256:32d9b57d4b4a00ad2181fa28a30e10e34eca3e54fac3c5828180b3d1b6004a37"
+  },
+  "host_replay": {
+    "oracle": "not applicable: the task declares no reference solution and is Agent-only",
+    "review": "the host helper validates a frozen completed Harbor trial and injects review documents only through the separate verifier environment; native Harbor trial regrade produces PASS, FAIL, REVIEW_REQUIRED or ERROR"
+  },
+  "notes": [
+    "A missing review produces REVIEW_REQUIRED with no reward; a malformed or mismatched trusted review produces ERROR and clears any stale reward. Host regrade uses tests/_support/harbor_review.py prepare then score and binds result, lock, manifest, task inputs, answer and evidence bytes.",
+    "A protocol_fixture only tests the review connection and always remains REVIEW_REQUIRED without reward; it is not a scientific review or scientific score.",
+    "The binding records the source trial checksum separately from current regrade input hashes; Harbor source locks do not record the historical runtime image digest, so image_id_status is NOT_RECORDED.",
+    "Schema v2 may nominate an identifiable numerical claim; the verifier reads the named CSV member and independently refits the attenuation length, including the declared length-unit conversion.",
+    "A numerical mismatch is a candidate FAIL; absent, malformed, non-identifiable or poorly fitted data are REVIEW_REQUIRED/INCONCLUSIVE, never a scientific failure.",
+    "The agent receives no case-specific scientific inputs, may use internet research, and the verifier runs offline; delivery coverage for this case remains partial."
+  ]
+}

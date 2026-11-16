@@ -1,0 +1,18 @@
+{
+  "derived_from_actual_bytes": true,
+  "elapsed_seconds": 735,
+  "ended_at_utc": "2026-10-25T11:36:45Z",
+  "execution_outcome": null,
+  "input_sha256": "7cdabe03da5061097d8b9a7f3fa3caa4963bc752af0212dc6da8596b40003716",
+  "output_sha256": "22af9200460251b1f6a37dc88490025e1fd7ede9893c13ac42e27bd2445a16d7",
+  "provider_job_id": "4042346",
+  "provider_receipt_sha256": "4831c7753ed1a453f26ff91afd0cc6d172c63ba93b822318aa73ea604ff70f1b",
+  "provider_stage_id": "production:ts_freq",
+  "returncode": 0,
+  "scheduler_elapsed_seconds": 735,
+  "scheduler_record_sha256": "3cdf225e65b82242c98420e99bc9965f6e3e5df6f8cb7c3acd27a251039b27bf",
+  "schema": "case07-native-stage-parser-alias/v1",
+  "start_xyz_sha256": "7726e11f69c703ff04e8d479ecce65f4a6619328787f3c53f35e73fc37a28aa3",
+  "started_at_utc": "2026-10-25T11:24:33Z",
+  "status": "normal"
+}

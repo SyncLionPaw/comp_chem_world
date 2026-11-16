@@ -1,0 +1,31 @@
+{
+  "case_id": "case-07-independent-saddle-point-recomputation",
+  "definition_revision": "2.1",
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "report_sha256": "3f4a41efa1ea53295cf1e29a475aee222f2114962ad9d91e1791c356b5c65a73",
+  "artifact_manifest_sha256": "cc83e6d3f3889bd3d56d0ba9b08565a50c4d2db9f74e82cd3165d0f3da942faf",
+  "reviewer_id": "Sol6.1 /root/sol61_release_plan",
+  "reviewed_at_utc": "2026-10-26T06:43:13.839339Z",
+  "schema": "case07-resource-review/v1",
+  "resource_criteria_sha256": "b695db449f8f32b6ced1b959bf03a7aacd83498a8e215a172e5d30ae42a3aa0b",
+  "source_manifest_sha256": "1526ea1e863c81115e61eba69679059d93f9526ca865cc8ae2436394733e387f",
+  "status": "PASS",
+  "reason": "Final3 exact-source independent review reran current native and execution parsers and compared every one of 424 raw artifact files with the previously independently accepted output. Only the same missing peak-measurement REVIEW_REQUIRED remains. The preserved observations support the declared resource envelope at their stated measurement scope; no measured excess is overridden and no unavailable peak or fresh HPC enforcement is asserted.",
+  "evidence_summary": {
+    "observed": [
+      "Current resource CSV has 18 allocations, summed recorded allocated_core_hours 27.731112, sampled scratch maximum 0.982389960 GiB.",
+      "Current direct candidate_execution audit returns only missing-peak REVIEW_REQUIRED, 27.7311 allocated core-hours and 13.0 seconds credited queue time.",
+      "All 424 current files were individually SHA-256 checked and byte-compared to accepted run05 with zero differences; historical allocation/native/scheduler evidence is preserved."
+    ],
+    "enforced": [
+      "Current frozen grader source, task, instructions and public inputs match the prior accepted active source; only publication/runtime placement, Docker release label and runner adaptation change.",
+      "This newly reviewed overlay binds source 1526ea1e863c81115e61eba69679059d93f9526ca865cc8ae2436394733e387f and the exact current artifact/report. Current source uses public runner baseline with P04-only adaptation. Original protected PENDING records remain untouched.",
+      "Failed, cancelled and TIMEOUT work remains charged without completed-stage credit; original historical attempt/submission times remain historical and are not backdated."
+    ],
+    "unknown": [
+      "Sealed allocation MaxRSS NULL and zero/unmeasured batch RSS remain unknown; sampled batch values do not establish aggregate simultaneous all-rank peak.",
+      "Owned-directory scratch observations do not prove a continuous true peak or a scheduler hard quota.",
+      "Historical process_cpu_hours is allocation-derived, not a measured process CPU figure; no fresh HPC resource enforcement is claimed."
+    ]
+  }
+}

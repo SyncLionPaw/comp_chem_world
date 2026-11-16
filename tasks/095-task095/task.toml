@@ -1,0 +1,25 @@
+schema_version = "1.4"
+artifacts = ["/app/final/answer.md", "/app/final/evidence.zip"]
+
+[metadata]
+name = "case-09-roughness-scope-judgment"
+case_id = "case-09-roughness-scope-judgment"
+title = "Interfacial hydration forces and molecular roughness"
+description = "Interfacial hydration forces and molecular roughness"
+
+[agent]
+timeout_sec = 1800
+network_mode = "public"
+
+[verifier]
+timeout_sec = 300
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 2048
+network_mode = "public"
+
+[agent_interface]
+reference_solution_provided = false

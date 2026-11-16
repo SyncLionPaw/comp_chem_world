@@ -1,0 +1,739 @@
+{
+  "schema": 1,
+  "classification": "historical offline replay fixture; not a current Case 08 run or remote execution result",
+  "historical_job_id": "3968344",
+  "historical_source": "/private/tmp/bench10-release-20261018-r1/snapshot/10_Host-Guest-Water-Enhanced-Sampling/jobs/10_Host-Guest-Water-Enhanced-Sampling/case-08-short-md-stop-go/oracle/2026-10-17_23-12-07/recovery/submission",
+  "copied_to": "/private/tmp/bench10-release-20261018-r1/snapshot/10_Host-Guest-Water-Enhanced-Sampling/packages/case-08-short-md-stop-go/tests/evidence/historical-3968344-fixture/submission",
+  "source_and_copy_file_count": 145,
+  "source_and_copy_bytes": 36362957,
+  "source_copy_byte_identity": "verified by relative-path/size/SHA-256 equality",
+  "manifest_sha256": "f731dba3f322376764aa9343df974edf8affb7d51b03c51b279135564b810706",
+  "files": [
+    {
+      "path": "continuation-decision.json",
+      "bytes": 9662,
+      "sha256": "f699e24bdaa970492bda90ae8e96eeece6f75fbaaa2b8ce19ad3ca58930a97c3"
+    },
+    {
+      "path": "diagnostics.csv",
+      "bytes": 10083,
+      "sha256": "0f74a5eeb507b3251e49b3f36e8c627ba5cadda5e8f40f4405c7bef9aafa1339"
+    },
+    {
+      "path": "energy-extraction.json",
+      "bytes": 1606,
+      "sha256": "33ea7f5924357cbe3e4f78f87ab2956560da1e29fe206d89efe89fe267efd071"
+    },
+    {
+      "path": "gromacs-version.txt",
+      "bytes": 1179,
+      "sha256": "bec86b17a13c3983c19d1bf139612953ae58ba5d02ed71a6f2d965f65901d044"
+    },
+    {
+      "path": "input-audit.json",
+      "bytes": 4111,
+      "sha256": "1077894059f1c20be521d8f09f1b9980bc8ee8e394f4e4ea69271b60355ecef6"
+    },
+    {
+      "path": "job-continuation-decision.json",
+      "bytes": 727,
+      "sha256": "264f859b9b0002b29788db3028d97559d3d97b24fa8ee3368c67cc25b8521abe"
+    },
+    {
+      "path": "job-diagnostics.csv",
+      "bytes": 8208,
+      "sha256": "4c82c8c594dcae12bf7ee98430152f8432853774dedbb30e76fb82892cf625fd"
+    },
+    {
+      "path": "job-numerical-comparison.json",
+      "bytes": 20649,
+      "sha256": "7852316d1bda09085df0a97c9a863799cc5252f3a768931cdae34440d1744ebf"
+    },
+    {
+      "path": "job-scientific-rationale.md",
+      "bytes": 640,
+      "sha256": "253fef736c7cc8651a6bdd0a39adce13dd0cfbaa1c18caa92b6c863349396adc"
+    },
+    {
+      "path": "numerical-comparison.json",
+      "bytes": 22322,
+      "sha256": "9adc275cd3be9bbdabb7aa5af9567ff1dc02bda3d269d9c8f0c1877f203c88de"
+    },
+    {
+      "path": "postprocessing/derived-energy/B-dt1fs.xvg",
+      "bytes": 67211,
+      "sha256": "4703c9593d21240f6d2a4c0dee1d818bf1064744566d0128d9b7c89639ddc239"
+    },
+    {
+      "path": "postprocessing/derived-energy/B-dt2fs.xvg",
+      "bytes": 67204,
+      "sha256": "21cd3743e5d330d897887117b569255d5b5efc4c2dc9dc3c958561e4d7623d4c"
+    },
+    {
+      "path": "postprocessing/derived-energy/U-dt1fs.xvg",
+      "bytes": 67204,
+      "sha256": "53977e40988b12a8011073b8804f0d1d76fb094186b21d4205775f6f005bd496"
+    },
+    {
+      "path": "postprocessing/derived-energy/U-dt2fs.xvg",
+      "bytes": 67204,
+      "sha256": "dd88a8ba9e8f40f0de10cd68983bf8c726f0b3255cc8b445bda981204a7132e7"
+    },
+    {
+      "path": "remote-provenance.json",
+      "bytes": 23784,
+      "sha256": "c4b638f1486ab53225d8d1f7df72d7b8b6424b016c1a53e65b733143fbd9e7b6"
+    },
+    {
+      "path": "runs/B-dt1fs/energy.xvg",
+      "bytes": 38970,
+      "sha256": "c1a56a814427fb6b259a0e2afeea64fc8d73e89a2d110945018e3402eeca669c"
+    },
+    {
+      "path": "runs/B-dt1fs/gmx-energy.log",
+      "bytes": 5111,
+      "sha256": "2731595b8b9b7333e2f3d31c04c5a1afd91c11fb7b76f57f7d3b2806bcabbb19"
+    },
+    {
+      "path": "runs/B-dt1fs/grompp.console.log",
+      "bytes": 2040,
+      "sha256": "35b59e67ff44fb6497b35597adcc95f23c9422faefbe6e3bc431bd5363ce5187"
+    },
+    {
+      "path": "runs/B-dt1fs/imdgroup.gro",
+      "bytes": 16123,
+      "sha256": "ebe3a6ba8e3b7f8bb20e146b93ed1c20c246b99b47f50e43db19a4f7c2450119"
+    },
+    {
+      "path": "runs/B-dt1fs/index.ndx",
+      "bytes": 32431,
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c"
+    },
+    {
+      "path": "runs/B-dt1fs/input.mdp",
+      "bytes": 2200,
+      "sha256": "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b"
+    },
+    {
+      "path": "runs/B-dt1fs/md.cpt",
+      "bytes": 158560,
+      "sha256": "5385f228a222b517aa806bf9de8c711ef99b3d8d1dc2865935c24d8e2764f713"
+    },
+    {
+      "path": "runs/B-dt1fs/md.edr",
+      "bytes": 121256,
+      "sha256": "7a126a4d668c11ceb3d9d0cf1787e9d7f40328ea515a403dcf0780ab14c8d424"
+    },
+    {
+      "path": "runs/B-dt1fs/md.gro",
+      "bytes": 450828,
+      "sha256": "4bb1dd065ad18dfa62799ee4d01822f133b663840b7ad058e765ddccfb4fff14"
+    },
+    {
+      "path": "runs/B-dt1fs/md.log",
+      "bytes": 327141,
+      "sha256": "136a303d3bfab7055d9f8b8f22b321b18f4c606f9a4f233171f40b5d3be577a7"
+    },
+    {
+      "path": "runs/B-dt1fs/md.xtc",
+      "bytes": 2374780,
+      "sha256": "329825f3811e7e6c1a33953da1e492d3d09906d8480b2d77208fed26ebbce135"
+    },
+    {
+      "path": "runs/B-dt1fs/mdout.mdp",
+      "bytes": 10719,
+      "sha256": "93ef36f4bb52b90a8e45b90bf0b6c8f92e3f28bfbe20d5ee6ba489b0dfa00f03"
+    },
+    {
+      "path": "runs/B-dt1fs/mdrun.console.log",
+      "bytes": 1486,
+      "sha256": "a7dccbe62f70d7c8e146c27d8105b5692d07529b246f7c3782535302ec7bd2d2"
+    },
+    {
+      "path": "runs/B-dt1fs/processed.top",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "path": "runs/B-dt1fs/sample0.gro",
+      "bytes": 294057,
+      "sha256": "234df5a66e73ea43b77b3e3b963d03182c2533b39af13dbf61d085085423e8d2"
+    },
+    {
+      "path": "runs/B-dt1fs/sample1.gro",
+      "bytes": 294060,
+      "sha256": "e542ac50c743cdbaff8f4c36535190acf15ef8b8d81486bc4dfd2f6dcadc45eb"
+    },
+    {
+      "path": "runs/B-dt1fs/sample10.gro",
+      "bytes": 294061,
+      "sha256": "c88cfdb9b890b7a710184985c0706dfc077c7656832e615a4b9a3b31c4ffbf4a"
+    },
+    {
+      "path": "runs/B-dt1fs/sample2.gro",
+      "bytes": 294061,
+      "sha256": "f376cd2a1263d1e6fb3bd64ca37233966aa16b6247fe3b08acc2264d99c5d5e7"
+    },
+    {
+      "path": "runs/B-dt1fs/sample3.gro",
+      "bytes": 294061,
+      "sha256": "9e0e25e39673817f2457efc9422b88202571412ba92ac597d993d2db59a2e180"
+    },
+    {
+      "path": "runs/B-dt1fs/sample4.gro",
+      "bytes": 294061,
+      "sha256": "70cf6ba04272b16c3e111e7f297652fde47db3c32c70e76fd923c578c321b50c"
+    },
+    {
+      "path": "runs/B-dt1fs/sample5.gro",
+      "bytes": 294061,
+      "sha256": "5df955a3665d600018d9a87f70f4ae3d61e24d0b6716898e9564689a09371285"
+    },
+    {
+      "path": "runs/B-dt1fs/sample6.gro",
+      "bytes": 294061,
+      "sha256": "26878862b39f98b70f29035bf378a0f6d6326046dbd7965d86d6c89a5745d88b"
+    },
+    {
+      "path": "runs/B-dt1fs/sample7.gro",
+      "bytes": 294061,
+      "sha256": "debe50058cdc3cf136c4ab4f7098085a7609bdd676172a4859d067a0a53f7455"
+    },
+    {
+      "path": "runs/B-dt1fs/sample8.gro",
+      "bytes": 294061,
+      "sha256": "a0532fcb6a58141b23eab7ae046a24eeb8e566f4e25eecc803f9aaedec81bebd"
+    },
+    {
+      "path": "runs/B-dt1fs/sample9.gro",
+      "bytes": 294061,
+      "sha256": "b1310f3d19d0254f35d6f0f5d182e7ec231f4d2d3eb2ae4e8bf0da851ecfd098"
+    },
+    {
+      "path": "runs/B-dt1fs/source-NVT-audit-only.mdp",
+      "bytes": 1980,
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb"
+    },
+    {
+      "path": "runs/B-dt1fs/start.gro",
+      "bytes": 294066,
+      "sha256": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19"
+    },
+    {
+      "path": "runs/B-dt1fs/topol.top",
+      "bytes": 122438,
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7"
+    },
+    {
+      "path": "runs/B-dt1fs/topol.tpr",
+      "bytes": 229428,
+      "sha256": "c090e7b311622610777c29d2dc728572b92798176bd5498a553d887b85961341"
+    },
+    {
+      "path": "runs/B-dt1fs/tpr-dump.stderr",
+      "bytes": 933,
+      "sha256": "05c4151efd8848c48ff587459823622f9dc1e6bdaf7339258e7232168377d2c1"
+    },
+    {
+      "path": "runs/B-dt1fs/tpr-state-dump.txt",
+      "bytes": 1450635,
+      "sha256": "8eabe958302ca0fc9cfba01f270dfde3e295392530794f1bfa655ae3aac9a380"
+    },
+    {
+      "path": "runs/B-dt1fs/trjconv.log",
+      "bytes": 2683,
+      "sha256": "b545b84c38e9c459a6a7cb3bbc6b39451dbce0a4169dc43bdf0398de1deb4144"
+    },
+    {
+      "path": "runs/B-dt2fs/energy.xvg",
+      "bytes": 38958,
+      "sha256": "062f4e462042ee4700118cd9b47ea94d6781bdfb64538904a3cb75af8e34d38d"
+    },
+    {
+      "path": "runs/B-dt2fs/gmx-energy.log",
+      "bytes": 5010,
+      "sha256": "cdef500c1c258ec12636ef8fbf93209eb00c1e5db51879d990d5a014f004340c"
+    },
+    {
+      "path": "runs/B-dt2fs/grompp.console.log",
+      "bytes": 2171,
+      "sha256": "5dabed743f7bacda1b09805a109ea8c8683748f359e632b335c8f1cf7f3c8949"
+    },
+    {
+      "path": "runs/B-dt2fs/imdgroup.gro",
+      "bytes": 16123,
+      "sha256": "ebe3a6ba8e3b7f8bb20e146b93ed1c20c246b99b47f50e43db19a4f7c2450119"
+    },
+    {
+      "path": "runs/B-dt2fs/index.ndx",
+      "bytes": 32431,
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c"
+    },
+    {
+      "path": "runs/B-dt2fs/input.mdp",
+      "bytes": 2196,
+      "sha256": "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e"
+    },
+    {
+      "path": "runs/B-dt2fs/md.cpt",
+      "bytes": 158560,
+      "sha256": "91a4e9300fe313c43753a3bddbabf1280103351c66051b3ed039c9425fe9ef82"
+    },
+    {
+      "path": "runs/B-dt2fs/md.edr",
+      "bytes": 121256,
+      "sha256": "0c45f8485540d7fbf17d369eb3849bace8636319538dc29054f990109275acd0"
+    },
+    {
+      "path": "runs/B-dt2fs/md.gro",
+      "bytes": 450828,
+      "sha256": "4ff7aa630bb37a688f3e8a94817a70a51a061aa81c67010fb4ce92cf8fd228d9"
+    },
+    {
+      "path": "runs/B-dt2fs/md.log",
+      "bytes": 327140,
+      "sha256": "d698e820c39310135a86086f10ff0e0bed3fab9ad0794553b67f1703eeda6716"
+    },
+    {
+      "path": "runs/B-dt2fs/md.xtc",
+      "bytes": 2366884,
+      "sha256": "e4243dc84e071644dbc7cbc1731015d151d0e6546859d4eed344ffa866e23dea"
+    },
+    {
+      "path": "runs/B-dt2fs/mdout.mdp",
+      "bytes": 10715,
+      "sha256": "312925ecd88aeb3f3a0c7f7b4e732865b5bec70a2fd9c82fb9b381ad0dd5e8db"
+    },
+    {
+      "path": "runs/B-dt2fs/mdrun.console.log",
+      "bytes": 1490,
+      "sha256": "52d0806d8bb0d55084c0dd2fbe5218361c147167d6e3958266dbae5e1f8f0abb"
+    },
+    {
+      "path": "runs/B-dt2fs/processed.top",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "path": "runs/B-dt2fs/sample0.gro",
+      "bytes": 294057,
+      "sha256": "234df5a66e73ea43b77b3e3b963d03182c2533b39af13dbf61d085085423e8d2"
+    },
+    {
+      "path": "runs/B-dt2fs/sample1.gro",
+      "bytes": 294060,
+      "sha256": "919c8ab5300a714c601c7d7564324ed1d0d98b8b56d8cb8e8277b1a6e286c90d"
+    },
+    {
+      "path": "runs/B-dt2fs/sample10.gro",
+      "bytes": 294061,
+      "sha256": "f2554ee757fc29fd52894a0a352bc1f82c4baec4bceb477ac94da4032c243fef"
+    },
+    {
+      "path": "runs/B-dt2fs/sample2.gro",
+      "bytes": 294060,
+      "sha256": "7dba720d78276b587cbec7b48d84006a79b5685a03644f954d3bd3d9379b6a62"
+    },
+    {
+      "path": "runs/B-dt2fs/sample3.gro",
+      "bytes": 294060,
+      "sha256": "883a63f6416909b77721eb62cf8393f3fe413a9d70476d9400783375b86eb74b"
+    },
+    {
+      "path": "runs/B-dt2fs/sample4.gro",
+      "bytes": 294061,
+      "sha256": "d88d49e372009694063020758e14f3420a4995dcc8c5ce8034913d1d56f30aba"
+    },
+    {
+      "path": "runs/B-dt2fs/sample5.gro",
+      "bytes": 294061,
+      "sha256": "8bb0bce540770937e2834795798c6ea62c9ffdd4b4c20fc88e96dcf75d00b9c9"
+    },
+    {
+      "path": "runs/B-dt2fs/sample6.gro",
+      "bytes": 294061,
+      "sha256": "472154ce00fa723cc4d0039620cfa2e6f109ab57c632ae7b4a137dc1a9543388"
+    },
+    {
+      "path": "runs/B-dt2fs/sample7.gro",
+      "bytes": 294061,
+      "sha256": "e0634e730f0a59e3cd589accc1682370c5a443d459c689e9d1a2737a0b7e5bdb"
+    },
+    {
+      "path": "runs/B-dt2fs/sample8.gro",
+      "bytes": 294061,
+      "sha256": "29b3d794e0da89d0186914ebf85f63be5da8a0def85608eeb5f82d706b9b1955"
+    },
+    {
+      "path": "runs/B-dt2fs/sample9.gro",
+      "bytes": 294061,
+      "sha256": "e11e0aeca7848bd082ac25f58fe63be6da125a3876f238fdaf4d9e9a712c6be0"
+    },
+    {
+      "path": "runs/B-dt2fs/source-NVT-audit-only.mdp",
+      "bytes": 1980,
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb"
+    },
+    {
+      "path": "runs/B-dt2fs/start.gro",
+      "bytes": 294066,
+      "sha256": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19"
+    },
+    {
+      "path": "runs/B-dt2fs/topol.top",
+      "bytes": 122438,
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7"
+    },
+    {
+      "path": "runs/B-dt2fs/topol.tpr",
+      "bytes": 229428,
+      "sha256": "e6a5b16b5d0b62440f15f450eaeda574e7c3f13b67ec47012a808c44bbb4d49a"
+    },
+    {
+      "path": "runs/B-dt2fs/tpr-dump.stderr",
+      "bytes": 1064,
+      "sha256": "3ebb96227c65a68fe3cf4c31dd0e2c704e09e12848c75e7fc1a48ce2a0822be5"
+    },
+    {
+      "path": "runs/B-dt2fs/tpr-state-dump.txt",
+      "bytes": 1450632,
+      "sha256": "9660a475b4c8cf7aca0c5e1d586f87fa1f5eb06ec7a84f040dd00e2913198af7"
+    },
+    {
+      "path": "runs/B-dt2fs/trjconv.log",
+      "bytes": 2582,
+      "sha256": "fc58a47150abfc31bac43914450459983954f2d469004078323d5bae1dd780a6"
+    },
+    {
+      "path": "runs/U-dt1fs/energy.xvg",
+      "bytes": 38960,
+      "sha256": "140e46726c3ae47cd7e429b3eb85b592530d2113ed5f0605277e8c8f396e2a85"
+    },
+    {
+      "path": "runs/U-dt1fs/gmx-energy.log",
+      "bytes": 5015,
+      "sha256": "ee5bea2fccbdb8d9d63bf1a8967b018f09adf28cc53d85900e1d7dde02d2994d"
+    },
+    {
+      "path": "runs/U-dt1fs/grompp.console.log",
+      "bytes": 2071,
+      "sha256": "badd57f841e5e831382f3f264a34ae3c5c3b05820ad2984aae48888af3c7af99"
+    },
+    {
+      "path": "runs/U-dt1fs/imdgroup.gro",
+      "bytes": 16123,
+      "sha256": "8e384a372f0c1803b3811e5a027470bb0b50187d9746e5da2a317128113afde9"
+    },
+    {
+      "path": "runs/U-dt1fs/index.ndx",
+      "bytes": 32431,
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c"
+    },
+    {
+      "path": "runs/U-dt1fs/input.mdp",
+      "bytes": 2200,
+      "sha256": "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b"
+    },
+    {
+      "path": "runs/U-dt1fs/md.cpt",
+      "bytes": 158560,
+      "sha256": "6c46bdd497ea75f09510bfd415ed990d8e8bbc0f7d29eab14e46b02abfa1a6f8"
+    },
+    {
+      "path": "runs/U-dt1fs/md.edr",
+      "bytes": 121256,
+      "sha256": "8bdba9e1243bea8314e0149bb14af371c7a86594c996ee94fb201b0a7f585130"
+    },
+    {
+      "path": "runs/U-dt1fs/md.gro",
+      "bytes": 450828,
+      "sha256": "1fd83485fad5faab4ae56371f6c3327dec29c5686d9631c43cc648700762e7f4"
+    },
+    {
+      "path": "runs/U-dt1fs/md.log",
+      "bytes": 327142,
+      "sha256": "86981b5e246474d8bb8fc67d214df442fda4d11031157e7f7f12128512ee354c"
+    },
+    {
+      "path": "runs/U-dt1fs/md.xtc",
+      "bytes": 2373552,
+      "sha256": "c7b56bc7bbe464de032684c574317393b4febf5c8929d1aa62eeff761c081b28"
+    },
+    {
+      "path": "runs/U-dt1fs/mdout.mdp",
+      "bytes": 10719,
+      "sha256": "095dc164733f9b9a70a0a93046b25bca2f1f659fc45eca163826dc47c1184de6"
+    },
+    {
+      "path": "runs/U-dt1fs/mdrun.console.log",
+      "bytes": 1494,
+      "sha256": "54bb6b9f78973d016aa5775fa2727e3a0df63cabc5853e29adc0d58f8218e327"
+    },
+    {
+      "path": "runs/U-dt1fs/processed.top",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "path": "runs/U-dt1fs/sample0.gro",
+      "bytes": 294057,
+      "sha256": "300b48ca032481a52cb960da85376ad64fb5f1095a420d1719c7010938229338"
+    },
+    {
+      "path": "runs/U-dt1fs/sample1.gro",
+      "bytes": 294060,
+      "sha256": "2722bc2d26332f00b61a11d5e596dde2008df82fb16b1985febd841518c80bb4"
+    },
+    {
+      "path": "runs/U-dt1fs/sample10.gro",
+      "bytes": 294061,
+      "sha256": "a596b7c34d272f929e22fab7453ca94a9d56f1d53427d21eb7245306bf05980e"
+    },
+    {
+      "path": "runs/U-dt1fs/sample2.gro",
+      "bytes": 294061,
+      "sha256": "32254f1d96978b4cd7910be1d62b22f75dcaed20d69511d77c909abc8cb16f61"
+    },
+    {
+      "path": "runs/U-dt1fs/sample3.gro",
+      "bytes": 294061,
+      "sha256": "63ab8cde45173595f8e490b0ea5a3bf5a65ad2880c0621353fb3b2adb4c678c5"
+    },
+    {
+      "path": "runs/U-dt1fs/sample4.gro",
+      "bytes": 294061,
+      "sha256": "9d359b3f611fc5ffcc3c5b4c7716dcd9fbe5d23e7a8faeb205f3c916c23657ac"
+    },
+    {
+      "path": "runs/U-dt1fs/sample5.gro",
+      "bytes": 294061,
+      "sha256": "644a1f308b2c8fd909132ec159c84a3a99555944f5229fc1fe160c59bfe7477e"
+    },
+    {
+      "path": "runs/U-dt1fs/sample6.gro",
+      "bytes": 294061,
+      "sha256": "90ed3363888e37b7249fb8262c772074dfd8503437b57b1c8d289210049993b4"
+    },
+    {
+      "path": "runs/U-dt1fs/sample7.gro",
+      "bytes": 294061,
+      "sha256": "46baefc0b9d6a8352e8a8276f5aee7882c9f3ff917c046e56fa8d4d7c32406e3"
+    },
+    {
+      "path": "runs/U-dt1fs/sample8.gro",
+      "bytes": 294061,
+      "sha256": "95f047979e5cb562add0001ca174b3980845525c507397ef26fdfb300bf08e35"
+    },
+    {
+      "path": "runs/U-dt1fs/sample9.gro",
+      "bytes": 294061,
+      "sha256": "f48f27073aba3d7203462197d8e40dc5b0f2c24281d636c3a1a2761361c7bd39"
+    },
+    {
+      "path": "runs/U-dt1fs/source-NVT-audit-only.mdp",
+      "bytes": 1980,
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb"
+    },
+    {
+      "path": "runs/U-dt1fs/start.gro",
+      "bytes": 294066,
+      "sha256": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479"
+    },
+    {
+      "path": "runs/U-dt1fs/topol.top",
+      "bytes": 122438,
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7"
+    },
+    {
+      "path": "runs/U-dt1fs/topol.tpr",
+      "bytes": 229428,
+      "sha256": "6e0104bc7cd2531ff9256fb04cb0a20d24befe19345ef148ab88938ecb823405"
+    },
+    {
+      "path": "runs/U-dt1fs/tpr-dump.stderr",
+      "bytes": 963,
+      "sha256": "7137702296e8253be986d82b1742b2b05d3874a13c61df16d1cb2f80644c5039"
+    },
+    {
+      "path": "runs/U-dt1fs/tpr-state-dump.txt",
+      "bytes": 1450636,
+      "sha256": "0efc69e568028f5b9590b0f9f2ffdcb6691493ad7e3983fcb896d35c5bf6da93"
+    },
+    {
+      "path": "runs/U-dt1fs/trjconv.log",
+      "bytes": 2587,
+      "sha256": "a94a63b164d04fca7c96764038466c27e4c6ca1a2e901664fa710da79041e213"
+    },
+    {
+      "path": "runs/U-dt2fs/energy.xvg",
+      "bytes": 38972,
+      "sha256": "b762936fff50456743bb51a6370d24876a332ca9334623e8d79142bd190b4801"
+    },
+    {
+      "path": "runs/U-dt2fs/gmx-energy.log",
+      "bytes": 5027,
+      "sha256": "783bad44db8f7e0527e7421d4c7a59b704b468f82208d1017152aa836854be26"
+    },
+    {
+      "path": "runs/U-dt2fs/grompp.console.log",
+      "bytes": 2076,
+      "sha256": "d7458e51c817d624ecf81b5d30f5c7376fc4235b8b3561836424742a19f9dd17"
+    },
+    {
+      "path": "runs/U-dt2fs/imdgroup.gro",
+      "bytes": 16123,
+      "sha256": "8e384a372f0c1803b3811e5a027470bb0b50187d9746e5da2a317128113afde9"
+    },
+    {
+      "path": "runs/U-dt2fs/index.ndx",
+      "bytes": 32431,
+      "sha256": "56ca9f774f946a46b35840f77cc4c52d8df5caa5b54f952fe4a262490c28ac6c"
+    },
+    {
+      "path": "runs/U-dt2fs/input.mdp",
+      "bytes": 2196,
+      "sha256": "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e"
+    },
+    {
+      "path": "runs/U-dt2fs/md.cpt",
+      "bytes": 158560,
+      "sha256": "845756fb8bff3a42477f52e708e6900d068338cbdcc38e45fff547ae78b93e9b"
+    },
+    {
+      "path": "runs/U-dt2fs/md.edr",
+      "bytes": 121256,
+      "sha256": "362c3909bb4206332d3c42b53a18abbf28274e263f80bc16daee7a515ee574a1"
+    },
+    {
+      "path": "runs/U-dt2fs/md.gro",
+      "bytes": 450828,
+      "sha256": "badcdfd05cc1db1e0bb70a5fa9a27484aa84193268b8fbbe6d8c7afa632efa5b"
+    },
+    {
+      "path": "runs/U-dt2fs/md.log",
+      "bytes": 327142,
+      "sha256": "93add72166eea20bd47685d6ac5d50b1b38016cb9b3640744cb73b67a9ce4da3"
+    },
+    {
+      "path": "runs/U-dt2fs/md.xtc",
+      "bytes": 2368868,
+      "sha256": "318b3c9b25ca42a6f56f9568bc8343b77bdb1d45c83064e580ddb5d7a7dce65f"
+    },
+    {
+      "path": "runs/U-dt2fs/mdout.mdp",
+      "bytes": 10715,
+      "sha256": "b3af292bdee436bc6e44f7b4d7e0365000dc4bcd21daedfdd09ba4d6efa2b30e"
+    },
+    {
+      "path": "runs/U-dt2fs/mdrun.console.log",
+      "bytes": 1507,
+      "sha256": "be8daa0e09130404e93d12a733ba826704e2cc1a896c4d2d57333a126b7d53f4"
+    },
+    {
+      "path": "runs/U-dt2fs/processed.top",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "path": "runs/U-dt2fs/sample0.gro",
+      "bytes": 294057,
+      "sha256": "300b48ca032481a52cb960da85376ad64fb5f1095a420d1719c7010938229338"
+    },
+    {
+      "path": "runs/U-dt2fs/sample1.gro",
+      "bytes": 294060,
+      "sha256": "80f47c5bcafae3693e0e141483c046a080d7e6d1e1813541fe8771969a0ff0cc"
+    },
+    {
+      "path": "runs/U-dt2fs/sample10.gro",
+      "bytes": 294061,
+      "sha256": "8ab11d0cb19de29705b823ef9869e63c225fe93a82532332ea3f83504f5a8bac"
+    },
+    {
+      "path": "runs/U-dt2fs/sample2.gro",
+      "bytes": 294060,
+      "sha256": "e04bddf725c074479c9036f82bbe495dd168206c1985c4d9cf4e26357c88ee47"
+    },
+    {
+      "path": "runs/U-dt2fs/sample3.gro",
+      "bytes": 294060,
+      "sha256": "7ebc6dcb9ffc21f15e4d7a5a64382081eb40fbe96577bd018812bf6d692ddd24"
+    },
+    {
+      "path": "runs/U-dt2fs/sample4.gro",
+      "bytes": 294061,
+      "sha256": "a191590b6febb843b90c1092261c5c979f2524f5d08456022c88da85ce73bfe1"
+    },
+    {
+      "path": "runs/U-dt2fs/sample5.gro",
+      "bytes": 294061,
+      "sha256": "dceab9ee554741ea37503243f84eed723e96eecfb8a4d3274b6e32da4a098bad"
+    },
+    {
+      "path": "runs/U-dt2fs/sample6.gro",
+      "bytes": 294061,
+      "sha256": "b83b3c0d5bea6ea89145f900beb3a18c1dd476bbe95850940a3446f767fe011a"
+    },
+    {
+      "path": "runs/U-dt2fs/sample7.gro",
+      "bytes": 294061,
+      "sha256": "1bb22508abbee624bda7e78704fa68b6695e908f7bd111234bacbeebbf1c2dba"
+    },
+    {
+      "path": "runs/U-dt2fs/sample8.gro",
+      "bytes": 294061,
+      "sha256": "7cb0e81afbfa320cf937ba0899b6031aaa546787c3428072aa92a73fe1daadf9"
+    },
+    {
+      "path": "runs/U-dt2fs/sample9.gro",
+      "bytes": 294061,
+      "sha256": "8c4533e910f0e7bb4079826a383481762e002b2b81e5a4755eddd0fbaec0c8df"
+    },
+    {
+      "path": "runs/U-dt2fs/source-NVT-audit-only.mdp",
+      "bytes": 1980,
+      "sha256": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb"
+    },
+    {
+      "path": "runs/U-dt2fs/start.gro",
+      "bytes": 294066,
+      "sha256": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479"
+    },
+    {
+      "path": "runs/U-dt2fs/topol.top",
+      "bytes": 122438,
+      "sha256": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7"
+    },
+    {
+      "path": "runs/U-dt2fs/topol.tpr",
+      "bytes": 229428,
+      "sha256": "b92aa004447e9edd1cd9d62238bd4e39ac4e4d25585b263cab67b92a987b1c23"
+    },
+    {
+      "path": "runs/U-dt2fs/tpr-dump.stderr",
+      "bytes": 968,
+      "sha256": "7adfd58f7c5a5a93630c0e03ff456c464699d2c120b18fecfa19b76e07d17058"
+    },
+    {
+      "path": "runs/U-dt2fs/tpr-state-dump.txt",
+      "bytes": 1450633,
+      "sha256": "1731cb11d7f0085abf9387df3d0b62322980859e262a2cefea861f064a9c2763"
+    },
+    {
+      "path": "runs/U-dt2fs/trjconv.log",
+      "bytes": 2599,
+      "sha256": "e1f5476d9ea411b3d5de16bf83aca545917635e900a58e93b2357eb53fe7ef61"
+    },
+    {
+      "path": "scientific-rationale.md",
+      "bytes": 2308,
+      "sha256": "ff37539f144323681be96e8a5e91810fccb5beb8311bf3e0db9f19e3ab0d7b8c"
+    },
+    {
+      "path": "source-manifest.json",
+      "bytes": 1389,
+      "sha256": "5fe09e27d4c2018067bed814e6ae3210c551f88dfbb565435776306b40ef2ced"
+    }
+  ],
+  "checked_at": "2026-10-18T09:29:51.998517+00:00"
+}

@@ -1,0 +1,39 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Offline wheels / assets are distributed as one archive: shared/inputs.tar.zst
+**/*.whl
+shared/wheelhouse/*.whl
+shared/wheelhouse/.restore-state.json
+shared/asset-store/*.blob
+shared/asset-store/.restore-state.json
+shared/inputs.tar.zst
+shared/inputs.tar.zst.tmp
+shared/inputs.tar.xz
+shared/inputs.tar.xz.tmp
+# Legacy assets-only archives
+shared/asset-store.tar.zst
+shared/asset-store.tar.zst.tmp
+shared/asset-store.tar.xz
+shared/asset-store.tar.xz.tmp
+
+# Virtual environments
+.venv
+
+# Vendored into images/base by build.sh when missing
+images/base/uv
+
+# Harbor job outputs
+jobs/
+
+# Secrets
+.env
+
+# Local / generated
+.DS_Store
+output/

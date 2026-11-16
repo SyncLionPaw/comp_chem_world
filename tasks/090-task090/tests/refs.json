@@ -1,0 +1,39 @@
+{
+  "case_id": "case-03-hydration-force-roughness",
+  "boundary": "antisymmetric Dirichlet polarization and P1''=0. Equation 16's rho_b, where P1'=-rho_b, is not this boundary and is not scanned.",
+  "gaussian": "task convention exp(-x^2/(2*sigma^2)) with sigma=1.25 Angstrom. Not Equation 19, so 2*sigma=2.5 Angstrom is not the paper's roughness width.",
+  "internal_sharp_grid_A": {
+    "start": 0.4,
+    "stop": 20.0,
+    "step": 0.02
+  },
+  "public_sharp_curve_starts_A": 2.0,
+  "short_range_convergence": {
+    "at_0.40_Angstrom_h_1e-3_vs_2e-4_relative": 6.2e-06,
+    "at_0.40_Angstrom_n_2001_vs_8001_relative": 2.3e-08,
+    "smeared_6A_step_0.05_vs_0.01_relative": 0.00016
+  },
+  "Pi_0.40_over_Pi_2": 2.075,
+  "floor_sensitivity_task_gaussian": {
+    "Pi_s_6A_floor_0.40_Pa": 100432072.7,
+    "Pi_s_6A_floor_2.0_Pa": 32871164.2,
+    "sign_changes_5_20_floor_0.40": 0,
+    "sign_changes_5_20_floor_2.0": 1,
+    "sign_changes_10_20_both_floors": 0
+  },
+  "poles_A": {
+    "lambda_d1": 1.704285,
+    "lambda_o": 2.060223,
+    "lambda_d2": 3.646844
+  },
+  "host_replay": {
+    "gold": "PASS",
+    "positive_only_sharp_curve": "FAIL L3",
+    "missing_smeared_curve": "FAIL L1",
+    "container_gates": "not run",
+    "image_binding": "not done"
+  },
+  "asset_hashes": {
+    "assets/model_constants.json": "sha256:7d2208e38098ab1edad4806b85911d7fc72bbd06a02c8e45576e468faa6c86f3"
+  }
+}

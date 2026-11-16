@@ -1,0 +1,319 @@
+{
+  "case_id": "case-02-frap",
+  "asset_hashes": {
+    "assets/frap.csv": "sha256:0d2648a1665700ff537cdc1f8b0524343bf9241e94c68fc0950122bf9e42d7b9",
+    "assets/frap_replicates.csv": "sha256:3ffacf9cbcf01cd2cac45bf10b217ee40d3a23493f8df5c3f66b54f7812d4d9a"
+  },
+  "source_provenance": [
+    {
+      "path": "environment/assets/frap.csv",
+      "source_path": "inputs/frap.csv",
+      "sha256": "0d2648a1665700ff537cdc1f8b0524343bf9241e94c68fc0950122bf9e42d7b9"
+    },
+    {
+      "path": "environment/assets/frap_replicates.csv",
+      "source_path": "inputs/frap_replicates.csv",
+      "sha256": "3ffacf9cbcf01cd2cac45bf10b217ee40d3a23493f8df5c3f66b54f7812d4d9a"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "fits",
+      "level": "L1",
+      "necessary": true,
+      "description": "提交拟合参数、曲线、代码和模型诊断。"
+    },
+    {
+      "criterion": "replicate_fit",
+      "level": "L2",
+      "necessary": true,
+      "description": "重放代码及重复测量汇总；不得把时间点当成独立实验重复。"
+    },
+    {
+      "criterion": "slower_mutant",
+      "level": "L3",
+      "necessary": true,
+      "description": "+A2 恢复较慢；论文有理函数 Eq.(1) 的半恢复时间为 53±2 s 与 103±8 s；与指数模型 tau 区分，其他合理模型须解释数值差别。",
+      "verification_basis": {
+        "type": "derived_reference",
+        "source": [
+          "Main Methods Eq.(1)",
+          "inputs/frap.csv",
+          "inputs/frap_replicates.csv",
+          "acceptance/analysis-verifier-checks.json"
+        ],
+        "rationale": "按有理函数自由基线、平台和半恢复时间重算平均曲线为 WT 52.586 s、+A2 103.236 s；12 个重复之间的变异与拟合标准误分开计算。合理模型与不确定度设计仍需科学审查，不能强制与发表误差 2 s/8 s 相同。"
+      }
+    },
+    {
+      "criterion": "model_identifiability",
+      "level": "L3",
+      "necessary": true,
+      "description": "FRAP 混合传输与交联贡献；不足以凭单个恢复模型确定微观扩散率或不动组分。",
+      "verification_basis": {
+        "type": "paper_result",
+        "source": "Main Results FRAP paragraph",
+        "rationale": "FRAP 混合传输与交联贡献；不足以凭单个恢复模型确定微观扩散率或不动组分。"
+      }
+    }
+  ],
+  "coverage": "COMPLETE",
+  "missing_inputs": [],
+  "implementation": "implemented",
+  "grading_mode": "deterministic_checks_and_evaluator_controlled_scientific_review",
+  "original_verification_hashes": {
+    "numeric_check.py": "da87a2076d82c406069d830e6747368f873083ab8e58be520202860f59752835",
+    "rubric.json": "ef85745be1372c910bd8ea141cf6de0ed568a41e2c3b3b271bfe084f7658c994",
+    "evidence/paper.pdf": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040",
+    "evidence/supplementary.pdf": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e",
+    "verify.py": "b2c3126fa1f6128aa6093d1a28c348ec796f78fb9f0c38ba56115c10ec88ca23",
+    "test_verifier_revision.py": "30438e8f385c0b47df7696b07c04e7da92471551a8ed093f9e2610e059745403"
+  },
+  "rubric": {
+    "schema_version": "local-science-rubric/v1",
+    "case_id": "case-02-frap",
+    "criteria": {
+      "fits": "核对原均值、重复数据及所交拟合参数、曲线、代码和诊断。",
+      "replicate_fit": "重放均值拟合并审查全部 12 个重复的实际处理。检查模型、目标函数、权重、时间窗口与计算实现一致；时间点不当作独立实验重复。",
+      "slower_mutant": "结合可验证重复、误差及模型敏感性判断 +A2 恢复较慢。参考有理函数半恢复约 52.586/103.236 s；指数 tau 须换成 ln(2)*tau 才能比较半恢复，不强迫不同合理模型匹配发表误差。",
+      "model_identifiability": "正确解释基线/平台/时间尺度耦合、观测窗口与模型依赖；不能从 FRAP 唯一反演微观扩散率或不动组分。"
+    },
+    "assessment_policy": "每项必要判据必须由评测阶段控制的审查逐项给出 PASS/FAIL、理由、提交文件 SHA-256 和真实引文。审查不能从字符串命中或文件存在推断科学正确。允许科学等价方法；不得用作者模板或唯一参数作为唯一 Gold。",
+    "trusted_stage": "Assessment/replay 路径由评测器提供，不能来自 Agent final/。执行候选代码必须在不含 tests、solution、Gold 或评测凭据的隔离数据环境；verify.py 本身不执行候选代码。",
+    "verification_basis": {
+      "fits": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "replicate_fit": {
+        "type": "frozen_output_and_execution_contract"
+      },
+      "slower_mutant": {
+        "type": "derived_reference",
+        "source": [
+          "Main Methods Eq.(1)",
+          "inputs/frap.csv",
+          "inputs/frap_replicates.csv",
+          "acceptance/analysis-verifier-checks.json"
+        ],
+        "rationale": "按有理函数自由基线、平台和半恢复时间重算平均曲线为 WT 52.586 s、+A2 103.236 s；12 个重复之间的变异与拟合标准误分开计算。合理模型与不确定度设计仍需科学审查，不能强制与发表误差 2 s/8 s 相同。"
+      },
+      "model_identifiability": {
+        "type": "paper_result",
+        "source": "Main Results FRAP paragraph",
+        "rationale": "FRAP 混合传输与交联贡献；不足以凭单个恢复模型确定微观扩散率或不动组分。"
+      }
+    },
+    "reference_precision": "自动 close 的 1e-5 相对/1e-7 绝对容差仅用于浮点序列化与重放一致性，不是科学接受阈值。科学容差、模型/窗口与不确定度由逐项有依据审查决定。"
+  },
+  "approvals": [
+    {
+      "schema": "bench05-local-oracle-approval/v1",
+      "case_id": "case-02-frap",
+      "policy_sha256": "e1ffce469034b922ee9c2565557605bbad6a0e84feb8be9eb010a326f54f50c2",
+      "verifier_sha256": "d123388e417065cbda822946b0ecb7346099d3789625e6c5a3477df6807ae33f",
+      "test_entry_sha256": "2c34b04a6f62cc728ce4e6c3671ac2e6daaa042af6addc72ea65e8ae37fd4e26",
+      "submission_files": {
+        "analysis.py": "7d90a9df5b7e74f84ec730e52ba65653376b8cac174220da2b25fb8febd0fa21",
+        "report.md": "4117b9760e49ecbf230c07290ef1e4450e88c9a4e92908ada9f20bb5a9f50cda",
+        "fitted_curves.csv": "509bf247954ec3ffaedd1a45bec6ac52c9f404052929e100923cf134d93137ca",
+        "fits.json": "d3821d5e0b35747fc93eea087b62f104adf3864c7bf6c239085d114a84b8d1de"
+      },
+      "reviewer": {
+        "id": "Sol6.1-medium /root/sol_strict_layout",
+        "role": "independent scientific and verification reviewer; not implementer"
+      },
+      "reviewed_at": "2026-10-27T03:22:47Z",
+      "preflight": {
+        "evaluation_stage_controlled": true,
+        "references_reviewed": true,
+        "execution_and_code_reviewed": true,
+        "method_neutrality_checked": true
+      },
+      "replay": {
+        "execution_id": "bench05-layout-task30-isolated-data-only-replay-01",
+        "image_id": "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--pull=never",
+          "--network",
+          "none",
+          "--cpus",
+          "2",
+          "--memory",
+          "4096m",
+          "--user",
+          "65534:65534",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task30/environment/assets/frap.csv:/input/frap.csv:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/stage/task30/environment/assets/frap_replicates.csv:/input/frap_replicates.csv:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/oracle/final/analysis.py:/source/analysis.py:ro",
+          "-v",
+          "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/replay/output:/app/replay-output",
+          "sha256:4dc3729f843e4e97b0fc2d049945925c23c44c21e68b893d287575a35781b4b8",
+          "/opt/netfluids/bin/python",
+          "/source/analysis.py",
+          "--input-dir",
+          "/input",
+          "--output-dir",
+          "/app/replay-output"
+        ],
+        "exit_code": 0,
+        "analysis_sha256": "7d90a9df5b7e74f84ec730e52ba65653376b8cac174220da2b25fb8febd0fa21",
+        "input_hashes": {
+          "assets/frap.csv": "sha256:0d2648a1665700ff537cdc1f8b0524343bf9241e94c68fc0950122bf9e42d7b9",
+          "assets/frap_replicates.csv": "sha256:3ffacf9cbcf01cd2cac45bf10b217ee40d3a23493f8df5c3f66b54f7812d4d9a"
+        },
+        "submission_files": {
+          "analysis.py": "7d90a9df5b7e74f84ec730e52ba65653376b8cac174220da2b25fb8febd0fa21",
+          "report.md": "4117b9760e49ecbf230c07290ef1e4450e88c9a4e92908ada9f20bb5a9f50cda",
+          "fitted_curves.csv": "509bf247954ec3ffaedd1a45bec6ac52c9f404052929e100923cf134d93137ca",
+          "fits.json": "d3821d5e0b35747fc93eea087b62f104adf3864c7bf6c239085d114a84b8d1de"
+        },
+        "output_files": {
+          "report.md": "4117b9760e49ecbf230c07290ef1e4450e88c9a4e92908ada9f20bb5a9f50cda",
+          "fitted_curves.csv": "509bf247954ec3ffaedd1a45bec6ac52c9f404052929e100923cf134d93137ca",
+          "fits.json": "d3821d5e0b35747fc93eea087b62f104adf3864c7bf6c239085d114a84b8d1de"
+        },
+        "isolation": "isolated_data_only_runtime"
+      },
+      "judgments": {
+        "fits": {
+          "verdict": "PASS",
+          "rationale": "Independently inspected current public-data fits, complete summary curves and 12 separate experimental fits. Curve parameters and output grid remain numerically checked; current Oracle and isolated replay are byte-identical.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "4117b9760e49ecbf230c07290ef1e4450e88c9a4e92908ada9f20bb5a9f50cda",
+              "quote": "按有理函数 I(t)=b+(p-b)t/(t+h) 自由拟合基线、平台与半恢复时间 h。"
+            }
+          ]
+        },
+        "replicate_fit": {
+          "verdict": "PASS",
+          "rationale": "Reviewed the rational/exponential models, unweighted objective, all 12 replicate time series, sample SD/SE and t intervals, covariance errors and truncated-window sensitivity. Independent scalar variable-projection optimization reproduces summary times and individual h values (maximum old-reference difference below 0.00086 s), confirming implementation rather than inferring validity from output existence.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "4117b9760e49ecbf230c07290ef1e4450e88c9a4e92908ada9f20bb5a9f50cda",
+              "quote": "每个条件 12 个重复分别拟合，不能把时间点作为独立实验重复。"
+            }
+          ]
+        },
+        "slower_mutant": {
+          "verdict": "PASS",
+          "rationale": "Current summary half-recovery times are 52.586/103.236 s. Independent replicate analysis yields mean-t95 ranges approximately WT [46.874,63.613] and +A2 [77.608,147.580] s. Slower recovery is supported with explicit model and uncertainty scope; exponential tau is correctly converted to ln(2)*tau. The published fit error is not forced to equal between-experiment SE.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "4117b9760e49ecbf230c07290ef1e4450e88c9a4e92908ada9f20bb5a9f50cda",
+              "quote": "WT 为 52.586 s，+A2 为 103.236 s；增强酸性区段后恢复较慢。"
+            }
+          ]
+        },
+        "model_identifiability": {
+          "verdict": "PASS",
+          "rationale": "The report limits inference to observed recovery and examined models, discusses baseline/plateau/timescale coupling and finite window, and does not identify an immobile fraction or microscopic diffusion mechanism from a single FRAP model. This agrees with the primary paper FRAP discussion and Methods Eq1.",
+          "evidence": [
+            {
+              "path": "report.md",
+              "sha256": "4117b9760e49ecbf230c07290ef1e4450e88c9a4e92908ada9f20bb5a9f50cda",
+              "quote": "自由平台与时间尺度存在耦合，观测窗口不足以保证平台完全可辨识。未恢复的荧光比例不能直接解释成唯一不动组分。"
+            }
+          ]
+        }
+      },
+      "provenance": {
+        "solve_sha256": "20f1f38513778e32b5cea860f19a03994b781ac6820863718805a24fb4b0fd26",
+        "oracle_execution_id": "bench05-layout-task30-oracle-20261027-01",
+        "raw_evidence": {
+          "oracle": {
+            "argv.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/oracle/argv.json",
+              "sha256": "8a837f0a959e0598dbd58b6b4a3b2ee3e3146b52fa94c17938a67a517b7813a6"
+            },
+            "input-binding.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/oracle/input-binding.json",
+              "sha256": "f7235459a6e3d17de5d914b64e029365538afe31e231c09dff1f3917b8723e70"
+            },
+            "stdout.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/oracle/stdout.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/oracle/stderr.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "exit-code": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/oracle/exit-code",
+              "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+            }
+          },
+          "replay": {
+            "argv.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/replay/argv.json",
+              "sha256": "8b0949fb7b24f8a7be95a82f97e0a8d82cc208ffed68f565388fbf0256e3447b"
+            },
+            "input-binding.json": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/replay/input-binding.json",
+              "sha256": "0b842a68ef3bc62fe7a96990c56911f65ccb3bc207b8abd0ee5416850b126b2d"
+            },
+            "stdout.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/replay/stdout.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "stderr.log": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/replay/stderr.log",
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "exit-code": {
+              "path": "/private/tmp/bench05-strict-layout-20261027/luna/local-runs/task30/replay/exit-code",
+              "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+            }
+          }
+        },
+        "source_equivalence_review": "/private/tmp/bench05-strict-layout-20261027/sol/tasks30-31-33-source-equivalence.json",
+        "environment_scope": "Existing exact case image executing current sources; no fresh Dockerfile build or current base-tag equivalence claimed.",
+        "reviewed_primary_reference": {
+          "path": "acceptance/layout-migration-20261027/task30/original-tree/tests/evidence/paper.pdf",
+          "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040"
+        },
+        "independent_science_check": "/private/tmp/bench05-strict-layout-20261027/sol/frap-independent-variable-projection.json"
+      }
+    }
+  ],
+  "schema": "bench05-local-science-refs/v2",
+  "historical_receipt_provenance": [
+    {
+      "original_path": "tests/approved/author-reference/assessment.json",
+      "sha256": "4e6180ea8106feb8c3627004ce1701097565b13f92ae64f0f881c8c81774c2c2",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/approved/author-reference/replay.json",
+      "sha256": "e9abff273c13a00635e1ce4f7d777645cbfd1ab720605896ac712867021101fb",
+      "use": "preserved historical record only; not a current approval"
+    },
+    {
+      "original_path": "tests/rubric.json",
+      "sha256": "ef85745be1372c910bd8ea141cf6de0ed568a41e2c3b3b271bfe084f7658c994",
+      "use": "original byte digest; current canonical rubric digest is computed from refs.rubric"
+    }
+  ],
+  "reference_sources": [
+    {
+      "path": "tests/evidence/paper.pdf",
+      "source": "evidence/paper.pdf",
+      "sha256": "1908963ed1fa8f8bf20a9cb6a67b4468e42a170a8aeacf0c4c3c507a4b3e5040"
+    },
+    {
+      "path": "tests/evidence/supplementary.pdf",
+      "source": "evidence/supplementary.pdf",
+      "sha256": "b209ae2b01c6821eea1edcfe91925fd4ce15248964b7a16f1bf03ad111fdc29e"
+    }
+  ],
+  "policy_sha256": "e1ffce469034b922ee9c2565557605bbad6a0e84feb8be9eb010a326f54f50c2"
+}

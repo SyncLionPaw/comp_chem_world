@@ -1,0 +1,624 @@
+{
+  "protocol": {
+    "temperature_K": 300.0,
+    "burn_in_ps": 20000.0,
+    "funnelwall_bias_max_kJ_mol": 10.0,
+    "z_range_nm": [
+      0.0,
+      1.8
+    ],
+    "bins": 72,
+    "blocks": 5,
+    "funnel_radius_nm": 0.2,
+    "standard_concentration_nm_minus3": 0.6024096385542169,
+    "fes_gauge": "minimum_populated_bin_zero",
+    "empty_bin_policy": "zero histogram probability; F=+infinity; zero contribution to discrete bound integral; all 12 unbound bins must be populated",
+    "unbound_interval_nm": [
+      1.5,
+      1.8
+    ],
+    "bound_interval_nm": [
+      0.3,
+      0.8
+    ],
+    "block_partition": "five equal elapsed-time intervals after burn-in"
+  },
+  "source": {
+    "path": "environment/assets/g4-thermodynamic-records.npz",
+    "sha256": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "rows_total": 353353,
+    "first_time_ps": 0.0,
+    "last_time_ps": 176676.008392,
+    "analysis_start_ps": 20000.00095,
+    "analysis_end_ps": 176676.008392,
+    "colvar_header": {
+      "fields": [
+        "time",
+        "s.node-0",
+        "sb.node-0",
+        "L1",
+        "cyl.z",
+        "L2",
+        "sc.node-0",
+        "funnelwall.bias",
+        "upper_wall.bias",
+        "opes.bias",
+        "opes.rct",
+        "swo3",
+        "opes.nker",
+        "sang",
+        "cosang",
+        "radius",
+        "sw",
+        "swb",
+        "swc",
+        "L4",
+        "opes.bias",
+        "opes.work",
+        "opes.rct",
+        "opes.zed",
+        "opes.neff",
+        "opes.nker",
+        "ene"
+      ],
+      "duplicate_max_abs": {
+        "opes.bias": 0.0,
+        "opes.rct": 0.0,
+        "opes.nker": 0.0
+      }
+    },
+    "time_audit": {
+      "strictly_increasing": true,
+      "nonincreasing_steps": 0,
+      "max_observed_gap_ps": 0.5000010000076145,
+      "gaps_over_0.50001_ps": 0,
+      "note": "source stride is 0.5 ps; gaps are reported without interpolation"
+    },
+    "raw_source_path": "raw_data/unpacked/Deep-LDA_SAMPL5-9bea077f92b9/OAMe_G4/COLVAR",
+    "raw_source_sha256": "5cbefd5fc8d3e03e720cbb37e7c26ba3bc7a9ef92dcca311ac498800abdbe3b9",
+    "public_input_sha256": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de"
+  },
+  "counts": {
+    "rows_after_burn_in": 313353,
+    "rows_after_burn_and_wall": 312715,
+    "rows_used_in_global_fes": 307236,
+    "empty_fes_bins": 18,
+    "empty_bound_bins": 6,
+    "empty_unbound_bins": 0
+  },
+  "thermodynamics": {
+    "deltaG_kJ_mol": -11.318815078150555,
+    "deltaG_kcal_mol": -2.7052617299595014,
+    "weighted_block_mean_kJ_mol": -12.042363075826469,
+    "weighted_block_mean_kcal_mol": -2.8781938517749683,
+    "weighted_block_sd_kcal_mol": 0.5310150005168705,
+    "block_effective_sample_size": 4.265880965720766,
+    "frame_effective_sample_size": 4856.96379642697,
+    "weighted_block_formal_se_kcal_mol": 0.2571002051174532
+  },
+  "blocks": [
+    {
+      "block": 1,
+      "time_start_ps": 20000.00095,
+      "time_end_ps": 51335.202438399996,
+      "eligible_rows": 62534,
+      "weight_sum_scaled": 257.41198093295884,
+      "max_log_weight": 5.596392952493085,
+      "deltaG_kJ_mol": -11.173642379957332,
+      "deltaG_kcal_mol": -2.670564622360739
+    },
+    {
+      "block": 2,
+      "time_start_ps": 51335.202438399996,
+      "time_end_ps": 82670.40392679999,
+      "eligible_rows": 62530,
+      "weight_sum_scaled": 394.3298019269082,
+      "max_log_weight": 5.6309912999603755,
+      "deltaG_kJ_mol": -12.082078687504318,
+      "deltaG_kcal_mol": -2.8876861107801903
+    },
+    {
+      "block": 3,
+      "time_start_ps": 82670.40392679999,
+      "time_end_ps": 114005.60541519999,
+      "eligible_rows": 62553,
+      "weight_sum_scaled": 245.1565271253519,
+      "max_log_weight": 5.64690734161103,
+      "deltaG_kJ_mol": -8.307583282532155,
+      "deltaG_kcal_mol": -1.9855600579665762
+    },
+    {
+      "block": 4,
+      "time_start_ps": 114005.60541519999,
+      "time_end_ps": 145340.8069036,
+      "eligible_rows": 62548,
+      "weight_sum_scaled": 392.7094238189417,
+      "max_log_weight": 5.7333029833167215,
+      "deltaG_kJ_mol": -10.989513104923594,
+      "deltaG_kcal_mol": -2.6265566694368054
+    },
+    {
+      "block": 5,
+      "time_start_ps": 145340.8069036,
+      "time_end_ps": 176676.008392,
+      "eligible_rows": 62550,
+      "weight_sum_scaled": 662.9552268525741,
+      "max_log_weight": 5.699746996259801,
+      "deltaG_kJ_mol": -14.279461397839187,
+      "deltaG_kcal_mol": -3.4128731830399586
+    }
+  ],
+  "fes": [
+    {
+      "z_nm": 0.0125,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.037500000000000006,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.0625,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.08750000000000001,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.1125,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.1375,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.1625,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.1875,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.21250000000000002,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.23750000000000002,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.2625,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.28750000000000003,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.3125,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.3375,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.36250000000000004,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.3875,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.41250000000000003,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.4375,
+      "probability": 0.0,
+      "F_kJ_mol": null,
+      "F_kcal_mol": null
+    },
+    {
+      "z_nm": 0.4625,
+      "probability": 7.927124974091773e-12,
+      "F_kJ_mol": 61.47546835013308,
+      "F_kcal_mol": 14.692989567431423
+    },
+    {
+      "z_nm": 0.48750000000000004,
+      "probability": 3.0787626957675665e-09,
+      "F_kJ_mol": 46.604238835343615,
+      "F_kcal_mol": 11.138680409976963
+    },
+    {
+      "z_nm": 0.5125000000000001,
+      "probability": 6.7729009773718284e-06,
+      "F_kJ_mol": 27.40741596931125,
+      "F_kcal_mol": 6.550529629376493
+    },
+    {
+      "z_nm": 0.5375,
+      "probability": 0.0012516459155191525,
+      "F_kJ_mol": 14.388750470988473,
+      "F_kcal_mol": 3.438993898419807
+    },
+    {
+      "z_nm": 0.5625,
+      "probability": 0.022554660315617453,
+      "F_kJ_mol": 7.176414040428524,
+      "F_kcal_mol": 1.7152041205613107
+    },
+    {
+      "z_nm": 0.5875,
+      "probability": 0.10707426498779145,
+      "F_kJ_mol": 3.291279469015571,
+      "F_kcal_mol": 0.7866346723268574
+    },
+    {
+      "z_nm": 0.6125,
+      "probability": 0.4006236408749499,
+      "F_kJ_mol": 0.0,
+      "F_kcal_mol": 0.0
+    },
+    {
+      "z_nm": 0.6375000000000001,
+      "probability": 0.3101292911552353,
+      "F_kJ_mol": 0.638633432329395,
+      "F_kcal_mol": 0.15263705361601218
+    },
+    {
+      "z_nm": 0.6625000000000001,
+      "probability": 0.03885069712778156,
+      "F_kJ_mol": 5.820031744423963,
+      "F_kcal_mol": 1.3910209714206412
+    },
+    {
+      "z_nm": 0.6875,
+      "probability": 0.0015764137448880183,
+      "F_kJ_mol": 13.813323804277463,
+      "F_kcal_mol": 3.301463624349298
+    },
+    {
+      "z_nm": 0.7125,
+      "probability": 0.00010779270016717683,
+      "F_kJ_mol": 20.504881038080534,
+      "F_kcal_mol": 4.900784186921733
+    },
+    {
+      "z_nm": 0.7375,
+      "probability": 5.126720092817261e-05,
+      "F_kJ_mol": 22.358570732352373,
+      "F_kcal_mol": 5.343826656871982
+    },
+    {
+      "z_nm": 0.7625000000000001,
+      "probability": 2.762130779219098e-05,
+      "F_kJ_mol": 23.901228709818106,
+      "F_kcal_mol": 5.712530762384825
+    },
+    {
+      "z_nm": 0.7875000000000001,
+      "probability": 1.2095318451047796e-05,
+      "F_kJ_mol": 25.96097641285526,
+      "F_kcal_mol": 6.2048222784070886
+    },
+    {
+      "z_nm": 0.8125,
+      "probability": 8.759359616243322e-06,
+      "F_kJ_mol": 26.765888747800595,
+      "F_kcal_mol": 6.397200943546987
+    },
+    {
+      "z_nm": 0.8375,
+      "probability": 3.307559134392001e-05,
+      "F_kJ_mol": 23.451728675503333,
+      "F_kcal_mol": 5.605097675789515
+    },
+    {
+      "z_nm": 0.8625,
+      "probability": 0.0002424517661461143,
+      "F_kJ_mol": 18.482987857193564,
+      "F_kcal_mol": 4.417540118832114
+    },
+    {
+      "z_nm": 0.8875000000000001,
+      "probability": 0.001283726106046003,
+      "F_kJ_mol": 14.325625112234835,
+      "F_kcal_mol": 3.4239065755819396
+    },
+    {
+      "z_nm": 0.9125000000000001,
+      "probability": 0.005443303547717081,
+      "F_kJ_mol": 10.722255219685008,
+      "F_kcal_mol": 2.562680501836761
+    },
+    {
+      "z_nm": 0.9375,
+      "probability": 0.01547334537455607,
+      "F_kJ_mol": 8.116337815863774,
+      "F_kcal_mol": 1.9398512944225081
+    },
+    {
+      "z_nm": 0.9625,
+      "probability": 0.026070119883970018,
+      "F_kJ_mol": 6.815113766693948,
+      "F_kcal_mol": 1.6288512826706376
+    },
+    {
+      "z_nm": 0.9875,
+      "probability": 0.026134766873171185,
+      "F_kJ_mol": 6.808936123757892,
+      "F_kcal_mol": 1.62737479057311
+    },
+    {
+      "z_nm": 1.0125,
+      "probability": 0.018447815882802743,
+      "F_kJ_mol": 7.677765478826993,
+      "F_kcal_mol": 1.8350299901594151
+    },
+    {
+      "z_nm": 1.0375,
+      "probability": 0.011454276812058215,
+      "F_kJ_mol": 8.8665244467826,
+      "F_kcal_mol": 2.1191502023858986
+    },
+    {
+      "z_nm": 1.0625,
+      "probability": 0.0064773439464526385,
+      "F_kJ_mol": 10.288428855060639,
+      "F_kcal_mol": 2.4589935122037856
+    },
+    {
+      "z_nm": 1.0875000000000001,
+      "probability": 0.00326423222697808,
+      "F_kJ_mol": 11.997764201689845,
+      "F_kcal_mol": 2.8675344650310337
+    },
+    {
+      "z_nm": 1.1125,
+      "probability": 0.0016409962957004394,
+      "F_kJ_mol": 13.713173434847265,
+      "F_kcal_mol": 3.277527111579174
+    },
+    {
+      "z_nm": 1.1375,
+      "probability": 0.0007599064111065318,
+      "F_kJ_mol": 15.633473950425838,
+      "F_kcal_mol": 3.736489949910573
+    },
+    {
+      "z_nm": 1.1625,
+      "probability": 0.00034285912574691396,
+      "F_kJ_mol": 17.61865740702693,
+      "F_kcal_mol": 4.210960183323836
+    },
+    {
+      "z_nm": 1.1875,
+      "probability": 0.0001488354317621184,
+      "F_kJ_mol": 19.70012934543232,
+      "F_kcal_mol": 4.708443916212313
+    },
+    {
+      "z_nm": 1.2125000000000001,
+      "probability": 7.43520720904199e-05,
+      "F_kJ_mol": 21.431274466594505,
+      "F_kcal_mol": 5.122197530256813
+    },
+    {
+      "z_nm": 1.2375,
+      "probability": 3.7612216612073464e-05,
+      "F_kJ_mol": 23.131123033199586,
+      "F_kcal_mol": 5.528471088240819
+    },
+    {
+      "z_nm": 1.2625000000000002,
+      "probability": 2.302909922876082e-05,
+      "F_kJ_mol": 24.35477157794054,
+      "F_kcal_mol": 5.820930109450416
+    },
+    {
+      "z_nm": 1.2875,
+      "probability": 1.6456076718998274e-05,
+      "F_kJ_mol": 25.193028513019307,
+      "F_kcal_mol": 6.021278325291421
+    },
+    {
+      "z_nm": 1.3125,
+      "probability": 1.4848180563648923e-05,
+      "F_kJ_mol": 25.449490135299104,
+      "F_kcal_mol": 6.082574124115465
+    },
+    {
+      "z_nm": 1.3375000000000001,
+      "probability": 1.4552976331303173e-05,
+      "F_kJ_mol": 25.499580960954482,
+      "F_kcal_mol": 6.094546118774971
+    },
+    {
+      "z_nm": 1.3625,
+      "probability": 1.6424496347993567e-05,
+      "F_kJ_mol": 25.19781992394254,
+      "F_kcal_mol": 6.0224234999862665
+    },
+    {
+      "z_nm": 1.3875000000000002,
+      "probability": 1.890912752891608e-05,
+      "F_kJ_mol": 24.846440315584783,
+      "F_kcal_mol": 5.938441758026955
+    },
+    {
+      "z_nm": 1.4125,
+      "probability": 1.9844783049751636e-05,
+      "F_kJ_mol": 24.725972705897384,
+      "F_kcal_mol": 5.909649308292874
+    },
+    {
+      "z_nm": 1.4375,
+      "probability": 1.8768601966862588e-05,
+      "F_kJ_mol": 24.865046531499093,
+      "F_kcal_mol": 5.942888750358292
+    },
+    {
+      "z_nm": 1.4625000000000001,
+      "probability": 1.7817500282837413e-05,
+      "F_kJ_mol": 24.994762697491982,
+      "F_kcal_mol": 5.973891658100378
+    },
+    {
+      "z_nm": 1.4875,
+      "probability": 1.9526775944261822e-05,
+      "F_kJ_mol": 24.766267514019283,
+      "F_kcal_mol": 5.919279998570574
+    },
+    {
+      "z_nm": 1.5125000000000002,
+      "probability": 1.8307088362612338e-05,
+      "F_kJ_mol": 24.927148180112628,
+      "F_kcal_mol": 5.957731400600532
+    },
+    {
+      "z_nm": 1.5375,
+      "probability": 1.8136131064468158e-05,
+      "F_kJ_mol": 24.950550533370052,
+      "F_kcal_mol": 5.963324697268177
+    },
+    {
+      "z_nm": 1.5625,
+      "probability": 1.4687888312839787e-05,
+      "F_kJ_mol": 25.476563955121403,
+      "F_kcal_mol": 6.0890449223521514
+    },
+    {
+      "z_nm": 1.5875000000000001,
+      "probability": 1.5833886569850624e-05,
+      "F_kJ_mol": 25.289166444413667,
+      "F_kcal_mol": 6.044255842355082
+    },
+    {
+      "z_nm": 1.6125,
+      "probability": 1.5361268220479363e-05,
+      "F_kJ_mol": 25.36475257288795,
+      "F_kcal_mol": 6.062321360632875
+    },
+    {
+      "z_nm": 1.6375000000000002,
+      "probability": 1.5783918769547297e-05,
+      "F_kJ_mol": 25.29705040250279,
+      "F_kcal_mol": 6.046140153561852
+    },
+    {
+      "z_nm": 1.6625,
+      "probability": 1.728449156644596e-05,
+      "F_kJ_mol": 25.07051945317323,
+      "F_kcal_mol": 5.991997957259376
+    },
+    {
+      "z_nm": 1.6875,
+      "probability": 1.867752433376843e-05,
+      "F_kJ_mol": 24.877180172178928,
+      "F_kcal_mol": 5.9457887600810055
+    },
+    {
+      "z_nm": 1.7125000000000001,
+      "probability": 1.9209161888075934e-05,
+      "F_kJ_mol": 24.807172929432692,
+      "F_kcal_mol": 5.929056627493473
+    },
+    {
+      "z_nm": 1.7375,
+      "probability": 2.102834415732007e-05,
+      "F_kJ_mol": 24.581475421829918,
+      "F_kcal_mol": 5.875113628544435
+    },
+    {
+      "z_nm": 1.7625000000000002,
+      "probability": 2.0244238416579286e-05,
+      "F_kJ_mol": 24.676262837444696,
+      "F_kcal_mol": 5.897768364590032
+    },
+    {
+      "z_nm": 1.7875,
+      "probability": 2.1322879709678428e-05,
+      "F_kJ_mol": 24.546780637138188,
+      "F_kcal_mol": 5.86682137598905
+    }
+  ],
+  "tolerances": {
+    "energy_abs_kcal_mol": 0.0001,
+    "probability_abs": 1e-08,
+    "ess_relative": 1e-06
+  },
+  "provenance": {
+    "source_input_sha256": "5cbefd5fc8d3e03e720cbb37e7c26ba3bc7a9ef92dcca311ac498800abdbe3b9",
+    "analysis_script_sha256": "a995d6bdaf2f9d7c032d47610a9a9a2204702dbe67ac3d6b40b127db88b95042",
+    "independent_check_deltaG_kcal_mol": -2.7052617299595023,
+    "independent_check_abs_difference_kcal_mol": 8.88e-16
+  },
+  "protocol_id": "decision03-fixed-baseline-v1",
+  "sensitivity": {
+    "baseline_20ns": {
+      "deltaG_kcal_mol": -2.705261729959503,
+      "frame_ess": 4856.963796426357,
+      "block_ess": 4.265880965720749,
+      "weighted_block_sd_kcal_mol": 0.5310150005168711,
+      "rows_after_burn_in": 313353,
+      "weighted_block_formal_se_kcal_mol": 0.257100205117454
+    },
+    "alternative_10ns_burn_in": {
+      "deltaG_kcal_mol": -2.777413817384567,
+      "frame_ess": 5449.723220748931,
+      "block_ess": 4.49679518095737,
+      "weighted_block_sd_kcal_mol": 0.5730396028648451,
+      "rows_after_burn_in": 333353,
+      "weighted_block_formal_se_kcal_mol": 0.27022970288797177
+    },
+    "delta_alternative_minus_baseline_kcal_mol": -0.07215208742506363,
+    "sensitivity_design": "same native single-replica trajectory, 72 bins, 5 elapsed-time blocks, funnel and standard-state protocol unchanged; only burn-in changed from 20ns to10ns. This is a sensitivity diagnostic, not proof of convergence."
+  },
+  "source_hashes": {
+    "environment/assets/g4-thermodynamic-records.npz": "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de",
+    "environment/assets/record-provenance.json": "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5",
+    "environment/assets/thermodynamic-method.md": "ef05a71bcedee02f442aed45aec53d9498552f3d111a4c71dcf2b8b89c5f1e51",
+    "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+    "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06"
+  }
+}

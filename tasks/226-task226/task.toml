@@ -1,0 +1,37 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = [
+  "/app/scores.json",
+  "/app/timeseries.csv",
+]
+
+[task]
+name = "compchemworld/case-01-contact-dynamics-scoring"
+description = "Analyze an Open Binding Pose Metadynamics trajectory of a protein-ligand complex: compute the per-frame ligand heavy-atom PoseScore after protein-backbone Kabsch alignment, the normalized heavy-atom contact persistence ContactScore against the frame-0 3.5 A protein neighborhood, and the composite CompScore = PoseScore - 5 * ContactScore, then report the tail-window means over the final 20 production frames plus the full 99-frame score timeseries."
+
+[metadata]
+name = "case-01-contact-dynamics-scoring"
+description = "Analyze an Open Binding Pose Metadynamics trajectory of a protein-ligand complex: compute the per-frame ligand heavy-atom PoseScore after protein-backbone Kabsch alignment, the normalized heavy-atom contact persistence ContactScore against the frame-0 3.5 A protein neighborhood, and the composite CompScore = PoseScore - 5 * ContactScore, then report the tail-window means over the final 20 production frames plus the full 99-frame score timeseries."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

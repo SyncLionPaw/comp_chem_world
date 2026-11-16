@@ -1,0 +1,13 @@
+{
+  "amplitude_angstrom": 0.12,
+  "frequency_cm1": -282.71877765864997,
+  "hess_sha256": "cf018a54f6bb078284e6b9e621fdaec367c0e04fdbc244d88711e3fefc96bb2b",
+  "mode_index": 6,
+  "mode_vector_convention": "raw_hess_modes",
+  "normalization": "max_atom_cartesian",
+  "phase_source": "eigenvector-as-written",
+  "seed_minus_sign": -1,
+  "seed_plus_sign": 1,
+  "source_mode_displacements_sha256": "ed93ade1b0568bf09a0694c77bc0fcbe78e8f88e13bf39698c7dfc2e42ac9056",
+  "source_ts_frequency_reparse_sha256": "40dc8aa12584bb83a92c203032b86b9d61a65e4616e5ef5c748823705dea9aab"
+}

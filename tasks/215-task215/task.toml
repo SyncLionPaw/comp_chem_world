@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/coordination_report.json"]
+
+[task]
+name = "compchemworld/case-02-coordination-geometry"
+description = "Derive per-structure active-site coordination geometry from the ten deposited PTP1B and WPD-loop chimera crystal structures: identify the VO4/WO4 ligand or its absence from coordinates, measure catalytic Cys215 SG and ligand oxygen distances to at least two decimals, classify the Asp181 N-CA-CB-CG chi1 rotamer, and call the WPD loop open or closed from the Asp181-Cys215 CA separation."
+
+[metadata]
+name = "case-02-coordination-geometry"
+description = "Derive per-structure active-site coordination geometry from the ten deposited PTP1B and WPD-loop chimera crystal structures: identify the VO4/WO4 ligand or its absence from coordinates, measure catalytic Cys215 SG and ligand oxygen distances to at least two decimals, classify the Asp181 N-CA-CB-CG chi1 rotamer, and call the WPD loop open or closed from the Asp181-Cys215 CA separation."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 3600
+network_mode = "no-network"

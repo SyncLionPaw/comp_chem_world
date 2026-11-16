@@ -1,0 +1,643 @@
+{
+  "schema": "bench14.edl.analysis/v1",
+  "conditions": [
+    {
+      "run_id": "c1_pbar_m005",
+      "parameters": {
+        "concentration_mM": 1.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": -0.05,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 1110.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -13666967151.289593,
+      "rho_total_wall_C_m3": -13311995387.058832,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.7302200185690717e-07,
+        "boundary_residual_max": 5.254751878514392e-29,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.10000000000000002,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.1000001998773945,
+        "electroneutrality_residual_C_m2": -1.9987739449667252e-07,
+        "electroneutrality_relative_to_input_charge": 1.9987739449667252e-06,
+        "electroneutrality_relative_to_Pscale": 1.9987739449667252e-06,
+        "occupancy_max": 1.0,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 91.7695623714061,
+        "linearized_modes_inverse_A": [
+          [
+            0.010825382432101766,
+            0.0
+          ],
+          [
+            0.27621807020355854,
+            0.0
+          ],
+          [
+            0.5853460264235595,
+            3.0488972713940132
+          ],
+          [
+            0.5853460264235595,
+            -3.0488972713940132
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 92.37548939006383,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          275.3086871142183,
+          642.3869365998427
+        ],
+        "far_field_fit_length_A": 92.36741825698041,
+        "far_field_fit_r_squared": 0.9999999945596694,
+        "far_field_fit_relative_deviation": 0.0065147514069501256,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 8.737310228834616e-05,
+        "domain_A": 1110.0,
+        "adaptive_nodes": 17493
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 17493,
+        "rms_residual_max": 4.7302200185690717e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": -0.07350183524704074,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": -1.1379786002407855e-15,
+      "stationarity": null,
+      "output_points": 22201,
+      "runtime_seconds": 4.114955169003224
+    },
+    {
+      "run_id": "c1_pbar_000",
+      "parameters": {
+        "concentration_mM": 1.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": 0.0,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 1110.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -9468210588.712482,
+      "rho_total_wall_C_m3": -9217000650.78131,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 1.993844317882241e-07,
+        "boundary_residual_max": 1.3247297896486063e-28,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.1,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.09999998506632464,
+        "electroneutrality_residual_C_m2": 1.493367536575807e-08,
+        "electroneutrality_relative_to_input_charge": 1.493367536575807e-07,
+        "electroneutrality_relative_to_Pscale": 1.493367536575807e-07,
+        "occupancy_max": 0.9999999999999803,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 91.7695623714061,
+        "linearized_modes_inverse_A": [
+          [
+            0.010825382432101766,
+            0.0
+          ],
+          [
+            0.27621807020355854,
+            0.0
+          ],
+          [
+            0.5853460264235595,
+            3.0488972713940132
+          ],
+          [
+            0.5853460264235595,
+            -3.0488972713940132
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 92.37548939006383,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          275.3086871142183,
+          642.3869365998427
+        ],
+        "far_field_fit_length_A": 92.3660367738028,
+        "far_field_fit_r_squared": 0.9999999924431646,
+        "far_field_fit_relative_deviation": 0.006499697579276598,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 0.00010232818600952598,
+        "domain_A": 1110.0,
+        "adaptive_nodes": 20519
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 20519,
+        "rms_residual_max": 1.993844317882241e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": -0.023954576088300993,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": -6.349087922075114e-16,
+      "stationarity": null,
+      "output_points": 22201,
+      "runtime_seconds": 3.4482525850035017
+    },
+    {
+      "run_id": "c1_pbar_p005",
+      "parameters": {
+        "concentration_mM": 1.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": 0.05,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 1110.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -4630484760.424753,
+      "rho_total_wall_C_m3": -4502057857.857185,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 3.875957661416397e-07,
+        "boundary_residual_max": 1.6421099620328776e-30,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.1,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.09999995858506235,
+        "electroneutrality_residual_C_m2": 4.1414937659856044e-08,
+        "electroneutrality_relative_to_input_charge": 4.1414937659856044e-07,
+        "electroneutrality_relative_to_Pscale": 4.1414937659856044e-07,
+        "occupancy_max": 0.9999998897806923,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 91.7695623714061,
+        "linearized_modes_inverse_A": [
+          [
+            0.010825382432101766,
+            0.0
+          ],
+          [
+            0.27621807020355854,
+            0.0
+          ],
+          [
+            0.5853460264235595,
+            3.0488972713940132
+          ],
+          [
+            0.5853460264235595,
+            -3.0488972713940132
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 92.37548939006383,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          275.3086871142183,
+          642.3869365998427
+        ],
+        "far_field_fit_length_A": 92.36491482626698,
+        "far_field_fit_r_squared": 0.999999990468722,
+        "far_field_fit_relative_deviation": 0.0064874718749490246,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 0.00011447369715356093,
+        "domain_A": 1110.0,
+        "adaptive_nodes": 9921
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 9921,
+        "rms_residual_max": 3.875957661416397e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": 0.006982025864276391,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": -4.85722573273506e-17,
+      "stationarity": null,
+      "output_points": 22201,
+      "runtime_seconds": 2.774302125995746
+    },
+    {
+      "run_id": "c1_pbar_p010",
+      "parameters": {
+        "concentration_mM": 1.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": 0.1,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 1110.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": 1807897213.8386197,
+      "rho_total_wall_C_m3": 1713168642.6043644,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.4753447817196656e-07,
+        "boundary_residual_max": 1.4578966059337033e-26,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.1,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.10000002244068286,
+        "electroneutrality_residual_C_m2": -2.2440682853619442e-08,
+        "electroneutrality_relative_to_input_charge": 2.2440682853619442e-07,
+        "electroneutrality_relative_to_Pscale": 2.2440682853619442e-07,
+        "occupancy_max": 0.9999476418248535,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 91.7695623714061,
+        "linearized_modes_inverse_A": [
+          [
+            0.010825382432101766,
+            0.0
+          ],
+          [
+            0.27621807020355854,
+            0.0
+          ],
+          [
+            0.5853460264235595,
+            3.0488972713940132
+          ],
+          [
+            0.5853460264235595,
+            -3.0488972713940132
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 92.37548939006383,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          275.3086871142183,
+          642.3869365998427
+        ],
+        "far_field_fit_length_A": 92.36346021352617,
+        "far_field_fit_r_squared": 0.9999999875677681,
+        "far_field_fit_relative_deviation": 0.006471621164721997,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 0.0001302204363634596,
+        "domain_A": 1110.0,
+        "adaptive_nodes": 8454
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 8454,
+        "rms_residual_max": 4.4753447817196656e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": 0.01567809577593498,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": 7.216449660063518e-16,
+      "stationarity": null,
+      "output_points": 22201,
+      "runtime_seconds": 2.7698344599994016
+    },
+    {
+      "run_id": "c10_pbar_m005",
+      "parameters": {
+        "concentration_mM": 10.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": -0.05,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 350.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -13868593770.453419,
+      "rho_total_wall_C_m3": -13512567086.874905,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.797287665828729e-07,
+        "boundary_residual_max": 2.5222809016839694e-27,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.10000000000000002,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.10000015953677477,
+        "electroneutrality_residual_C_m2": -1.5953677476310268e-07,
+        "electroneutrality_relative_to_input_charge": 1.5953677476310268e-06,
+        "electroneutrality_relative_to_Pscale": 1.5953677476310268e-06,
+        "occupancy_max": 0.9999999999999999,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 29.020083697052623,
+        "linearized_modes_inverse_A": [
+          [
+            0.032354235173461206,
+            0.0
+          ],
+          [
+            0.2941580783915433,
+            0.0
+          ],
+          [
+            0.5724110486583207,
+            3.041125329378813
+          ],
+          [
+            0.5724110486583207,
+            -3.041125329378813
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 30.907854710169666,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          87.06025109115787,
+          203.14058587936836
+        ],
+        "far_field_fit_length_A": 30.908559954670213,
+        "far_field_fit_r_squared": 0.999999999742036,
+        "far_field_fit_relative_deviation": 0.06507480396444865,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 2.28176464254215e-05,
+        "domain_A": 350.0,
+        "adaptive_nodes": 17635
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 17635,
+        "rms_residual_max": 4.797287665828729e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": -0.08151496835234529,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": 3.885780586188048e-16,
+      "stationarity": null,
+      "output_points": 7001,
+      "runtime_seconds": 2.1091477510053664
+    },
+    {
+      "run_id": "c10_pbar_000",
+      "parameters": {
+        "concentration_mM": 10.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": 0.0,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 350.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -9625627445.53357,
+      "rho_total_wall_C_m3": -9371892943.988802,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.961170160939181e-07,
+        "boundary_residual_max": 4.274358842613553e-24,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.1,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.10000001356123539,
+        "electroneutrality_residual_C_m2": -1.3561235384651482e-08,
+        "electroneutrality_relative_to_input_charge": 1.3561235384651482e-07,
+        "electroneutrality_relative_to_Pscale": 1.3561235384651482e-07,
+        "occupancy_max": 0.9999999999999962,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 29.020083697052623,
+        "linearized_modes_inverse_A": [
+          [
+            0.032354235173461206,
+            0.0
+          ],
+          [
+            0.2941580783915433,
+            0.0
+          ],
+          [
+            0.5724110486583207,
+            3.041125329378813
+          ],
+          [
+            0.5724110486583207,
+            -3.041125329378813
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 30.907854710169666,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          87.06025109115787,
+          203.14058587936836
+        ],
+        "far_field_fit_length_A": 30.90874569056527,
+        "far_field_fit_r_squared": 0.9999999995537611,
+        "far_field_fit_relative_deviation": 0.06508120421804509,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 2.8826989254326918e-05,
+        "domain_A": 350.0,
+        "adaptive_nodes": 5929
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 5929,
+        "rms_residual_max": 4.961170160939181e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": -0.03122880813344555,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": 1.016547956922409e-15,
+      "stationarity": null,
+      "output_points": 7001,
+      "runtime_seconds": 1.5802366249990882
+    },
+    {
+      "run_id": "c10_pbar_p005",
+      "parameters": {
+        "concentration_mM": 10.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": 0.05,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 350.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": -5131877619.571029,
+      "rho_total_wall_C_m3": -4990484705.073403,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.95872847184597e-07,
+        "boundary_residual_max": 1.8296145355253517e-33,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.1,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.10000009171634928,
+        "electroneutrality_residual_C_m2": -9.17163492791806e-08,
+        "electroneutrality_relative_to_input_charge": 9.17163492791806e-07,
+        "electroneutrality_relative_to_Pscale": 9.17163492791806e-07,
+        "occupancy_max": 0.9999999887311769,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 29.020083697052623,
+        "linearized_modes_inverse_A": [
+          [
+            0.032354235173461206,
+            0.0
+          ],
+          [
+            0.2941580783915433,
+            0.0
+          ],
+          [
+            0.5724110486583207,
+            3.041125329378813
+          ],
+          [
+            0.5724110486583207,
+            -3.041125329378813
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 30.907854710169666,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          87.06025109115787,
+          203.14058587936836
+        ],
+        "far_field_fit_length_A": 30.90901489414909,
+        "far_field_fit_r_squared": 0.9999999991885402,
+        "far_field_fit_relative_deviation": 0.06509048067591605,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 3.75368653149355e-05,
+        "domain_A": 350.0,
+        "adaptive_nodes": 7670
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 7670,
+        "rms_residual_max": 4.95872847184597e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": 0.0010676176600927338,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": -1.249000902703301e-16,
+      "stationarity": null,
+      "output_points": 7001,
+      "runtime_seconds": 1.4249342500042985
+    },
+    {
+      "run_id": "c10_pbar_p010",
+      "parameters": {
+        "concentration_mM": 10.0,
+        "sigma0_C_m2": 0.1,
+        "Pbar_C_m2": 0.1,
+        "alpha": 0.5,
+        "temperature_K": 300.0,
+        "cell_length_nm": 0.8,
+        "z_max_A": 350.0,
+        "initial_step_A": 0.25,
+        "K11": 0.140125,
+        "K12": -0.207118,
+        "K13": 0.01129,
+        "K21": 0.015908,
+        "K22": 2.00394
+      },
+      "rho1_wall_C_m3": 1810964279.530648,
+      "rho_total_wall_C_m3": 1716388273.4397583,
+      "checks": {
+        "solver_success": true,
+        "solver_rms_residual_max": 4.6467075116830806e-07,
+        "boundary_residual_max": 5.04865760842903e-29,
+        "wall_natural_P1_second_C_m4": 0.0,
+        "wall_surface_displacement_C_m2": 0.1,
+        "wall_surface_charge_input_C_m2": 0.1,
+        "integrated_mobile_charge_C_m2": -0.09999990962301945,
+        "electroneutrality_residual_C_m2": 9.03769805521426e-08,
+        "electroneutrality_relative_to_input_charge": 9.03769805521426e-07,
+        "electroneutrality_relative_to_Pscale": 9.03769805521426e-07,
+        "occupancy_max": 0.9999490277505141,
+        "occupancy_bound_pass": true,
+        "eps_bulk": 70.99793863780073,
+        "analytic_GC_debye_length_A": 29.020083697052623,
+        "linearized_modes_inverse_A": [
+          [
+            0.032354235173461206,
+            0.0
+          ],
+          [
+            0.2941580783915433,
+            0.0
+          ],
+          [
+            0.5724110486583207,
+            3.041125329378813
+          ],
+          [
+            0.5724110486583207,
+            -3.041125329378813
+          ]
+        ],
+        "linearized_slowest_decay_length_A": 30.907854710169666,
+        "linearized_slowest_period_A": null,
+        "far_field_fit_window_A": [
+          87.06025109115787,
+          203.14058587936836
+        ],
+        "far_field_fit_length_A": 30.909424431950846,
+        "far_field_fit_r_squared": 0.9999999984223938,
+        "far_field_fit_relative_deviation": 0.06510459289578518,
+        "far_field_fit_vs_coupled_mode_relative_deviation": 5.0787147665154464e-05,
+        "domain_A": 350.0,
+        "adaptive_nodes": 5182
+      },
+      "bvp": {
+        "success": true,
+        "adaptive_nodes": 5182,
+        "rms_residual_max": 4.6467075116830806e-07
+      },
+      "fixed_sigma_functional_energy_J_m2": 0.0101360931756777,
+      "functional_quadrature_order": 32,
+      "functional_energy_quadrature_difference_J_m2": 6.626643678231403e-16,
+      "stationarity": null,
+      "output_points": 7001,
+      "runtime_seconds": 1.5081027509950218
+    }
+  ],
+  "author_reconstruction": true,
+  "field_semantics": {
+    "P1_prime_C_m3": "rough table is the Eq.19 weighted mean of sharp local P1' at z-ell, not d(mean(P1))/dz",
+    "P2_prime_C_m3": "rough table is the Eq.19 weighted mean of sharp local P2' at z-ell, not d(mean(P2))/dz",
+    "P1_second_C_m4": "rough table is the Eq.19 weighted mean of sharp local P1'' at z-ell",
+    "rho1_wall_C_m3": "original sharp-wall -P1'(0), repeated as condition metadata; not rough averaged-interface charge",
+    "rho_total_wall_C_m3": "original sharp-wall -(P1'+P2')(0), repeated as condition metadata; not rough averaged-interface charge",
+    "rough_fields": "the local sharp fields listed here are convolved independently; they are not asserted to satisfy the sharp-interface PDE after convolution"
+  },
+  "roughness": {
+    "equation": "Eq.19 half-space wall-position density",
+    "mean_A": 2.5,
+    "delta_A": 1.5,
+    "integration_step_A": 0.0015625,
+    "quadrature_order": 384,
+    "near_wall_continuous_until_A": 30.0,
+    "near_wall_panel_A": 0.05,
+    "near_wall_gauss_order": 16,
+    "interpretation": "independently convolve each sharp field, including n+ and n-; do not apply ion closure to averaged phi"
+  },
+  "runtime_seconds_total": 19.73385342599795,
+  "input_sha256": "c957e8ecd16ec130882be9b84a5e4a966b7965035ed549e9da416d2b0b0ce7c1"
+}

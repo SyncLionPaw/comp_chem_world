@@ -1,0 +1,148 @@
+{
+  "case_id": "case-02-mechanism-diagnosis",
+  "criteria": [
+    {
+      "criterion": "deliverables",
+      "level": "L1",
+      "necessary": true,
+      "description": "所有冻结输出可解析，条件、单位和方向可追溯。"
+    },
+    {
+      "criterion": "analysis_execution",
+      "level": "L2",
+      "necessary": true,
+      "description": "提交分析脚本和执行日志，审查脚本与原始数组、输出对应关系。"
+    },
+    {
+      "criterion": "tensor_projection",
+      "level": "L3",
+      "necessary": true,
+      "description": "与作者原始数组逐条件逐方向对齐；数值 rtol=1e-6，atol=1e-8 cm^2/(V s)。",
+      "verification_basis": {
+        "type": "author_artifact",
+        "rationale": "与作者原始数组逐条件逐方向对齐；数值 rtol=1e-6，atol=1e-8 cm^2/(V s)。",
+        "source": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility"
+      }
+    },
+    {
+      "criterion": "mechanism_diagnosis",
+      "level": "L3",
+      "necessary": true,
+      "description": "主文 Fig.3、SI Fig.9 给出机制与各向异性解释；仅用最小单机制 mobility 定义代理，明确状态平均与 rate-level 加和不能互换。",
+      "verification_basis": {
+        "type": "paper_result",
+        "rationale": "主文 Fig.3、SI Fig.9 给出机制与各向异性解释；仅用最小单机制 mobility 定义代理，明确状态平均与 rate-level 加和不能互换。",
+        "source": "docs/41467_2021_22440_MOESM1_ESM.pdf Fig.9; main Fig.3"
+      }
+    }
+  ],
+  "public_input_hashes": {
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/AMSET_transport.json": "9144fc3cbfd783981b3945e683eb71d757c226b6b8bc75e3cf3364918c929022",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/AMSET_transport.json": "5c79e929bd18fd2adec571d20458cd14bdd0c5cf658c31850ceeacddc8fae4e7",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/Si/AMSET_transport.json": "83871483832a8524df1fbaabd9f9e689124712b932d39f8d17ac047f48bd15f4",
+    "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/AMSET_transport.json": "827b8d73fed98b7f84d9d96b58f5094b31265d64d5874da5dcf725560f3d143a"
+  },
+  "reference_contract": {
+    "kind": "public-array-recomputation-v1",
+    "derivation": "decode-sha256-verified-author-arrays-and-recompute-case-specific-observables",
+    "values": "derived-from-public-inputs-not-copied-gold-arrays"
+  },
+  "numeric_tolerances": {
+    "reported_value_rtol": 1e-06,
+    "reported_value_atol": 1e-08,
+    "input_grid_rtol": 1e-12
+  },
+  "evidence_provenance": {
+    "paper": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "supplementary": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  },
+  "task_metadata": {
+    "handoff_version": "1.0",
+    "case_id": "case-02-mechanism-diagnosis",
+    "title": "迁移率各向异性与限制机制诊断",
+    "artifacts": [
+      "/app/final/results.json",
+      "/app/final/analysis.py",
+      "/app/final/run.log",
+      "/app/final/report.md"
+    ],
+    "requirements": {
+      "software": [
+        "Python >=3.11",
+        "NumPy"
+      ],
+      "inputs": [
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaAs/AMSET_transport.json",
+          "sha256": "9144fc3cbfd783981b3945e683eb71d757c226b6b8bc75e3cf3364918c929022"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/GaN/AMSET_transport.json",
+          "sha256": "5c79e929bd18fd2adec571d20458cd14bdd0c5cf658c31850ceeacddc8fae4e7"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/Si/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/Si/AMSET_transport.json",
+          "sha256": "83871483832a8524df1fbaabd9f9e689124712b932d39f8d17ac047f48bd15f4"
+        },
+        {
+          "path": "environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/AMSET_transport.json",
+          "source_path": "raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/mobility/SnSe/AMSET_transport.json",
+          "sha256": "827b8d73fed98b7f84d9d96b58f5094b31265d64d5874da5dcf725560f3d143a"
+        }
+      ]
+    },
+    "verification": {
+      "implementation": "implemented",
+      "scientific_implementation": "implemented",
+      "scientific_verifier": "tests/verify.py",
+      "scoring_scope": "full",
+      "verifier": "tests/verify.py"
+    },
+    "compute": {
+      "class": "local",
+      "cpus": 2,
+      "memory_mb": 2048,
+      "network": "no-network"
+    },
+    "environment": {
+      "build_timeout_sec": 1800,
+      "cpus": 2,
+      "memory_mb": 2048,
+      "allow_internet": false
+    },
+    "agent": {
+      "timeout_sec": 1800,
+      "allow_internet": false
+    },
+    "verifier": {
+      "timeout_sec": 300,
+      "isolation": "container",
+      "extra_tmpfs": [
+        "/dev/shm:rw,exec,nosuid,nodev,size=512m"
+      ]
+    }
+  },
+  "scoring_integrity": {
+    "tests/verify.py": "b205bbab1bdbd3932c0a2ca66879d62864c7b1d402f041ff6633ae7b3126d950",
+    "tests/test.sh": "8e84a4ef50048099db38b5dd71710eea4a75a43f8057a8469a6b9f1e2c5c4291"
+  },
+  "evidence_documents": {
+    "environment/assets/literature/paper.pdf": {
+      "source_path": "environment/assets/literature/paper.pdf",
+      "sha256": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0"
+    },
+    "environment/assets/literature/supplementary.pdf": {
+      "source_path": "environment/assets/literature/supplementary.pdf",
+      "sha256": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "case-05 hidden CASSCF reference, extracted from 04_3Sing_C2H4_grid.db (sha256 330acea7ced69aee48d1569e2e32c857f10f3f19058e2d60ea099c3b7135a89c)",
+  "points": {
+    "B": {
+      "r_cc_bohr": 2.5,
+      "dihedral_deg": 90.0,
+      "energy_hartree": [
+        -77.91859399,
+        -77.80553208,
+        -77.79932136
+      ],
+      "forces_frobenius_norm_hartree_per_bohr": [
+        0.16978547914672773,
+        0.034386967200534475,
+        0.036908959524827874
+      ],
+      "energy_gap_S10_eV": 3.0765713027191053,
+      "energy_gap_S21_eV": 0.1690023007860301,
+      "nacs_frobenius_norm_per_bohr": [
+        0.2365095166733002,
+        1.0468894631096697,
+        7.471581812966144
+      ]
+    },
+    "A": {
+      "r_cc_bohr": 2.05,
+      "dihedral_deg": 0.0,
+      "energy_hartree": [
+        -77.92292079,
+        -77.52817507,
+        -77.15223774
+      ],
+      "forces_frobenius_norm_hartree_per_bohr": [
+        0.9049811205756135,
+        0.5891796174303986,
+        1.5620161899947709
+      ],
+      "energy_gap_S10_eV": 10.741578255870714,
+      "energy_gap_S21_eV": 10.229775890915432,
+      "nacs_frobenius_norm_per_bohr": [
+        0.4395922674147878,
+        0.6151194694920608,
+        0.3597769268341811
+      ]
+    }
+  },
+  "tolerances": {
+    "energy_hartree": 0.002,
+    "force_relative": 0.05,
+    "nac_relative": 0.35,
+    "csv_native": 5e-08,
+    "gap_consistency_ev": 0.05
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "mechanism-research-evaluator-refs/v1",
+  "rubric": {
+    "required_artifacts": [
+      "report.md",
+      "research.json",
+      "provenance.json"
+    ],
+    "required_research_fields": {
+      "research_question": "non-empty string",
+      "approach": "non-empty string",
+      "findings": "non-empty array of claim/status/evidence_ids records",
+      "decision": "object with non-empty status and rationale strings",
+      "uncertainties": "array of strings",
+      "limitations": "array of strings"
+    },
+    "required_provenance_fields": {
+      "sources": "non-empty array of id/citation/locator/retrieved_on records",
+      "files": "exact mapping of every submitted file except provenance.json to sha256/origin/role records"
+    },
+    "science_criteria": [
+      {
+        "id": "question_scope",
+        "description": "Frames the mechanistic research question and scopes the conclusion to evidence."
+      },
+      {
+        "id": "evidence_analysis",
+        "description": "Performs substantive evidence analysis or reanalysis beyond a literature summary or study plan."
+      },
+      {
+        "id": "pathway_comparison",
+        "description": "Analyzes inner-sphere and outer-sphere pathway evidence or explains why available evidence cannot compare them."
+      },
+      {
+        "id": "field_coordination",
+        "description": "Examines whether electrostatic-field effects can be distinguished from direct cation coordination and correlated structural or solvation changes."
+      },
+      {
+        "id": "state_and_sampling",
+        "description": "As relevant to the chosen approach, treats chemical/electronic state definitions, numerical convergence, energy/free-energy conventions, potential references, ensemble comparability, sampling, and uncertainty appropriately."
+      },
+      {
+        "id": "claim_calibration",
+        "description": "Supports positive, negative, conditional, or unresolved findings without overclaiming causality or thermodynamics."
+      },
+      {
+        "id": "source_provenance",
+        "description": "Connects claims to traceable sources, data, methods, and evidence artifacts; independently evaluates source authenticity and the provenance of claimed calculations rather than treating hashes, logs, or self-reported convergence as proof."
+      },
+      {
+        "id": "reproducibility_and_limits",
+        "description": "Makes the analysis reproducible where applicable and explains limitations or evidence needed to discriminate mechanisms."
+      }
+    ],
+    "requires_supporting_artifact": true
+  },
+  "approved_reviews": []
+}

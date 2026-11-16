@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/results"]
+
+[task]
+name = "compchemworld/case-07-finite-prediction"
+description = "Independently recompute per-model force-component RMSE and per-atom energy MAE for twelve retained models over the twenty recorded validation frames, choose one metric for the two paired adaptive-minus-random contrasts, derive each direction and the combined direction, and scope the conclusion strictly to these retained models and recorded frames."
+
+[metadata]
+name = "case-07-finite-prediction"
+description = "Independently recompute per-model force-component RMSE and per-atom energy MAE for twelve retained models over the twenty recorded validation frames, choose one metric for the two paired adaptive-minus-random contrasts, derive each direction and the combined direction, and scope the conclusion strictly to these retained models and recorded frames."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 1024
+build_timeout_sec = 2400
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 1
+memory_mb = 1024
+build_timeout_sec = 2400
+network_mode = "no-network"

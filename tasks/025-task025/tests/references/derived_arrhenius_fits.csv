@@ -1,0 +1,6 @@
+quantity,A_per_s,n_T_exponent,Ea_kcal_per_mol,max_ln_k_deviation,n_points
+k_C1_full_range,2.13235e+15,0.6767,18.844,0.0883,23
+k_C2_full_range,9.29206e+15,0.8819,17.972,0.0800,23
+k_C1_biological_range_270_310,7.85702e+18,1.8085,18.269,0.0001,9
+k_C2_biological_range_270_310,1.53028e+19,1.9039,17.448,0.0000,9
+k_total_full_range,6.67213e+16,1.0870,18.008,0.0848,23

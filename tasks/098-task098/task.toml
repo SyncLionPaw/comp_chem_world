@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-99"
+description = "Extract S/LB frequencies from all 12 centroid series and invert MCM with stated mu and t(P)."
+
+[metadata]
+name = "case-03-md-spectra-elastic-moduli"
+task_type = "scientific"
+execution_class = "local"
+qualification_status = "HARBOR_RUNTIME_VALIDATION_PENDING"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

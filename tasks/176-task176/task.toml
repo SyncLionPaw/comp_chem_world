@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-176"
+description = "Compare coordination and angle distributions across distance windows"
+
+[metadata]
+case_id = "case-04-solvation-shift"
+task_number = 176
+title = "Compare coordination and angle distributions across distance windows"
+
+[agent]
+timeout_sec = 1200
+network_mode = "no-network"
+
+[verifier]
+environment_mode = "separate"
+network_mode = "no-network"
+timeout_sec = 300
+
+[environment]
+cpus = 2
+memory_mb = 2048
+build_timeout_sec = 1800
+network_mode = "no-network"

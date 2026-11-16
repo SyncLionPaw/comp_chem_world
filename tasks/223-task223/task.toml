@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/case-04-martini-cphmd-validation"
+description = "Design and run coarse-grained Martini constant-pH titrations for the Asp and Glu tripeptides with the supplied GROMACS CpHMD fork, preserving the single-lambda representation, buffer particles, reaction-field electrostatics and 20 fs timestep, choose a converged pH grid covering each titration midpoint, fit coarse-grained pKa values with confidence intervals, and compare them against the supplied all-atom and experimental references to demonstrate force-field-agnostic charge interpolation in cg_pka_results.json and cross_resolution_comparison.json under /app/final."
+
+[metadata]
+name = "case-04-martini-cphmd-validation"
+description = "Design and run coarse-grained Martini constant-pH titrations for the Asp and Glu tripeptides with the supplied GROMACS CpHMD fork, preserving the single-lambda representation, buffer particles, reaction-field electrostatics and 20 fs timestep, choose a converged pH grid covering each titration midpoint, fit coarse-grained pKa values with confidence intervals, and compare them against the supplied all-atom and experimental references to demonstrate force-field-agnostic charge interpolation in cg_pka_results.json and cross_resolution_comparison.json under /app/final."
+execution_class = "remote"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 259200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

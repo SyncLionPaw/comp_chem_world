@@ -1,0 +1,31 @@
+                      :-) GROMACS - gmx mdrun, 2022.6 (-:
+
+Executable:   /public/software/hpcsoftware/gromacs-2022.6/bin/gmx
+Data prefix:  /public/software/hpcsoftware/gromacs-2022.6
+Working dir:  /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a
+Command line:
+  gmx mdrun -s /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/B-dt1fs/topol.tpr -deffnm /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/B-dt1fs/md -ntmpi 1 -ntomp 8 -cpt 5 -maxh 0.458056
+
+Reading file /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/B-dt1fs/topol.tpr, VERSION 2022.6 (single precision)
+Changing nstlist from 20 to 40, rlist from 1.06 to 1.141
+
+Using 1 MPI thread
+
+Non-default thread affinity set, disabling internal thread affinity
+
+Using 8 OpenMP threads 
+
+IMD: None of the -imd switches was used.
+IMD: This run will not accept incoming IMD connections
+starting mdrun 'Generic title'
+50000 steps,     50.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:      342.434       42.805      800.0
+                 (ns/day)    (hour/ns)
+Performance:      100.925        0.238
+
+GROMACS reminds you: "She's Not Bad, She's Just Genetically Mean" (Captain Beefheart)
+

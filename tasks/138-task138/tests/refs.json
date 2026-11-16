@@ -1,0 +1,59 @@
+{
+  "schema": "bench21-case-refs/1",
+  "case_id": "case-01-derivative-consistency",
+  "kind": "independent-model-replay",
+  "verifier": "tests/verify.py",
+  "thresholds": {
+    "finite_difference_steps_angstrom": [
+      5e-05,
+      0.0001,
+      0.0002
+    ],
+    "rotation_degrees": [
+      60,
+      90,
+      120
+    ],
+    "translation_norm_angstrom": [
+      0.05,
+      0.2
+    ],
+    "unit_conversion_kcal_per_mol_A2": 23.06055
+  },
+  "tolerances": {
+    "hessian_symmetry_abs_eV_A2": 2e-05,
+    "model_energy_abs_eV": 1e-06,
+    "model_force_abs_eV_A": 1e-06,
+    "model_force_rel": 1e-06,
+    "model_hessian_abs_eV_A2": 2e-05,
+    "model_hessian_rel": 2e-05,
+    "gradient_fd_abs_eV_A": 2e-06,
+    "gradient_fd_rel": 1e-05,
+    "force_hessian_fd_abs_eV_A2": 0.0002,
+    "force_hessian_fd_rel": 0.001,
+    "reported_energy_residual_abs": 2e-08,
+    "reported_force_hessian_residual_abs": 2e-07,
+    "reported_translation_residual_abs": 2e-08,
+    "reported_rotation_residual_abs": 2e-07,
+    "translation_energy_abs_eV": 1e-06,
+    "rotation_energy_abs_eV": 1e-06,
+    "rotation_hessian_abs_eV_A2": 2e-05,
+    "rotation_hessian_rel": 2e-05,
+    "unit_conversion_abs": 1e-10
+  },
+  "limits": {
+    "hessian_calls_max": 4,
+    "energy_force_calls_min": 18,
+    "energy_force_calls_max": 40,
+    "diagnostics_rows": 6,
+    "reported_energy_force_calls_min": 0
+  },
+  "reference_values": {
+    "input_sha256": {
+      "case01_ts_geometries_001_000.extxyz": "cf5839cf7d28903fb4b121da935665a4ec5eaae627848f490ad65a36aa02005f",
+      "best_model_state.tar": "a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3",
+      "newtonnet_model_spec.yml": "eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf"
+    },
+    "model_outputs": "independent_replay; no frozen numerical gold"
+  }
+}

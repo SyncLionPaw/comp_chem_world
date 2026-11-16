@@ -1,0 +1,38 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-171"
+description = "电声耦合计算链的输出解析、结果提取与可信度诊断"
+authors = []
+keywords = ["materials-science", "W2N3"]
+
+[metadata]
+task_number = 171
+case_id = "case-05-epc-output-diagnosis"
+legacy_artifacts = ["/app/final/diagnosis.json"]
+verification_scope = "full"
+
+[agent]
+timeout_sec = 2700
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+user = "root"
+
+[verifier]
+timeout_sec = 600
+network_mode = "no-network"
+environment_mode = "separate"
+user = "root"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+
+[environment]
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+cpus = 2
+memory_mb = 2048
+workdir = "/app"

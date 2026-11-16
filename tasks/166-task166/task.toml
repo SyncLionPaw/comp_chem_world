@@ -1,0 +1,84 @@
+schema_version = "1.4"
+artifacts = ["/app/outputs", "/app/bench25-artifacts"]
+
+[task]
+name = "compchembench/bench25-case05"
+description = "SA(3)-CASSCF(2,2) reference calculation reproduction and database cross-validation."
+authors = []
+keywords = ["computational-chemistry", "nonadiabatic-dynamics"]
+
+[metadata.compchembench]
+handoff_version = "1.0"
+case_id = "case-05"
+readiness = "ROOT_CAPTURE_CONNECTED_SCIENCE_RECEIPT_PENDING"
+compute_class = "local"
+compute_execution = "local"
+compute_network = "candidate-selected"
+
+[metadata.compchembench.requirements]
+software = ["python", "numpy", "OpenMolcas or scientifically equivalent CASSCF program"]
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/geometries/ethene_grid_A.xyz"
+source_path = "environment/assets/geometries/ethene_grid_A.xyz"
+sha256 = "b0bfa877c5eb93cbdce0b670cf321cf580e9ee3adf8927f7d4b2854043718f1d"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/geometries/ethene_grid_B.xyz"
+source_path = "environment/assets/geometries/ethene_grid_B.xyz"
+sha256 = "bdd736de821287ece1315aafd14022e1066de582a00fb873d482ca0d29e6ab4b"
+
+[[metadata.compchembench.requirements.inputs]]
+path = "inputs/casscf_reference_spec.md"
+source_path = "environment/assets/casscf_reference_spec.md"
+sha256 = "d85573075628d4cf7794eeccb542c2fa8f088221bc4d0caadf792729ba309bb8"
+
+[metadata.compchembench.verification]
+implementation = "partial"
+verifier = "tests/verify.py"
+
+[environment]
+allow_internet = true
+
+[environment.env]
+CCB_BENCH25_ROLE = "agent"
+CCB_BENCH25_CASE = "case-05"
+CCB_BENCH25_AGENT_USER = "researcher"
+HOME = "/home/researcher"
+
+[environment.healthcheck]
+command = "if [ \"$CCB_BENCH25_ROLE\" = verifier ]; then exit 0; fi; test -S /run/bench25-capture/request.sock && test -s /run/bench25-capture/public-attempt.json && test -s /trusted/capture.key"
+interval_sec = 5.0
+timeout_sec = 10.0
+start_period_sec = 900.0
+retries = 3
+
+[agent]
+timeout_sec = 86400.0
+user = "researcher"
+network_mode = "public"
+
+[verifier]
+timeout_sec = 1800.0
+environment_mode = "separate"
+user = "root"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "no-network"
+
+[verifier.environment.env]
+CCB_BENCH25_ROLE = "verifier"
+CCB_BENCH25_CASE = "case-05"
+APP = "/app"
+LOGS = "/logs/verifier"
+HOME = "/root"
+
+[[verifier.collect]]
+command = "/usr/bin/python3 -B -I /opt/bench25/bench25_capture.py collect"
+service = "main"
+timeout_sec = 120.0
+user = "root"
+
+[metadata]
+execution_class = "local"

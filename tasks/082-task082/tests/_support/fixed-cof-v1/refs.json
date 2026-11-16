@@ -1,0 +1,139 @@
+{
+  "schema": "bench12.case07.references/v1",
+  "case_id": "case-07-cof-excited-state-screening",
+  "reference_mode": "NO_COMPLETE_AUTHOR_ORACLE",
+  "scientific_status": "HOLD",
+  "complete_oracle": {
+    "status": "NOT_PROVIDED",
+    "reason": "No complete author native workflow or trusted numerical oracle is supplied; no scientific PASS is asserted."
+  },
+  "holy_grail": {
+    "structure_id": "05001N2",
+    "database": "public CURATED COFs database",
+    "article": "Hehn et al. 2022",
+    "source_files": [
+      "hehn2022_main.pdf",
+      "ct2c00144_si_001.pdf"
+    ]
+  },
+  "literature_table5": {
+    "status": "PUBLISHED_LITERATURE_VALUES_ONLY",
+    "source": "hehn2022_main.pdf, Table 5, COF 05001N2 row",
+    "values": {
+      "FULL": [
+        "3.77",
+        "2.60",
+        "2.97",
+        "0.80"
+      ],
+      "STDA": [
+        "3.44",
+        "2.14",
+        "2.56",
+        "0.88"
+      ]
+    }
+  },
+  "source_sha256": {
+    "hehn2022_main.pdf": "255c5b1f0a6ea6500a8afadf2252c0200994eaca5e1c9df6e0d7c5f492a0cc27",
+    "ct2c00144_si_001.pdf": "6ea0e0c5787b9ba0b3723b06a2752594980a958a5580cf71d9fc761dcb7ef1aa"
+  },
+  "author_helper_sha256": {
+    "inspect_full_scf.py": "b5acaf86c42a5b46c84d94684ea32744123f6794c39dbb1dce010368c30b146d",
+    "inspect_geo_opt.py": "498d684a6afcfb888fc2c80def77a9b6226f497469cb50f79cfb5464957314df",
+    "inspect_gs_energy.py": "34aff4880c7dce5dfc74b36f1c6d81baf0f62ecd842ddb4d9fc685a86b0a217d",
+    "inspect_s1_energy.py": "c08b33bdecac1a0fbca1aefbc4a33b286b3f19988813245157f524838a8226c5",
+    "inspect_spectrum_energy.py": "2af956739cd06ba9348b47992df41ddbb7358279aa1ece4ee734d3deb8626064",
+    "parse_workflow.py": "39fc577ff8789f09980b729949c23e4fdaf06e4962d9de7f16e832370403b128"
+  },
+  "grader_helper_sha256": {
+    "science_checks.py": "ea20b038b4e6549ca4a5598ff1bc5ebdfa12b199a105c3e30c2e8c5347bfe6ac",
+    "review_protocol.py": "2a0c295104a0bed7462206859dd3674f476e31336ff40b79f48dd354b5be69f2"
+  },
+  "review_protocol_criteria": [
+    "structure_and_fixed_model",
+    "optimizer_and_native_termination",
+    "force_and_model_error_budget",
+    "state_identity_continuity",
+    "native_screening_consistency_and_paper_comparison",
+    "measured_costs_and_failures",
+    "screening_verdict_supported"
+  ],
+  "science_checks_sha256": "ea20b038b4e6549ca4a5598ff1bc5ebdfa12b199a105c3e30c2e8c5347bfe6ac",
+  "review_protocol_sha256": "2a0c295104a0bed7462206859dd3674f476e31336ff40b79f48dd354b5be69f2",
+  "tolerance_policy": {
+    "native_precision": "Use source-reported native precision and unit conversion; preserve unresolved error budget as REVIEW_REQUIRED.",
+    "model_error_budget": "NOT_PROVIDED; do not invent a numerical threshold or claim reproduction."
+  },
+  "reference_solution_provided": false,
+  "review_protocol": {
+    "schema": "bench12.case07.trusted-science-review/v1",
+    "policy_version": "case07-independent-review/v1",
+    "run_manifest_schema": "bench12.case07.trusted-run-manifest/v1",
+    "criteria": [
+      "structure_and_fixed_model",
+      "optimizer_and_native_termination",
+      "force_and_model_error_budget",
+      "state_identity_continuity",
+      "native_screening_consistency_and_paper_comparison",
+      "measured_costs_and_failures",
+      "screening_verdict_supported"
+    ],
+    "required_evidence_kinds": {
+      "structure_and_fixed_model": [
+        "native_output",
+        "runtime",
+        "source_structure",
+        "stage_input"
+      ],
+      "optimizer_and_native_termination": [
+        "final_geometry",
+        "native_output",
+        "stage_input",
+        "trajectory"
+      ],
+      "force_and_model_error_budget": [
+        "control",
+        "native_output",
+        "report"
+      ],
+      "state_identity_continuity": [
+        "native_output",
+        "spectrum",
+        "trajectory"
+      ],
+      "native_screening_consistency_and_paper_comparison": [
+        "native_output",
+        "report",
+        "spectrum",
+        "table"
+      ],
+      "measured_costs_and_failures": [
+        "cost_summary",
+        "native_output",
+        "sacct"
+      ],
+      "screening_verdict_supported": [
+        "cost_summary",
+        "report",
+        "spectrum",
+        "threshold_basis"
+      ]
+    },
+    "production_stages": [
+      "full_s1_optimization",
+      "full_spectrum",
+      "gs_optimization",
+      "stda_s1_optimization",
+      "stda_spectrum"
+    ],
+    "max_review_bytes": null,
+    "tolerance_policy": {
+      "automatic_science": "No numerical model-accuracy threshold is defined in science_checks.py; preserve uncertainty for independent review.",
+      "native_rounding": "Exact Decimal token handling and half-ULP bounds from printed native precision; no post hoc scientific tolerance.",
+      "model_error_budget": "NOT_PROVIDED",
+      "energy_unit_conversion": null,
+      "criteria_version": "case07-definition-2026-10-07"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+services:
+  main:
+    build:
+      context: ..
+      dockerfile: tests/Dockerfile
+    volumes:
+      - ${CONTEXT_DIR}:/tests:ro

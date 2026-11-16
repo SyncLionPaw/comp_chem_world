@@ -1,0 +1,24 @@
+{
+  "schema": "bench12.task83.open-research-rubric/v2",
+  "task_id": "compchembench/task-83",
+  "criteria_version": "task83-open-research-v2",
+  "paper": {
+    "doi": "10.1021/acs.jctc.2c00144"
+  },
+  "reference_solution": "NOT_APPLICABLE_OPEN_RESEARCH",
+  "criteria": {
+    "core_research_question": "Substantive independent question addressing the paper’s central accuracy, efficiency or applicability problem.",
+    "literature_and_sources": "Relevant primary literature and independently retrieved data are traceable and critically assessed.",
+    "methods_and_controls": "System choice, methods and controls are appropriate and justified; no prescribed fixed workflow.",
+    "native_evidence_and_reproducibility": "Claims bind to authentic, reproducible analysis or native execution evidence, with independent execution authentication where new computation is claimed.",
+    "uncertainty_and_validity": "Numerical convergence, uncertainty, state identity and model validity are addressed where scientifically applicable.",
+    "efficiency_and_costs": "Efficiency claims and resource use have evidence; failures and incomplete work are disclosed.",
+    "conclusions_and_limitations": "The research question is answered by evidence, without treating transcription or fabricated results as new research."
+  },
+  "review_policy": "Full credit requires a trusted host-supplied independent review passing every criterion and bound to the exact submitted artifact manifest, rubric and verifier. Pending review receives no awarded credit and remains scientifically unvalidated.",
+  "task_files_sha256": {
+    "task.toml": "3e604ca34ec7cda4ac2dbd1c6f78f249f2c64d9bc12f264fb4059d39549a8c0c",
+    "instruction.md": "625621661bd7150726c15a40fd8669fbcedee6ce7359bc56e22ad89242e52076",
+    "instruction.zh-CN.md": "41eeb93f9ba27dbe93ae943227b4ce5addd846b4b4f769df17c7c6f2b589eded"
+  }
+}

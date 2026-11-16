@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/results"]
+
+[task]
+name = "compchemworld/case-03-phonon"
+description = "Compute zero-temperature, zero-pressure FCC Ag phonons with the supplied UNEP-v1 model along a path containing Gamma, X and L, using at least four crossed supercell and displacement-amplitude variants, and report raw versus ASR Gamma modes, imaginary frequencies and supercell/displacement sensitivity diagnostics."
+
+[metadata]
+name = "case-03-phonon"
+description = "Compute zero-temperature, zero-pressure FCC Ag phonons with the supplied UNEP-v1 model along a path containing Gamma, X and L, using at least four crossed supercell and displacement-amplitude variants, and report raw versus ASR Gamma modes, imaginary frequencies and supercell/displacement sensitivity diagnostics."
+execution_class = "local"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 259200
+network_mode = "public"
+
+[verifier]
+timeout_sec = 10800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 6144
+build_timeout_sec = 2400
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 6144
+build_timeout_sec = 2400
+network_mode = "no-network"

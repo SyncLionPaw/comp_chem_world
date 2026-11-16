@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = [{ source = "/app/final", destination = "final" }]
+
+[task]
+name = "compchemworld/hsp60-case-03-spm-allostery"
+description = "Build shortest-path residue networks from the supplied correlation and distance matrices and compare WT with V72I."
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[metadata]
+case_id = "case-03-spm-allostery"
+task_number = 72
+title = "由相关矩阵构建最短路径图比较 WT 与 V72I 变构通路"

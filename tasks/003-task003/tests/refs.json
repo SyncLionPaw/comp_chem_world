@@ -1,0 +1,32 @@
+{
+  "version": "1.3",
+  "case_id": "case-03-low-data-model-selection",
+  "reference_source_kind": "published_result",
+  "source_digest": "sha256:aa7b1daeb0591147c2c74191e60a38b9f8d6467e67c4ee7dbf1a339935b489c0",
+  "independent_check": "Revision 6.0.2: deterministic public-output checks plus evaluator-owned independent refitting of the declared model protocol on every outer split and inner fold, including declared PCA solver parameters. No submitted code execution or arbitrary internals are verified; unsupported but potentially valid methods are REVIEW_REQUIRED with no reward.",
+  "readiness": "READY_FOR_RUNTIME",
+  "verification_coverage": "PARTIAL",
+  "asset_hashes": {
+    "assets/SC-012-D0SC04896H-s115.csv": "sha256:c99d21c6ed4a6f456104782e980dcbac3b3a22c1bdd3d707d7a6c9eb469efbb1",
+    "assets/SC-012-D0SC04896H-s120.csv": "sha256:37d52b584033c1f7932537241c635b1f93878220500156455aef2e305a3677de",
+    "assets/SC-012-D0SC04896H-s138.csv": "sha256:fa7fe42a938ce314fd0cd5a3f903e9f1a74609b46c5561c123b6ef8242e4a9bc",
+    "assets/SC-012-D0SC04896H-s131.csv": "sha256:5ee3c4eadb63b080fa9459d004c54a5c8fd0815bfa446189bc9ca9aa0334bb79",
+    "assets/SC-012-D0SC04896H-s121.csv": "sha256:5d575b1798b4032344f4b9b176d480d52f377b9992fc94427be276b81932a7aa",
+    "assets/SC-012-D0SC04896H-s090.ipynb": "sha256:c40f71594040c74def71f755cae81c020cfc9c4521e789e768ee4dc67e3d0917",
+    "assets/fig8a_learning_curve.csv": "sha256:6a08a5d5f06be2060a0634d79276c26404df9deade32519de58ae1a15a46d6ee",
+    "assets/SC-012-D0SC04896H-s118.npy": "sha256:a0621d32a62ccff1bd675c1b410dbcc679dcb7b62241077158a4e19b654d140a",
+    "assets/SC-012-D0SC04896H-s119.npy": "sha256:189f3abea25fa3d4a008dc45b82fbeee69680db1164f0cd72d79b79a107ebdb1",
+    "assets/S5_model_benchmark.csv": "sha256:560748806f107d574fd3195e01ae19c85ccc616a7f9754fde4a643a0b466f09d"
+  },
+  "observations": [
+    {
+      "name": "public_output_and_declared_protocol_refit",
+      "level": "L1-L3",
+      "expected": "All seven required output files are checked against public inputs; row metrics and repeat intervals are recalculated; the declared model protocol is independently refit over every paired split and inner fold.",
+      "unit": "kcal/mol or dimensionless per criterion",
+      "source_locator": "packages/case-03-low-data-model-selection/submission-contract.md and the released SC-012-D0SC04896H assets",
+      "acceptance_rule": "At least two training sizes and at least 20 unique paired repeats per size; all three arms share each split and fixed test set. Predictions must match the evaluator-owned refit and all derived metrics. This verifies only the declared protocol on public targets; it does not prove blindness, submitted-code execution, or arbitrary candidate internals. Different model-selection designs across arms may be scientifically valid but are REVIEW_REQUIRED when outside the integrated refit vocabulary, not scientific failures."
+    }
+  ],
+  "scope_version": "declared-protocol-independent-refit-v1"
+}

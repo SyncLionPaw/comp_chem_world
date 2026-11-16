@@ -1,0 +1,26 @@
+schema_version = "1.4"
+artifacts = [{ source = "/app/final", destination = "final" }]
+
+[task]
+name = "compchemworld/hsp60-case-02-dyad-protonation"
+description = "Estimate Asp50/Asp397 catalytic-dyad protonation from the supplied structures using a fresh pKa prediction."
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[metadata]
+case_id = "case-02-dyad-protonation"
+task_number = 71
+title = "由结构预测决定 Asp50/Asp397 催化二联体质子化"

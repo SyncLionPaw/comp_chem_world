@@ -1,0 +1,23 @@
+hostname=cu009
+date_utc=2026-10-06T10:51:35Z
+slurm_job_id=3899529
+pressure_GPa=9
+PSTRESS_kbar=90
+requested_NSW=1 NFREE=2 POTIM=0.015
+kz=1 ENCUT_eV=500 EDIFF_eV=1e-10
+vasp_binary=/public/software/vasp/vasp.6.4.1/bin/vasp_std
+vasp_sha256=14e2ac8e6b0de427ef2bff2b09a2cce7ae89010cddff59d933c45b88a5d7eae8
+mpi_launcher=/public/software/intel/oneapi-2023.2/mpi/2021.10.0/bin/mpirun -launcher slurm -np 16
+Currently Loaded Modulefiles:
+ 1) oneapi/2023.2 <aL>   2) gcc/12.1 <aL>   3) vasp/6.4.1-vtst-intel  
+
+Key:
+<module-tag>  <aL>=auto-loaded  
+01034704b8fe505098fe23c7f575219f0c95448553bc1e77836459ec5f068842  INCAR
+2d061821c6ad99a8d0b2fc7aee050969c1ee1e68cce9905f5180ab563789b4c4  KPOINTS
+3a3760e9d62372417d29cbdfb67697b0d1f4bb0b510893c3e1f5864058f70129  POSCAR
+0a0899406684ed20a1a64161e419cf36db4017d96dc72e5b8980a53e8e2480b8  INCAR.author
+2d061821c6ad99a8d0b2fc7aee050969c1ee1e68cce9905f5180ab563789b4c4  KPOINTS.author
+Mo_PAW_PBE_Mo_08Apr2002_sha256 e91eef5e768b52c866a1a7e0829a38a041f11142f3595800aaf3206086d6c164
+S_PAW_PBE_S_06Sep2000_sha256 0fc7481fb0695f01bdc6462160264c5c84044ae9ec85a907d398b887a2bc3132
+combined_POTCAR_sha256 b8f5bccb188e7a8b1082445abe307e62f27d3cd9f9f7b128325dacee3e9192a0

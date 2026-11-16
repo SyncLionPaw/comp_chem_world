@@ -1,0 +1,14 @@
+{
+  "evidence": [
+    {
+      "path": "tests/evidence/41467_2020_20310_MOESM1_ESM.pdf",
+      "source_path": "docs/41467_2020_20310_MOESM1_ESM.pdf",
+      "sha256": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06"
+    },
+    {
+      "path": "tests/evidence/README.txt",
+      "source_path": "raw_data/downloads/README.txt",
+      "sha256": "517a3620157e9083b76a8d1e1fec022f45ba8e5fbd0713cd1304a3e2feb12011"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "case01-trusted-source-pins/v4",
+  "version": "8",
+  "case_id": "case-01-snar-mechanism-transition-state",
+  "source_data_schemas": [
+    "case01-public-context/v2",
+    "case01-native-diagnostic-excerpts/v2"
+  ],
+  "asset_hashes": {
+    "assets/public-context.json": "sha256:7b93cf0e5b3c522678e763c4d5b9e561175c544f886736e2c2b109fb7d692b32",
+    "assets/native-diagnostic-excerpts.json": "sha256:d419caac54cf2af57035b63517a1cdc4e8d466683af69b13407215e8f35bfd90",
+    "assets/SC-012-D0SC04896H-s325.log": "sha256:42b1eb75b75d4220d533923d8a6576550aea4e59ed7f5bb490d4458ebfcc647e",
+    "assets/SC-012-D0SC04896H-s343.log": "sha256:c193b2c04435e8d4901faab99000c6a7962beb3a5d17b149865a666fe97ea65b",
+    "assets/SC-012-D0SC04896H-s456.log": "sha256:ceda943d1e0437e943d6f4d9e6cb20ade661fff2a2ff831a990e656752ad5223",
+    "assets/SC-012-D0SC04896H-s353.log": "sha256:01c982109b0e1db46bba3ac36e5b2bc5d06b6ff5bbbe3c3c6cf07dd26d9944c3",
+    "assets/SC-012-D0SC04896H-s1694.log": "sha256:a130c458aad622670ab8972c461195802e89343f03000b90faadc1f21864b2ae",
+    "assets/SC-012-D0SC04896H-s1712.log": "sha256:3d6b423b7bdcedc6fb5b95aca02e194270a0e813f0f63f1e20043c0394fee36c",
+    "assets/SC-012-D0SC04896H-s1584.log": "sha256:994dae51672295e053c9e81c33a91fe424d036c1a73dd9201bae6c3a45ad3f99",
+    "assets/SC-012-D0SC04896H-s797.log": "sha256:673a96b9eeb433f9af4599ad0ab88c55e291ad5995afdd8e4fff1c29f278ec55",
+    "assets/SC-012-D0SC04896H-s326.dat": "sha256:3359aa3425837d1047dee7d76e626c63fe7eeb55d91a3bc8ce50b2d2ee15fc04",
+    "assets/SC-012-D0SC04896H-s344.dat": "sha256:c13d1502684c064bb6e6087e82341ebe870064077e98f82e22e678ef20123e01",
+    "assets/SC-012-D0SC04896H-s449.dat": "sha256:d8101dade53d423b073130cdaa8957dddf0796cab0c6962305c036405656f1ba",
+    "assets/SC-012-D0SC04896H-s350.dat": "sha256:44e63f20c499c5a796bd1975491465f1e96cc545cec0fda3cc318ff3cd490fc3",
+    "assets/SC-012-D0SC04896H-s1695.dat": "sha256:0907aef4fd1edc2d8ab80e9448cde32912a7f9b15c1abe7b6712f5092d9bac7f",
+    "assets/SC-012-D0SC04896H-s1713.dat": "sha256:824ed7e06a8c829e178b7fd3119bf658004d3a0cd862821a416ea9669937e9c5",
+    "assets/SC-012-D0SC04896H-s1577.dat": "sha256:3a559e9c72403c6c22532037a89d79bfee8e1bd482ff340b8de74ef6782a968f",
+    "assets/SC-012-D0SC04896H-s790.dat": "sha256:900295ccbc5ecffced9971d5ff0e9d8b240515b63a81e33ed1d2b279fc026057"
+  }
+}

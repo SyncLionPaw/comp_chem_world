@@ -1,0 +1,136 @@
+{
+  "case_id": "case-05-apo-cavity-hydration",
+  "expected_outputs": [
+    "cavity-definition.json",
+    "occupancy-region-sensitivity.csv",
+    "wire-geometry.csv",
+    "bias-validity-audit.json",
+    "decision.md"
+  ],
+  "output_contract": {
+    "required_paths": [
+      "cavity-definition.json",
+      "occupancy-region-sensitivity.csv",
+      "wire-geometry.csv",
+      "bias-validity-audit.json",
+      "decision.md"
+    ],
+    "schemas": {
+      "cavity-definition.json": "host,center_or_axis_nm,region_shape,dimensions_nm,volume_nm3,pbc,atom_selection",
+      "occupancy-region-sensitivity.csv": "host,region_id,source_frame_index,time_ps,N_water,frame_frequency_label,region_volume_nm3,reference_bulk_density_nm3",
+      "wire-geometry.csv": "host,frame_index,water_O_ids,edge_distance_nm,donor_H_id,DHA_angle_deg,component_or_ring,definition",
+      "bias-validity-audit.json": "host,xtc_source_hash,colvar_source_hash,cadences_ps,offset_ps,matched_or_unmatched_pairs,bias_diagnostic,history_scope,weight_validity_decision",
+      "decision.md": "可识别性、数据限制、是否报告总体概率和解锁条件"
+    },
+    "review_limits": {
+      "max_required_text_file_bytes": 45000,
+      "max_total_required_text_bytes": 120000,
+      "max_csv_bytes": 10000000,
+      "max_csv_columns": 128,
+      "max_csv_record_chars": 12000,
+      "max_artifact_files": 128,
+      "max_artifact_path_chars": 512,
+      "csv_fields_may_contain_embedded_newlines": false,
+      "max_review_view_chars": 180000,
+      "extra_artifact_policy": "Non-text extras are retained by SHA-256, media type and byte size; the judge does not parse them, and scientific numeric claims require independent replay."
+    },
+    "scientific_criteria": [
+      {
+        "criterion": "pbc_occupancy_region_geometry_and_sensitivity",
+        "necessary": true,
+        "required_evidence": "Two actual host-aligned coordinate excerpts and original axis definitions support reproducible integer counts and alternative region/volume sensitivity.",
+        "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
+        "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "bias_time_join_and_historical_replay_validity",
+        "necessary": true,
+        "required_evidence": "Actual contiguous time excerpts show the distinct COLVAR cadence/offset and time-varying bias diagnostics. A final kernel alone does not establish historical same-configuration bias.",
+        "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
+        "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "water_wire_or_ring_graph_geometry_and_atom_level_evidence",
+        "necessary": true,
+        "required_evidence": "A bounded PBC-aware O-O/H-angle graph reference supplies real water atom IDs, edge geometry, connected components and cycle rank for both apo hosts. This supports checking alternative graph definitions without demanding an author ring mode.",
+        "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
+        "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      },
+      {
+        "criterion": "identifiability_of_unbiased_hydration_probability",
+        "necessary": true,
+        "required_evidence": "The original alpha-shape parameter/mask is absent and supplied frames are sparse, biased observations; bounded sample frequencies cannot be promoted to unbiased P(n) without validated weights.",
+        "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
+        "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+      }
+    ]
+  },
+  "inputs": {
+    "environment/assets/oame-coordinate-samples.npz": "852c0a855a524b5e3026ad81e447ae66965443b90082817ca235ed1075fe399e",
+    "environment/assets/oame-coordinate-provenance.json": "0b55b2145de5442cefce15e1649aa3aaf4a8257884e6577da947bef42cecb3e9",
+    "environment/assets/oah-coordinate-samples.npz": "c8eaa38d376b4824e690dcd2c8f743cbd82ec62adf5dca69b862137903b673ad",
+    "environment/assets/oah-coordinate-provenance.json": "dbdbc7dddd0aa8a45dfa8c5483522a3e69bc082bd78b66f09c3af858b911e9fa",
+    "environment/assets/oame-bias-audit.csv": "2bed2e877a3f3739a4b2b85dcc1168ec49deb019864dbf1c9326bb7179e7b6d2",
+    "environment/assets/oame-bias-audit-provenance.json": "dd3d71ea3e0445c2340e693e2b4865501a35385c428db2d6d17e2b6dbd44f0b1",
+    "environment/assets/oah-bias-audit.csv": "32d57502adbb54e0eeda00206297842a3417b296edec1d667bea9cd0c2aa7672",
+    "environment/assets/oah-bias-audit-provenance.json": "ef8f37664deea804035e61eb73a9b9505b8a1748a78673f400c0be163ec1ce55",
+    "environment/assets/apo-method.md": "b5ce1c339461e91bcf56283d9b94aa5ade0fd0c11630f015943416d279147514"
+  },
+  "criteria": [
+    {
+      "criterion": "pbc_occupancy_region_geometry_and_sensitivity",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_native_coordinates_and_plumed_axis",
+        "source": "packages/case-05-apo-cavity-hydration/tests/refs.json",
+        "source_sha256": "90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb",
+        "rationale": "Two actual host-aligned coordinate excerpts and original axis definitions support reproducible integer counts and alternative region/volume sensitivity."
+      }
+    },
+    {
+      "criterion": "bias_time_join_and_historical_replay_validity",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "native_colvar_and_coordinate_time_audit",
+        "source": "packages/case-05-apo-cavity-hydration/tests/refs.json",
+        "source_sha256": "90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb",
+        "rationale": "Actual contiguous time excerpts show the distinct COLVAR cadence/offset and time-varying bias diagnostics. A final kernel alone does not establish historical same-configuration bias."
+      }
+    },
+    {
+      "criterion": "water_wire_or_ring_graph_geometry_and_atom_level_evidence",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "derived_apo_water_geometry",
+        "source": "packages/case-05-apo-cavity-hydration/tests/refs.json",
+        "source_sha256": "90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb",
+        "rationale": "A bounded PBC-aware O-O/H-angle graph reference supplies real water atom IDs, edge geometry, connected components and cycle rank for both apo hosts. This supports checking alternative graph definitions without demanding an author ring mode."
+      }
+    },
+    {
+      "criterion": "identifiability_of_unbiased_hydration_probability",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint_and_bounded_coordinate_reference",
+        "source": "packages/case-05-apo-cavity-hydration/tests/refs.json",
+        "source_sha256": "90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb",
+        "rationale": "The original alpha-shape parameter/mask is absent and supplied frames are sparse, biased observations; bounded sample frequencies cannot be promoted to unbiased P(n) without validated weights."
+      }
+    }
+  ],
+  "review_policy": "数值检查与必要科学评审分开；当前只提供数值诊断。重新接入后必须逐项评审必要科学判据，不得由文件存在或数值通过直接授予科学 PASS。",
+  "contract_fingerprints": {
+    "instruction.md": "6f4fd0c9c1e1c0e6b39c694c9d0a4598a4ccf1bef6ac29f4217829b8aeb083e1",
+    "task.toml": "bc53e410197130ad319b5002b5605eb4ab721a9839f7de8e3a4c5f138b3ecd80",
+    "output-contract.yaml": "f71b2fab2c6103feea89f089876fbbf2ed2644e706c8ec6d18b856a8c724bf13",
+    "output-contract.json": "421f240cb0c1ffab5d79f4df2fd2f76510ef89364da5598a0444b18b4ad12d21"
+  }
+}

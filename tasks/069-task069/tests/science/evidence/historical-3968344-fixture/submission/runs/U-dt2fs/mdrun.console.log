@@ -1,0 +1,31 @@
+                      :-) GROMACS - gmx mdrun, 2022.6 (-:
+
+Executable:   /public/software/hpcsoftware/gromacs-2022.6/bin/gmx
+Data prefix:  /public/software/hpcsoftware/gromacs-2022.6
+Working dir:  /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a
+Command line:
+  gmx mdrun -s /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/U-dt2fs/topol.tpr -deffnm /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/U-dt2fs/md -ntmpi 1 -ntomp 8 -cpt 5 -maxh 0.426944
+
+Reading file /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/U-dt2fs/topol.tpr, VERSION 2022.6 (single precision)
+Changing nstlist from 10 to 25, rlist from 1.055 to 1.175
+
+Using 1 MPI thread
+
+Non-default thread affinity set, disabling internal thread affinity
+
+Using 8 OpenMP threads 
+
+IMD: None of the -imd switches was used.
+IMD: This run will not accept incoming IMD connections
+starting mdrun 'Generic title'
+25000 steps,     50.0 ps.
+
+Writing final coordinates.
+
+               Core t (s)   Wall t (s)        (%)
+       Time:      184.437       23.055      800.0
+                 (ns/day)    (hour/ns)
+Performance:      187.386        0.128
+
+GROMACS reminds you: "Science... never solves a problem without creating ten more." (George Bernard Shaw)
+

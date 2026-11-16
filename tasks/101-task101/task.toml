@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-102"
+description = "Run vdW DFT phonons at 0,3,6,9 GPa using PSTRESS-matched decks; report 18 Gamma modes, Raman tracking, and a four-point linear coefficient."
+
+[metadata]
+name = "case-06-pressure-dft-raman-phonons"
+task_type = "scientific"
+execution_class = "hpc"
+qualification_status = "LEGACY_VERIFIER_CONTEXT_DECOUPLING_PENDING"
+
+[agent]
+timeout_sec = 3600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

@@ -1,0 +1,12 @@
+{
+  "schema": "bench22-inputs/v1",
+  "inputs": {
+    "benchmark.json": "d1e40119c92f099ca2a132d5e61a1fdbe92b719b46d81e0537841d6c1bbbc56e",
+    "observations.csv": "c98c1ce906f96144a4d50417d6a18b2355883184d7d800c21d26346af907d934"
+  },
+  "acceptance": {
+    "fit_rms_max": 1e-08,
+    "absolute_fluorescence_yield_minimum_separation": 1e-05,
+    "direct_rate_measurement_minimum_relative_separation": 1e-06
+  }
+}

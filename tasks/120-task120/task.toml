@@ -1,0 +1,30 @@
+schema_version = "1.4"
+handoff_version = "1.0"
+case_id = "case-01-smiles"
+title = "分子名称到 SMILES"
+artifacts = ["/app/final/smiles.txt"]
+
+[metadata]
+name = "chemgraph-task-120"
+case_id = "case-01-smiles"
+title = "分子名称到 SMILES"
+description = "Resolve a molecule name to SMILES"
+
+[task]
+name = "compchemworld/chemgraph-task-120"
+description = "Resolve a molecule name to SMILES"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 900
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+network_mode = "no-network"
+workdir = "/app"

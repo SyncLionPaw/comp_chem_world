@@ -1,0 +1,85 @@
+{
+  "features": {
+    "basis": "s120-drop-row-index-plus-qhbarrier/v1",
+    "indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ]
+  },
+  "model": {
+    "kernel": {
+      "family": "matern",
+      "constant_value": 1.0,
+      "constant_bounds": [
+        1e-05,
+        100000.0
+      ],
+      "length_scale": 1.0,
+      "length_scale_bounds": [
+        1e-05,
+        100000.0
+      ],
+      "noise_level": 1.0,
+      "noise_level_bounds": [
+        1e-05,
+        100000.0
+      ],
+      "matern_nu": 1.5
+    },
+    "alpha": 1e-10,
+    "optimizer": "fmin_l_bfgs_b",
+    "n_restarts_optimizer": 0,
+    "seed": 1
+  },
+  "preprocessing": {
+    "feature_scaling": "standard",
+    "target_scaling": "standard"
+  },
+  "cv": {
+    "n_splits": 10,
+    "seed": 1,
+    "row_order": "frozen_vector"
+  },
+  "permutation": {
+    "count": 10,
+    "seed": 1
+  },
+  "ad": {
+    "rule": "nearest_neighbor",
+    "k": 1,
+    "scaling": "standard",
+    "quantile": 0.95
+  }
+}

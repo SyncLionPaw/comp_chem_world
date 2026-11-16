@@ -1,0 +1,1534 @@
+{
+  "schema": "case07-source-registry/1",
+  "purpose": "Private author-side identity and bounded numerical selectors for independent falsification only; a candidate-supplied hash proves internal consistency, not upstream authenticity. Unknown sources or methods return NOT_CHECKED and require human review.",
+  "paper_doi": "10.1038/s41467-025-60211-8",
+  "archive": {
+    "path": "docs/41467_2025_60211_MOESM3_ESM.zip",
+    "bytes": 95477645,
+    "sha256": "b9c9757ae1b90cc0211b840bebcf7ced0fc627ca5348135751757d7c53ddab56",
+    "authority": "paper supplementary data archive, locally pinned source",
+    "official_article_url": "https://www.nature.com/articles/s41467-025-60211-8",
+    "figshare_doi": "10.6084/m9.figshare.28815164.v2",
+    "figshare_url": "https://doi.org/10.6084/m9.figshare.28815164.v2",
+    "archive_member_identity": "Nature source-data ZIP and Figshare v2 archive already present locally; no download in this task."
+  },
+  "figure3a": {
+    "member": "Source data/Source data/Figure 3/Figure 3a.xlsx",
+    "bytes": 23665,
+    "sha256": "851cd87ade38cfb76f99e21d981a5dbd6dd87253f465d1a6e6a1a906e6ac4101",
+    "sheet": "Sheet1",
+    "dimensions": "A1:BO31",
+    "data_rows": "5:31",
+    "experimental_columns": {
+      "N2_LB": [
+        "A",
+        "B"
+      ],
+      "N4_LB": [
+        "C",
+        "D"
+      ],
+      "N2_S": [
+        "AF",
+        "AG"
+      ],
+      "N4_S": [
+        "AJ",
+        "AK"
+      ]
+    },
+    "ols": {
+      "N2_LB": {
+        "columns": [
+          "A",
+          "B"
+        ],
+        "all_observed_rows_5_31": {
+          "n": 8,
+          "slope_cm-1_GPa-1": 3.82511413663786,
+          "intercept_cm-1": 45.47188936898745,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.2607153159149182
+        },
+        "window_0_5_GPa": {
+          "n": 4,
+          "slope_cm-1_GPa-1": 5.045900439238652,
+          "intercept_cm-1": 43.15528916544657,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.5859786593275502
+        },
+        "window_0_8_GPa": {
+          "n": 6,
+          "slope_cm-1_GPa-1": 4.3755857680069425,
+          "intercept_cm-1": 44.132445280107994,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.3294969541154125
+        }
+      },
+      "N4_LB": {
+        "columns": [
+          "C",
+          "D"
+        ],
+        "all_observed_rows_5_31": {
+          "n": 26,
+          "slope_cm-1_GPa-1": 2.0020299229805563,
+          "intercept_cm-1": 22.427518701243827,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.0488977083586957
+        },
+        "window_0_5_GPa": {
+          "n": 15,
+          "slope_cm-1_GPa-1": 2.4449775256106707,
+          "intercept_cm-1": 21.62021766068831,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.06721315329347372
+        },
+        "window_0_8_GPa": {
+          "n": 23,
+          "slope_cm-1_GPa-1": 2.0812185926344196,
+          "intercept_cm-1": 22.232777011277786,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.05547231806563565
+        }
+      },
+      "N2_S": {
+        "columns": [
+          "AF",
+          "AG"
+        ],
+        "all_observed_rows_5_31": {
+          "n": 27,
+          "slope_cm-1_GPa-1": 1.7443540920280347,
+          "intercept_cm-1": 24.55709600465115,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.059228235755827634
+        },
+        "window_0_5_GPa": {
+          "n": 15,
+          "slope_cm-1_GPa-1": 2.3374616844979763,
+          "intercept_cm-1": 23.368356254407956,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.06912599827867175
+        },
+        "window_0_8_GPa": {
+          "n": 23,
+          "slope_cm-1_GPa-1": 1.9214364182161527,
+          "intercept_cm-1": 24.08535904623608,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.062419477954573595
+        }
+      },
+      "N4_S": {
+        "columns": [
+          "AJ",
+          "AK"
+        ],
+        "all_observed_rows_5_31": {
+          "n": 26,
+          "slope_cm-1_GPa-1": 2.3309072210698365,
+          "intercept_cm-1": 31.85091994855742,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.06750303374219256
+        },
+        "window_0_5_GPa": {
+          "n": 15,
+          "slope_cm-1_GPa-1": 2.9445923421496767,
+          "intercept_cm-1": 30.718901173081253,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.08703146249181114
+        },
+        "window_0_8_GPa": {
+          "n": 23,
+          "slope_cm-1_GPa-1": 2.451681827049059,
+          "intercept_cm-1": 31.556512516463386,
+          "ols_slope_standard_error_cm-1_GPa-1": 0.07399405639747732
+        }
+      }
+    },
+    "notes": [
+      "Only listed experimental series are registered. N3-LB is absent from this worksheet.",
+      "Published Figure 4c slopes are claims, not independent data.",
+      "OLS standard error is residual slope uncertainty only; it does not include total experimental uncertainty."
+    ],
+    "registered_series_scope": "Only N2/N4 series used by the current author Gold are pinned. Other series are not silently inferred."
+  },
+  "figure4b": {
+    "member": "Source data/Source data/Figure 4/Figure 4b.xlsx",
+    "bytes": 12068,
+    "sha256": "03a2aed20750189591038fc0a81fd06000b5ac54be26f4845310209075046d82",
+    "sheet": "Sheet1",
+    "dimensions": "A1:K15",
+    "columns": {
+      "A": "pressure_GPa",
+      "B": "alpha_perp_1e19",
+      "C": "C33_GPa",
+      "D": "alpha_parallel_1e19",
+      "E": "C44_GPa"
+    },
+    "rows": [
+      {
+        "row": 4,
+        "pressure_GPa": 0.0,
+        "alpha_perp_1e19": 8.62802,
+        "C33_GPa": 53.062323,
+        "alpha_parallel_1e19": 2.82541,
+        "C44_GPa": 17.3762715,
+        "t_perp_A": 6.15,
+        "t_parallel_A": 6.15
+      },
+      {
+        "row": 5,
+        "pressure_GPa": 0.5,
+        "alpha_perp_1e19": 11.028,
+        "C33_GPa": 67.5067084283951,
+        "alpha_parallel_1e19": 3.25101,
+        "C44_GPa": 19.9007058548963,
+        "t_perp_A": 6.121391768987586,
+        "t_parallel_A": 6.121391768987577
+      },
+      {
+        "row": 6,
+        "pressure_GPa": 2.4,
+        "alpha_perp_1e19": 16.4719,
+        "C33_GPa": 99.4337627375703,
+        "alpha_parallel_1e19": 4.75066,
+        "C44_GPa": 28.6776874123122,
+        "t_perp_A": 6.036569110884008,
+        "t_parallel_A": 6.036569110884003
+      },
+      {
+        "row": 7,
+        "pressure_GPa": 4.7,
+        "alpha_perp_1e19": 22.7178,
+        "C33_GPa": 134.984767106116,
+        "alpha_parallel_1e19": 6.29564,
+        "C44_GPa": 37.4074733990064,
+        "t_perp_A": 5.941806297533916,
+        "t_parallel_A": 5.941806297533913
+      },
+      {
+        "row": 8,
+        "pressure_GPa": 6.3,
+        "alpha_perp_1e19": 27.5477,
+        "C33_GPa": 161.94885071624,
+        "alpha_parallel_1e19": 7.39412,
+        "C44_GPa": 43.4689370095495,
+        "t_perp_A": 5.87885198097264,
+        "t_parallel_A": 5.878851980972651
+      },
+      {
+        "row": 9,
+        "pressure_GPa": 8.0,
+        "alpha_perp_1e19": 31.3568,
+        "C33_GPa": 182.560149617103,
+        "alpha_parallel_1e19": 8.40541,
+        "C44_GPa": 48.9365275536118,
+        "t_perp_A": 5.822027426813419,
+        "t_parallel_A": 5.822027426813422
+      }
+    ],
+    "interpretation": "C/alpha ratios use the same tabulated t(P), so C33/alpha_perp and C44/alpha_parallel are not independent elastic validations."
+  },
+  "dft_bulk_outcars": [
+    {
+      "pressure_GPa": 0,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/0 GPa/OUTCAR",
+      "bytes": 1547896,
+      "sha256": "249d5f5e5961aacaeb06bb41ccf29e40fae57b48f6544aef2068a7ad5ffd0dab",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 470.67443,
+          "outcar_line": 40602
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 466.371479,
+          "outcar_line": 40611
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 413.198421,
+          "outcar_line": 40620
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 405.442071,
+          "outcar_line": 40629
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 383.212241,
+          "outcar_line": 40638
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 383.212241,
+          "outcar_line": 40647
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 382.404077,
+          "outcar_line": 40656
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 382.404077,
+          "outcar_line": 40665
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 284.403522,
+          "outcar_line": 40674
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 284.403522,
+          "outcar_line": 40683
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 283.94028,
+          "outcar_line": 40692
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 283.94028,
+          "outcar_line": 40701
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 54.757064,
+          "outcar_line": 40710
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 35.400115,
+          "outcar_line": 40719
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 35.400115,
+          "outcar_line": 40728
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.070152,
+          "outcar_line": 40737
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.365109,
+          "outcar_line": 40746
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.365109,
+          "outcar_line": 40755
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 1,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/1 GPa/OUTCAR",
+      "bytes": 1549409,
+      "sha256": "b88904d28407c442f80dfa08b7e6b4f195384b748437f389eeeb390ae43d5c1d",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 473.518744,
+          "outcar_line": 40623
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 468.785712,
+          "outcar_line": 40632
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 416.780967,
+          "outcar_line": 40641
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 407.15289,
+          "outcar_line": 40650
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 385.274444,
+          "outcar_line": 40659
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 385.274444,
+          "outcar_line": 40668
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 384.455613,
+          "outcar_line": 40677
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 384.455613,
+          "outcar_line": 40686
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 286.253152,
+          "outcar_line": 40695
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 286.253152,
+          "outcar_line": 40704
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 285.608041,
+          "outcar_line": 40713
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 285.608041,
+          "outcar_line": 40722
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 61.549411,
+          "outcar_line": 40731
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 38.47345,
+          "outcar_line": 40740
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 38.47345,
+          "outcar_line": 40749
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.110645,
+          "outcar_line": 40758
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.371843,
+          "outcar_line": 40767
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.371843,
+          "outcar_line": 40776
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 2,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/2 GPa/OUTCAR",
+      "bytes": 1547514,
+      "sha256": "7155becc3e05f2baf8d7f87388287fbcdcf591e47f807f40f0a64586448de82e",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 476.051309,
+          "outcar_line": 40574
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 470.985999,
+          "outcar_line": 40583
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 419.949487,
+          "outcar_line": 40592
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 408.932335,
+          "outcar_line": 40601
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 387.153493,
+          "outcar_line": 40610
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 387.153493,
+          "outcar_line": 40619
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 386.319488,
+          "outcar_line": 40628
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 386.319488,
+          "outcar_line": 40637
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 287.96475,
+          "outcar_line": 40646
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 287.96475,
+          "outcar_line": 40655
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 287.15769,
+          "outcar_line": 40664
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 287.15769,
+          "outcar_line": 40673
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 66.943788,
+          "outcar_line": 40682
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 40.937197,
+          "outcar_line": 40691
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 40.937197,
+          "outcar_line": 40700
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.064555,
+          "outcar_line": 40709
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.349745,
+          "outcar_line": 40718
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.349745,
+          "outcar_line": 40727
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 3,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/3 GPa/OUTCAR",
+      "bytes": 1547514,
+      "sha256": "1d933dcc7b31745d367b9ce7b1801bf682aaed64ca9d446624bec9858b1f84f0",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 478.43251,
+          "outcar_line": 40574
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 472.985491,
+          "outcar_line": 40583
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 423.246753,
+          "outcar_line": 40592
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 410.389019,
+          "outcar_line": 40601
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 388.867686,
+          "outcar_line": 40610
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 388.867686,
+          "outcar_line": 40619
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 388.002431,
+          "outcar_line": 40628
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 388.002431,
+          "outcar_line": 40637
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 289.667987,
+          "outcar_line": 40646
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 289.667987,
+          "outcar_line": 40655
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 288.582405,
+          "outcar_line": 40664
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 288.582405,
+          "outcar_line": 40673
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 72.897886,
+          "outcar_line": 40682
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 43.559087,
+          "outcar_line": 40691
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 43.559087,
+          "outcar_line": 40700
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.066878,
+          "outcar_line": 40709
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.337072,
+          "outcar_line": 40718
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.337072,
+          "outcar_line": 40727
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 4,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/4 GPa/OUTCAR",
+      "bytes": 1547514,
+      "sha256": "980458b1819cf111fa027eb98d9202a4f6b8f01d1fcb784105198ee61a23891c",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 480.996054,
+          "outcar_line": 40574
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 475.205185,
+          "outcar_line": 40583
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 426.713103,
+          "outcar_line": 40592
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 412.142192,
+          "outcar_line": 40601
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 390.728583,
+          "outcar_line": 40610
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 390.728583,
+          "outcar_line": 40619
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 389.822918,
+          "outcar_line": 40628
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 389.822918,
+          "outcar_line": 40637
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 291.524866,
+          "outcar_line": 40646
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 291.524866,
+          "outcar_line": 40655
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 290.135877,
+          "outcar_line": 40664
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 290.135877,
+          "outcar_line": 40673
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 78.591416,
+          "outcar_line": 40682
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 46.211798,
+          "outcar_line": 40691
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 46.211798,
+          "outcar_line": 40700
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.039227,
+          "outcar_line": 40709
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.311437,
+          "outcar_line": 40718
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.311437,
+          "outcar_line": 40727
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 5,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/5 GPa/OUTCAR",
+      "bytes": 1549449,
+      "sha256": "2037bb2132443a95aff746fbfb614c8f06fdba957ee404753c6697b627176217",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 483.435602,
+          "outcar_line": 40623
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 477.316501,
+          "outcar_line": 40632
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 430.081763,
+          "outcar_line": 40641
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 413.846575,
+          "outcar_line": 40650
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 392.402961,
+          "outcar_line": 40659
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 392.402961,
+          "outcar_line": 40668
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 391.500189,
+          "outcar_line": 40677
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 391.500189,
+          "outcar_line": 40686
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 293.215658,
+          "outcar_line": 40695
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 293.215658,
+          "outcar_line": 40704
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 291.515647,
+          "outcar_line": 40713
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 291.515647,
+          "outcar_line": 40722
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 83.822393,
+          "outcar_line": 40731
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 48.429578,
+          "outcar_line": 40740
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 48.429578,
+          "outcar_line": 40749
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.023795,
+          "outcar_line": 40758
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.307456,
+          "outcar_line": 40767
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.307456,
+          "outcar_line": 40776
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 6,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/6 GPa/OUTCAR",
+      "bytes": 1549449,
+      "sha256": "31fdb6e7f936d713e40237bf1c858ddbaefb60142638b1d08ff6805dd462d997",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 485.55087,
+          "outcar_line": 40623
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 479.153344,
+          "outcar_line": 40632
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 433.18663,
+          "outcar_line": 40641
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 415.172126,
+          "outcar_line": 40650
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 393.89211,
+          "outcar_line": 40659
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 393.89211,
+          "outcar_line": 40668
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 392.967356,
+          "outcar_line": 40677
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 392.967356,
+          "outcar_line": 40686
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 294.792177,
+          "outcar_line": 40695
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 294.792177,
+          "outcar_line": 40704
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 292.722142,
+          "outcar_line": 40713
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 292.722142,
+          "outcar_line": 40722
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 88.909982,
+          "outcar_line": 40731
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 50.754368,
+          "outcar_line": 40740
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 50.754368,
+          "outcar_line": 40749
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.034165,
+          "outcar_line": 40758
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.307216,
+          "outcar_line": 40767
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.307216,
+          "outcar_line": 40776
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 7,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/7 GPa/OUTCAR",
+      "bytes": 1549449,
+      "sha256": "0e6ea63cc486e7e149b0aba5ae57deb31554ee6b2c98fc80245451ccd0db71c1",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 487.731272,
+          "outcar_line": 40623
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 481.04932,
+          "outcar_line": 40632
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 436.29652,
+          "outcar_line": 40641
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 416.692814,
+          "outcar_line": 40650
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 395.382833,
+          "outcar_line": 40659
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 395.382833,
+          "outcar_line": 40668
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 394.447767,
+          "outcar_line": 40677
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 394.447767,
+          "outcar_line": 40686
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 296.3163,
+          "outcar_line": 40695
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 296.3163,
+          "outcar_line": 40704
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 293.900986,
+          "outcar_line": 40713
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 293.900986,
+          "outcar_line": 40722
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 93.430802,
+          "outcar_line": 40731
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 52.600129,
+          "outcar_line": 40740
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 52.600129,
+          "outcar_line": 40749
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.012059,
+          "outcar_line": 40758
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.315297,
+          "outcar_line": 40767
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.315297,
+          "outcar_line": 40776
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 8,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/8 GPa/OUTCAR",
+      "bytes": 1549449,
+      "sha256": "0675f7d991f88eb6e4aa8add2aea3810396af6f0430bc06adbffc4f58e8d92e0",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 489.92449,
+          "outcar_line": 40623
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 482.981449,
+          "outcar_line": 40632
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 439.444425,
+          "outcar_line": 40641
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 418.196348,
+          "outcar_line": 40650
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 396.921833,
+          "outcar_line": 40659
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 396.921833,
+          "outcar_line": 40668
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 395.966808,
+          "outcar_line": 40677
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 395.966808,
+          "outcar_line": 40686
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 297.914067,
+          "outcar_line": 40695
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 297.914067,
+          "outcar_line": 40704
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 295.121386,
+          "outcar_line": 40713
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 295.121386,
+          "outcar_line": 40722
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 97.790282,
+          "outcar_line": 40731
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 54.501864,
+          "outcar_line": 40740
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 54.501864,
+          "outcar_line": 40749
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.007072,
+          "outcar_line": 40758
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.317106,
+          "outcar_line": 40767
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.317106,
+          "outcar_line": 40776
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 9,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/9 GPa/OUTCAR",
+      "bytes": 1549449,
+      "sha256": "f8ef5603c17571f2a41b6445aa33b2175572309520495945f5220daaad5d560b",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 491.924532,
+          "outcar_line": 40623
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 484.726349,
+          "outcar_line": 40632
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 442.431741,
+          "outcar_line": 40641
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 419.573561,
+          "outcar_line": 40650
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 398.301757,
+          "outcar_line": 40659
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 398.301757,
+          "outcar_line": 40668
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 397.312678,
+          "outcar_line": 40677
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 397.312678,
+          "outcar_line": 40686
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 299.416309,
+          "outcar_line": 40695
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 299.416309,
+          "outcar_line": 40704
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 296.236902,
+          "outcar_line": 40713
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 296.236902,
+          "outcar_line": 40722
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 101.931504,
+          "outcar_line": 40731
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 56.334906,
+          "outcar_line": 40740
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 56.334906,
+          "outcar_line": 40749
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.029618,
+          "outcar_line": 40758
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.311336,
+          "outcar_line": 40767
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.311336,
+          "outcar_line": 40776
+        }
+      ]
+    },
+    {
+      "pressure_GPa": 10,
+      "member": "Source data/Supplementary Data¿C Computational Structures/DFT-atomic coordinates/10 GPa/OUTCAR",
+      "bytes": 1547531,
+      "sha256": "9716e687a6deebf3a2e6064939ef207483f7c56c47adcf5d0e2aaada641413fc",
+      "NIONS": 6,
+      "IBRION": 6,
+      "gamma_mode_count": 18,
+      "modes": [
+        {
+          "ordinal": 1,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 493.993399,
+          "outcar_line": 40574
+        },
+        {
+          "ordinal": 2,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 486.544888,
+          "outcar_line": 40583
+        },
+        {
+          "ordinal": 3,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 445.382627,
+          "outcar_line": 40592
+        },
+        {
+          "ordinal": 4,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 421.069446,
+          "outcar_line": 40601
+        },
+        {
+          "ordinal": 5,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 399.712939,
+          "outcar_line": 40610
+        },
+        {
+          "ordinal": 6,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 399.712939,
+          "outcar_line": 40619
+        },
+        {
+          "ordinal": 7,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 398.692316,
+          "outcar_line": 40628
+        },
+        {
+          "ordinal": 8,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 398.692316,
+          "outcar_line": 40637
+        },
+        {
+          "ordinal": 9,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 300.901514,
+          "outcar_line": 40646
+        },
+        {
+          "ordinal": 10,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 300.901514,
+          "outcar_line": 40655
+        },
+        {
+          "ordinal": 11,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 297.359891,
+          "outcar_line": 40664
+        },
+        {
+          "ordinal": 12,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 297.359891,
+          "outcar_line": 40673
+        },
+        {
+          "ordinal": 13,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 105.7138,
+          "outcar_line": 40682
+        },
+        {
+          "ordinal": 14,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 57.944323,
+          "outcar_line": 40691
+        },
+        {
+          "ordinal": 15,
+          "frequency_flag": "f",
+          "frequency_cm-1_signed": 57.944323,
+          "outcar_line": 40700
+        },
+        {
+          "ordinal": 16,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.0625,
+          "outcar_line": 40709
+        },
+        {
+          "ordinal": 17,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.304383,
+          "outcar_line": 40718
+        },
+        {
+          "ordinal": 18,
+          "frequency_flag": "f/i",
+          "frequency_cm-1_signed": -0.304383,
+          "outcar_line": 40727
+        }
+      ]
+    }
+  ],
+  "scope": "Registered checks may contradict a claim only when the claim asserts this source/selector/method. Alternative legitimate sources and methods are NOT_CHECKED, not failed."
+}

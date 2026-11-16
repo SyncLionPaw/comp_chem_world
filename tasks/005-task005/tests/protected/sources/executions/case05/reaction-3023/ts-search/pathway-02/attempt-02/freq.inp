@@ -1,0 +1,15 @@
+! WB97X-D3 6-31+G(d) TightSCF DefGrid3 NoRI NoCOSX Freq MOREAD
+%pal nprocs 16 end
+%maxcore 1500
+%scf
+  MaxIter 500
+end
+%cpcm
+  smd true
+  SMDsolvent "acetonitrile"
+end
+%moinp "ts.gbw"
+%freq
+  Temp 298.15
+end
+* xyzfile 0 1 ts.xyz

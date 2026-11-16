@@ -1,0 +1,186 @@
+# Harbor task config migrated from the preserved Bench16 definition.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+case_id = "case-05"
+
+[compute]
+class = "local"
+network = "no-network"
+
+[requirements]
+software = ["a text parser for VASP POSCAR/CONTCAR"]
+inputs = [
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/00/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/00/POSCAR", sha256 = "29e539e63c90dc247ddbe5af19d4a56246c27fafe171fb6293012e2e2d10d2a9"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/01/CONTCAR", sha256 = "6db0afddc5c086a7268c9c6576fa865507605b86deb972aa626e1bdd7932cbf0"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/01/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/01/POSCAR", sha256 = "ee8faf1af5bd9ca5eeac646f7f88913b1c34de78f2de8ebc6c45ae4a7bab2aea"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/02/CONTCAR", sha256 = "f6f16d2816e513f0dd3ae1b5f5def33630d7817381c61c4cd0bdac5c27bc9450"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/02/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/02/POSCAR", sha256 = "112c10e167821592497fe0dbec42f1512265e846de16a06bd4baa8a92fba1696"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/03/CONTCAR", sha256 = "6e8affb0dfe4e4439a79a47d53cf42b9e171255b4380d013842c106388667b37"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/03/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/03/POSCAR", sha256 = "665b90c0e22f12c1bfaa233fcb9836b0c21b8b1f8d008b713dbc72325486c591"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/04/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/04/POSCAR", sha256 = "d05440916f2ec3d42fefb237f05c4131fc0f88843077524b5dfc31a009c9ec06"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/INCAR", sha256 = "816afa2755497e836f0de464d70b665a933f435f6ff02e449da2041c7409027f"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_1/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_1/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/00/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/00/POSCAR", sha256 = "3a27f59b1c6ad4ce8d9afed6dd29b9abea6ce2b1a71b90622c3ad22a38ff92a7"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/01/CONTCAR", sha256 = "532139404242b49e60043acb9ac5543d105df0c0c325c16f5b8caf6f3f1623a1"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/01/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/01/POSCAR", sha256 = "c88d90169ec80a12296922c4b04c371163c4634b672cdd00f38f5394ec34fe2e"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/02/CONTCAR", sha256 = "579699b764329e14831cfe554ae1f5f68a56f73f95d1630066e9ded92446409b"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/02/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/02/POSCAR", sha256 = "47dc937c08ee0116fb90401799fe67595ee967f026ba017fdc46bf352b6b6a62"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/03/CONTCAR", sha256 = "2d6e5fc9659703de59abb7f366b8abaaae61d3c26ce42d4cfaa56dbb0b45be0f"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/03/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/03/POSCAR", sha256 = "d7c9a17594b1d2a9ec25d56bdbe551fe12c41587c706303df06a73fbd886a780"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/04/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/04/POSCAR", sha256 = "e124acd692829f2a2aa8925c9ada360aba20eead7645c9cd8b7fe7e8ebeccbba"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/INCAR", sha256 = "a1d1d4190b840445e15cbf371a3a9e20c46b0e02d983bf4c777a2ede719e147c"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_2/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_2/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/00/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/00/POSCAR", sha256 = "6ed00e8e9bab5ebda617e8028259983f2a4371ab1286948069f577ce06e39e98"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/01/CONTCAR", sha256 = "a4aea986b4640e276a80c2adbea3cfbcdfbf96e336bedf7c4a2e695b402f4033"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/01/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/01/POSCAR", sha256 = "5f661626d2642544455b927322846a0240659b42dbd6e9f4d0fe6359d14019fd"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/02/CONTCAR", sha256 = "68da23d3a82d01e272ade7e6d933abced32e975c435f54e4ded0c9c7dd100bb7"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/02/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/02/POSCAR", sha256 = "c898a73abbb76770dcdd197c343be238a532be5cafbd05d38532c5febcfc6e93"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/03/CONTCAR", sha256 = "68379e4ab9284779803ba826d3044509fa3d3d5cf50d5148f28b4566bc8bb094"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/03/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/03/POSCAR", sha256 = "63ab124eadbb123e84174cecb06805f52d91baeda819d3b813b8552bdffdc3a7"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/04/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/04/POSCAR", sha256 = "a395ce7d0c2040ee60dd3650beac7aaa26253faa9d860304a852d835f115ef91"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/INCAR", sha256 = "a1d1d4190b840445e15cbf371a3a9e20c46b0e02d983bf4c777a2ede719e147c"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_3/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_3/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/00/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/00/POSCAR", sha256 = "2a2670ee777c6568aa7a76c7e29d551b3cc6713e03c9b4b41e718e3687498baf"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/01/CONTCAR", sha256 = "e211de416a8b27dcb16b199b7669856d2b50a4ab7de89b4b6498f0dd00a949cc"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/01/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/01/POSCAR", sha256 = "8fe30a6605ff2d0eb00f70cfa649b3957715a7d3599ed85078308b6fe3ad733b"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/02/CONTCAR", sha256 = "58d5f1d5e35325630fe78713a11f267046378e98e246994c03d81d85b088253e"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/02/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/02/POSCAR", sha256 = "71d77b9b451766763dbb4414891fecb76153481856f05427988fe2c042fadaee"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/03/CONTCAR", sha256 = "d16ecf9df853e3157ac2daf85afb13c0ff3a158c94f57754748ff826acb4e357"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/03/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/03/POSCAR", sha256 = "c20b0edaf0fd0aa25d2872c19b2414bf5b0e77468716df1903f37dd97f7be6d1"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/04/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/04/POSCAR", sha256 = "22a13102c935310b359a4dc1f16a101bea8eff14d7459158acdc437d67baf996"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/INCAR", sha256 = "a1d1d4190b840445e15cbf371a3a9e20c46b0e02d983bf4c777a2ede719e147c"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_4/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_4/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/00/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/00/POSCAR", sha256 = "234a024f715e11819696b9df676c1854e4f5a1ff69a88623886d5f99be05c09b"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/01/CONTCAR", sha256 = "42f9c05cb4d96da983ffe70194adfe25fbbcfa75955f07c6817c5b5286ca223f"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/01/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/01/POSCAR", sha256 = "fc93f48eda48257053ef7da3d7ee220210d12df682a30c8c9a83974e05991c0c"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/02/CONTCAR", sha256 = "2d4f306a09be36ce26c7c9eaf9ff8a8d7665005d6e93cf67bcbc69bb3c870909"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/02/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/02/POSCAR", sha256 = "a63d1c7501db72dafc9591ba67eb2de92188197561304972d1779280296f1aa5"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/03/CONTCAR", sha256 = "fb61756adb7c2f5afa4333181dcab5e83468855a7328da1a5db0e37a8486cd24"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/03/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/03/POSCAR", sha256 = "fe6b238cba36ae8f9c7919cb178a2fc5d7680de796f8940f6e586fc501db77f4"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/04/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/04/CONTCAR", sha256 = "c6b6f786aa5a0de7ce252cfa155020b4251d94fee2bd23bdc1c8e529ca2173fd"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/04/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/04/POSCAR", sha256 = "37572e21819361495322468341e3a046ad0bddcf173a7bcd4548d636f7d23de2"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/05/CONTCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/05/CONTCAR", sha256 = "5204030932ed63daa4b5bb8efc4b986cc34140738e451f3f4a1c35c356b4237e"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/05/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/05/POSCAR", sha256 = "652159a613e97507caafdcdd7da530f2f780971810bef357530a456efb4e2eed"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/06/POSCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/06/POSCAR", sha256 = "1af54945212c5789ccefaa0270584eec20fd346c7ab7802de1c51344b52768a0"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/INCAR", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/INCAR", sha256 = "bae20e4b16b62804d75344d2823f3ca32a9a1105382db9678fe00189df6f9de4"},
+  {path = "environment/assets/NEB_Li4+x/neb_hop_5/KPOINTS", source_path = "public_inputs/neb/NEB_Li4+x/neb_hop_5/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/00/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/00/POSCAR", sha256 = "54493ae47028c9ce865651bb9305a570bce2da6229745764ac53ea3f466e5078"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/01/CONTCAR", sha256 = "07eff8492d914b5fba1f6555602ed1e8eae407483b73ce772fa8d8420a5b44c4"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/01/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/01/POSCAR", sha256 = "02b2d1e0521ed913f2fe6a3a3a58793fd7825238239b41bbe465f573139bfbb2"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/02/CONTCAR", sha256 = "50cc1869708415891508fe81ff2a7f330754c2b01533933b0679368d492dd416"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/02/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/02/POSCAR", sha256 = "e2b98187a681c20e3ab3c206128b52ce6f62170f0ced4137a0f10be3bf9c7d01"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/03/CONTCAR", sha256 = "44ec02cf7f3ad12214675c5ce1628976c555097e84e73596e3d4f183ed31c92b"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/03/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/03/POSCAR", sha256 = "ab8db82ebc7ec43a5937ccc3aa4b770e689cf387c253f228f4ca414bab1d439c"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/04/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/04/POSCAR", sha256 = "d0fca84a65ae60bf7563834e8e2015b5aec0ea805d288060813834426f279a47"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_1/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_1/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/00/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/00/POSCAR", sha256 = "9bc9897ba1dad715d5188faf870f05c82bf11f7c341db05e22c27b31de67c740"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/01/CONTCAR", sha256 = "814ef1b9fe8669c4914f5da43c0e38693ef56c8f6c6274cdb0bf0f6a260e799c"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/01/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/01/POSCAR", sha256 = "1ea7b166c795963fd0dc13af421c1ec3890a7a18b3a263f05812a136d75a2327"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/02/CONTCAR", sha256 = "c5cad455ea48eba57fef7b40feaea79e61af70564fb697776a01d3f67327e45f"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/02/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/02/POSCAR", sha256 = "bc080d00818af755877f5b204db28484a72b4997a8b72f7c67c4ca815be057c4"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/03/CONTCAR", sha256 = "4b4f5b606f81c7a4b197022cdae9cb96918c4f788809fe3346caa38a07e5803f"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/03/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/03/POSCAR", sha256 = "80cae3df81be0b81bb60965170faf1ad36d47f5d97322c933392b0a648555d8b"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/04/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/04/POSCAR", sha256 = "9be063894d99836dd1e4cdaa13b46f802d31bb5e2d38567f819d5ac6382a3015"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_2/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_2/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/00/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/00/POSCAR", sha256 = "43510cd0439e3df808c4cc0db9af1c86eee068b0c68c071c89dddc1ea89b64db"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/01/CONTCAR", sha256 = "cc873b3d3740e364efa52c3e11504146099ce31032a947f6adb0b4db14c5cf0f"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/01/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/01/POSCAR", sha256 = "4081c8c73c67cac8c5ba2c88faa6b103dfc1539e2d8635a014b31dbaea1a0bf4"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/02/CONTCAR", sha256 = "16bb3b5d6c6ed9c6af474e1cb1965d5b4ae086956fbd928e0130f31ea0af828f"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/02/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/02/POSCAR", sha256 = "fff7b909b2ed61b11ef15145908c92228cb728d7309e119cbce49072949b419c"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/03/CONTCAR", sha256 = "6d89259505478256e0717be0d308737b173e4b7faaf3987991a7634137e30a56"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/03/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/03/POSCAR", sha256 = "9e2ba67c1cd41ccb46fcac196df906a1a0ab4ccceb35749691234d6de379dae1"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/04/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/04/POSCAR", sha256 = "3a13b378916d121a4adeb5feb8e20f43a173d61dc10362c9f865de018f6cc162"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_3/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_3/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/00/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/00/POSCAR", sha256 = "614cca85594ab653e0ff368725187787e5906672525f027013ecc1dd1956073c"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/01/CONTCAR", sha256 = "d62a6a9c363950ff08cc7e777f92bd72163641390cd7aa86019cc5da1bbc893f"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/01/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/01/POSCAR", sha256 = "c298298586017f681219eae38b8be579506c6cddf569d1997b38499d17802fa5"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/02/CONTCAR", sha256 = "64624ff17776fe010d4121f1641738d6b0c35e6e0e8dacf5ec95b821fc341910"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/02/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/02/POSCAR", sha256 = "0cb95009697eac2561ab1d948ebdee5a846fdbf5e3b40baaf997610a66004b6e"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/03/CONTCAR", sha256 = "833d1f38d00db863127022eeacf560fe36b35649c399bec07c784125b5b1747a"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/03/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/03/POSCAR", sha256 = "544eae290ba227b48996152eea39af98bdc9e9866fa853be57c076a5b7de74e7"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/04/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/04/POSCAR", sha256 = "536858d55efe050f98fab379f34c63a1fd043227576dd200a44317cc106f3532"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_4/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_4/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/00/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/00/POSCAR", sha256 = "3af29b77a7d7fe4bd1e37fe0128f4faa302dd801616262a072b5cc83bfb50e96"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/01/CONTCAR", sha256 = "ad2785489b9e1c7eb1bf5b40196159835108766213d5ce8d4d270df23c7353e7"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/01/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/01/POSCAR", sha256 = "fff350a5ecd54f1e137b40e944f0f1bf8d5893a457a48a95c62e39ff7e252fb3"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/02/CONTCAR", sha256 = "3def6a35a20a5908578c2b676d88b9e72ac762fc9d8f566fb5f623712becce69"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/02/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/02/POSCAR", sha256 = "3cb8f9e2e9a33890a89b043e86630751aa4af4d9457c74db3f23f8c9ca1f8ea1"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/03/CONTCAR", sha256 = "ae01e4122b92a199150bd1777a84eb4733a01da5073f1371173fe7b964d5f630"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/03/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/03/POSCAR", sha256 = "a421e0a01f7a1bef74bdc9750bac22d558861fded325f5e7733f8a4d6aa8ba93"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/04/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/04/POSCAR", sha256 = "0961f2eff21e8b6122220c26f42aacdc60334098b74049a843e062141ff7a30b"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_5/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_5/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/00/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/00/POSCAR", sha256 = "39f842b557ef2dcab155313e1fc448e168a105ca82ea4e0910f709c93feed315"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/01/CONTCAR", sha256 = "5f0ab563f2a78140d0814f843510c64dc46e55bd036d1fd9b0cd2639a1411eca"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/01/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/01/POSCAR", sha256 = "f2466adbcb5c5636d349bd9c2815011270c437e7b1972713f8bf042c51c83d76"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/02/CONTCAR", sha256 = "e985d62e27588f0c632f98f703ee9be805aff77c9a98dac7409938f44c9d3684"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/02/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/02/POSCAR", sha256 = "7ca6e065536fb583ebc563913fa7c1a2346d77e2a29d197a5f2b2d36fa45fe6a"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/03/CONTCAR", sha256 = "c5c3c7a0e8d39da0f70be6e459d605eba18c3f43acfdd0eb18af950b6c64f484"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/03/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/03/POSCAR", sha256 = "f807dff70f99f05733c55f62851dff9a9213dbf58defade0605e9c799676f6b7"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/04/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/04/POSCAR", sha256 = "7e7ecd3dece3c63bc6bca8a428f7b12f0134aacbe023f59793c1e0a4022c936d"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_6/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_6/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/00/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/00/POSCAR", sha256 = "dbdeedb8816312106cbf27f589b13ba836cf4f59ad8f52cd5e0ae3cd135b4da2"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/01/CONTCAR", sha256 = "777dc3872c7d5e80f8c2dfa80f44aeb8510b9576a9aa9e3a6a7db6b70bc42fbb"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/01/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/01/POSCAR", sha256 = "2d6b5b7c1fd0d32f7dfa4520b721bc411235e50d3d2ae519aff85cdf493043ac"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/02/CONTCAR", sha256 = "d7960c2ccc183c845f6cd9f426bc9a9269f8437087731319c9b2c3c2a1371904"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/02/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/02/POSCAR", sha256 = "7c2752cb459b0ad0f7f1e717de1a49ba2d29e18168da6a55257c8e42be382eb7"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/03/CONTCAR", sha256 = "07d20f772f3b6da5646ff99d1e8f2ed6bfe62c57b42315644191906cfe5c5b22"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/03/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/03/POSCAR", sha256 = "2441c35e32a3f9c692ceca582920306b685c6fe49b72389ffa5a8d75344ae734"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/04/POSCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/04/POSCAR", sha256 = "1423170b807fd25d4a72d048f90c966508bf8edf768e02ad66bbd586aa957905"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/INCAR", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/INCAR", sha256 = "09db2e021d7ae8d1978820842e1571940a3fbd25510a5cd5faf0090bea6d97fd"},
+  {path = "environment/assets/NEB_Li5+x/neb_hop_7/KPOINTS", source_path = "public_inputs/neb/NEB_Li5+x/neb_hop_7/KPOINTS", sha256 = "4ae0dd2e86de45220eeb81dba420741f7d85da1c1523aacecfba5a5a52485018"},
+  {path = "environment/assets/NEB_Li7-x/00/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/00/POSCAR", sha256 = "f2db9e72d8f21c9aabced34d50c63ec3f3012c4ea6f190b5711664f3e7590e09"},
+  {path = "environment/assets/NEB_Li7-x/01/CONTCAR", source_path = "public_inputs/neb/NEB_Li7-x/01/CONTCAR", sha256 = "c55bb2e454a865739d1447ad82e79b9b09f1afd9e240c0baf6088b57510de9ca"},
+  {path = "environment/assets/NEB_Li7-x/01/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/01/POSCAR", sha256 = "d730d3e21941692167a36d72c9e12b125d26a4ad6d870bf7abd8169579e0fe6f"},
+  {path = "environment/assets/NEB_Li7-x/02/CONTCAR", source_path = "public_inputs/neb/NEB_Li7-x/02/CONTCAR", sha256 = "68ea051a69c0518bb3f304c5bd606a72d4b64f5e7d634d001039f7b9c39e796e"},
+  {path = "environment/assets/NEB_Li7-x/02/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/02/POSCAR", sha256 = "43fb7501227ab816e824ac12550a4a0d8f465d2e027693789f4038fd1ac3e71d"},
+  {path = "environment/assets/NEB_Li7-x/03/CONTCAR", source_path = "public_inputs/neb/NEB_Li7-x/03/CONTCAR", sha256 = "cda245d9db0e0f8251d5eb75c17b0bcc007b2feb19612447a6774166d32ee177"},
+  {path = "environment/assets/NEB_Li7-x/03/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/03/POSCAR", sha256 = "6b5de6d08846456035943acc9374c7efc8fe66318f81efcec1d7a179145c35f5"},
+  {path = "environment/assets/NEB_Li7-x/04/CONTCAR", source_path = "public_inputs/neb/NEB_Li7-x/04/CONTCAR", sha256 = "858962ca33715511e389d5fab15cd660b221c1a2c4bcab0ed95c4a7853e629a1"},
+  {path = "environment/assets/NEB_Li7-x/04/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/04/POSCAR", sha256 = "778dc4a5b2b4cdc86fb1939dcd944873d4b47eb0e6ce754372a4b914106e33bf"},
+  {path = "environment/assets/NEB_Li7-x/05/CONTCAR", source_path = "public_inputs/neb/NEB_Li7-x/05/CONTCAR", sha256 = "19a2c64e639be84e108d78a2f21c3c6586126737ea68eb408965e0bb8908cb46"},
+  {path = "environment/assets/NEB_Li7-x/05/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/05/POSCAR", sha256 = "001c317fd4bebd8a7021688c1c0833275b7f485c9c7782c0bdcb1553d9ebf192"},
+  {path = "environment/assets/NEB_Li7-x/06/CONTCAR", source_path = "public_inputs/neb/NEB_Li7-x/06/CONTCAR", sha256 = "ea1c5be1a99426c458239eb28d12ba28e4237905d1532c58b4ddcac643de3012"},
+  {path = "environment/assets/NEB_Li7-x/06/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/06/POSCAR", sha256 = "fc2ae06020130848bba8f02fbdc7e9c8922dc084f7dd6c453024459e2169515c"},
+  {path = "environment/assets/NEB_Li7-x/07/CONTCAR", source_path = "public_inputs/neb/NEB_Li7-x/07/CONTCAR", sha256 = "c24aa548ad8d141415e887566fac0d556e1d31f0e36f8c8a6233d854c0428430"},
+  {path = "environment/assets/NEB_Li7-x/07/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/07/POSCAR", sha256 = "3f33a71226c64745dd726536c1393e7777629179086c111ae03429e0f28e4001"},
+  {path = "environment/assets/NEB_Li7-x/08/POSCAR", source_path = "public_inputs/neb/NEB_Li7-x/08/POSCAR", sha256 = "bb8e66733cd54f655e65ea4322c8c9f746e3badcbf6637d972729c2d88f48b7f"},
+  {path = "environment/assets/NEB_Li7-x/INCAR", source_path = "public_inputs/neb/NEB_Li7-x/INCAR", sha256 = "79c2813a5abdd4784cf6809086d0c6e8263c6744971b7fd657b96fa1aae67372"},
+  {path = "environment/assets/NEB_Li7-x/KPOINTS", source_path = "public_inputs/neb/NEB_Li7-x/KPOINTS", sha256 = "8145d26ae84ab18b3fcd254e06df8c435e26525fda1bc8ea3bf77733831ca5d2"},
+]
+
+
+[metadata]
+name = "case-05"
+description = "Short Li–Li contacts along deposited NEB geometries"
+
+[task]
+name = "compchemworld/case-05"
+description = "Short Li–Li contacts along deposited NEB geometries"
+
+[agent]
+timeout_sec = 600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 30
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 256
+build_timeout_sec = 1800
+network_mode = "no-network"
+allow_internet = false
+
+[verifier.environment]
+cpus = 1
+memory_mb = 256
+build_timeout_sec = 1800
+network_mode = "no-network"

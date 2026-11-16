@@ -1,0 +1,132 @@
+{
+  "attempt_id": "1b4461d70eed4d1db4a1af01b86ea882",
+  "collection_scope": "science tar plus virtual scheduler record; lifecycle bytes deferred to one batch tar",
+  "full_remote_inventory": [
+    {
+      "bytes": 2474,
+      "path": "job.bibtex",
+      "sha256": "3129c22b5ab8cfe01c2976803a7e9a3acc2c56862c3bbb49d0759854406e5a27"
+    },
+    {
+      "bytes": 1451808,
+      "path": "job.densities",
+      "sha256": "ea830f5208ede8350dfcec0cb2b06b7eca2bcc0b72d502429e91c4b59ecbca63"
+    },
+    {
+      "bytes": 3160,
+      "path": "job.densitiesinfo",
+      "sha256": "0bc8cf4f040c9666e6ca7d03919d624381e219bfb668898d88d2bf823872dc98"
+    },
+    {
+      "bytes": 2531,
+      "path": "job.engrad",
+      "sha256": "e191b82ee16d338ad495b2abeb3d90566fae85f13e7bc618c63545ad77705705"
+    },
+    {
+      "bytes": 1813372,
+      "path": "job.gbw",
+      "sha256": "eaf99a6f2ee500c872fb9609ae0813f179021464e52122e9d408eb01b3269f03"
+    },
+    {
+      "bytes": 128,
+      "path": "job.inp",
+      "sha256": "ee3b1bd6f1bd54d5e3766d57ad31fdde0d02c6b699d09d126f15be1d7dab9652"
+    },
+    {
+      "bytes": 30203,
+      "path": "job.property.txt",
+      "sha256": "b7efa90a5bfc6bb74c6a2646bd31477bced0470553d9fea495621c30e7639f87"
+    },
+    {
+      "bytes": 1931,
+      "path": "job.sbatch",
+      "sha256": "19ab4f3e38cd8551f1367862731381064cae3d57fe0a771722bc70640ef78aa6"
+    },
+    {
+      "bytes": 195,
+      "path": "native-stage-receipt.json",
+      "sha256": "b48fa0f3fa56f1053d9acf2bda683fc4af5268ee9430d5655f2a3fb0050eb53c"
+    },
+    {
+      "bytes": 2,
+      "path": "native.exitcode",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 0,
+      "path": "orca.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85896,
+      "path": "orca.stdout",
+      "sha256": "a7e1becf719c4f75b9b8968a0e38ee2ef05b7849ed72bd3a3ffdc389f482428a"
+    },
+    {
+      "bytes": 2876,
+      "path": "p04-scheduler-record.json",
+      "sha256": "4f2b8882956a1656e90fee4ab064a86bcfce6010b36c00b2316a19a4a9f41a03"
+    },
+    {
+      "bytes": 64,
+      "path": "slurm-4040820.err",
+      "sha256": "2804f173dae0ebba12034a4a14f0b05a3dcd0e06c8e44464cecfb431b2887f90"
+    },
+    {
+      "bytes": 0,
+      "path": "slurm-4040820.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 946,
+      "path": "start.xyz",
+      "sha256": "0cc121c5de506169088f65d7ad6fe3d7478893b3c111d92ab95f6e556d39a719"
+    }
+  ],
+  "job_id": "4040820",
+  "locally_downloaded_files": [
+    {
+      "bytes": 2531,
+      "path": "job.engrad",
+      "sha256": "e191b82ee16d338ad495b2abeb3d90566fae85f13e7bc618c63545ad77705705"
+    },
+    {
+      "bytes": 128,
+      "path": "job.inp",
+      "sha256": "ee3b1bd6f1bd54d5e3766d57ad31fdde0d02c6b699d09d126f15be1d7dab9652"
+    },
+    {
+      "bytes": 1931,
+      "path": "job.sbatch",
+      "sha256": "19ab4f3e38cd8551f1367862731381064cae3d57fe0a771722bc70640ef78aa6"
+    },
+    {
+      "bytes": 2,
+      "path": "native.exitcode",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 0,
+      "path": "orca.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85896,
+      "path": "orca.stdout",
+      "sha256": "a7e1becf719c4f75b9b8968a0e38ee2ef05b7849ed72bd3a3ffdc389f482428a"
+    },
+    {
+      "bytes": 946,
+      "path": "start.xyz",
+      "sha256": "0cc121c5de506169088f65d7ad6fe3d7478893b3c111d92ab95f6e556d39a719"
+    },
+    {
+      "bytes": 2876,
+      "path": "p04-scheduler-record.json",
+      "sha256": "4f2b8882956a1656e90fee4ab064a86bcfce6010b36c00b2316a19a4a9f41a03",
+      "source": "service_virtual_inventory_fetch"
+    }
+  ],
+  "stage_id": "screen:C1:2",
+  "virtual_scheduler_record": true
+}

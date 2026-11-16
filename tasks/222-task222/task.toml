@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/case-03-protein-multisite-pka"
+description = "Run the 75-production-run protein constant-pH MD campaign on Cardiotoxin V (15 pH values from 1.0 to 8.0, five replicas, 50 ns each) using independently selected computing resources, map the native lambda channels to the His4, Glu17, Asp42 and Asp59 titration sites, fit per-site pKa values with 95% confidence intervals, treat the Asp59 pKa<2 upper bound with a documented censored-data policy, and report the Pearson correlation, MSE and RMSE against experiment in per_residue_pka.json, correlation_statistics.json and titration_curves_per_residue.csv under /app/final."
+
+[metadata]
+name = "case-03-protein-multisite-pka"
+description = "Run the 75-production-run protein constant-pH MD campaign on Cardiotoxin V (15 pH values from 1.0 to 8.0, five replicas, 50 ns each) using independently selected computing resources, map the native lambda channels to the His4, Glu17, Asp42 and Asp59 titration sites, fit per-site pKa values with 95% confidence intervals, treat the Asp59 pKa<2 upper bound with a documented censored-data policy, and report the Pearson correlation, MSE and RMSE against experiment in per_residue_pka.json, correlation_statistics.json and titration_curves_per_residue.csv under /app/final."
+execution_class = "remote"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 864000
+network_mode = "public"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

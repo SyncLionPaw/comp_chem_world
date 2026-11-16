@@ -1,0 +1,126 @@
+{
+  "status": "independent_linearized_mode_anchor",
+  "model": "zero-polarization, zero-potential linear response; independent 8x8 constant-coefficient eigenmode BVP",
+  "parameters": {
+    "T_K": 300.0,
+    "alpha": 0.5,
+    "cell_length_nm": 0.8,
+    "Pbar_C_m2": 0.0,
+    "boundary_wall": [
+      0.0,
+      0.0,
+      0.0,
+      "dpsi/dx=-L/(epsilon0*VT) per unit sigma"
+    ]
+  },
+  "coefficients": {
+    "K11": 0.140125,
+    "K12": -0.207118,
+    "K13": 0.01129,
+    "K21": 0.015908,
+    "K22": 2.00394
+  },
+  "branches": [
+    {
+      "concentration_mM": 1.0,
+      "decaying_eigenvalues_per_A": [
+        [
+          -0.5853460264235599,
+          3.048897271394012
+        ],
+        [
+          -0.2762180702035589,
+          0.0
+        ],
+        [
+          -0.010825382432101766,
+          0.0
+        ]
+      ],
+      "d_phi_d_sigma_V_per_C_m2": 12.118702271756057,
+      "signed_d_sigma_d_phi_F_m2": 0.08251708620077315,
+      "C_magnitude_F_m2": 0.08251708620077315
+    },
+    {
+      "concentration_mM": 2.0,
+      "decaying_eigenvalues_per_A": [
+        [
+          -0.583930453060332,
+          3.048034981376069
+        ],
+        [
+          -0.2782236848949161,
+          0.0
+        ],
+        [
+          -0.015209951014859627,
+          0.0
+        ]
+      ],
+      "d_phi_d_sigma_V_per_C_m2": 7.694020212602225,
+      "signed_d_sigma_d_phi_F_m2": 0.1299710648487868,
+      "C_magnitude_F_m2": 0.1299710648487868
+    },
+    {
+      "concentration_mM": 3.0,
+      "decaying_eigenvalues_per_A": [
+        [
+          -0.5825095642236606,
+          3.047172375285243
+        ],
+        [
+          -0.2802264084294504,
+          0.0
+        ],
+        [
+          -0.018508465167109623,
+          0.0
+        ]
+      ],
+      "d_phi_d_sigma_V_per_C_m2": 5.680248616493632,
+      "signed_d_sigma_d_phi_F_m2": 0.17604863228984707,
+      "C_magnitude_F_m2": 0.17604863228984707
+    },
+    {
+      "concentration_mM": 5.0,
+      "decaying_eigenvalues_per_A": [
+        [
+          -0.5796516780936276,
+          3.045446217078502
+        ],
+        [
+          -0.2842228334052938,
+          0.0
+        ],
+        [
+          -0.023592271184093225,
+          0.0
+        ]
+      ],
+      "d_phi_d_sigma_V_per_C_m2": 3.5823994446419527,
+      "signed_d_sigma_d_phi_F_m2": 0.27914251759268743,
+      "C_magnitude_F_m2": 0.27914251759268743
+    },
+    {
+      "concentration_mM": 10.0,
+      "decaying_eigenvalues_per_A": [
+        [
+          -0.572411048658319,
+          3.0411253293788136
+        ],
+        [
+          -0.29415807839154345,
+          0.0
+        ],
+        [
+          -0.03235423517346121,
+          0.0
+        ]
+      ],
+      "d_phi_d_sigma_V_per_C_m2": 1.2810243719627712,
+      "signed_d_sigma_d_phi_F_m2": 0.7806252729351364,
+      "C_magnitude_F_m2": 0.7806252729351364
+    }
+  ],
+  "scope": "independent zero-Pbar sigma0=0 capacitance calibration only; not a substitute for nonlinear branches or hidden analysis"
+}

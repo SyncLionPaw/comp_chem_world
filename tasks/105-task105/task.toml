@@ -1,0 +1,96 @@
+# Harbor task config migrated from the preserved Bench16 definition.
+schema_version = "1.4"
+artifacts = ["/app/final", "/app/.bench16-trusted/runner-context.json", "/app/.bench16-trusted/capture-proof.json"]
+case_id = "case-03-author-relax-v4"
+
+[compute]
+class = "remote"
+profile = "case03-author-relax-v4"
+network = "public"
+
+[compute.budget]
+profile = "case03-author-relax-v4"
+max_cpus = 64
+max_memory_gib = 64
+max_core_hours = 160
+max_walltime_seconds = 9000
+nodes = 1
+allocation_count = 1
+basis = "Eight archived native runs report nominal 16-rank elapsed times totaling 94.99013 rank-hours. This is a nominal estimate, not current-time or scheduler-accounting evidence."
+
+[compute.budget.concurrency]
+candidates = [1, 2, 3, 4]
+ranks_per_run_multiple = 2
+ranks_per_run_times_concurrent_runs_lte_ntasks = true
+
+[requirements]
+software = [
+  "Host-listed VASP/MPI pair compatible with standard PAW_PBE Li/Ti/O",
+  "PAW policy: exact author archive replay or host-qualified hpc_standard_native_v1 standard PAW_PBE Li/Ti/O; alternate source hashes and component order are sealed, not claimed byte-equivalent",
+  "Eight independent spin-polarized variable-cell relaxations, IBRION=1, NPAR=2"
+]
+inputs = [
+  {path = "environment/assets/method.INCAR", sha256 = "c547a987fe9c0b5f665d5740aea905efd9175483b0390f4b2c64995848738023"},
+  {path = "environment/assets/method.KPOINTS", sha256 = "05fa3f2833592ca87d434e5066d99a9beba466c70b3af66a26347a1d4a08953e"},
+  {path = "environment/assets/input-manifest.json", sha256 = "3ee021a632dccab921562235b8c23355e355214185947b6179e6729a57cbc1a7"},
+  {path = "environment/assets/bench16_runtime.py", sha256 = "d0b59b0e34662e3cbc3c1581cf00251d8d43239261c0c9357a3fb5de4d970e83"},
+  {path = "environment/assets/output-schema.json", sha256 = "b8c0d7c1526a27bef49cb31737f00a2d3eb17b9aa491e06c394dd217803c5509"},
+  {path = "environment/assets/candidates/hop1-initial/POSCAR", sha256 = "a396d3c77bf3688455c25c7c9aa3e2c0bdaf9417458ee9b0c7b5ce683c4b6ad9"},
+  {path = "environment/assets/candidates/hop1-final/POSCAR", sha256 = "9bc9897ba1dad715d5188faf870f05c82bf11f7c341db05e22c27b31de67c740"},
+  {path = "environment/assets/candidates/hop2-final/POSCAR", sha256 = "69e138b253d8bd30de3c015dd5b919082ec3b9acd339ecdb4e1a79ef285635c2"},
+  {path = "environment/assets/candidates/hop3-final/POSCAR", sha256 = "4143c0b81d84b981beb07571081ed39ec2529929512f9d5f18192b10f2157710"},
+  {path = "environment/assets/candidates/hop4-final/POSCAR", sha256 = "3af29b77a7d7fe4bd1e37fe0128f4faa302dd801616262a072b5cc83bfb50e96"},
+  {path = "environment/assets/candidates/hop5-final/POSCAR", sha256 = "8dbcc7dc715a7c5833967d551ad3542bd144624835a5ae5e20116331f76601d8"},
+  {path = "environment/assets/candidates/hop6-final/POSCAR", sha256 = "a457edc4cce0000a04fcac610377d9b2715d80b382188194c4ccb045743eb71e"},
+  {path = "environment/assets/candidates/hop7-final/POSCAR", sha256 = "9072850a52884e04277e3eeb1134308c6bff31d01ffccc27e3bfd77c1a412827"}
+]
+
+[metadata]
+name = "case-03-author-relax-v4"
+description = "Eight same-composition author-derived variable-cell relaxations"
+
+[task]
+name = "compchemworld/case-03-author-relax-v4"
+description = "Eight same-composition author-derived variable-cell relaxations"
+
+[agent]
+timeout_sec = 14400
+user = "researcher"
+network_mode = "public"
+
+[verifier]
+user = "root"
+timeout_sec = 180
+environment_mode = "separate"
+network_mode = "no-network"
+
+[[verifier.collect]]
+command = "HOME=/root python3 /app/assets/bench16_runtime.py collect"
+service = "main"
+user = "root"
+timeout_sec = 60
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+allow_internet = true
+
+[environment.healthcheck]
+command = "test -f /run/bench16/agent-ready && test \"$(stat -c %u /run/bench16/profile.json)\" = 0 && test \"$(stat -c %a /run/bench16/profile.json)\" = 400"
+interval_sec = 2
+timeout_sec = 3
+start_period_sec = 120
+start_interval_sec = 2
+retries = 60
+
+[environment.env]
+CCB_BENCH16_RUN_MODE = "normal"
+HOME = "/home/researcher"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

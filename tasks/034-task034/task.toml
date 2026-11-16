@@ -1,0 +1,32 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchembench/task-34"
+description = "Task: How Does the A2 Intervention Affect Condensate Structure?"
+
+[metadata]
+scientific_scope = "Reduced-sampling reference replay; full HPC research not validated."
+
+[agent]
+timeout_sec = 86400
+network_mode = "public"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+storage_mb = 32768
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+storage_mb = 32768
+build_timeout_sec = 1800
+network_mode = "no-network"

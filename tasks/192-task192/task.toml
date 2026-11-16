@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/results"]
+
+[task]
+name = "compchemworld/case-04-goldene"
+description = "Analyze three recorded fixed-cell NVE energy logs for 1800-atom goldene over their observed 0.2 ps windows, compute per-atom energy envelopes and OLS drift slopes, compare timestep-halving convergence orders, and select the largest supplied timestep meeting the finite-window energy-envelope budget without extrapolating beyond the recorded windows."
+
+[metadata]
+name = "case-04-goldene"
+description = "Analyze three recorded fixed-cell NVE energy logs for 1800-atom goldene over their observed 0.2 ps windows, compute per-atom energy envelopes and OLS drift slopes, compare timestep-halving convergence orders, and select the largest supplied timestep meeting the finite-window energy-envelope budget without extrapolating beyond the recorded windows."
+execution_class = "local"
+difficulty = "easy"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 1
+memory_mb = 1024
+build_timeout_sec = 2400
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 1
+memory_mb = 1024
+build_timeout_sec = 2400
+network_mode = "no-network"

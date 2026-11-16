@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/case-05-cphmd-scaling-benchmark"
+description = "Run eight paired 10 ns production benchmarks (tripeptide, Cardiotoxin V, HEWL and GLIC systems, each in normal-MD and constant-pH mode) using independently selected computing resources under one consistent hardware and resource configuration, derive ns/day and wall-clock timings from the completed native logs, quantify the constant-pH overhead per system within the frozen limits, and fit the overhead response against 1, 4, 10 and 185 titratable sites, delivering performance_results.json and scaling_analysis.json with the linear fit under /app/final."
+
+[metadata]
+name = "case-05-cphmd-scaling-benchmark"
+description = "Run eight paired 10 ns production benchmarks (tripeptide, Cardiotoxin V, HEWL and GLIC systems, each in normal-MD and constant-pH mode) using independently selected computing resources under one consistent hardware and resource configuration, derive ns/day and wall-clock timings from the completed native logs, quantify the constant-pH overhead per system within the frozen limits, and fit the overhead response against 1, 4, 10 and 185 titratable sites, delivering performance_results.json and scaling_analysis.json with the linear fit under /app/final."
+execution_class = "remote"
+difficulty = "hard"
+
+[agent]
+timeout_sec = 864000
+network_mode = "public"
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "public"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

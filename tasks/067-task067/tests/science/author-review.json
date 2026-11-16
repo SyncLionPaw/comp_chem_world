@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "case_id": "case-06-water-model-free-energy",
+  "review_status": "PASS",
+  "reviewer": "Codex source-only migration; scientific criteria inherited from Sol (independent model scientific audit)",
+  "reviewed_on": "2026-10-27",
+  "criteria": {
+    "six_ligand_absolute_and_offset_error_regression_metrics": {
+      "status": "PASS",
+      "evidence": "Independently recomputed all six-ligand equal-weight metrics from the pinned observation CSV: absolute RMSE 0.682617/1.932110 kcal mol-1, mean offsets -0.523333/-1.888333, offset RMSE 0.438279/0.408959, Pearson r2 0.932323/0.966465, and slopes 1.20662/1.27051 for TIP3P/TIP4P_EW."
+    },
+    "per_ligand_water_model_shifts_and_common_offset": {
+      "status": "PASS",
+      "evidence": "Checked all six per-ligand shifts and the mean TIP4P_EW-minus-TIP3P shift (-1.365 kcal mol-1). The interpretation reports the common negative shift and all individual rows without treating it as causal force-field effect."
+    },
+    "ranking_vs_absolute_error_diagnosis": {
+      "status": "PASS",
+      "evidence": "Independently checked Kendall tau-a = 0.866667 for each model and confirmed that the exact ligand orderings differ despite equal rounded tau. The report separates ranking agreement from absolute accuracy and identifies TIP3P as lower-RMSE on these six ligands."
+    },
+    "sampling_sigma_and_causal_scope_limits": {
+      "status": "PASS",
+      "evidence": "The report identifies the supplied sigma values as sampling uncertainty only and states that these six paired observations cannot establish force-field causality or model-form uncertainty."
+    }
+  },
+  "input_hashes": {
+    "environment/assets/water-model-observations.csv": "08a8902f5198209bb5ef1a36f7a7c8a2fa6c32fd75c6cc2ab91b51d4c6716782",
+    "environment/assets/method-basis.md": "82467e7f4de2651b202418e17418e04e50f352c632cc229fb2b29f748fc66d82"
+  },
+  "source_fingerprints": {
+    "tests/assessment-protocol.json": "2ab4a029c51ea03911e1ed9684497d0c19365563ef6ad7390b4ccf4037e05399",
+    "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+    "tests/evidence/41467_2020_20310_MOESM1_ESM.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+    "tests/evidence/README.txt": "517a3620157e9083b76a8d1e1fec022f45ba8e5fbd0713cd1304a3e2feb12011",
+    "tests/evidence/evidence-manifest.json": "fcc0d827a7e54b938b546cab9e5ce1caf0cbf020819dcb9cb628c7b0eacf48a1",
+    "tests/numeric_evidence.py": "00b0668b51417c26d147dd58ee945329c321ec2824c17790086f0c0337ae4427",
+    "tests/reference-hashes.json": "84fd1ace3cf57e960e6a1b58b9b6b62924f0fa29234594c2b129c371461d0d3e",
+    "tests/refs.json": "c9f6676fdde1b77b815fe315418ed9fb0d64e6153c668ce3793b267c077fc2e2",
+    "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+    "tests/test.sh": "0ae6d7fe88171c1abfbea56f980d4e8922f7412adadb0b80132082dc9dfca0ef",
+    "tests/verification-plan.yaml": "70b757cf9998f831c46dac6d7ae63cd601ccedc4e4b68a8defe3ad16422bf102",
+    "tests/verify.py": "06ea63490c66e65a78f9657dce9afeeac338b34d23280dc486b4444474e63cd7",
+    "contract/instruction.md": "51a88504845f084105596bdb20c19456920fd088826a3fe494efe903a664514a",
+    "contract/task.toml": "a71d8141007b1446d114f4a8b4369ae9fb1e63b197caad749ccf03a665c7865d",
+    "contract/output-contract.yaml": "5d753a474f511e7ff420018b28ea875ad07c4a6d4cacf8ad7714e02d33023e5c",
+    "contract/output-contract.json": "4d601b4dc47ee3e6ee87ec6d35dd6eb8013a21a1e56d435f07c3b157f0567027"
+  },
+  "candidate_manifest": {
+    "submission/comparison-report.md": {
+      "sha256": "bdbd421ace8efb46039cfefc1b63892434b8f9ba9f49209e800fecb5dd0377d9",
+      "bytes": 746
+    },
+    "submission/interpretation.json": {
+      "sha256": "9b9c91968ce1cf467b6923e3236e99cb3a83f35e01f090c1b151f7e2c9e0288b",
+      "bytes": 530
+    },
+    "submission/metrics.json": {
+      "sha256": "1772e8150f834c9eb6c7579ce830b99b42712bac28492aed9a8ef09f6bbf4117",
+      "bytes": 1119
+    },
+    "submission/per_ligand_effects.csv": {
+      "sha256": "7ba5b4e6edd58d091c93d117d49b2158147424ed6f13ba1c21dd27480290597a",
+      "bytes": 434
+    },
+    "submission/provenance.json": {
+      "sha256": "a260fcbbb0b600bbd8e737a365da8c78e186aa9e968af00ee7919d6e1da1fee4",
+      "bytes": 380
+    }
+  },
+  "review_basis": {
+    "previous_record_sha256": "b0cbace11d46f9f71116507a2d0b69cbeda1c7c34714a8c8417ff221d03b5715",
+    "root_reviewed_candidate_index_sha256": "8741a6ef11606d14bbbba2ffaebc42e6f0042ca17bb07891c878e934eb67f5a9",
+    "candidate_root_in_author_snapshot": "/private/tmp/bench10-release-20261018-r1/snapshot/10_Host-Guest-Water-Enhanced-Sampling/jobs/10_Host-Guest-Water-Enhanced-Sampling/case-06-water-model-free-energy/oracle/2026-10-17_22-49-32/workspace",
+    "candidate_manifest_unchanged": true,
+    "scientific_scope_changed": false
+  },
+  "source_only_migration": {
+    "kind": "source_only_approval_inheritance",
+    "scientific_review": "Inherited unchanged from the archived prior approval; no new scientific review was performed.",
+    "prior_review": {
+      "archive_path": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-author-review/task-68/author-review.json",
+      "sha256": "8db442a8449ec03944d28fb50813cdd71b5880857eea9369d97331c81d47433d",
+      "reviewer": "Sol (independent model scientific audit)",
+      "reviewed_on": "2026-10-18",
+      "review_status": "PASS"
+    },
+    "candidate_output_evidence": {
+      "oracle_workspace_verified_against_prior_candidate_manifest": true,
+      "baseline_test_status": "PASS",
+      "baseline_reward": 1
+    },
+    "removed_helpers": [
+      {
+        "path": "task 68/tests/apo_numeric.py",
+        "sha256": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834",
+        "source_copied_to_archive": false,
+        "dependency_review": "No runtime/test import or read; historical reference-hash entry removed."
+      }
+    ],
+    "reference_hash_index": {
+      "path": "task 68/tests/reference-hashes.json",
+      "archived_original": "/Users/xjchen/CompChemWorld/_release/case-release-state/bench10-task-layout-20261027/audit-20261026T172251Z-c115d84e/prior-reference-hashes/task-68/reference-hashes.json",
+      "archived_sha256": "e15a9b7c2b441673cce2104585432cb50abd3eb3847c7a1bc78089e588638054",
+      "removed_entries": {
+        "tests/apo_numeric.py": "9413fc0576e9fe9c4df3c68374ae021a295c9dda4baa0db52966ff8ac2a81834"
+      },
+      "new_sha256": "84fd1ace3cf57e960e6a1b58b9b6b62924f0fa29234594c2b129c371461d0d3e"
+    },
+    "not_performed": [
+      "new scientific review",
+      "new oracle/MD/HPC/SSH execution",
+      "new model training",
+      "candidate solve"
+    ]
+  }
+}

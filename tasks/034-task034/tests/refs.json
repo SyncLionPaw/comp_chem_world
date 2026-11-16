@@ -1,0 +1,112 @@
+{
+  "case_id": "case-06-md-intervention",
+  "asset_hashes": {
+    "assets/simulation/AllSys.in.init": "sha256:4197061c705b8f560d143117da3aaecdc756fb5f4e73c5297c6217ab8fc03011",
+    "assets/simulation/N130_WT.in.settings": "sha256:6a6e4d7b282dd03746d1f4ecaf53a1ac6c0bf00af45906faf057950ad96f3c39",
+    "assets/simulation/WT.data": "sha256:067412acfbef775252cea4698d8a980b2006c785982eb3b587a473bfb4335c06",
+    "assets/simulation/methods.yaml": "sha256:f0debb74c272db7e79be14873c8cd1657917a42c77ba14b9fd6b84693ecc7d15"
+  },
+  "source_provenance": [
+    {
+      "path": "environment/assets/simulation/AllSys.in.init",
+      "source_path": "inputs/simulation/AllSys.in.init",
+      "sha256": "4197061c705b8f560d143117da3aaecdc756fb5f4e73c5297c6217ab8fc03011"
+    },
+    {
+      "path": "environment/assets/simulation/N130_WT.in.settings",
+      "source_path": "inputs/simulation/N130_WT.in.settings",
+      "sha256": "6a6e4d7b282dd03746d1f4ecaf53a1ac6c0bf00af45906faf057950ad96f3c39"
+    },
+    {
+      "path": "environment/assets/simulation/WT.data",
+      "source_path": "inputs/simulation/WT.data",
+      "sha256": "067412acfbef775252cea4698d8a980b2006c785982eb3b587a473bfb4335c06"
+    },
+    {
+      "path": "environment/assets/simulation/methods.yaml",
+      "source_path": "derived public model/intervention identity, task boundary revision 2026-10-04",
+      "sha256": "f0debb74c272db7e79be14873c8cd1657917a42c77ba14b9fd6b84693ecc7d15"
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "native_artifacts",
+      "level": "L1",
+      "necessary": true,
+      "description": "提交输入、日志、轨迹和派生统计，保持可追溯关系。"
+    },
+    {
+      "criterion": "independent_simulations",
+      "level": "L2",
+      "necessary": true,
+      "description": "依据研究者选定并论证的方案，审核原生模拟有效性、采样充分性及不确定性；不预先指定步长、时长、种子或重复数。"
+    },
+    {
+      "criterion": "structural_response",
+      "level": "L3",
+      "necessary": true,
+      "description": "审核结构与区段关联结论的可复核性、方法适配性、不确定性和限定范围；参考作者结果用于评测上下文，不强制新结果支持其响应方向。",
+      "verification_basis": {
+        "type": "paper_result",
+        "source": [
+          "Main Figs.3–4 and SI Table 9",
+          "docs/41467_2024_47602_MOESM4_ESM.xlsx",
+          "acceptance/md-reference-audit.json",
+          "acceptance/intervention-reference-audit.json",
+          "acceptance/md-input-identity-audit.json"
+        ],
+        "rationale": "已取得官方 MD5 验证的原版 WT/中和输入和轨迹；5 个 WT 独立种子、结构/配位、A2 电荷身份及声明选择下的响应经独立重算。作者突变轨迹只有一条，不把它冒充五次重复；发布的均值与 error 列是另一参考，误差语义与方法差异需说明。判据审核新执行结果及其不确定度，不强制逐位等于发表值。"
+      }
+    }
+  ],
+  "coverage": "COMPLETE",
+  "missing_inputs": [],
+  "implementation": "planned",
+  "schema": "bench05-remote-science-refs/v2",
+  "rubric": {
+    "schema_version": "case06-review-rubric/v1",
+    "case_id": "case-06-md-intervention",
+    "criteria": [
+      {
+        "id": "model_intervention_identity",
+        "review": "Verify force-field/model identity and the full declared A2 intervention in generated inputs. The intervention includes both the specified charge neutralization and self-LJ changes; do not accept a charge-only causal claim."
+      },
+      {
+        "id": "condensate_and_comparability",
+        "review": "Verify the study establishes a condensate rather than treating the 466-bead construction unit as a condensate; assess WT/A2 comparability of preparation, density or volume, observables, and analysis windows."
+      },
+      {
+        "id": "native_simulation_integrity",
+        "review": "Verify lineage from generated inputs through logs and trajectories, numerical validity, equilibration, production sampling, and independence claims. Choices are justified by the submitted protocol; no fixed timestep, duration, or replicate count is prescribed."
+      },
+      {
+        "id": "pd_structure",
+        "review": "Independently assess/recompute the declared PD spatial-structure result from new trajectories, including selections, periodic boundaries, normalization, units, time window, and uncertainty."
+      },
+      {
+        "id": "a2_rpl5_association",
+        "review": "Independently assess/recompute the declared A2-rpL5 association result from new trajectories, including selections, periodic boundaries, normalization, units, time window, and uncertainty."
+      },
+      {
+        "id": "uncertainty_and_scope",
+        "review": "Verify the uncertainty semantics and decision rule, answer/data consistency, and limitations. Support, refute, and evidence-based inconclusive conclusions are all acceptable; absence of new evidence is not a scientific inconclusive result."
+      }
+    ],
+    "answer_direction_required": false,
+    "author_reference_trend_required": false,
+    "historical_force_tolerance_required": false
+  },
+  "grading_mode": "deterministic_integrity_checks_and_evaluator_controlled_scientific_review",
+  "qualification": {
+    "ordinary_case_status": "QUALIFIED",
+    "blocker": "Local self-scoring verifier: deterministic integrity checks, local analysis replay, and deterministic scientific criteria award reward without an evaluator receipt.",
+    "holy_grail_exception": false,
+    "solution_status": "reference Oracle evidence in acceptance/remote-oracle-20261027/task34-oracle",
+    "status": "QUALIFIED_LOCAL_SELF_SCORING"
+  },
+  "policy_sha256": "b4e2ccf98a2d04ff8bc7d322ea5cd27df2fead1401f5c46e613bf382f59da6e8",
+  "legacy_file_hashes": {
+    "tests/rubric.json": "a5c093cfbe350f9843d896e21513b9fcdaaf4fd8250b6f058af3e4b6334be237"
+  },
+  "runtime_image_id": "sha256:9f208f7ff011db87b505044427bcb5736953011239bf9a6c9b084d6b85e522bf"
+}

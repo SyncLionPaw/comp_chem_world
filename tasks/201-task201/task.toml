@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/systems", "/app/states", "/app/parameter-assignment.json", "/app/energy-force.npz"]
+
+[task]
+name = "compchemworld/case-01-sage-parameterization"
+description = "Construct complete Sage 2.0.0 molecular-mechanics models with AM1-BCC charges for methanol, ethanol and acetamide and evaluate OpenMM energies and Cartesian forces on the supplied original and displaced geometries. Demonstrate reproducible parameter assignment, unit handling and finite-difference force convergence against the fixed Hamiltonian while preserving exact numerical provenance."
+
+[metadata]
+name = "case-01-sage-parameterization"
+description = "Construct complete Sage 2.0.0 molecular-mechanics models with AM1-BCC charges for methanol, ethanol and acetamide and evaluate OpenMM energies and Cartesian forces on the supplied original and displaced geometries. Demonstrate reproducible parameter assignment, unit handling and finite-difference force convergence against the fixed Hamiltonian while preserving exact numerical provenance."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 3600
+network_mode = "public"
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 3600
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 3600
+network_mode = "no-network"

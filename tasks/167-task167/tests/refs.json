@@ -1,0 +1,62 @@
+{
+  "case_id": "case-01-structure-characterization",
+  "scoring_scope": "full",
+  "asset_hashes": {
+    "assets/structure-brief.md": "sha256:28ad73c725bb59a0f7dca99ac7aaf79e139b87da3e584568e376503a1d81c040"
+  },
+  "evidence_documents": {
+    "tests/reference-monolayer.poscar": {
+      "source": "Materials Cloud record 9q9yd-8kg16 (DOI 10.24435/materialscloud:2017.0008/v1), file structures/W2N3-4c3b093a.xsf, Mounet et al. 2018",
+      "sha256": "813ec6c3b966b65a52de525769e37905d554726c882df7767354e72e7668a5c4"
+    }
+  },
+  "overall_scoring_ready": true,
+  "criteria": {
+    "atom_counts": {
+      "W": 2,
+      "N": 3
+    },
+    "hexagonal": {
+      "relative_a1_a2_max": 0.001,
+      "gamma_cos_target": -0.5,
+      "gamma_cos_tolerance": 0.01,
+      "verticality_cos_max": 0.01
+    },
+    "lattice_a_A": [
+      2.85,
+      2.95
+    ],
+    "vacuum_min_A": 15.0,
+    "thickness_A": [
+      3.5,
+      7.0
+    ],
+    "minimum_pair_distance_A": 1.5,
+    "coordination": {
+      "W_cutoff_A": 2.45,
+      "W_count": [
+        5,
+        7
+      ],
+      "outer_N_cutoff_A": 2.15,
+      "outer_N_count": 3,
+      "outer_N_atoms": 2,
+      "center_N_cutoff_A": 2.5,
+      "center_N_count_min": 4
+    },
+    "symmetry": {
+      "symprec_A": 0.001,
+      "space_group_number": 187
+    },
+    "report_tolerance": {
+      "a_A": 0.02,
+      "vacuum_A": 0.5,
+      "thickness_A": 0.5
+    },
+    "paper_coordination_claims": {
+      "W": 6,
+      "N_outer": 3,
+      "N_center": 5
+    }
+  }
+}

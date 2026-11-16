@@ -1,0 +1,61 @@
+schema_version = "1.4"
+artifacts = ["/app/model", "/app/training-trace", "/app/predictions.npz", "/app/metrics.json", "/app/report.md"]
+
+[metadata]
+name = "compchemworld/reline-01-train"
+description = "从 DFT 数据训练并诊断势能面"
+case_id = "reline-01-train"
+title = "从 DFT 数据训练并诊断势能面"
+software = ["DeePMD-kit TensorFlow backend", "Python + NumPy"]
+inputs = [
+  { path = "environment/assets/inputs/short-training/holdout/set.000/box.npy", source_path = "environment/assets/inputs/short-training/holdout/set.000/box.npy", sha256 = "a31462e5a5f41ab9d54b160ddff0b49fb7f8eac3ae7ab197f655b6827b822d2a" },
+  { path = "environment/assets/inputs/short-training/holdout/set.000/coord.npy", source_path = "environment/assets/inputs/short-training/holdout/set.000/coord.npy", sha256 = "e30f0b107c10210e09b005dcc5294da7474b450c865760c28d5d403c23565561" },
+  { path = "environment/assets/inputs/short-training/holdout/set.000/energy.npy", source_path = "environment/assets/inputs/short-training/holdout/set.000/energy.npy", sha256 = "7fdc116fa5ae5675a91d00fbe698707cb68f546b4eae4370b9f85e7fb361a7ed" },
+  { path = "environment/assets/inputs/short-training/holdout/set.000/force.npy", source_path = "environment/assets/inputs/short-training/holdout/set.000/force.npy", sha256 = "092289c2544a47f5d3dcfede55097f1ba4bdbd3f6d97b1f290950cc9d6163660" },
+  { path = "environment/assets/inputs/short-training/holdout/set.000/virial.npy", source_path = "environment/assets/inputs/short-training/holdout/set.000/virial.npy", sha256 = "166ca154c47130b39af06e1ef714f908a930407eab45efbc91d072338971eac1" },
+  { path = "environment/assets/inputs/short-training/holdout/type.raw", source_path = "environment/assets/inputs/short-training/holdout/type.raw", sha256 = "e2e146e39a23f0ee59174614e5406625c9a60c3e9bbbef93de4b13d0782a9079" },
+  { path = "environment/assets/inputs/short-training/holdout/type_map.raw", source_path = "environment/assets/inputs/short-training/holdout/type_map.raw", sha256 = "f3198321ea18bff89c42b9993d1a5dc3533a33d9d763f3a1f18efe900f0329e1" },
+  { path = "environment/assets/inputs/short-training/train/set.000/box.npy", source_path = "environment/assets/inputs/short-training/train/set.000/box.npy", sha256 = "22981abae6cc0d8856078fa2f55171d3a73c771b2c40cc222863e60b6c8a4a51" },
+  { path = "environment/assets/inputs/short-training/train/set.000/coord.npy", source_path = "environment/assets/inputs/short-training/train/set.000/coord.npy", sha256 = "4d82382ee9e2cb2f0a488bec72f2956428e92122bdb7a6600c625dc4c22e1fe5" },
+  { path = "environment/assets/inputs/short-training/train/set.000/energy.npy", source_path = "environment/assets/inputs/short-training/train/set.000/energy.npy", sha256 = "00547f8c0cc79d508923234603295a1cc15965d8a7cc2f33d926f93824d35b3c" },
+  { path = "environment/assets/inputs/short-training/train/set.000/force.npy", source_path = "environment/assets/inputs/short-training/train/set.000/force.npy", sha256 = "6424a8ce34562f10b86d9d39a2ff3028aac37e21f4455e836885bffb8ae02b46" },
+  { path = "environment/assets/inputs/short-training/train/set.000/virial.npy", source_path = "environment/assets/inputs/short-training/train/set.000/virial.npy", sha256 = "a176a7b0f8176046735ad9a0b1e62ec3a513166693dc86ae207b5f28936b385c" },
+  { path = "environment/assets/inputs/short-training/train/type.raw", source_path = "environment/assets/inputs/short-training/train/type.raw", sha256 = "e2e146e39a23f0ee59174614e5406625c9a60c3e9bbbef93de4b13d0782a9079" },
+  { path = "environment/assets/inputs/short-training/train/type_map.raw", source_path = "environment/assets/inputs/short-training/train/type_map.raw", sha256 = "f3198321ea18bff89c42b9993d1a5dc3533a33d9d763f3a1f18efe900f0329e1" },
+  { path = "environment/assets/inputs/sample-manifest.json", source_path = "environment/assets/inputs/sample-manifest.json", sha256 = "9a1570899d8e3c5c52372943a8fee2834f0cdd8787b90355a35fcbe747f01385" },
+  { path = "environment/assets/inputs/system-spec-304.json", source_path = "environment/assets/inputs/system-spec-304.json", sha256 = "da83ac762cb31323d5259d197f36a6c1ced35863cb4a9e693b59bf92703c31f6" },
+  { path = "environment/assets/inputs/author-predictions/model.000.npz", source_path = "environment/assets/inputs/author-predictions/model.000.npz", sha256 = "f7f777393df4114445d05976c8cf8b43899c85ec7109ee27ca33d2be45ea2b0a" },
+  { path = "environment/assets/inputs/author-predictions/model.001.npz", source_path = "environment/assets/inputs/author-predictions/model.001.npz", sha256 = "dd8720267718ae8df6523ef74f9129e2ee919b22004083e5683b8525d28c4153" },
+  { path = "environment/assets/inputs/author-predictions/model.002.npz", source_path = "environment/assets/inputs/author-predictions/model.002.npz", sha256 = "6cfb11928693ca62f70ccef8d9c02f7021c539861cdd54b58362bf603dae0412" },
+  { path = "environment/assets/inputs/author-predictions/model.003.npz", source_path = "environment/assets/inputs/author-predictions/model.003.npz", sha256 = "47927ab238cead44508b099ec44df980367c99795cec7bfda8d737d95f69a26f" },
+  { path = "environment/assets/inputs/author-predictions/provenance.json", source_path = "environment/assets/inputs/author-predictions/provenance.json", sha256 = "a77a07660fdd83aceb066893cb5bb08940cd0d8943d7aae81d35a439a81d631c" },
+]
+compute = { class = "local", network = "no-network" }
+status = {  }
+
+[task]
+name = "compchemworld/reline-01-train"
+description = "从 DFT 数据训练并诊断势能面"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[verifier]
+# Covers two bounded native checks, independent review and artifact export.
+timeout_sec = 1500
+environment_mode = "separate"
+network_mode = "public"
+
+[verifier.env]
+BENCH07_REVIEW_API_KEY = "${BENCH07_REVIEW_API_KEY:-}"
+BENCH07_REVIEW_BASE_URL = "${BENCH07_REVIEW_BASE_URL:-}"
+BENCH07_REVIEW_MODEL = "${BENCH07_REVIEW_MODEL:-}"
+
+[environment]
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "public"

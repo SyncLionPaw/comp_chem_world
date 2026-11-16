@@ -1,0 +1,39 @@
+schema_version = "1.4"
+
+artifacts = [{ source = "/app/cv-audit.csv", destination = "cv-audit.csv" }, { source = "/app/validation-plan.json", destination = "validation-plan.json" }, { source = "/app/decision.json", destination = "decision.json" }, { source = "/app/rationale.md", destination = "rationale.md" }, { source = "/app/model-output-audit.csv", destination = "model-output-audit.csv" }, { source = "/app/model-gradient-audit.csv", destination = "model-gradient-audit.csv" }]
+
+[task]
+name = "compchembench/bench10-task-64"
+description = "比较一条归档轨迹中的三个网络输出，决定它们能否支持CV批准以及下一步最小验证设计。"
+
+[metadata]
+case_id = "case-02-water-cv-validation"
+title = "判断水CV验证是否充分"
+objective = "比较一条归档轨迹中的三个网络输出，决定它们能否支持CV批准以及下一步最小验证设计。"
+compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 120 }
+requirements = { software = ["Python 3 + NumPy"], inputs = [{ path = "environment/assets/g4-native-traces.npz", sha256 = "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de" }, { path = "environment/assets/trace-provenance.json", sha256 = "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5" }, { path = "environment/assets/deep-lda-method.md", sha256 = "7008a9ae9e93ad8f3990ba65d1393625e2c976dc7d668e8cabad1618b59b8427" }, { path = "environment/assets/g4-descriptors.csv", sha256 = "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66" }, { path = "environment/assets/g4-model-weights.npz", sha256 = "85ccbf359e268871eea3052cdc6a18ff33f52b1c117d5b40c9d987e4a0365455" }, { path = "environment/assets/g4-model-export.json", sha256 = "fa6c370426cdc030c61e078d50dd4356fb1f692cebd2df4f4195801d7310581e" }] }
+outputs = ["cv-audit.csv", "validation-plan.json", "decision.json", "rationale.md", "model-output-audit.csv", "model-gradient-audit.csv"]
+
+[agent]
+timeout_sec = 120.0
+network_mode = "public"
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+network_mode = "public"
+workdir = "/app"
+
+[verifier]
+timeout_sec = 600.0
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"

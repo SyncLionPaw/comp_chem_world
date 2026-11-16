@@ -1,0 +1,71 @@
+schema_version = "1.4"
+artifacts = [
+  "/app/plan.json",
+  "/app/execution",
+  "/app/run-ledger.json",
+  "/app/topology.json",
+  "/app/msd-vacf.npz",
+  "/app/results.json",
+  "/app/decision-trace.json",
+  "/app/decision.json",
+  "/app/report.md",
+  "/app/file-manifest.json",
+]
+
+[metadata]
+name = "compchemworld/reline-04-diffusion"
+description = "有限MD预算下的扩散采样设计与可辨识性审计"
+case_id = "reline-04-diffusion"
+title = "有限MD预算下的扩散采样设计与可辨识性审计"
+software = ["LAMMPS + DeePMD", "Python + NumPy or equivalent"]
+inputs = [
+  { path = "environment/assets/inputs/models/model.000.pb", source_path = "environment/assets/inputs/models/model.000.pb", sha256 = "a5eaa05beba8e11234c0891348e4336491404e998188b201f57c0abe4c35e773" },
+  { path = "environment/assets/inputs/models/model.001.pb", source_path = "environment/assets/inputs/models/model.001.pb", sha256 = "06fa7f85d95e9509b5195848cb6dcb982df510be29fd38a59a32b923fbf95206" },
+  { path = "environment/assets/inputs/models/model.002.pb", source_path = "environment/assets/inputs/models/model.002.pb", sha256 = "b21dde0c555875ea197f85270727fdc48645ca13d029fc044aa56cec57b69e8a" },
+  { path = "environment/assets/inputs/models/model.003.pb", source_path = "environment/assets/inputs/models/model.003.pb", sha256 = "5d7a90ac1e1f203eeb8380e1a2defc23b05c2a3c77b065af88fbf45db799503a" },
+  { path = "environment/assets/inputs/inputs/strc.lmp", source_path = "environment/assets/inputs/inputs/strc.lmp", sha256 = "9e9262202010a9aad0b22a2cdac360675be443b40d2971892a70cd79514d501f" },
+  { path = "environment/assets/inputs/inputs/start.lammps", source_path = "environment/assets/inputs/inputs/start.lammps", sha256 = "2fab1bde3dc41deda3d88792dcb699bab8785fee796a16abe601154b07e5ca33" },
+  { path = "environment/assets/inputs/inputs/restart.lammps", source_path = "environment/assets/inputs/inputs/restart.lammps", sha256 = "2ae7f0f911cda20934f1d04ecd84e14e099e67ebd60f05d39b136bd668e28f01" },
+  { path = "environment/assets/inputs/system-spec.json", source_path = "environment/assets/inputs/system-spec.json", sha256 = "e484b4c1964b4fc2c0e7a154ce2e53f131545243e83758b7fdc9fd0e5e5c8a0f" },
+  { path = "environment/assets/inputs/thermophysical.csv", source_path = "environment/assets/inputs/thermophysical.csv", sha256 = "dedb512676a8bda057061f2dc733362172721ebabc9ceab6dbe2623bea4fef1d" },
+  { path = "environment/assets/inputs/decision-budget-04.json", source_path = "environment/assets/inputs/decision-budget-04.json", sha256 = "b7b97a480cd6b813193c31100c9748ec2a969b10c5ab0e3eafa1c5543f4099cf" },
+  { path = "environment/assets/compute-budget.yaml", source_path = "environment/assets/compute-budget.yaml", sha256 = "36735bfb145e81dd7c533777542dc183c804b29ba203594cb0e93fe871d83acd" },
+  { path = "environment/assets/inputs/automatic-decision-contract-04.md", source_path = "environment/assets/inputs/automatic-decision-contract-04.md", sha256 = "833fe5cea211847b3c729ab6d9f37eceb8f04431daf0cdbcd498a74b2cf3cd75" },
+  { path = "environment/assets/inputs/candidate-scheduler-contract.json", source_path = "environment/assets/inputs/candidate-scheduler-contract.json", sha256 = "90eec27c1bed3ef59025a4a2a48ab0461edb23b059b20fe9ce7dfae695eb11b6" },
+]
+compute = { class = "remote", cpus = 2, memory_mb = 4096, network = "public", profile = "reline-04-diffusion", resource_plan = "environment/assets/compute-budget.yaml" }
+status = { readiness = "PENDING", reference_validation = "NOT_RUN" }
+runtime = { migration_status = "current-generic-runner-staging" }
+agent_interface = { reference_solution_provided = true }
+hpc = { client = "ikkem-slurm" }
+
+[task]
+name = "compchemworld/reline-04-diffusion"
+description = "有限MD预算下的扩散采样设计与可辨识性审计"
+
+[agent]
+timeout_sec = 14400
+network_mode = "public"
+
+[verifier]
+# Covers two bounded native checks, independent review and artifact export.
+timeout_sec = 1500
+environment_mode = "separate"
+network_mode = "public"
+
+[verifier.env]
+BENCH07_REVIEW_API_KEY = "${BENCH07_REVIEW_API_KEY:-}"
+BENCH07_REVIEW_BASE_URL = "${BENCH07_REVIEW_BASE_URL:-}"
+BENCH07_REVIEW_MODEL = "${BENCH07_REVIEW_MODEL:-}"
+
+[environment]
+build_timeout_sec = 1800
+network_mode = "no-network"
+cpus = 2
+memory_mb = 4096
+
+[verifier.environment]
+build_timeout_sec = 1800
+network_mode = "public"
+cpus = 2
+memory_mb = 4096

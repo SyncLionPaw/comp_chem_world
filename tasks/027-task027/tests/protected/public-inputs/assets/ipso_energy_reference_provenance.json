@@ -1,0 +1,17 @@
+{
+  "source_tables": {
+    "gold/tables/native_ibpr_cluster_energies.csv": "sha256:9ed8febf3dcdc89c9eae837b7d3d3dccf0a2bbe9c00e9b424541546e998ba070",
+    "gold/tables/derived_ibpr_barriers.csv": "sha256:765606501de2a2a75f11549af81a4ce5d0ab28c30c67cc445ceda949e8543883"
+  },
+  "export_sha256": "sha256:a9224bde49cfc8fee17944238392af351fbc645dc98ed077b498b23dcb3d209b",
+  "public_fields": [
+    "species",
+    "dft_level",
+    "f12_level",
+    "e_dft_au",
+    "zpe_au",
+    "e_f12_au",
+    "published_channel_barrier_kcal_per_mol"
+  ],
+  "scope": "Deposited author energies only; no new execution or transferable error bound."
+}

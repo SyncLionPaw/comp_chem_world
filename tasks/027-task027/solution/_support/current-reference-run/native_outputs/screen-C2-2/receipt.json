@@ -1,0 +1,21 @@
+{
+  "elapsed_seconds": 34.0,
+  "ended_at_utc": "2026-10-25T08:55:34Z",
+  "energy_au": -646.697227453158,
+  "energy_source": "parsed from the hash-bound native ORCA output by current_reference._parse_orca_energy",
+  "engrad_binding_note": "Exact SHA-256 of the already manifest-bound native EnGrad bytes; original provider receipt is preserved separately.",
+  "engrad_sha256": "0a7588c84d282979f10d02f384c97f8bb586ae0beac404989eecde044fac019b",
+  "input_sha256": "ee3b1bd6f1bd54d5e3766d57ad31fdde0d02c6b699d09d126f15be1d7dab9652",
+  "note": "Derived parser-format receipt; original provider receipt remains byte-identical under provider-raw/.",
+  "output_sha256": "3abe3b6e93845ce2384270cf9bc13174de427301c6f5fb522c12ddbcf4bcd2fe",
+  "provider_job_id": "4040834",
+  "provider_receipt_sha256": "cd1928a12b052361f1aa5a7703601814ae3ea98e2f09b030e173a71bd4512df7",
+  "provider_stage_id": "screen:C2:2",
+  "returncode": 0,
+  "scheduler_elapsed_seconds": 34,
+  "scheduler_record_sha256": "00a718bc62a741f6aa8159c24d94581d9c63c500fd836c319e1fd3696a96f33e",
+  "schema": "case07-native-stage-parser-alias/v1",
+  "start_xyz_sha256": "418ce523cafa98957097dc807095df09bc5a5d64fc1e7ee43360846264a66794",
+  "started_at_utc": "2026-10-25T08:55:00Z",
+  "status": "normal"
+}

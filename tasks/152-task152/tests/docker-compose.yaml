@@ -1,0 +1,12 @@
+# Verifier environment for Bench23 task 152.
+#
+# Harbor resolves a separate verifier from this file when tests/ contains a
+# docker-compose.yaml (see harbor/models/task/verifier_mode.py), and takes the build
+# context from the task directory. The grader image is therefore built from
+# tests/Dockerfile - a credential-free base image - while the candidate image keeps
+# the site's HPC access. No volume or host-side configuration is mounted.
+services:
+  main:
+    build:
+      context: ..
+      dockerfile: tests/Dockerfile

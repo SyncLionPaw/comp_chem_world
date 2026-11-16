@@ -1,0 +1,79 @@
+{
+  "version": "1.1",
+  "case_id": "case-05-aromatic-bpr-rate-consistency",
+  "reference_source_kind": "trusted_author_result",
+  "source_digest": "sha256:6839b9f8f46b7488783d3f738b704fb529f37ffee44560e736c3dd0fba10c574",
+  "independent_check": "scripts/build_gold_p04.py recomputes every band from registered local bytes",
+  "readiness": "READY_FOR_RUNTIME",
+  "verification_coverage": "COMPLETE",
+  "verification_implementation": "planned",
+  "asset_hashes": {
+    "assets/41467_2023_40675_MOESM1_ESM.docx": "sha256:52c8854e125cac6ea714c61a4e711fea66565cef62d0f176511e819e59fd568a",
+    "assets/41467_2023_40675_MOESM3_ESM.xlsx": "sha256:69969f05b7fb9b75335737bfc4e65cd49218d75da632197d929f6196784b67f1",
+    "assets/Figure4/Benzene/Mesmer/Benzene-BPR_out.xml": "sha256:1bb3010e60290bf554aeaf3aa0d6d518b8edcc669cdf0b6ac99707a0c1a55fc4",
+    "assets/Figure4/E-Benzene/Mesmer/E-Benzene-iBPR-HR_out.xml": "sha256:b0a450af53d851f4e6bf91f075677cee675cc532d0d7230e322731cbbeec5dd0",
+    "assets/Figure4/E-Benzene/Mesmer/E-Benzene-oBPR-HR_out.xml": "sha256:90378828d52a47ff6bce6a07ac7277a2ce7e89490d0b6c360502644b7e0440e2",
+    "assets/Figure4/E-Benzene/Mesmer/E-Benzene-pBPR-HR_out.xml": "sha256:5483c49b7f8ab72446bb2b1a7a8003bc97d6801c48456634065e2fd3ff1b4cc5",
+    "assets/Figure4/I-Benzene/Mesmer/I-Benzene-iBPR-HR_out.xml": "sha256:255a0fbc2d92858d15429be14d4400fb43b2732fa5895ef311b2d7e98ec91672",
+    "assets/Figure4/M-Xylene/Mesmer/M-xylene-iBPR_out.xml": "sha256:9f7ce161c8dad83e1423725d3cc38058fa510fe2bc8aec0b9b7b7d0e52109ed7",
+    "assets/Figure4/M-Xylene/Mesmer/M-xylene-mBPR_out.xml": "sha256:a863d47a2a110b92974d6d08c8b7164b8343c5d542165675299a9d5f89e2f29f",
+    "assets/Figure4/M-Xylene/Mesmer/M-xylene-pBPR_out.xml": "sha256:42da77369c40262c9dbbb9ade555bb7229e51d0c00028bfb53bcabb6a4cc5702",
+    "assets/Figure4/O-Xylene/Mesmer/O-Xylene-iBPR-HR-mesmer_out.xml": "sha256:3e15f9a25aa04e70b713b895bbf1a5deb865c5e3f2988ad97cbf6401f3b3b338",
+    "assets/Figure4/P-Xylene/Mesmer/P-xylene-iBPR-HR_out.xml": "sha256:337750d5b628046bf03982e0e10922608e9dd7735a928183c55a3c59457751c6",
+    "assets/Figure4/P-Xylene/Mesmer/P-xylene-oBPR_out.xml": "sha256:82e5e8c78a482cf348a4681d4ca84d230d211d857f48c3683f33450d59db8262",
+    "assets/Figure4/Toluene/Mesmer/Toluene-iBPR-HR_out.xml": "sha256:292d96de50ee3341103ac05c4ef080bf72601064bd852e6fff51ee46283ab6d2",
+    "assets/Figure4/Toluene/Mesmer/Toluene-mBPR_out.xml": "sha256:45fd5a38c191730cddbf0d2e2fe4fb835a6d92d6004b143c9e59fb6929ef6118",
+    "assets/Figure4/Toluene/Mesmer/Toluene-oBPR_out.xml": "sha256:390abdac576b0b8d2d3097901d4fe5b725e8dc1b2e2aeb40b533487253f83adf",
+    "assets/Figure4/Toluene/Mesmer/Toluene-pBPR-HR_out.xml": "sha256:90bf1c55eed1612cb7c9616b83ba91628859a515ea12716a1fa0f5e468fecda7"
+  },
+  "observations": [
+    {
+      "name": "matrix_and_reconciliation_present",
+      "level": "L1",
+      "expected": "见 verification.md 的 rationale",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Sixteen published cells and fifteen deposited outputs must both appear, one row each, or the reconciliation is unevaluable."
+    },
+    {
+      "name": "provenance_per_cell",
+      "level": "L2",
+      "expected": "见 verification.md 的 rationale",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "Every value must name its output file and that file's own temperature field, because the set mixes 298, 298.15 and 300 K and a value without its temperature cannot be compared across molecules."
+    },
+    {
+      "name": "reconcilable_cells_reproduced",
+      "level": "L3",
+      "expected": "The same 10 cells must reconcile within 5 %; claiming an additional cell requires a definition that also explains the five that do not.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/mesmer_figure4_rates.csv",
+      "acceptance_rule": "Measured: 10 of the 15 outputs reproduce a published cell within 5 %, and the definition that succeeds differs by cell, between the faster channel, the sum of both channels and one specific channel. The agent must reach the same 10-cell set; claiming more requires naming a definition that also explains the remaining cells."
+    },
+    {
+      "name": "irreconcilable_cells_disclosed",
+      "level": "L3",
+      "expected": "benzene/ipso, ethylbenzene/ipso, m-xylene/meta, p-xylene/ipso and toluene/meta must each appear as unreconciled with the candidate values examined; an omission fails.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/mesmer_figure4_rates.csv",
+      "acceptance_rule": "Measured: benzene/ipso 5.0e-3 against 4.32e-3 and 1.20e-3, ethylbenzene/ipso 0.96 against 0.0974 and 0.7776, m-xylene/meta 1.0e-2 against 1.10e-2 and 7.40e-3, p-xylene/ipso 0.86 against 0.704 and 0.657, and toluene/meta 3.0e-3 against 1.93e-3 and 3.40e-3 cannot be reproduced by any of the tested definitions at their recorded temperature. Silence about these five, or forcing one of them, fails the criterion."
+    },
+    {
+      "name": "single_definition_claim_rejected",
+      "level": "L3",
+      "expected": "Any answer asserting one rule for all 16 cells with zero residual fails; partial credit requires naming the temperatures 298, 298.15 and 300 K as a second source of cell-to-cell difference.",
+      "unit": "dimensionless",
+      "source_locator": "frozen output_contract of this Case",
+      "acceptance_rule": "A submission that reports one uniform rule explaining all sixteen cells, with no residual, is scored as inconsistent with its own matrix, since the channel sum exceeds the published value for some isomers and falls short for others."
+    },
+    {
+      "name": "temperature_normalisation_before_trend",
+      "level": "L3",
+      "expected": "Report and compare each rate at its recorded 298, 298.15 or 300 K. The toluene-ipso 298-to-300 K sensitivity example is 21.7-22.8% for the activation term and about 23-24% including n; it is not a bound for the other aromatics. Do not claim a precise normalized ordering of close cells without molecule-specific temperature data; mark such orderings indeterminate.",
+      "unit": "dimensionless",
+      "source_locator": "gold/tables/derived_arrhenius_fits.csv",
+      "acceptance_rule": "Compare the 298, 298.15 and 300 K outputs at their recorded temperatures. For the toluene-ipso reference only, its 17.448–18.269 kcal/mol local Ea values imply a 21.7–22.8% activation-term change from 298 to 300 K (about 23–24% when the fitted n term is included). This is a sensitivity example, not a universal bound for other aromatics, whose temperature coefficients are absent. The submission must avoid claiming a precise normalized ordering for close cells without molecule-specific temperature data and may report only trends robust to that limitation."
+    }
+  ]
+}

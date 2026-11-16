@@ -1,0 +1,40 @@
+{
+  "purpose": "minimal extracted HPC support; no legacy runner, model gateway or other bench modules",
+  "origin": [
+    {
+      "file": "compchembench/src/compchembench/container.py",
+      "sha256": "04fd33b147b6d61a67901e55a8d20b5930b4ee76170a38c0d7f825971227bc49",
+      "extracted_symbols_sha256": {
+        "P04ArtifactExportError": "751409851d088b42de0f566728afd33ced2003f8f7a16e62b38c773db84dd524",
+        "_P04_EXPORT_SCRIPT": "e5e513f6c228f5aa51bf10e8cec21c48eecf4b091c32aa0cf8a3560dd4dc1243",
+        "_materialize_export": "16c61b8b63fdb05ae4adbef6ca7fa5cc5e769072303afda97705587994941ccf",
+        "_safe_materialize_export": "5ef6e36d6532260ef25178df791fe56aa2a599d8e4749068cd00879f8dc598cb",
+        "export_declared_artifacts": "6eb4f188af22b0d9a3eae4d91b47e9e47a22f22431420b85119d2ed1a3eed674"
+      }
+    },
+    {
+      "file": "compchembench/src/compchembench/bench03_runtime.py",
+      "sha256": "eaedc1b61cb3414b5fc868a55778fccce71f5200205fff9486f1da39cc3ce8af",
+      "extracted_symbols_sha256": {
+        "POLICY": "dbc8fe13e482ccb5d631dcbc0b87f0352f01ba43dccefb8228b84833df1cbe47",
+        "LIMIT": "e6aded3426b85b424c4c50395f7ceb2f398b2ab0a020e758406ed31109ac3798",
+        "STAGES": "63666d8a9cb8205c5e0177658c19692c06bd122e14c5fe1bc6953d3b7373c071",
+        "digest": "12a3436090179314b3a8f24c02093a205a9aea126f26dfe43fc1276d6eeddbcc",
+        "write_json": "7789348372b6f9907252403a389b1cc13945030cdfad4e299c96fcf4d6c2dac1",
+        "remote": "ac0125d5a3b3ac125b37fc77ce186dac8a54c0c7dee89560ed11f89b3fafdc85",
+        "SITE_SCRIPT": "5a1b2596386930cbf434b9c4c20abdbb1b8991fb714f4977c6e3bba95e087273",
+        "JOBS_SCRIPT": "991e053d7ce5b235357bc9f7e2de6a5e990b697ceb1b9fc14f938d5f338e1530",
+        "assess_jobs": "ad11beec8fb9e8d80c54e92ea2ef4a89a23f5ebce4557ba1c110c7743be472cc",
+        "environment_blockage": "1881ac58c1e1b56c41fb72ad4999f97a6b6d55bbe39436b52224989b7eca969d",
+        "close_jobs": "64252599bd4234d5b4937dbd51ad391f7f806f7269e5033ea50ac9d7217cfbf6",
+        "collect_native": "fb58725a69490058b90cda138b3230c73b496f6554f07ab77257201d4b0e4093",
+        "seal": "eabf02dfde6d51bd1b2fdd1104ef1fa31e8fdc14650802beb149c09bfb7c16f8"
+      }
+    }
+  ],
+  "changes": [
+    "imports now resolve inside bench03_hpc",
+    "SSH known_hosts supplied by the external operator config",
+    "legacy run_task/grade/canonical_case and unrelated runner dependencies omitted"
+  ]
+}

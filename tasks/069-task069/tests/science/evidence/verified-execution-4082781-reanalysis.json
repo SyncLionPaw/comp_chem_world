@@ -1,0 +1,43 @@
+{
+  "schema": "case08-verified-execution/v1",
+  "job_id": "4082781",
+  "review_status": "independently-reviewed",
+  "reviewer": "Sol independent scientific review",
+  "reviewed_on": "2026-10-31",
+  "candidate_manifest_sha256": "f15ee33c567c3a7f02745dc514da33ab0c72579a583d98ae33d8f1dacd432b56",
+  "source_manifest_sha256": "f3df46a38bbfe9e2fc083b85d4293b7839ef4b4e63933be2a7bf20cef8488834",
+  "execution_sources": {
+    "case08_remote.sh": "070601576fd89d988e19473c977222c328fa9e3fe2922ac58185a32a12efc800",
+    "case08_tools.py": "4632a24d01f72e720c80a46f15a2816b2f01bb2d1f1e2d3a1d91f7b723f251c8",
+    "source-manifest.json": "f3df46a38bbfe9e2fc083b85d4293b7839ef4b4e63933be2a7bf20cef8488834"
+  },
+  "accounting_evidence_sha256": "31df4ebfb9a08997fc05f066fa927b0a67ec8c1a67c688e748f45025c840ff37",
+  "native_evidence_sha256": "9c45f7b142077cb5e0fb6715d6e3ac9b585d1fb01e7f1dc42230311dfbddddba",
+  "scheduler_receipt": {
+    "Partition": "cpu",
+    "ReqTRES": "billing=8,cpu=8,mem=8G,node=1",
+    "AllocTRES": "billing=8,cpu=8,mem=8G,node=1",
+    "NodeList": "cu068",
+    "Elapsed": "00:00:11",
+    "MaxRSS": null,
+    "State": "COMPLETED",
+    "ExitCode": "0:0",
+    "JobIDRaw": "4082781",
+    "receipt_schema": "ikkem-slurm-sacct-receipt/v1",
+    "captured_at": "2026-10-30T14:53:21.357458Z",
+    "sacct_rows_base64": "NDA4Mjc4MXxjcHV8YmlsbGluZz04LGNwdT04LG1lbT04Ryxub2RlPTF8YmlsbGluZz04LGNwdT04LG1lbT04Ryxub2RlPTF8Y3UwNjh8MDA6MDA6MTF8fENPTVBMRVRFRHwwOjAK",
+    "sacct_rows_sha256": "61acd5d3190023b80209f0703744e3a0a404c06492c4022dbea00c2bbd5f3541"
+  },
+  "native_file_count": 96,
+  "local_reanalysis": {
+    "analysis_mode": "local reanalysis of preserved native evidence; not executed remotely",
+    "analysis_provenance_sha256": "57ff0c4c21bdc59fb982b295c0a300e5ccb0dbaa6853dc828795f481a0ebc4da",
+    "analysis_script_sha256": "bd303c4e0526034f1c37b0e29c78f9a23885c97697b8be355e367f0a62f51e96",
+    "reanalysis_provenance_file_sha256": "57ff0c4c21bdc59fb982b295c0a300e5ccb0dbaa6853dc828795f481a0ebc4da",
+    "remote_provenance_preserved": true,
+    "source_manifest_sha256": "f3df46a38bbfe9e2fc083b85d4293b7839ef4b4e63933be2a7bf20cef8488834",
+    "native_manifest_sha256": "9c45f7b142077cb5e0fb6715d6e3ac9b585d1fb01e7f1dc42230311dfbddddba"
+  },
+  "review_document": "evidence/sol-final-review-4082781-reanalysis.md",
+  "trusted_runner_receipt": "absent; not fabricated"
+}

@@ -1,0 +1,53 @@
+{
+  "case_id": "case-05-epc-output-diagnosis",
+  "scoring_scope": "full",
+  "asset_hashes": {
+    "assets/epc-campaign.tar.gz": "sha256:688a08b82aae077e859787f3ccbc4f9d984351735892b222bc5a71e08eec274c"
+  },
+  "evidence_documents": {
+    "provenance": "epc-campaign.tar.gz is a reconstructed training-grade QE/EPW-style bundle; ground truth (which run is trustworthy and the seeded pathologies) is embedded in tests/verify.py TRUTH_PATHOLOGIES"
+  },
+  "overall_scoring_ready": true,
+  "criteria": {
+    "pathology_vocab": [
+      "unconverged_scf",
+      "insufficient_vacuum",
+      "insufficient_k_mesh",
+      "insufficient_q_mesh",
+      "excessive_smearing"
+    ],
+    "expected_pathologies": {
+      "run-A": [],
+      "run-B": [
+        "unconverged_scf"
+      ],
+      "run-C": [
+        "insufficient_vacuum"
+      ],
+      "run-D": [
+        "insufficient_k_mesh",
+        "insufficient_q_mesh",
+        "excessive_smearing"
+      ]
+    },
+    "lambda_summary_abs_tolerance": 0.05,
+    "omega_log_cm1_window": [
+      110.8,
+      114.8
+    ],
+    "tc_mu016_K_window": [
+      18.9,
+      19.9
+    ],
+    "lambda_integral_rel_tolerance": 0.05,
+    "gamma_meV_window": [
+      4.5,
+      5.1
+    ],
+    "gamma_mode_cm1_window": [
+      326,
+      334
+    ],
+    "gamma_mode_abs_tolerance_cm1": 1.5
+  }
+}

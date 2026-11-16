@@ -1,0 +1,723 @@
+{
+  "case_id": "case-07",
+  "definition_sha256": "48e52ae969d4d33cb36037c51fd61762e01fb976814c6fcd83b9247e8e3f10f3",
+  "verification_implementation": "implemented",
+  "asset_hashes": {
+    "assets/absorption_distribution_fig2a.csv": "sha256:2d4ea315f046fd7351fc3c661f67be288a86a0395f75784fc43e9e61a60e86d7",
+    "assets/absorption_distribution_fig2a.provenance.json": "sha256:1b70b7ef42d403d45546c6ca5220c580562ef7016586b1b66dbf005119ca9221",
+    "assets/task11_crack_site_coordinates.csv": "sha256:b3d01164eda15303a489bf00206414443deb6d3b69cfb07080c02b4ad8cabf3f",
+    "assets/task11_crack_site_coordinates.provenance.json": "sha256:98df57c2df161ab837944ad41e359b81279bd96eb60daaa47b67ef2f4bb1f464",
+    "assets/task13_task_spec.json": "sha256:5e64a4b7401712bc62fe63d7d22c3f8da68c2043f4609cfa642a4bf4cf19d451",
+    "assets/task13_experiment_conditions.csv": "sha256:e14ed993bf1477340a03de2d3f3f7799370e8bfc34fc23933c9661165f4211a3",
+    "assets/task13_experiment_conditions.provenance.json": "sha256:9d5d2eff27df3451fe7afa1148bc62860d94aab713a8390cf119d40dc8d5465c",
+    "assets/task13_fig3_first_crossing_intervals.csv": "sha256:7d750e31c1ce0645705a4309c313ce6365c5dbdf257e557bf7eff2f830c32cce",
+    "assets/task13_fig3_first_crossing_intervals.csv.provenance.json": "sha256:34775785ac967000ec08e93aad42dc1f7803a12ac58202f52bd8ed956b25d552",
+    "assets/task13_fig3_panel_inventory_reference.csv": "sha256:f2c475dcad0f3e5d6ecd6e13fe9e324fc4d8f4bc9088bdf4982ee72d4f9e8e7c",
+    "assets/task13_fig3_panel_inventory_reference.csv.provenance.json": "sha256:abd7b6f761a4d21a1edbecf0db864a936c6b6670dac304118bc5fbefcd023cb5",
+    "assets/task13_wada_ni_condition_intervals.csv": "sha256:20f3601022d64a5feccff741f41e31c17621f140559fc7dc17bbaae8b6bd9faf",
+    "assets/task13_wada_ni_condition_intervals.csv.provenance.json": "sha256:82e802c2216da23e45a905d86501f8e097245cdc21a4c9ffd25275e03b4349bd",
+    "assets/elastic_constants_fig2a.csv": "sha256:03d2c1d0fafda08392113d4c0613f5161e6045cffdccabb971f6db42327b2cc5",
+    "assets/elastic_constants_fig2a.provenance.json": "sha256:b7973e398698a9b961a05656ece7508e8355ac095ecc4770ebf4f5e6f9907067",
+    "assets/gamma_f_fig2b_digitized.csv": "sha256:faf9a81d320e9170a7b37becf1381291631d4842783eb4a9c88b8e55d3cb953e",
+    "assets/gamma_f_fig2b_digitized.provenance.json": "sha256:ee0b06a62a9fd2bc0b8ce3fd1e2421822031c992d38a5759aa9935ab43c7a50f",
+    "assets/gamma_usf_fig2c_parameters.csv": "sha256:84359d2e18ec9d8575d297b6defb7c55cdca8ee7340685e60844b018dd3824d3",
+    "assets/gamma_usf_fig2c_parameters.provenance.json": "sha256:7302c26640c1bfde8f4da3ac785411e6d48daaa5cd31f1a809d39ed8a413a9fd",
+    "assets/lattice_parameters_A0.csv": "sha256:00e0ca417430a742f3647a1264989e550de9b20d96b9e25acc384f19014e1adb",
+    "assets/lattice_parameters_A0.provenance.json": "sha256:41e21d754b399687524d4e9716163e6b9f1c7bf2ac596edb32f499e5a9f07193",
+    "assets/supplementary_materials_web_extract.md": "sha256:bfd48f1fb673811ce289ba73ed27765d3f15f27d7f18b88ccdbd0417778f9304"
+  },
+  "grader_reference_hashes": {},
+  "criteria": [
+    {
+      "criterion": "forward_chain",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Acquired equations/Figure2 parameters and independently FCC-registered model coordinates",
+        "rationale": "Recompute bulk eta/site occupations/coverage/free energy/thresholds consistently, source units and constraints correct. No precomputed case05 output copy, no fake native DFT. Gamma_E source inversion stays conditional and dependent. Explicit SI emission branches: lower=mean-sigma_A, upper/athermal=mean; mean+sigma_A is not an author branch."
+      },
+      "tolerance": "Recompute bulk eta/site occupations/coverage/free energy/thresholds consistently, source units and constraints correct. No precomputed case05 output copy, no fake native DFT. Gamma_E source inversion stays conditional and dependent. Explicit SI emission branches: lower=mean-sigma_A, upper/athermal=mean; mean+sigma_A is not an author branch."
+    },
+    {
+      "criterion": "earliest_crossing",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Continuous forward curves and mathematical root/interval/physical-domain rules",
+        "rationale": "All earlier possible crossings/tangencies screened with refined bracketing/extrema or an equivalent error-bound certificate. No silent single solver root; no-root bounded to scan domain. Negative gammaF or effective USF invalidates branch, no clipping creates a crossing."
+      },
+      "tolerance": "All earlier possible crossings/tangencies screened with refined bracketing/extrema or an equivalent error-bound certificate. No silent single solver root; no-root bounded to scan domain. Negative gammaF or effective USF invalidates branch, no clipping creates a crossing."
+    },
+    {
+      "criterion": "uncertainty_and_robustness",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Actual source image ranges, published area-scaling spread and fixed declared sensitivity scenarios",
+        "rationale": "Source error, physical ensemble spread and model alternatives separate. Classification robust only across relevant valid branches; otherwise uncertain/domain invalid. Report numerical refinement error rather than broad physical scoring tolerance."
+      },
+      "tolerance": "Source error, physical ensemble spread and model alternatives separate. Classification robust only across relevant valid branches; otherwise uncertain/domain invalid. Report numerical refinement error rather than broad physical scoring tolerance."
+    },
+    {
+      "criterion": "independent_source_comparison",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Obtained16-panel/24-root Fig3 digitization, main source classifications and conditions",
+        "rationale": "Compare conditional model to source intervals/classes without fitting. Keep experimental and source-theory classes in separate fields. Correctly reported disagreement is a scientific outcome, not automatic failure of coverage or a reason to expand tolerance."
+      },
+      "tolerance": "Compare conditional model to source intervals/classes without fitting. Keep experimental and source-theory classes in separate fields. Correctly reported disagreement is a scientific outcome, not automatic failure of coverage or a reason to expand tolerance."
+    },
+    {
+      "criterion": "Ni_applicability",
+      "level": "L3",
+      "necessary": true,
+      "verification_basis": {
+        "type": "scientific_constraint",
+        "source": "Actual Wada thesis TDA lattice cH1, SSRT RRA and fracture morphology intervals under matching charging-condition groups",
+        "rationale": "Recompute wtppm->atppm with actual masses, preserve charging543K versus room-temperature testing and fugacity versus pressure; no point-to-point replicate pairing. Grain-boundary IG and total/trapped versus lattice definitions are checked. Ni lacks applicable absorption/USF/surface energy family for this forward model: output out-of-domain rather than a fabricated Ni threshold. Independent Ni experimental pattern may be compared descriptively/quantitatively in its own source units without equating it to PRL Ni domain points."
+      },
+      "tolerance": "Recompute wtppm->atppm with actual masses, preserve charging543K versus room-temperature testing and fugacity versus pressure; no point-to-point replicate pairing. Grain-boundary IG and total/trapped versus lattice definitions are checked. Ni lacks applicable absorption/USF/surface energy family for this forward model: output out-of-domain rather than a fabricated Ni threshold. Independent Ni experimental pattern may be compared descriptively/quantitatively in its own source units without equating it to PRL Ni domain points."
+    },
+    {
+      "criterion": "actual_prediction_computation",
+      "level": "L2",
+      "necessary": true,
+      "verification_basis": {
+        "type": "execution_validity",
+        "source": "Reproducible source/hash/code, numerical grids and root reports",
+        "rationale": "The forward conditional predictions and source comparison actually executed. Source classifications alone never satisfy end-to-end computation."
+      },
+      "tolerance": "The forward conditional predictions and source comparison actually executed. Source classifications alone never satisfy end-to-end computation."
+    }
+  ],
+  "reference_tables": {
+    "task13_fig3_panel_inventory_reference.csv": [
+      {
+        "panel_row": "1",
+        "panel_col": "1",
+        "alloy": "SS304",
+        "experiment_label": "Caskey",
+        "Cb_appm_as_printed": "4000",
+        "T_K": "300",
+        "experimental_class_as_printed": "embrittled",
+        "source_theory_class_as_printed": "embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "1",
+        "panel_col": "2",
+        "alloy": "SS304",
+        "experiment_label": "Hatano",
+        "Cb_appm_as_printed": "1900",
+        "T_K": "300",
+        "experimental_class_as_printed": "embrittled",
+        "source_theory_class_as_printed": "embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "1",
+        "panel_col": "3",
+        "alloy": "SS304",
+        "experiment_label": "Wang",
+        "Cb_appm_as_printed": "1200",
+        "T_K": "300",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "1",
+        "panel_col": "4",
+        "alloy": "SS304",
+        "experiment_label": "Zhang",
+        "Cb_appm_as_printed": "860",
+        "T_K": "300",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "1",
+        "alloy": "SS304",
+        "experiment_label": "Caskey",
+        "Cb_appm_as_printed": "4000",
+        "T_K": "400",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "2",
+        "alloy": "SS316L",
+        "experiment_label": "Marchi",
+        "Cb_appm_as_printed": "7400",
+        "T_K": "300",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "3",
+        "alloy": "SS316L",
+        "experiment_label": "Nygren",
+        "Cb_appm_as_printed": "5800",
+        "T_K": "300",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "4",
+        "alloy": "SS316L",
+        "experiment_label": "Mine",
+        "Cb_appm_as_printed": "5400",
+        "T_K": "300",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "1",
+        "alloy": "CoCrFeMnNi",
+        "experiment_label": "Nygren",
+        "Cb_appm_as_printed": "8300",
+        "T_K": "300",
+        "experimental_class_as_printed": "embrittled",
+        "source_theory_class_as_printed": "embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "2",
+        "alloy": "CoCrFeMnNi",
+        "experiment_label": "Koyama",
+        "Cb_appm_as_printed": "7000",
+        "T_K": "300",
+        "experimental_class_as_printed": "embrittled",
+        "source_theory_class_as_printed": "uncertain",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "3",
+        "alloy": "CoCrFeMnNi",
+        "experiment_label": "Ichii",
+        "Cb_appm_as_printed": "6500",
+        "T_K": "300",
+        "experimental_class_as_printed": "embrittled",
+        "source_theory_class_as_printed": "uncertain",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "4",
+        "alloy": "CoCrFeMnNi",
+        "experiment_label": "Zhao",
+        "Cb_appm_as_printed": "3700",
+        "T_K": "300",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "1",
+        "alloy": "CoCrFeNi",
+        "experiment_label": "Nygren",
+        "Cb_appm_as_printed": "3300",
+        "T_K": "300",
+        "experimental_class_as_printed": "uncertain",
+        "source_theory_class_as_printed": "uncertain",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "2",
+        "alloy": "CoCrFeNi",
+        "experiment_label": "Koyama",
+        "Cb_appm_as_printed": "3100",
+        "T_K": "300",
+        "experimental_class_as_printed": "uncertain",
+        "source_theory_class_as_printed": "uncertain",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "3",
+        "alloy": "CoCrNi",
+        "experiment_label": "Yi",
+        "Cb_appm_as_printed": "3400",
+        "T_K": "300",
+        "experimental_class_as_printed": "embrittled",
+        "source_theory_class_as_printed": "embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "4",
+        "alloy": "CoNiV",
+        "experiment_label": "Luo",
+        "Cb_appm_as_printed": "4400",
+        "T_K": "300",
+        "experimental_class_as_printed": "not_embrittled",
+        "source_theory_class_as_printed": "not_embrittled",
+        "crossing_pixel_interval": "not_digitized_in_this_table"
+      }
+    ],
+    "task13_wada_ni_condition_intervals.csv": [
+      {
+        "charging_pressure_MPa": "0.7",
+        "fugacity_sqrt_MPa_read_from_Fig5-6": "[0.75,0.90]",
+        "lattice_cH1_wt_ppm_interval": "[0.8,3.2]",
+        "lattice_cH1_atomic_ppm_interval_converted": "[46.5,186.4]",
+        "RRA_interval_Fig5-16": "[0.55,0.59]",
+        "MTS_MPa_interval_Fig5-16": "[440,460]",
+        "Fig5-17_fracture_observation": "mixed/partial; approximately 10% intergranular facets",
+        "replicate_pairing": "source-group intervals; no point-to-point pairing asserted"
+      },
+      {
+        "charging_pressure_MPa": "11",
+        "fugacity_sqrt_MPa_read_from_Fig5-6": "[3.2,3.6]",
+        "lattice_cH1_wt_ppm_interval": "[20,22]",
+        "lattice_cH1_atomic_ppm_interval_converted": "[1163.2,1279.5]",
+        "RRA_interval_Fig5-16": "[0.04,0.08]",
+        "MTS_MPa_interval_Fig5-16": "[220,235]",
+        "Fig5-17_fracture_observation": "strong intergranular fracture",
+        "replicate_pairing": "source-group intervals; no point-to-point pairing asserted"
+      },
+      {
+        "charging_pressure_MPa": "50",
+        "fugacity_sqrt_MPa_read_from_Fig5-6": "[7.5,8.0]",
+        "lattice_cH1_wt_ppm_interval": "[42,45]",
+        "lattice_cH1_atomic_ppm_interval_converted": "[2439.8,2613.7]",
+        "RRA_interval_Fig5-16": "[0.05,0.09]",
+        "MTS_MPa_interval_Fig5-16": "[225,275]",
+        "Fig5-17_fracture_observation": "strong intergranular fracture; repeated values are unpaired",
+        "replicate_pairing": "source-group intervals; no point-to-point pairing asserted"
+      },
+      {
+        "charging_pressure_MPa": "100",
+        "fugacity_sqrt_MPa_read_from_Fig5-6": "[11.7,12.1]",
+        "lattice_cH1_wt_ppm_interval": "[54,57]",
+        "lattice_cH1_atomic_ppm_interval_converted": "[3134.7,3308.4]",
+        "RRA_interval_Fig5-16": "[0.03,0.06]",
+        "MTS_MPa_interval_Fig5-16": "[230,275]",
+        "Fig5-17_fracture_observation": "strong intergranular fracture; repeated values are unpaired",
+        "replicate_pairing": "source-group intervals; no point-to-point pairing asserted"
+      }
+    ],
+    "task13_fig3_first_crossing_intervals.csv": [
+      {
+        "panel_row": "1",
+        "panel_col": "1",
+        "alloy": "SS304",
+        "experiment": "Caskey",
+        "Cb_appm_author_label": "4000",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "embrittled",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.673,0.697]",
+        "reading_center_MPa_sqrt_m": "0.685"
+      },
+      {
+        "panel_row": "1",
+        "panel_col": "2",
+        "alloy": "SS304",
+        "experiment": "Hatano",
+        "Cb_appm_author_label": "1900",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "embrittled",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.718,0.742]",
+        "reading_center_MPa_sqrt_m": "0.730"
+      },
+      {
+        "panel_row": "1",
+        "panel_col": "3",
+        "alloy": "SS304",
+        "experiment": "Wang",
+        "Cb_appm_author_label": "1200",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.649,0.673]",
+        "reading_center_MPa_sqrt_m": "0.661"
+      },
+      {
+        "panel_row": "1",
+        "panel_col": "4",
+        "alloy": "SS304",
+        "experiment": "Zhang",
+        "Cb_appm_author_label": "860",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.630,0.654]",
+        "reading_center_MPa_sqrt_m": "0.642"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "1",
+        "alloy": "SS304",
+        "experiment": "Caskey",
+        "Cb_appm_author_label": "4000",
+        "T_K_comparison_basis": "400",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.667,0.691]",
+        "reading_center_MPa_sqrt_m": "0.679"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "2",
+        "alloy": "SS316L",
+        "experiment": "Marchi",
+        "Cb_appm_author_label": "7400",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.654,0.678]",
+        "reading_center_MPa_sqrt_m": "0.666"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "3",
+        "alloy": "SS316L",
+        "experiment": "Nygren",
+        "Cb_appm_author_label": "5800",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.628,0.652]",
+        "reading_center_MPa_sqrt_m": "0.640"
+      },
+      {
+        "panel_row": "2",
+        "panel_col": "4",
+        "alloy": "SS316L",
+        "experiment": "Mine",
+        "Cb_appm_author_label": "5400",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.627,0.651]",
+        "reading_center_MPa_sqrt_m": "0.639"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "1",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Nygren",
+        "Cb_appm_author_label": "8300",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "embrittled",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.724,0.748]",
+        "reading_center_MPa_sqrt_m": "0.736"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "2",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Koyama",
+        "Cb_appm_author_label": "7000",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_lower",
+        "Kapp_interval_MPa_sqrt_m": "[0.718,0.742]",
+        "reading_center_MPa_sqrt_m": "0.730"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "2",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Koyama",
+        "Cb_appm_author_label": "7000",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.740,0.764]",
+        "reading_center_MPa_sqrt_m": "0.752"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "2",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Koyama",
+        "Cb_appm_author_label": "7000",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_upper",
+        "Kapp_interval_MPa_sqrt_m": "[0.808,0.832]",
+        "reading_center_MPa_sqrt_m": "0.820"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "3",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Ichii",
+        "Cb_appm_author_label": "6500",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_lower",
+        "Kapp_interval_MPa_sqrt_m": "[0.709,0.733]",
+        "reading_center_MPa_sqrt_m": "0.721"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "3",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Ichii",
+        "Cb_appm_author_label": "6500",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.743,0.767]",
+        "reading_center_MPa_sqrt_m": "0.755"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "3",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Ichii",
+        "Cb_appm_author_label": "6500",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_upper",
+        "Kapp_interval_MPa_sqrt_m": "[0.797,0.821]",
+        "reading_center_MPa_sqrt_m": "0.809"
+      },
+      {
+        "panel_row": "3",
+        "panel_col": "4",
+        "alloy": "CoCrFeMnNi",
+        "experiment": "Zhao",
+        "Cb_appm_author_label": "3700",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.657,0.681]",
+        "reading_center_MPa_sqrt_m": "0.669"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "1",
+        "alloy": "CoCrFeNi",
+        "experiment": "Nygren",
+        "Cb_appm_author_label": "3300",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "uncertain",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_lower",
+        "Kapp_interval_MPa_sqrt_m": "[0.675,0.699]",
+        "reading_center_MPa_sqrt_m": "0.687"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "1",
+        "alloy": "CoCrFeNi",
+        "experiment": "Nygren",
+        "Cb_appm_author_label": "3300",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "uncertain",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.732,0.756]",
+        "reading_center_MPa_sqrt_m": "0.744"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "1",
+        "alloy": "CoCrFeNi",
+        "experiment": "Nygren",
+        "Cb_appm_author_label": "3300",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "uncertain",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_upper",
+        "Kapp_interval_MPa_sqrt_m": "[0.753,0.777]",
+        "reading_center_MPa_sqrt_m": "0.765"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "2",
+        "alloy": "CoCrFeNi",
+        "experiment": "Koyama",
+        "Cb_appm_author_label": "3100",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "uncertain",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_lower",
+        "Kapp_interval_MPa_sqrt_m": "[0.669,0.693]",
+        "reading_center_MPa_sqrt_m": "0.681"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "2",
+        "alloy": "CoCrFeNi",
+        "experiment": "Koyama",
+        "Cb_appm_author_label": "3100",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "uncertain",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.736,0.760]",
+        "reading_center_MPa_sqrt_m": "0.748"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "2",
+        "alloy": "CoCrFeNi",
+        "experiment": "Koyama",
+        "Cb_appm_author_label": "3100",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "uncertain",
+        "source_theory_class": "uncertain",
+        "crossing_kind": "Ke_upper",
+        "Kapp_interval_MPa_sqrt_m": "[0.754,0.778]",
+        "reading_center_MPa_sqrt_m": "0.766"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "3",
+        "alloy": "CoCrNi",
+        "experiment": "Yi",
+        "Cb_appm_author_label": "3400",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "embrittled",
+        "source_theory_class": "embrittled",
+        "crossing_kind": "Kc",
+        "Kapp_interval_MPa_sqrt_m": "[0.719,0.743]",
+        "reading_center_MPa_sqrt_m": "0.731"
+      },
+      {
+        "panel_row": "4",
+        "panel_col": "4",
+        "alloy": "CoNiV",
+        "experiment": "Luo",
+        "Cb_appm_author_label": "4400",
+        "T_K_comparison_basis": "300",
+        "source_experiment_class": "not_embrittled",
+        "source_theory_class": "not_embrittled",
+        "crossing_kind": "Ke_earliest",
+        "Kapp_interval_MPa_sqrt_m": "[0.443,0.467]",
+        "reading_center_MPa_sqrt_m": "0.455"
+      }
+    ]
+  },
+  "reference_provenance": {
+    "case11_experiment_figures.provenance.json": {
+      "schema": "case07-experimental-figure-extraction/v1",
+      "source_pdf": "docs/Zhou 等 - 2021 - Mechanism and Prediction of Hydrogen Embrittlement in fcc Stainless Steels and High Entropy Alloys.pdf",
+      "source_pdf_sha256": "19531f53bbe295d2588291fb00521543c3e1591dc5cba262401f71f83c84c5b5",
+      "source_doi": "10.1103/PhysRevLett.127.175501",
+      "method": "Copied pypdf embedded image objects byte-for-byte. No pixel resampling or curve digitization is performed by this extraction script.",
+      "outputs": {
+        "extracted_data/derived/case07_main_fig3_panels.jpg": {
+          "embedded_object": "Im4.jpg",
+          "page_index_zero_based": 3,
+          "size_bytes": 915158,
+          "sha256": "dbe33c6b1f699178ef5ae2401c493ae85c1e05b7085758775f8069293d67a826",
+          "locator": "PDF p.4, Fig.3: sixteen condition-specific first-crossing KIc/KIe panels and source classifications."
+        },
+        "extracted_data/derived/case07_main_fig4_experiment_domains.png": {
+          "embedded_object": "Im6.png",
+          "page_index_zero_based": 4,
+          "size_bytes": 185343,
+          "sha256": "41a8685cbfc41e950772a0de7af441fcfa7b878096f5839399511a5c7b2ce446",
+          "locator": "PDF p.5, Fig.4: seven-material experimental hydrogen-concentration domains; symbols distinguish embrittled, not embrittled, and uncertain observations."
+        }
+      },
+      "interpretive_limits": [
+        "Figure 3 plots KIc/KIe against applied K and labels selected experiments/theory; digitized crossings require interval-aware first-intersection analysis.",
+        "Figure 4 uses x = embrittled, open circle = not embrittled, triangle = uncertain; clipped bar boundaries are censored, not critical concentrations.",
+        "These are experimental/source comparators, not substitutes for target-paper raw DFT energy reconstruction."
+      ],
+      "case_id": "case-07",
+      "current_reference_copy_from": "case07_experiment_figures.provenance.json",
+      "source_reference_sha256": "5cf0b5ca5e25901b1e0c4ff2b599437b52fbe355942556b452cad2e6698945da"
+    },
+    "case11_wada_ni_condition_intervals.provenance.json": {
+      "schema": "wada2019-ni-condition-source-intervals/v1",
+      "source_doi": "10.15017/4060168",
+      "source_pdf": "docs/Wada_2019_Hydrogen_Effect_Nickel_Dissertation.pdf",
+      "source_pdf_sha256": "fede8b728bd85e2c66772e52822f112f5c048683e5d52e6c09f4191ad8fa0786",
+      "figure_sources": {
+        "Fig.5-6": "PDF p.115, embedded Im3.png; TDA-resolved cH1/cH2 concentration against fugacity square root.",
+        "Fig.5-16": "PDF p.121, embedded Im0.png; RRA and MTS versus fugacity square root.",
+        "Fig.5-17": "PDF p.121, embedded Im1.png; fracture-surface images for 100, 50, 11, and 0.7 MPa."
+      },
+      "embedded_image_sha256": {
+        "wada_2019_fig5-6_concentration.png": "6be44ac75ef9729be4eacb35092e17a757992b302e662adfc978e1fafb80b941",
+        "wada_2019_fig5-16_rra_mts.png": "ae2c8f5ae92f29175c28e23efa6903507c90c38269f6054ff05635579037e397",
+        "wada_2019_fig5-17_fractography.png": "f7ff3ea8268e954f28459980b7b7e346f0e54576100104aa7cba5a2dc9d330b6"
+      },
+      "method": "Intervals are visual reads from plotted marker extent and axis scale, rounded outward. In Fig.5-6, cH1 marker pixel boxes are x=[110,123], y=[418,425] at 0.7 MPa; x=[198,210], y=[315,326] at 11 MPa; x=[348,361], y=[200,212] at 50 MPa; and x=[492,505], y=[135,154] at 100 MPa. Plot axes use x=88..605 for sqrt(f/MPa)=0..15 and y=430..15 for cH1=0..80 wt ppm; the low-pressure lower extent includes the black marker outline. cH1 is reported as wt ppm in the source; atomic ppm is computed by this script with w=wtppm*1e-6, nH/nNi=w*M_Ni/((1-w)*M_H), atppm=1e6*r/(1+r), using M_Ni=58.6934 and M_H=1.00794. Fugacity-square-root bands are read from Fig.5-6's horizontal axis; do not substitute charging pressure. Repeated high-pressure markers remain separate/uncorrelated; no replicate pairing across figures is asserted.",
+      "test_conditions": "Hydrogen charging 200 h at 543 K; pressures 0.7, 11, 50, 100 MPa; specimens stored at 188 K and tensile-tested at room temperature after at least 3 h at room temperature; SSRT 0.09 mm/min. cH1 is the lower-temperature TDA lattice-H peak; cH2 is trapped-H and trap density is not established.",
+      "source_text_vs_fit": "The source text gives cH1=5.7*sqrt(f) wt ppm; the plotted brown fit appears visually shallower (about 4.9 by graph endpoints). Keep both as a source-text/figure discrepancy; tabulated bands follow plotted markers, not the text fit.",
+      "limitations": [
+        "This is a distinct pure-Ni gas-charging experiment, not the target PRL Ni experiment; it does not map PRL author-labelled Cb to lattice, trapped, or total hydrogen.",
+        "The 0.7 MPa condition has reduced RRA and approximately 10% intergranular facets: report mixed/partial morphology, not a clean non-embrittled label.",
+        "Ranges capture figure-reading resolution and observed group spread; they are not confidence intervals or measurement error bars."
+      ],
+      "output_sha256": "067e7ade26bb198802d8686122d82fc07ab74baa1663b8316bde981ce163da2a",
+      "case_id": "case-07",
+      "current_reference_copy_from": "case07_wada_ni_condition_intervals.provenance.json",
+      "source_reference_sha256": "3b1073b53aaebf4856dc438d702139b3555f15234089f11bd6c23ed2f0c92df2"
+    },
+    "case11_fig3_first_crossing_intervals.provenance.json": {
+      "schema": "case07-fig3-crossing-pixel-intervals/v1",
+      "source_doi": "10.1103/PhysRevLett.127.175501",
+      "source_pdf": "docs/Zhou 等 - 2021 - Mechanism and Prediction of Hydrogen Embrittlement in fcc Stainless Steels and High Entropy Alloys.pdf",
+      "source_pdf_sha256": "19531f53bbe295d2588291fb00521543c3e1591dc5cba262401f71f83c84c5b5",
+      "source_locator": "PDF p.4, Fig.3; embedded image Im4.jpg, 2789x2125 pixels.",
+      "source_image": "extracted_data/derived/case07_main_fig3_panels.jpg",
+      "source_image_sha256": "dbe33c6b1f699178ef5ae2401c493ae85c1e05b7085758775f8069293d67a826",
+      "method": "Read black marker centers from the 2789x2125 px image; plot x-left pixels are [154,821,1487,2153], each x-axis spans 596 px and Kapp=0.4..1.2 MPa sqrt(m). The four uncertain panels retain all three visible roots; clear-class panels retain the marked decisive earliest event. Interval half-width 0.012 MPa sqrt(m) conservatively covers marker extent and tick/border placement.",
+      "root_count": 24,
+      "panel_count": 16,
+      "interval_half_width_MPa_sqrt_m": 0.012,
+      "limitations": [
+        "Intervals are source-image readings, not experimental measurement errors or recomputed predictions.",
+        "The panel's printed experimental/theory labels remain separate source labels; the image does not identify raw data points or provide curve equations.",
+        "300 K is the nominal room-temperature comparison condition for panels without a printed temperature; those panels do not each state a precise experimental temperature. The SS304 Caskey 400 K panel is explicitly labeled.",
+        "CoNiV source root lies near the lower plotted limit; retain the displayed-source limitation."
+      ],
+      "output_sha256": "7d750e31c1ce0645705a4309c313ce6365c5dbdf257e557bf7eff2f830c32cce",
+      "case_id": "case-07",
+      "current_reference_copy_from": "case07_fig3_first_crossing_intervals.provenance.json",
+      "source_reference_sha256": "59c35e29706f0b46f965f627716815a0d7e9281df9465faef91af9fd0984fc8e"
+    }
+  },
+  "reference_table_hashes": {
+    "task13_fig3_panel_inventory_reference.csv": "sha256:81aed853c22d4fffbb934b7e70a636e2e2157da15c056b3c53ec3e7c863ecbb5",
+    "task13_wada_ni_condition_intervals.csv": "sha256:06945404de2e0e5dc44b0ce3783fec32655f175722f6c0b56ea7adf6d4b034fe",
+    "task13_fig3_first_crossing_intervals.csv": "sha256:053b16e916bbea1224166490ff7f404b36724cb35a640e125a37760b2d80b412"
+  }
+}

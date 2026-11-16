@@ -1,0 +1,57 @@
+{
+  "profiles": {
+    "cpu": "ikkem-cpu"
+  },
+  "targets": {
+    "ikkem-cpu": {
+      "backend": "slurm",
+      "host": "ikkem",
+      "resource_class": "cpu",
+      "partition": "cpu",
+      "partition_limits": {
+        "cpu": {
+          "enabled": true,
+          "max_nodes": 8,
+          "max_ntasks": 512,
+          "max_ntasks_per_node": 64,
+          "max_cpus_per_task": 64,
+          "max_total_cpus": 512,
+          "max_memory_per_node": "250G",
+          "max_total_memory": "2000G",
+          "max_walltime": "2-00:00:00",
+          "max_gpus_per_node": 0,
+          "max_total_gpus": 0
+        }
+      },
+      "transfer_timeout": 3600,
+      "base_dir": "~/submit-jobs"
+    },
+    "ikkem-gpu": {
+      "backend": "slurm",
+      "host": "ikkem",
+      "resource_class": "gpu",
+      "allow_typed_gres": false,
+      "partition": "gpu",
+      "allowed_partitions": [
+        "gpu"
+      ],
+      "partition_limits": {
+        "gpu": {
+          "enabled": true,
+          "max_nodes": 5,
+          "max_ntasks": 320,
+          "max_ntasks_per_node": 64,
+          "max_cpus_per_task": 64,
+          "max_total_cpus": 320,
+          "max_memory_per_node": "1400G",
+          "max_total_memory": "7000G",
+          "max_walltime": "2-00:00:00",
+          "max_gpus_per_node": 8,
+          "max_total_gpus": 40
+        }
+      },
+      "transfer_timeout": 1800,
+      "base_dir": "~/submit-jobs"
+    }
+  }
+}

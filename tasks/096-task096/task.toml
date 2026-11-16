@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-97"
+description = "Fit MCM to labeled ambient S and LB Raman series with a stated areal density and convert to alpha."
+
+[metadata]
+name = "case-01-ambient-mcm-force-constant-fit"
+task_type = "scientific"
+execution_class = "local"
+qualification_status = "HARBOR_RUNTIME_VALIDATION_PENDING"
+
+[agent]
+timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier]
+timeout_sec = 600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"

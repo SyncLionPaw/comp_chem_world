@@ -1,0 +1,142 @@
+{
+  "artifacts": [
+    {
+      "path": "analysis/a2_rpl5_contacts.csv",
+      "role": "analysis_data",
+      "size_bytes": 6738,
+      "sha256": "b9eadfbdd99ba838a61c4d81524385d9d8a01688c6234d8b9ee9152290e21b99"
+    },
+    {
+      "path": "analysis/diagnostics.json",
+      "role": "analysis_data",
+      "size_bytes": 440,
+      "sha256": "edd042eeb8ccce565cee2ca5592e2017087a17c864a4434520b07a2f225e4cab"
+    },
+    {
+      "path": "analysis/interchain_rdf.csv",
+      "role": "analysis_data",
+      "size_bytes": 1771,
+      "sha256": "90897153734509cb1d5a2c6a580d0c53cac1c29e3292f4d6f50f62a307cc63b7"
+    },
+    {
+      "path": "analysis/pd_structure.csv",
+      "role": "analysis_data",
+      "size_bytes": 8314,
+      "sha256": "b5fee333bf4d88fe5c409db03fd1849e8ca8a28da8fa4b010f94e27674ecbaba"
+    },
+    {
+      "path": "analysis/summary.json",
+      "role": "analysis_data",
+      "size_bytes": 6784,
+      "sha256": "953aafe051c183bf1f28623cdfc7894ea50ddf4b92c1d5f311e9b10c012a6aca"
+    },
+    {
+      "path": "analysis.py",
+      "role": "analysis_code",
+      "size_bytes": 12242,
+      "sha256": "3d31efdee8c29f80a681154545c7ac44e31fb9c4a23be3b005f7bb92f19f7a1d"
+    },
+    {
+      "path": "diagnostics.json",
+      "role": "analysis_data",
+      "size_bytes": 440,
+      "sha256": "edd042eeb8ccce565cee2ca5592e2017087a17c864a4434520b07a2f225e4cab"
+    },
+    {
+      "path": "native/a2_101.dump",
+      "role": "trajectory",
+      "size_bytes": 22801343,
+      "sha256": "c3b67227deb2cc1cb7180c45c4c4d9362549c0fcc4c7608d34cde2e106bfdfef"
+    },
+    {
+      "path": "native/a2_202.dump",
+      "role": "trajectory",
+      "size_bytes": 22800811,
+      "sha256": "b6572e1cf13866ba2fb9702e2a9950f7f18a6a8ffdd07d7d58be53a8a3ba82e7"
+    },
+    {
+      "path": "native/a2_303.dump",
+      "role": "trajectory",
+      "size_bytes": 22800721,
+      "sha256": "f47250176765ff06602fd1fe7a9824de71f75f757d17c814139e771d02ae2b9d"
+    },
+    {
+      "path": "native/log_a2_101.lammps",
+      "role": "simulation_log",
+      "size_bytes": 27919,
+      "sha256": "1a8803048e71020cd4fbbef83fa3fb127d61961979f5ee9df20be52eb6e83474"
+    },
+    {
+      "path": "native/log_a2_202.lammps",
+      "role": "simulation_log",
+      "size_bytes": 27919,
+      "sha256": "d5ddbc591779507206fe9a4e2a52276e6db5dab1656fd4856528557e179d3209"
+    },
+    {
+      "path": "native/log_a2_303.lammps",
+      "role": "simulation_log",
+      "size_bytes": 27919,
+      "sha256": "bef3eab3cdc0b2a541f75ff2ec2dfcddf8843d6fa4664db0266a5b25e08557cf"
+    },
+    {
+      "path": "native/log_wt_101.lammps",
+      "role": "simulation_log",
+      "size_bytes": 26929,
+      "sha256": "8ccc41cf7af9616275cdd4d7ee4bd84453bc72386550fef6a2e2d279bd2decd0"
+    },
+    {
+      "path": "native/log_wt_202.lammps",
+      "role": "simulation_log",
+      "size_bytes": 26929,
+      "sha256": "929b3f110c58a9835b0dfac4c3d2fce3dd51865d0b5a9ddad00373d48f111af3"
+    },
+    {
+      "path": "native/log_wt_303.lammps",
+      "role": "simulation_log",
+      "size_bytes": 26929,
+      "sha256": "4a4489c99de71fe2dd71a29e57f9a4a9881b7902c400a985d2af13ebc290fc4b"
+    },
+    {
+      "path": "native/subsystem.data",
+      "role": "model_input",
+      "size_bytes": 1695836,
+      "sha256": "3f73b5f37e9d9bb649d593a7ab5e71f0786f431599b2d998cc9481fc4b66ac42"
+    },
+    {
+      "path": "native/wt_101.dump",
+      "role": "trajectory",
+      "size_bytes": 22801472,
+      "sha256": "d66cdb00580da7a16778d52bae5c77561d8250964e831da7b1041f0abd5ba7db"
+    },
+    {
+      "path": "native/wt_202.dump",
+      "role": "trajectory",
+      "size_bytes": 22800028,
+      "sha256": "617dd3884da3024796b1a2a8448526d1dd3f718374536fe9b82fefbcfe17854f"
+    },
+    {
+      "path": "native/wt_303.dump",
+      "role": "trajectory",
+      "size_bytes": 22801357,
+      "sha256": "13fcb35b724883c5c1bd68a0856a19a56ad1720fe9001ad8bca2ede18fba7075"
+    },
+    {
+      "path": "report.md",
+      "role": "analysis_data",
+      "size_bytes": 1922,
+      "sha256": "ef64a5fa554b6c78d999eae19f38a251be7dfaf68c9252fbae06258c960f3850"
+    },
+    {
+      "path": "run_metadata.json",
+      "role": "model_input",
+      "size_bytes": 953,
+      "sha256": "f7c1dc01fc383524a37eb1fab013f5a13fdf48928a7a724c73a43392b974b019"
+    },
+    {
+      "path": "scientific-answer.json",
+      "role": "analysis_data",
+      "size_bytes": 1897,
+      "sha256": "2a8e78052968df27fa46b2e9bbab1ca84ea3e7109f46b909b72ddb3c55b66dd5"
+    }
+  ]
+}

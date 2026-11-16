@@ -1,0 +1,56 @@
+case_id: case-02-water-cv-validation
+readiness: READY_FOR_RUNTIME
+evidence_coverage: COMPLETE
+implementation: partial
+criteria:
+- criterion: trace_and_column_provenance_integrity
+  level: L2
+  necessary: true
+  verification_basis:
+    type: acquired_native_colvar
+    source: packages/case-02-water-cv-validation/tests/refs.json
+    source_sha256: d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e
+    rationale: Candidate must bind its stated acquired-COLVAR provenance to public trace-provenance metadata and
+      accurately report the published duplicate-column audit policy and its limits. The supplied unique-column NPZ
+      does not contain original duplicate columns, so their equality cannot be independently re-audited from this
+      input.
+- criterion: gauge_aware_pairwise_cv_comparison
+  level: L3
+  necessary: true
+  verification_basis:
+    type: derived_trace_statistics
+    source: packages/case-02-water-cv-validation/tests/refs.json
+    source_sha256: d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e
+    rationale: All three native outputs are present in the real full scalar record, allowing sign/gauge-aware pairwise
+      statistics and stratified diagnostics; numeric statistics do not make them independent runs.
+- criterion: independent_validation_leakage_and_bias_applicability_decision
+  level: L3
+  necessary: true
+  verification_basis:
+    type: author_method_and_sampling_provenance
+    source: packages/case-02-water-cv-validation/tests/refs.json
+    source_sha256: d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e
+    rationale: The author training protocol requires B/U state data and multiple trajectories; this archived record
+      is biased and represents one trajectory, so the agent must distinguish output agreement from independent generalization.
+- criterion: published_model_forward_and_native_comparison
+  level: L2
+  necessary: true
+  verification_basis:
+    type: source_pinned_model_replay
+    source: packages/case-02-water-cv-validation/tests/refs.json
+    source_sha256: d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e
+    rationale: Recompute the published a/b/c model outputs on the fixed 64 legacy descriptor rows and compare all
+      native-output mappings without assuming a filename identity.
+- criterion: descriptor_gradient_statistics
+  level: L2
+  necessary: true
+  verification_basis:
+    type: source_pinned_model_gradient_replay
+    source: packages/case-02-water-cv-validation/tests/refs.json
+    source_sha256: d078776cc3328b4681b6b3d556d38a07ec97e8f073f3ef2f808c19b89b73f52e
+    rationale: Recompute descriptor-level d(sw)/d(d1..d12) summaries; gradients are local sensitivities, not coordinate
+      forces or causal importance.
+review_policy: Review every model-to-native affine fit and residual; do not infer output identity from model labels
+  or correlation alone. If a model has no supported native mapping, state that uncertainty explicitly. Agreement
+  remains one biased trajectory, not independent validation.
+verifier: tests/test.sh

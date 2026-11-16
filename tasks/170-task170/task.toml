@@ -1,0 +1,38 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-170"
+description = "为单层 W2N3 设计 QE 7.2 电声耦合输入链"
+authors = []
+keywords = ["materials-science", "W2N3"]
+
+[metadata]
+task_number = 170
+case_id = "case-04-epc-input-preparation"
+legacy_artifacts = ["/app/final/plan.json", "/app/final/scf.in", "/app/final/coarse_scf.in", "/app/final/ph.in", "/app/final/q2r.in", "/app/final/matdyn.in", "/app/final/make-lambda-input.py", "/app/final/run.sh"]
+verification_scope = "full"
+
+[agent]
+timeout_sec = 2700
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+user = "root"
+
+[verifier]
+timeout_sec = 300
+network_mode = "no-network"
+environment_mode = "separate"
+user = "root"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+
+[environment]
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+cpus = 2
+memory_mb = 2048
+workdir = "/app"

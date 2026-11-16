@@ -1,0 +1,12 @@
+{
+  "schema": "bench25-case01-reference-policy/v1",
+  "unit_conversions": {"hartree_to_ev": 27.211386245988},
+  "tolerances": {
+    "smooth_abs_floor": 1e-12,
+    "smooth_abs_relative": 1e-8,
+    "smooth_relative_report": 1e-8,
+    "smooth_relative_limit": 1e-8,
+    "relative_statistic": 1e-3,
+    "relative_scale_floor": 1e-12
+  }
+}

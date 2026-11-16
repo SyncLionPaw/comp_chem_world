@@ -1,0 +1,13 @@
+                       :-) GROMACS - gmx dump, 2022.6 (-:
+
+Executable:   /public/software/hpcsoftware/gromacs-2022.6/bin/gmx
+Data prefix:  /public/software/hpcsoftware/gromacs-2022.6
+Working dir:  /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a
+Command line:
+  gmx dump -s /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/U-dt1fs/topol.tpr
+
+Reading file /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/U-dt1fs/topol.tpr, VERSION 2022.6 (single precision)
+Reading file /public/home/xjchen/CompChemWorld/10_Host-Guest-Water-Enhanced-Sampling/case08/case08-20261017T151211Z-6dccc78a/submission/runs/U-dt1fs/topol.tpr, VERSION 2022.6 (single precision)
+
+GROMACS reminds you: "If You See Me Getting High, Knock Me Down" (Red Hot Chili Peppers)
+

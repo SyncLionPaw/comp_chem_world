@@ -1,0 +1,77 @@
+{
+  "artifacts": {},
+  "case": "50",
+  "reference_tolerance_literals": [
+    {
+      "line": 20,
+      "literal_source": "60",
+      "module": "trusted_statistics_builder.py",
+      "name": "BIN_COUNT"
+    },
+    {
+      "line": 22,
+      "literal_source": "((-1.8799623413, 0.7820549363), (1.7859710032, -0.8333021140))",
+      "module": "trusted_statistics_builder.py",
+      "name": "CORE_CENTERS"
+    },
+    {
+      "line": 23,
+      "literal_source": "0.55",
+      "module": "trusted_statistics_builder.py",
+      "name": "BASE_CORE_RADIUS"
+    },
+    {
+      "line": 24,
+      "literal_source": "1.0",
+      "module": "trusted_statistics_builder.py",
+      "name": "BASE_DWELL_TIME"
+    },
+    {
+      "line": 25,
+      "literal_source": "20",
+      "module": "trusted_statistics_builder.py",
+      "name": "JACKKNIFE_BLOCKS"
+    },
+    {
+      "line": 26,
+      "literal_source": "0.001",
+      "module": "trusted_statistics_builder.py",
+      "name": "MIN_TARGET_MASS"
+    },
+    {
+      "line": 27,
+      "literal_source": "20.0",
+      "module": "trusted_statistics_builder.py",
+      "name": "MIN_BIN_ESS"
+    },
+    {
+      "line": 28,
+      "literal_source": "0.90",
+      "module": "trusted_statistics_builder.py",
+      "name": "MIN_COVERAGE"
+    },
+    {
+      "line": 29,
+      "literal_source": "1.0",
+      "module": "trusted_statistics_builder.py",
+      "name": "MAX_RMSE"
+    },
+    {
+      "line": 30,
+      "literal_source": "2.0",
+      "module": "trusted_statistics_builder.py",
+      "name": "MAX_P95"
+    }
+  ],
+  "runtime_modules": {
+    "trusted_statistics_builder.py": {
+      "sha256": "a69e4627bd1750b3af2d5d47789ff1eb3965084b783cba129782f2b4b6e08952",
+      "size": 46049
+    },
+    "verify.py": {
+      "sha256": "017a24692c9bbc7f135bc79113a9f97603d5987d1546d67e20a7a20976eef08b",
+      "size": 39516
+    }
+  },
+  "schema": "ccw-tests-refs/v1"
+}

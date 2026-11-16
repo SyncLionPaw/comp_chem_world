@@ -1,0 +1,64 @@
+schema_version = "1.4"
+artifacts = ["/app/outputs", "/app/bench24-artifacts"]
+
+[task]
+name = "compchemworld/bench24-task-159"
+description = "单状态双相自由能与误差预算决策"
+
+[metadata]
+case_id = "case-05"
+execution_class = "remote"
+reference_solution_required = true
+
+[agent]
+timeout_sec = 604800
+network_mode = "public"
+user = "researcher"
+
+[environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 43200
+network_mode = "public"
+workdir = "/app"
+user = "root"
+
+[environment.env]
+CCB_BENCH24_159_ROLE = "agent"
+HOME = "/home/researcher"
+
+[environment.healthcheck]
+command = "if [ \"$CCB_BENCH24_159_ROLE\" = verifier ]; then exit 0; fi; test -s /run/bench24-159/start.json"
+interval_sec = 5.0
+timeout_sec = 10.0
+start_period_sec = 30.0
+retries = 6
+
+[verifier]
+timeout_sec = 43200
+environment_mode = "separate"
+network_mode = "no-network"
+user = "root"
+
+[verifier.environment]
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 1800
+network_mode = "no-network"
+
+[verifier.env]
+HOME = "/root"
+APP = "/app/bench24-artifacts/app"
+TESTS = "/tests"
+LOGS = "/logs/verifier"
+CCB_BENCH24_159_ROLE = "verifier"
+
+[verifier.environment.env]
+HOME = "/root"
+CCB_BENCH24_159_ROLE = "verifier"
+
+[[verifier.collect]]
+command = "/usr/bin/python3 -B -I /opt/bench24-159/root-capture.py collect"
+service = "main"
+timeout_sec = 120.0
+user = "root"

@@ -1,0 +1,43 @@
+; 200 ps NPT equilibration at 300 K and 1 bar.
+; Shared choices. The paper does not specify constraint algorithm, PME order,
+; neighbor-list settings, or Coulomb real-space cutoff; see runbook.md.
+integrator              = md
+dt                      = 0.002
+cutoff-scheme           = Verlet
+nstlist                 = 20
+rlist                   = 0.9
+coulombtype             = PME
+rcoulomb                = 0.9
+pme-order               = 4
+fourierspacing          = 0.12
+vdwtype                 = Cut-off
+rvdw                    = 0.9
+vdw-modifier            = Potential-shift
+disp-corr               = no
+constraints             = h-bonds
+constraint-algorithm    = lincs
+lincs-order             = 4
+lincs-iter              = 1
+pbc                     = xyz
+
+; Energies and coordinates are saved at 1 ps intervals for response analysis.
+nstcalcenergy           = 100
+nstenergy               = 500
+nstlog                  = 5000
+nstxout                 = 0
+nstvout                 = 0
+nstfout                 = 0
+nstxout-compressed      = 500
+compressed-x-precision  = 1000
+nsteps                  = 100000
+tcoupl                  = v-rescale
+tc-grps                 = System
+tau-t                   = 0.5
+ref-t                   = 300
+gen-vel                 = no
+pcoupl                  = Berendsen
+pcoupltype              = isotropic
+tau-p                   = 2.0
+ref-p                   = 1.0
+compressibility         = 4.5e-5
+continuation            = yes

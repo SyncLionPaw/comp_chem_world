@@ -1,0 +1,634 @@
+{
+  "schema": "case08-reference-evidence/v2",
+  "case_id": "remote-01",
+  "task_package_id": "case-08-short-md-stop-go",
+  "scope": "Self-contained scientific evidence for the bounded short-MD decision task. Includes native GROMACS inputs/results, coordinate/energy/check extracts, independent thermodynamic/geometry audit, and version-pinned official GROMACS documentation. It is evidence only; it contains no candidate scoring, reward, session/API authorization, Gold policy, or continuation/decision report.",
+  "evidence_index_origin": {
+    "source": "frozen native evidence index used for acquisition",
+    "sha256": "4bb7c143681fb45ace4b1eba616af0ea764fe906671569921a691e9ce6e652e2",
+    "selected_index_entries": 64
+  },
+  "public_input_hashes": {
+    "environment/assets/NVT-50ps-dt1fs.mdp": "7eccc95c08f0ebc8386956a9506970fdf69fe63d956dafec07ec4925fa2d0b0b",
+    "environment/assets/NVT-50ps-dt2fs.mdp": "9dcc0e0319ce643d62bc3f016d56face88eb35df9e520370716813b54d37826e",
+    "environment/assets/NVT.mdp": "43dc9207e31511801824128516fe8ceb3626910ab5d5cd75a159883badd86ecb",
+    "environment/assets/b.gro": "71a6d4cf04bfa45249f7dcdd8b92a2c8098bfb245bc66058e783d40fb5f39c19",
+    "environment/assets/conf_template.pdb": "71b3fd1fa0f6027449d50b8f053f272d847d96adac70802b7e7744635c203ec9",
+    "environment/assets/remote-input-provenance.json": "56651dbc56b4b467b270307cbd3fb247498d239db09eef819cdb3d315e608eca",
+    "environment/assets/topol.top": "af6af1d61638850b5732d704d2bafd8c698f514fadbe3a754878bfd4695e39a7",
+    "environment/assets/u.gro": "8e0c27602118c18eba9c3590e39f265a1ea1e5b111e9a9e7b356e1340d85d479"
+  },
+  "native_evidence": [
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/grompp.log",
+      "role": "native run evidence",
+      "bytes": 2278,
+      "sha256": "45c662e718b13d89464059562733a64997a16e3b4cefae3e4e5e45d3294fe007",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/grompp.log",
+      "source_sha256": "45c662e718b13d89464059562733a64997a16e3b4cefae3e4e5e45d3294fe007"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/processed.top",
+      "role": "native run evidence",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/processed.top",
+      "source_sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/mdout.mdp",
+      "role": "native run evidence",
+      "bytes": 10949,
+      "sha256": "b3c4f2484c7dd3e00d2812717d9f5951949b406043b6c2e791aaf54f45a24eef",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/mdout.mdp",
+      "source_sha256": "b3c4f2484c7dd3e00d2812717d9f5951949b406043b6c2e791aaf54f45a24eef"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/topol.tpr",
+      "role": "native run evidence",
+      "bytes": 229428,
+      "sha256": "df9c04ce6f4029e04e14a5a0e8be2447689af9a2dc9089beffe560551e7554c6",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/topol.tpr",
+      "source_sha256": "df9c04ce6f4029e04e14a5a0e8be2447689af9a2dc9089beffe560551e7554c6"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/mdrun.console.log",
+      "role": "native run evidence",
+      "bytes": 1448,
+      "sha256": "0efedee1896323e725cf25f52ad9afe5edf7fdd01089a0363e7b116c8860b97e",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/mdrun.console.log",
+      "source_sha256": "0efedee1896323e725cf25f52ad9afe5edf7fdd01089a0363e7b116c8860b97e"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/md.log",
+      "role": "native run evidence",
+      "bytes": 326826,
+      "sha256": "74d6e5bc4d1c0b2c172962a3db92453f7b7f77a222031aa3959332c39b70d239",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/md.log",
+      "source_sha256": "74d6e5bc4d1c0b2c172962a3db92453f7b7f77a222031aa3959332c39b70d239"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/md.edr",
+      "role": "native run evidence",
+      "bytes": 121256,
+      "sha256": "1f5caacc98ece9b0f46fc5925a2d723c20c2a7a7b3175dbce00258a987d8d4f9",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/md.edr",
+      "source_sha256": "1f5caacc98ece9b0f46fc5925a2d723c20c2a7a7b3175dbce00258a987d8d4f9"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/md.xtc",
+      "role": "native run evidence",
+      "bytes": 2374416,
+      "sha256": "b2c0499772bd130e8fab830cc70503c0cec90991e287ef8165f3aa0a820622c9",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/md.xtc",
+      "source_sha256": "b2c0499772bd130e8fab830cc70503c0cec90991e287ef8165f3aa0a820622c9"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/md.gro",
+      "role": "native run evidence",
+      "bytes": 450828,
+      "sha256": "fbb878755535d7cc2e9ae056e78ebf212a1984d9a380ce8cf9ad6018d44bc4ce",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/md.gro",
+      "source_sha256": "fbb878755535d7cc2e9ae056e78ebf212a1984d9a380ce8cf9ad6018d44bc4ce"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt1fs/md.cpt",
+      "role": "native run evidence",
+      "bytes": 158380,
+      "sha256": "0fe0814bd92979c37c9c2d3f6119de2fdcd5d5fc9f6aca52491592920d14043f",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt1fs/md.cpt",
+      "source_sha256": "0fe0814bd92979c37c9c2d3f6119de2fdcd5d5fc9f6aca52491592920d14043f"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/B-dt1fs/energy.xvg",
+      "role": "derived native energy extraction",
+      "bytes": 125476,
+      "sha256": "3182fad214349c045c10441df6281637f6793a26cdeb7eda321e17134186c03b",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/B-dt1fs/energy.xvg",
+      "source_sha256": "3182fad214349c045c10441df6281637f6793a26cdeb7eda321e17134186c03b"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/B-dt1fs/gmx-energy.log",
+      "role": "derived native energy extraction",
+      "bytes": 5571,
+      "sha256": "36df51335f5c2a7f2e96ff789ff893fc9a4337e0e25b12e037eff1f0bf3c4c46",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/B-dt1fs/gmx-energy.log",
+      "source_sha256": "36df51335f5c2a7f2e96ff789ff893fc9a4337e0e25b12e037eff1f0bf3c4c46"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/B-dt1fs-xtc-check.txt",
+      "role": "native trajectory validation",
+      "bytes": 1837,
+      "sha256": "1dd72d8ea7a3509d875665965fb085094f8b2446695471cd21faf819bcae4ee9",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/B-dt1fs-xtc-check.txt",
+      "source_sha256": "1dd72d8ea7a3509d875665965fb085094f8b2446695471cd21faf819bcae4ee9"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/water/B-dt1fs-wat20.gro",
+      "role": "derived fixed-water coordinate sample",
+      "bytes": 280352,
+      "sha256": "ef6cef5a1eff0deb3327546139d84ae7a27db3b3160d9b2f88ba539d620b498e",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/water/B-dt1fs-wat20.gro",
+      "source_sha256": "ef6cef5a1eff0deb3327546139d84ae7a27db3b3160d9b2f88ba539d620b498e"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/grompp.log",
+      "role": "native run evidence",
+      "bytes": 2278,
+      "sha256": "2bff8b66860580742044db8989305355c6202f6736ff56cc858eeee7bfae050b",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/grompp.log",
+      "source_sha256": "2bff8b66860580742044db8989305355c6202f6736ff56cc858eeee7bfae050b"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/processed.top",
+      "role": "native run evidence",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/processed.top",
+      "source_sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/mdout.mdp",
+      "role": "native run evidence",
+      "bytes": 10945,
+      "sha256": "d3fcb6307c34eecbc7894e2f78c4d8b058a4cb0c8f88d29057f69fac952c8996",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/mdout.mdp",
+      "source_sha256": "d3fcb6307c34eecbc7894e2f78c4d8b058a4cb0c8f88d29057f69fac952c8996"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/topol.tpr",
+      "role": "native run evidence",
+      "bytes": 229428,
+      "sha256": "3a0a52f6c7a26298c850953b2801a0e71048d64d58c6f74d50f6ed97755ca6c1",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/topol.tpr",
+      "source_sha256": "3a0a52f6c7a26298c850953b2801a0e71048d64d58c6f74d50f6ed97755ca6c1"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/mdrun.console.log",
+      "role": "native run evidence",
+      "bytes": 1263,
+      "sha256": "5fe8972863d19cf88a01f499d175abc98797563ab74efe4bda07c0cfb2c72cd0",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/mdrun.console.log",
+      "source_sha256": "5fe8972863d19cf88a01f499d175abc98797563ab74efe4bda07c0cfb2c72cd0"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/md.log",
+      "role": "native run evidence",
+      "bytes": 326824,
+      "sha256": "1407d1fd18a250ed41cd9347102747741ed3936609a3503fb6bd86452af4d75e",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/md.log",
+      "source_sha256": "1407d1fd18a250ed41cd9347102747741ed3936609a3503fb6bd86452af4d75e"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/md.edr",
+      "role": "native run evidence",
+      "bytes": 121256,
+      "sha256": "42cefc40fc1955d5fade3566c5a2283c433320b4990ac8cc019ca17b9e0dc7bd",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/md.edr",
+      "source_sha256": "42cefc40fc1955d5fade3566c5a2283c433320b4990ac8cc019ca17b9e0dc7bd"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/md.xtc",
+      "role": "native run evidence",
+      "bytes": 2368224,
+      "sha256": "c4e50a9519a8f2c1098f33d7ff6ae25172737df8167cb6763f0bf8efaae63cb4",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/md.xtc",
+      "source_sha256": "c4e50a9519a8f2c1098f33d7ff6ae25172737df8167cb6763f0bf8efaae63cb4"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/md.gro",
+      "role": "native run evidence",
+      "bytes": 450828,
+      "sha256": "feb899390177beb049630512f3e6952dac48905732c092a07c21cbc7ffe0741c",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/md.gro",
+      "source_sha256": "feb899390177beb049630512f3e6952dac48905732c092a07c21cbc7ffe0741c"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/B-dt2fs/md.cpt",
+      "role": "native run evidence",
+      "bytes": 158380,
+      "sha256": "81a08e59e9ac9a2289159afe8434404664efd69998eb5eb63b62f6400a3073f4",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/B-dt2fs/md.cpt",
+      "source_sha256": "81a08e59e9ac9a2289159afe8434404664efd69998eb5eb63b62f6400a3073f4"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/B-dt2fs/energy.xvg",
+      "role": "derived native energy extraction",
+      "bytes": 125460,
+      "sha256": "87f29144497476582b6e02a2785a51151abd650cf181c1ff70941bca9b1b60a0",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/B-dt2fs/energy.xvg",
+      "source_sha256": "87f29144497476582b6e02a2785a51151abd650cf181c1ff70941bca9b1b60a0"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/B-dt2fs/gmx-energy.log",
+      "role": "derived native energy extraction",
+      "bytes": 5555,
+      "sha256": "8302afbb303b4840e9ede186883308d2450fa9515303b16b90c8ce4bc4c57252",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/B-dt2fs/gmx-energy.log",
+      "source_sha256": "8302afbb303b4840e9ede186883308d2450fa9515303b16b90c8ce4bc4c57252"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/B-dt2fs-xtc-check.txt",
+      "role": "native trajectory validation",
+      "bytes": 1822,
+      "sha256": "0e4793f1397ad7bb3c8dbb8420334e50ab719465bf4c77ddc9178f16e4f8bb65",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/B-dt2fs-xtc-check.txt",
+      "source_sha256": "0e4793f1397ad7bb3c8dbb8420334e50ab719465bf4c77ddc9178f16e4f8bb65"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/water/B-dt2fs-wat20.gro",
+      "role": "derived fixed-water coordinate sample",
+      "bytes": 280330,
+      "sha256": "a7c42669cf1e75f71fcad427429646893d281e2c0f272700df0dafbf4234952f",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/water/B-dt2fs-wat20.gro",
+      "source_sha256": "a7c42669cf1e75f71fcad427429646893d281e2c0f272700df0dafbf4234952f"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/grompp.log",
+      "role": "native run evidence",
+      "bytes": 2354,
+      "sha256": "cbb14aaffb93ebee0d02f4d828234f9c4f855d952ac423716be4c5e77cea35d3",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/grompp.log",
+      "source_sha256": "cbb14aaffb93ebee0d02f4d828234f9c4f855d952ac423716be4c5e77cea35d3"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/processed.top",
+      "role": "native run evidence",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/processed.top",
+      "source_sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/mdout.mdp",
+      "role": "native run evidence",
+      "bytes": 10949,
+      "sha256": "6a3157f635eccd56f5f629ddd244f571eee24064bd76efd8a60d259b497b3fad",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/mdout.mdp",
+      "source_sha256": "6a3157f635eccd56f5f629ddd244f571eee24064bd76efd8a60d259b497b3fad"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/topol.tpr",
+      "role": "native run evidence",
+      "bytes": 229428,
+      "sha256": "27e1e2290d6fcf34c7c44568418ec8a708efd73abd48bdb9e8cfa0f33b1b37df",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/topol.tpr",
+      "source_sha256": "27e1e2290d6fcf34c7c44568418ec8a708efd73abd48bdb9e8cfa0f33b1b37df"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/mdrun.console.log",
+      "role": "native run evidence",
+      "bytes": 1223,
+      "sha256": "5ec39c5f01352f9b23c96cf980d0f56b32f2c87ff36f13f48eec4cb1cd713bd4",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/mdrun.console.log",
+      "source_sha256": "5ec39c5f01352f9b23c96cf980d0f56b32f2c87ff36f13f48eec4cb1cd713bd4"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/md.log",
+      "role": "native run evidence",
+      "bytes": 326826,
+      "sha256": "3cae909699efc4730e05e3c5620e420ab118b587b06f819f2f746929ce9a276f",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/md.log",
+      "source_sha256": "3cae909699efc4730e05e3c5620e420ab118b587b06f819f2f746929ce9a276f"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/md.edr",
+      "role": "native run evidence",
+      "bytes": 121256,
+      "sha256": "e68f99cdfc3aec5180ca69f9798cf3a11ccd06503aa71d03669b993707f63bad",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/md.edr",
+      "source_sha256": "e68f99cdfc3aec5180ca69f9798cf3a11ccd06503aa71d03669b993707f63bad"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/md.xtc",
+      "role": "native run evidence",
+      "bytes": 2373760,
+      "sha256": "0e301c7020ced15fbee7c9a866bb86f572ad23a8a88dd405c9d0bf3c44332aeb",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/md.xtc",
+      "source_sha256": "0e301c7020ced15fbee7c9a866bb86f572ad23a8a88dd405c9d0bf3c44332aeb"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/md.gro",
+      "role": "native run evidence",
+      "bytes": 450828,
+      "sha256": "ae8f94a6545ec40cfa0e03a5e1c9c03bd9d66eba08f622d46cea612b3af769ba",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/md.gro",
+      "source_sha256": "ae8f94a6545ec40cfa0e03a5e1c9c03bd9d66eba08f622d46cea612b3af769ba"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt1fs/md.cpt",
+      "role": "native run evidence",
+      "bytes": 158380,
+      "sha256": "a51d8ebd9e235301678c1ff284d9c6579c02363a2ffa1be62f725717ac59af40",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt1fs/md.cpt",
+      "source_sha256": "a51d8ebd9e235301678c1ff284d9c6579c02363a2ffa1be62f725717ac59af40"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/U-dt1fs/energy.xvg",
+      "role": "derived native energy extraction",
+      "bytes": 125460,
+      "sha256": "44a32bd6ade3812509e8f3ea0280cce0e622a779cb820960bb1372c7c3a7e493",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/U-dt1fs/energy.xvg",
+      "source_sha256": "44a32bd6ade3812509e8f3ea0280cce0e622a779cb820960bb1372c7c3a7e493"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/U-dt1fs/gmx-energy.log",
+      "role": "derived native energy extraction",
+      "bytes": 5555,
+      "sha256": "00d86b4c5059e484398666cd25f7ee68ff8ae741a3f74012227623c009925d07",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/U-dt1fs/gmx-energy.log",
+      "source_sha256": "00d86b4c5059e484398666cd25f7ee68ff8ae741a3f74012227623c009925d07"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/U-dt1fs-xtc-check.txt",
+      "role": "native trajectory validation",
+      "bytes": 1822,
+      "sha256": "98cfac32e07deb5ea6ecfd740bf538cace9256724def5b60268f5e4eac1f51b0",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/U-dt1fs-xtc-check.txt",
+      "source_sha256": "98cfac32e07deb5ea6ecfd740bf538cace9256724def5b60268f5e4eac1f51b0"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/water/U-dt1fs-wat20.gro",
+      "role": "derived fixed-water coordinate sample",
+      "bytes": 280352,
+      "sha256": "8e2df64bc855ac8678fe79815fdd4178dd82f027e04cdf3b44f0c842b10dabbd",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/water/U-dt1fs-wat20.gro",
+      "source_sha256": "8e2df64bc855ac8678fe79815fdd4178dd82f027e04cdf3b44f0c842b10dabbd"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/grompp.log",
+      "role": "native run evidence",
+      "bytes": 2354,
+      "sha256": "960657ddb76ae4eb82d85ffd0cd2f4912b3f4f66b5dc906ff52d8e62f867f687",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/grompp.log",
+      "source_sha256": "960657ddb76ae4eb82d85ffd0cd2f4912b3f4f66b5dc906ff52d8e62f867f687"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/processed.top",
+      "role": "native run evidence",
+      "bytes": 122196,
+      "sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/processed.top",
+      "source_sha256": "017844f0c205561c6bba3131d64c3ab2841c39b2bf81f02d3a0789bf3d1a453d"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/mdout.mdp",
+      "role": "native run evidence",
+      "bytes": 10945,
+      "sha256": "aae21e5d013d5adae5441ce23c72be5b944916ed18c85d970c4bd0a1a74faef7",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/mdout.mdp",
+      "source_sha256": "aae21e5d013d5adae5441ce23c72be5b944916ed18c85d970c4bd0a1a74faef7"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/topol.tpr",
+      "role": "native run evidence",
+      "bytes": 229428,
+      "sha256": "d5a8eea98f5edb05e3ae9ff75b991d0170f87605fafad2052e4514c02d99ce42",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/topol.tpr",
+      "source_sha256": "d5a8eea98f5edb05e3ae9ff75b991d0170f87605fafad2052e4514c02d99ce42"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/mdrun.console.log",
+      "role": "native run evidence",
+      "bytes": 1226,
+      "sha256": "5fbd5e07b36343e4b5948185e132027ccc3ea6dc3bfa6863b060d5561ccf071e",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/mdrun.console.log",
+      "source_sha256": "5fbd5e07b36343e4b5948185e132027ccc3ea6dc3bfa6863b060d5561ccf071e"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/md.log",
+      "role": "native run evidence",
+      "bytes": 326824,
+      "sha256": "6303f0bc67fc1ef41f5c5d469eb1109f9a7620c97d06bd77500bed9b04ebfb97",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/md.log",
+      "source_sha256": "6303f0bc67fc1ef41f5c5d469eb1109f9a7620c97d06bd77500bed9b04ebfb97"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/md.edr",
+      "role": "native run evidence",
+      "bytes": 121256,
+      "sha256": "b600aba8dee30520d0d35df4f603bb4fee04da2ac64f0d2626807f114c94f2b5",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/md.edr",
+      "source_sha256": "b600aba8dee30520d0d35df4f603bb4fee04da2ac64f0d2626807f114c94f2b5"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/md.xtc",
+      "role": "native run evidence",
+      "bytes": 2369340,
+      "sha256": "073d6ac7b72fcd496f4efae408b2b1680be9276d7c80fb0b91b01a635a35bc21",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/md.xtc",
+      "source_sha256": "073d6ac7b72fcd496f4efae408b2b1680be9276d7c80fb0b91b01a635a35bc21"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/md.gro",
+      "role": "native run evidence",
+      "bytes": 450828,
+      "sha256": "d57d5cd79443057d7171e24b6686f3e5998a54ee3ca4eb6db9f12687001d71ea",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/md.gro",
+      "source_sha256": "d57d5cd79443057d7171e24b6686f3e5998a54ee3ca4eb6db9f12687001d71ea"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/runs/U-dt2fs/md.cpt",
+      "role": "native run evidence",
+      "bytes": 158380,
+      "sha256": "7d70ac8273d58393120725e77885de8b7232ca5e1137e18ec09a4a9f9fdadaa4",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/runs/U-dt2fs/md.cpt",
+      "source_sha256": "7d70ac8273d58393120725e77885de8b7232ca5e1137e18ec09a4a9f9fdadaa4"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/U-dt2fs/energy.xvg",
+      "role": "derived native energy extraction",
+      "bytes": 125460,
+      "sha256": "c1864899f07e7734875a625471fc137ec0f89e8aa674e7f3bb6a384bd457af25",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/U-dt2fs/energy.xvg",
+      "source_sha256": "c1864899f07e7734875a625471fc137ec0f89e8aa674e7f3bb6a384bd457af25"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/energy/U-dt2fs/gmx-energy.log",
+      "role": "derived native energy extraction",
+      "bytes": 5555,
+      "sha256": "44250f018ff6c3bd861b9509ece633dae1947d77dd44bde99e5c24faa7a8b9f3",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/energy/U-dt2fs/gmx-energy.log",
+      "source_sha256": "44250f018ff6c3bd861b9509ece633dae1947d77dd44bde99e5c24faa7a8b9f3"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/U-dt2fs-xtc-check.txt",
+      "role": "native trajectory validation",
+      "bytes": 1822,
+      "sha256": "e682b95b0156f17d5d0dab672a25ab169b7f580a4ba62c499d0925d3e9f36c7d",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/U-dt2fs-xtc-check.txt",
+      "source_sha256": "e682b95b0156f17d5d0dab672a25ab169b7f580a4ba62c499d0925d3e9f36c7d"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/water/U-dt2fs-wat20.gro",
+      "role": "derived fixed-water coordinate sample",
+      "bytes": 280330,
+      "sha256": "51a15960c6ba5b86f36ecc87b489b28927f98a57791490f07a11064a8a6bdbf1",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/water/U-dt2fs-wat20.gro",
+      "source_sha256": "51a15960c6ba5b86f36ecc87b489b28927f98a57791490f07a11064a8a6bdbf1"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/B-production-pair-check.txt",
+      "role": "paired TPR state validation",
+      "bytes": 66,
+      "sha256": "d56a8498cd8a9e4cbd79e90f044699c49dd2340c2ea455121881f124c6ee4a91",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/B-production-pair-check.txt",
+      "source_sha256": "d56a8498cd8a9e4cbd79e90f044699c49dd2340c2ea455121881f124c6ee4a91"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/B-dt1fs-anomaly-scan.txt",
+      "role": "native log anomaly scan",
+      "bytes": 63,
+      "sha256": "abe51e71ba40765892ddd650458b948e6480e9e36bc4ed158dc89da51fdb04ea",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/B-dt1fs-anomaly-scan.txt",
+      "source_sha256": "abe51e71ba40765892ddd650458b948e6480e9e36bc4ed158dc89da51fdb04ea"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/U-production-pair-check.txt",
+      "role": "paired TPR state validation",
+      "bytes": 66,
+      "sha256": "d56a8498cd8a9e4cbd79e90f044699c49dd2340c2ea455121881f124c6ee4a91",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/U-production-pair-check.txt",
+      "source_sha256": "d56a8498cd8a9e4cbd79e90f044699c49dd2340c2ea455121881f124c6ee4a91"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/results/case01/analysis/checks/U-dt1fs-anomaly-scan.txt",
+      "role": "native log anomaly scan",
+      "bytes": 63,
+      "sha256": "7b2c5b9f3cdbe8a572f76f1ee9e0f11068dd62d6e44fdf48d90cfefd18d475c0",
+      "source_index_path": "runtimes/hpc/remote-01/results/case01/analysis/job-3894884/checks/U-dt1fs-anomaly-scan.txt",
+      "source_sha256": "7b2c5b9f3cdbe8a572f76f1ee9e0f11068dd62d6e44fdf48d90cfefd18d475c0"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/gromacs-docs/constraint-algorithms.html",
+      "role": "official version-pinned reference",
+      "bytes": 24575,
+      "sha256": "b0d41f62c92f06c4fba8301a98e236bfaf18e112b8d1f59fb4a04625f2aa9922",
+      "source_index_path": "acceptance/hpc/remote-01/sources/constraint-algorithms.html",
+      "source_sha256": "b0d41f62c92f06c4fba8301a98e236bfaf18e112b8d1f59fb4a04625f2aa9922"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/gromacs-docs/group-concept.html",
+      "role": "official version-pinned reference",
+      "bytes": 9857,
+      "sha256": "0ac4fba080b32939992034e0c1cfacdf5bf7f37036dc98c76025157484fc1787",
+      "source_index_path": "acceptance/hpc/remote-01/sources/group-concept.html",
+      "source_sha256": "0ac4fba080b32939992034e0c1cfacdf5bf7f37036dc98c76025157484fc1787"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/gromacs-docs/mdp-options.html",
+      "role": "official version-pinned reference",
+      "bytes": 346267,
+      "sha256": "69eacd0119dda925546fcb735549bb92ae77807e2e20d46a1fae2e0c9c96bc36",
+      "source_index_path": "acceptance/hpc/remote-01/sources/mdp-options.html",
+      "source_sha256": "69eacd0119dda925546fcb735549bb92ae77807e2e20d46a1fae2e0c9c96bc36"
+    },
+    {
+      "package_path": "tests/evidence/native-reference/gromacs-docs/molecular-dynamics.html",
+      "role": "official version-pinned reference",
+      "bytes": 144828,
+      "sha256": "82a658bfa89a119b64e6cb27b0d380a7361c6f3191a2c792965e4a808fa332e5",
+      "source_index_path": "acceptance/hpc/remote-01/sources/molecular-dynamics.html",
+      "source_sha256": "82a658bfa89a119b64e6cb27b0d380a7361c6f3191a2c792965e4a808fa332e5"
+    }
+  ],
+  "analysis": {
+    "audit_path": "tests/evidence/native-reference/audit.py",
+    "audit_sha256": "0306a1e0769e05195633b2773b58222c6e806250191918858fc588692f80902a",
+    "results_path": "tests/evidence/native-reference/audit.json",
+    "results_sha256": "ddfba43ca25e50199505f8ddd4bdb03bf650e6ba7f218ca3e10d6abc69f1077d",
+    "audit_comparison": "Recomputed from the copied native structures, processed topologies, energy series, and package-local public input files. Numerical science fields match the prior independent audit; only its location/schema and acquisition-source paths changed, while scheduler accounting fields were excluded."
+  },
+  "primary_sources": [
+    {
+      "id": "molecular-dynamics",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/molecular-dynamics.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/molecular-dynamics.html",
+      "sha256": "82a658bfa89a119b64e6cb27b0d380a7361c6f3191a2c792965e4a808fa332e5",
+      "bytes": 144828,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "kinetic energy and temperature: Eq. 22-25 DOF and T",
+        "temperature coupling: NVT total energy vs conserved quantity",
+        "velocity-rescaling: Eq. 47 Nf and stochastic coupling",
+        "group temperature coupling; neighbor list"
+      ]
+    },
+    {
+      "id": "group-concept",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/group-concept.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/group-concept.html",
+      "sha256": "0ac4fba080b32939992034e0c1cfacdf5bf7f37036dc98c76025157484fc1787",
+      "bytes": 9857,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "temperature coupling groups and degree of freedom assignment"
+      ]
+    },
+    {
+      "id": "constraint-algorithms",
+      "url": "https://manual.gromacs.org/documentation/2022.6/reference-manual/algorithms/constraint-algorithms.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/constraint-algorithms.html",
+      "sha256": "b0d41f62c92f06c4fba8301a98e236bfaf18e112b8d1f59fb4a04625f2aa9922",
+      "bytes": 24575,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "SETTLE rigid water",
+        "LINCS bond constraint algorithm"
+      ]
+    },
+    {
+      "id": "mdp-options",
+      "url": "https://manual.gromacs.org/documentation/2022.6/user-guide/mdp-options.html",
+      "package_path": "tests/evidence/native-reference/gromacs-docs/mdp-options.html",
+      "sha256": "69eacd0119dda925546fcb735549bb92ae77807e2e20d46a1fae2e0c9c96bc36",
+      "bytes": 346267,
+      "content_type": "text/html",
+      "retrieved_http_status": 200,
+      "relevant_sections_or_claims": [
+        "tc-grps/ref-t and v-rescale options",
+        "lincs-warnangle warnings",
+        "constraints=all-bonds and SETTLE special treatment"
+      ]
+    }
+  ],
+  "retained_source_files": {
+    "tests/evidence/paper.pdf": {
+      "bytes": 3183798,
+      "sha256": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
+      "origin": "existing case evidence; preserved in place"
+    },
+    "tests/evidence/supplementary-information.pdf": {
+      "bytes": 35058145,
+      "sha256": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+      "origin": "existing case evidence; preserved in place"
+    },
+    "tests/evidence/native-reference/audit.py": {
+      "bytes": 20644,
+      "sha256": "0306a1e0769e05195633b2773b58222c6e806250191918858fc588692f80902a",
+      "origin": "authoring/derived/remote01-independent-audit/audit.py",
+      "origin_sha256": "e722c061f9f309b59bb2baa125216dc9e2bcd682b633d1a0917462f6a4092f7a"
+    },
+    "tests/evidence/native-reference/audit.json": {
+      "bytes": 48320,
+      "sha256": "ddfba43ca25e50199505f8ddd4bdb03bf650e6ba7f218ca3e10d6abc69f1077d",
+      "origin": "authoring/derived/remote01-independent-audit/audit.json",
+      "origin_sha256": "c914e6f9c8260dd5dbb8f3211eb8222c2318320808a83da8805707dd43c158e4"
+    },
+    "tests/evidence/native-reference/gromacs-sources.json": {
+      "bytes": 2563,
+      "sha256": "a1edab4aa814f96eba3e36de096b96c8f8433c2d39ba1e7308db5f0b3422a6f1",
+      "origin": "acceptance/hpc/remote-01/sources/provenance.json",
+      "origin_sha256": "f06e3f5e55c1bc31b9b790a6376dc8f964b6bb083062cf7d77045b942a15d88b"
+    }
+  },
+  "limits": [
+    "Four 50 ps trajectories (one B/U pair at each timestep) are short and do not establish equilibration or converged sampling.",
+    "Autocorrelation and effective-sample estimates over these finite windows are descriptive.",
+    "No sourced threshold is available for classifying minimum contacts as clashes; values remain descriptive.",
+    "The reference supports scientific interpretation of archived native evidence, not a future-run success claim or an automatic task score."
+  ]
+}

@@ -1,0 +1,581 @@
+{
+  "version": "audit-v2",
+  "policy": {
+    "hartree_to_kcal_mol": 627.509474,
+    "near_degeneracy_kcal_mol": 1.0,
+    "barrier_tolerance_kcal_mol": 0.02,
+    "substantial_ts_imaginary_cm-1": -100.0,
+    "minimum_negative_modes_required": 0,
+    "soft_mode_abs_cm-1_below": 10.0
+  },
+  "cases": {
+    "case-9b4ed5f8da": {
+      "kind": "valid_reconstruction",
+      "expected_decision": "accept",
+      "expected_issues": [
+        "overconfident_major"
+      ],
+      "route_mapping": {
+        "route-d966e8": "pathway-01",
+        "route-6188be": "pathway-02"
+      },
+      "expected_barriers_kcal_mol": {
+        "route-d966e8": 9.485347748510652,
+        "route-6188be": 10.21651088839362
+      },
+      "expected_near_degenerate": true,
+      "expected_major_product_claim": false,
+      "expected_claim_assessments": {
+        "electronic-ranking": "supported",
+        "major-product": "contradicted"
+      },
+      "critical_role_substrings": [
+        "transition-structure frequency output",
+        "IRC output",
+        "endpoint frequency output",
+        "uniform single-point output"
+      ],
+      "expected_ranking": [
+        "route-d966e8",
+        "route-6188be"
+      ],
+      "observations": [
+        {
+          "observation_id": "obs-90e94e55",
+          "kind": "orca_normal_exit",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-9677ff0"
+          ]
+        },
+        {
+          "observation_id": "obs-81c05469",
+          "kind": "opt_converged",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-9677ff0"
+          ]
+        },
+        {
+          "observation_id": "obs-a5468ac3",
+          "kind": "lowest_vibrational_frequency_cm-1",
+          "value": -356.31,
+          "unit": "cm-1",
+          "tolerance": 0.1,
+          "evidence_ids": [
+            "ev-c9ae045"
+          ]
+        },
+        {
+          "observation_id": "obs-8eae51ff",
+          "kind": "irc_converged",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-91b1625"
+          ]
+        },
+        {
+          "observation_id": "obs-86fde2b8",
+          "kind": "negative_frequency_count",
+          "value": 0,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-2f437d2"
+          ]
+        },
+        {
+          "observation_id": "obs-8225cbed",
+          "kind": "irc_converged",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-c4c18cb"
+          ]
+        },
+        {
+          "observation_id": "obs-c7250c62",
+          "kind": "negative_frequency_count",
+          "value": 0,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-fdac0e8"
+          ]
+        },
+        {
+          "observation_id": "obs-4133c4bd",
+          "kind": "orca_normal_exit",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-9496c38"
+          ]
+        },
+        {
+          "observation_id": "obs-3cdc8e77",
+          "kind": "opt_converged",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-9496c38"
+          ]
+        },
+        {
+          "observation_id": "obs-aa86f50a",
+          "kind": "lowest_vibrational_frequency_cm-1",
+          "value": -332.65,
+          "unit": "cm-1",
+          "tolerance": 0.1,
+          "evidence_ids": [
+            "ev-cfd7688"
+          ]
+        },
+        {
+          "observation_id": "obs-ab3aab9a",
+          "kind": "irc_converged",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-b58beb4"
+          ]
+        },
+        {
+          "observation_id": "obs-d425b690",
+          "kind": "negative_frequency_count",
+          "value": 0,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-414b63f"
+          ]
+        },
+        {
+          "observation_id": "obs-939f8cd8",
+          "kind": "irc_converged",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-9994b32"
+          ]
+        },
+        {
+          "observation_id": "obs-4220630b",
+          "kind": "negative_frequency_count",
+          "value": 0,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-8eb2a72"
+          ]
+        },
+        {
+          "observation_id": "obs-5547745d",
+          "kind": "final_single_point_energy_hartree",
+          "value": -1183.544295665007,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-ed810df"
+          ]
+        },
+        {
+          "observation_id": "obs-5b4bbc90",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": false,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-ac862a1"
+          ]
+        },
+        {
+          "observation_id": "obs-582a54d9",
+          "kind": "final_single_point_energy_hartree",
+          "value": -95.867698097635,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-e490546"
+          ]
+        },
+        {
+          "observation_id": "obs-948cb056",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": false,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-d656814"
+          ]
+        },
+        {
+          "observation_id": "obs-01d66fc2",
+          "kind": "final_single_point_energy_hartree",
+          "value": -1279.396877898832,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-fa92943"
+          ]
+        },
+        {
+          "observation_id": "obs-1198db20",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": false,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-e8c183c"
+          ]
+        },
+        {
+          "observation_id": "obs-34be303a",
+          "kind": "final_single_point_energy_hartree",
+          "value": -1279.395712716201,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-fd39ff6"
+          ]
+        },
+        {
+          "observation_id": "obs-095d4179",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": false,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-2917c22"
+          ]
+        }
+      ],
+      "critical_evidence_ids": [
+        "ev-e490546",
+        "ev-ed810df",
+        "ev-fa92943",
+        "ev-fd39ff6",
+        "ev-c9ae045",
+        "ev-cfd7688",
+        "ev-91b1625",
+        "ev-c4c18cb",
+        "ev-b58beb4",
+        "ev-9994b32",
+        "ev-2f437d2",
+        "ev-fdac0e8",
+        "ev-414b63f",
+        "ev-8eb2a72"
+      ]
+    },
+    "case-a8732a9b6a": {
+      "kind": "failed_opt",
+      "expected_decision": "reject",
+      "expected_issues": [
+        "opt_not_converged"
+      ],
+      "expected_claim_assessments": {
+        "validated-ts": "contradicted"
+      },
+      "required_evidence_roles": [
+        "transition-structure optimization output"
+      ],
+      "observations": [
+        {
+          "observation_id": "obs-23d1994b",
+          "kind": "orca_normal_exit",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-accf6b2"
+          ]
+        },
+        {
+          "observation_id": "obs-05a6a37a",
+          "kind": "opt_converged",
+          "value": false,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-accf6b2"
+          ]
+        },
+        {
+          "observation_id": "obs-411e70df",
+          "kind": "optimization_cycle_count",
+          "value": 80,
+          "unit": "cycle",
+          "tolerance": 0,
+          "evidence_ids": [
+            "ev-accf6b2"
+          ]
+        }
+      ],
+      "critical_evidence_ids": [
+        "ev-accf6b2"
+      ]
+    },
+    "case-1ebfa53fb4": {
+      "kind": "soft_mode",
+      "expected_decision": "insufficient_evidence",
+      "expected_issues": [
+        "imaginary_mode_unresolved"
+      ],
+      "expected_claim_assessments": {
+        "certified-minimum": "underdetermined"
+      },
+      "required_evidence_roles": [
+        "frequency output",
+        "frequency Hessian"
+      ],
+      "observations": [
+        {
+          "observation_id": "obs-175c76c2",
+          "kind": "lowest_vibrational_frequency_cm-1",
+          "value": -1.8,
+          "unit": "cm-1",
+          "tolerance": 0.1,
+          "evidence_ids": [
+            "ev-a0ea5ac"
+          ]
+        },
+        {
+          "observation_id": "obs-729c6697",
+          "kind": "negative_frequency_count",
+          "value": 1,
+          "unit": null,
+          "tolerance": 0,
+          "evidence_ids": [
+            "ev-a0ea5ac"
+          ]
+        }
+      ],
+      "critical_evidence_ids": [
+        "ev-8aee042",
+        "ev-a0ea5ac",
+        "ev-64316ee"
+      ]
+    },
+    "case-fd108ac1c4": {
+      "kind": "missing_irc",
+      "expected_decision": "insufficient_evidence",
+      "expected_issues": [
+        "missing_irc"
+      ],
+      "expected_claim_assessments": {
+        "two-direction-irc": "underdetermined"
+      },
+      "expected_missing_role": "backward IRC output",
+      "observations": [
+        {
+          "observation_id": "obs-c1e0c1d7",
+          "kind": "irc_converged",
+          "value": true,
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-3ae9c76"
+          ]
+        },
+        {
+          "observation_id": "obs-5730174e",
+          "kind": "irc_direction_inventory",
+          "value": [
+            "forward"
+          ],
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "metadata-index"
+          ]
+        }
+      ],
+      "critical_evidence_ids": [
+        "ev-848dbe7",
+        "ev-3ae9c76",
+        "ev-37204bb",
+        "ev-d15f8fa"
+      ]
+    },
+    "case-edf2e346df": {
+      "kind": "mixed_sp",
+      "expected_decision": "reject",
+      "expected_issues": [
+        "inconsistent_sp_protocol"
+      ],
+      "expected_claim_assessments": {
+        "uniform-reference": "contradicted"
+      },
+      "required_evidence_roles": [
+        "substrate single-point output",
+        "nucleophile single-point output",
+        "transition-structure single-point output"
+      ],
+      "observations": [
+        {
+          "observation_id": "obs-5f80ed4c",
+          "kind": "final_single_point_energy_hartree",
+          "value": -1183.544527785945,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-105fba8"
+          ]
+        },
+        {
+          "observation_id": "obs-d6a44088",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": true,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-105fba8",
+            "ev-d4aed7e"
+          ]
+        },
+        {
+          "observation_id": "obs-8667f639",
+          "kind": "final_single_point_energy_hartree",
+          "value": -95.867879237328,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-b023b25"
+          ]
+        },
+        {
+          "observation_id": "obs-b7399b7d",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": true,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-b023b25",
+            "ev-2221d53"
+          ]
+        },
+        {
+          "observation_id": "obs-12d7b00e",
+          "kind": "final_single_point_energy_hartree",
+          "value": -1279.396877898832,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-49a1c44"
+          ]
+        },
+        {
+          "observation_id": "obs-cd650a16",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": false,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-eb93b57"
+          ]
+        },
+        {
+          "observation_id": "obs-45a74aaf",
+          "kind": "final_single_point_energy_hartree",
+          "value": -1279.395712716201,
+          "unit": "hartree",
+          "tolerance": 1e-06,
+          "evidence_ids": [
+            "ev-ccbefc3"
+          ]
+        },
+        {
+          "observation_id": "obs-0c09edf7",
+          "kind": "sp_protocol_signature",
+          "value": {
+            "functional": "WB97X-D3",
+            "basis": "6-311+G(d,p)",
+            "solvent_model": "SMD",
+            "solvent": "acetonitrile",
+            "ri_jcosx_enabled": false,
+            "job_type": "SP"
+          },
+          "unit": null,
+          "tolerance": null,
+          "evidence_ids": [
+            "ev-0b6a8c4"
+          ]
+        }
+      ],
+      "critical_evidence_ids": [
+        "ev-105fba8",
+        "ev-d4aed7e",
+        "ev-b023b25",
+        "ev-2221d53",
+        "ev-eb93b57",
+        "ev-7c7ea87",
+        "ev-49a1c44",
+        "ev-0b6a8c4",
+        "ev-9799c4a",
+        "ev-ccbefc3"
+      ]
+    }
+  },
+  "participant_tree_sha256": "372c52ce873ce2ea8987db7c60abbc43c653ee835d6d0d6462e5a1f97ba6e3e5",
+  "participant_bundle_sha256": "675e72f69fb387a928c91a47b0f14af0e0f838f94b1e94cc6f9be8f3704ec514"
+}

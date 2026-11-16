@@ -1,0 +1,38 @@
+schema_version = "1.4"
+artifacts = ["/app/final"]
+
+[task]
+name = "compchemworld/task-167"
+description = "从论文晶体学描述构建并验证单层 W2N3 结构"
+authors = []
+keywords = ["materials-science", "W2N3"]
+
+[metadata]
+task_number = 167
+case_id = "case-01-structure-characterization"
+legacy_artifacts = ["/app/final/W2N3-monolayer.poscar", "/app/final/structure-report.json"]
+verification_scope = "full"
+
+[agent]
+timeout_sec = 1800
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+user = "root"
+
+[verifier]
+timeout_sec = 300
+network_mode = "no-network"
+environment_mode = "separate"
+user = "root"
+
+[verifier.environment]
+network_mode = "no-network"
+cpus = 2
+memory_mb = 2048
+
+[environment]
+network_mode = "allowlist"
+allowed_hosts = ["astral.sh", "releases.astral.sh", "github.com", "objects.githubusercontent.com", "pypi.org", "files.pythonhosted.org"]
+cpus = 2
+memory_mb = 2048
+workdir = "/app"

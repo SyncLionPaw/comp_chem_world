@@ -1,0 +1,73 @@
+{
+  "temperature_grid_K": [
+    323,
+    333,
+    343,
+    353,
+    363,
+    373
+  ],
+  "density_relative_tolerance": 2e-08,
+  "density_absolute_tolerance_g_cm3": 2e-07,
+  "mass_volume_crosscheck_tolerance_g_cm3": 2e-06,
+  "priority_density_tolerance_g_cm3": 1e-07,
+  "pressure_endpoint_tolerance_bar": 1e-12,
+  "amu_angstrom3_to_g_cm3": 1.660538921,
+  "reference_bundle_schema": "compchembench.reference-data/v1",
+  "scientific_values": {
+    "temperature_grid_K": [
+      323,
+      333,
+      343,
+      353,
+      363,
+      373
+    ],
+    "density_relative_tolerance": 2e-08,
+    "density_absolute_tolerance_g_cm3": 2e-07,
+    "mass_volume_crosscheck_tolerance_g_cm3": 2e-06,
+    "priority_density_tolerance_g_cm3": 1e-07,
+    "pressure_endpoint_tolerance_bar": 1e-12,
+    "amu_angstrom3_to_g_cm3": 1.660538921
+  },
+  "documents": {
+    "assessment-protocol.json": {
+      "runtime_path": "assessment-protocol.json",
+      "encoding": "utf-8",
+      "data": "{\n  \"schema\": \"reline02-assessment-protocol/v1\",\n  \"scoring_mode\": \"deterministic_recomputed_evidence\",\n  \"maximum_reward\": 1.0,\n  \"private_reference_inputs\": \"reference-hashes.json\",\n  \"expected_outputs\": [\"audit.json\", \"decision.json\", \"report.md\"],\n  \"criteria\": [\n    \"native_input_provenance\",\n    \"six_temperature_coverage\",\n    \"trajectory_reconstruction_and_window_sensitivity\",\n    \"bounded_input_driven_integer_allocation\",\n    \"claim_scope_and_historical_status\",\n    \"human_report_limitations\"\n  ],\n  \"classification\": {\n    \"candidate_missing_or_wrong_outputs\": \"FAIL reward 0\",\n    \"trusted_reference_hash_mismatch\": \"INFRA_ERROR with no reward\",\n    \"valid honest insufficient-evidence conclusion\": \"PASS reward 1\"\n  }\n}\n",
+      "sha256": "311690954d62f1a539a6041c31fe409401b73551fa70e5e173bfa254f5f05da7",
+      "size": 736,
+      "media_type": "application/json",
+      "kind": "original_scientific_data"
+    },
+    "reference-hashes.json": {
+      "runtime_path": "reference-hashes.json",
+      "encoding": "utf-8",
+      "data": "{\n  \"inputs/compute-budget.yaml\": \"0ec5eb28a26c0b3d6ef15302755848bab8f110444c5c59c2983805adb19b1c10\",\n  \"inputs/native/T323/final.restart\": \"9d7c9255308c13c5178e1319ed4ddad97750e153b77b3a2adba03fd055c1a786\",\n  \"inputs/native/T323/log.lammps\": \"dbb74880ac32e09fcae9bfef8d24648def175ec2c463d9d7c55c3f012155c95a\",\n  \"inputs/native/T323/native-runtime.json\": \"a5a96d407aee13245020c6a8c63b41529ef67d3e50e0c8c84e0a5745fcc5e2ed\",\n  \"inputs/native/T323/native.in\": \"79536cd983ae9b1d81cb374614fb58e8aba9c46a90fa16d73b02063bba6fce58\",\n  \"inputs/native/T323/native.py\": \"d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41\",\n  \"inputs/native/T323/native.stderr\": \"64816900c6b235e0c2fba69bb8316ec17b13817b098e9e7fb0aeb879daf30848\",\n  \"inputs/native/T323/native.stdout\": \"1a979d02066cb16ca1b6a5aeff2d6af7bd6ae0e68b0f093196020f92ebf19d97\",\n  \"inputs/native/T323/trajectory.lmp\": \"d08ac946e463d00b93d4cc4f24619067795faa160505229d7802e251f583e98a\",\n  \"inputs/native/T333/final.restart\": \"47d41fcf06e3512949d28a06397134c67c750dd3b35e9eacf2c5dc917e9eadef\",\n  \"inputs/native/T333/log.lammps\": \"95df4addaf76fc6a52c38db0afa65d27fef2bbbf89c846cc9cbcd266dfde09ef\",\n  \"inputs/native/T333/native-runtime.json\": \"9f28456ee11420dcd35707f95abfbf83dc67ade119d9c11f789b0e4f56466cb0\",\n  \"inputs/native/T333/native.in\": \"84637167c0f0ee311b8f1f03f402ce409b43c8618abb27273eb757bef71d5cf3\",\n  \"inputs/native/T333/native.py\": \"d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41\",\n  \"inputs/native/T333/native.stderr\": \"f63c4914ebd67dc0ba03d879d404c8148af90d486996940bf419890c172b8b94\",\n  \"inputs/native/T333/native.stdout\": \"4b4ebeabd854012e40a405fd738b8d6769b694d3718ca5f6fa75175b97b5c55d\",\n  \"inputs/native/T333/trajectory.lmp\": \"c942537ae655b0484eb00f9802577b99747db9654cc9fd5f687c2f680e6dc728\",\n  \"inputs/native/T343/final.restart\": \"05837ffc02bb98affc123650ffdd00c45563691f3b61ef16f98c55db9a982ecd\",\n  \"inputs/native/T343/log.lammps\": \"65c05c20b14aab21e1666db1c9888a4f8d081516cf7e8b646b9e731941de4313\",\n  \"inputs/native/T343/native-runtime.json\": \"d09ff617f1324d05c9979b38d617e7f6719676b673df18c022c73ff93447c53a\",\n  \"inputs/native/T343/native.in\": \"a8682a2e75b728f8c0001e11a9942ef59c57157a1235088fee5b9bb12834b38c\",\n  \"inputs/native/T343/native.py\": \"d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41\",\n  \"inputs/native/T343/native.stderr\": \"171dc42eeffc5ac072048cd457d110cce2fd191c4bed9aa0eecded8d477b7edc\",\n  \"inputs/native/T343/native.stdout\": \"7c81e7a341156f74d00161a7d4ecc1a59641176c389da600ed91224c12735af6\",\n  \"inputs/native/T343/trajectory.lmp\": \"55b8e44ab0393bc91ac3242c5e499f7ad31fcd64fb2432c4723e4d98c9da5319\",\n  \"inputs/native/T353/final.restart\": \"8b8f97204b1632a7fbd0ec9b5a94d075cc25c6524d8d34b5058c1f57a11b0c5a\",\n  \"inputs/native/T353/log.lammps\": \"d1fc0041bfb88656c472ccaa172bd3b7d59a34208afa54f8d67f3ce154ac4c09\",\n  \"inputs/native/T353/native-runtime.json\": \"228f867ff9c68d2d4623b81868fc14a1ac216cb18592bee2ba9eba50ceb27b05\",\n  \"inputs/native/T353/native.in\": \"f0264529a6cc1f299e812aa88c25e82705e489f694e6fce41995d0c345f81df8\",\n  \"inputs/native/T353/native.py\": \"d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41\",\n  \"inputs/native/T353/native.stderr\": \"511ff24393bfdff6fb77f8ec6c08af06a648712e136dab5350c41aceaedc454c\",\n  \"inputs/native/T353/native.stdout\": \"c73db05aa029f4d015da412292d5a6884dae4601dfe78f66839d43b3f067cfb0\",\n  \"inputs/native/T353/trajectory.lmp\": \"72c1d4d0b7bea343a2a9ffd2b40ba84726fa0b9213538d5cf8db1082b87f2854\",\n  \"inputs/native/T363/final.restart\": \"0a5fd2f13705fd2eaa565c0422a73212e267b4d92e4f506d99ae2c12c574f568\",\n  \"inputs/native/T363/log.lammps\": \"cd715bfa061041e07eaa78878e4d7e1fc6929c5df673f21bcc40cf93514e69e0\",\n  \"inputs/native/T363/native-runtime.json\": \"b60a5e97cbbb9e337742af8db249237050559aa859207258bec2b0d12a6bd87c\",\n  \"inputs/native/T363/native.in\": \"6c73b399226c0441bed91af4332dd0f2ae0a709132de0a77bc4d98326a8313d7\",\n  \"inputs/native/T363/native.py\": \"d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41\",\n  \"inputs/native/T363/native.stderr\": \"0848685d42261caf7734e674c8ce7ed598a85a2c0bcc31d8a157d45400ae4cfc\",\n  \"inputs/native/T363/native.stdout\": \"dbaba1fb5e896a5bcdeda76299661930052135d5d1ae9d8744bfc3af5d8ea5d6\",\n  \"inputs/native/T363/trajectory.lmp\": \"00a3a04744b7ee612f8eeb9153ed0037cd9badd03b754113caeeeda83f2deed3\",\n  \"inputs/native/T373/final.restart\": \"e5844a1487256dca0a2c84036fc983685831a3a271c4bccb3836dea4600394bc\",\n  \"inputs/native/T373/log.lammps\": \"ebd742f97186096caa4637ba18812284eea50ac1959d3543e59b0f5f71214bc1\",\n  \"inputs/native/T373/native-runtime.json\": \"66c55c515f257927de9722c0b8777a784659f37802d6ee672baf7e5935ce8c1e\",\n  \"inputs/native/T373/native.in\": \"5defc9f78e2ec811000b56656e95e5503d3294088d2fcaab10e6c84bcf5215e7\",\n  \"inputs/native/T373/native.py\": \"d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41\",\n  \"inputs/native/T373/native.stderr\": \"b8903e72b8b1a563291688e38063cfaec2139d042bb405f69f712496be25d55f\",\n  \"inputs/native/T373/native.stdout\": \"99ef17887612ffcf3dc97c7d5f31caa91d70ee33b6dc348d53d52671f69430de\",\n  \"inputs/native/T373/trajectory.lmp\": \"fab2dc5425afa1ae5b9d162eaf339c900c42cef88ac4f0762e1cab5952e02f96\",\n  \"inputs/native/env.sh\": \"0aba6913ad6bf9521873b05594ccc3bbb032634302bfa98c156f13ee9162654a\",\n  \"inputs/native/gpu-identity.csv\": \"e28d8135ba10f58a9a96b6b258d70dc10ace49dfd3dcfc832a39c0cda65dc705\",\n  \"inputs/native/job.sbatch\": \"af780a58fb95ad9f98bbf845e9e4679319fcb4b5392ccf32955c7b150899a760\",\n  \"inputs/native/native.in.template\": \"200784329880929268c47555e82d1e6eee8cd5e9d6ae7438465768433a98f755\",\n  \"inputs/native/native.py\": \"d2039dae6332e79dfdccebc92e2fc2590ec588e0241836c0aaf088daa33afe41\",\n  \"inputs/native/pip-check.txt\": \"9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09\",\n  \"inputs/native/run.sh\": \"9e8d9e3c72d4e0b98bc9b505e38a84d9b5e9ddb04f8a881e5e90bed8517a0021\",\n  \"inputs/native/slurm.err\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n  \"inputs/native/slurm.out\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n  \"inputs/output-contract.json\": \"6c8752797573a11056477cde4c7606cc9644ea2c03d849ff75c4e40ef9e235a9\",\n  \"inputs/source-manifest.json\": \"563ec4d3cd290911260f01b26816e785ff3882c0dc0a410dae46e2cd1619e0ea\",\n  \"output-contract.json\": \"6c8752797573a11056477cde4c7606cc9644ea2c03d849ff75c4e40ef9e235a9\",\n  \"tests/assessment-protocol.json\": \"311690954d62f1a539a6041c31fe409401b73551fa70e5e173bfa254f5f05da7\",\n  \"tests/test.sh\": \"3fda6621fdcfb2962e83c50fa120c861628c5e4e684a1b07a0a08fed30f6d975\",\n  \"tests/verify.py\": \"a0bd93353c132d7d63b8c43ac3390170de8952d431bdf05e4a596f861e20bf53\"\n}\n",
+      "sha256": "e04857b0c58a49605ddaefd36aa7e950c49c6b2924c18e03cf56628174c42c92",
+      "size": 6631,
+      "media_type": "application/json",
+      "kind": "input_and_verifier_integrity",
+      "predecessor_sha256": "bf25abe6bfe08fef4e0a488136732399b777c2d901a95a1bd81bc5b25edb4fb8"
+    }
+  },
+  "source_compatibility": {
+    "schema": "compchembench.task-source-compatibility/v1",
+    "case_id": "reline-02-density",
+    "priority_serializations": [
+      "temperature-ordered list of six rows",
+      "temperature-keyed object with exactly the six public temperature keys"
+    ],
+    "legacy_pins": {
+      "inputs/output-contract.json": "77face1305ec9fc8d5f187d90c1b09deda8610876c0f7cfb9ab441a8a71ba91b",
+      "output-contract.json": "829fdb40b5a2e2f49946ad27e39c37c3cf70f514fa835984124989df9b346fe1",
+      "tests/verify.py": "9baab48f786c3817b6490c6f46dac1fbdfad2a35a3cc5a352adbab735d2d6879"
+    },
+    "current_pins": {
+      "inputs/output-contract.json": "829fdb40b5a2e2f49946ad27e39c37c3cf70f514fa835984124989df9b346fe1",
+      "output-contract.json": "829fdb40b5a2e2f49946ad27e39c37c3cf70f514fa835984124989df9b346fe1",
+      "tests/verify.py": "db4bdf63197e573e8c2e8c0d925caf732fc177ff946c22e55380a66291640fc6"
+    },
+    "note": "The 12:05 public output-contract source is copied by Docker to both /app/inputs/output-contract.json and /app/output-contract.json. Both current pins match that one asset; older pins and the frozen evaluation image are retained in the baseline-source snapshot. Priority list/object acceptance normalizes representation only and does not change thresholds or scientific values."
+  }
+}

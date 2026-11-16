@@ -1,0 +1,13 @@
+{
+  "tests/assessment-protocol.json": "2ab4a029c51ea03911e1ed9684497d0c19365563ef6ad7390b4ccf4037e05399",
+  "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+  "tests/evidence/41467_2020_20310_MOESM1_ESM.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
+  "tests/evidence/README.txt": "517a3620157e9083b76a8d1e1fec022f45ba8e5fbd0713cd1304a3e2feb12011",
+  "tests/evidence/evidence-manifest.json": "fcc0d827a7e54b938b546cab9e5ce1caf0cbf020819dcb9cb628c7b0eacf48a1",
+  "tests/numeric_evidence.py": "00b0668b51417c26d147dd58ee945329c321ec2824c17790086f0c0337ae4427",
+  "tests/refs.json": "c9f6676fdde1b77b815fe315418ed9fb0d64e6153c668ce3793b267c077fc2e2",
+  "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+  "tests/test.sh": "0ae6d7fe88171c1abfbea56f980d4e8922f7412adadb0b80132082dc9dfca0ef",
+  "tests/verification-plan.yaml": "70b757cf9998f831c46dac6d7ae63cd601ccedc4e4b68a8defe3ad16422bf102",
+  "tests/verify.py": "06ea63490c66e65a78f9657dce9afeeac338b34d23280dc486b4444474e63cd7"
+}

@@ -1,0 +1,185 @@
+{
+  "schema_version": "post-hydrolysis-reference/v1",
+  "input_sha256": {
+    "Fig_9a.dat": "d93d82e552543086f17e8392eccf0641845b1287a6eec9c521ad1197f92e07ac",
+    "data_dictionary.md": "8aa2908aed5396968041001cb603e1380fd564ca6047057f8386ab71767664ee"
+  },
+  "provenance": "Evaluator-private summaries independently recomputed from the acquired author Fig_9a.dat using the dictionary panel mapping; public input hash pins the bytes.",
+  "units": {
+    "delta": "angstrom",
+    "gamma": "degree"
+  },
+  "tolerance": 2e-06,
+  "summary_statistics": [
+    {
+      "condition": "S",
+      "variant": "WT",
+      "observable": "delta",
+      "n": 280000,
+      "mean": 10.043817493571428,
+      "std": 1.2507000536339883,
+      "median": 10.1348,
+      "q25": 9.3682,
+      "q75": 10.8629
+    },
+    {
+      "condition": "S",
+      "variant": "WT",
+      "observable": "gamma",
+      "n": 280000,
+      "mean": 78.73861420714285,
+      "std": 4.718188081173198,
+      "median": 78.40535,
+      "q25": 75.4885,
+      "q75": 81.747975
+    },
+    {
+      "condition": "D-AspAsh",
+      "variant": "WT",
+      "observable": "delta",
+      "n": 560000,
+      "mean": 4.795671655892858,
+      "std": 1.1564448569817634,
+      "median": 4.272,
+      "q25": 4.1381,
+      "q75": 4.624525
+    },
+    {
+      "condition": "D-AspAsh",
+      "variant": "WT",
+      "observable": "gamma",
+      "n": 560000,
+      "mean": 96.65987770785713,
+      "std": 8.18875253841693,
+      "median": 96.0856,
+      "q25": 90.4848,
+      "q75": 101.7769
+    },
+    {
+      "condition": "D-ADP-Pi",
+      "variant": "WT",
+      "observable": "delta",
+      "n": 560000,
+      "mean": 7.638924236428573,
+      "std": 1.5498710084547223,
+      "median": 7.5207,
+      "q25": 6.621775,
+      "q75": 8.7077
+    },
+    {
+      "condition": "D-ADP-Pi",
+      "variant": "WT",
+      "observable": "gamma",
+      "n": 560000,
+      "mean": 91.45863322124997,
+      "std": 7.113533282392377,
+      "median": 91.1305,
+      "q25": 86.433475,
+      "q75": 96.4393
+    },
+    {
+      "condition": "S",
+      "variant": "V72I",
+      "observable": "delta",
+      "n": 280000,
+      "mean": 9.835925353571426,
+      "std": 1.2722935405063176,
+      "median": 9.9092,
+      "q25": 9.1781,
+      "q75": 10.6304
+    },
+    {
+      "condition": "S",
+      "variant": "V72I",
+      "observable": "gamma",
+      "n": 280000,
+      "mean": 77.51063546071428,
+      "std": 5.106482803314364,
+      "median": 77.8022,
+      "q25": 74.3427,
+      "q75": 81.06042500000001
+    },
+    {
+      "condition": "D-AspAsh",
+      "variant": "V72I",
+      "observable": "delta",
+      "n": 560000,
+      "mean": 4.631145042499999,
+      "std": 0.9410561758628695,
+      "median": 4.2536,
+      "q25": 4.1246,
+      "q75": 4.4515
+    },
+    {
+      "condition": "D-AspAsh",
+      "variant": "V72I",
+      "observable": "gamma",
+      "n": 560000,
+      "mean": 96.26766252392859,
+      "std": 6.648901008938779,
+      "median": 96.6928,
+      "q25": 91.528775,
+      "q75": 100.89862500000001
+    },
+    {
+      "condition": "D-ADP-Pi",
+      "variant": "V72I",
+      "observable": "delta",
+      "n": 560000,
+      "mean": 7.364537499999999,
+      "std": 1.4421344071458733,
+      "median": 7.2959,
+      "q25": 6.5267,
+      "q75": 8.304725000000001
+    },
+    {
+      "condition": "D-ADP-Pi",
+      "variant": "V72I",
+      "observable": "gamma",
+      "n": 560000,
+      "mean": 90.75648927749998,
+      "std": 6.718127136574721,
+      "median": 90.4436,
+      "q25": 86.365575,
+      "q75": 94.93802500000001
+    }
+  ],
+  "effects": [
+    {
+      "variant": "WT",
+      "observable": "delta",
+      "baseline": "D-AspAsh",
+      "target": "D-ADP-Pi",
+      "location_statistic": "mean",
+      "mean_effect": 2.843252580535715,
+      "units": "angstrom"
+    },
+    {
+      "variant": "WT",
+      "observable": "gamma",
+      "baseline": "D-AspAsh",
+      "target": "D-ADP-Pi",
+      "location_statistic": "mean",
+      "mean_effect": -5.201244486607166,
+      "units": "degree"
+    },
+    {
+      "variant": "V72I",
+      "observable": "delta",
+      "baseline": "D-AspAsh",
+      "target": "D-ADP-Pi",
+      "location_statistic": "mean",
+      "mean_effect": 2.7333924575,
+      "units": "angstrom"
+    },
+    {
+      "variant": "V72I",
+      "observable": "gamma",
+      "baseline": "D-AspAsh",
+      "target": "D-ADP-Pi",
+      "location_statistic": "mean",
+      "mean_effect": -5.511173246428612,
+      "units": "degree"
+    }
+  ]
+}
