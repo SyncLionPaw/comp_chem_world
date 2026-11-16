@@ -13,15 +13,22 @@ while getopts "f" opt; do
 done
 
 ensure_uv() {
-    if [ -x "$DIR/base/uv" ]; then
+    local uv_arch
+    case "$(uname -m)" in
+        x86_64) uv_arch="x86_64" ;;
+        arm64 | aarch64) uv_arch="aarch64" ;;
+        *) echo "unsupported host arch for uv: $(uname -m)" >&2; exit 1 ;;
+    esac
+    if [ -x "$DIR/base/uv" ] && [ "$(cat "$DIR/base/uv.arch" 2>/dev/null || true)" = "$uv_arch" ]; then
         return
     fi
-    echo "=== Downloading uv into base/ ==="
+    echo "=== Downloading uv (${uv_arch}) into base/ ==="
     tmp="$(mktemp -d)"
-    curl -LsSf "https://github.com/astral-sh/uv/releases/latest/download/uv-x86_64-unknown-linux-gnu.tar.gz" \
+    curl -LsSf "https://github.com/astral-sh/uv/releases/latest/download/uv-${uv_arch}-unknown-linux-gnu.tar.gz" \
         | tar -xz -C "$tmp"
-    mv "$tmp"/uv-x86_64-unknown-linux-gnu/uv "$DIR/base/uv"
+    mv "$tmp"/uv-${uv_arch}-unknown-linux-gnu/uv "$DIR/base/uv"
     chmod +x "$DIR/base/uv"
+    echo "$uv_arch" > "$DIR/base/uv.arch"
     rm -rf "$tmp"
 }
 

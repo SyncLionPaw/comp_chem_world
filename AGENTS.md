@@ -83,7 +83,7 @@ AGENTS.md              # this file
 - Preserve both ARM64 and x86_64 dependency variants when migrating tasks. Store both wheels in the shared store, include both hashes in pip locks, and select Conda manifests and local binaries by host architecture; do not replace one architecture with the other.
 - Do not use Git LFS by default. Only use it when you understand which files are covered by `.gitattributes`, where the LFS objects are stored, how collaborators and CI will retrieve them, and how migration or removal affects existing pointers. If any of that is unclear, do not enable Git LFS, run `git lfs install`, or add LFS-tracked files; use the repository's shared asset-store workflow instead.
 - Maintain the paper/task index in `docs/benchmarks/README.md` and the 28 preserved bench Markdown files in `docs/benchmarks/` when imported bench tasks change. Bench 17 has no paper common to every task: its MACE-OFF23 citation applies only to Task 110.
-- Build base images from `images/`: `bash images/build.sh` or `bash images/build.sh -f` (pass host `http_proxy`/`https_proxy` so downloads work). `images/base/uv` is downloaded by `build.sh` when missing and is gitignored.
+- Build base images from `images/`: `bash images/build.sh` or `bash images/build.sh -f` (pass host `http_proxy`/`https_proxy` so downloads work). `images/base/uv` is downloaded by `build.sh` (host-arch-matched, recorded in `images/base/uv.arch`) when missing and is gitignored.
 - Image chain: `ubuntu:24.04` → `comp-chem-world-base` (Python, uv, pytest, Claude Code) → `comp-chem-world-base-chem` (+ ase, rdkit in `/app/.venv`). Task Dockerfiles `FROM` one of these; there is no separate Claude image.
 - Local tasks use `comp-chem-world-base`; HPC/cluster tasks may retain `compchembench-connectivity:hpc` because they require a separately built connectivity image with SSH/Slurm tooling. Do not replace that image with a credential-free base without checking the task's execution model.
 - Claude Code version is pinned in two places that must stay equal: `CLAUDE_CODE_VERSION` in `images/build.sh` and `kwargs.version` in both full-run configs. When they match, Harbor reuses the preinstalled binary.
@@ -124,7 +124,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 - **summary**: imperative mood, lowercase, no trailing period, ≤ 72 chars. Write in English.
 - One logical change per commit. Don't mix image changes, task additions and refactors in one commit.
 - Use a body when the reason isn't obvious from the diff (e.g. a version bump or a verifier change).
-- Never commit `.env`, `jobs/`, `.venv`, `images/base/uv`, or any API key. Check `git status` before committing.
+- Never commit `.env`, `jobs/`, `.venv`, `images/base/uv`, `images/base/uv.arch`, or any API key. Check `git status` before committing.
 - Bumping the Claude Code version updates `images/build.sh` and both full-run configs in the same commit.
 
 Examples:

@@ -27,6 +27,7 @@ shared/asset-store.tar.xz.tmp
 
 # Vendored into images/base by build.sh when missing
 images/base/uv
+images/base/uv.arch
 
 # Harbor job outputs
 jobs/
