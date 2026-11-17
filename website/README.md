@@ -27,3 +27,11 @@ python3 -m http.server 8080
 Then open [http://127.0.0.1:8080](http://127.0.0.1:8080).
 
 You can also open `index.html` directly in a browser; a local server is preferred so relative asset paths behave consistently.
+
+## Deploy
+
+Pushes to `main` that touch `website/` (or this workflow) publish GitHub Pages via `.github/workflows/website.yml`.
+
+One-time: repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+Site: https://synclionpaw.github.io/comp_chem_world/
