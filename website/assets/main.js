@@ -68,6 +68,8 @@
       "section.start": "Quick start",
       "terminal.comment":
         "# uv · clone · place shared/inputs.tar.zst (from AI4EC)\nuv run init\n# .env → ANTHROPIC_API_KEY / ANTHROPIC_BASE_URL\nuv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y",
+      "btn.copy": "Copy",
+      "btn.copied": "Copied",
       "btn.readme": "README",
       "btn.catalog": "Paper ↔ task catalog",
       "footnote":
@@ -137,6 +139,8 @@
       "section.start": "快速开始",
       "terminal.comment":
         "# uv · clone · 放置 shared/inputs.tar.zst（来自 AI4EC）\nuv run init\n# .env → ANTHROPIC_API_KEY / ANTHROPIC_BASE_URL\nuv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y",
+      "btn.copy": "复制",
+      "btn.copied": "已复制",
       "btn.readme": "README",
       "btn.catalog": "论文 ↔ 任务目录",
       "footnote":
@@ -221,6 +225,28 @@
 
   applyTheme(resolveTheme());
   applyLang(resolveLang());
+
+  document.querySelectorAll("[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const block = document.getElementById(btn.getAttribute("data-copy"));
+      const text = (block?.querySelector("code")?.textContent || "").replace(/\n$/, "") + "\n";
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const area = document.createElement("textarea");
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+      }
+      const lang = document.documentElement.lang.startsWith("zh") ? "zh" : "en";
+      btn.textContent = copy[lang]["btn.copied"];
+      window.setTimeout(() => {
+        btn.textContent = copy[lang]["btn.copy"];
+      }, 1600);
+    });
+  });
 
   /* header escapes the slab frame once the page starts scrolling */
   const siteHeader = document.querySelector(".site-header");

@@ -746,6 +746,7 @@ main {
 
 .hero-copy {
   max-width: 40rem;
+  container-type: inline-size;
 }
 
 .hero-kicker {
@@ -762,9 +763,10 @@ main {
   margin: 0;
   font-family: var(--serif);
   font-weight: 700;
-  font-size: clamp(2.85rem, 7.2vw, 5.15rem);
-  line-height: 0.98;
+  font-size: clamp(2.05rem, 12.2cqi, 5.05rem);
+  line-height: 1.05;
   letter-spacing: -0.035em;
+  white-space: nowrap;
 }
 
 .brand {
@@ -1060,9 +1062,40 @@ main {
   }
 }
 
-.terminal {
+.terminal-wrap {
+  position: relative;
   margin: 0.2rem 0 0;
-  padding: 1.15rem 1.25rem;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.7rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--btn-ghost-border);
+  border-radius: 0.32rem;
+  background: var(--btn-ghost-bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  cursor: pointer;
+  backdrop-filter: blur(10px) saturate(1.3);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+}
+
+.copy-btn:hover {
+  background: var(--btn-ghost-hover-bg);
+  border-color: var(--btn-ghost-hover-border);
+}
+
+.terminal {
+  margin: 0;
+  padding: 1.15rem 5.4rem 1.15rem 1.25rem;
   overflow-x: auto;
   border: 1px solid var(--rim-soft);
   border-radius: 0.5rem;
@@ -1084,6 +1117,8 @@ main {
   font-size: 0.84rem;
   line-height: 1.65;
   white-space: pre;
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 .start-links {
