@@ -20,6 +20,7 @@
       "hero.kicker": "AI for Science · computational chemistry",
       "hero.tagline":
         "A Harbor-based, scalable benchmark for computational chemistry agents—paper-grounded tasks, shared Docker images, offline evaluation, and a repo pipeline built to grow the suite.",
+      "hero.status": "Rapid iteration and evaluation in progress.",
       "btn.repo": "Repository",
       "btn.start": "Quick start",
       "stat.tasks": "Research tasks",
@@ -73,6 +74,8 @@
         "Counts above exclude <code>000-hello</code>, a smoke-test demo task.",
       "footer.text":
         '<span class="brand-inline">comp-chem-world</span> · computational chemistry agent environments · offline inputs from <a href="https://ai4ec.ac.cn" target="_blank" rel="noopener">AI4EC</a>',
+      "footer.contact":
+        'Collaboration: <a href="mailto:sheng.bi@xmu.edu.cn">sheng.bi@xmu.edu.cn</a> · <a href="mailto:gongyulei@stu.xmu.edu.cn">gongyulei@stu.xmu.edu.cn</a>',
     },
     zh: {
       "meta.description":
@@ -91,6 +94,7 @@
       "hero.kicker": "AI for Science · 计算化学",
       "hero.tagline":
         "面向计算化学智能体的可扩展 Harbor 评测基准——论文落地任务、共享 Docker 镜像、离线评测，以及可快速扩充任务集的工程流水线。",
+      "hero.status": "正在快速迭代和测评中。",
       "btn.repo": "代码仓库",
       "btn.start": "快速开始",
       "stat.tasks": "研究任务",
@@ -139,6 +143,8 @@
         "以上数量不含冒烟演示任务 <code>000-hello</code>。",
       "footer.text":
         '<span class="brand-inline">comp-chem-world</span> · 计算化学智能体环境 · 离线输入由 <a href="https://ai4ec.ac.cn" target="_blank" rel="noopener">AI4EC</a> 提供',
+      "footer.contact":
+        '合作请联系 <a href="mailto:sheng.bi@xmu.edu.cn">sheng.bi@xmu.edu.cn</a> · <a href="mailto:gongyulei@stu.xmu.edu.cn">gongyulei@stu.xmu.edu.cn</a>',
     },
   };
 
