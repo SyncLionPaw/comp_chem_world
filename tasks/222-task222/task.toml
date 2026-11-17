@@ -3,32 +3,32 @@ schema_version = "1.4"
 artifacts = ["/app/final"]
 
 [task]
-name = "compchemworld/case-03-protein-multisite-pka"
-description = "Run the 75-production-run protein constant-pH MD campaign on Cardiotoxin V (15 pH values from 1.0 to 8.0, five replicas, 50 ns each) using independently selected computing resources, map the native lambda channels to the His4, Glu17, Asp42 and Asp59 titration sites, fit per-site pKa values with 95% confidence intervals, treat the Asp59 pKa<2 upper bound with a documented censored-data policy, and report the Pearson correlation, MSE and RMSE against experiment in per_residue_pka.json, correlation_statistics.json and titration_curves_per_residue.csv under /app/final."
+name = "compchemworld/case-06-henderson-hasselbalch-fitting"
+description = "Analyse the 81 pre-generated synthetic lambda trajectories for the Asp, Glu and His tripeptides (nine pH values, three replicas each) in full at their 1 ps sampling interval without running new dynamics, classify endpoint protonation populations with the frozen lambda thresholds, compute replica populations before the three-replica mean and SEM, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals from the measured populations, delivering pka_results.json and titration_curves.csv under /app/final."
 
 [metadata]
-name = "case-03-protein-multisite-pka"
-description = "Run the 75-production-run protein constant-pH MD campaign on Cardiotoxin V (15 pH values from 1.0 to 8.0, five replicas, 50 ns each) using independently selected computing resources, map the native lambda channels to the His4, Glu17, Asp42 and Asp59 titration sites, fit per-site pKa values with 95% confidence intervals, treat the Asp59 pKa<2 upper bound with a documented censored-data policy, and report the Pearson correlation, MSE and RMSE against experiment in per_residue_pka.json, correlation_statistics.json and titration_curves_per_residue.csv under /app/final."
-execution_class = "remote"
-difficulty = "hard"
+name = "case-06-henderson-hasselbalch-fitting"
+description = "Analyse the 81 pre-generated synthetic lambda trajectories for the Asp, Glu and His tripeptides (nine pH values, three replicas each) in full at their 1 ps sampling interval without running new dynamics, classify endpoint protonation populations with the frozen lambda thresholds, compute replica populations before the three-replica mean and SEM, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals from the measured populations, delivering pka_results.json and titration_curves.csv under /app/final."
+execution_class = "local"
+difficulty = "easy"
 
 [agent]
-timeout_sec = 864000
-network_mode = "public"
+timeout_sec = 3600
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 7200
+timeout_sec = 300
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
 cpus = 2
-memory_mb = 4096
+memory_mb = 2048
 build_timeout_sec = 1800
-network_mode = "public"
+network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2
-memory_mb = 4096
+memory_mb = 2048
 build_timeout_sec = 1800
 network_mode = "no-network"

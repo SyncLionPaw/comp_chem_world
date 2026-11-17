@@ -1,30 +1,27 @@
-# NNP atomic and cell optimization calculations for eight silica frameworks
+# Actual Multi-Start Force-Field Conformer Minimization
 
 ## Background
 
-Atomic and cell relaxation can change the energies and periodic connectivity of silica frameworks. Eight initial periodic frameworks and the SiAlOH1 neural-network potential are supplied for a comparison at zero external pressure.
+Different QM starting conformers can lead to different local minima of a molecular-mechanics model. The supplied data include structures, identity mappings, the fixed Sage field and protocol.
 
 ## Task
 
-Calculate the atomic and cell relaxation of all eight supplied frameworks at zero external pressure. Continue each optimization with tightened stopping conditions, reconstruct periodic topology for both results, and compare structural properties under a common potential-energy gauge. Preserve the calculated residuals and numerical changes needed to assess each result.
+Perform twelve actual Sage minimizations: the two prescribed QM starts for each of six molecules. Validate local stationarity and chemical identity, then compare geometry changes and within-molecule energy rankings.
 
 ## Requirements
 
-- Execute the required scientific calculations locally in the task environment. Preserve the actual commands, inputs, native outputs and reproducible execution records.
-- Use the designated SiAlOH1 model and 6 Å neighborhood, preserve source isotope masses and target zero external pressure. State energy, force and ASE Voigt stress units.
-- Choose the optimizer and atomic/cell freedoms. Declare positive force and stress stopping thresholds per framework, then continue with both thresholds strictly tightened. Preserve native logs, raw forces/stresses, final structures, restarts and failures.
-- Check independent energy-force/stress derivatives, step-size checks and numerical changes. Report the performed stopping checks without claiming that a selected resolution is sufficient.
-- Verify periodic image-edge topology for both final and tightened structures. Explicit atom permutations, integer lattice basis changes and wrapping maps are permitted; do not force connectivity using an arbitrary cutoff.
-- Recompute per-Si energy relative to quartz aq, Si density, periodic-edge mean bond length and lattice lengths. Do not claim SCAN/experimental accuracy, global ground states, full-BZ phonons or a strict local minimum.
-- Preserve complete native execution records to support independent verification.
+- Preserve all twelve starts, explicit-hydrogen atom maps, topology and stereochemistry; never drop failed starts from the denominator.
+- Use the fixed field and AmberTools AM1-BCC vector generated from the prescribed first supplied conformer per molecular identity; reuse it across starts.
+- Each required final geometry must lower energy within replay precision and have maximum atomic force at most 1 kJ mol^-1 nm^-1. Retain optimization histories and native initial/final states.
+- Use chirality-preserving proper-rotation symmetry RMSDs and separate energy zeros per molecule. Do not claim global minima or equilibrium populations.
+- Use installed local tools without networking or remote scheduling. Use at most 5000 iterations per start.
 
-- Submit native trajectories, optimization histories, model settings and derivative samples to record the calculations.
-- Submit the required results and evidence under `/app/` according to the listed output convention.
+- Submit results, reproducible analysis and native evidence under `/app/`, using `/app/results.json` and `/app/analysis.py` as the result and analysis entry points. Submit the remaining required files, fields and native artifacts according to the listed output convention.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Framework structures and the designated neural-network potential. |
+| `/app/environment/assets/` | Molecular systems, force fields and calculation parameters. |
 | `/app/` | Submitted results and required execution evidence. |
-| `/app/public/output-contract.yaml` | Required outputs and submission format. |
+| `/app/environment/assets/output-contract.json` | Required outputs and submission format. |

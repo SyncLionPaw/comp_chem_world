@@ -1,0 +1,6 @@
+# Clears agents from an earlier -c file so CLI -a/-m can set the agent.
+# Usage:
+#   uv run harbor run -c configs/local.yaml -c configs/agents.clear.yaml \
+#     -a claude-code -m anthropic/claude-sonnet-4-5 --ak version=2.1.317 \
+#     --api-key-name ANTHROPIC_API_KEY --env-file .env -y
+agents: []

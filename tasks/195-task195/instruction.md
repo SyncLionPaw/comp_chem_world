@@ -1,29 +1,43 @@
-# Finite prediction assessment of twelve retained models
+# Bias Reconstruction and Interpretation Limits for Ordinary CHA MetaD
 
 ## Background
 
-Compare finite prediction errors on the supplied recorded validation set.
+Reconstruct bias and derivatives from two ordinary CHA metadynamics histories and native observations, examining time alignment, grid resolution and finite-time interpretation.
 
-The inputs include recorded validation labels and twelve retained prediction records.
+The two runs include HILLS deposition histories, COLVAR observations and PLUMED kernel and unit settings, together with diagnostic formulas.
 
 ## Task
 
-Using the twenty recorded real public-validation frames and the twelve retained model prediction records in the supplied inputs, independently compute for every model its per-frame energy error and per-component force error over the full supplied frames, and report each model's force-component RMSE and per-atom energy MAE with their exact denominators (frames and force components). Select one of these two legal metrics and use it for the two final-round paired comparisons that share a trial: random minus adaptive for trial 6061 and for trial 6062, where a positive difference means the adaptive model is better on that metric. Derive each comparison's better arm from the computed difference, and state the combined direction across both trials. Declare applicability as exactly these twelve retained models on these twenty recorded frames with these denominators, and exclude the domain-100 and multicomponent-49 sets, which have stored residuals only and no independent prediction records.
+Reconstruct bias and CV derivatives from two ordinary CHA MetaD histories and assess interpretation limits.
 
 ## Requirements
 
-This task concerns analysis of already recorded predictions. It does not establish execution of model inference, fitting, selection or blinded controls, and it makes no population or generalization claim.
+Actually parse native HILLS, COLVAR, and PLUMED inputs for two ordinary CHA MetaD runs. Independently reconstruct accumulated bias and CV derivatives, auditing printing/time/grid differences and free-energy interpretation limits.
 
-Model and frame ordering are free. Recompute for full-frame, frame-subset and record-order-reversed inputs rather than echoing fixed answers. Explain the metric choice, comparisons, direction and limits in the report.
+- Choose increasing s grids covering hill centers and handle each run's independent timeline.
+- Reconstruct three cumulative prefixes using acquired source-kernel conventions; check native CV/bias observations and quantify identifiable discrepancy sources.
+- Distinguish direct-kernel reconstruction, native-grid interpolation, and finite-time -V curves. Do not infer convergence or unbiased rates without evidence.
 
-Use the supplied records only; no new simulation or model inference is required. The executable accepts `--inputs DIR --output DIR` and writes its outputs directly under DIR. Recompute for each supplied input, including the input variations described in the task specification. Use bundled Python dependencies (stdlib suffices), without network access.
+This is ordinary MetaD, not WTMetaD. Use stored histories only; run neither PLUMED nor MD. Direct-kernel reconstruction is not bitwise native-grid replay. Self-trained CVs and equilibrium-free-energy solution are outside scope.
 
-- Submit the required results and evidence under `/app/results/` according to the listed output convention. The executable analysis entry point is `/app/results/run/analyze.py`.
+Actually recompute from source data without upstream simulation. Distinguish failure/ambiguity/null from numerical zero. Evidence-backed insufficiency may complete diagnosis, but disclaimers do not replace work. Retain author/DOI attribution under CC-BY-NC-SA4.0.
+
+Justify grid spacing relative to the minimum sigma, use a refined grid to support profile and extremum claims, and report spacing-to-sigma diagnostics. Choose a spacing/minimum-width ratio in [0.1,1] and MAE or RMSE for the alignment loss; retain both histories and all three cumulative prefixes per history.
+
+Determine grid range and minimum sigma separately for each prefix.
+
+Reconstruct coarse and twice-refined grids spanning deposited centers and kernel support. Report both extrema, maximum interpolation difference and a global Lipschitz interpolation bound derived from source heights and widths. For each COLVAR row, use printed decimal time intervals to determine guaranteed-before and possible-through hill counts. Reconstruct bias for both orders and report every native-minus-direct residual, counts, aggregate losses, descriptive preferred alignment and residuals unexplained by either order. Do not fit a universal tolerance to erase differences or omit adverse refinement or history discrepancies.
+
+Explain the derivation and sources and retain ordinary MetaD biasf=-1. Finite bias, correlated prefixes and two deposition histories cannot establish equilibrium free-energy surfaces, unbiased kinetics or independent confidence intervals. Keep scientific choices fixed when recomputing original and controlled perturbed data.
+
+Network access is disabled.
+
+- Submit the required results and evidence under `/app/` according to the listed output convention. Use `/app/analysis.py` as the analysis entry point; `/app/code` may contain optional helpers.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Validation labels and prediction records. |
-| `/app/results/` | Submitted results and required execution evidence. |
-| `/app/public/output-contract.json` | Required outputs and submission format. |
+| `/app/inputs/` | Bias histories, trajectory observations and run parameters. |
+| `/app/` | Submitted results and required execution evidence. |
+| `/app/public/output-contract.yaml` | Required outputs and submission format. |

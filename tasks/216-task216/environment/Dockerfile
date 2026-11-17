@@ -12,3 +12,5 @@ RUN test "$(dpkg --print-architecture)" = amd64 \
 
 ENV PATH="/opt/wpd-science/bin:${PATH}" \
     PYTHONDONTWRITEBYTECODE=1
+
+COPY assets/output-contract.md /app/output-contract.md

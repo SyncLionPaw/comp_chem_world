@@ -1,34 +1,37 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final"]
+artifacts = [
+  "/app/ensemble_summary.json",
+  "/app/convergence_analysis.json",
+]
 
 [task]
-name = "compchemworld/case-06-henderson-hasselbalch-fitting"
-description = "Analyse the 81 pre-generated synthetic lambda trajectories for the Asp, Glu and His tripeptides (nine pH values, three replicas each) in full at their 1 ps sampling interval without running new dynamics, classify endpoint protonation populations with the frozen lambda thresholds, compute replica populations before the three-replica mean and SEM, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals from the measured populations, delivering pka_results.json and titration_curves.csv under /app/final."
+name = "compchemworld/case-03-multi-replica-ensemble-convergence"
+description = "Assess convergence of a ten-replica OpenBPMD ensemble from per-replica CompScore traces: compute the replica-cluster variance change under the frozen bootstrap resampling protocol, classify per-replica variance stability, and report the ensemble summary and convergence diagnostics together with the explicit qualification that finite-trace statistics do not certify the underlying simulations as converged."
 
 [metadata]
-name = "case-06-henderson-hasselbalch-fitting"
-description = "Analyse the 81 pre-generated synthetic lambda trajectories for the Asp, Glu and His tripeptides (nine pH values, three replicas each) in full at their 1 ps sampling interval without running new dynamics, classify endpoint protonation populations with the frozen lambda thresholds, compute replica populations before the three-replica mean and SEM, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals from the measured populations, delivering pka_results.json and titration_curves.csv under /app/final."
+name = "case-03-multi-replica-ensemble-convergence"
+description = "Assess convergence of a ten-replica OpenBPMD ensemble from per-replica CompScore traces: compute the replica-cluster variance change under the frozen bootstrap resampling protocol, classify per-replica variance stability, and report the ensemble summary and convergence diagnostics together with the explicit qualification that finite-trace statistics do not certify the underlying simulations as converged."
 execution_class = "local"
-difficulty = "easy"
+difficulty = "medium"
 
 [agent]
 timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 300
+timeout_sec = 600
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
 cpus = 2
-memory_mb = 2048
+memory_mb = 4096
 build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2
-memory_mb = 2048
+memory_mb = 4096
 build_timeout_sec = 1800
 network_mode = "no-network"

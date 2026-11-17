@@ -1,45 +1,40 @@
-FROM --platform=linux/amd64 compchembench-connectivity:hpc
+FROM --platform=linux/amd64 compchembench-base:2.1.267
 
 WORKDIR /app
 
-COPY assets/runtime/native-config-export.patch /tmp/native-config-export.patch
-RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends cmake g++ make ca-certificates git libfftw3-dev \
- && rm -rf /var/lib/apt/lists/*
+COPY assets/ /app/inputs/
+COPY assets/runtime/claude-gateway.py /tmp/ccw35-claude-gateway.py
+COPY assets/runtime/build_dns.py /tmp/ccw35-build-dns.py
 
-RUN git init /tmp/cphmd-src \
- && git -C /tmp/cphmd-src remote add origin https://gitlab.com/gromacs-constantph/constantph.git \
- && git -C /tmp/cphmd-src fetch --depth 1 origin 28807b1162cacd9dc797520bc509d12edca13d1a \
- && git -C /tmp/cphmd-src checkout --detach FETCH_HEAD \
- && test "$(git -C /tmp/cphmd-src rev-parse HEAD)" = 28807b1162cacd9dc797520bc509d12edca13d1a \
- && test "$(sha256sum /tmp/native-config-export.patch | cut -d' ' -f1)" = ba32035583449038fab848e71458f68cc7036c51bfaac634db0149aa446a75e1 \
- && cd /tmp/cphmd-src/gromacs-constantph \
- && grep -Fq 'int residueNStates() { return residueNStates_; }' src/gromacs/mdtypes/lambda_dynamics_params.h \
- && git apply --check /tmp/native-config-export.patch \
- && git apply /tmp/native-config-export.patch \
- && sed -i 's/int residueNStates() { return residueNStates_; }/int residueNStates() const { return residueNStates_; }/' src/gromacs/mdtypes/lambda_dynamics_params.h \
- && cmake -S . -B /tmp/cphmd-build -DCMAKE_INSTALL_PREFIX=/opt/cphmd-reader -DGMX_MPI=OFF -DGMX_OPENMP=ON -DGMX_GPU=OFF -DGMX_BUILD_OWN_FFTW=OFF -DGMX_BUILD_MDRUN_ONLY=OFF -DGMX_SIMD=NONE -DCMAKE_BUILD_TYPE=Release \
- && cmake --build /tmp/cphmd-build --parallel 6 \
- && cmake --install /tmp/cphmd-build \
- && mkdir -p /opt/cphmd-reader \
- && python3 -c "import hashlib,json,pathlib,subprocess; b=pathlib.Path('/opt/cphmd-reader/bin/gmx'); v=subprocess.check_output([str(b),'--version'],text=True); version=next(x.split(':',1)[1].strip() for x in v.splitlines() if x.startswith('GROMACS version:')); d={'name':'GROMACS CpHMD','version':version,'source_commit':'28807b1162cacd9dc797520bc509d12edca13d1a','binary_sha256':hashlib.sha256(b.read_bytes()).hexdigest(),'source_patch_sha256':'ba32035583449038fab848e71458f68cc7036c51bfaac634db0149aa446a75e1'}; pathlib.Path('/opt/cphmd-reader/identity.json').write_text(json.dumps(d,sort_keys=True)+'\n')" \
- && rm -rf /tmp/cphmd-src /tmp/cphmd-build /tmp/native-config-export.patch
+COPY assets/wheels/ /tmp/ccw35-wheels/
+COPY assets/requirements.lock.txt /tmp/ccw35-requirements.lock.txt
 
-COPY assets/ /app/environment/assets/
-COPY assets/runtime/ /app/tools/
-
-ARG PIP_INDEX_URL=https://mirrors.aliyun.com/pypi/simple
-
-RUN python3 -m venv /opt/cphmd-analysis \
- && /opt/cphmd-analysis/bin/python -m pip install --no-index --only-binary=:all: --find-links=/app/environment/assets/wheels --require-hashes -r /app/environment/assets/requirements.lock.txt \
- && /opt/cphmd-analysis/bin/python -m pip check \
- && /opt/cphmd-analysis/bin/python -c "import numpy, scipy" \
- && mkdir -p /app/environment \
+RUN --mount=type=cache,target=/root/.cache/uv \
+    --mount=type=cache,target=/var/cache/apt \
+    python3 /tmp/ccw35-build-dns.py > /tmp/ccw35-build-network.log 2>&1 & \
+    NETWORK_PID=$!; \
+    export https_proxy=http://127.0.0.1:18080 \
+ && sleep 1 \
+ && rm -f /etc/apt/apt.conf.d/docker-clean \
+ && sed -i 's/^Components:.*/Components: main/' /etc/apt/sources.list.d/ubuntu.sources \
+ && apt-get -o Acquire::Languages=none -o Acquire::https::Timeout=30 update \
+ && apt-get install -y --no-install-recommends g++ \
+ && rm -rf /var/lib/apt/lists/* \
+ && python3 -m venv /opt/ccw35-science \
+ && /opt/ccw35-science/bin/python -c 'import sys; assert sys.version_info[:2] == (3, 12)' \
+ && /opt/ccw35-science/bin/pip install --no-index --find-links=/tmp/ccw35-wheels --require-hashes -r /tmp/ccw35-requirements.lock.txt \
+ && /opt/ccw35-science/bin/pip check \
+ && ln -s /app/inputs /inputs \
  && test -x /usr/local/bin/claude \
- && ln -s /app/environment/assets /app/inputs
+ && claude --version | grep -F '2.1.267' \
+ && kill "$NETWORK_PID" \
+ && install -m 755 /tmp/ccw35-claude-gateway.py /opt/ccw35-science/bin/claude \
+ && rm /tmp/ccw35-claude-gateway.py
 
-ENV PATH="/opt/cphmd-analysis/bin:${PATH}" \
-    PYTHONDONTWRITEBYTECODE=1 \
-    OMP_NUM_THREADS=1
+RUN rm -rf /app/inputs/wheels /app/inputs/runtime /app/inputs/requirements.lock.txt
 
-COPY assets/output-contract.md /app/output-contract.md
+ENV PATH="/opt/ccw35-science/bin:${PATH}" \
+    OMP_NUM_THREADS=1 \
+    OPENMM_CPU_THREADS=1 \
+    OPENBLAS_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1

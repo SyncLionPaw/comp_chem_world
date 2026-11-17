@@ -4,6 +4,8 @@ ARG CONDA_FORGE_CHANNEL=https://conda.anaconda.org/conda-forge
 WORKDIR /app
 
 COPY assets/ /app/environment/assets/
+COPY assets/inputs/ /opt/ccw-public/inputs/
+COPY assets/native-execution-contract.json /opt/ccw-public/native-execution-contract.json
 
 COPY assets/runtime/micromamba /usr/local/bin/micromamba
 COPY assets/runtime/ /opt/build/

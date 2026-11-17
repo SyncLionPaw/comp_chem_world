@@ -3,14 +3,14 @@ schema_version = "1.4"
 artifacts = ["/app/outputs"]
 
 [task]
-name = "compchemworld/case-02-periodic-summation-convergence"
-description = "Establish EQeq periodic summation convergence for the DOTSOV02 framework under the frozen analytic kernel, demonstrate charge stability across increasing summation ranges and representational invariance across equivalent cells and origin shifts, and verify the neutral stationary-point condition with independently recomputed kernels."
+name = "compchemworld/case-05-pore-potential-fidelity"
+description = "Reconstruct full periodic Ewald pore electrostatic-potential fields for DDEC3, PQeq_GMP, EQeq_ox_exp and NO_Q over the fixed four-MOF panel, compare submitted gridded fields against evaluator-recomputed references under the frozen mask and gauge conventions, and score grid-resolution fidelity and pore-energy extrema against preregistered numerical budgets with controlled native replay."
 
 [metadata]
-name = "case-02-periodic-summation-convergence"
-description = "Establish EQeq periodic summation convergence for the DOTSOV02 framework under the frozen analytic kernel, demonstrate charge stability across increasing summation ranges and representational invariance across equivalent cells and origin shifts, and verify the neutral stationary-point condition with independently recomputed kernels."
+name = "case-05-pore-potential-fidelity"
+description = "Reconstruct full periodic Ewald pore electrostatic-potential fields for DDEC3, PQeq_GMP, EQeq_ox_exp and NO_Q over the fixed four-MOF panel, compare submitted gridded fields against evaluator-recomputed references under the frozen mask and gauge conventions, and score grid-resolution fidelity and pore-energy extrema against preregistered numerical budgets with controlled native replay."
 execution_class = "local"
-difficulty = "medium"
+difficulty = "hard"
 
 [agent]
 timeout_sec = 3600

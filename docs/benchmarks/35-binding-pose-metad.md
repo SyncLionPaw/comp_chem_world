@@ -12,8 +12,8 @@ The study presents Open Binding Pose Metadynamics for evaluating and ranking pro
 
 | Task | Description |
 | --- | --- |
-| Task 226 | Compute trajectory contact persistence, ligand displacement and composite pose-stability scores. |
-| Task 227 | Specify a metadynamics protocol and assess Gaussian hill-height choices using source evidence. |
-| Task 228 | Calculate multi-replica ensemble statistics and finite-trajectory convergence diagnostics. |
-| Task 229 | Rerank poses across targets and perform paired statistical comparisons. |
-| Task 230 | Compare MM-GBSA and OpenBPMD ranking performance and examine bounded failure explanations. |
+| Task 223 | Compute trajectory contact persistence, ligand displacement and composite pose-stability scores. |
+| Task 224 | Specify a metadynamics protocol and assess Gaussian hill-height choices using source evidence. |
+| Task 225 | Calculate multi-replica ensemble statistics and finite-trajectory convergence diagnostics. |
+| Task 226 | Rerank poses across targets and perform paired statistical comparisons. |
+| Task 227 | Compare MM-GBSA and OpenBPMD ranking performance and examine bounded failure explanations. |

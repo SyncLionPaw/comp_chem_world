@@ -1,29 +1,30 @@
-# HH fitting from supplied trajectories
+# Multi-Replica Ensemble Statistics and Trace Diagnostics
 
 ## Background
 
-Synthetic lambda time series for Asp, Glu and His cover nine pH values and three replicas per residue, supporting population estimation and HH fitting.
+Because metadynamics is a non-equilibrium enhanced sampling simulation that stochastically traverses energy barriers, a single 10 ns simulation trajectory is statistically noisy and prone to sampling hysteresis. To establish reproducible pose ranking, OpenBPMD executes 10 independent simulation replicas for every candidate binding pose.
 
-The inputs include synthetic lambda trajectories, their index and an experimental pKa reference.
+Each of the ten replica directories contains `bpm_results.csv` with 99 rows of CompScore, PoseScore (Å) and ContactScore. The inputs include the resampling protocol and complete bootstrap index table.
 
 ## Task
 
-Analyse the supplied trajectories, compute populations and replica SEM, and fit HH pKa values with statistical intervals.
+Ingest the results from 10 independent OpenBPMD simulation repeats, calculate the ensemble mean and standard deviation across all repeats, extract the final 2 ns tail window across the ensemble, and synthesize the 6 official benchmark stability metrics.
 
 ## Requirements
 
-- Perform local analysis only. Analyse every supplied 50 ns trajectory in full at its 1 ps sampling interval; do not run new dynamics.
-- Classify lambda<0.2 as protonated and lambda>0.8 as deprotonated. Both boundary values and the region between them are intermediate. Endpoint population is deprotonated count divided by the sum of endpoint counts.
-- Calculate each replica population before the three-replica mean and sample standard deviation divided by sqrt(3). Sum the three regime counts per residue/pH point.
-- Fit S=1/(1+10^(pKa-pH)) from the measured populations. Cover all 27 unique points, use finite values and nonnegative SEM. Standard CSV quoting and arbitrary row order are allowed.
-- pKa recovery tolerance is 0.10. Intervals must be ordered, contain the reported pKa and be at most 0.5 wide. State the statistical method. Correlated synthetic trajectories do not establish MD-frame independence or validated interval coverage.
+- Analyze all ten replicas and all 99 frames. Compute the six summary metrics from the pooled 200 final-window values (10 replicas × final 20 frames), using population SD; do not substitute the SD of replica means.
+- Compute framewise population SD, whole/tail autocorrelation and ESS, paired replica drift, and both whole-window and within-tail variance changes. Preserve source frame order and exactly the unique replica IDs 0..9.
+- Use the supplied resampling protocol and complete bootstrap index table: 4000 whole-replica draws of ten slots, retaining duplicates and degenerate draws. Use binary64 in the declared order, divisor 9 for bootstrap sample variances, and sorted zero-based endpoints 100/3900 without interpolation (tolerance 1e-9).
+- Use the specified fields, ACF stopping/constant-trace rules, frozen t coefficient 2.262 and diagnostic status tokens. Summary scores may have three decimals and framewise SD six; this does not relax bootstrap tolerance.
+- Limit conclusions to finite-trace diagnostics. Without a trusted practical-equivalence margin, stability remains unresolved and `convergence_status` is `INCONCLUSIVE`; neither detected nor undetected change certifies free-energy or thermodynamic convergence. Ten-cluster bootstrap and df=9 t intervals are approximate.
+- This analyzes supplied traces; no additional simulations are required.
 
-- Submit the required artifacts according to the listed output contract.
+JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Supplied trajectories and reference data. |
-| `/app/inputs/output-contract.md` | Required outputs and submission format. |
-| `/app/final/` | Submitted results and required execution evidence. |
+| `/app/inputs/` | Replica score series and resampling parameters. |
+| `/app/` | Submitted results and required execution evidence. |
+| `/app/output-contract.md` | Required outputs and submission format. |

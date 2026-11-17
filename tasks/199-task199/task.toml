@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/optimized.traj", "/app/properties.csv", "/app/convergence.json", "/app/native", "/app/analysis.md"]
+artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/systems", "/app/initial-states", "/app/final-states", "/app/optimized.sdf", "/app/minimization-history.npz"]
 
 [task]
-name = "compchemworld/case-04-nnp-cell-optimization"
-description = "Optimize the atomic positions and unit cells of eight silica zeolite frameworks to zero external pressure with the designated SiAlOH1 neural-network potential, record stopping conditions together with strictly tightened continuations, and verify periodic image-edge topology for both final and tightened structures. Report per-Si quartz-gauged relative energies, densities, mean bond lengths and lattice lengths with native optimization histories and independent derivative checks."
+name = "compchemworld/case-02-conformer-minimization"
+description = "Minimize twelve real QM conformer starts across six molecules under the fixed Sage Hamiltonian and validate every local stationary point for force convergence, stereochemistry and chemical identity. Quantify MM-versus-QM geometry changes and local energy rankings without claiming global minima or thermodynamic distributions."
 
 [metadata]
-name = "case-04-nnp-cell-optimization"
-description = "Optimize the atomic positions and unit cells of eight silica zeolite frameworks to zero external pressure with the designated SiAlOH1 neural-network potential, record stopping conditions together with strictly tightened continuations, and verify periodic image-edge topology for both final and tightened structures. Report per-Si quartz-gauged relative energies, densities, mean bond lengths and lattice lengths with native optimization histories and independent derivative checks."
+name = "case-02-conformer-minimization"
+description = "Minimize twelve real QM conformer starts across six molecules under the fixed Sage Hamiltonian and validate every local stationary point for force convergence, stereochemistry and chemical identity. Quantify MM-versus-QM geometry changes and local energy rankings without claiming global minima or thermodynamic distributions."
 execution_class = "local"
 difficulty = "medium"
 
 [agent]
-timeout_sec = 259200
+timeout_sec = 3600
 network_mode = "public"
 
 [verifier]
-timeout_sec = 10800
+timeout_sec = 3600
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 2
-memory_mb = 4096
-build_timeout_sec = 2400
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 3600
 network_mode = "public"
 
 [verifier.environment]
-cpus = 2
-memory_mb = 4096
-build_timeout_sec = 2400
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 3600
 network_mode = "no-network"

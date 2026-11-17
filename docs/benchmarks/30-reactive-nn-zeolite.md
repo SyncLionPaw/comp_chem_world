@@ -12,8 +12,8 @@ The study develops a reactive neural-network potential for water-loaded acidic z
 
 | Task | Description |
 | --- | --- |
-| Task 196 | Analyse cross-composition energy and force errors and diagnose reference-energy offsets. |
-| Task 197 | Optimise proton-transfer endpoints and test convergence of neural-network-potential reaction paths. |
-| Task 198 | Reconstruct ordinary-metadynamics bias and collective-variable derivatives from CHA histories. |
-| Task 199 | Optimise atomic coordinates and unit cells of eight silica frameworks while checking periodic topology. |
-| Task 200 | Audit local and directional errors in matched MFI DFT and neural-network-potential records. |
+| Task 193 | Analyse cross-composition energy and force errors and diagnose reference-energy offsets. |
+| Task 194 | Optimise proton-transfer endpoints and test convergence of neural-network-potential reaction paths. |
+| Task 195 | Reconstruct ordinary-metadynamics bias and collective-variable derivatives from CHA histories. |
+| Task 196 | Optimise atomic coordinates and unit cells of eight silica frameworks while checking periodic topology. |
+| Task 197 | Audit local and directional errors in matched MFI DFT and neural-network-potential records. |

@@ -3,12 +3,12 @@ schema_version = "1.4"
 artifacts = ["/app/results"]
 
 [task]
-name = "compchemworld/case-04-goldene"
-description = "Analyze three recorded fixed-cell NVE energy logs for 1800-atom goldene over their observed 0.2 ps windows, compute per-atom energy envelopes and OLS drift slopes, compare timestep-halving convergence orders, and select the largest supplied timestep meeting the finite-window energy-envelope budget without extrapolating beyond the recorded windows."
+name = "compchemworld/case-07-finite-prediction"
+description = "Independently recompute per-model force-component RMSE and per-atom energy MAE for twelve retained models over the twenty recorded validation frames, choose one metric for the two paired adaptive-minus-random contrasts, derive each direction and the combined direction, and scope the conclusion strictly to these retained models and recorded frames."
 
 [metadata]
-name = "case-04-goldene"
-description = "Analyze three recorded fixed-cell NVE energy logs for 1800-atom goldene over their observed 0.2 ps windows, compute per-atom energy envelopes and OLS drift slopes, compare timestep-halving convergence orders, and select the largest supplied timestep meeting the finite-window energy-envelope budget without extrapolating beyond the recorded windows."
+name = "case-07-finite-prediction"
+description = "Independently recompute per-model force-component RMSE and per-atom energy MAE for twelve retained models over the twenty recorded validation frames, choose one metric for the two paired adaptive-minus-random contrasts, derive each direction and the combined direction, and scope the conclusion strictly to these retained models and recorded frames."
 execution_class = "local"
 difficulty = "easy"
 

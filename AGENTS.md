@@ -8,10 +8,10 @@ End users should be able to evaluate **without** rebuilding the offline archive:
 
 1. Install [uv](https://docs.astral.sh/uv/): `curl -LsSf https://astral.sh/uv/install.sh | sh`
 2. Clone this repo; `cd` into it.
-3. Place the distributed archive at **`shared/inputs.tar.zst`** (only path that matters; do not unpack by hand).
+3. Obtain the offline archive from **AI4EC** (not in git) and place it at **`shared/inputs.tar.zst`** (only path that matters; do not unpack by hand).
 4. Ensure Docker works (`docker info`), then: **`uv run init`**
-5. Put `DEEPSEEK_API_KEY` in `.env` (created from `.env.example` by `init` if missing); set `DEEPSEEK_BASE_URL` there to use a custom Anthropic-compatible endpoint.
-6. Run all local tasks: **`uv run harbor run -c configs/local.yaml --env-file .env -y`**; run HPC tasks with **`configs/hpc.yaml`**.
+5. Put `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` in `.env` (created from `.env.example` by `init` if missing). Any Anthropic-compatible endpoint works. Change the default model in `configs/agent.yaml`, or override per run with `-m` / `--base-url` / `--api-key-name` (see README).
+6. Run all local tasks: **`uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y`**; run HPC tasks with **`configs/hpc.yaml -c configs/agent.yaml`**.
 
 That is the supported onboarding loop. Human-oriented copy lives in `README.md`; keep both in sync when the path changes.
 
@@ -35,7 +35,7 @@ uv run init --inputs-only
 uv run reset
 
 # run all local tasks (after init + .env)
-uv run harbor run -c configs/local.yaml --env-file .env -y
+uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y
 
 # run Harbor with other args
 uv run harbor run ...
@@ -66,7 +66,7 @@ images/                # shared Docker base images
   base/                #   → comp-chem-world-base (Python, uv, pytest, Claude Code)
   chem/                #   → comp-chem-world-base-chem (ase, rdkit)
   build.sh
-configs/               # Harbor job configs (local.yaml and hpc.yaml are full classified runs; local-a.yaml + local-b.yaml split the local set for parallel collaborator testing)
+configs/               # Harbor job configs (task sets in local/hpc/local-a/local-b; agent/model in agent.yaml; compose task set + agent.yaml)
 jobs/                  # Harbor run outputs (gitignored)
 .env.example           # API key template (copy to .env; never commit .env)
 pyproject.toml         # project metadata + deps
@@ -78,7 +78,7 @@ AGENTS.md              # this file
 - Harbor tasks live under `tasks/NNN-<name>/` (e.g. `tasks/000-hello/`). Imported benchmark tasks are flattened into this same directory so Harbor's `datasets.path: tasks` discovers them directly. Each task has `instruction.md`, `task.toml`, `environment/`, `tests/`, optional `solution/`; not mixed into library modules.
 - Imported task assets can be very large. Keep task input data with its task when needed for reproducibility; do not copy Harbor `jobs/`, runner metadata, or source-repository author archives into a task.
 - **Agent visibility of `environment/assets/`**: Harbor builds with `environment/` as the Docker context and does **not** bind-mount `assets/` into the agent container. The agent only sees paths that the task `Dockerfile` `COPY`s into the final image (typically `/app/inputs` or `/app/assets`). Prefer narrow `COPY` of required inputs; put offline build caches under paths copied only to `/tmp` in a multi-stage build. Never add a read/write bind of `environment/assets` in `docker-compose.yaml` (if a bind is unavoidable, `read_only: true`). `uv run init` restores asset files as read-only on the host to reduce accidental write-back; `scripts/audit_task_assets.py` reports visibility and mount issues. Do not leave `__pycache__`, `reward.*`, or other run outputs under `assets/`.
-- **Offline inputs archive (required for newcomers)**: put the file at **`shared/inputs.tar.zst`** only. It is gitignored and is the single distribution bundle for all offline wheels + scientific assets (tasks 001–185 and 189–248). `uv run init` unpacks it into `shared/wheelhouse/` + `shared/asset-store/` and restores task paths; then Harbor can run the full dataset. `uv run reset` removes restored copies under `tasks/`. Manifests (`shared/wheelhouse/manifest.json`, `shared/asset-store/manifest.json`) stay in git as the path→SHA-256 source of truth.
+- **Offline inputs archive (required for newcomers)**: put the file at **`shared/inputs.tar.zst`** only. It is gitignored and is the single distribution bundle for all offline wheels + scientific assets (tasks 001–185 and 186–245). `uv run init` unpacks it into `shared/wheelhouse/` + `shared/asset-store/` and restores task paths; then Harbor can run the full dataset. `uv run reset` removes restored copies under `tasks/`. Manifests (`shared/wheelhouse/manifest.json`, `shared/asset-store/manifest.json`) stay in git as the path→SHA-256 source of truth.
 - Offline wheels live in `shared/wheelhouse/`; task assets live in `shared/asset-store/` (all of `tasks/*/environment/assets/`, plus `tasks/*/tests/` and `tasks/*/solution/` files ≥ 1 MiB). Both have SHA-256 manifests. Maintainers: `python3 -I scripts/task_wheels.py compact` / `task_assets.py compact`, then `python3 -I scripts/task_inputs.py pack` to refresh `shared/inputs.tar.zst`. Do not commit restored paths, `*.whl` / `*.blob` under `shared/`, or `inputs.tar.zst`—commit manifests only; do not modify shared blobs in place.
 - Preserve both ARM64 and x86_64 dependency variants when migrating tasks. Store both wheels in the shared store, include both hashes in pip locks, and select Conda manifests and local binaries by host architecture; do not replace one architecture with the other.
 - Do not use Git LFS by default. Only use it when you understand which files are covered by `.gitattributes`, where the LFS objects are stored, how collaborators and CI will retrieve them, and how migration or removal affects existing pointers. If any of that is unclear, do not enable Git LFS, run `git lfs install`, or add LFS-tracked files; use the repository's shared asset-store workflow instead.
@@ -105,8 +105,9 @@ This repo is expected to integrate with [Harbor](https://harborframework.com/) f
 - Task verifiers must write a numeric reward to `/logs/verifier/reward.txt` or `/logs/verifier/reward.json`.
 - Prefer absolute paths inside `tests/test.sh`.
 - Local task run shape: `harbor run -p "<path/to/task-or-dataset>" -a "<agent>" -m "<model>"`.
-- Full local job: `harbor run -c configs/local.yaml --env-file .env -y`.
-- Full HPC job: `harbor run -c configs/hpc.yaml --env-file .env -y`.
+- Full local job: `harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y`.
+- Full HPC job: `harbor run -c configs/hpc.yaml -c configs/agent.yaml --env-file .env -y`.
+- Default agent/model: `configs/agent.yaml` (override model with clear + `-m`, or edit that file).
 - Check a task's reference solution with the `oracle` agent before running a model against it.
 
 ## Commits

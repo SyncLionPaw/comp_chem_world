@@ -1,33 +1,36 @@
-# Electronic reference library: spin constraints and method comparability
+# FPS sampling and reaction-energy error propagation
 
 ## Background
 
-The supplied Rad-6 molecular library supports an audit of spin constraints and electronic-method comparability.
+The Rad-6 dataset permits controlled study of molecular and reaction-space learning.
 
-The inputs include the original structures, coordinates and energies, the Rad-6 README on format, units, molecule classes and electronic initialization, plus the article and Supplementary Note 1 on electronic-structure methods and limitations.
+The inputs include DFT structures and atomization labels, official extensive and intensive FPS orders, coefficients for the eight source models, the full reaction network and reference energies. The inputs also include `source/SOAP-PROTOCOL.md` and the source conventions.
 
 ## Task
 
-Audit all 10,712 molecular records and 123,914 atom rows, reconstruct the signed atomization ledger and neutral spin constraints, and assess electronic-method comparability.
+Reconstruct all eight source models combining two kernels, two FPS orders and N=500/4000; compare coverage and propagation from molecular atomization errors to the complete reaction network.
 
 ## Requirements
 
-- Audit all 10712 records and 123914 atom rows locally. Preserve original IDs/order, DFT/UFF coordinates (Å) and signed eV energies. Locate H/C/O isolated-atom references in the source; reconstruct atomization and raw/per-atom/atom-referenced method differences with full denominators. Coordinate tolerance: 1e-8 Å; derived energy: 1e-7 eV.
-- Use neutral charge 0 to derive electron parity and allowed total-spin families, not actual multiplicities. Distinguish source radical counts, declared initialization/exceptions, observed differences and inferred conclusions. Do not identify ground states, biradical character or actual symmetry breaking from parity, missing diagnostics or column names; UFF coordinates are not a separately optimized BS geometry.
-- Cite the supplied README, article Methods p.9/license p.11 and SI pp.2–3; retain attribution. Explain method/geometry confounding, normalization limits and concrete matched controls that would distinguish stronger claims. No fixed ground-state conclusion is imposed; justified non-identifiability is allowed.
-- Construct at least six source examples including H/C/O/O2 and both parity sectors. For each molecular example supply two protocol countermodels reproducing the source delta, with matched spin lowering in [-5,0] eV and predictions separated by at least 0.1 eV. Include the required allowed finite-electron representations and matched initialization/geometry controls.
-- Construct two normalized six-determinant two-electron states embedded in an even-electron example, with onsite interaction in [0.1,10] eV. Reconstruct all observables: both states have zero Ms, S² and spin density, but leading natural occupations differ by >0.5 and interaction responses by >0.05 eV. These are active-space counterexamples, not wavefunctions assigned to the source molecule.
-- Write the source-cited report in English or Chinese; distinguish hypothetical controls from observations.
-- No new DFT, SCF searches, scheduler jobs or network.
+- Use all 10712 species and all 32515 reactions, preserving source row order and the -1 rearrangement sentinel. Preserve original source coefficients and the full 2×2 kernel/FPS design. Compute complete source predictions, coverage, signed error propagation and the prescribed balanced contrasts.
+- Do not treat this training-exposed network as a blind generalization test; zero AE MAE requires an undefined ratio represented by null.
+- Use the original nonperiodic DFT coordinates, H/C/O species, n_max=l_max=8, cutoff/atom_sigma pairs 2.0/0.3 and 4.0/0.6 Angstrom, and squared atomic SOAP dot products.
+- Normalize intensive kernels separately per cutoff before averaging; extensive targets are AE, intensive targets AE/N with training-mean correction and molecular-N restoration.
+- Use `ikkem-slurm` to inspect the configured cluster and execute descriptor and kernel construction, all prescribed fits or model predictions, and the full scientific comparisons in Slurm allocations on compute nodes. Local execution is limited to preparation, transfer, monitoring, lightweight inspection and final artifact assembly. Do not replace the required cluster calculations with local production work after a connection or scheduling failure.
+- Honor the configured connection waiting periods when probing the cluster. If connectivity or scheduling cannot be restored, preserve the failure and report the blocked execution; do not fabricate success or cancel production after startup and count it as complete.
+- Retain submission scripts, scientific commands and input identities, job IDs, original scheduler receipts, compute-node native logs, and the correspondence between jobs and final outputs. Collect these execution records under `/logs/agent/hpc-evidence/` and return the scientific outputs to their existing declared paths. A successful scheduler exit alone does not establish scientific correctness.
+- Keep source inputs unchanged and use the supplied scientific data. All numerical results are assessed by independent source reconstruction and protocol checks.
 
-- Submit the required results and evidence under `/app/` according to the listed output convention.
+- Use one fixed coverage convention for all eight models: a small molecule has at most four atoms and participates in at least one source reaction. Count each species once per reaction row for reaction incidence, even when it occurs in multiple roles. Rank all source species by decreasing incidence, breaking ties by increasing numeric species ID; use the first twenty as hubs. Coverage uses the selected FPS training prefix.
 
-The source-summary contract defines the even-radical intersection bounds from the source radical and neutral-parity marginal counts.
+- Submit the required results and evidence under `/app/`.
+
+See the listed output convention for the complete input index, field structure, units and fixed numerical protocols. Keep linked run evidence within the declared submission directory.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/environment/assets/` | Molecular structures, energies and source material. |
+| `/app/inputs/` | Molecular data, model coefficients and reaction network. |
 | `/app/` | Submitted results and required execution evidence. |
-| `/app/environment/assets/CERTIFICATE-OUTPUT-CONTRACT.md` | Required outputs and submission format. |
+| `/app/output-contract.md` | Required outputs and submission format. |

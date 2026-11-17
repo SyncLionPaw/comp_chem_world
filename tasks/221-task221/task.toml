@@ -3,21 +3,21 @@ schema_version = "1.4"
 artifacts = ["/app/final"]
 
 [task]
-name = "compchemworld/case-02-lambda-distribution-analysis"
-description = "Run one 20 ns constant-pH MD production trajectory per Asp, Glu and His tripeptide at pH 4.0, 4.5 and 6.5 using independently selected computing resources, reconstruct each titration-coordinate lambda distribution from the native channels, and report binned distributions, endpoint protonation populations against the Henderson-Hasselbalch prediction, and bimodality diagnostics with two separated endpoint peaks and a lower central region, delivering lambda_distributions.json, protonation_fractions.json and bimodality_analysis.json under /app/final."
+name = "compchemworld/case-05-cphmd-scaling-benchmark"
+description = "Run eight paired 10 ns production benchmarks (tripeptide, Cardiotoxin V, HEWL and GLIC systems, each in normal-MD and constant-pH mode) using independently selected computing resources under one consistent hardware and resource configuration, derive ns/day and wall-clock timings from the completed native logs, quantify the constant-pH overhead per system within the frozen limits, and fit the overhead response against 1, 4, 10 and 185 titratable sites, delivering performance_results.json and scaling_analysis.json with the linear fit under /app/final."
 
 [metadata]
-name = "case-02-lambda-distribution-analysis"
-description = "Run one 20 ns constant-pH MD production trajectory per Asp, Glu and His tripeptide at pH 4.0, 4.5 and 6.5 using independently selected computing resources, reconstruct each titration-coordinate lambda distribution from the native channels, and report binned distributions, endpoint protonation populations against the Henderson-Hasselbalch prediction, and bimodality diagnostics with two separated endpoint peaks and a lower central region, delivering lambda_distributions.json, protonation_fractions.json and bimodality_analysis.json under /app/final."
+name = "case-05-cphmd-scaling-benchmark"
+description = "Run eight paired 10 ns production benchmarks (tripeptide, Cardiotoxin V, HEWL and GLIC systems, each in normal-MD and constant-pH mode) using independently selected computing resources under one consistent hardware and resource configuration, derive ns/day and wall-clock timings from the completed native logs, quantify the constant-pH overhead per system within the frozen limits, and fit the overhead response against 1, 4, 10 and 185 titratable sites, delivering performance_results.json and scaling_analysis.json with the linear fit under /app/final."
 execution_class = "remote"
-difficulty = "medium"
+difficulty = "hard"
 
 [agent]
-timeout_sec = 172800
+timeout_sec = 864000
 network_mode = "public"
 
 [verifier]
-timeout_sec = 10800
+timeout_sec = 7200
 environment_mode = "separate"
 network_mode = "no-network"
 

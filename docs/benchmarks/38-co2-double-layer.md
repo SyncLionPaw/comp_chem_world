@@ -12,9 +12,9 @@ The study investigates how double-layer charging influences CO2 adsorption and e
 
 | Task | Description |
 | --- | --- |
-| Task 243 | Recover source electrochemical evidence and construct tests of mechanistic identifiability. |
-| Task 244 | Analyse charge-dependent Au adsorbate energies and reference-state corrections. |
-| Task 245 | Solve fixed-activity microkinetic steady states and calculate rate-control and Tafel diagnostics. |
-| Task 246 | Analyse vibrational isotope shifts and construct identifiability counterexamples. |
-| Task 247 | Solve spatial transport under prescribed electrode flux and assess numerical refinement. |
-| Task 248 | Diagnose stationary interfacial feedback using finite-flux probes and response spectra. |
+| Task 240 | Recover source electrochemical evidence and construct tests of mechanistic identifiability. |
+| Task 241 | Analyse charge-dependent Au adsorbate energies and reference-state corrections. |
+| Task 242 | Solve fixed-activity microkinetic steady states and calculate rate-control and Tafel diagnostics. |
+| Task 243 | Analyse vibrational isotope shifts and construct identifiability counterexamples. |
+| Task 244 | Solve spatial transport under prescribed electrode flux and assess numerical refinement. |
+| Task 245 | Diagnose stationary interfacial feedback using finite-flux probes and response spectra. |

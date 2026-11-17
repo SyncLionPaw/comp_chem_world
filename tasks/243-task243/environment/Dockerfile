@@ -30,7 +30,7 @@ RUN rm -rf /app/inputs/wheels /opt/co2-public/inputs/wheels /app/inputs/dependen
  && rm -rf /tmp/co2-wheels
 
 ARG PUBLIC_SPEC
-LABEL co2dl17.case_id="case-01-she-mechanism-evidence" co2dl17.public_spec="${PUBLIC_SPEC}"
+LABEL co2dl17.case_id="case-04-vibrational-isotope-identifiability" co2dl17.public_spec="${PUBLIC_SPEC}"
 
 RUN rm -rf /opt/co2-public/inputs/contracts \
  && chmod -R a-w /opt/co2-public \

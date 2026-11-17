@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/outputs"]
+artifacts = ["/app/system.prmtop", "/app/system.inpcrd", "/app/protonation_audit.json"]
 
 [task]
-name = "compchemworld/case-05-pore-potential-fidelity"
-description = "Reconstruct full periodic Ewald pore electrostatic-potential fields for DDEC3, PQeq_GMP, EQeq_ox_exp and NO_Q over the fixed four-MOF panel, compare submitted gridded fields against evaluator-recomputed references under the frozen mask and gauge conventions, and score grid-resolution fidelity and pore-energy extrema against preregistered numerical budgets with controlled native replay."
+name = "compchemworld/case-01-system-preparation"
+description = "Prepare the solvated PTP1B phosphocysteine hydrolysis intermediate with AmberTools: load the supplied CSP template and missing-term frcmod, resolve every titratable state including explicit HID/HIE/HIP and a deprotonated catalytic aspartate, solvate in a periodic octahedral TIP3P box with at least 10 A clearance and Na+/Cl- neutralisation, and deliver a LEaP/CPPTRAJ-readable topology, coordinates and a per-residue protonation audit."
 
 [metadata]
-name = "case-05-pore-potential-fidelity"
-description = "Reconstruct full periodic Ewald pore electrostatic-potential fields for DDEC3, PQeq_GMP, EQeq_ox_exp and NO_Q over the fixed four-MOF panel, compare submitted gridded fields against evaluator-recomputed references under the frozen mask and gauge conventions, and score grid-resolution fidelity and pore-energy extrema against preregistered numerical budgets with controlled native replay."
+name = "case-01-system-preparation"
+description = "Prepare the solvated PTP1B phosphocysteine hydrolysis intermediate with AmberTools: load the supplied CSP template and missing-term frcmod, resolve every titratable state including explicit HID/HIE/HIP and a deprotonated catalytic aspartate, solvate in a periodic octahedral TIP3P box with at least 10 A clearance and Na+/Cl- neutralisation, and deliver a LEaP/CPPTRAJ-readable topology, coordinates and a per-residue protonation audit."
 execution_class = "local"
-difficulty = "hard"
+difficulty = "medium"
 
 [agent]
 timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 900
+timeout_sec = 600
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 4
-memory_mb = 8192
-build_timeout_sec = 1800
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier.environment]
-cpus = 4
-memory_mb = 8192
-build_timeout_sec = 1800
+cpus = 2
+memory_mb = 4096
+build_timeout_sec = 3600
 network_mode = "no-network"

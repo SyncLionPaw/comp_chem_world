@@ -3,12 +3,12 @@ schema_version = "1.4"
 artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
 
 [task]
-name = "compchemworld/case-02-soap-gap-energy-barrier"
-description = "Compare paired observed QE and GAP energy profiles along two BaTiO3 switching pathways, quantify the relative barrier offset per 40-atom cell against the supplied reference archive, and assess why the candidate correction is blocked by the historical predictions and fixed record denominators."
+name = "compchemworld/case-05-thermodynamic-integration-curie-point"
+description = "Reproduce free-energy perturbation estimates for paired DFT-GAP sample energies of cubic and tetragonal BaTiO3 cells at the published temperatures using exact double/decimal arithmetic, verify the importance-sampling support of the finite 50-frame samples, and report the conditional free-energy differences with sign controls."
 
 [metadata]
-name = "case-02-soap-gap-energy-barrier"
-description = "Compare paired observed QE and GAP energy profiles along two BaTiO3 switching pathways, quantify the relative barrier offset per 40-atom cell against the supplied reference archive, and assess why the candidate correction is blocked by the historical predictions and fixed record denominators."
+name = "case-05-thermodynamic-integration-curie-point"
+description = "Reproduce free-energy perturbation estimates for paired DFT-GAP sample energies of cubic and tetragonal BaTiO3 cells at the published temperatures using exact double/decimal arithmetic, verify the importance-sampling support of the finite 50-frame samples, and report the conditional free-energy differences with sign controls."
 execution_class = "local"
 difficulty = "easy"
 

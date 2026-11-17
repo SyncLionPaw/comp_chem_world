@@ -1,31 +1,30 @@
-# Extensive and intensive SOAP-KRR learning curves
+# BEP barrier scaling: paired grouped validation and transfer limits
 
 ## Background
 
-The Rad-6 dataset permits controlled study of molecular and reaction-space learning.
+The supplied BH76 reference barriers support descriptive BEP validation; this is an external extension, not a reproduction of the Rad-6 paper kinetics.
 
-The inputs include DFT structures and atomization labels, official extensive and intensive FPS orders, and `source/SOAP-PROTOCOL.md` and source conventions. The author UFF500 calibration inputs do not represent the full DFT learning curves.
+The inputs include BH76 barrier records and GMTKN55 context and usage notes.
 
 ## Task
 
-Fit extensive and intensive SOAP-KRR models for N=500,1000,2000,4000, quantify molecular atomization-energy errors and distinguish kernel scaling from sampling and target effects.
+Fit all 38 forward pairs with intercept OLS and evaluate 34 TS LOGO folds and 38 pair LOPO folds, quantifying reference coupling and transfer limits.
 
 ## Requirements
 
-- Fit all eight extensive/intensive runs at N=500,1000,2000,4000 using the respective official FPS sequences. Reserve the preceding 100 and final 1030 IDs for validation/test. Choose a strictly increasing sigma grid spanning [1e-5,1e-1] with at least two candidates; select by validation RMSE and report complete prefix spectra/condition evidence.
-- Use original nonperiodic DFT coordinates, H/C/O, n_max=l_max=8, cutoff/atom_sigma 2.0/0.3 and 4.0/0.6 Å, and squared atomic SOAP dot products. Normalize intensive kernels separately by cutoff before averaging. Extensive targets use AE; intensive targets use AE/N, training-mean correction and molecular-N restoration.
-- Preserve ordered splits, complete kernel blocks, fitted coefficients and sigma-grid evidence for independent reconstruction; do not substitute source labels for predictions. Author UFF500 calibration is separate from the DFT learning curves.
-- Distinguish kernel scaling from FPS/target effects; the N=4000 comparison alone is not a causal kernel claim.
-- Use `ikkem-slurm` to inspect the configured cluster and execute descriptor and kernel construction, all prescribed fits or model predictions, and the full scientific comparisons in Slurm allocations on compute nodes. Local execution is limited to preparation, transfer, monitoring, lightweight inspection and final artifact assembly. Do not replace the required cluster calculations with local production work after a connection or scheduling failure.
-- Honor the configured connection waiting periods when probing the cluster. If connectivity or scheduling cannot be restored, preserve the failure and report the blocked execution; do not fabricate success or cancel production after startup and count it as complete.
-- Retain submission scripts, scientific commands and input identities, job IDs, original scheduler receipts, compute-node native logs, and the correspondence between jobs and final outputs. Collect these execution records under `/logs/agent/hpc-evidence/` and return the scientific outputs to their existing declared paths. A successful scheduler exit alone does not establish scientific correctness.
+- Treat the BH76 `.res` as text, never executable code. Preserve physical line numbers, source order/case, stoichiometric coefficients and negative barriers. Consecutive records are forward/reverse pairs, first fixed forward; convert with C=0.043364104241800934 eV/(kcal/mol), Eaf=first*C, Ear=second*C and deltaE=Eaf−Ear.
+- Fit all 38 forward pairs by equal-weight intercept OLS; evaluate 34 TS-group LOGO and 38 pair LOPO folds. Keep forward/reverse partners together; LOGO has zero TS overlap, and LOPO overlap must be reported. Include held-out MAE, baseline, maximum error and extrapolation counts.
+- Reconstruct reference-species/repeated-TS counts, population identity cov(deltaE,Eaf)=var(Eaf)−cov(Eaf,Ear), and repeated-TS common-mode perturbation effects on covariance and OLS coefficients.
+- Match folds by unique fold_id and predictions/sensitivity records by pair_id; retain source order where meaningful, with no missing/duplicate IDs, JSON keys or leakage. Numeric tolerance is 1e-8 absolute/relative; counts and booleans are exact.
+- Explain reference coupling and transfer limits without claiming causal BEP behavior, universal/prospective accuracy, kinetic rates or controls not executed. This external descriptive extension does not reproduce Rad-6 kinetics; no DFT, TS search or microkinetics.
+- Use supplied data locally without network.
 
-Submit the results according to the listed output convention.
+- Submit the required results and evidence under `/app/` according to the listed output convention.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Molecular structures, labels and training orders. |
+| `/app/environment/assets/` | Barrier data and analysis parameters. |
 | `/app/` | Submitted results and required execution evidence. |
-| `/app/inputs/source/SOAP-PROTOCOL.md` | Calculation methods and result-submission requirements. |
+| `/app/environment/assets/OUTPUT-CONTRACT.yaml` | Required outputs and submission format. |

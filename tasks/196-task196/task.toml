@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/metrics.csv", "/app/per_frame.csv", "/app/analysis.md", "/app/analysis.py", "/app/code", "/app/decision_certificate.json"]
+artifacts = ["/app/optimized.traj", "/app/properties.csv", "/app/convergence.json", "/app/native", "/app/analysis.md"]
 
 [task]
-name = "compchemworld/case-01-cross-composition-error"
-description = "Compare NNP and ReaxFF energy/force errors across zeolite compositions on the published OOD test set, reconstruct each method's reference states and relative-energy gauges, and diagnose composition-dependent reference offsets against configuration-dependent errors. Deliver metrics.csv, per_frame.csv, an executable analysis and a complete decision certificate covering the full metric, aggregation and weight sensitivity family, without inventing data or inferring bias direction from nonnegative RMSE."
+name = "compchemworld/case-04-nnp-cell-optimization"
+description = "Optimize the atomic positions and unit cells of eight silica zeolite frameworks to zero external pressure with the designated SiAlOH1 neural-network potential, record stopping conditions together with strictly tightened continuations, and verify periodic image-edge topology for both final and tightened structures. Report per-Si quartz-gauged relative energies, densities, mean bond lengths and lattice lengths with native optimization histories and independent derivative checks."
 
 [metadata]
-name = "case-01-cross-composition-error"
-description = "Compare NNP and ReaxFF energy/force errors across zeolite compositions on the published OOD test set, reconstruct each method's reference states and relative-energy gauges, and diagnose composition-dependent reference offsets against configuration-dependent errors. Deliver metrics.csv, per_frame.csv, an executable analysis and a complete decision certificate covering the full metric, aggregation and weight sensitivity family, without inventing data or inferring bias direction from nonnegative RMSE."
+name = "case-04-nnp-cell-optimization"
+description = "Optimize the atomic positions and unit cells of eight silica zeolite frameworks to zero external pressure with the designated SiAlOH1 neural-network potential, record stopping conditions together with strictly tightened continuations, and verify periodic image-edge topology for both final and tightened structures. Report per-Si quartz-gauged relative energies, densities, mean bond lengths and lattice lengths with native optimization histories and independent derivative checks."
 execution_class = "local"
 difficulty = "medium"
 
 [agent]
-timeout_sec = 3600
-network_mode = "no-network"
+timeout_sec = 259200
+network_mode = "public"
 
 [verifier]
-timeout_sec = 1800
+timeout_sec = 10800
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 4
+cpus = 2
 memory_mb = 4096
 build_timeout_sec = 2400
-network_mode = "no-network"
+network_mode = "public"
 
 [verifier.environment]
-cpus = 4
+cpus = 2
 memory_mb = 4096
 build_timeout_sec = 2400
 network_mode = "no-network"

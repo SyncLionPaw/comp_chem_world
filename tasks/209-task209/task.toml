@@ -3,17 +3,17 @@ schema_version = "1.4"
 artifacts = ["/app/outputs"]
 
 [task]
-name = "compchemworld/case-03-halogen-environment-attribution"
-description = "Attribute DDEC charge anomalies of Cl and F sites in the archived halogen panel to local chemical environments using periodic geometry neighbor statistics and coordination counts, quantify conditional error statistics over exact compatible-charge assignments with frozen uncertainty bounds, and construct chemical counterevidence against alternative explanations."
+name = "compchemworld/case-06-adsorption-heat-propagation"
+description = "Estimate paired CO2 adsorption-heat and Henry changes under DDEC3, PQeq and zero framework charge on DOTSOV02 and ICOYIK. Check sampling and numerical sensitivity before assigning a direction or magnitude."
 
 [metadata]
-name = "case-03-halogen-environment-attribution"
-description = "Attribute DDEC charge anomalies of Cl and F sites in the archived halogen panel to local chemical environments using periodic geometry neighbor statistics and coordination counts, quantify conditional error statistics over exact compatible-charge assignments with frozen uncertainty bounds, and construct chemical counterevidence against alternative explanations."
+name = "case-06-adsorption-heat-propagation"
+description = "Estimate paired CO2 adsorption-heat and Henry changes under DDEC3, PQeq and zero framework charge on DOTSOV02 and ICOYIK. Check sampling and numerical sensitivity before assigning a direction or magnitude."
 execution_class = "local"
-difficulty = "medium"
+difficulty = "hard"
 
 [agent]
-timeout_sec = 3600
+timeout_sec = 7200
 network_mode = "no-network"
 
 [verifier]
@@ -22,13 +22,13 @@ environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 4
-memory_mb = 8192
+cpus = 2
+memory_mb = 4096
 build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
-cpus = 4
-memory_mb = 8192
+cpus = 2
+memory_mb = 4096
 build_timeout_sec = 1800
 network_mode = "no-network"

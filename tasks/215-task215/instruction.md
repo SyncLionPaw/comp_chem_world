@@ -1,28 +1,27 @@
-# Active-Site Coordination Geometry, Asp181 Rotamer and WPD-Loop State
+# Deposited MD protocol: restraint Hamiltonian response and restart dependencies
 
 ## Background
 
-Analyse deposited PTP1B and WPD-loop chimera crystal geometry.
+Analyse deposited equilibration restraint protocols using static diagnostics.
 
-The inputs include crystal structures.
+The deposited archive supplies coordinates, protocols and EVB inputs.
 
 ## Task
 
-Analyse deposited PTP1B and WPD-loop chimera crystal geometry, and calculate and interpret the quantities specified below and in the public contract.
+Analyse deposited equilibration restraint protocols using static diagnostics, and calculate and interpret the quantities specified below and in the public contract.
 
 ## Requirements
 
-- Cover exactly the ten deposited structures.
-- Identify VO4, WO4 or none from coordinates; for ligand-free structures use null ligand fields.
-- Locate Cys215 by the catalytic motif and Asp181 by WPD.
-- Report central-atom–SG and all four ligand oxygen distances to at least two decimals in Å.
-- Compute Asp181 N–CA–CB–CG χ1 in (−180°,180°]; productive means |χ1|≥120°.
-- WPD closed means Asp181 CA–Cys215 CA ≤10.0 Å.
-- Choose highest-occupancy alternate conformers, breaking ties by label (blank/A before B).
+- Use all five systems and all nine stages, deriving masks, controls and dependencies from deposited topology, coordinates, README and namelists.
+- Exclude only WAT and Na+ from solute and use topology masses.
+- At a fixed deposited Cartesian reference without wrapping, minimum images or alignment, evaluate all-atom translation (0.10,−0.20,0.05) Å, solute rotation +1° about its mass-centred z axis, and solute translation by full cell vector a.
+- Use E=kΣ|r−r_ref|² without 1/2, k in kcal mol⁻¹ Å⁻²; report energy, net force and maximum atom force, plus E(eqnpt)−E(npt4) at identical diagnostic coordinates.
+- Unrestrained counts/forces/energies are zero.
+- MD duration=nstlim*dt; scheduled writes=floor(nstlim/ntwx).
+- This static diagnostic provides no MD convergence or production-readiness claim.
+- Finite numbers require absolute or relative agreement 1e-7.
 - Do not fetch external scientific data.
 
-- JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
-- For each ligand oxygen, report the distance from the central V/W atom; ligand_sg_distance is central V/W to Cys SG.
 - Submit the required artifacts according to the listed output contract.
 
 ## Files

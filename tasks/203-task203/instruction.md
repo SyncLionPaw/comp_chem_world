@@ -1,20 +1,20 @@
-# Constrained Relaxed MM Torsion Scans Against QM
+# Actual Sage Torsion Refit and Protected Validation
 
 ## Background
 
-A relaxed torsion profile depends on both the angular constraint and stationarity in the remaining degrees of freedom. The supplied data include QM scans, mapped structures, the fixed Sage field and protocol.
+Improving a training torsion curve does not establish transfer to unseen angles or molecules. The supplied data include molecular structures, QM training records, the fixed Sage field and validation protocol.
 
 ## Task
 
-Run forward and reverse constrained Sage scans for both supplied molecules, retaining all twenty-four 15-degree grid points per direction. Compare the physical MM and QM curves and quantify branch dependence.
+Select and refit a small chemically assigned set of existing Sage Proper-torsion coefficients using the three training sources. Evaluate fitting, no-ridge controls and relaxed-geometry responses, keeping protected QM data out of selection.
 
 ## Requirements
 
-- Preserve source identities, atom ordering and stereochemistry. Use the fixed field and one first-supplied-conformer AmberTools AM1-BCC vector per molecule across all angles and directions.
-- Complete all 96 constrained optimizations. Periodic angle error must be at most 1 degree and the maximum tangent-space projected force at most 5 kJ mol^-1 nm^-1.
-- Retain physical forces, torsion Jacobians and optimization histories. Exclude artificial constraint energy from the physical MM curves.
-- Zero each observed direction curve separately; preserve both branches. Do not infer an unconstrained reaction barrier or general force-field superiority.
-- Use installed local tools without networking or remote scheduling. Use at most 5000 iterations per grid point.
+- Use the full Sage bonded/nonbonded energy with the prescribed first-conformer AM1-BCC charges; do not substitute an independent Fourier surrogate.
+- Retain all twelve alternating training angles per source. Modify at most two allowed Proper IDs, at most four existing k terms per ID, each within initial +/-20 kJ/mol; preserve all other parameters.
+- Choose parameters and regularization using training data only. Keep a same-selection no-ridge control and all parameter/objective histories; at most 200 full-training objective evaluations include selection and controls.
+- Perform the prescribed four-angle relaxed validation per training molecule. The other twelve angles and independent molecule remain protected; preserve adverse results and make no guaranteed-improvement or generalization claim.
+- Use installed local tools without networking or remote scheduling. Use at most 2000 minimizer iterations per required relaxed grid.
 
 - Submit results, reproducible analysis and native evidence under `/app/`, using `/app/results.json` and `/app/analysis.py` as the result and analysis entry points. Submit the remaining required files, fields and native artifacts according to the listed output convention.
 

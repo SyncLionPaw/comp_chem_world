@@ -11,7 +11,7 @@ COPY --chown=0:0 assets/wheels/python312/ /tmp/co2-wheels/
 
 RUN cd /tmp/co2-wheels && sha256sum -c SHA256SUMS
 
-RUN rm -rf /app/inputs/wheels /opt/co2-public/inputs/wheels /app/inputs/dependencies /opt/co2-public/inputs/dependencies /app/inputs/contracts /opt/co2-public/inputs/contracts \
+RUN rm -rf /app/inputs/wheels /opt/co2-public/inputs/wheels \
  && test "$(dpkg --print-architecture)" = amd64 \
  && apt-get update \
  && apt-get install -y --no-install-recommends libgomp1 \
@@ -30,9 +30,9 @@ RUN rm -rf /app/inputs/wheels /opt/co2-public/inputs/wheels /app/inputs/dependen
  && rm -rf /tmp/co2-wheels
 
 ARG PUBLIC_SPEC
-LABEL co2dl17.case_id="case-03-fixed-activity-microkinetics" co2dl17.public_spec="${PUBLIC_SPEC}"
+LABEL co2dl17.case_id="case-06-stationary-feedback-diagnosis" co2dl17.public_spec="${PUBLIC_SPEC}"
 
-RUN rm -rf /opt/co2-public/inputs/contracts \
+RUN rm -rf /opt/co2-public/inputs/contracts /app/inputs/contracts /app/inputs/dependencies \
  && chmod -R a-w /opt/co2-public \
  && chmod -R a+rX /opt/co2-public /app/inputs
 

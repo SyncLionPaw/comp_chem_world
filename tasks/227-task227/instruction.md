@@ -1,39 +1,37 @@
-# Metadynamics Protocol and Gaussian Hill-Height Decision
+# MM-GBSA Association, Ranking and Failure Attribution
 
 ## Background
 
-Binding pose metadynamics accelerates the exploration of metastable ligand states by depositing history-dependent Gaussian bias potentials along a collective variable (CV). In OpenBPMD, the CV is the root-mean-square deviation (RMSD) of the ligand's heavy atoms relative to reference coordinates, aligned against protein secondary structure Cα "anchor" atoms to decouple internal ligand motion from global protein tumbling.
+Molecular Mechanics Generalized Born Surface Area (MM-GBSA) is widely used in structure-based drug design to estimate binding free energies. However, evaluating candidate docking poses using endpoint MM-GBSA on short unbiased MD simulations frequently yields poor results.
 
-The solvated system is supplied as an Amber topology and restart. The inputs also provide source condition comparisons and their provenance.
+The authors benchmarked MM-GBSA against OpenBPMD using 10 ns unbiased trajectories scored with AmberTools20 `MMPBSA.py`. Compute the association and ranking performance directly from the supplied paired per-pose data. The SI energy file covers 200 poses in 40 systems; two DPP4 systems are absent because the reported MMPBSA.py calculations failed. Do not impute those data or compare rates using different denominators.
+
+Table S1 supplies pose identifiers, RMSDs and OpenBPMD scores for 42 systems. The SI energy data cover 200 poses in 40 systems; the provenance records the source and exclusions.
 
 ## Task
 
-Gaussian hill height changes finite-time driven perturbation and ranking. Compare the specified 0.30 and 0.05 settings without inferring measured throughput or free-energy resolution from the amplitude. Assess conditional benefits/risks using the source data, counterevidence and distinguishing predictions.
-
-Orchestrate the simulation protocol specification for OpenMM metadynamics on the solvated system and formulate a physical rationale for the Gaussian hill height decision.
+Compute the statistical association between MM-GBSA scores and pose RMSD and compare ranking performance on the matched population. Evaluate solvent, entropy and finite-sampling explanations against scientifically plausible alternatives. Distinguish observations, hypotheses and causal conclusions; a justified finding that the mechanism is not identifiable can satisfy the task.
 
 ## Requirements
 
-- Compare 0.30 and 0.05 hill heights under the same 10×10 ns intended budget, using source statistics, counterevidence and distinguishing predictions. Do not infer measured throughput/free-energy resolution or universal benefit/harm from hill amplitude; the source reports some poses escaping too quickly, not universal escape.
-- Derive ordered DSSP H/G/I/E/B Cα anchors within 10 Å of ligand heavy atoms, excluding loops/termini. This benchmark rule and anchor-only-fit/ligand-only-measure CV differ from the author's COM-neighborhood backbone selection and joint ligand-plus-anchor RMSDForce; disclose both distinctions.
-- Keep the specified 100 ps deposition interval and disclose the Methods 100 ps/code 1 ps discrepancy. Represent the author's empty flat-bottom workaround as `k_kj_mol: 0.0`, `upper_wall_nm: 10.0`; it exerts no force and does not fix RMSD image handling.
-- Retain the supplied Amber topology and specify intended NVT, 300 K, Langevin friction 1 ps^-1, 4 fs, HMR 4 Da applied/checked at system construction, PME/1 nm, HBonds and PBC. Distinguish these unexecuted source-derived production intentions from uniform-mass geometric smoke tests. The paper reports ff14SB/GAFF2/AM1-BCC/TIP3P, but Amber files alone do not establish complete provenance.
-- Include `parameter_rationales` for every required bias/CV/PBC/budget field, `intended_production_protocol` and `source_cv_distinction`. Support reasons with source evidence and quantitative controls. Prose alone is not semantically certified.
-- Use directly acquired OpenBPMD pp6213–6214 for O3 and the conditional small-hill recommendation. Do not treat unverified Clark2016 rerun/escape details as observations. Numerical countermodels are hypothetical, not measured probabilities, trajectories or causal conclusions.
-- Use finite JSON numbers, excluding booleans; response/evidence tolerance is max(1e-8,1e-7*abs(reference)).
+- Join the energy data by `pose_id` and verify `pose_rmsd_A` against Table S1.
+
+- Derive coefficients, variable direction and ranking performance from the supplied matched data. Do not treat a fixed sign or arbitrary coefficient threshold as a universal rule. Pooled p-values are nominal because poses cluster within systems; association and ranking differences do not by themselves identify causality or establish universal method superiority.
+- These formal countermodels address missing causal information. They are not measured affinity, measured entropy, a recovered MMGBSA energy-component decomposition or a demonstrated fix.
+- In the report, connect each correction to an actual matched control: change solvent representation while retaining poses, force field and sampling; change entropy estimator at fixed trajectory/solvent; extend independent sampling at fixed Hamiltonian/estimator.
+- Distinct intervention predictions show what data would discriminate the explanations.
+- RMSD is a pose observable, not a known binding free energy.
+- Preserve contrary evidence and transfer limits.
+- Countermodel tolerance=max(1e-7,1e-7*abs(expected)); cluster-statistic tolerance=max(1e-8,1e-7*abs(expected)). All values must be finite typed JSON numbers. Units: x is MM-GBSA binding energy dG in kJ/mol (kJ mol^-1 or kJ mol⁻¹); y is pose RMSD in Angstrom or Å; n=200. kcal/mol and nm are different units. `excluded_systems` is a unique ID set. Tie bounds require finite min/max and integer n.
+
+The output contract listed below defines the input index, output fields, units and numerical protocols. Keep linked run evidence within the declared submission directory.
 
 JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
-
-Use zero-based Amber atom and residue indices; a descriptive residue ID may follow the source representation. Native validation is checked through its scientific behavior rather than an exact platform or integrator class name.
-
-Calculate and submit both separate reproducible controls in the output field map: the nonzero-force periodic/nonperiodic energy diagnostic and the deposited-hill CV control (`reference_control`). These are required numerical outputs, distinct from the zero-k workaround and your main smoke simulation. Report the actual settings and results of the main smoke, whose valid platform, Langevin integrator and duration are not prescribed by these controls. The map specifies each control's inputs, output fields and numerical tolerance.
-
-Submit the results according to the listed output convention.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Solvated system and source data. |
+| `/app/inputs/` | Paired energies, poses and reference data. |
 | `/app/` | Submitted results and required execution evidence. |
-| `/app/inputs/output-field-map.json` | Output fields and submission format. |
+| `/app/output-contract.md` | Required outputs and submission format. |

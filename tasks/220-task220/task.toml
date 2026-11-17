@@ -3,12 +3,12 @@ schema_version = "1.4"
 artifacts = ["/app/final"]
 
 [task]
-name = "compchemworld/case-01-tripeptide-pka-extraction"
-description = "Run the 30-production-run constant-pH MD titration grid for the Asp, Glu and His tripeptides (five pH values, two replicas, 10 ns each) using independently selected computing resources with the supplied GROMACS CpHMD fork and CHARMM36 mar2019 CpHMD force field, derive the chemical deprotonation coordinates from the native lambda channels, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals inside the frozen experimental-deviation tolerances, delivering pka_results.json, titration_curves.csv, convergence_analysis.json and a complete native run manifest under /app/final."
+name = "compchemworld/case-04-martini-cphmd-validation"
+description = "Design and run coarse-grained Martini constant-pH titrations for the Asp and Glu tripeptides with the supplied GROMACS CpHMD fork, preserving the single-lambda representation, buffer particles, reaction-field electrostatics and 20 fs timestep, choose a converged pH grid covering each titration midpoint, fit coarse-grained pKa values with confidence intervals, and compare them against the supplied all-atom and experimental references to demonstrate force-field-agnostic charge interpolation in cg_pka_results.json and cross_resolution_comparison.json under /app/final."
 
 [metadata]
-name = "case-01-tripeptide-pka-extraction"
-description = "Run the 30-production-run constant-pH MD titration grid for the Asp, Glu and His tripeptides (five pH values, two replicas, 10 ns each) using independently selected computing resources with the supplied GROMACS CpHMD fork and CHARMM36 mar2019 CpHMD force field, derive the chemical deprotonation coordinates from the native lambda channels, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals inside the frozen experimental-deviation tolerances, delivering pka_results.json, titration_curves.csv, convergence_analysis.json and a complete native run manifest under /app/final."
+name = "case-04-martini-cphmd-validation"
+description = "Design and run coarse-grained Martini constant-pH titrations for the Asp and Glu tripeptides with the supplied GROMACS CpHMD fork, preserving the single-lambda representation, buffer particles, reaction-field electrostatics and 20 fs timestep, choose a converged pH grid covering each titration midpoint, fit coarse-grained pKa values with confidence intervals, and compare them against the supplied all-atom and experimental references to demonstrate force-field-agnostic charge interpolation in cg_pka_results.json and cross_resolution_comparison.json under /app/final."
 execution_class = "remote"
 difficulty = "hard"
 

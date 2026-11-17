@@ -12,10 +12,10 @@ The study develops a unified machine-learned potential for elemental metals and 
 
 | Task | Description |
 | --- | --- |
-| Task 189 | Evaluate multicomponent transferability through energy and force prediction errors. |
-| Task 190 | Calculate single-vacancy formation energies in FCC Cu and BCC W and assess size and relaxation convergence. |
-| Task 191 | Compute finite-displacement phonons and diagnose dynamical stability. |
-| Task 192 | Analyse timestep convergence and NVE energy conservation in goldene records. |
-| Task 193 | Identify initial Ni–Ni3Al phase regions and assess static Mo partitioning. |
-| Task 194 | Identify defects and clusters in displacement-cascade configurations. |
-| Task 195 | Compare the finite prediction accuracy and applicability of twelve retained models. |
+| Task 186 | Evaluate multicomponent transferability through energy and force prediction errors. |
+| Task 187 | Calculate single-vacancy formation energies in FCC Cu and BCC W and assess size and relaxation convergence. |
+| Task 188 | Compute finite-displacement phonons and diagnose dynamical stability. |
+| Task 189 | Analyse timestep convergence and NVE energy conservation in goldene records. |
+| Task 190 | Identify initial Ni–Ni3Al phase regions and assess static Mo partitioning. |
+| Task 191 | Identify defects and clusters in displacement-cascade configurations. |
+| Task 192 | Compare the finite prediction accuracy and applicability of twelve retained models. |

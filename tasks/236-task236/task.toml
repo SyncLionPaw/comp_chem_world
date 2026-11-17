@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final/dielectric_spectrum_summary.json", "/app/final/harmonic_oscillator_selection.md", "/app/final/chi_spectrum_4ps.csv", "/app/final/constructive_controls.json"]
+artifacts = ["/app/krr_model_evaluation.json", "/app/krr_evidence.npz"]
 
 [task]
-name = "compchemworld/case-06-dielectric-response-oscillator-fitting"
-description = "Recompute the dipole autocorrelation spectrum of the 6x6x6 BaTiO3 supercell record, derive the conditional THz dielectric response under each stated dipole-unit hypothesis, fit one- and two-oscillator models on finite lag windows, and report the held-out counterevidence without claiming physical mode necessity."
+name = "compchemworld/case-03-extensive-vs-intensive-soap-krr"
+description = "Compute extensive and intensive SOAP-KRR learning curves on Rad-6 at N=500,1000,2000,4000, with validation-selected regularization, per-molecule predictions and complete kernel condition diagnostics."
 
 [metadata]
-name = "case-06-dielectric-response-oscillator-fitting"
-description = "Recompute the dipole autocorrelation spectrum of the 6x6x6 BaTiO3 supercell record, derive the conditional THz dielectric response under each stated dipole-unit hypothesis, fit one- and two-oscillator models on finite lag windows, and report the held-out counterevidence without claiming physical mode necessity."
-execution_class = "local"
-difficulty = "medium"
+name = "case-03-extensive-vs-intensive-soap-krr"
+description = "Compute extensive and intensive SOAP-KRR learning curves on Rad-6 at N=500,1000,2000,4000, with validation-selected regularization, per-molecule predictions and complete kernel condition diagnostics."
+execution_class = "remote"
+difficulty = "hard"
 
 [agent]
-timeout_sec = 3600
-network_mode = "no-network"
+timeout_sec = 86400
+network_mode = "public"
 
 [verifier]
-timeout_sec = 3600
+timeout_sec = 10800
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 4
-memory_mb = 2048
 build_timeout_sec = 1800
-network_mode = "no-network"
+cpus = 8
+memory_mb = 32768
+network_mode = "public"
 
 [verifier.environment]
-cpus = 4
-memory_mb = 2048
 build_timeout_sec = 1800
+cpus = 8
+memory_mb = 32768
 network_mode = "no-network"

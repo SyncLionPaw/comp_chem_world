@@ -1,37 +1,30 @@
-# Cross-Composition Potential-Energy Error and Reference-Offset Diagnosis
+# NNP atomic and cell optimization calculations for eight silica frameworks
 
 ## Background
 
-Compare NNP and ReaxFF energy/force errors across compositions and examine how reference states and relative-energy gauges affect their interpretation.
-
-The inputs include per-configuration energy and force labels, group definitions, relative-energy anchors, method reference states and diagnostic formulas.
+Atomic and cell relaxation can change the energies and periodic connectivity of silica frameworks. Eight initial periodic frameworks and the SiAlOH1 neural-network potential are supplied for a comparison at zero external pressure.
 
 ## Task
 
-Compute general NNP and ReaxFF errors on the OOD test set from author per-configuration energies/forces. Determine how relative energies can hide composition-dependent reference offsets. Do not run new MD.
+Calculate the atomic and cell relaxation of all eight supplied frameworks at zero external pressure. Continue each optimization with tightened stopping conditions, reconstruct periodic topology for both results, and compare structural properties under a common potential-energy gauge. Preserve the calculated residuals and numerical changes needed to assess each result.
 
 ## Requirements
 
-Report incomplete input conditions if declared materials are missing; do not invent data. Retain theory level, normalization, and units for all energies/forces.
+- Execute the required scientific calculations locally in the task environment. Preserve the actual commands, inputs, native outputs and reproducible execution records.
+- Use the designated SiAlOH1 model and 6 Å neighborhood, preserve source isotope masses and target zero external pressure. State energy, force and ASE Voigt stress units.
+- Choose the optimizer and atomic/cell freedoms. Declare positive force and stress stopping thresholds per framework, then continue with both thresholds strictly tightened. Preserve native logs, raw forces/stresses, final structures, restarts and failures.
+- Check independent energy-force/stress derivatives, step-size checks and numerical changes. Report the performed stopping checks without claiming that a selected resolution is sufficient.
+- Verify periodic image-edge topology for both final and tightened structures. Explicit atom permutations, integer lattice basis changes and wrapping maps are permitted; do not force connectivity using an arbitrary cutoff.
+- Recompute per-Si energy relative to quartz aq, Si density, periodic-edge mean bond length and lattice lengths. Do not claim SCAN/experimental accuracy, global ground states, full-BZ phonons or a strict local minimum.
+- Preserve complete native execution records to support independent verification.
 
-- Choose comparable formation-reaction and same-composition relative-energy metrics, making denominators explicit.
-- Check each method's reference states, force-component aggregation, and group weights.
-- Distinguish systematic offsets from configuration-dependent errors; low RMSE does not imply generally unbiased sampling.
-
-Choose formation or relative energy, force components or vector norms, and equal-group, frame or atom aggregation as scientific conventions.
-
-Retain all NNP and REAX group and per-frame results; the DFT zero-error baseline may be included or omitted as a whole. Explain the force RMSE convention and group aggregation and retain sufficient precision; counts must be integers, RMSE nonnegative, and coarse rounding or scientific-notation exponents must not inflate allowed error. For every group and method calculate signed formation and relative-energy means, centered and full MSE, removed anchor offset, RMSE change and force error. Evaluate both energy metrics, all three aggregation rules, weights 0, 0.25, 0.5, 0.75 and 1, and a chosen weight in [0,1]; report denominators, group weights, scores and tied minimizers. RMSE alone cannot establish the sign of an offset.
-
-Use formation and relative errors corrected for each method’s reference state, and distinguish the removed gauge from the raw unreferenced energy difference. GIS differs in topology, composition and temperature; limit comparisons to the evaluated systems and do not identify temperature as the unique cause or certify unseen sampling safety. Explain methods and sources, and keep the scientific choices fixed when recomputing original and controlled perturbed data.
-
-Network access is disabled.
-
-- Submit the required results and evidence under `/app/` according to the listed output convention. Use `/app/analysis.py` as the analysis entry point; `/app/code` may contain optional helpers.
+- Submit native trajectories, optimization histories, model settings and derivative samples to record the calculations.
+- Submit the required results and evidence under `/app/` according to the listed output convention.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Energy and force labels, groups and reference data. |
+| `/app/inputs/` | Framework structures and the designated neural-network potential. |
 | `/app/` | Submitted results and required execution evidence. |
 | `/app/public/output-contract.yaml` | Required outputs and submission format. |

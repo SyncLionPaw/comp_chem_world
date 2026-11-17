@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY assets/inputs/ /app/inputs/
 COPY assets/public/ /app/public/
+COPY assets/canonical-protocol.md /app/canonical-protocol.md
+COPY assets/output-schema.json /app/output-schema.json
 
 COPY assets/wheels/python312/ /tmp/batio3-wheels/
 

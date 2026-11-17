@@ -12,9 +12,9 @@ The study develops and benchmarks the Open Force Field 2.0.0 Sage small-molecule
 
 | Task | Description |
 | --- | --- |
-| Task 201 | Parameterise molecules with Sage and check molecular energy and force consistency. |
-| Task 202 | Perform multi-start conformer minimisation and compare the resulting structures and energies. |
-| Task 203 | Compute constrained relaxed molecular-mechanics torsion scans against quantum reference profiles. |
-| Task 204 | Sample small-system liquid NPT trajectories and estimate liquid densities. |
-| Task 205 | Analyse finite gas-phase MBAR reweighting and identifiability limits. |
-| Task 206 | Refit Sage torsion parameters and evaluate performance on protected validation data. |
+| Task 198 | Parameterise molecules with Sage and check molecular energy and force consistency. |
+| Task 199 | Perform multi-start conformer minimisation and compare the resulting structures and energies. |
+| Task 200 | Compute constrained relaxed molecular-mechanics torsion scans against quantum reference profiles. |
+| Task 201 | Sample small-system liquid NPT trajectories and estimate liquid densities. |
+| Task 202 | Analyse finite gas-phase MBAR reweighting and identifiability limits. |
+| Task 203 | Refit Sage torsion parameters and evaluate performance on protected validation data. |

@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/krr_model_evaluation.json", "/app/krr_evidence.npz"]
+artifacts = ["/app/bep_grouped_validation.json", "/app/bep_transfer_report.md"]
 
 [task]
-name = "compchemworld/case-03-extensive-vs-intensive-soap-krr"
-description = "Compute extensive and intensive SOAP-KRR learning curves on Rad-6 at N=500,1000,2000,4000, with validation-selected regularization, per-molecule predictions and complete kernel condition diagnostics."
+name = "compchemworld/case-06-bep-grouped-validation"
+description = "Validate Bell-Evans-Polanyi transfer on the supplied GMTKN55 BH76 barrier records using only standard-library Python: reproduce the paired grouped validation with forward/reverse OLS fits, repeated-transition-state grouped sensitivity, the covariance identity and TS-LOGO/pair-LOPO counterevidence, and deliver bep_grouped_validation.json plus bep_transfer_report.md under /app."
 
 [metadata]
-name = "case-03-extensive-vs-intensive-soap-krr"
-description = "Compute extensive and intensive SOAP-KRR learning curves on Rad-6 at N=500,1000,2000,4000, with validation-selected regularization, per-molecule predictions and complete kernel condition diagnostics."
-execution_class = "remote"
-difficulty = "hard"
+name = "case-06-bep-grouped-validation"
+description = "Validate Bell-Evans-Polanyi transfer on the supplied GMTKN55 BH76 barrier records using only standard-library Python: reproduce the paired grouped validation with forward/reverse OLS fits, repeated-transition-state grouped sensitivity, the covariance identity and TS-LOGO/pair-LOPO counterevidence, and deliver bep_grouped_validation.json plus bep_transfer_report.md under /app."
+execution_class = "local"
+difficulty = "medium"
 
 [agent]
-timeout_sec = 86400
-network_mode = "public"
+timeout_sec = 3600
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 10800
+timeout_sec = 1800
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-build_timeout_sec = 1800
-cpus = 8
-memory_mb = 32768
-network_mode = "public"
+build_timeout_sec = 120
+cpus = 1
+memory_mb = 1024
+network_mode = "no-network"
 
 [verifier.environment]
-build_timeout_sec = 1800
-cpus = 8
-memory_mb = 32768
+build_timeout_sec = 120
+cpus = 1
+memory_mb = 1024
 network_mode = "no-network"

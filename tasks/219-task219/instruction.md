@@ -1,36 +1,34 @@
-# Multi-Scale Mechanistic Synthesis and Inactivity Diagnosis
+# Protein multisite pKa prediction
 
 ## Background
 
-The supplied evidence concerns turnover differences and Chimera 1 inactivity.
+Cardiotoxin V contains four titratable sites: His4, Glu17, Asp42 and Asp59. The supplied protein system and experimental references support a site-specific titration assessment.
 
-The supplied dataset contains kinetics, EVB, sequence and MSM evidence.
+Inputs include Cardiotoxin V structures, topology, indices and run parameters, plus force fields, calibration parameters and experimental references.
 
 ## Task
 
-Assess mechanistic evidence for turnover differences and Chimera 1 inactivity, and calculate and interpret the quantities specified below and in the public contract.
+Plan and execute the prescribed protein titration campaign, calculate site-specific curves and pKa intervals, and compare the fitted values with experiment. Choose the software setup and job organization within the cluster requirements below, while preserving the supplied scientific model and calculation requirements.
 
 ## Requirements
 
-- Compare WT and Chimeras 7/4/3 quantitatively, preserve signed six-residue electrostatic comparisons and independently counted motifs.
-- Keep the three unavailable Chimera 1 MSM quantities and experimental activation barrier as source-bound nulls.
-- Provide source-bound quantities and derived operations, report, attribution matrix and constructive mechanism certificate.
-- Construct two opposing serial waiting-time allocations (chemical fractions ≤0.1 and ≥0.9) per system, two C1 zero-turnover boundary models and observationally equivalent E-loop models.
-- Do not identify MSM opening with productive access, residual barriers with gating, or observational countermodels with measured interventions.
-- Use R=0.00198720425864083 kcal mol⁻¹ K⁻¹, T=298.15 K and tolerance max(1e-6,1e-6*abs(expected)).
-- Retain conditional prefactor uncertainty and evidence-linked candidate mechanisms, counterevidence and distinguishing measurements.
-- Do not fetch external scientific data.
+- Use `ikkem-slurm` to inspect the configured cluster and execute all prescribed production simulations in Slurm allocations on compute nodes. Local execution is limited to preparation, transfer, monitoring, lightweight inspection and final artifact assembly. Do not replace the required cluster calculations with local production work after a connection or scheduling failure.
+- Prepare the GROMACS CpHMD fork required by the supplied lambda-dynamics model and verify startup before production. A startup check does not replace the required production sampling.
+- Honor the configured connection waiting periods when probing the cluster. If connectivity or scheduling cannot be restored, preserve the failure and report the blocked execution; do not fabricate success or cancel production after startup and count it as complete.
+- Retain submission scripts, scientific commands and input identities, job IDs, original scheduler receipts, compute-node native logs, and the correspondence between jobs and final outputs. Collect these execution records under `/logs/agent/hpc-evidence/` and return the scientific outputs to their existing declared paths. A successful scheduler exit alone does not establish scientific correctness.
+- Use pH 1.0–8.0 in steps of 0.5, five independent replicas per pH, 50 ns per replica: 75 simulations. Preserve 300 K, 1 bar and the supplied 20 buffer particles.
+- Use the CpHMD fork, map index groups and atom collections to the correct sites, and extend the short template to production duration.
+- Explain equilibration, endpoint classification and replica aggregation. Use lambda<0.2 and lambda>0.8 for the two basins; exclude the middle region. His deprotonation is the neutral-state sum.
+- Cover every site with finite curves in [0,1] and intervals containing the fitted pKa. Treat Asp59 pKa<2 as an upper bound; document exclusion, an upper-bound approximation or another justified censored-data policy.
+- Report Pearson r, MSE, RMSE, residuals and included sites. Require r>=0.90, MSE<=0.5 and RMSE<=0.8.
+- Preserve the actual simulation inputs, launch and analysis commands, native outputs, and available scheduler receipts, including failed or stopped attempts. Report results from the completed production records; retain the effective parameters and analysis windows needed for independent numerical verification.
 
-- In the attribution matrix, source paths use slash-separated keys relative to the dataset JSON root, without a filename prefix or leading slash; for example `kinetics_25C/WT_PTP1B/kcat_s_inv`.
-- JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
-- For the E-loop countermodel sum use only K120_E_loop, E115_E_loop, K116_E_loop and R112_E_loop; report all six residues separately in the attribution matrix.
-- A derived quantity's `operation` is a bare enum from the output contract, such as `ratio`, `difference` or `eyring_rate_ratio`; put explanatory prose in the designated rationale fields, not in the enum value. The four-residue E-loop sum is signed, with neither absolute values nor the additional N111 and L110 terms.
-- Submit the required artifacts according to the listed output contract.
+- Submit the required artifacts and run evidence according to the listed output contract. Keep linked evidence inside the submission directory.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Structures, calculation records and reference data. |
+| `/app/inputs/` | Simulation systems, force fields and run parameters. |
 | `/app/output-contract.md` | Required outputs and submission format. |
-| `/app/` | Submitted results and required execution evidence. |
+| `/app/final/` | Submitted results and required execution evidence. |

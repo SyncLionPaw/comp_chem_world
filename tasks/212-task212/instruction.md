@@ -1,27 +1,34 @@
-# Charge-model sensitivity of dilute CO₂ adsorption
+# Active-Site Coordination Geometry, Asp181 Rotamer and WPD-Loop State
 
 ## Background
 
-Framework charges affect CO₂–host electrostatics and hence the heat of adsorption and Henry coefficient at infinite dilution.
+Analyse deposited PTP1B and WPD-loop chimera crystal geometry.
 
-The inputs define the sampling arms, structures, method order and proposals per stage; periodic cells, fractional coordinates and site IDs; site-aligned framework charges and DDEC3 references with source row IDs; and CO₂ geometry, interaction parameters, temperature, unit conversions, cutoffs, Ewald settings and resolution targets.
+The inputs include crystal structures.
 
 ## Task
 
-At 298 K, how much do PQeq and zero framework charge change CO₂ adsorption relative to DDEC3 in DOTSOV02 and ICOYIK? Estimate the change in isosteric heat and the natural log of the Henry-coefficient ratio for each framework. Distinguish the direction of each effect from how precisely its magnitude is known.
+Analyse deposited PTP1B and WPD-loop chimera crystal geometry, and calculate and interpret the quantities specified below and in the public contract.
 
 ## Requirements
 
-- Perform paired Widom insertions on the supplied rigid cells. For each pose use the same geometry and orientation for DDEC3, PQeq_GMP and NO_Q. Report method minus DDEC3. Apply the two Ewald settings and the hard-core, UFF and TraPPE conventions in the public protocol. Keep isolated pockets and retain the complete proposal denominator.
-- Use eight independent replicas per sampling arm and two fresh stages per replica. Use uniform sampling for DOTSOV02 and both uniform and volume-weighted stratified sampling for ICOYIK. Compare the initial and cumulative estimates, the pooled and replica-wise estimates, and the results of the two ICOYIK samplers. Report pointwise uncertainty for each observable separately.
-- Use only the public inputs for this task and submit the two outputs at the specified paths.
+- Cover exactly the ten deposited structures.
+- Identify VO4, WO4 or none from coordinates; for ligand-free structures use null ligand fields.
+- Locate Cys215 by the catalytic motif and Asp181 by WPD.
+- Report central-atom–SG and all four ligand oxygen distances to at least two decimals in Å.
+- Compute Asp181 N–CA–CB–CG χ1 in (−180°,180°]; productive means |χ1|≥120°.
+- WPD closed means Asp181 CA–Cys215 CA ≤10.0 Å.
+- Choose highest-occupancy alternate conformers, breaking ties by label (blank/A before B).
+- Do not fetch external scientific data.
 
+- JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
+- For each ligand oxygen, report the distance from the central V/W atom; ligand_sg_distance is central V/W to Cys SG.
 - Submit the required artifacts according to the listed output contract.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/opt/qeq-public/` | Public data, models and calculation parameters. |
-| `/opt/qeq-public/output-contract.yaml` | Required outputs and submission format. |
-| `/app/outputs/` | Submitted results and required execution evidence. |
+| `/app/inputs/` | Structures, calculation records and reference data. |
+| `/app/inputs/output-contract.json` | Required outputs and submission format. |
+| `/app/` | Submitted results and required execution evidence. |

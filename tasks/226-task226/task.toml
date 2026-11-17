@@ -1,17 +1,17 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
 artifacts = [
-  "/app/scores.json",
-  "/app/timeseries.csv",
+  "/app/reranking_summary.json",
+  "/app/statistical_significance.json",
 ]
 
 [task]
-name = "compchemworld/case-01-contact-dynamics-scoring"
-description = "Analyze an Open Binding Pose Metadynamics trajectory of a protein-ligand complex: compute the per-frame ligand heavy-atom PoseScore after protein-backbone Kabsch alignment, the normalized heavy-atom contact persistence ContactScore against the frame-0 3.5 A protein neighborhood, and the composite CompScore = PoseScore - 5 * ContactScore, then report the tail-window means over the final 20 production frames plus the full 99-frame score timeseries."
+name = "compchemworld/case-04-multi-target-pose-reranking"
+description = "Rerank docking poses across four kinase targets by combining OpenBPMD CompScore summaries with the initial induced-fit docking scores, check top-pose consistency with the crystal-reference RMSD cutoffs, reproduce the published Wilcoxon signed-rank comparison against the reported Figure S1 constants, and report the reranking summary together with the paired statistical significance of the score differences."
 
 [metadata]
-name = "case-01-contact-dynamics-scoring"
-description = "Analyze an Open Binding Pose Metadynamics trajectory of a protein-ligand complex: compute the per-frame ligand heavy-atom PoseScore after protein-backbone Kabsch alignment, the normalized heavy-atom contact persistence ContactScore against the frame-0 3.5 A protein neighborhood, and the composite CompScore = PoseScore - 5 * ContactScore, then report the tail-window means over the final 20 production frames plus the full 99-frame score timeseries."
+name = "case-04-multi-target-pose-reranking"
+description = "Rerank docking poses across four kinase targets by combining OpenBPMD CompScore summaries with the initial induced-fit docking scores, check top-pose consistency with the crystal-reference RMSD cutoffs, reproduce the published Wilcoxon signed-rank comparison against the reported Figure S1 constants, and report the reranking summary together with the paired statistical significance of the score differences."
 execution_class = "local"
 difficulty = "medium"
 

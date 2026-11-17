@@ -1,27 +1,23 @@
-# Finite-Summation Convergence and Representation Invariance of Periodic Charges
+# Periodic Electrostatic-Potential Fidelity in Accessible Pore Volume
 
 ## Background
 
-Periodic charge sums can depend on truncation and cell representation.
+Atomic charge errors need not predict accessible-pore periodic potential errors.
 
-Public inputs provide the source observations, geometry, parameters and method conventions.
+Public inputs provide panel and charge data, geometry and mapping information, and the potential model and method conventions.
 
 ## Task
 
-Establish DOTSOV02 EQeq summation convergence and invariance under equivalent cells and origin shifts.
+Compare full periodic pore fields for all four charge methods on the fixed four-MOF panel.
 
 ## Requirements
 
-- Use a finite numeric scan key for `summation_setting` (for example 1, 2, 3). In the same representation, `compared_to_setting` is empty on the first row and is the preceding numeric key thereafter. Use `run_id` for descriptive labels such as `R03-M03`.
-- Retain the analytical EQeq kernel, geometric hardness mixing, K=14.4/1.67 eV Angstrom/e², neutral G=0/tinfoil convention, nonzero self-images and actual-charge Taylor coefficients. H uses -2.0 and 13.598 eV. Scan at least three increasing extents with a declared stopping rule. Final numerical charge target is 1e-6 e; at most 12 runs, range 20 per direction and twofold replication. Preserve atom mappings and runnable analysis.py.
+- Retain DDEC3, PQeq_GMP, EQeq_ox_exp and NO_Q, complete compatible assignments and source-row coupling at 5.1e-6 precision. Use conducting Ewald potentials in V, original charges with uniform background for residual net charge, and each field’s pore mean zero on the same geometry/mask. Pore exclusion is UFF_sigma/2+1.5 Å inclusive; retain isolated pockets and report connected volume separately. Use a 0.2 Å baseline plus an actual refinement or shift; distinguish padding and empty masks. Declare tau_V/tau_F and budgets, separate grid/Ewald/mapping uncertainty, and supply full-field witnesses, conservative bounds and periodic_field.py functions grid, pore_clearance, green_matrix. The legacy field ceiling is 1e-5 V; finite-grid sensitivity does not prove continuum convergence.
 - Use only this case’s public inputs; retain required statuses, failures, units and reproducible evidence.
-- Demonstrate the stopping rule in the submitted primary scan: increase at least one cutoff on each step, never decrease either, and attain maximum adjacent charge change ≤1e-6 e at the final step. Independent reference agreement is also required. One genuinely equivalent representation suffices: a non-integral origin shift or a nonidentity cell transformation.
+- Supply self-contained `periodic_field.py` and `accuracy.json` for field replay using the public inputs.
+- For replay, `green_matrix` may optionally accept `apply_to=Q` (one column per charge model) and return `(G @ Q, proof)` directly. Otherwise it returns `(G, proof)`. Both forms must generate the same mean-zero fields for every accessible grid point.
 
-- Submit analysis.py and its dependencies in outputs/code/; it must regenerate the scientific results in an empty directory.
-
-- For the frozen DOTSOV02 CIF, assign the 156 base atom IDs in the original atom-site loop row order, one-based, as `site000001` through `site000156`. CIF labels may repeat and are not stable IDs. The primary representation uses these exact IDs with zero image; equivalent representations map each atom to its base ID and integer lattice image.
-- During controlled replay, `/submission` and `/inputs` are read-only; `/out`, `/tmp` and a private `/dev/shm` are writable. The public runtime and `/dev/null` and `/dev/urandom` are available; `/proc`, grading data, and host-specific paths are not. Use the provided command-line paths rather than assuming the host filesystem layout.
-- In each representation, the first convergence row leaves both `compared_to_setting` and `max_delta_q_e` empty; subsequent rows compare the immediately preceding setting.
+- For mapping-sensitive methods, keep the required `conservative-pointwise-envelope` control in `mapping_method_bounds`; a separate stronger global-extremum result does not replace it.
 - Submit the required artifacts according to the listed output contract.
 
 ## Files

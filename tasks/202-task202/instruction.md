@@ -1,22 +1,22 @@
-# Actual Multi-Start Force-Field Conformer Minimization
+# Finite Gas Reweighting and Identifiability
 
 ## Background
 
-Different QM starting conformers can lead to different local minima of a molecular-mechanics model. The supplied data include structures, identity mappings, the fixed Sage field and protocol.
+Finite gas-phase records can support reweighting diagnostics without establishing equilibrium or a complete thermodynamic cycle. The fixed six-particle Hamiltonian, two recorded coordinate sets and eight-state protocol are supplied.
 
 ## Task
 
-Perform twelve actual Sage minimizations: the two prescribed QM starts for each of six molecules. Validate local stationarity and chemical identity, then compare geometry changes and within-molecule energy rankings.
+Recompute all eight state energies for both 320-frame replicas, solve their finite-data MBAR equations, and compare frame-common and state-specific energy-gauge transformations.
 
 ## Requirements
 
-- Preserve all twelve starts, explicit-hydrogen atom maps, topology and stereochemistry; never drop failed starts from the denominator.
-- Use the fixed field and AmberTools AM1-BCC vector generated from the prescribed first supplied conformer per molecular identity; reuse it across starts.
-- Each required final geometry must lower energy within replay precision and have maximum atomic force at most 1 kJ mol^-1 nm^-1. Retain optimization histories and native initial/final states.
-- Use chirality-preserving proper-rotation symmetry RMSDs and separate energy zeros per molecule. Do not claim global minima or equilibrium populations.
-- Use installed local tools without networking or remote scheduling. Use at most 5000 iterations per start.
+- Use the supplied Hamiltonian, coordinates and state schedule; each state contributes 40 frames per replica. Preserve replica and coordinate identity, including any allowed bijective column reordering.
+- Convert kJ/mol energies with the prescribed R and T, fix f[0]=0, and report all free energies, overlap matrices and weight-based Neff.
+- Recompute both prescribed gauge transformations and check weight normalization and solver convergence. Do not add pV or standard-state terms.
+- Generate no new dynamics, substitute no observations, and infer no hydration free energy, equilibrium or time independence from these records. Include a nonempty bounded interpretation.
+- Use installed local tools without networking.
 
-- Submit results, reproducible analysis and native evidence under `/app/`, using `/app/results.json` and `/app/analysis.py` as the result and analysis entry points. Submit the remaining required files, fields and native artifacts according to the listed output convention.
+- Submit the required results and evidence under `/app/` according to the listed output convention. The reproducible analysis entry point is `/app/analysis.py`.
 
 ## Files
 

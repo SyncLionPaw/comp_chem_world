@@ -41,5 +41,3 @@ RUN python3 -m venv /opt/cphmd-analysis \
 ENV PATH="/opt/cphmd-analysis/bin:${PATH}" \
     PYTHONDONTWRITEBYTECODE=1 \
     OMP_NUM_THREADS=1
-
-COPY assets/output-contract.md /app/output-contract.md

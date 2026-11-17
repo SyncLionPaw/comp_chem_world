@@ -1,18 +1,18 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
 artifacts = [
-  "/app/protocol_config.json",
-  "/app/hill_height_decision.md",
-  "/app/hill_height_evidence.json",
+  "/app/correlation_analysis.json",
+  "/app/mechanistic_attribution.md",
+  "/app/mechanism_review.json",
 ]
 
 [task]
-name = "compchemworld/case-02-metadynamics-protocol-setup"
-description = "Configure the frozen OpenBPMD biasing protocol for a solvated protein-ligand system: derive anchor and ligand-heavy-atom selections from the supplied Amber topology, document the RMSD collective variable, hill deposition schedule and periodic-boundary workaround, run CPU-side geometry smoke checks of the OpenMM force construction, and decide between the 0.30 and 0.05 kcal/mol hill heights from the supplied OpenBPMD supporting-information ranking tables with paired statistics and bounded countermodels."
+name = "compchemworld/case-05-mmgbsa-vs-bpmd-failure-attribution"
+description = "Recompute the pose-level MM-GBSA versus OpenBPMD comparison from 200 poses across 40 systems: pooled Pearson and Spearman correlations with p-values, tie-aware top-1 success-rate bounds at the 2 A and 3 A cutoffs, within-system cluster statistics, and a bounded mechanistic attribution that maps the ranking failure to solvent, entropy and sampling error channels with constructive causal countermodels."
 
 [metadata]
-name = "case-02-metadynamics-protocol-setup"
-description = "Configure the frozen OpenBPMD biasing protocol for a solvated protein-ligand system: derive anchor and ligand-heavy-atom selections from the supplied Amber topology, document the RMSD collective variable, hill deposition schedule and periodic-boundary workaround, run CPU-side geometry smoke checks of the OpenMM force construction, and decide between the 0.30 and 0.05 kcal/mol hill heights from the supplied OpenBPMD supporting-information ranking tables with paired statistics and bounded countermodels."
+name = "case-05-mmgbsa-vs-bpmd-failure-attribution"
+description = "Recompute the pose-level MM-GBSA versus OpenBPMD comparison from 200 poses across 40 systems: pooled Pearson and Spearman correlations with p-values, tie-aware top-1 success-rate bounds at the 2 A and 3 A cutoffs, within-system cluster statistics, and a bounded mechanistic attribution that maps the ranking failure to solvent, entropy and sampling error channels with constructive causal countermodels."
 execution_class = "local"
 difficulty = "medium"
 

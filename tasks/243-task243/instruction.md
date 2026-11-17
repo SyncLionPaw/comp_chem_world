@@ -1,27 +1,26 @@
-# Source evidence and mechanistic limits
+# Vibrational spectra and isotope identifiability
 
 ## Background
 
-The source article, supplement and text layer provide the experimental evidence and its locations.
+The inputs define the harmonic matrix family and isotope parameters and include source material on energies, generalized eigenproblems and hydrogen isotopes.
 
 ## Task
 
-Recover source-linked experimental constraints and assess adsorption control, rate-limiting-step and proton-order identifiability using explicit numerical countermodels.
+Construct numerical harmonic counterexamples testing whether the H spectrum uniquely determines the H→D zero-point-energy shift.
 
 ## Requirements
 
-Preserve SHE, Current Efficiency (%), all 29 literal rows and uncertainties. Compute both Decimal sums to 5 decimals without clipping, rescaling or invented covariance. Cover pH1, pH3/6.8, buffer and Cs+/K+ controls. Supply explicitly hypothetical zero-order/positive-order PCET countermodels and zero versus positive-below-hypothetical-limit controls. No new fitting, experiments, GC reconstruction or DFT.
+See the listed output convention for output fields, numerical rules and scientific criteria.
 
-Follow the listed output convention for the required fields and scientific criteria.
-
-The output contract defines source-linked claim indices and allows the source-printed efficiency heading or a contiguous complete table-header transcription.
-
-For the hypothetical PCET controls only, `normalized_rates` may contain either raw rates r_i=k*a_i^proton_order or rates relative to the first condition, r_i/r_0; every entry must consistently follow one representation. This equivalence does not permit changing or renormalizing the 29 experimental efficiency rows. Source-role indices and source quotations must support the corresponding claims as specified in the output contract.
+- Use the supplied harmonic family, 12 positive H frequencies, C/O1/O2/H coordinate labels, isotope masses and fixed numerical rules. Keep the environment frozen; do not project translations/rotations or assign inferred observational error bars to source literals.
+- Choose two distinct real symmetric positive-definite force blocks in the prescribed orthogonal family, both reproducing the H spectrum. Change only the last three masses to D and compute all H/D modes and ZPE shifts. At least one block must have genuine H–heavy-atom coupling; two permutations alone are insufficient.
+- Resolve the two isotope shifts under the fixed error budget. Validate with independent formulations, such as mass whitening and a generalized symmetric eigenproblem, including eigenpair/orthogonality diagnostics.
+- Explain identifiability within the declared family, additional information needed, the all-modes /sqrt(2) shortcut and the limits of a single-adsorbate ZPE shift. Distinguish numerical error from electronic-structure uncertainty; do not infer actual Au force constants, PCET activation shifts or reaction KIE.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Article material and experimental data. |
+| `/app/inputs/` | Harmonic-model parameters and source material. |
 | `/opt/co2-public/output-contract.md` | Required outputs and submission format. |
 | `/app/` | Submitted results and required execution evidence. |

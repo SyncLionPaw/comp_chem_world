@@ -3,17 +3,17 @@ schema_version = "1.4"
 artifacts = ["/app/results"]
 
 [task]
-name = "compchemworld/case-03-phonon"
-description = "Compute zero-temperature, zero-pressure FCC Ag phonons with the supplied UNEP-v1 model along a path containing Gamma, X and L, using at least four crossed supercell and displacement-amplitude variants, and report raw versus ASR Gamma modes, imaginary frequencies and supercell/displacement sensitivity diagnostics."
+name = "compchemworld/case-06-defects"
+description = "Map defects between the supplied 16-million-atom MoTaVW initial and 140 ps cascade final configurations with periodic Wigner-Seitz registration, report site occupancies, 2NN vacancy and 3NN interstitial clusters with periodic centroids, registration and cutoff sensitivity variants, and chemical-relabel control evidence."
 
 [metadata]
-name = "case-03-phonon"
-description = "Compute zero-temperature, zero-pressure FCC Ag phonons with the supplied UNEP-v1 model along a path containing Gamma, X and L, using at least four crossed supercell and displacement-amplitude variants, and report raw versus ASR Gamma modes, imaginary frequencies and supercell/displacement sensitivity diagnostics."
-execution_class = "local"
+name = "case-06-defects"
+description = "Map defects between the supplied 16-million-atom MoTaVW initial and 140 ps cascade final configurations with periodic Wigner-Seitz registration, report site occupancies, 2NN vacancy and 3NN interstitial clusters with periodic centroids, registration and cutoff sensitivity variants, and chemical-relabel control evidence."
+execution_class = "remote"
 difficulty = "hard"
 
 [agent]
-timeout_sec = 259200
+timeout_sec = 86400
 network_mode = "public"
 
 [verifier]

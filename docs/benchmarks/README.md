@@ -3,7 +3,7 @@
 来源：既有 28 个 bench，以及 `hx/file-uploads` 分支交付的 bench 29–38。
 本文按源 README 汇总论文、DOI 和任务描述；未重新核验论文元数据，也不表示任务逐一复现论文实验。
 原始 README 已逐份保存在本目录的各 bench Markdown 文件中；详情、材料来源与许可说明请以对应原文为准。
-本索引涵盖 245 个研究任务（编号 001–185、189–248；186–188 暂空）；`tasks/000-hello` 是项目冒烟测试，不映射到论文。
+本索引涵盖 245 个研究任务（编号 001–245）；`tasks/000-hello` 是项目冒烟测试，不映射到论文。
 
 ## 总览
 
@@ -37,16 +37,16 @@
 | 26 · w2n3-phonon-superconductivity | Prediction of Phonon-Mediated Superconductivity with High Critical Temperature in the Two-Dimensional Topological Semimetal W2N3 | [10.1021/acs.nanolett.0c05125](https://doi.org/10.1021/acs.nanolett.0c05125) | 167–172（6） | [README](26-w2n3-phonon-superconductivity.md) |
 | 27 · wise-lithium-nanochains | Formation of Polymer-like Nanochains with Short Lithium–Lithium Distances in a Water-in-Salt Electrolyte | [10.1021/jacs.3c12488](https://doi.org/10.1021/jacs.3c12488) | 173–178（6） | [README](27-wise-lithium-nanochains.md) |
 | 28 · ai2-kit-ai-accelerated-ab-initio-workflows | Ai2-Kit: Streamlining AI-Accelerated Ab Initio Workflows for Complex Chemical Systems | [10.48550/arXiv.2607.00613](https://doi.org/10.48550/arXiv.2607.00613) | 179–185（7） | [README](28-ai2-kit-ai-accelerated-ab-initio-workflows.md) |
-| 29 · metals-mlp | Machine-Learned Potentials for Elemental Metals and Alloys | [10.1038/s41467-024-54554-x](https://doi.org/10.1038/s41467-024-54554-x) | 189–195（7） | [README](29-metals-mlp.md) |
-| 30 · reactive-nn-zeolite | Reactive Neural-Network Potentials for Water-Loaded Zeolites | [10.1038/s41467-024-48609-2](https://doi.org/10.1038/s41467-024-48609-2) | 196–200（5） | [README](30-reactive-nn-zeolite.md) |
-| 31 · openff-sage-2.0 | OpenFF Sage Small-Molecule Force Field | [10.1021/acs.jctc.3c00039](https://doi.org/10.1021/acs.jctc.3c00039) | 201–206（6） | [README](31-openff-sage-2.0.md) |
-| 32 · qeq-electrostatics | Charge Equilibration and Electrostatics in Nanoporous Materials | [10.1021/acs.jctc.8b00669](https://doi.org/10.1021/acs.jctc.8b00669) | 207–213（7） | [README](32-qeq-electrostatics.md) |
-| 33 · wpd-loop | WPD-Loop Sequence, Structure and Catalytic Activity | [10.1039/D2SC04135A](https://doi.org/10.1039/D2SC04135A) | 214–219（6） | [README](33-wpd-loop.md) |
-| 34 · constant-ph-md | Scalable Constant-pH Molecular Dynamics | [10.1021/acs.jctc.2c00516](https://doi.org/10.1021/acs.jctc.2c00516) | 220–225（6） | [README](34-constant-ph-md.md) |
-| 35 · binding-pose-metad | Open Binding Pose Metadynamics | [10.1021/acs.jcim.2c01142](https://doi.org/10.1021/acs.jcim.2c01142) | 226–230（5） | [README](35-binding-pose-metad.md) |
-| 36 · batio3-data-driven | Data-Driven BaTiO3 Thermodynamics and Dielectric Response | [10.1038/s41524-022-00845-0](https://doi.org/10.1038/s41524-022-00845-0) | 231–236（6） | [README](36-batio3-data-driven.md) |
-| 37 · ml-reaction-space | Machine Learning in Chemical Reaction Space | [10.1038/s41467-020-19267-x](https://doi.org/10.1038/s41467-020-19267-x) | 237–242（6） | [README](37-ml-reaction-space.md) |
-| 38 · co2-double-layer | Double-Layer Charging and CO2 Reduction on Gold | [10.1038/s41467-019-13777-z](https://doi.org/10.1038/s41467-019-13777-z) | 243–248（6） | [README](38-co2-double-layer.md) |
+| 29 · metals-mlp | Machine-Learned Potentials for Elemental Metals and Alloys | [10.1038/s41467-024-54554-x](https://doi.org/10.1038/s41467-024-54554-x) | 186–192（7） | [README](29-metals-mlp.md) |
+| 30 · reactive-nn-zeolite | Reactive Neural-Network Potentials for Water-Loaded Zeolites | [10.1038/s41467-024-48609-2](https://doi.org/10.1038/s41467-024-48609-2) | 193–197（5） | [README](30-reactive-nn-zeolite.md) |
+| 31 · openff-sage-2.0 | OpenFF Sage Small-Molecule Force Field | [10.1021/acs.jctc.3c00039](https://doi.org/10.1021/acs.jctc.3c00039) | 198–203（6） | [README](31-openff-sage-2.0.md) |
+| 32 · qeq-electrostatics | Charge Equilibration and Electrostatics in Nanoporous Materials | [10.1021/acs.jctc.8b00669](https://doi.org/10.1021/acs.jctc.8b00669) | 204–210（7） | [README](32-qeq-electrostatics.md) |
+| 33 · wpd-loop | WPD-Loop Sequence, Structure and Catalytic Activity | [10.1039/D2SC04135A](https://doi.org/10.1039/D2SC04135A) | 211–216（6） | [README](33-wpd-loop.md) |
+| 34 · constant-ph-md | Scalable Constant-pH Molecular Dynamics | [10.1021/acs.jctc.2c00516](https://doi.org/10.1021/acs.jctc.2c00516) | 217–222（6） | [README](34-constant-ph-md.md) |
+| 35 · binding-pose-metad | Open Binding Pose Metadynamics | [10.1021/acs.jcim.2c01142](https://doi.org/10.1021/acs.jcim.2c01142) | 223–227（5） | [README](35-binding-pose-metad.md) |
+| 36 · batio3-data-driven | Data-Driven BaTiO3 Thermodynamics and Dielectric Response | [10.1038/s41524-022-00845-0](https://doi.org/10.1038/s41524-022-00845-0) | 228–233（6） | [README](36-batio3-data-driven.md) |
+| 37 · ml-reaction-space | Machine Learning in Chemical Reaction Space | [10.1038/s41467-020-19267-x](https://doi.org/10.1038/s41467-020-19267-x) | 234–239（6） | [README](37-ml-reaction-space.md) |
+| 38 · co2-double-layer | Double-Layer Charging and CO2 Reduction on Gold | [10.1038/s41467-019-13777-z](https://doi.org/10.1038/s41467-019-13777-z) | 240–245（6） | [README](38-co2-double-layer.md) |
 
 ## 逐任务索引
 
@@ -497,13 +497,13 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 189](../../tasks/189-task189/) | Evaluate multicomponent transferability through energy and force prediction errors. |
-| [Task 190](../../tasks/190-task190/) | Calculate single-vacancy formation energies in FCC Cu and BCC W and assess size and relaxation convergence. |
-| [Task 191](../../tasks/191-task191/) | Compute finite-displacement phonons and diagnose dynamical stability. |
-| [Task 192](../../tasks/192-task192/) | Analyse timestep convergence and NVE energy conservation in goldene records. |
-| [Task 193](../../tasks/193-task193/) | Identify initial Ni–Ni3Al phase regions and assess static Mo partitioning. |
-| [Task 194](../../tasks/194-task194/) | Identify defects and clusters in displacement-cascade configurations. |
-| [Task 195](../../tasks/195-task195/) | Compare the finite prediction accuracy and applicability of twelve retained models. |
+| [Task 186](../../tasks/186-task186/) | Evaluate multicomponent transferability through energy and force prediction errors. |
+| [Task 187](../../tasks/187-task187/) | Calculate single-vacancy formation energies in FCC Cu and BCC W and assess size and relaxation convergence. |
+| [Task 188](../../tasks/188-task188/) | Compute finite-displacement phonons and diagnose dynamical stability. |
+| [Task 189](../../tasks/189-task189/) | Analyse timestep convergence and NVE energy conservation in goldene records. |
+| [Task 190](../../tasks/190-task190/) | Identify initial Ni–Ni3Al phase regions and assess static Mo partitioning. |
+| [Task 191](../../tasks/191-task191/) | Identify defects and clusters in displacement-cascade configurations. |
+| [Task 192](../../tasks/192-task192/) | Compare the finite prediction accuracy and applicability of twelve retained models. |
 
 ### 30 · reactive-nn-zeolite
 
@@ -513,11 +513,11 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 196](../../tasks/196-task196/) | Analyse cross-composition energy and force errors and diagnose reference-energy offsets. |
-| [Task 197](../../tasks/197-task197/) | Optimise proton-transfer endpoints and test convergence of neural-network-potential reaction paths. |
-| [Task 198](../../tasks/198-task198/) | Reconstruct ordinary-metadynamics bias and collective-variable derivatives from CHA histories. |
-| [Task 199](../../tasks/199-task199/) | Optimise atomic coordinates and unit cells of eight silica frameworks while checking periodic topology. |
-| [Task 200](../../tasks/200-task200/) | Audit local and directional errors in matched MFI DFT and neural-network-potential records. |
+| [Task 193](../../tasks/193-task193/) | Analyse cross-composition energy and force errors and diagnose reference-energy offsets. |
+| [Task 194](../../tasks/194-task194/) | Optimise proton-transfer endpoints and test convergence of neural-network-potential reaction paths. |
+| [Task 195](../../tasks/195-task195/) | Reconstruct ordinary-metadynamics bias and collective-variable derivatives from CHA histories. |
+| [Task 196](../../tasks/196-task196/) | Optimise atomic coordinates and unit cells of eight silica frameworks while checking periodic topology. |
+| [Task 197](../../tasks/197-task197/) | Audit local and directional errors in matched MFI DFT and neural-network-potential records. |
 
 ### 31 · openff-sage-2.0
 
@@ -527,12 +527,12 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 201](../../tasks/201-task201/) | Parameterise molecules with Sage and check molecular energy and force consistency. |
-| [Task 202](../../tasks/202-task202/) | Perform multi-start conformer minimisation and compare the resulting structures and energies. |
-| [Task 203](../../tasks/203-task203/) | Compute constrained relaxed molecular-mechanics torsion scans against quantum reference profiles. |
-| [Task 204](../../tasks/204-task204/) | Sample small-system liquid NPT trajectories and estimate liquid densities. |
-| [Task 205](../../tasks/205-task205/) | Analyse finite gas-phase MBAR reweighting and identifiability limits. |
-| [Task 206](../../tasks/206-task206/) | Refit Sage torsion parameters and evaluate performance on protected validation data. |
+| [Task 198](../../tasks/198-task198/) | Parameterise molecules with Sage and check molecular energy and force consistency. |
+| [Task 199](../../tasks/199-task199/) | Perform multi-start conformer minimisation and compare the resulting structures and energies. |
+| [Task 200](../../tasks/200-task200/) | Compute constrained relaxed molecular-mechanics torsion scans against quantum reference profiles. |
+| [Task 201](../../tasks/201-task201/) | Sample small-system liquid NPT trajectories and estimate liquid densities. |
+| [Task 202](../../tasks/202-task202/) | Analyse finite gas-phase MBAR reweighting and identifiability limits. |
+| [Task 203](../../tasks/203-task203/) | Refit Sage torsion parameters and evaluate performance on protected validation data. |
 
 ### 32 · qeq-electrostatics
 
@@ -542,13 +542,13 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 207](../../tasks/207-task207/) | Analyse copper-ion spin states and energy differences relevant to charge-equilibration parameters. |
-| [Task 208](../../tasks/208-task208/) | Test finite-summation convergence and equivalent-cell representation invariance of periodic charges. |
-| [Task 209](../../tasks/209-task209/) | Attribute halogen charge anomalies to local chemical environments. |
-| [Task 210](../../tasks/210-task210/) | Compare charge-assignment methods while controlling for unequal coverage. |
-| [Task 211](../../tasks/211-task211/) | Assess periodic electrostatic-potential fidelity in accessible pore volume. |
-| [Task 212](../../tasks/212-task212/) | Assess charge-model sensitivity of dilute CO₂ adsorption through paired Widom insertion. |
-| [Task 213](../../tasks/213-task213/) | Analyse finite-cohort electrostatic adsorption-heat contributions and paired gas comparisons. |
+| [Task 204](../../tasks/204-task204/) | Analyse copper-ion spin states and energy differences relevant to charge-equilibration parameters. |
+| [Task 205](../../tasks/205-task205/) | Test finite-summation convergence and equivalent-cell representation invariance of periodic charges. |
+| [Task 206](../../tasks/206-task206/) | Attribute halogen charge anomalies to local chemical environments. |
+| [Task 207](../../tasks/207-task207/) | Compare charge-assignment methods while controlling for unequal coverage. |
+| [Task 208](../../tasks/208-task208/) | Assess periodic electrostatic-potential fidelity in accessible pore volume. |
+| [Task 209](../../tasks/209-task209/) | Assess charge-model sensitivity of dilute CO₂ adsorption through paired Widom insertion. |
+| [Task 210](../../tasks/210-task210/) | Analyse finite-cohort electrostatic adsorption-heat contributions and paired gas comparisons. |
 
 ### 33 · wpd-loop
 
@@ -558,12 +558,12 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 214](../../tasks/214-task214/) | Prepare a phosphocysteine-intermediate system and audit its topology and protonation states. |
-| [Task 215](../../tasks/215-task215/) | Analyse active-site coordination, the Asp181 rotamer and WPD-loop conformation. |
-| [Task 216](../../tasks/216-task216/) | Measure EVB stationary-point geometries and assign phosphocysteine-hydrolysis reaction stages. |
-| [Task 217](../../tasks/217-task217/) | Validate reaction-region topology and EVB force-field parameter integrity. |
-| [Task 218](../../tasks/218-task218/) | Analyse static restraint-Hamiltonian responses and deposited restart dependencies. |
-| [Task 219](../../tasks/219-task219/) | Integrate kinetic, structural and sequence evidence to assess catalytic effects and inactivity mechanisms. |
+| [Task 211](../../tasks/211-task211/) | Prepare a phosphocysteine-intermediate system and audit its topology and protonation states. |
+| [Task 212](../../tasks/212-task212/) | Analyse active-site coordination, the Asp181 rotamer and WPD-loop conformation. |
+| [Task 213](../../tasks/213-task213/) | Measure EVB stationary-point geometries and assign phosphocysteine-hydrolysis reaction stages. |
+| [Task 214](../../tasks/214-task214/) | Validate reaction-region topology and EVB force-field parameter integrity. |
+| [Task 215](../../tasks/215-task215/) | Analyse static restraint-Hamiltonian responses and deposited restart dependencies. |
+| [Task 216](../../tasks/216-task216/) | Integrate kinetic, structural and sequence evidence to assess catalytic effects and inactivity mechanisms. |
 
 ### 34 · constant-ph-md
 
@@ -573,12 +573,12 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 220](../../tasks/220-task220/) | Run tripeptide constant-pH titrations and estimate pKa values with uncertainty. |
-| [Task 221](../../tasks/221-task221/) | Run fixed-pH tripeptide simulations and analyse lambda distributions and protonation populations. |
-| [Task 222](../../tasks/222-task222/) | Run protein multisite constant-pH titrations and assess site-specific pKa agreement with experiment. |
-| [Task 223](../../tasks/223-task223/) | Validate coarse-grained Martini constant-pH molecular dynamics. |
-| [Task 224](../../tasks/224-task224/) | Compare the performance and scaling of conventional and constant-pH molecular dynamics. |
-| [Task 225](../../tasks/225-task225/) | Fit Henderson–Hasselbalch titration curves from supplied lambda trajectories. |
+| [Task 217](../../tasks/217-task217/) | Run tripeptide constant-pH titrations and estimate pKa values with uncertainty. |
+| [Task 218](../../tasks/218-task218/) | Run fixed-pH tripeptide simulations and analyse lambda distributions and protonation populations. |
+| [Task 219](../../tasks/219-task219/) | Run protein multisite constant-pH titrations and assess site-specific pKa agreement with experiment. |
+| [Task 220](../../tasks/220-task220/) | Validate coarse-grained Martini constant-pH molecular dynamics. |
+| [Task 221](../../tasks/221-task221/) | Compare the performance and scaling of conventional and constant-pH molecular dynamics. |
+| [Task 222](../../tasks/222-task222/) | Fit Henderson–Hasselbalch titration curves from supplied lambda trajectories. |
 
 ### 35 · binding-pose-metad
 
@@ -588,11 +588,11 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 226](../../tasks/226-task226/) | Compute trajectory contact persistence, ligand displacement and composite pose-stability scores. |
-| [Task 227](../../tasks/227-task227/) | Specify a metadynamics protocol and assess Gaussian hill-height choices using source evidence. |
-| [Task 228](../../tasks/228-task228/) | Calculate multi-replica ensemble statistics and finite-trajectory convergence diagnostics. |
-| [Task 229](../../tasks/229-task229/) | Rerank poses across targets and perform paired statistical comparisons. |
-| [Task 230](../../tasks/230-task230/) | Compare MM-GBSA and OpenBPMD ranking performance and examine bounded failure explanations. |
+| [Task 223](../../tasks/223-task223/) | Compute trajectory contact persistence, ligand displacement and composite pose-stability scores. |
+| [Task 224](../../tasks/224-task224/) | Specify a metadynamics protocol and assess Gaussian hill-height choices using source evidence. |
+| [Task 225](../../tasks/225-task225/) | Calculate multi-replica ensemble statistics and finite-trajectory convergence diagnostics. |
+| [Task 226](../../tasks/226-task226/) | Rerank poses across targets and perform paired statistical comparisons. |
+| [Task 227](../../tasks/227-task227/) | Compare MM-GBSA and OpenBPMD ranking performance and examine bounded failure explanations. |
 
 ### 36 · batio3-data-driven
 
@@ -602,12 +602,12 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 231](../../tasks/231-task231/) | Reconstruct polarisation branches and summarise finite polarisation records. |
-| [Task 232](../../tasks/232-task232/) | Compare paired QE/GAP energy profiles and evaluate residual corrections with blocked holdouts. |
-| [Task 233](../../tasks/233-task233/) | Analyse Ti off-centering in short NVT trajectories and assess order–disorder identifiability. |
-| [Task 234](../../tasks/234-task234/) | Calculate spatial dipole-correlation tensors and finite-record ordering contrasts. |
-| [Task 235](../../tasks/235-task235/) | Recompute paired-energy free-energy perturbation and assess importance-sampling support. |
-| [Task 236](../../tasks/236-task236/) | Derive dielectric response from dipole autocorrelation and compare oscillator fits. |
+| [Task 228](../../tasks/228-task228/) | Reconstruct polarisation branches and summarise finite polarisation records. |
+| [Task 229](../../tasks/229-task229/) | Compare paired QE/GAP energy profiles and evaluate residual corrections with blocked holdouts. |
+| [Task 230](../../tasks/230-task230/) | Analyse Ti off-centering in short NVT trajectories and assess order–disorder identifiability. |
+| [Task 231](../../tasks/231-task231/) | Calculate spatial dipole-correlation tensors and finite-record ordering contrasts. |
+| [Task 232](../../tasks/232-task232/) | Recompute paired-energy free-energy perturbation and assess importance-sampling support. |
+| [Task 233](../../tasks/233-task233/) | Derive dielectric response from dipole autocorrelation and compare oscillator fits. |
 
 ### 37 · ml-reaction-space
 
@@ -617,12 +617,12 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 237](../../tasks/237-task237/) | Audit electronic-reference energies, spin constraints and method comparability in the Rad-6 library. |
-| [Task 238](../../tasks/238-task238/) | Analyse reaction-network topology, hub chemistry and mechanistic identifiability. |
-| [Task 239](../../tasks/239-task239/) | Compare extensive and intensive SOAP-KRR learning curves. |
-| [Task 240](../../tasks/240-task240/) | Assess FPS sampling choices and propagation of molecular-energy errors into reaction energies. |
-| [Task 241](../../tasks/241-task241/) | Compare direct and indirect reaction-energy predictions and Hess-cycle consistency. |
-| [Task 242](../../tasks/242-task242/) | Analyse Bell–Evans–Polanyi barrier scaling with paired grouped validation and transfer diagnostics. |
+| [Task 234](../../tasks/234-task234/) | Audit electronic-reference energies, spin constraints and method comparability in the Rad-6 library. |
+| [Task 235](../../tasks/235-task235/) | Analyse reaction-network topology, hub chemistry and mechanistic identifiability. |
+| [Task 236](../../tasks/236-task236/) | Compare extensive and intensive SOAP-KRR learning curves. |
+| [Task 237](../../tasks/237-task237/) | Assess FPS sampling choices and propagation of molecular-energy errors into reaction energies. |
+| [Task 238](../../tasks/238-task238/) | Compare direct and indirect reaction-energy predictions and Hess-cycle consistency. |
+| [Task 239](../../tasks/239-task239/) | Analyse Bell–Evans–Polanyi barrier scaling with paired grouped validation and transfer diagnostics. |
 
 ### 38 · co2-double-layer
 
@@ -632,12 +632,12 @@ Task 015、020 使用已锁定的双架构 Conda 缓存构建环境，构建步�
 
 | 任务目录 | 源 README 中的任务说明 |
 | --- | --- |
-| [Task 243](../../tasks/243-task243/) | Recover source electrochemical evidence and construct tests of mechanistic identifiability. |
-| [Task 244](../../tasks/244-task244/) | Analyse charge-dependent Au adsorbate energies and reference-state corrections. |
-| [Task 245](../../tasks/245-task245/) | Solve fixed-activity microkinetic steady states and calculate rate-control and Tafel diagnostics. |
-| [Task 246](../../tasks/246-task246/) | Analyse vibrational isotope shifts and construct identifiability counterexamples. |
-| [Task 247](../../tasks/247-task247/) | Solve spatial transport under prescribed electrode flux and assess numerical refinement. |
-| [Task 248](../../tasks/248-task248/) | Diagnose stationary interfacial feedback using finite-flux probes and response spectra. |
+| [Task 240](../../tasks/240-task240/) | Recover source electrochemical evidence and construct tests of mechanistic identifiability. |
+| [Task 241](../../tasks/241-task241/) | Analyse charge-dependent Au adsorbate energies and reference-state corrections. |
+| [Task 242](../../tasks/242-task242/) | Solve fixed-activity microkinetic steady states and calculate rate-control and Tafel diagnostics. |
+| [Task 243](../../tasks/243-task243/) | Analyse vibrational isotope shifts and construct identifiability counterexamples. |
+| [Task 244](../../tasks/244-task244/) | Solve spatial transport under prescribed electrode flux and assess numerical refinement. |
+| [Task 245](../../tasks/245-task245/) | Diagnose stationary interfacial feedback using finite-flux probes and response spectra. |
 
 ## Environment repair note (2026-11)
 

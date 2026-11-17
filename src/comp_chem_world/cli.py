@@ -111,7 +111,11 @@ def ensure_env_file(root: Path) -> None:
         report("OK", ".env already exists.", "32")
         return
     shutil.copyfile(root / ".env.example", env_file)
-    report("SETUP", "Created .env; fill in DEEPSEEK_API_KEY before running a model.", "33")
+    report(
+        "SETUP",
+        "Created .env; fill in ANTHROPIC_API_KEY and ANTHROPIC_BASE_URL before running a model.",
+        "33",
+    )
 
 
 def build_images(root: Path) -> None:

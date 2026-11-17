@@ -3,21 +3,21 @@ schema_version = "1.4"
 artifacts = ["/app/outputs"]
 
 [task]
-name = "compchemworld/case-01-copper-spin-state"
-description = "Diagnose Cu(0), Cu(+1) and Cu(+2) ground and low-lying spin states with all-electron CCSD(T)/def2-QZVPP reference computations under frozen SCF and coupled-cluster convergence controls, select the minimum-energy state for each charge, derive IP0/IP1 and the QEq chi and J charge parameters, and report open-shell triplet-substitution countermodels with auditable reproducibility evidence."
+name = "compchemworld/case-04-coverage-fair-ranking"
+description = "Compare charge-method rankings on the archived adsorption benchmark while correcting coverage confounding, using paired common-domain subsets, validity filters and bootstrap significance tests to separate ranking changes caused by coverage differences from genuine accuracy differences, and report family-sensitivity and coverage-cost analyses."
 
 [metadata]
-name = "case-01-copper-spin-state"
-description = "Diagnose Cu(0), Cu(+1) and Cu(+2) ground and low-lying spin states with all-electron CCSD(T)/def2-QZVPP reference computations under frozen SCF and coupled-cluster convergence controls, select the minimum-energy state for each charge, derive IP0/IP1 and the QEq chi and J charge parameters, and report open-shell triplet-substitution countermodels with auditable reproducibility evidence."
+name = "case-04-coverage-fair-ranking"
+description = "Compare charge-method rankings on the archived adsorption benchmark while correcting coverage confounding, using paired common-domain subsets, validity filters and bootstrap significance tests to separate ranking changes caused by coverage differences from genuine accuracy differences, and report family-sensitivity and coverage-cost analyses."
 execution_class = "local"
-difficulty = "hard"
+difficulty = "medium"
 
 [agent]
 timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 14700
+timeout_sec = 900
 environment_mode = "separate"
 network_mode = "no-network"
 

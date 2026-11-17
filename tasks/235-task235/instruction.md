@@ -1,39 +1,31 @@
-# Finite-Source Paired-Energy Free-Energy Perturbation
+# Reaction-network topology, hub chemistry and mechanistic limits
 
 ## Background
 
-An approximate potential and the first-principles energies it was trained on can disagree systematically across a finite set of paired configurations, and that disagreement propagates into any free-energy estimate built from them. The supplied records give four groups of 50 paired 320-atom frames for the cubic and tetragonal phases at 170 K and 194 K, with the original first-principles stdout for every frame and the corresponding archived model energies.
+The Rad-6 reaction network supports analysis of hub chemistry and the limits of topology-based mechanistic inference.
 
-The original stdout contains the converged energy, cell and positions for each frame; the archived model energies are supplied as given outputs.
+The inputs include reaction connectivity and energies, species identities and composition, and original structures.
 
 ## Task
 
-Parse each complete matched original stdout and preserve the frame, geometry and source identity within the 1e-4 Angstrom printed-rounding limitation. Compute delta = E_DFT - E_GAP in whole-cell eV.
-
-Evaluate the standard model-sampled correction, -kBT * log(mean(exp(-delta/kBT))), computed stably with kB = 8.617333262145e-5 eV/K, and separately the opposite-sign printed-expression diagnostic. Normalize per atom only after exponential averaging (multiply 1000/320 for meV/atom). Report the cubic-minus-tetragonal correction at both temperatures.
-
-Choose `block_frames` from 2, 5, 10, 25 and `stride` in 2..5.
+Reconstruct all 32,515 reactions and 10,081 species using 10,712 molecular records; quantify hub chemistry, graph projections and mechanistic non-identifiability with constructive controls.
 
 ## Requirements
 
-- Retain the standard and opposite-sign results, all 50 ordered prefixes, all 50 reverse prefixes, the normalized importance weights, ESS and maximum weight.
-- Evaluate the fixed block deletions 5 and 10 plus your selected block length, and the fixed strides 1, 2 and 5 plus your selected stride. None of these removes the full 50-frame baseline.
-- Report the cubic-minus-tetragonal correction at both temperatures, in meV/atom.
-- The archived model energies are given outputs, not new inference and not author-original predictions. Importance ESS is not an independent-trajectory sample size; block-deletion ranges are descriptive and not calibrated confidence intervals. These records do not establish unconditional free-energy convergence, do not reconstruct PCA/PAMM/ITRE/TI, and do not determine a physical Curie temperature or a unique explanation of the DFT/volume bias. A negative overlap or sensitivity result still completes the task when accurately computed.
-- Use atol 1e-10 eV for whole-cell free-energy arithmetic, 1e-8 for meV/atom and importance weights/ESS, and 1e-9 eV/Ry for supplied and raw energies. Integers and full denominators must be exact.
+- Reconstruct all 32515 reactions and 10081 species from the 10712 molecular records. Treat -1 as the rearrangement sentinel; use the simple undirected educt–product projection with duplicate edges collapsed, while participation retains repeated products. Preserve all-source energy closure within 1e-6 eV.
+- Use exact normalized Brandes, fixed 4×16-source batches (seed 20261016), or declared independent uniform-source batches (2–32, at least one source each, at most 2048 total; seed in [0,2^63)). Report method and uncertainty.
+- Use the supported KS-selected discrete-tail approximation or declare a source-chosen cutoff in `power_law_parameters={xmin}` with integer xmin, retaining at least two nodes. For tail d≥xmin: alpha=1+n/sum(log(d/(xmin−0.5))); KS is the maximum observed-support difference between empirical CDF and 1−((k+0.5)/(xmin−0.5))^(1−alpha). Report tail population and matching alpha; additional estimators do not replace this executable primary method.
+- Cover each of the ten degree hubs once in `hub_chemical_assessment`: source-exact identity, integer participation counts, nonempty assertion and at least two distinct relevant reaction rows. Preserve row/product order and multiplicity; cover all occurring roles and at least two educts when multiple educts produce the hub. Each row has `csv_line`, `educt_id`, `product_ids`, `reaction_type`, `reaction_energy_eV`.
+- Construct duplicate-enumeration (factor 2–10), kinetic (200–1000 K; baseline barrier 0.05–2 eV; extra barrier 0.05–5 eV) and path/star-extension controls (edge count above original maximum degree, at most 20000). Kinetic responses must differ by >0.1 log unit. These are hypothetical controls, not measured fluxes/barriers.
+- Do not infer actual spin, barriers, flux, abundance or a universal power law from degree. Support chemical assertions numerically, and use `/app/environment/assets/CERTIFICATE-FIELD-TYPES.json` for certificate fields.
+- Use only supplied data, without network.
 
 Submit the results according to the listed output convention.
-
-The specified results can be reproduced with:
-
-```
-python3 /app/public/replay.py --inputs /app/inputs --spec /app/public/example-spec.json --out /app/final
-```
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Paired structures and energy records. |
-| `/app/final/` | Submitted results and required execution evidence. |
-| `/app/public/README.md` | Calculation methods and result-submission requirements. |
+| `/app/environment/assets/` | Reaction network, species information and reference energies. |
+| `/app/` | Submitted results and required execution evidence. |
+| `/app/environment/assets/CERTIFICATE-FIELD-TYPES.json` | Output fields and submission format. |

@@ -1,14 +1,14 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/experimental_constraints.json", "/app/efficiency_audit.csv", "/app/mechanism_limits.md"]
+artifacts = ["/app/counterexamples.npz", "/app/isotope_analysis.json", "/app/identifiability.md"]
 
 [task]
-name = "compchemworld/case-01-she-mechanism-evidence"
-description = "Recover source-linked experimental constraints on CO2 adsorption control from the supplied article, supplement and text layer: transcribe all 29 printed current-efficiency rows on the SHE scale with literal decimals and uncertainties, and assess adsorption-control and rate-law identifiability with explicit hypothetical zero-order and positive-order numerical countermodels."
+name = "compchemworld/case-04-vibrational-isotope-identifiability"
+description = "Construct numerical harmonic counterexamples in the supplied frozen model family to test whether an H vibrational spectrum together with atomic masses uniquely determines the H-to-D zero-point-energy shift, reporting generalized-eigenproblem reconstructions, numerical budgets and the resolved uniform-sqrt(2) shortcut error."
 
 [metadata]
-name = "case-01-she-mechanism-evidence"
-description = "Recover source-linked experimental constraints on CO2 adsorption control from the supplied article, supplement and text layer: transcribe all 29 printed current-efficiency rows on the SHE scale with literal decimals and uncertainties, and assess adsorption-control and rate-law identifiability with explicit hypothetical zero-order and positive-order numerical countermodels."
+name = "case-04-vibrational-isotope-identifiability"
+description = "Construct numerical harmonic counterexamples in the supplied frozen model family to test whether an H vibrational spectrum together with atomic masses uniquely determines the H-to-D zero-point-energy shift, reporting generalized-eigenproblem reconstructions, numerical budgets and the resolved uniform-sqrt(2) shortcut error."
 execution_class = "local"
 difficulty = "medium"
 
@@ -23,12 +23,12 @@ network_mode = "no-network"
 
 [environment]
 cpus = 1
-memory_mb = 2048
+memory_mb = 1024
 build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
 cpus = 1
-memory_mb = 2048
+memory_mb = 1024
 build_timeout_sec = 1800
 network_mode = "no-network"

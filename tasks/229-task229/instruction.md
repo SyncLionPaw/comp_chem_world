@@ -1,37 +1,37 @@
-# Multi-Target Pose Reranking and Paired Statistics
+# Paired QE/GAP Energy Profiles and Blocked Correction
 
 ## Background
 
-Molecular docking algorithms often produce multiple decoy poses alongside near-native conformations. Evaluating whether enhanced sampling simulations successfully improve pose identification requires testing across diverse targets and conducting formal statistical hypothesis testing against docking baselines.
+A short-range machine-learned potential (GAP) and the first-principles method it was trained on (QE) can disagree along a paired reaction path. Two complete 31-frame QE paths are supplied together with the corresponding GAP curves for the same printed geometries, so the disagreement can be quantified per frame on the exact same structures.
 
-The inputs include OpenBPMD+grand scores and pose RMSDs for 210 poses across 42 systems, together with IFD scores and source pose numbers from the original MAE records.
+The inputs include printed 40-atom geometries, original QE stdout with converged energies, cells, positions and complete force blocks, and author-original GAP energy curves. Archived native model predictions for the same geometries are supplied as given outputs.
 
 ## Task
 
-Evaluate the full dataset of 42 diverse protein-ligand systems (210 candidate docked poses) tabulated in Supplementary Table S1 from OpenBPMD simulations with grand equilibration. Complete the following:
-1. Rerank poses strictly by their metadynamics `CompScore` (in ascending order; lower score = higher stability).
-2. Select the Top-1 predicted pose for each system and calculate overall benchmark success rates under the 2.0 Å and 3.0 Å heavy-atom RMSD cutoffs.
-3. Derive the IFD Top-1 pose from the minimum original `r_psp_IFDScore` in the supplied ACS SI extraction, using the explicit pose number and exact pose ID. Join both methods' pose IDs to Table S1 and run a two-sided paired Wilcoxon signed-rank test on the per-system Top-1 RMSDs (`IFD RMSD`, `OpenBPMD RMSD`) with `zero_method=wilcox`, `correction=False`, `method=auto`. Report nominal p and the decision at prespecified alpha 0.05; do not force significance or tune the pairing to the paper's rounded statistic.
-4. Identify and report the specific kinase system outlier under standard 0.3 kcal/mol hills.
+Parse every frame's final converged SCF energy, printed cell/positions and complete 40-atom force block from the original QE stdout. Use both complete 31-frame paths and all 62 paired geometries, converting 1 Ry = 13.605693122994 eV and subtracting each path's frame 0 to obtain meV per 40-atom cell.
+
+Train a shared residual correction y = QErelative - GAPrelative on both paths using polynomial terms lambda^1..lambda^degree with no intercept, holding out frame indices 10..15 of both paths simultaneously (12 held out, 50 training frames). Use SVD factors s/(s^2 + relative_ridge * smax^2). Choose `degree` in 1..4 and `relative_ridge` in [0, 1].
 
 ## Requirements
 
-- Rank all 210 poses in 42 systems by ascending CompScore, never RMSD. For exact ties choose the lexicographically smallest pose ID and report all ties; both `tie_break` and `score_tie_policy` use `lexicographically_smallest_pose_id`.
-- Compute Top-1 success at 2.0/3.0 Å. Derive IFD Top-1 from minimum original `r_psp_IFDScore`, joining explicit pose numbers and exact pose IDs to Table S1.
-- Test paired per-system Top-1 RMSDs (not binary success/ranks) with two-sided Wilcoxon, `zero_method=wilcox`, `correction=False`, `method=auto`. Report actual nominal p and the alpha 0.05 decision without forcing significance or claiming causal/general superiority.
-- Report the CDK2 2b52 outlier under 0.3 kcal/mol hills without changing scores. Compare recomputed statistics to the OpenBPMD 2022 SI Figure S1 (S=98.5, p=0.00197), retain both pairs and the discrepancy flag; do not tune rounded-source calculations to match the published summary or attribute it to Clark2016.
-- `paired_variable` and `p_value_interpretation` are nonempty free text; counts are JSON integers excluding booleans, and scores/rates/statistics finite numbers. Median-difference tolerance: 1e-9 Å.
+- Evaluate all degrees 1..4 and ridge values 0, 1e-6 and 0.01, plus your selected pair. A poor held-out prediction is a valid measured result and must be reported as measured.
+- Keep both supplied curves and all disagreements; report all 62 predictions and residuals, coefficients, and training and fixed held-out RMS values. A sampled path maximum is not a transition state.
+- The printed-coordinate comparison carries a <= 1e-4 Angstrom matching limitation, which must be retained.
+- The named curves are given outputs, not new inference, and are not interchangeable. This is algebraic calibration of observed curves, not SOP training, new DFT at refined points, a full saddle search, or a unique electrostatic attribution.
+- Use a numerical tolerance of atol 2e-7 + rtol 2e-8; use atol 1e-9 eV/Ry for raw source energies; integers and complete denominators must be exact.
 
-The output contract listed below defines the input index, output fields, units and numerical protocols. Keep linked run evidence within the declared submission directory.
+Submit the results according to the listed output convention.
 
-JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
+The specified results can be reproduced with:
 
-The paired effect may use either declared subtraction direction, with the median signed accordingly; improved always denotes lower OpenBPMD RMSD.
+```
+python3 /app/public/replay.py --inputs /app/inputs --spec /app/public/example-spec.json --out /app/final
+```
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Pose scores, RMSDs and method-comparison data. |
-| `/app/` | Submitted results and required execution evidence. |
-| `/app/output-contract.md` | Required outputs and submission format. |
+| `/app/inputs/` | Paired path structures, energies and original calculation records. |
+| `/app/final/` | Submitted results and required execution evidence. |
+| `/app/public/README.md` | Calculation methods and result-submission requirements. |

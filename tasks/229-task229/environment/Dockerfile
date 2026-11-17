@@ -2,34 +2,26 @@ FROM --platform=linux/amd64 compchembench-base:2.1.267
 
 WORKDIR /app
 
-COPY assets/ /app/inputs/
-COPY assets/output-contract.md /app/output-contract.md
-COPY assets/runtime/claude-gateway.py /tmp/ccw35-claude-gateway.py
-COPY assets/runtime/build_dns.py /tmp/ccw35-build-dns.py
+COPY assets/inputs/ /app/inputs/
+COPY assets/public/ /app/public/
 
-COPY assets/wheels/ /tmp/ccw35-wheels/
-COPY assets/requirements.lock.txt /tmp/ccw35-requirements.lock.txt
+COPY assets/wheels/python312/ /tmp/batio3-wheels/
 
-RUN --mount=type=cache,target=/root/.cache/uv \
-    python3 /tmp/ccw35-build-dns.py > /tmp/ccw35-build-network.log 2>&1 & \
-    NETWORK_PID=$!; \
-    export https_proxy=http://127.0.0.1:18080 \
- && sleep 1 \
- && python3 -m venv /opt/ccw35-science \
- && /opt/ccw35-science/bin/python -c 'import sys; assert sys.version_info[:2] == (3, 12)' \
- && /opt/ccw35-science/bin/pip install --no-index --find-links=/tmp/ccw35-wheels --require-hashes -r /tmp/ccw35-requirements.lock.txt \
- && /opt/ccw35-science/bin/pip check \
- && ln -s /app/inputs /inputs \
- && test -x /usr/local/bin/claude \
- && claude --version | grep -F '2.1.267' \
- && kill "$NETWORK_PID" \
- && install -m 755 /tmp/ccw35-claude-gateway.py /opt/ccw35-science/bin/claude \
- && rm /tmp/ccw35-claude-gateway.py
+RUN cd /tmp/batio3-wheels && sha256sum -c SHA256SUMS
 
-RUN rm -rf /app/inputs/wheels /app/inputs/runtime /app/inputs/requirements.lock.txt
+RUN test "$(uname -m)" = x86_64 \
+ && python3 -c 'import sys; assert sys.version_info[:2] == (3, 12)' \
+ && python3 -m venv /opt/batio3-science \
+ && /opt/batio3-science/bin/pip install --no-index --find-links=/tmp/batio3-wheels --only-binary=:all: \
+      ase==3.26.0 cloudpickle==3.1.2 contourpy==1.4.0 cycler==0.12.1 fonttools==4.67.0 \
+      joblib==1.6.0 kiwisolver==1.5.1 matplotlib==3.11.2 numpy==2.5.3 packaging==26.3 \
+      pillow==13.0.0 pyparsing==3.3.3 python_dateutil==2.9.0.post0 scikit_learn==1.7.2 \
+      scipy==1.18.1 six==1.17.0 threadpoolctl==3.7.0 \
+ && /opt/batio3-science/bin/pip check \
+ && rm -rf /tmp/batio3-wheels
 
-ENV PATH="/opt/ccw35-science/bin:${PATH}" \
+ENV PATH="/opt/batio3-science/bin:${PATH}" \
     OMP_NUM_THREADS=1 \
-    OPENMM_CPU_THREADS=1 \
     OPENBLAS_NUM_THREADS=1 \
-    MKL_NUM_THREADS=1
+    MKL_NUM_THREADS=1 \
+    PYTHONDONTWRITEBYTECODE=1

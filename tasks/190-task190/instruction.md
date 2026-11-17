@@ -1,28 +1,25 @@
-# Single-vacancy thermodynamics
+# Initial Ni–Ni3Al phase regions and static Mo partitioning
 
 ## Background
 
-Vacancy formation energies depend on the bulk chemical potential, relaxation route and finite-size effects.
+Study chemical-order phase boundaries and static Mo partitioning in the supplied initial state.
 
-The inputs include the original sixteen-species UNEP-v1 model; `request.json` specifies the scientific scope, units and controls.
+The inputs include the author’s Ni/Al/Mo initial configuration, lattice and interface-width parameters, and a ledger of static exchange energies and temperature.
 
 ## Task
 
-Calculate zero-temperature, zero-pressure single-vacancy formation energies for FCC Cu and BCC W using UNEP-v1. Choose a consistent fixed-cell or variable-cell route, at least three sizes including 4x5x6 conventional cells, and control the largest-two-size difference to at most 0.01 eV while separating numerical error from model bias.
+Analyze the supplied author 108000-atom Ni/Al/Mo initial configuration. Infer the ordered Ni3Al slab using Al occupation on the FCC corner sublattice, independently of Mo. Identify the slab axis by the restricted set of Al-bearing half-lattice layers (fcc_a_A/2 grid); infer each interface halfway to its adjacent Al-free corner layer. Wrap coordinates with the periodic cubic cell. Interior is gamma_prime, exterior gamma. Exclude interface distances <= width+1e-9 A. Compute the requested interface-width sensitivity of the STATIC initial Mo ratio K_snapshot = c_Mo(gamma_prime)/c_Mo(gamma). These are not equilibrium partition coefficients.
 
 ## Requirements
 
-- Execute the required scientific calculations locally in the task environment. Preserve the actual commands, inputs, native outputs and reproducible execution records.
-- Use the complete supplied UNEP-v1 potential for zero-temperature, zero-pressure FCC Cu and BCC W. Establish the bulk reference and use one declared fixed-cell or variable-cell vacancy relaxation route consistently with the chemical potential.
-- Calculate at least three sizes per material, including a 4×5×6 conventional-cell supercell. Record relaxed bulk and defect structures, volumes, energies, atom counts, maximum residual forces and force tolerances. The formation-energy change between the largest two sizes must be at most 0.01 eV; retain force-threshold and pressure-sensitivity checks.
-- Choose the relaxation algorithm while retaining all scientific settings, units and comparisons in `request.json`. Separate numerical changes from potential-model bias. Preserve code, inputs, native outputs and failed or stopped attempts. No reference answer is supplied.
+Compute phase populations, Mo concentrations and static partition ratios for each requested interface width, and output phase labels in source-row order at the requested width. Analyze each static energy ledger entry to calculate forward and reverse energy differences and theoretical Metropolis–Hastings probabilities and log probabilities under symmetric proposals. Each row starts from S0 and reverses back to S0; pairs were chosen deterministically and no accept/reject experiment was recorded. Temperature changes reweight the same static energies and do not create thermal trajectories. Do not calculate new NEP energies or run MCMD.
 
-- Submit the required results and evidence under `/app/results/` according to the listed output convention.
+Explain chemical-order boundaries, width sensitivity, and why the initial state and three swaps cannot establish equilibrium mixing or a confidence interval. Use only the supplied records; the executable accepts `--inputs DIR --output DIR`, writes directly to the output directory, and recomputes for each input including temperature changes. Use bundled Python dependencies without network access. Submit results and evidence according to the listed output convention.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Potential model and calculation parameters. |
+| `/app/inputs/` | Interface structures, exchange energies and calculation parameters. |
 | `/app/results/` | Submitted results and required execution evidence. |
-| `/app/assets/output-contract.json` | Required outputs and submission format. |
+| `/app/public/output-contract.json` | Required outputs and submission format. |

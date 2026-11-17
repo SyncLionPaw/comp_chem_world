@@ -12,9 +12,9 @@ The study extends molecular machine learning into chemical reaction space using 
 
 | Task | Description |
 | --- | --- |
-| Task 237 | Audit electronic-reference energies, spin constraints and method comparability in the Rad-6 library. |
-| Task 238 | Analyse reaction-network topology, hub chemistry and mechanistic identifiability. |
-| Task 239 | Compare extensive and intensive SOAP-KRR learning curves. |
-| Task 240 | Assess FPS sampling choices and propagation of molecular-energy errors into reaction energies. |
-| Task 241 | Compare direct and indirect reaction-energy predictions and Hess-cycle consistency. |
-| Task 242 | Analyse Bell–Evans–Polanyi barrier scaling with paired grouped validation and transfer diagnostics. |
+| Task 234 | Audit electronic-reference energies, spin constraints and method comparability in the Rad-6 library. |
+| Task 235 | Analyse reaction-network topology, hub chemistry and mechanistic identifiability. |
+| Task 236 | Compare extensive and intensive SOAP-KRR learning curves. |
+| Task 237 | Assess FPS sampling choices and propagation of molecular-energy errors into reaction energies. |
+| Task 238 | Compare direct and indirect reaction-energy predictions and Hess-cycle consistency. |
+| Task 239 | Analyse Bell–Evans–Polanyi barrier scaling with paired grouped validation and transfer diagnostics. |

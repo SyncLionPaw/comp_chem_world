@@ -1,14 +1,14 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/outputs"]
+artifacts = ["/app/reaction_coordinate_report.json"]
 
 [task]
-name = "compchemworld/case-07-finite-cohort-electrostatic-adsorption-heat-effects"
-description = "Reconstruct finite-cohort DDEC3-minus-NO_Q adsorption-heat effects from actual independent insertion moments, propagate ratio and numerical uncertainty, and compare gases only on paired structures."
+name = "compchemworld/case-03-reaction-coordinate"
+description = "Extract reaction-coordinate geometry for phosphocysteine hydrolysis from the deposited EVB stationary-point snapshots: assign reactant, transition-state and product stages with evidence for all twelve single-frame snapshots across four chimeras, and report S-P, P-O(water), O(water)-H and H-O(aspartate) distances to 0.01 A with coherent per-chimera monotonic progressions."
 
 [metadata]
-name = "case-07-finite-cohort-electrostatic-adsorption-heat-effects"
-description = "Reconstruct finite-cohort DDEC3-minus-NO_Q adsorption-heat effects from actual independent insertion moments, propagate ratio and numerical uncertainty, and compare gases only on paired structures."
+name = "case-03-reaction-coordinate"
+description = "Extract reaction-coordinate geometry for phosphocysteine hydrolysis from the deposited EVB stationary-point snapshots: assign reactant, transition-state and product stages with evidence for all twelve single-frame snapshots across four chimeras, and report S-P, P-O(water), O(water)-H and H-O(aspartate) distances to 0.01 A with coherent per-chimera monotonic progressions."
 execution_class = "local"
 difficulty = "medium"
 
@@ -17,18 +17,18 @@ timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 120
+timeout_sec = 600
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 120
+build_timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 120
+build_timeout_sec = 3600
 network_mode = "no-network"

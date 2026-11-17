@@ -1,27 +1,31 @@
-# Actual Sage Torsion Refit and Protected Validation
+# Local Chemical-Environment Attribution of Halogen Charge Anomalies
 
 ## Background
 
-Improving a training torsion curve does not establish transfer to unseen angles or molecules. The supplied data include molecular structures, QM training records, the fixed Sage field and validation protocol.
+Halogen partition-charge anomalies depend on local periodic chemical environments and uncertain archive mappings.
+
+Public inputs provide the charge data, geometry index, mapping bounds and method conventions.
 
 ## Task
 
-Select and refit a small chemically assigned set of existing Sage Proper-torsion coefficients using the three training sources. Evaluate fitting, no-ridge controls and relaxed-geometry responses, keeping protected QM data out of selection.
+Attribute Cl/F deviations using actual geometry, compare environment statistics and construct chemical counterevidence.
 
 ## Requirements
 
-- Use the full Sage bonded/nonbonded energy with the prescribed first-conformer AM1-BCC charges; do not substitute an independent Fourier surrogate.
-- Retain all twelve alternating training angles per source. Modify at most two allowed Proper IDs, at most four existing k terms per ID, each within initial +/-20 kJ/mol; preserve all other parameters.
-- Choose parameters and regularization using training data only. Keep a same-selection no-ridge control and all parameter/objective histories; at most 200 full-training objective evaluations include selection and controls.
-- Perform the prescribed four-angle relaxed validation per training molecule. The other twelve angles and independent molecule remain protected; preserve adverse results and make no guaranteed-improvement or generalization claim.
-- Use installed local tools without networking or remote scheduling. Use at most 2000 minimizer iterations per required relaxed grid.
+- Cover all 2438 Cl/F sites in 186 structures and 707 matching components. Preserve ok/ko/nan/missing and whole-row methods. Use complete one-to-one allowed-edge matchings at publication precision 5.1e-6. Choose an inclusive 1.8–2.2 Å neighbor cutoff and retain both endpoint descriptors, periodic images, class strata and sensitivity. Provide Cl:O4/Cl:C1 populations, complete matching extrema, contrasts and two distinct conditional perchlorate oxygen partitions (-3<q<0), differing by at least 1e-3 e. Motif serialization tolerance is 1e-8 e; interval arithmetic 1e-12 e.
+- Make `environment_class` a deterministic function of the computed geometry descriptor: repeated descriptors must have the same class, and `Cl:O4` and `Cl:C1` must remain distinct classes. Do not use charges or status values to define geometry classes.
+- Source claims remain conditional on the frozen archive-block assumptions in the public ambiguity card; do not claim native site identity recovery.
+- Use only this case’s public inputs; retain required statuses, failures, units and reproducible evidence.
+- Supply `outputs/code/analysis.py` accepting `--inputs` and `--output`. It must regenerate all scientific results from public inputs in a fresh unprivileged workspace. Both copies receive independent scientific checks; `environments.csv` and `errors.csv` must reproduce the same field values (row and column order may vary).
 
-- Submit results, reproducible analysis and native evidence under `/app/`, using `/app/results.json` and `/app/analysis.py` as the result and analysis entry points. Submit the remaining required files, fields and native artifacts according to the listed output convention.
+- Submit analysis.py and its dependencies in outputs/code/; it must regenerate the scientific results in an empty directory.
+
+- Submit the required artifacts according to the listed output contract.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/environment/assets/` | Molecular systems, force fields and calculation parameters. |
-| `/app/` | Submitted results and required execution evidence. |
-| `/app/environment/assets/output-contract.json` | Required outputs and submission format. |
+| `/opt/qeq-public/` | Public data, models and calculation parameters. |
+| `/opt/qeq-public/output-contract.yaml` | Required outputs and submission format. |
+| `/app/outputs/` | Submitted results and required execution evidence. |

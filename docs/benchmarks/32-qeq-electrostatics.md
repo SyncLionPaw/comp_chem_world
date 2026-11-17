@@ -12,10 +12,10 @@ The study evaluates charge-equilibration algorithms and parameter choices for na
 
 | Task | Description |
 | --- | --- |
-| Task 207 | Analyse copper-ion spin states and energy differences relevant to charge-equilibration parameters. |
-| Task 208 | Test finite-summation convergence and equivalent-cell representation invariance of periodic charges. |
-| Task 209 | Attribute halogen charge anomalies to local chemical environments. |
-| Task 210 | Compare charge-assignment methods while controlling for unequal coverage. |
-| Task 211 | Assess periodic electrostatic-potential fidelity in accessible pore volume. |
-| Task 212 | Assess charge-model sensitivity of dilute CO₂ adsorption through paired Widom insertion. |
-| Task 213 | Analyse finite-cohort electrostatic adsorption-heat contributions and paired gas comparisons. |
+| Task 204 | Analyse copper-ion spin states and energy differences relevant to charge-equilibration parameters. |
+| Task 205 | Test finite-summation convergence and equivalent-cell representation invariance of periodic charges. |
+| Task 206 | Attribute halogen charge anomalies to local chemical environments. |
+| Task 207 | Compare charge-assignment methods while controlling for unequal coverage. |
+| Task 208 | Assess periodic electrostatic-potential fidelity in accessible pore volume. |
+| Task 209 | Assess charge-model sensitivity of dilute CO₂ adsorption through paired Widom insertion. |
+| Task 210 | Analyse finite-cohort electrostatic adsorption-heat contributions and paired gas comparisons. |

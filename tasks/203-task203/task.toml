@@ -1,19 +1,19 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/systems", "/app/scan-frames.npz", "/app/scan-history.npz", "/app/constraint-settings.json"]
+artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/fitted.offxml", "/app/parameter-selection.json", "/app/optimizer-history.npz", "/app/systems", "/app/training-evaluations.npz", "/app/relaxed-validation.npz"]
 
 [task]
-name = "compchemworld/case-03-relaxed-torsion-scan"
-description = "Run complete constrained relaxed Sage torsion scans over the full 24-point, 15-degree grid in both directions for two QM-derived molecules, separating constraint error from unconverged remaining freedoms. Compare conditional MM and QM profiles per branch and report direction dependence without claiming unconstrained reaction barriers."
+name = "compchemworld/case-06-torsion-parameter-refit"
+description = "Refit a small set of existing Sage Proper torsion parameters against training QM energy differences with ridge regularization under a strict objective-call budget, then validate against protected QM angles and an independent molecule. Report training gains, protected degradation and applicability limits with evidence-backed controls rather than guaranteed improvement."
 
 [metadata]
-name = "case-03-relaxed-torsion-scan"
-description = "Run complete constrained relaxed Sage torsion scans over the full 24-point, 15-degree grid in both directions for two QM-derived molecules, separating constraint error from unconverged remaining freedoms. Compare conditional MM and QM profiles per branch and report direction dependence without claiming unconstrained reaction barriers."
+name = "case-06-torsion-parameter-refit"
+description = "Refit a small set of existing Sage Proper torsion parameters against training QM energy differences with ridge regularization under a strict objective-call budget, then validate against protected QM angles and an independent molecule. Report training gains, protected degradation and applicability limits with evidence-backed controls rather than guaranteed improvement."
 execution_class = "local"
 difficulty = "hard"
 
 [agent]
-timeout_sec = 5400
+timeout_sec = 7200
 network_mode = "public"
 
 [verifier]

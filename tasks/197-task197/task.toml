@@ -1,23 +1,23 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/path.traj", "/app/profile.csv", "/app/convergence.json", "/app/native", "/app/analysis.md"]
+artifacts = ["/app/audit.json", "/app/analysis.py", "/app/analysis.md", "/app/code"]
 
 [task]
-name = "compchemworld/case-02-nnp-path-convergence"
-description = "Independently optimize the O1 and O4 endpoints of the O1-to-O4 proton hop in dry FAU zeolite with the designated SiAlOH1 neural-network potential, run CI-NEB with tightening and image-refinement stages, and check path connectivity, projected-residual termination and independent energy-force derivatives. Report forward/reverse barriers and the reaction energy on a consistent endpoint energy gauge, retaining native optimization histories and derivative samples under native/."
+name = "compchemworld/case-05-mfi-snapshot-audit"
+description = "Audit 100 stored same-geometry MFI DFT-labelled/NNP-labelled snapshot pairs: decompose energy and force errors across local chemical environments and displacement directions under declared cutoffs, report global, local and directional error statistics for all frames, and rank frames by three priority metrics. Deliver audit.json, an executable analysis and analysis.md that quantify retrospective inspection coverage only, with no new simulation, model inference or execution receipts."
 
 [metadata]
-name = "case-02-nnp-path-convergence"
-description = "Independently optimize the O1 and O4 endpoints of the O1-to-O4 proton hop in dry FAU zeolite with the designated SiAlOH1 neural-network potential, run CI-NEB with tightening and image-refinement stages, and check path connectivity, projected-residual termination and independent energy-force derivatives. Report forward/reverse barriers and the reaction energy on a consistent endpoint energy gauge, retaining native optimization histories and derivative samples under native/."
+name = "case-05-mfi-snapshot-audit"
+description = "Audit 100 stored same-geometry MFI DFT-labelled/NNP-labelled snapshot pairs: decompose energy and force errors across local chemical environments and displacement directions under declared cutoffs, report global, local and directional error statistics for all frames, and rank frames by three priority metrics. Deliver audit.json, an executable analysis and analysis.md that quantify retrospective inspection coverage only, with no new simulation, model inference or execution receipts."
 execution_class = "local"
-difficulty = "hard"
+difficulty = "medium"
 
 [agent]
-timeout_sec = 259200
-network_mode = "public"
+timeout_sec = 3600
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 10800
+timeout_sec = 900
 environment_mode = "separate"
 network_mode = "no-network"
 
@@ -25,7 +25,7 @@ network_mode = "no-network"
 cpus = 2
 memory_mb = 4096
 build_timeout_sec = 2400
-network_mode = "public"
+network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2

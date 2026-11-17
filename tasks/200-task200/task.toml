@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/audit.json", "/app/analysis.py", "/app/analysis.md", "/app/code"]
+artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/systems", "/app/scan-frames.npz", "/app/scan-history.npz", "/app/constraint-settings.json"]
 
 [task]
-name = "compchemworld/case-05-mfi-snapshot-audit"
-description = "Audit 100 stored same-geometry MFI DFT-labelled/NNP-labelled snapshot pairs: decompose energy and force errors across local chemical environments and displacement directions under declared cutoffs, report global, local and directional error statistics for all frames, and rank frames by three priority metrics. Deliver audit.json, an executable analysis and analysis.md that quantify retrospective inspection coverage only, with no new simulation, model inference or execution receipts."
+name = "compchemworld/case-03-relaxed-torsion-scan"
+description = "Run complete constrained relaxed Sage torsion scans over the full 24-point, 15-degree grid in both directions for two QM-derived molecules, separating constraint error from unconverged remaining freedoms. Compare conditional MM and QM profiles per branch and report direction dependence without claiming unconstrained reaction barriers."
 
 [metadata]
-name = "case-05-mfi-snapshot-audit"
-description = "Audit 100 stored same-geometry MFI DFT-labelled/NNP-labelled snapshot pairs: decompose energy and force errors across local chemical environments and displacement directions under declared cutoffs, report global, local and directional error statistics for all frames, and rank frames by three priority metrics. Deliver audit.json, an executable analysis and analysis.md that quantify retrospective inspection coverage only, with no new simulation, model inference or execution receipts."
+name = "case-03-relaxed-torsion-scan"
+description = "Run complete constrained relaxed Sage torsion scans over the full 24-point, 15-degree grid in both directions for two QM-derived molecules, separating constraint error from unconverged remaining freedoms. Compare conditional MM and QM profiles per branch and report direction dependence without claiming unconstrained reaction barriers."
 execution_class = "local"
-difficulty = "medium"
+difficulty = "hard"
 
 [agent]
-timeout_sec = 3600
-network_mode = "no-network"
+timeout_sec = 5400
+network_mode = "public"
 
 [verifier]
-timeout_sec = 900
+timeout_sec = 3600
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 2
-memory_mb = 4096
-build_timeout_sec = 2400
-network_mode = "no-network"
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 3600
+network_mode = "public"
 
 [verifier.environment]
-cpus = 2
-memory_mb = 4096
-build_timeout_sec = 2400
+cpus = 4
+memory_mb = 16384
+build_timeout_sec = 3600
 network_mode = "no-network"

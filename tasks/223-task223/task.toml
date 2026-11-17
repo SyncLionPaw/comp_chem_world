@@ -1,23 +1,26 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final"]
+artifacts = [
+  "/app/scores.json",
+  "/app/timeseries.csv",
+]
 
 [task]
-name = "compchemworld/case-04-martini-cphmd-validation"
-description = "Design and run coarse-grained Martini constant-pH titrations for the Asp and Glu tripeptides with the supplied GROMACS CpHMD fork, preserving the single-lambda representation, buffer particles, reaction-field electrostatics and 20 fs timestep, choose a converged pH grid covering each titration midpoint, fit coarse-grained pKa values with confidence intervals, and compare them against the supplied all-atom and experimental references to demonstrate force-field-agnostic charge interpolation in cg_pka_results.json and cross_resolution_comparison.json under /app/final."
+name = "compchemworld/case-01-contact-dynamics-scoring"
+description = "Analyze an Open Binding Pose Metadynamics trajectory of a protein-ligand complex: compute the per-frame ligand heavy-atom PoseScore after protein-backbone Kabsch alignment, the normalized heavy-atom contact persistence ContactScore against the frame-0 3.5 A protein neighborhood, and the composite CompScore = PoseScore - 5 * ContactScore, then report the tail-window means over the final 20 production frames plus the full 99-frame score timeseries."
 
 [metadata]
-name = "case-04-martini-cphmd-validation"
-description = "Design and run coarse-grained Martini constant-pH titrations for the Asp and Glu tripeptides with the supplied GROMACS CpHMD fork, preserving the single-lambda representation, buffer particles, reaction-field electrostatics and 20 fs timestep, choose a converged pH grid covering each titration midpoint, fit coarse-grained pKa values with confidence intervals, and compare them against the supplied all-atom and experimental references to demonstrate force-field-agnostic charge interpolation in cg_pka_results.json and cross_resolution_comparison.json under /app/final."
-execution_class = "remote"
-difficulty = "hard"
+name = "case-01-contact-dynamics-scoring"
+description = "Analyze an Open Binding Pose Metadynamics trajectory of a protein-ligand complex: compute the per-frame ligand heavy-atom PoseScore after protein-backbone Kabsch alignment, the normalized heavy-atom contact persistence ContactScore against the frame-0 3.5 A protein neighborhood, and the composite CompScore = PoseScore - 5 * ContactScore, then report the tail-window means over the final 20 production frames plus the full 99-frame score timeseries."
+execution_class = "local"
+difficulty = "medium"
 
 [agent]
-timeout_sec = 259200
-network_mode = "public"
+timeout_sec = 3600
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 7200
+timeout_sec = 600
 environment_mode = "separate"
 network_mode = "no-network"
 
@@ -25,7 +28,7 @@ network_mode = "no-network"
 cpus = 2
 memory_mb = 4096
 build_timeout_sec = 1800
-network_mode = "public"
+network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2

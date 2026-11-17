@@ -12,9 +12,9 @@ The study combines first-principles reference calculations with machine-learning
 
 | Task | Description |
 | --- | --- |
-| Task 231 | Reconstruct polarisation branches and summarise finite polarisation records. |
-| Task 232 | Compare paired QE/GAP energy profiles and evaluate residual corrections with blocked holdouts. |
-| Task 233 | Analyse Ti off-centering in short NVT trajectories and assess order–disorder identifiability. |
-| Task 234 | Calculate spatial dipole-correlation tensors and finite-record ordering contrasts. |
-| Task 235 | Recompute paired-energy free-energy perturbation and assess importance-sampling support. |
-| Task 236 | Derive dielectric response from dipole autocorrelation and compare oscillator fits. |
+| Task 228 | Reconstruct polarisation branches and summarise finite polarisation records. |
+| Task 229 | Compare paired QE/GAP energy profiles and evaluate residual corrections with blocked holdouts. |
+| Task 230 | Analyse Ti off-centering in short NVT trajectories and assess order–disorder identifiability. |
+| Task 231 | Calculate spatial dipole-correlation tensors and finite-record ordering contrasts. |
+| Task 232 | Recompute paired-energy free-energy perturbation and assess importance-sampling support. |
+| Task 233 | Derive dielectric response from dipole autocorrelation and compare oscillator fits. |

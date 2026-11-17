@@ -1,36 +1,34 @@
-# Finite Polarization-Record Branch Reconstruction
+# Spatial Dipole Correlation Tensors and Needle-Like Order Diagnosis
 
 ## Background
 
-BaTiO3 polarization from a finite first-principles training record is a branch-valued quantity: the same structure can be assigned different polarization vectors by integer lattice row shifts. The supplied data cover 840 geometries in the published phase order (210 each of C, T, O and R), with the T and R subsets given as 210-frame records at offsets 210 and 630.
+Ferroelectric order in BaTiO3 leaves a spatial imprint: the correlation between dipole displacements in neighbouring unit cells. The supplied author trajectories give a 5x5x5 periodic grid of unit cells at 250 K under ambient pressure and under 30 GPa, so the spatial correlation tensor and its anisotropy can be measured directly from the recorded dipoles. A short-range descriptor cutoff does not by itself forbid longer effective coupling.
 
-The inputs include raw per-cell polarization and proxy values for the T and R segments. The T proxy is the published Born-effective-charge linear prediction; the R proxy uses empirical ionic charge scaled by 1.8, not a Born-effective-charge tensor.
+The ambient and 30 GPa trajectories contain 4947 and 3439 frames, respectively, with 125 cells per frame. The inputs also provide grid coordinates, reference cell and lattice constant, temperature and stress settings, a high-pressure cell-snapshot excerpt, and the author potential configuration with its descriptor cutoff.
 
 ## Task
 
-Reconstruct the branch convention for every actual recorded geometry. Raw polarizations are flattened Cartesian triples in e/Bohr^2. For each recorded row-vector cell matrix H, convert Angstrom to Bohr using 0.529177210903 and form the physical quantum Q = H/abs(det(H)); shift each raw vector by integer row combinations n@Q and select the Euclidean-nearest proxy image, retaining the nearest/second-nearest margin. Certify the neighbourhood by the 1.5 * smallest-singular-value bound on the excluded candidates.
+Compute the full canonical spatial Pearson correlation tensor, its condensed projections, the pressure comparison and the moving-block bootstrap diagnostics from the supplied records, following the listed output convention.
 
-Choose a proxy scale `proxy_scale` in [0.8, 1.2]. Reconstruct the fixed proxy scales 0.9, 1.0 and 1.1 plus your selected scale, and report the finite-record means.
+Choose a component (0..2), spatial axis (0..2), displacement (1 or 2 lattice cells), an integer seed in 0..2^32-1 and a number of contiguous blocks (2..6). In `constructive_controls.json`, provide `spec` with `component`, `axis`, `distance_cells`, `seed`, `blocks`, and the matching `results` computed under `/app/public/autonomous_controls.py`, applying an independently generated spatial permutation in each frame, a periodic lattice translation and the contiguous-block comparisons.
 
 ## Requirements
 
-- Use all 840 geometries and the full T/R 210-frame subsets; do not drop, subsample or reorder frames.
-- Keep every integer shift, reconstructed vector, proxy residual, nearest/second-nearest margin, and the finite-record mean for every scale.
-- The T proxy is the supplied published Born-effective-charge linear prediction; the R proxy is an empirical ionic charge scaled by 1.8 and is not a Born-effective-charge tensor. Do not claim a new DFT or Born-effective-charge certificate, a 0 K spontaneous polarization, infinite-grid precision, or physical equivalence of arbitrary proxy scales.
-- Use a numerical tolerance of atol 1e-9 + rtol 2e-7; integer labels, counts, shifts and complete key/array denominators must be exact.
+- Use all raw frames of both trajectories, no truncation or chosen subset. The full original tensor and all displacements remain mandatory regardless of the exploratory choice.
+- Report original, shuffled and translated correlations, the shuffle contrast, every block value, and the minimum and maximum.
+- High-pressure distances stay in cell units because the short cell excerpt does not align with all dipole frames. Do not assign Angstrom distances to the high-pressure trajectory.
+- The source range is the 5.5 Angstrom atom-centred descriptor cutoff; shared local environments can mediate longer effective coupling. The finite-grid fits and block intervals are descriptive; no asymptotic length, unique mechanism or causal pressure law is identified. `claim_scope` records those bounds and accompanies computed controls; it never substitutes for them.
+-
+- Use rtol 2e-6 and atol 2e-7 for scalar and tensor comparisons; use the specified bootstrap and interval tolerances.
+
+- Include the boolean `needle_like_anisotropy_confirmed` in `spatial_correlation_results.json`: set it to `true` if and only if `axial_minus_radial_nn_ci95[0] > 0` and `axial_2cell_Cxx > 0`; otherwise set it to `false`. This records finite-record anisotropy and does not identify a unique mechanism or asymptotic length.
 
 Submit the results according to the listed output convention.
-
-The specified results can be reproduced with:
-
-```
-python3 /app/public/replay.py --inputs /app/inputs --spec /app/public/example-spec.json --out /app/final
-```
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Cell geometries, polarization records and proxy data. |
+| `/app/inputs/` | Dipole trajectories and system parameters. |
 | `/app/final/` | Submitted results and required execution evidence. |
-| `/app/public/README.md` | Calculation methods and result-submission requirements. |
+| `/app/canonical-protocol.md` | Calculation methods and result-submission requirements. |

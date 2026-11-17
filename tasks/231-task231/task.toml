@@ -1,16 +1,16 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
+artifacts = ["/app/final/spatial_correlation_results.json", "/app/final/emergent_correlations_report.md", "/app/final/constructive_controls.json"]
 
 [task]
-name = "compchemworld/case-01-dft-berry-phase-polarization"
-description = "Reconstruct the integer-lattice polarization branch for every recorded BaTiO3 geometry from a finite first-principles training record. Replay the published proxy-polarization reconstruction at fixed and agent-selected proxy scales, retain the complete per-frame shift and margin evidence, and report finite-record means under the supplied units and branch convention."
+name = "compchemworld/case-04-dipole-spatial-correlation"
+description = "Recompute the full spatial dipole correlation tensor of the 5x5x5 BaTiO3 cell grid from the author trajectory under the canonical estimator, run the fixed block-bootstrap contrast and finite-grid exponential fits, and compare the ambient and 30 GPa conditions with bounded, data-derived interpretation."
 
 [metadata]
-name = "case-01-dft-berry-phase-polarization"
-description = "Reconstruct the integer-lattice polarization branch for every recorded BaTiO3 geometry from a finite first-principles training record. Replay the published proxy-polarization reconstruction at fixed and agent-selected proxy scales, retain the complete per-frame shift and margin evidence, and report finite-record means under the supplied units and branch convention."
+name = "case-04-dipole-spatial-correlation"
+description = "Recompute the full spatial dipole correlation tensor of the 5x5x5 BaTiO3 cell grid from the author trajectory under the canonical estimator, run the fixed block-bootstrap contrast and finite-grid exponential fits, and compare the ambient and 30 GPa conditions with bounded, data-derived interpretation."
 execution_class = "local"
-difficulty = "easy"
+difficulty = "medium"
 
 [agent]
 timeout_sec = 3600
@@ -22,13 +22,13 @@ environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 2
+cpus = 4
 memory_mb = 2048
 build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
-cpus = 2
+cpus = 4
 memory_mb = 2048
 build_timeout_sec = 1800
 network_mode = "no-network"

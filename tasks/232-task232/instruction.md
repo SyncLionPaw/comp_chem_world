@@ -1,24 +1,26 @@
-# Paired QE/GAP Energy Profiles and Blocked Correction
+# Finite-Source Paired-Energy Free-Energy Perturbation
 
 ## Background
 
-A short-range machine-learned potential (GAP) and the first-principles method it was trained on (QE) can disagree along a paired reaction path. Two complete 31-frame QE paths are supplied together with the corresponding GAP curves for the same printed geometries, so the disagreement can be quantified per frame on the exact same structures.
+An approximate potential and the first-principles energies it was trained on can disagree systematically across a finite set of paired configurations, and that disagreement propagates into any free-energy estimate built from them. The supplied records give four groups of 50 paired 320-atom frames for the cubic and tetragonal phases at 170 K and 194 K, with the original first-principles stdout for every frame and the corresponding archived model energies.
 
-The inputs include printed 40-atom geometries, original QE stdout with converged energies, cells, positions and complete force blocks, and author-original GAP energy curves. Archived native model predictions for the same geometries are supplied as given outputs.
+The original stdout contains the converged energy, cell and positions for each frame; the archived model energies are supplied as given outputs.
 
 ## Task
 
-Parse every frame's final converged SCF energy, printed cell/positions and complete 40-atom force block from the original QE stdout. Use both complete 31-frame paths and all 62 paired geometries, converting 1 Ry = 13.605693122994 eV and subtracting each path's frame 0 to obtain meV per 40-atom cell.
+Parse each complete matched original stdout and preserve the frame, geometry and source identity within the 1e-4 Angstrom printed-rounding limitation. Compute delta = E_DFT - E_GAP in whole-cell eV.
 
-Train a shared residual correction y = QErelative - GAPrelative on both paths using polynomial terms lambda^1..lambda^degree with no intercept, holding out frame indices 10..15 of both paths simultaneously (12 held out, 50 training frames). Use SVD factors s/(s^2 + relative_ridge * smax^2). Choose `degree` in 1..4 and `relative_ridge` in [0, 1].
+Evaluate the standard model-sampled correction, -kBT * log(mean(exp(-delta/kBT))), computed stably with kB = 8.617333262145e-5 eV/K, and separately the opposite-sign printed-expression diagnostic. Normalize per atom only after exponential averaging (multiply 1000/320 for meV/atom). Report the cubic-minus-tetragonal correction at both temperatures.
+
+Choose `block_frames` from 2, 5, 10, 25 and `stride` in 2..5.
 
 ## Requirements
 
-- Evaluate all degrees 1..4 and ridge values 0, 1e-6 and 0.01, plus your selected pair. A poor held-out prediction is a valid measured result and must be reported as measured.
-- Keep both supplied curves and all disagreements; report all 62 predictions and residuals, coefficients, and training and fixed held-out RMS values. A sampled path maximum is not a transition state.
-- The printed-coordinate comparison carries a <= 1e-4 Angstrom matching limitation, which must be retained.
-- The named curves are given outputs, not new inference, and are not interchangeable. This is algebraic calibration of observed curves, not SOP training, new DFT at refined points, a full saddle search, or a unique electrostatic attribution.
-- Use a numerical tolerance of atol 2e-7 + rtol 2e-8; use atol 1e-9 eV/Ry for raw source energies; integers and complete denominators must be exact.
+- Retain the standard and opposite-sign results, all 50 ordered prefixes, all 50 reverse prefixes, the normalized importance weights, ESS and maximum weight.
+- Evaluate the fixed block deletions 5 and 10 plus your selected block length, and the fixed strides 1, 2 and 5 plus your selected stride. None of these removes the full 50-frame baseline.
+- Report the cubic-minus-tetragonal correction at both temperatures, in meV/atom.
+- The archived model energies are given outputs, not new inference and not author-original predictions. Importance ESS is not an independent-trajectory sample size; block-deletion ranges are descriptive and not calibrated confidence intervals. These records do not establish unconditional free-energy convergence, do not reconstruct PCA/PAMM/ITRE/TI, and do not determine a physical Curie temperature or a unique explanation of the DFT/volume bias. A negative overlap or sensitivity result still completes the task when accurately computed.
+- Use atol 1e-10 eV for whole-cell free-energy arithmetic, 1e-8 for meV/atom and importance weights/ESS, and 1e-9 eV/Ry for supplied and raw energies. Integers and full denominators must be exact.
 
 Submit the results according to the listed output convention.
 
@@ -32,6 +34,6 @@ python3 /app/public/replay.py --inputs /app/inputs --spec /app/public/example-sp
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Paired path structures, energies and original calculation records. |
+| `/app/inputs/` | Paired structures and energy records. |
 | `/app/final/` | Submitted results and required execution evidence. |
 | `/app/public/README.md` | Calculation methods and result-submission requirements. |

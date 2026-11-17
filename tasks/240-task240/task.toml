@@ -1,33 +1,34 @@
+# Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/fps_reaction_error_propagation.json"]
+artifacts = ["/app/experimental_constraints.json", "/app/efficiency_audit.csv", "/app/mechanism_limits.md"]
 
 [task]
-name = "compchemworld/case-04-fps-reaction-space-error-propagation"
-description = "Reconstruct all eight Rad-6 source models across kernel type, FPS order and N=500/4000, and compute complete molecular and reaction-energy error propagation with coverage and balanced factorial contrasts."
+name = "compchemworld/case-01-she-mechanism-evidence"
+description = "Recover source-linked experimental constraints on CO2 adsorption control from the supplied article, supplement and text layer: transcribe all 29 printed current-efficiency rows on the SHE scale with literal decimals and uncertainties, and assess adsorption-control and rate-law identifiability with explicit hypothetical zero-order and positive-order numerical countermodels."
 
 [metadata]
-name = "case-04-fps-reaction-space-error-propagation"
-description = "Reconstruct all eight Rad-6 source models across kernel type, FPS order and N=500/4000, and compute complete molecular and reaction-energy error propagation with coverage and balanced factorial contrasts."
-execution_class = "remote"
-difficulty = "hard"
+name = "case-01-she-mechanism-evidence"
+description = "Recover source-linked experimental constraints on CO2 adsorption control from the supplied article, supplement and text layer: transcribe all 29 printed current-efficiency rows on the SHE scale with literal decimals and uncertainties, and assess adsorption-control and rate-law identifiability with explicit hypothetical zero-order and positive-order numerical countermodels."
+execution_class = "local"
+difficulty = "medium"
 
 [agent]
-timeout_sec = 86400
-network_mode = "public"
+timeout_sec = 3600
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 10800
+timeout_sec = 300
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
+cpus = 1
+memory_mb = 2048
 build_timeout_sec = 1800
-cpus = 8
-memory_mb = 32768
-network_mode = "public"
+network_mode = "no-network"
 
 [verifier.environment]
+cpus = 1
+memory_mb = 2048
 build_timeout_sec = 1800
-cpus = 8
-memory_mb = 32768
 network_mode = "no-network"

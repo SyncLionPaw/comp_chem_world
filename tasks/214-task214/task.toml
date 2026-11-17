@@ -1,14 +1,14 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/system.prmtop", "/app/system.inpcrd", "/app/protonation_audit.json"]
+artifacts = ["/app/topology_integrity_report.json", "/app/parameter_consistency_matrix.json"]
 
 [task]
-name = "compchemworld/case-01-system-preparation"
-description = "Prepare the solvated PTP1B phosphocysteine hydrolysis intermediate with AmberTools: load the supplied CSP template and missing-term frcmod, resolve every titratable state including explicit HID/HIE/HIP and a deprotonated catalytic aspartate, solvate in a periodic octahedral TIP3P box with at least 10 A clearance and Na+/Cl- neutralisation, and deliver a LEaP/CPPTRAJ-readable topology, coordinates and a per-residue protonation audit."
+name = "compchemworld/case-04-force-field-validation"
+description = "Validate the deposited Q6 EVB reaction-region topologies and force-field parameters across the four chimera systems: parse the four .fep files and the 51-window input set, identify all 17 reactive Q atoms, require defined atom_types/Lennard-Jones records for every referenced type, confirm the change_bonds table encodes CSP S-P breaking plus P-O formation, and compare atom-type, LJ and bonded parameter tables across systems."
 
 [metadata]
-name = "case-01-system-preparation"
-description = "Prepare the solvated PTP1B phosphocysteine hydrolysis intermediate with AmberTools: load the supplied CSP template and missing-term frcmod, resolve every titratable state including explicit HID/HIE/HIP and a deprotonated catalytic aspartate, solvate in a periodic octahedral TIP3P box with at least 10 A clearance and Na+/Cl- neutralisation, and deliver a LEaP/CPPTRAJ-readable topology, coordinates and a per-residue protonation audit."
+name = "case-04-force-field-validation"
+description = "Validate the deposited Q6 EVB reaction-region topologies and force-field parameters across the four chimera systems: parse the four .fep files and the 51-window input set, identify all 17 reactive Q atoms, require defined atom_types/Lennard-Jones records for every referenced type, confirm the change_bonds table encodes CSP S-P breaking plus P-O formation, and compare atom-type, LJ and bonded parameter tables across systems."
 execution_class = "local"
 difficulty = "medium"
 

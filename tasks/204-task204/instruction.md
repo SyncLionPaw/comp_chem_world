@@ -1,29 +1,26 @@
-# Small-System Liquid NPT Sampling and Density Prediction
+# Spin States and Energy Differences for Copper Ion Parameters
 
 ## Background
 
-Liquid-density estimates must separate sampling uncertainty, replica dependence and finite-size effects. Ethanol structures, the fixed Sage field and the NPT/native-execution protocol are supplied; periodic boxes remain to be constructed.
+Isolated copper spin states determine ionization energies and QEq parameters.
+
+The public inputs specify the atomic calculation and native control protocol.
 
 ## Task
 
-Construct and actually simulate liquid ethanol at 298.15 K and 1 bar for 128- and 256-molecule boxes, with three independent replicas each. Assess density support using equilibration, correlation, replica and size comparisons.
+Compare Cu(0), Cu(+1), Cu(+2) energies, select minimum-energy states and diagnose triplet substitution and downstream stability.
 
 ## Requirements
 
-- Preserve the fixed Sage/AM1-BCC model, source atom identities and the prescribed PME, constraints, integration and pressure-control settings. Reuse one supplied-first-conformer molecular charge vector throughout.
-- Keep all six independent replicas. Each needs at least 0.1 ns equilibration-candidate and 0.2 ns production-candidate sampling, with adaptive extension up to 1 ns per replica.
-- Retain native plans, settings, trajectories and restart evidence; temperature, volume and density must be mutually consistent. Follow the supplied native-execution interface.
-- Required targets are Neff>=20 per replica, total Neff>=100 per size, and 95% interval halfwidth<=0.01 g cm^-3, with replica/half consistency and a quantified size difference. An insufficient result is not converted to success by lowering targets.
-- Use installed local tools without networking or remote scheduling. Make no bulk-limit or general chemical-space claim.
+- Use CCSD(T)/def2-QZVPP with all electrons correlated. The primary nonrelativistic RHF/UHF control has no ECP or frozen core: Cu0 doublet, Cu1 singlet/triplet, Cu2 doublet; quartets are optional. Keep all attempts. Require SCF 1e-12 Eh, CC energy 1e-10 Eh and amplitude-step 1e-8; energy comparison 1e-6 Eh and S² 1e-4. Compute IP0, IP1, chi=(IP0+IP1)/2 and J=IP1-IP0. Provide two neutral pair countermodels with opposite J-K signs.
+- Use only this case’s public inputs; retain required statuses, failures, units and reproducible evidence.
 
-- Submit results, reproducible analysis and native evidence under `/app/`, using `/app/results.json` and `/app/analysis.py` as the result and analysis entry points. Submit the remaining required files, fields and native artifacts according to the listed output convention.
-- Submit `/app/native-plan.json`; place supporting analysis modules and data under `/app/code/` and resolve them relative to the analysis script. During native replay `/submission`, `/inputs` and `/native` are read-only; `/out`, `/tmp` and a private `/dev/shm` are writable. Use the paths supplied on the command line.
+- Submit the required artifacts according to the listed output contract.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/environment/assets/` | Molecular systems, force fields and calculation parameters. |
-| `/app/` | Submitted results and required execution evidence. |
-| `/app/environment/assets/output-contract.json` | Required outputs and submission format. |
-| `/app/environment/assets/native-execution-contract.json` | Native execution-plan and evidence requirements. |
+| `/opt/qeq-public/` | Public data, models and calculation parameters. |
+| `/opt/qeq-public/output-contract.yaml` | Required outputs and submission format. |
+| `/app/outputs/` | Submitted results and required execution evidence. |

@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
+artifacts = ["/app/network_topology_metrics.json", "/app/hub_analysis_report.md", "/app/scientific_certificate.json"]
 
 [task]
-name = "compchemworld/case-05-thermodynamic-integration-curie-point"
-description = "Reproduce free-energy perturbation estimates for paired DFT-GAP sample energies of cubic and tetragonal BaTiO3 cells at the published temperatures using exact double/decimal arithmetic, verify the importance-sampling support of the finite 50-frame samples, and report the conditional free-energy differences with sign controls."
+name = "compchemworld/case-02-reaction-network-hub-centrality"
+description = "Analyse the complete Rad-6 reaction network from the supplied reactions CSV and molecule metadata: recompute the simple undirected species projection, degree hubs with source participation evidence, sampled betweenness with uncertainty, the descriptive degree-tail fit and the full reaction-energy closure against the AE ledger, and deliver network_topology_metrics.json, hub_analysis_report.md and a source-bound scientific certificate under /app."
 
 [metadata]
-name = "case-05-thermodynamic-integration-curie-point"
-description = "Reproduce free-energy perturbation estimates for paired DFT-GAP sample energies of cubic and tetragonal BaTiO3 cells at the published temperatures using exact double/decimal arithmetic, verify the importance-sampling support of the finite 50-frame samples, and report the conditional free-energy differences with sign controls."
+name = "case-02-reaction-network-hub-centrality"
+description = "Analyse the complete Rad-6 reaction network from the supplied reactions CSV and molecule metadata: recompute the simple undirected species projection, degree hubs with source participation evidence, sampled betweenness with uncertainty, the descriptive degree-tail fit and the full reaction-energy closure against the AE ledger, and deliver network_topology_metrics.json, hub_analysis_report.md and a source-bound scientific certificate under /app."
 execution_class = "local"
-difficulty = "easy"
+difficulty = "medium"
 
 [agent]
 timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 3600
+timeout_sec = 1800
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 2
-memory_mb = 2048
-build_timeout_sec = 1800
+build_timeout_sec = 120
+cpus = 4
+memory_mb = 8192
 network_mode = "no-network"
 
 [verifier.environment]
-cpus = 2
-memory_mb = 2048
-build_timeout_sec = 1800
+build_timeout_sec = 120
+cpus = 4
+memory_mb = 8192
 network_mode = "no-network"

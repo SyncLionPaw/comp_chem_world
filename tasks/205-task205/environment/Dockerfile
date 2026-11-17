@@ -1,24 +1,22 @@
 FROM --platform=linux/amd64 compchembench-base:2.1.267
 
-ARG CONDA_FORGE_CHANNEL=https://conda.anaconda.org/conda-forge
 WORKDIR /app
 
-COPY assets/ /app/environment/assets/
+COPY assets/method-card.json /opt/qeq-public/inputs/
+COPY assets/geometry/ /opt/qeq-public/inputs/geometry/
+COPY assets/original/ /opt/qeq-public/inputs/original/
+COPY assets/runtime/ /opt/qeq-public/
 
-COPY assets/runtime/micromamba /usr/local/bin/micromamba
-COPY assets/runtime/ /opt/build/
-COPY assets/wheels/conda-packages/ /opt/build/packages/
+COPY assets/wheels/ /tmp/qeq-wheels/
+COPY assets/requirements.lock.txt /tmp/qeq-requirements.lock.txt
 
-RUN --network=none test "$(uname -m)" = x86_64 \
- && CONDA_FORGE_CHANNEL="${CONDA_FORGE_CHANNEL}" python3 /opt/build/install_locked.py \
- && python3 /opt/build/check_dependencies.py \
- && rm -rf /opt/mamba /opt/build /app/environment/assets/wheels /app/environment/assets/runtime
+RUN python3 -c 'import sys; assert sys.version_info[:2] == (3, 12), "CPython 3.12 wheels required"' \
+ && python3 -m venv /opt/qeq-science \
+ && /opt/qeq-science/bin/pip install --no-index --only-binary=:all: --find-links=/tmp/qeq-wheels --require-hashes -r /tmp/qeq-requirements.lock.txt \
+ && /opt/qeq-science/bin/pip check \
+ && /opt/qeq-science/bin/python -c 'import numpy, scipy, yaml'
 
-ENV PATH="/opt/science/bin:${PATH}" \
-    CONDA_PREFIX=/opt/science \
-    AMBERHOME=/opt/science \
-    OMP_NUM_THREADS=1 \
+ENV PATH="/opt/qeq-science/bin:${PATH}" \
     OPENBLAS_NUM_THREADS=1 \
-    MKL_NUM_THREADS=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONNOUSERSITE=1
+    OMP_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1

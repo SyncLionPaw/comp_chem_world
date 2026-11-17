@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/coordination_report.json"]
+artifacts = ["/app/protocol_response.json"]
 
 [task]
-name = "compchemworld/case-02-coordination-geometry"
-description = "Derive per-structure active-site coordination geometry from the ten deposited PTP1B and WPD-loop chimera crystal structures: identify the VO4/WO4 ligand or its absence from coordinates, measure catalytic Cys215 SG and ligand oxygen distances to at least two decimals, classify the Asp181 N-CA-CB-CG chi1 rotamer, and call the WPD loop open or closed from the Asp181-Cys215 CA separation."
+name = "compchemworld/case-05-restraint-response"
+description = "Compute the static restraint-Hamiltonian response and restart dependencies of the deposited nine-stage MD equilibration protocols for five PTP1B systems: derive restraint masks, stage controls and coordinate/velocity inheritance from the deposited topology, coordinates and namelists, evaluate prescribed translation, rotation and cell-vector perturbations as static diagnostics without MD, and report per-stage energies, net and maximum atom forces plus npt4-to-eqnpt restraint-energy deltas."
 
 [metadata]
-name = "case-02-coordination-geometry"
-description = "Derive per-structure active-site coordination geometry from the ten deposited PTP1B and WPD-loop chimera crystal structures: identify the VO4/WO4 ligand or its absence from coordinates, measure catalytic Cys215 SG and ligand oxygen distances to at least two decimals, classify the Asp181 N-CA-CB-CG chi1 rotamer, and call the WPD loop open or closed from the Asp181-Cys215 CA separation."
+name = "case-05-restraint-response"
+description = "Compute the static restraint-Hamiltonian response and restart dependencies of the deposited nine-stage MD equilibration protocols for five PTP1B systems: derive restraint masks, stage controls and coordinate/velocity inheritance from the deposited topology, coordinates and namelists, evaluate prescribed translation, rotation and cell-vector perturbations as static diagnostics without MD, and report per-stage energies, net and maximum atom forces plus npt4-to-eqnpt restraint-energy deltas."
 execution_class = "local"
-difficulty = "easy"
+difficulty = "medium"
 
 [agent]
 timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 600
+timeout_sec = 60
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 3600
+build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 3600
+build_timeout_sec = 1800
 network_mode = "no-network"

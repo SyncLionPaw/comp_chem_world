@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/charge_response.csv", "/app/correction_ledger.json", "/app/charge_response_analysis.md"]
+artifacts = ["/app/execution.json", "/app/profiles/", "/app/transport_observables.csv", "/app/transport_audit.json", "/app/spatial_interpretation.md", "/app/code/"]
 
 [task]
-name = "compchemworld/case-02-charge-energy-response"
-description = "Reconstruct the sixteen quadratic charge-energy models for Au adsorbates at all six supplied charges, compute energies and derivatives at every grid point, and audit the six reference-state corrections with source-located inclusion status without inventing total free energies."
+name = "compchemworld/case-05-prescribed-flux-spatial-transport"
+description = "Solve the source-defined seven-species GMPNP spatial transport model over the full domain at the prescribed potentials for zero and prescribed external CO fluxes, run the required mesh and 100-digit precision refinement ladders, and report the 42 contract observations with continuous conservation and operandwise sensitivity audits."
 
 [metadata]
-name = "case-02-charge-energy-response"
-description = "Reconstruct the sixteen quadratic charge-energy models for Au adsorbates at all six supplied charges, compute energies and derivatives at every grid point, and audit the six reference-state corrections with source-located inclusion status without inventing total free energies."
+name = "case-05-prescribed-flux-spatial-transport"
+description = "Solve the source-defined seven-species GMPNP spatial transport model over the full domain at the prescribed potentials for zero and prescribed external CO fluxes, run the required mesh and 100-digit precision refinement ladders, and report the 42 contract observations with continuous conservation and operandwise sensitivity audits."
 execution_class = "local"
-difficulty = "easy"
+difficulty = "hard"
 
 [agent]
-timeout_sec = 3600
+timeout_sec = 7200
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 300
+timeout_sec = 1800
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 1
-memory_mb = 1024
+cpus = 2
+memory_mb = 4096
 build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
-cpus = 1
-memory_mb = 1024
+cpus = 2
+memory_mb = 4096
 build_timeout_sec = 1800
 network_mode = "no-network"

@@ -1,32 +1,25 @@
-# Reaction-energy predictions and Hess-cycle consistency
+# Charge-dependent Au adsorbate energies
 
 ## Background
 
-Supplied source-derived predictions permit a finite comparison of Hess-cycle closure and reaction-energy accuracy.
-
-The inputs include cycle definitions and signed coefficients, direct and indirect DFT- and UFF-geometry predictions, DFT references, and reaction-network records. They also document source structures, the intensive-model training FPS order, data splits, model provenance and build protocol.
+The inputs provide the charge grid and transcribed Supplementary Table 6 energy parameters, alongside the source article, supplement and text layer.
 
 ## Task
 
-Compare direct and indirect predictions for both DFT and UFF geometries over 12 correlated four-reaction cycles of rank 11, and distinguish closure from absolute prediction accuracy.
+Reconstruct the 16 quadratic charge-energy models at all six charges, compare adsorbates and audit six reference-state corrections.
 
 ## Requirements
 
-- Compare direct/indirect predictions for DFT/UFF geometries over all 12 four-reaction cycles (rank 11). Preserve exact cycle row identities and signed coefficients; correlated cycles are not independent replicates.
-- Use only supplied predictions and source DFT references. Keep matched identities and disclose that all 19 indirect evaluation nodes are training members; direct training/validation have 500/100 reaction groups isolated from 27 evaluation groups, with shared species allowed. This is a finite source-derived evaluation, not a full paper reproduction.
-- Compute per-model accuracy, closures, stoichiometric rank/nullity, cycle span and geometry ratios. Report geometry sufficiency as null/status `not_identifiable`; no application threshold is supplied.
-- Choose a complete finite source-node potential and independently reconstruct S^T h, shifted predictions, closures and MAE. Require maximum closure difference ≤2e-7 while base/shifted MAE differ under 1e-10 absolute/relative comparison. The required boolean is true; ineffective perturbations, omitted species, duplicate keys or self-reported unsupported values fail.
-- `potential_species_id` is an integer cohort ID and `potential_eV` matches its `species_potential_eV` entry within 2e-7. Follow the listed output convention for complete fields and numerical definitions; extra source cycle metadata is allowed.
-- Explain closure versus accuracy and geometry-causality limits. Use supplied data locally without network.
+Retain all 16 rows including dagger rows, applying a_displayed_times_1e-2 and b_displayed_times_1e-4. At −40,−30,−20,−10,0,10 microC/cm2 compute E=E0+a*sigma+b*sigma² and dE/dsigma=a+2*b*sigma: 96 rows, energies 8 decimals and derivatives 10. Compare Au(211),3x3,BEEF-vdW,fitPt. Record six corrections with signs, targets, sources and tri-state inclusion; do not invent total free energies or interpret frozen geometry as relaxed DFT validation. No DFT, NEB, fitting or constant-potential calculation.
 
-- Submit the required results and evidence under `/app/` according to the listed output convention.
+Follow the listed output convention for the required fields and scientific criteria.
 
-The public OUTPUT-CONTRACT.yaml explicitly lists the numeric fields inside each models.{dft,uff}.{direct,indirect} record and both geometry-comparison ratios. Cycle records may retain the original metadata in addition to the mandatory row and coefficient identities; extra source metadata is not a mismatch.
+The output contract specifies unresolved-input entries and permits source-backed limitations in the required structured claim assessments.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/environment/assets/` | Model predictions, reaction cycles and reference data. |
+| `/app/inputs/` | Charge grid, energy parameters and source material. |
+| `/opt/co2-public/output-contract.md` | Required outputs and submission format. |
 | `/app/` | Submitted results and required execution evidence. |
-| `/app/environment/assets/OUTPUT-CONTRACT.yaml` | Required outputs and submission format. |

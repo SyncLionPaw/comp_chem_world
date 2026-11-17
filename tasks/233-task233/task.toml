@@ -1,16 +1,16 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final/observed_data_assessment.json", "/app/final/scientific_notes.md"]
+artifacts = ["/app/final/dielectric_spectrum_summary.json", "/app/final/harmonic_oscillator_selection.md", "/app/final/chi_spectrum_4ps.csv", "/app/final/constructive_controls.json"]
 
 [task]
-name = "compchemworld/case-03-constrained-md-order-disorder-mechanism"
-description = "Analyse four finite NVT BaTiO3 trajectories at 20, 80, 130 and 250 K to extract the Ti off-centering distributions over the observed frames, test what the fixed observation denominators can identify about order-disorder mechanisms, and bound the resulting claims to the supplied records."
+name = "compchemworld/case-06-dielectric-response-oscillator-fitting"
+description = "Recompute the dipole autocorrelation spectrum of the 6x6x6 BaTiO3 supercell record, derive the conditional THz dielectric response under each stated dipole-unit hypothesis, fit one- and two-oscillator models on finite lag windows, and report the held-out counterevidence without claiming physical mode necessity."
 
 [metadata]
-name = "case-03-constrained-md-order-disorder-mechanism"
-description = "Analyse four finite NVT BaTiO3 trajectories at 20, 80, 130 and 250 K to extract the Ti off-centering distributions over the observed frames, test what the fixed observation denominators can identify about order-disorder mechanisms, and bound the resulting claims to the supplied records."
+name = "case-06-dielectric-response-oscillator-fitting"
+description = "Recompute the dipole autocorrelation spectrum of the 6x6x6 BaTiO3 supercell record, derive the conditional THz dielectric response under each stated dipole-unit hypothesis, fit one- and two-oscillator models on finite lag windows, and report the held-out counterevidence without claiming physical mode necessity."
 execution_class = "local"
-difficulty = "easy"
+difficulty = "medium"
 
 [agent]
 timeout_sec = 3600
@@ -22,13 +22,13 @@ environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 2
+cpus = 4
 memory_mb = 2048
 build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
-cpus = 2
+cpus = 4
 memory_mb = 2048
 build_timeout_sec = 1800
 network_mode = "no-network"

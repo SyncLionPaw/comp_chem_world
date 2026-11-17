@@ -152,11 +152,14 @@ tasks:
   - path: tasks/182-task182
   - path: tasks/183-task183
   - path: tasks/184-task184
+  - path: tasks/189-task189
+  - path: tasks/190-task190
   - path: tasks/192-task192
   - path: tasks/193-task193
   - path: tasks/195-task195
-  - path: tasks/196-task196
+  - path: tasks/197-task197
   - path: tasks/198-task198
+  - path: tasks/199-task199
   - path: tasks/200-task200
   - path: tasks/201-task201
   - path: tasks/202-task202
@@ -174,9 +177,9 @@ tasks:
   - path: tasks/214-task214
   - path: tasks/215-task215
   - path: tasks/216-task216
-  - path: tasks/217-task217
-  - path: tasks/218-task218
-  - path: tasks/219-task219
+  - path: tasks/222-task222
+  - path: tasks/223-task223
+  - path: tasks/224-task224
   - path: tasks/225-task225
   - path: tasks/226-task226
   - path: tasks/227-task227
@@ -188,20 +191,14 @@ tasks:
   - path: tasks/233-task233
   - path: tasks/234-task234
   - path: tasks/235-task235
-  - path: tasks/236-task236
-  - path: tasks/237-task237
   - path: tasks/238-task238
+  - path: tasks/239-task239
+  - path: tasks/240-task240
   - path: tasks/241-task241
   - path: tasks/242-task242
   - path: tasks/243-task243
   - path: tasks/244-task244
   - path: tasks/245-task245
-  - path: tasks/246-task246
-  - path: tasks/247-task247
-  - path: tasks/248-task248
 
-agents:
-  - name: claude-code
-    model_name: deepseek/deepseek-flash
-    kwargs:
-      version: "2.1.317"
+# Agent lives in configs/agent.yaml — compose with:
+#   uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y

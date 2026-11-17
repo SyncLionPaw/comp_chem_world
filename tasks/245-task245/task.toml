@@ -1,29 +1,29 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/kinetic_model.json", "/app/steady_states.csv", "/app/drc_perturbations.csv", "/app/kinetics_diagnosis.md"]
+artifacts = ["/app/execution.json", "/app/profiles/", "/app/stability_audit.json", "/app/stationary_interpretation.md", "/app/code/"]
 
 [task]
-name = "compchemworld/case-03-fixed-activity-microkinetics"
-description = "Solve the source-defined four-step fixed-activity CHE-Frumkin microkinetic model along the prescribed charging path, report steady-state coverages, rates and currents at every stencil node, and compute degree-of-rate-control perturbations and Tafel slopes with independently recomputed numerical bounds."
+name = "compchemworld/case-06-stationary-feedback-diagnosis"
+description = "Construct stationary coupled transport solutions at the two prescribed potentials from the mandated initial states, probe every prescribed signed finite flux perturbation, and reconstruct the full log-activity conjugate response spectra with independent multiprecision Jacobian controls."
 
 [metadata]
-name = "case-03-fixed-activity-microkinetics"
-description = "Solve the source-defined four-step fixed-activity CHE-Frumkin microkinetic model along the prescribed charging path, report steady-state coverages, rates and currents at every stencil node, and compute degree-of-rate-control perturbations and Tafel slopes with independently recomputed numerical bounds."
+name = "case-06-stationary-feedback-diagnosis"
+description = "Construct stationary coupled transport solutions at the two prescribed potentials from the mandated initial states, probe every prescribed signed finite flux perturbation, and reconstruct the full log-activity conjugate response spectra with independent multiprecision Jacobian controls."
 execution_class = "local"
-difficulty = "hard"
+difficulty = "holy_grail"
 
 [agent]
-timeout_sec = 3600
+timeout_sec = 7200
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 300
+timeout_sec = 1800
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
 cpus = 2
-memory_mb = 8192
+memory_mb = 4096
 build_timeout_sec = 1800
 network_mode = "no-network"
 

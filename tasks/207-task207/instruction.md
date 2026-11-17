@@ -1,19 +1,20 @@
-# Spin States and Energy Differences for Copper Ion Parameters
+# Fair Method Ranking Under Coverage Confounding
 
 ## Background
 
-Isolated copper spin states determine ionization energies and QEq parameters.
+Different valid structure sets can confound charge-method adsorption rankings.
 
-The public inputs specify the atomic calculation and native control protocol.
+Public inputs provide archived observations, the archive structure and family-proxy method conventions.
 
 ## Task
 
-Compare Cu(0), Cu(+1), Cu(+2) energies, select minimum-energy states and diagnose triplet substitution and downstream stability.
+Compare own-set and common-domain method rankings, coverage costs and family sensitivity from archived observations.
 
 ## Requirements
 
-- Use CCSD(T)/def2-QZVPP with all electrons correlated. The primary nonrelativistic RHF/UHF control has no ECP or frozen core: Cu0 doublet, Cu1 singlet/triplet, Cu2 doublet; quartets are optional. Keep all attempts. Require SCF 1e-12 Eh, CC energy 1e-10 Eh and amplitude-step 1e-8; energy comparison 1e-6 Eh and S² 1e-4. Compute IP0, IP1, chi=(IP0+IP1)/2 and J=IP1-IP0. Provide two neutral pair countermodels with opposite J-K signs.
+- Keep Only Def2 atoms=1 and PO Vol.>0. Valid-table ok defines validity; preserve ko/nan denominators and unknown failure causes. Compare four methods for CO2 heat and at least one uptake observable. Report structure weighting and the exact six-uppercase-letter CCDC refcode-root family proxy, leaving unmatched IDs unresolved. Select primary cohort, observable, metric and weighting with computed rank-change facts. Supply rerunnable analysis.py and retain exact fields and undefined-correlation empty cells. Do not rerun adsorption simulations.
 - Use only this case’s public inputs; retain required statuses, failures, units and reproducible evidence.
+- The replay runs `outputs/code/analysis.py` unprivileged with `--inputs /inputs --output /out`. Only the submitted code directory and public inputs are available as read-only data.
 
 - Submit the required artifacts according to the listed output contract.
 

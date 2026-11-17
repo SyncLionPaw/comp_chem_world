@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final/spatial_correlation_results.json", "/app/final/emergent_correlations_report.md", "/app/final/constructive_controls.json"]
+artifacts = ["/app/reference_audit.json", "/app/electronic_reference_report.md", "/app/scientific_certificate.json"]
 
 [task]
-name = "compchemworld/case-04-dipole-spatial-correlation"
-description = "Recompute the full spatial dipole correlation tensor of the 5x5x5 BaTiO3 cell grid from the author trajectory under the canonical estimator, run the fixed block-bootstrap contrast and finite-grid exponential fits, and compare the ambient and 30 GPa conditions with bounded, data-derived interpretation."
+name = "compchemworld/case-01-electronic-reference-audit"
+description = "Audit all 10,712 Rad-6 molecular records and 123,914 atom rows using only the supplied acquired data: reconstruct the signed atomization ledger with the source H/C/O atomic references, derive neutral-electron parity spin constraints, assess what the two electronic energy columns do and do not establish, and deliver reference_audit.json, electronic_reference_report.md and a source-bound spin-comparability scientific certificate under /app."
 
 [metadata]
-name = "case-04-dipole-spatial-correlation"
-description = "Recompute the full spatial dipole correlation tensor of the 5x5x5 BaTiO3 cell grid from the author trajectory under the canonical estimator, run the fixed block-bootstrap contrast and finite-grid exponential fits, and compare the ambient and 30 GPa conditions with bounded, data-derived interpretation."
+name = "case-01-electronic-reference-audit"
+description = "Audit all 10,712 Rad-6 molecular records and 123,914 atom rows using only the supplied acquired data: reconstruct the signed atomization ledger with the source H/C/O atomic references, derive neutral-electron parity spin constraints, assess what the two electronic energy columns do and do not establish, and deliver reference_audit.json, electronic_reference_report.md and a source-bound spin-comparability scientific certificate under /app."
 execution_class = "local"
-difficulty = "medium"
+difficulty = "hard"
 
 [agent]
 timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]
-timeout_sec = 3600
+timeout_sec = 1800
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 4
+build_timeout_sec = 120
+cpus = 1
 memory_mb = 2048
-build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
-cpus = 4
+build_timeout_sec = 120
+cpus = 1
 memory_mb = 2048
-build_timeout_sec = 1800
 network_mode = "no-network"

@@ -1,30 +1,36 @@
-# Multi-Replica Ensemble Statistics and Trace Diagnostics
+# Finite Polarization-Record Branch Reconstruction
 
 ## Background
 
-Because metadynamics is a non-equilibrium enhanced sampling simulation that stochastically traverses energy barriers, a single 10 ns simulation trajectory is statistically noisy and prone to sampling hysteresis. To establish reproducible pose ranking, OpenBPMD executes 10 independent simulation replicas for every candidate binding pose.
+BaTiO3 polarization from a finite first-principles training record is a branch-valued quantity: the same structure can be assigned different polarization vectors by integer lattice row shifts. The supplied data cover 840 geometries in the published phase order (210 each of C, T, O and R), with the T and R subsets given as 210-frame records at offsets 210 and 630.
 
-Each of the ten replica directories contains `bpm_results.csv` with 99 rows of CompScore, PoseScore (Å) and ContactScore. The inputs include the resampling protocol and complete bootstrap index table.
+The inputs include raw per-cell polarization and proxy values for the T and R segments. The T proxy is the published Born-effective-charge linear prediction; the R proxy uses empirical ionic charge scaled by 1.8, not a Born-effective-charge tensor.
 
 ## Task
 
-Ingest the results from 10 independent OpenBPMD simulation repeats, calculate the ensemble mean and standard deviation across all repeats, extract the final 2 ns tail window across the ensemble, and synthesize the 6 official benchmark stability metrics.
+Reconstruct the branch convention for every actual recorded geometry. Raw polarizations are flattened Cartesian triples in e/Bohr^2. For each recorded row-vector cell matrix H, convert Angstrom to Bohr using 0.529177210903 and form the physical quantum Q = H/abs(det(H)); shift each raw vector by integer row combinations n@Q and select the Euclidean-nearest proxy image, retaining the nearest/second-nearest margin. Certify the neighbourhood by the 1.5 * smallest-singular-value bound on the excluded candidates.
+
+Choose a proxy scale `proxy_scale` in [0.8, 1.2]. Reconstruct the fixed proxy scales 0.9, 1.0 and 1.1 plus your selected scale, and report the finite-record means.
 
 ## Requirements
 
-- Analyze all ten replicas and all 99 frames. Compute the six summary metrics from the pooled 200 final-window values (10 replicas × final 20 frames), using population SD; do not substitute the SD of replica means.
-- Compute framewise population SD, whole/tail autocorrelation and ESS, paired replica drift, and both whole-window and within-tail variance changes. Preserve source frame order and exactly the unique replica IDs 0..9.
-- Use the supplied resampling protocol and complete bootstrap index table: 4000 whole-replica draws of ten slots, retaining duplicates and degenerate draws. Use binary64 in the declared order, divisor 9 for bootstrap sample variances, and sorted zero-based endpoints 100/3900 without interpolation (tolerance 1e-9).
-- Use the specified fields, ACF stopping/constant-trace rules, frozen t coefficient 2.262 and diagnostic status tokens. Summary scores may have three decimals and framewise SD six; this does not relax bootstrap tolerance.
-- Limit conclusions to finite-trace diagnostics. Without a trusted practical-equivalence margin, stability remains unresolved and `convergence_status` is `INCONCLUSIVE`; neither detected nor undetected change certifies free-energy or thermodynamic convergence. Ten-cluster bootstrap and df=9 t intervals are approximate.
-- This analyzes supplied traces; no additional simulations are required.
+- Use all 840 geometries and the full T/R 210-frame subsets; do not drop, subsample or reorder frames.
+- Keep every integer shift, reconstructed vector, proxy residual, nearest/second-nearest margin, and the finite-record mean for every scale.
+- The T proxy is the supplied published Born-effective-charge linear prediction; the R proxy is an empirical ionic charge scaled by 1.8 and is not a Born-effective-charge tensor. Do not claim a new DFT or Born-effective-charge certificate, a 0 K spontaneous polarization, infinite-grid precision, or physical equivalence of arbitrary proxy scales.
+- Use a numerical tolerance of atol 1e-9 + rtol 2e-7; integer labels, counts, shifts and complete key/array denominators must be exact.
 
-JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
+Submit the results according to the listed output convention.
+
+The specified results can be reproduced with:
+
+```
+python3 /app/public/replay.py --inputs /app/inputs --spec /app/public/example-spec.json --out /app/final
+```
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Replica score series and resampling parameters. |
-| `/app/` | Submitted results and required execution evidence. |
-| `/app/output-contract.md` | Required outputs and submission format. |
+| `/app/inputs/` | Cell geometries, polarization records and proxy data. |
+| `/app/final/` | Submitted results and required execution evidence. |
+| `/app/public/README.md` | Calculation methods and result-submission requirements. |

@@ -1,0 +1,34 @@
+# Harbor 0.25.0 task configuration.
+schema_version = "1.4"
+artifacts = ["/app/results"]
+
+[task]
+name = "compchemworld/case-02-vacancy"
+description = "Compute zero-temperature, zero-pressure single-vacancy formation energies for FCC Cu and BCC W with the supplied UNEP-v1 model across at least three cell sizes per system, report bulk and defect structures with relaxed volumes, and demonstrate size and force-threshold convergence of the formation energies."
+
+[metadata]
+name = "case-02-vacancy"
+description = "Compute zero-temperature, zero-pressure single-vacancy formation energies for FCC Cu and BCC W with the supplied UNEP-v1 model across at least three cell sizes per system, report bulk and defect structures with relaxed volumes, and demonstrate size and force-threshold convergence of the formation energies."
+execution_class = "local"
+difficulty = "medium"
+
+[agent]
+timeout_sec = 172800
+network_mode = "public"
+
+[verifier]
+timeout_sec = 10800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[environment]
+cpus = 4
+memory_mb = 6144
+build_timeout_sec = 2400
+network_mode = "public"
+
+[verifier.environment]
+cpus = 4
+memory_mb = 6144
+build_timeout_sec = 2400
+network_mode = "no-network"

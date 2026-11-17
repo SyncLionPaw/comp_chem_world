@@ -1,23 +1,27 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/final"]
+artifacts = [
+  "/app/protocol_config.json",
+  "/app/hill_height_decision.md",
+  "/app/hill_height_evidence.json",
+]
 
 [task]
-name = "compchemworld/case-05-cphmd-scaling-benchmark"
-description = "Run eight paired 10 ns production benchmarks (tripeptide, Cardiotoxin V, HEWL and GLIC systems, each in normal-MD and constant-pH mode) using independently selected computing resources under one consistent hardware and resource configuration, derive ns/day and wall-clock timings from the completed native logs, quantify the constant-pH overhead per system within the frozen limits, and fit the overhead response against 1, 4, 10 and 185 titratable sites, delivering performance_results.json and scaling_analysis.json with the linear fit under /app/final."
+name = "compchemworld/case-02-metadynamics-protocol-setup"
+description = "Configure the frozen OpenBPMD biasing protocol for a solvated protein-ligand system: derive anchor and ligand-heavy-atom selections from the supplied Amber topology, document the RMSD collective variable, hill deposition schedule and periodic-boundary workaround, run CPU-side geometry smoke checks of the OpenMM force construction, and decide between the 0.30 and 0.05 kcal/mol hill heights from the supplied OpenBPMD supporting-information ranking tables with paired statistics and bounded countermodels."
 
 [metadata]
-name = "case-05-cphmd-scaling-benchmark"
-description = "Run eight paired 10 ns production benchmarks (tripeptide, Cardiotoxin V, HEWL and GLIC systems, each in normal-MD and constant-pH mode) using independently selected computing resources under one consistent hardware and resource configuration, derive ns/day and wall-clock timings from the completed native logs, quantify the constant-pH overhead per system within the frozen limits, and fit the overhead response against 1, 4, 10 and 185 titratable sites, delivering performance_results.json and scaling_analysis.json with the linear fit under /app/final."
-execution_class = "remote"
-difficulty = "hard"
+name = "case-02-metadynamics-protocol-setup"
+description = "Configure the frozen OpenBPMD biasing protocol for a solvated protein-ligand system: derive anchor and ligand-heavy-atom selections from the supplied Amber topology, document the RMSD collective variable, hill deposition schedule and periodic-boundary workaround, run CPU-side geometry smoke checks of the OpenMM force construction, and decide between the 0.30 and 0.05 kcal/mol hill heights from the supplied OpenBPMD supporting-information ranking tables with paired statistics and bounded countermodels."
+execution_class = "local"
+difficulty = "medium"
 
 [agent]
-timeout_sec = 864000
-network_mode = "public"
+timeout_sec = 3600
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 7200
+timeout_sec = 600
 environment_mode = "separate"
 network_mode = "no-network"
 
@@ -25,7 +29,7 @@ network_mode = "no-network"
 cpus = 2
 memory_mb = 4096
 build_timeout_sec = 1800
-network_mode = "public"
+network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2

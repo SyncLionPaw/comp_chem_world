@@ -1,16 +1,16 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/reaction_coordinate_report.json"]
+artifacts = ["/app/mechanistic_synthesis.md", "/app/attribution_matrix.json", "/app/mechanism_certificate.json"]
 
 [task]
-name = "compchemworld/case-03-reaction-coordinate"
-description = "Extract reaction-coordinate geometry for phosphocysteine hydrolysis from the deposited EVB stationary-point snapshots: assign reactant, transition-state and product stages with evidence for all twelve single-frame snapshots across four chimeras, and report S-P, P-O(water), O(water)-H and H-O(aspartate) distances to 0.01 A with coherent per-chimera monotonic progressions."
+name = "compchemworld/case-06-wpd-loop-effects"
+description = "Synthesise the multi-scale evidence on WPD-loop sequence effects on PTP1B catalysis: build a source-bound attribution matrix over kinetics, EVB barriers, MSM loop dynamics, E-loop electrostatics and independently counted WPD motifs, keep the unavailable Chimera 1 observables as source-bound nulls, and deliver constructive countermodels and a mechanism certificate that diagnose the Chimera 1 inactivity without overclaiming causality."
 
 [metadata]
-name = "case-03-reaction-coordinate"
-description = "Extract reaction-coordinate geometry for phosphocysteine hydrolysis from the deposited EVB stationary-point snapshots: assign reactant, transition-state and product stages with evidence for all twelve single-frame snapshots across four chimeras, and report S-P, P-O(water), O(water)-H and H-O(aspartate) distances to 0.01 A with coherent per-chimera monotonic progressions."
+name = "case-06-wpd-loop-effects"
+description = "Synthesise the multi-scale evidence on WPD-loop sequence effects on PTP1B catalysis: build a source-bound attribution matrix over kinetics, EVB barriers, MSM loop dynamics, E-loop electrostatics and independently counted WPD motifs, keep the unavailable Chimera 1 observables as source-bound nulls, and deliver constructive countermodels and a mechanism certificate that diagnose the Chimera 1 inactivity without overclaiming causality."
 execution_class = "local"
-difficulty = "medium"
+difficulty = "hard"
 
 [agent]
 timeout_sec = 3600

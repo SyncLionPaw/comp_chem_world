@@ -40,23 +40,19 @@ tasks:
   - path: tasks/180-task180
   - path: tasks/181-task181
   - path: tasks/185-task185
-  - path: tasks/189-task189
-  - path: tasks/190-task190
+  - path: tasks/186-task186
+  - path: tasks/187-task187
+  - path: tasks/188-task188
   - path: tasks/191-task191
   - path: tasks/194-task194
-  - path: tasks/197-task197
-  - path: tasks/199-task199
+  - path: tasks/196-task196
+  - path: tasks/217-task217
+  - path: tasks/218-task218
+  - path: tasks/219-task219
   - path: tasks/220-task220
   - path: tasks/221-task221
-  - path: tasks/222-task222
-  - path: tasks/223-task223
-  - path: tasks/224-task224
-  - path: tasks/239-task239
-  - path: tasks/240-task240
+  - path: tasks/236-task236
+  - path: tasks/237-task237
 
-agents:
-  - name: claude-code
-    model_name: deepseek/deepseek-flash
-    kwargs:
-      version: "2.1.317"
-
+# Agent lives in configs/agent.yaml — compose with:
+#   uv run harbor run -c configs/hpc.yaml -c configs/agent.yaml --env-file .env -y

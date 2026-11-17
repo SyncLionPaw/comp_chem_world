@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/topology_integrity_report.json", "/app/parameter_consistency_matrix.json"]
+artifacts = ["/app/final"]
 
 [task]
-name = "compchemworld/case-04-force-field-validation"
-description = "Validate the deposited Q6 EVB reaction-region topologies and force-field parameters across the four chimera systems: parse the four .fep files and the 51-window input set, identify all 17 reactive Q atoms, require defined atom_types/Lennard-Jones records for every referenced type, confirm the change_bonds table encodes CSP S-P breaking plus P-O formation, and compare atom-type, LJ and bonded parameter tables across systems."
+name = "compchemworld/case-01-tripeptide-pka-extraction"
+description = "Run the 30-production-run constant-pH MD titration grid for the Asp, Glu and His tripeptides (five pH values, two replicas, 10 ns each) using independently selected computing resources with the supplied GROMACS CpHMD fork and CHARMM36 mar2019 CpHMD force field, derive the chemical deprotonation coordinates from the native lambda channels, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals inside the frozen experimental-deviation tolerances, delivering pka_results.json, titration_curves.csv, convergence_analysis.json and a complete native run manifest under /app/final."
 
 [metadata]
-name = "case-04-force-field-validation"
-description = "Validate the deposited Q6 EVB reaction-region topologies and force-field parameters across the four chimera systems: parse the four .fep files and the 51-window input set, identify all 17 reactive Q atoms, require defined atom_types/Lennard-Jones records for every referenced type, confirm the change_bonds table encodes CSP S-P breaking plus P-O formation, and compare atom-type, LJ and bonded parameter tables across systems."
-execution_class = "local"
-difficulty = "medium"
+name = "case-01-tripeptide-pka-extraction"
+description = "Run the 30-production-run constant-pH MD titration grid for the Asp, Glu and His tripeptides (five pH values, two replicas, 10 ns each) using independently selected computing resources with the supplied GROMACS CpHMD fork and CHARMM36 mar2019 CpHMD force field, derive the chemical deprotonation coordinates from the native lambda channels, and fit Henderson-Hasselbalch pKa values with statistical confidence intervals inside the frozen experimental-deviation tolerances, delivering pka_results.json, titration_curves.csv, convergence_analysis.json and a complete native run manifest under /app/final."
+execution_class = "remote"
+difficulty = "hard"
 
 [agent]
-timeout_sec = 3600
-network_mode = "no-network"
+timeout_sec = 259200
+network_mode = "public"
 
 [verifier]
-timeout_sec = 600
+timeout_sec = 7200
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 3600
-network_mode = "no-network"
+build_timeout_sec = 1800
+network_mode = "public"
 
 [verifier.environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 3600
+build_timeout_sec = 1800
 network_mode = "no-network"

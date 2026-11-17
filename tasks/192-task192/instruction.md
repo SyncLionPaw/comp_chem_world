@@ -1,25 +1,29 @@
-# Finite NVE timestep convergence in goldene
+# Finite prediction assessment of twelve retained models
 
 ## Background
 
-Study finite-window timestep convergence in goldene using recorded observations.
+Compare finite prediction errors on the supplied recorded validation set.
 
-The inputs contain fixed-cell NVE energy logs at 0.5, 1 and 2 fs. `request.json` specifies timestep order and the finite-window budget.
+The inputs include recorded validation labels and twelve retained prediction records.
 
 ## Task
 
-Analyze the three supplied real fixed-cell NVE logs for 1800 Au atoms over their observed 0.2 ps windows. Compute per-atom total-energy envelopes and OLS slopes, compare timestep halving, and select the largest supplied timestep meeting the request's finite-window energy-envelope budget. This task measures integrator diagnostics on existing observations. It does not assess production MD, 1 ns membrane stability, finite-temperature equilibrium or thermostat/barostat correctness.
+Using the twenty recorded real public-validation frames and the twelve retained model prediction records in the supplied inputs, independently compute for every model its per-frame energy error and per-component force error over the full supplied frames, and report each model's force-component RMSE and per-atom energy MAE with their exact denominators (frames and force components). Select one of these two legal metrics and use it for the two final-round paired comparisons that share a trial: random minus adaptive for trial 6061 and for trial 6062, where a positive difference means the adaptive model is better on that metric. Derive each comparison's better arm from the computed difference, and state the combined direction across both trials. Declare applicability as exactly these twelve retained models on these twenty recorded frames with these denominators, and exclude the domain-100 and multicomponent-49 sets, which have stored residuals only and no independent prediction records.
 
 ## Requirements
 
-Analyze all recorded rows, including the initial row, in the requested timestep order. Calculate the per-atom energy envelope, peak-to-peak range, OLS slope with an intercept, and observed convergence orders for adjacent timesteps. Select the largest supplied timestep within the budget, or report none. Do not extrapolate the short-window slope into a long-term drift bound or claim that these records establish 1 ns stability or equilibrium. Explain the observed order, choice and finite-window limitations in the report.
+This task concerns analysis of already recorded predictions. It does not establish execution of model inference, fitting, selection or blinded controls, and it makes no population or generalization claim.
 
-Use only the supplied records; no new simulation or model inference is required. The executable accepts `--inputs DIR --output DIR`, writes directly to the output directory, and recomputes for each input, including prefix windows and changed budgets. Use bundled Python dependencies without network access. Submit results and evidence according to the listed output convention.
+Model and frame ordering are free. Recompute for full-frame, frame-subset and record-order-reversed inputs rather than echoing fixed answers. Explain the metric choice, comparisons, direction and limits in the report.
+
+Use the supplied records only; no new simulation or model inference is required. The executable accepts `--inputs DIR --output DIR` and writes its outputs directly under DIR. Recompute for each supplied input, including the input variations described in the task specification. Use bundled Python dependencies (stdlib suffices), without network access.
+
+- Submit the required results and evidence under `/app/results/` according to the listed output convention. The executable analysis entry point is `/app/results/run/analyze.py`.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Supplied NVE energy records and analysis parameters. |
+| `/app/inputs/` | Validation labels and prediction records. |
 | `/app/results/` | Submitted results and required execution evidence. |
 | `/app/public/output-contract.json` | Required outputs and submission format. |

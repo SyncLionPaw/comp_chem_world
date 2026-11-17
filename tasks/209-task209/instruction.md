@@ -1,24 +1,20 @@
-# Local Chemical-Environment Attribution of Halogen Charge Anomalies
+# Charge-model sensitivity of dilute CO₂ adsorption
 
 ## Background
 
-Halogen partition-charge anomalies depend on local periodic chemical environments and uncertain archive mappings.
+Framework charges affect CO₂–host electrostatics and hence the heat of adsorption and Henry coefficient at infinite dilution.
 
-Public inputs provide the charge data, geometry index, mapping bounds and method conventions.
+The inputs define the sampling arms, structures, method order and proposals per stage; periodic cells, fractional coordinates and site IDs; site-aligned framework charges and DDEC3 references with source row IDs; and CO₂ geometry, interaction parameters, temperature, unit conversions, cutoffs, Ewald settings and resolution targets.
 
 ## Task
 
-Attribute Cl/F deviations using actual geometry, compare environment statistics and construct chemical counterevidence.
+At 298 K, how much do PQeq and zero framework charge change CO₂ adsorption relative to DDEC3 in DOTSOV02 and ICOYIK? Estimate the change in isosteric heat and the natural log of the Henry-coefficient ratio for each framework. Distinguish the direction of each effect from how precisely its magnitude is known.
 
 ## Requirements
 
-- Cover all 2438 Cl/F sites in 186 structures and 707 matching components. Preserve ok/ko/nan/missing and whole-row methods. Use complete one-to-one allowed-edge matchings at publication precision 5.1e-6. Choose an inclusive 1.8–2.2 Å neighbor cutoff and retain both endpoint descriptors, periodic images, class strata and sensitivity. Provide Cl:O4/Cl:C1 populations, complete matching extrema, contrasts and two distinct conditional perchlorate oxygen partitions (-3<q<0), differing by at least 1e-3 e. Motif serialization tolerance is 1e-8 e; interval arithmetic 1e-12 e.
-- Make `environment_class` a deterministic function of the computed geometry descriptor: repeated descriptors must have the same class, and `Cl:O4` and `Cl:C1` must remain distinct classes. Do not use charges or status values to define geometry classes.
-- Source claims remain conditional on the frozen archive-block assumptions in the public ambiguity card; do not claim native site identity recovery.
-- Use only this case’s public inputs; retain required statuses, failures, units and reproducible evidence.
-- Supply `outputs/code/analysis.py` accepting `--inputs` and `--output`. It must regenerate all scientific results from public inputs in a fresh unprivileged workspace. Both copies receive independent scientific checks; `environments.csv` and `errors.csv` must reproduce the same field values (row and column order may vary).
-
-- Submit analysis.py and its dependencies in outputs/code/; it must regenerate the scientific results in an empty directory.
+- Perform paired Widom insertions on the supplied rigid cells. For each pose use the same geometry and orientation for DDEC3, PQeq_GMP and NO_Q. Report method minus DDEC3. Apply the two Ewald settings and the hard-core, UFF and TraPPE conventions in the public protocol. Keep isolated pockets and retain the complete proposal denominator.
+- Use eight independent replicas per sampling arm and two fresh stages per replica. Use uniform sampling for DOTSOV02 and both uniform and volume-weighted stratified sampling for ICOYIK. Compare the initial and cumulative estimates, the pooled and replica-wise estimates, and the results of the two ICOYIK samplers. Report pointwise uncertainty for each observable separately.
+- Use only the public inputs for this task and submit the two outputs at the specified paths.
 
 - Submit the required artifacts according to the listed output contract.
 

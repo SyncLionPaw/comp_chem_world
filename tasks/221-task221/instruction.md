@@ -1,14 +1,14 @@
-# Lambda distributions and protonation populations
+# Constant-pH performance comparison
 
 ## Background
 
-Near pKa, lambda distributions should resolve both protonation endpoints. The supplied tripeptide systems support comparison with theoretical protonation populations.
+The performance overhead of charge-interpolation dynamics must be measured under matched conditions. Four supplied systems span tripeptides, Cardiotoxin V, HEWL and GLIC.
 
-Inputs include tripeptide systems, force fields, calibration parameters and theoretical comparisons.
+The inputs include the four benchmark systems, run templates, force fields and calibration parameters.
 
 ## Task
 
-Plan and execute the three fixed-pH tripeptide simulations, reconstruct lambda probability distributions, identify endpoint peaks, and compare the measured mean deprotonation coordinate with the Henderson–Hasselbalch prediction. Choose the software setup and job organization within the cluster requirements below, while preserving the supplied scientific model and calculation requirements.
+Plan and execute paired normal-MD and constant-pH MD measurements for the four supplied systems, quantify performance overhead, and fit its dependence on the number of titratable sites. Choose the software setup and job organization within the cluster requirements below, while preserving the supplied scientific model and calculation requirements.
 
 ## Requirements
 
@@ -16,19 +16,18 @@ Plan and execute the three fixed-pH tripeptide simulations, reconstruct lambda p
 - Prepare the GROMACS CpHMD fork required by the supplied lambda-dynamics model and verify startup before production. A startup check does not replace the required production sampling.
 - Honor the configured connection waiting periods when probing the cluster. If connectivity or scheduling cannot be restored, preserve the failure and report the blocked execution; do not fabricate success or cancel production after startup and count it as complete.
 - Retain submission scripts, scientific commands and input identities, job IDs, original scheduler receipts, compute-node native logs, and the correspondence between jobs and final outputs. Collect these execution records under `/logs/agent/hpc-evidence/` and return the scientific outputs to their existing declared paths. A successful scheduler exit alone does not establish scientific correctness.
-- Use pH 4.0 for Asp, 4.5 for Glu and 6.5 for His. Complete one 20 ns production run per system.
-- Use the CpHMD fork and preserve the supplied constraints and output interval. Explain equilibration treatment.
-- Use state two for Asp/Glu and the neutral-state sum for His. Derive every distribution from actual samples and retain all analysed values.
-- Declare bins and mass/density normalization. Convert using bin widths correctly. Require two endpoint peaks separated by more than 0.5, peak-height ratio 0.2–5 and a lower central region. Also check shape using 50 equal bins on [-0.2,1.2].
-- The measured mean must differ from HH by at most 0.08. Report finite values and retain logs establishing full production and active lambda dynamics.
-- Preserve the actual simulation inputs, launch and analysis commands, native outputs, and available scheduler receipts, including failed or stopped attempts. Report results from the completed production records; retain the effective parameters and analysis windows needed for independent numerical verification.
+- Run all four systems in normal-MD and CpHMD modes for 10 ns each (eight production runs), at pH 7 for CpHMD, without re-equilibrating the supplied systems.
+- Keep hardware, resources and paired settings comparable except for required CpHMD machinery. Record CPU/GPU, core allocation and effective parameters.
+- Derive timing and ns/day from completed native runs, treating preparation/nonproduction work consistently. Define relative performance and overhead consistently; require overhead ≤50% for the three smaller systems and ≤60% for GLIC.
+- Fit against 1, 4, 10 and 185 titratable sites; report slope, intercept and R² with absolute slope<0.002 and R²>0.5.
+- Preserve inputs, commands, complete native outputs, analysis windows and available scheduler receipts, including failed/stopped attempts. All linked artifacts must resolve within `/app/final/` and support independent numerical verification.
 
-- Submit the required artifacts and run evidence according to the listed output contract. Keep linked evidence inside the submission directory.
+- Submit the required artifacts according to the listed output contract.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
 | `/app/inputs/` | Simulation systems, force fields and run parameters. |
-| `/app/output-contract.md` | Required outputs and submission format. |
+| `/app/inputs/output-contract.md` | Required outputs and submission format. |
 | `/app/final/` | Submitted results and required execution evidence. |

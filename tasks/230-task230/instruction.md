@@ -1,37 +1,38 @@
-# MM-GBSA Association, Ranking and Failure Attribution
+# Short NVT Ti Off-Centering and Observation Identifiability
 
 ## Background
 
-Molecular Mechanics Generalized Born Surface Area (MM-GBSA) is widely used in structure-based drug design to estimate binding free energies. However, evaluating candidate docking poses using endpoint MM-GBSA on short unbiased MD simulations frequently yields poor results.
+In BaTiO3 the Ti ion sits off-centre within its oxygen cage, and the direction of that off-centre displacement is the local order parameter. The supplied records are four short NVT runs at 20, 80, 130 and 250 K, each with 11 sampled frames of a 320-atom cell (64 Ti, 64 Ba, 192 O) and the matching property output and input template.
 
-The authors benchmarked MM-GBSA against OpenBPMD using 10 ns unbiased trajectories scored with AmberTools20 `MMPBSA.py`. Compute the association and ranking performance directly from the supplied paired per-pose data. The SI energy file covers 200 poses in 40 systems; two DPP4 systems are absent because the reported MMPBSA.py calculations failed. Do not impute those data or compare rates using different denominators.
-
-Table S1 supplies pose identifiers, RMSDs and OpenBPMD scores for 42 systems. The SI energy data cover 200 poses in 40 systems; the provenance records the source and exclusions.
+The trajectories include cell and Step metadata; the matching property tables report step, time, potential energy and kinetic temperature. A run input template is supplied for each temperature.
 
 ## Task
 
-Compute the statistical association between MM-GBSA scores and pose RMSD and compare ranking performance on the matched population. Evaluate solvent, entropy and finite-sampling explanations against scientifically plausible alternatives. Distinguish observations, hypotheses and causal conclusions; a justified finding that the mechanism is not identifiable can satisfy the task.
+For every actual Ti/frame, apply cubic periodic boundary conditions and average the six nearest O relative vectors; the negative centroid is the Ti off-centre displacement. Retain all 4x11x64 vectors. Assign each displacement the nearest of the eight normalized <111> sign-vector labels, treating a magnitude at or below the resolution as invalid.
+
+Choose `resolution_A` in [0.01, 0.2] and `residence_frames` in 1..3, and report the selected observation summary for each temperature.
 
 ## Requirements
 
-- Join the energy data by `pose_id` and verify `pose_rmsd_A` against Table S1.
+- Assess all thresholds 0.02/0.05/0.1/0.2 Angstrom plus your chosen threshold, strides 1/2/3, and residences 1/2/3 consecutive sampled frames.
+- Invalid gaps reset the run and the accepted state; confirm a new label only after the chosen residence; never count the initial accepted state as a change.
+- Keep labels, all eligible and invalid denominators, occupancies and sampled-change counts for every temperature.
+- Verify each properties file against its target temperature. The XML temperature entry is an unresolved template and its planned 100000 steps do not establish 200 ps of coverage in these observations.
+- These observations do not establish equilibrium, an independent sample count, a physical hopping rate, completion of the planned 200 ps, or a unique order-disorder/displacive mechanism. Extra latent label excursions used in identifiability reasoning are not simulated physical evidence.
+- Use a numerical tolerance of atol 2e-7 + rtol 2e-6, which is arithmetic agreement, not physical uncertainty; integer labels/counts and full denominators must be exact.
 
-- Derive coefficients, variable direction and ranking performance from the supplied matched data. Do not treat a fixed sign or arbitrary coefficient threshold as a universal rule. Pooled p-values are nominal because poses cluster within systems; association and ranking differences do not by themselves identify causality or establish universal method superiority.
-- These formal countermodels address missing causal information. They are not measured affinity, measured entropy, a recovered MMGBSA energy-component decomposition or a demonstrated fix.
-- In the report, connect each correction to an actual matched control: change solvent representation while retaining poses, force field and sampling; change entropy estimator at fixed trajectory/solvent; extend independent sampling at fixed Hamiltonian/estimator.
-- Distinct intervention predictions show what data would discriminate the explanations.
-- RMSD is a pose observable, not a known binding free energy.
-- Preserve contrary evidence and transfer limits.
-- Countermodel tolerance=max(1e-7,1e-7*abs(expected)); cluster-statistic tolerance=max(1e-8,1e-7*abs(expected)). All values must be finite typed JSON numbers. Units: x is MM-GBSA binding energy dG in kJ/mol (kJ mol^-1 or kJ mol⁻¹); y is pose RMSD in Angstrom or Å; n=200. kcal/mol and nm are different units. `excluded_systems` is a unique ID set. Tie bounds require finite min/max and integer n.
+Submit the results according to the listed output convention.
 
-The output contract listed below defines the input index, output fields, units and numerical protocols. Keep linked run evidence within the declared submission directory.
+The specified results can be reproduced with:
 
-JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
+```
+python3 /app/public/replay.py --inputs /app/inputs --spec /app/public/example-spec.json --out /app/final
+```
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Paired energies, poses and reference data. |
-| `/app/` | Submitted results and required execution evidence. |
-| `/app/output-contract.md` | Required outputs and submission format. |
+| `/app/inputs/` | Supplied trajectories, property records and input templates. |
+| `/app/final/` | Submitted results and required execution evidence. |
+| `/app/public/README.md` | Calculation methods and result-submission requirements. |

@@ -1,14 +1,14 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/network_topology_metrics.json", "/app/hub_analysis_report.md", "/app/scientific_certificate.json"]
+artifacts = ["/app/hess_cycle_consistency_assessment.json", "/app/thermodynamic_consistency_report.md"]
 
 [task]
-name = "compchemworld/case-02-reaction-network-hub-centrality"
-description = "Analyse the complete Rad-6 reaction network from the supplied reactions CSV and molecule metadata: recompute the simple undirected species projection, degree hubs with source participation evidence, sampled betweenness with uncertainty, the descriptive degree-tail fit and the full reaction-energy closure against the AE ledger, and deliver network_topology_metrics.json, hub_analysis_report.md and a source-bound scientific certificate under /app."
+name = "compchemworld/case-05-indirect-vs-direct-re-hess-cycle"
+description = "Assess indirect versus direct reaction energies on the frozen Rad-6 RE model slice using only the supplied public predictions: recompute every closed reaction cycle from the source network rows, demonstrate with a source-derived S-transpose counterexample that cycle closure does not identify absolute prediction accuracy, and deliver hess_cycle_consistency_assessment.json plus thermodynamic_consistency_report.md under /app."
 
 [metadata]
-name = "case-02-reaction-network-hub-centrality"
-description = "Analyse the complete Rad-6 reaction network from the supplied reactions CSV and molecule metadata: recompute the simple undirected species projection, degree hubs with source participation evidence, sampled betweenness with uncertainty, the descriptive degree-tail fit and the full reaction-energy closure against the AE ledger, and deliver network_topology_metrics.json, hub_analysis_report.md and a source-bound scientific certificate under /app."
+name = "case-05-indirect-vs-direct-re-hess-cycle"
+description = "Assess indirect versus direct reaction energies on the frozen Rad-6 RE model slice using only the supplied public predictions: recompute every closed reaction cycle from the source network rows, demonstrate with a source-derived S-transpose counterexample that cycle closure does not identify absolute prediction accuracy, and deliver hess_cycle_consistency_assessment.json plus thermodynamic_consistency_report.md under /app."
 execution_class = "local"
 difficulty = "medium"
 

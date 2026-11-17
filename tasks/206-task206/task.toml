@@ -1,34 +1,34 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/fitted.offxml", "/app/parameter-selection.json", "/app/optimizer-history.npz", "/app/systems", "/app/training-evaluations.npz", "/app/relaxed-validation.npz"]
+artifacts = ["/app/outputs"]
 
 [task]
-name = "compchemworld/case-06-torsion-parameter-refit"
-description = "Refit a small set of existing Sage Proper torsion parameters against training QM energy differences with ridge regularization under a strict objective-call budget, then validate against protected QM angles and an independent molecule. Report training gains, protected degradation and applicability limits with evidence-backed controls rather than guaranteed improvement."
+name = "compchemworld/case-03-halogen-environment-attribution"
+description = "Attribute DDEC charge anomalies of Cl and F sites in the archived halogen panel to local chemical environments using periodic geometry neighbor statistics and coordination counts, quantify conditional error statistics over exact compatible-charge assignments with frozen uncertainty bounds, and construct chemical counterevidence against alternative explanations."
 
 [metadata]
-name = "case-06-torsion-parameter-refit"
-description = "Refit a small set of existing Sage Proper torsion parameters against training QM energy differences with ridge regularization under a strict objective-call budget, then validate against protected QM angles and an independent molecule. Report training gains, protected degradation and applicability limits with evidence-backed controls rather than guaranteed improvement."
+name = "case-03-halogen-environment-attribution"
+description = "Attribute DDEC charge anomalies of Cl and F sites in the archived halogen panel to local chemical environments using periodic geometry neighbor statistics and coordination counts, quantify conditional error statistics over exact compatible-charge assignments with frozen uncertainty bounds, and construct chemical counterevidence against alternative explanations."
 execution_class = "local"
-difficulty = "hard"
+difficulty = "medium"
 
 [agent]
-timeout_sec = 7200
-network_mode = "public"
+timeout_sec = 3600
+network_mode = "no-network"
 
 [verifier]
-timeout_sec = 3600
+timeout_sec = 900
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
 cpus = 4
-memory_mb = 16384
-build_timeout_sec = 3600
-network_mode = "public"
+memory_mb = 8192
+build_timeout_sec = 1800
+network_mode = "no-network"
 
 [verifier.environment]
 cpus = 4
-memory_mb = 16384
-build_timeout_sec = 3600
+memory_mb = 8192
+build_timeout_sec = 1800
 network_mode = "no-network"

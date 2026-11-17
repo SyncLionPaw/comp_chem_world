@@ -1,21 +1,25 @@
-# Fair Method Ranking Under Coverage Confounding
+# Finite-cohort electrostatic adsorption-heat effects
 
 ## Background
 
-Different valid structure sets can confound charge-method adsorption rankings.
+Independent insertion moments describe finite-cohort electrostatic adsorption-heat effects at 298 K.
 
-Public inputs provide archived observations, the archive structure and family-proxy method conventions.
+Public inputs provide the cohort, source moments, model context and thermodynamic conventions.
 
 ## Task
 
-Compare own-set and common-domain method rankings, coverage costs and family sensitivity from archived observations.
+Reconstruct DDEC3-minus-NO_Q effects for every included group and H2S-effect-minus-CO2-effect for paired structures.
 
 ## Requirements
 
-- Keep Only Def2 atoms=1 and PO Vol.>0. Valid-table ok defines validity; preserve ko/nan denominators and unknown failure causes. Compare four methods for CO2 heat and at least one uptake observable. Report structure weighting and the exact six-uppercase-letter CCDC refcode-root family proxy, leaving unmatched IDs unresolved. Select primary cohort, observable, metric and weighting with computed rank-change facts. Supply rerunnable analysis.py and retain exact fields and undefined-correlation empty cells. Do not rerun adsorption simulations.
+- Retain the acquired 11-group universe and fixed 10-group cohort (six CO2, four H2S); exclude GAZLAW_clean/CO2 by provenance, never by effect sign. Only four paired structures enter gas contrasts. Reconstruct Qst=RT-cE from primary/audit moments, within/between-replica variance, rounding and deterministic energy bounds, using the full formulas in the listed output contract. Source admissibility remains total halfwidth <=0.5 kJ/mol and numerical <=0.05. Use Fieller/Cauchy–Schwarz denominator correction; per-group difference uses two 97.5% enclosures (t=0.9875 quantile), gas contrasts four 98.75% enclosures (t=0.99375). Require both primary/audit intervals to support a sign, else unidentified. Choose CO2, H2S or paired_gas_difference focus without dropping results. Serialize to six decimals (5.1e-7 bound); unbounded endpoints are empty cells. Nominal Student/asymptotic coverage is per comparison, with no population or experimental claim.
 - Use only this case’s public inputs; retain required statuses, failures, units and reproducible evidence.
-- The replay runs `outputs/code/analysis.py` unprivileged with `--inputs /inputs --output /out`. Only the submitted code directory and public inputs are available as read-only data.
 
+- Complete the finite-cohort analysis from the supplied sufficient statistics in the local container. Do not generate new trajectories, invoke remote scientific engines, or infer effects for structures or gases absent from the supplied observations. Put all deliverables under `/app/outputs/`; the submitted code must support the fixed replay command in the public output contract.
+
+- Submit analysis.py and its dependencies in outputs/code/; it must regenerate the scientific results in an empty directory.
+
+- During controlled replay, `/submission` and `/inputs` are read-only; `/out`, `/tmp` and a private `/dev/shm` are writable. The public runtime and `/dev/null` and `/dev/urandom` are available; `/proc`, grading data, and host-specific paths are not. Use the provided command-line paths rather than assuming the host filesystem layout.
 - Submit the required artifacts according to the listed output contract.
 
 ## Files

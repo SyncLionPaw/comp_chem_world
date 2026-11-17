@@ -1,14 +1,14 @@
 # Harbor 0.25.0 task configuration.
 schema_version = "1.4"
-artifacts = ["/app/results.json", "/app/analysis.py", "/app/report.md", "/app/provenance.json", "/app/artifacts.json", "/app/scientific_assessment.json", "/app/systems", "/app/initial-states", "/app/final-states", "/app/optimized.sdf", "/app/minimization-history.npz"]
+artifacts = ["/app/reweighting.npz", "/app/results.json", "/app/analysis.py"]
 
 [task]
-name = "compchemworld/case-02-conformer-minimization"
-description = "Minimize twelve real QM conformer starts across six molecules under the fixed Sage Hamiltonian and validate every local stationary point for force convergence, stereochemistry and chemical identity. Quantify MM-versus-QM geometry changes and local energy rankings without claiming global minima or thermodynamic distributions."
+name = "compchemworld/case-05-gas-reweighting-diagnostics"
+description = "Evaluate the sealed six-particle gas Hamiltonian over all eight lambda states for two 320-frame replicas, solve the finite-data MBAR self-consistency equations, and report gauge-fixed f vectors, state overlaps and effective sample sizes under both sample and state gauge transformations. Explain why these conditional reweighting diagnostics cannot establish hydration free energies, equilibrium or temporal independence."
 
 [metadata]
-name = "case-02-conformer-minimization"
-description = "Minimize twelve real QM conformer starts across six molecules under the fixed Sage Hamiltonian and validate every local stationary point for force convergence, stereochemistry and chemical identity. Quantify MM-versus-QM geometry changes and local energy rankings without claiming global minima or thermodynamic distributions."
+name = "case-05-gas-reweighting-diagnostics"
+description = "Evaluate the sealed six-particle gas Hamiltonian over all eight lambda states for two 320-frame replicas, solve the finite-data MBAR self-consistency equations, and report gauge-fixed f vectors, state overlaps and effective sample sizes under both sample and state gauge transformations. Explain why these conditional reweighting diagnostics cannot establish hydration free energies, equilibrium or temporal independence."
 execution_class = "local"
 difficulty = "medium"
 
@@ -17,18 +17,18 @@ timeout_sec = 3600
 network_mode = "public"
 
 [verifier]
-timeout_sec = 3600
+timeout_sec = 300
 environment_mode = "separate"
 network_mode = "no-network"
 
 [environment]
-cpus = 4
-memory_mb = 16384
+cpus = 1
+memory_mb = 2048
 build_timeout_sec = 3600
 network_mode = "public"
 
 [verifier.environment]
-cpus = 4
-memory_mb = 16384
+cpus = 1
+memory_mb = 2048
 build_timeout_sec = 3600
 network_mode = "no-network"

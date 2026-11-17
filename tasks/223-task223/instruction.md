@@ -1,34 +1,32 @@
-# Martini constant-pH validation
+# Contact Dynamics and Composite Scoring
 
 ## Background
 
-Martini coarse-grained tripeptides support a test of charge-interpolation constant-pH dynamics against all-atom and experimental comparisons.
+In Open Binding Pose Metadynamics (OpenBPMD), the resistance of a ligand to a biasing potential deposited along its RMSD collective variable reflects its pose stability. To evaluate this stability beyond hydrogen bonds (which fails for hydrophobic or pi-stacking ligands), OpenBPMD introduces `ContactScore` and the composite `CompScore = PoseScore - 5 * ContactScore`.
 
-Inputs include Asp/Glu coarse-grained systems and force field, and all-atom and experimental comparisons.
+The inputs provide an equilibrated, centered protein-ligand reference structure and an OpenBPMD trajectory with 99 production frames.
 
 ## Task
 
-Design and execute the Asp/Glu coarse-grained titration sampling within the requirements below, fit pKa values, and compare the coarse-grained, all-atom and experimental results. Choose the software setup and job organization within the cluster requirements below, while preserving the supplied scientific model and calculation requirements.
+Analyze an enhanced sampling trajectory of a protein-ligand complex, compute the time series of ligand heavy-atom displacement (`PoseScore`) and nonbonded heavy-atom contact persistence (`ContactScore`), and calculate the final composite stability score over the final 2 ns of the simulation.
 
 ## Requirements
 
-- Use `ikkem-slurm` to inspect the configured cluster and execute all prescribed production simulations in Slurm allocations on compute nodes. Local execution is limited to preparation, transfer, monitoring, lightweight inspection and final artifact assembly. Do not replace the required cluster calculations with local production work after a connection or scheduling failure.
-- Prepare the GROMACS CpHMD fork required by the supplied lambda-dynamics model and verify startup before production. A startup check does not replace the required production sampling.
-- Honor the configured connection waiting periods when probing the cluster. If connectivity or scheduling cannot be restored, preserve the failure and report the blocked execution; do not fabricate success or cancel production after startup and count it as complete.
-- Retain submission scripts, scientific commands and input identities, job IDs, original scheduler receipts, compute-node native logs, and the correspondence between jobs and final outputs. Collect these execution records under `/logs/agent/hpc-evidence/` and return the scientific outputs to their existing declared paths. A successful scheduler exit alone does not establish scientific correctness.
-- Preserve the supplied single-lambda representation, buffers, reaction-field electrostatics, relative dielectric 2.5, infinite external dielectric and 20 fs timestep. Do not substitute PME or an all-atom timestep.
-- Use the CpHMD fork. Choose and justify a converged pH grid, replica count and duration, with at least three distinct pH values per residue covering the titration midpoint.
-- Use lambda<0.2 and lambda>0.8 for endpoint populations, excluding intermediate samples. Explain equilibration and derive HH fits and uncertainty from actual runs.
-- Require Asp pKa in [3.5,3.9], Glu in [4.1,4.5], CG–AA difference<=0.10 and CG–experiment difference<=0.15. Intervals must contain the reported pKa; use a consistent deviation convention.
-- Retain the actual production artifacts.
-- Preserve the actual simulation inputs, launch and analysis commands, native outputs, and available scheduler receipts, including failed or stopped attempts. Report results from the completed production records; retain the effective parameters and analysis windows needed for independent numerical verification.
+- Use frame 0 of `solute.dcd` as the reference, excluding it from the 99 production rows. Fit each production frame's protein `backbone` to frame 0 before calculating ligand RMSD in Å.
+- Keep the distinct selections: PoseScore uses `resname UNK and not name H*`; contacts use ligand `resname UNK and not name *H*` and the frame-0 protein neighborhood `protein and not name H* and around 5 resname UNK`. Numeric-prefix hydrogen names can survive the first selection; do not reuse it for contacts.
+- Native contacts are ligand/protein pairs at frame-0 distance <3.5 Å. For each production frame, Q is the fraction with distance no greater than its own reference distance. Normalize by the first nine production Q values' mean and clip at 1.0. Include all such noncovalent contacts, not only hydrogen bonds.
+- Average PoseScore and ContactScore over the final 20 of 99 production frames (approximately 2 ns at 100 ps spacing), using unrounded values. Do not substitute snapshots or whole-trajectory means.
+- Require `CompScore = PoseScore - 5 * ContactScore` within 1e-4. The independent reference uses unrounded tail means; PoseScore/ContactScore may be reported to three decimals, with CompScore computed from the reported values. More digits are accepted; no pre-rounding convention is imposed.
+- All CSV scores and JSON summary scores must be finite; JSON booleans are not scores.
 
-- Submit the required artifacts and run evidence according to the listed output contract. Keep linked evidence inside the submission directory.
+JSON submissions must use unique object member names and finite numbers. Artifact paths may resolve to files inside `/app`.
+
+Submit a JSON object with finite non-boolean numbers `PoseScore` (Å), normalized `ContactScore`, and `CompScore = PoseScore - 5 * ContactScore`. Submit a CSV with 99 rows and unique headers including integer `frame` and finite numeric `PoseScore`, `ContactScore`, and `CompScore`; additional unique columns are allowed.
 
 ## Files
 
 | Path | Description |
 | --- | --- |
-| `/app/inputs/` | Simulation systems, force fields and run parameters. |
-| `/app/output-contract.md` | Required outputs and submission format. |
-| `/app/final/` | Submitted results and required execution evidence. |
+| `/app/inputs/` | Reference structure and trajectory. |
+| `/app/scores.json` | Pose-stability metrics. |
+| `/app/timeseries.csv` | Framewise pose and contact metrics. |

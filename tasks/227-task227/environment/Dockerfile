@@ -14,10 +14,6 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     NETWORK_PID=$!; \
     export https_proxy=http://127.0.0.1:18080 \
  && sleep 1 \
- && sed -i 's/^Components:.*/Components: main/' /etc/apt/sources.list.d/ubuntu.sources \
- && apt-get -o Acquire::Languages=none -o Acquire::https::Timeout=30 update \
- && apt-get install -y --no-install-recommends g++ \
- && rm -rf /var/lib/apt/lists/* \
  && python3 -m venv /opt/ccw35-science \
  && /opt/ccw35-science/bin/python -c 'import sys; assert sys.version_info[:2] == (3, 12)' \
  && /opt/ccw35-science/bin/pip install --no-index --find-links=/tmp/ccw35-wheels --require-hashes -r /tmp/ccw35-requirements.lock.txt \
@@ -36,3 +32,5 @@ ENV PATH="/opt/ccw35-science/bin:${PATH}" \
     OPENMM_CPU_THREADS=1 \
     OPENBLAS_NUM_THREADS=1 \
     MKL_NUM_THREADS=1
+
+COPY assets/output-contract.md /app/output-contract.md
