@@ -167,6 +167,8 @@
 
   const applyTheme = (theme) => {
     document.documentElement.setAttribute("data-theme", theme);
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.setAttribute("content", theme === "light" ? "#f3f1ea" : "#030b0a");
     const btn = document.getElementById("theme-toggle");
     if (!btn) return;
     const next = theme === "dark" ? "light" : "dark";
@@ -619,7 +621,7 @@
 
   buildScene();
 
-  /* ————— parallax + sheen: the stage slides, the glass refracts ————— */
+  /* ————— parallax: ease while the pointer or scroll is moving, then stop ————— */
 
   (function parallax() {
     if (reduceMotion) return;
@@ -629,22 +631,53 @@
       { el: document.getElementById("layer-near"), s: 170, m: 34 },
     ].filter((c) => c.el);
     if (!cfgs.length) return;
-    let tMx = 0, tMy = 0, mx = 0, my = 0, sy = 0;
+    let tMx = 0, tMy = 0, mx = 0, my = 0;
+    let targetSy = window.scrollY || 0;
+    let sy = targetSy;
+    let running = false;
+
+    const paint = () => {
+      const k = Math.tanh(sy / 1600);
+      for (const c of cfgs) {
+        const x = (-mx * c.m).toFixed(2);
+        const y = (k * c.s - my * c.m * 0.6).toFixed(2);
+        c.el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
+    };
+
+    const tick = () => {
+      running = false;
+      if (document.hidden) return;
+      sy += (targetSy - sy) * 0.28;
+      mx += (tMx - mx) * 0.06;
+      my += (tMy - my) * 0.06;
+      paint();
+      const settled =
+        Math.abs(targetSy - sy) < 0.5 &&
+        Math.abs(tMx - mx) < 0.002 &&
+        Math.abs(tMy - my) < 0.002;
+      if (!settled) schedule();
+    };
+
+    const schedule = () => {
+      if (running || document.hidden) return;
+      running = true;
+      requestAnimationFrame(tick);
+    };
+
     window.addEventListener("pointermove", (e) => {
       tMx = e.clientX / window.innerWidth - 0.5;
       tMy = e.clientY / window.innerHeight - 0.5;
+      schedule();
     }, { passive: true });
-    const loop = () => {
-      sy += ((window.scrollY || 0) - sy) * 0.28;
-      mx += (tMx - mx) * 0.06;
-      my += (tMy - my) * 0.06;
-      const k = Math.tanh(sy / 1600);
-      for (const c of cfgs) {
-        c.el.style.transform = `translate3d(${(-mx * c.m).toFixed(2)}px, ${(k * c.s - my * c.m * 0.6).toFixed(2)}px, 0)`;
-      }
-      requestAnimationFrame(loop);
-    };
-    requestAnimationFrame(loop);
+    window.addEventListener("scroll", () => {
+      targetSy = window.scrollY || 0;
+      schedule();
+    }, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) schedule();
+    });
+    paint();
   })();
 
   /* ————— reveal + counters ————— */

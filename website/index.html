@@ -2,10 +2,9 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="comp-chem-world — scalable Harbor-based computational chemistry agent benchmark with 245 research tasks across 38 paper-derived benches, plus a repo pipeline to expand coverage. Offline inputs from AI4EC." />
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#041114" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f1ea" />
+  <meta name="theme-color" content="#030b0a" />
   <title>comp-chem-world · Computational Chemistry Agent Benchmark</title>
   <script>
     (function () {
@@ -15,6 +14,8 @@
           t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
         }
         document.documentElement.setAttribute("data-theme", t);
+        var themeMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeMeta) themeMeta.setAttribute("content", t === "light" ? "#f3f1ea" : "#030b0a");
         var l = localStorage.getItem("ccw-lang");
         if (l !== "en" && l !== "zh") {
           l = ((navigator.language || "").toLowerCase().indexOf("zh") === 0) ? "zh" : "en";
@@ -38,6 +39,9 @@
     <div class="scene-glow glow-b"></div>
     <div class="scene-glow glow-c"></div>
   </div>
+
+  <!-- Viewport frost only. The slab below is document-tall and must not blur. -->
+  <div class="acrylic-blur" aria-hidden="true"></div>
 
   <!-- The frosted acrylic panel itself -->
   <div class="acrylic" aria-hidden="true">
