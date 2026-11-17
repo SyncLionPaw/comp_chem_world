@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="comp-chem-world — scalable Harbor-based computational chemistry agent benchmark with 245 research tasks across 38 paper-derived benches, plus a repo pipeline to expand coverage. Offline inputs from AI4EC." />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#041114" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f1ea" />
+  <title>comp-chem-world · Computational Chemistry Agent Benchmark</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("ccw-theme");
+        if (t !== "light" && t !== "dark") {
+          t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        document.documentElement.setAttribute("data-theme", t);
+        var l = localStorage.getItem("ccw-lang");
+        if (l !== "en" && l !== "zh") {
+          l = ((navigator.language || "").toLowerCase().indexOf("zh") === 0) ? "zh" : "en";
+        }
+        document.documentElement.lang = l === "zh" ? "zh-Hans" : "en";
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <!-- The specimen stage: molecular world behind the glass -->
+  <div class="lab-scene" aria-hidden="true">
+    <svg id="layer-far" class="scene-layer scene-far" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+    <svg id="layer-mid" class="scene-layer scene-mid" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+    <svg id="layer-near" class="scene-layer scene-near" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+    <div class="scene-glow glow-a"></div>
+    <div class="scene-glow glow-b"></div>
+    <div class="scene-glow glow-c"></div>
+  </div>
+
+  <!-- The frosted acrylic panel itself -->
+  <div class="acrylic" aria-hidden="true">
+    <div class="acrylic-frost"></div>
+    <div class="acrylic-ticks"></div>
+  </div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top">comp-chem-world</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#abstract" data-i18n="nav.abstract">Abstract</a>
+      <a href="#pipeline" data-i18n="nav.pipeline">Pipeline</a>
+      <a href="#coverage" data-i18n="nav.coverage">Coverage</a>
+      <a href="#start" data-i18n="nav.start">Start</a>
+      <a class="nav-ext" href="https://ai4ec.ac.cn" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6.5 3.5H3.5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-3M9.5 2.5h4v4M13.5 2.5 7 9" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>AI4EC</span>
+      </a>
+    </nav>
+    <div class="header-actions">
+      <div class="header-toggles">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Theme" title="Theme" aria-pressed="true">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <circle cx="8" cy="8" r="2.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M8 1.5v1.6M8 12.9v1.6M1.5 8h1.6M12.9 8h1.6M3.4 3.4l1.1 1.1M11.5 11.5l1.1 1.1M12.6 3.4l-1.1 1.1M4.5 11.5l-1.1 1.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <path d="M12.6 9.2A5.2 5.2 0 0 1 6.8 3.4 4.6 4.6 0 1 0 12.6 9.2z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Language" title="Language">
+          <svg class="icon lang-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+            <circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+            <path d="M2.5 8h11M8 2.5c1.6 1.8 2.4 3.6 2.4 5.5S9.6 11.7 8 13.5C6.4 11.7 5.6 9.9 5.6 8S6.4 4.3 8 2.5z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <span class="lang-label-zh">中</span>
+          <span class="lang-label-en">EN</span>
+        </button>
+      </div>
+      <a class="nav-link" href="https://ai4ec.ac.cn" target="_blank" rel="noopener">
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M6.5 3.5H3.5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-3M9.5 2.5h4v4M13.5 2.5 7 9" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>AI4EC</span>
+      </a>
+      <a class="nav-cta" href="https://github.com/SyncLionPaw/comp_chem_world" rel="noopener noreferrer">
+        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 1.2A6.8 6.8 0 0 0 5.8 14.4c.34.06.46-.15.46-.33v-1.16c-1.87.41-2.27-.9-2.27-.9-.3-.78-.75-1-.75-1-.61-.42.05-.41.05-.41.68.05 1.03.7 1.03.7.6 1.03 1.58.73 1.97.56.06-.44.24-.73.43-.9-1.5-.17-3.07-.75-3.07-3.33 0-.74.26-1.34.7-1.81-.07-.17-.3-.86.07-1.79 0 0 .57-.18 1.86.7a6.4 6.4 0 0 1 3.38 0c1.29-.88 1.86-.7 1.86-.7.37.93.14 1.62.07 1.79.44.47.7 1.07.7 1.81 0 2.59-1.58 3.16-3.08 3.33.24.21.46.62.46 1.25v1.85c0 .18.12.4.47.33A6.8 6.8 0 0 0 8 1.2z"/></svg>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-stage">
+        <div class="hero-copy">
+          <p class="hero-kicker reveal" data-i18n="hero.kicker">AI for Science · computational chemistry</p>
+          <h1 id="hero-title" class="reveal">
+            <span class="brand">comp-chem-world</span>
+          </h1>
+          <p class="tagline reveal" data-i18n="hero.tagline">
+            A Harbor-based, scalable benchmark for computational chemistry agents—
+            paper-grounded tasks, shared Docker images, offline evaluation, and a
+            repo pipeline built to grow the suite.
+          </p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="https://github.com/SyncLionPaw/comp_chem_world" rel="noopener noreferrer">
+              <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 1.2A6.8 6.8 0 0 0 5.8 14.4c.34.06.46-.15.46-.33v-1.16c-1.87.41-2.27-.9-2.27-.9-.3-.78-.75-1-.75-1-.61-.42.05-.41.05-.41.68.05 1.03.7 1.03.7.6 1.03 1.58.73 1.97.56.06-.44.24-.73.43-.9-1.5-.17-3.07-.75-3.07-3.33 0-.74.26-1.34.7-1.81-.07-.17-.3-.86.07-1.79 0 0 .57-.18 1.86.7a6.4 6.4 0 0 1 3.38 0c1.29-.88 1.86-.7 1.86-.7.37.93.14 1.62.07 1.79.44.47.7 1.07.7 1.81 0 2.59-1.58 3.16-3.08 3.33.24.21.46.62.46 1.25v1.85c0 .18.12.4.47.33A6.8 6.8 0 0 0 8 1.2z"/></svg>
+              <span data-i18n="btn.repo">Repository</span>
+            </a>
+            <a class="btn btn-ghost" href="#start">
+              <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5.2 3.4v9.2L13 8z" fill="currentColor"/></svg>
+              <span data-i18n="btn.start">Quick start</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <ul id="numbers" class="stat-strip" role="list">
+            <li>
+              <span class="stat-value" data-count="245">0</span>
+              <span class="stat-label" data-i18n="stat.tasks">Research tasks</span>
+            </li>
+            <li>
+              <span class="stat-value" data-count="38">0</span>
+              <span class="stat-label" data-i18n="stat.benches">Paper benches</span>
+            </li>
+            <li>
+              <span class="stat-value" data-count="195">0</span>
+              <span class="stat-label" data-i18n="stat.local">Local</span>
+            </li>
+            <li>
+              <span class="stat-value" data-count="50">0</span>
+              <span class="stat-label" data-i18n="stat.hpc">HPC</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="abstract" class="section abstract">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 class="section-title reveal" data-i18n="section.abstract">Abstract</h2>
+        </div>
+        <div class="abstract-body reveal">
+          <p data-i18n="abstract.p1" data-i18n-html>
+            <strong>comp-chem-world</strong> evaluates agents on computational chemistry
+            workflows—geometry and thermochemistry audits, MD diagnostics, ML potentials,
+            spectroscopy, electrocatalysis, and related paper-derived problems—inside
+            Harbor sandboxes with numeric verifiers.
+          </p>
+          <p data-i18n="abstract.p2" data-i18n-html>
+            The scored benchmark is <strong>245 research tasks</strong> (001–245) indexed to
+            <strong>38 paper-linked benches</strong>: <strong>195 local</strong> +
+            <strong>50 HPC</strong>. Local runs use shared base images; HPC tasks need a
+            separate connectivity image. Place the single offline archive from
+            <a href="https://ai4ec.ac.cn" target="_blank" rel="noopener">AI4EC</a>
+            at <code>shared/inputs.tar.zst</code>, then <code>uv run init</code>.
+          </p>
+          <p data-i18n="abstract.p3" data-i18n-html>
+            The same layout is built to <strong>scale</strong>: add Harbor tasks under
+            <code>tasks/</code>, restore the shared wheelhouse and asset-store with init,
+            and run concurrent jobs via the <code>local-a</code>/<code>local-b</code> and
+            <code>hpc</code> configs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pipeline" class="section pipeline">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 class="section-title reveal" data-i18n="section.pipeline">Pipeline</h2>
+        </div>
+        <ol class="steps">
+          <li class="reveal">
+            <div class="step-head">
+              <span class="step-num" aria-hidden="true">
+                <svg class="icon step-icon" viewBox="0 0 16 16" focusable="false"><path d="M8 2.2v8.2M5.2 8.2 8 11l2.8-2.8M3.2 13.5h9.6" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <h3 data-i18n="pipe.1.title">Offline inputs</h3>
+            </div>
+            <p data-i18n="pipe.1.body" data-i18n-html>Obtain <code>inputs.tar.zst</code> from <a href="https://ai4ec.ac.cn" target="_blank" rel="noopener">AI4EC</a>; place at <code>shared/inputs.tar.zst</code> (do not unpack by hand).</p>
+          </li>
+          <li class="reveal">
+            <div class="step-head">
+              <span class="step-num" aria-hidden="true">
+                <svg class="icon step-icon" viewBox="0 0 16 16" focusable="false"><path d="M3.5 8a4.5 4.5 0 0 1 7.7-3.15M12.5 8A4.5 4.5 0 0 1 4.8 11.2M10.2 2.8h2.5V5.3M5.8 13.2H3.3V10.7" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <h3 data-i18n="pipe.2.title">Initialize</h3>
+            </div>
+            <p data-i18n="pipe.2.body" data-i18n-html><code>uv run init</code> restores wheels/assets, writes <code>.env</code>, and builds base images.</p>
+          </li>
+          <li class="reveal">
+            <div class="step-head">
+              <span class="step-num" aria-hidden="true">
+                <svg class="icon step-icon" viewBox="0 0 16 16" focusable="false"><circle cx="8" cy="8" r="2.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M8 2.5v1.4M8 12.1v1.4M2.5 8h1.4M12.1 8h1.4M4.1 4.1l1 1M10.9 10.9l1 1M11.9 4.1l-1 1M5.1 10.9l-1 1" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+              </span>
+              <h3 data-i18n="pipe.3.title">Model</h3>
+            </div>
+            <p data-i18n="pipe.3.body" data-i18n-html>Set <code>ANTHROPIC_API_KEY</code> / <code>ANTHROPIC_BASE_URL</code>; override model in <code>configs/agent.yaml</code> or CLI.</p>
+          </li>
+          <li class="reveal">
+            <div class="step-head">
+              <span class="step-num" aria-hidden="true">
+                <svg class="icon step-icon" viewBox="0 0 16 16" focusable="false"><path d="M5.2 3.4v9.2L13 8z" fill="currentColor"/></svg>
+              </span>
+              <h3 data-i18n="pipe.4.title">Harbor</h3>
+            </div>
+            <p data-i18n="pipe.4.body" data-i18n-html><code>harbor run -c configs/local.yaml -c configs/agent.yaml</code>; use <code>local-a</code>/<code>local-b</code> or <code>hpc.yaml</code> as needed.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="coverage" class="section coverage">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 class="section-title reveal" data-i18n="section.coverage">Coverage</h2>
+        </div>
+
+        <div class="theme-grid">
+          <article class="theme reveal">
+            <h3 data-i18n="theme.1.title">Reactions &amp; kinetics</h3>
+            <p data-i18n="theme.1.body">Activation energies, aromatic radical rearrangements, organic emitters, reaction-space ML.</p>
+          </article>
+          <article class="theme reveal">
+            <h3 data-i18n="theme.2.title">Interfaces &amp; electrocatalysis</h3>
+            <p data-i18n="theme.2.body" data-i18n-html>CO<sub>2</sub> reduction, double-layer charging, hydration forces.</p>
+          </article>
+          <article class="theme reveal">
+            <h3 data-i18n="theme.3.title">ML potentials &amp; sampling</h3>
+            <p data-i18n="theme.3.body">Deep eutectic solvents, DeepVES, NewtonNet Hessians, metals MLPs, zeolite NNs.</p>
+          </article>
+          <article class="theme reveal">
+            <h3 data-i18n="theme.4.title">Materials &amp; transport</h3>
+            <p data-i18n="theme.4.body" data-i18n-html>Carrier scattering, Li titanate, layered lattices, phonon superconductivity, BaTiO<sub>3</sub>.</p>
+          </article>
+          <article class="theme reveal">
+            <h3 data-i18n="theme.5.title">Soft matter &amp; biomolecules</h3>
+            <p data-i18n="theme.5.body">Condensates, host–guest water, Hsp60, protein–drug refinement, constant-pH MD.</p>
+          </article>
+          <article class="theme reveal">
+            <h3 data-i18n="theme.6.title">Spectra, solvents &amp; workflows</h3>
+            <p data-i18n="theme.6.body">IR elucidation, NEP IR/Raman, AutoSolvateWeb, ChemGraph, Ai2-Kit pipelines.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="section start">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 class="section-title reveal" data-i18n="section.start">Quick start</h2>
+        </div>
+        <pre class="terminal reveal" tabindex="0"><code data-i18n="terminal.comment"># uv · clone · place shared/inputs.tar.zst (from AI4EC)
+uv run init
+# .env → ANTHROPIC_API_KEY / ANTHROPIC_BASE_URL
+uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y</code></pre>
+        <div class="start-links reveal">
+          <a class="btn btn-primary" href="https://github.com/SyncLionPaw/comp_chem_world/blob/main/README.md" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3.5 2.5h6.2L12.5 5.3V13.5H3.5z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><path d="M9.5 2.5V5.3h2.8M5.5 8h5M5.5 10.5h5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+            <span data-i18n="btn.readme">README</span>
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/SyncLionPaw/comp_chem_world/blob/main/docs/benchmarks/README.md" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 4.5h4.5M3 8h10M3 11.5h7" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/><circle cx="12.2" cy="4.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.25"/></svg>
+            <span data-i18n="btn.catalog">Paper ↔ task catalog</span>
+          </a>
+          <a class="btn btn-ghost" href="https://harborframework.com/" rel="noopener noreferrer">
+            <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 12.5 8 3.5l5.5 9H2.5z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/><path d="M5.5 12.5v1.2h5V12.5" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>
+            <span>Harbor</span>
+          </a>
+        </div>
+        <p class="footnote reveal" data-i18n="footnote" data-i18n-html>
+          Counts above exclude <code>000-hello</code>, a smoke-test demo task.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p data-i18n="footer.text" data-i18n-html>
+        <span class="brand-inline">comp-chem-world</span>
+        · computational chemistry agent environments
+        · offline inputs from
+        <a href="https://ai4ec.ac.cn" target="_blank" rel="noopener">AI4EC</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="grain" aria-hidden="true"></div>
+  <script src="assets/main.js"></script>
+</body>
+</html>
