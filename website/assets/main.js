@@ -219,7 +219,7 @@
   /* header escapes the slab frame once the page starts scrolling */
   const siteHeader = document.querySelector(".site-header");
   if (siteHeader) {
-    const syncHeader = () => siteHeader.classList.toggle("escaped", window.scrollY > 24);
+    const syncHeader = () => siteHeader.classList.toggle("escaped", window.scrollY > 1);
     window.addEventListener("scroll", syncHeader, { passive: true });
     syncHeader();
   }
@@ -603,7 +603,7 @@
       tMy = e.clientY / window.innerHeight - 0.5;
     }, { passive: true });
     const loop = () => {
-      sy += ((window.scrollY || 0) - sy) * 0.09;
+      sy += ((window.scrollY || 0) - sy) * 0.28;
       mx += (tMx - mx) * 0.06;
       my += (tMy - my) * 0.06;
       const k = Math.tanh(sy / 1600);
