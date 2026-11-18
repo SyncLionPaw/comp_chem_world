@@ -241,11 +241,19 @@ code {
   border-radius: 0.22em;
 }
 
-/* ——— Layer 0: the specimen stage (molecular world, fixed behind everything) ——— */
-.lab-scene {
+/* ——— Layer 0: the specimen stage (molecular world, fixed behind everything) ———
+   The frame is the stacking context. The blur lives inside it, so a
+   backdrop-filter cannot paint over the hero the way a fixed sibling does. */
+.scene-frame {
   position: fixed;
   inset: 0;
   z-index: 0;
+  pointer-events: none;
+}
+
+.lab-scene {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
   background: var(--scene-bg);
 }
@@ -258,13 +266,32 @@ code {
   box-shadow: inset 0 0 110px var(--frame-vignette);
 }
 
-.scene-layer {
+/* Scroll parallax lives on the wrapper (CSS scroll timeline). Pointer parallax
+   is a separate transform on the inner layer, so a fling never waits on JS. */
+.scene-scroll {
   position: absolute;
   inset: -20%;
   width: 140%;
   height: 140%;
+}
+
+.scene-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: block;
-  will-change: transform;
+}
+
+@supports (animation-timeline: scroll(root)) {
+  .scene-scroll-far,
+  .scene-scroll-mid,
+  .scene-scroll-near {
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root);
+  }
 }
 
 .scene-far {
@@ -390,17 +417,20 @@ code {
 /* ——— Layer 1: the frosted acrylic panel ———
    The slab is absolute against <body>, spanning the full document height, so
    it scrolls with the content: every glyph stays rigidly painted on the glass.
-   Only the fixed .lab-scene beneath slides past — the "looking through a
+   Only the fixed .scene-frame beneath slides past — the "looking through a
    slab" parallax.
-   The blur is a separate viewport-sized layer. A backdrop-filter on this
-   document-tall slab is refiltered for the whole page on every scroll frame. */
+   The blur is a viewport-sized layer inside .scene-frame, not a fixed
+   sibling of the type. A backdrop-filter on the document-tall slab is
+   refiltered for the whole page on every scroll frame, and a fixed
+   backdrop-filter sibling is what Safari composites over the hero. */
 .acrylic-blur {
-  position: fixed;
+  position: absolute;
   z-index: 1;
   top: var(--panel-inset);
   right: var(--panel-inset);
   bottom: var(--panel-inset);
   left: var(--panel-inset);
+  border-radius: var(--panel-radius);
   pointer-events: none;
   /* A painted background keeps WebKit from dropping the backdrop layer. */
   background-color: rgba(255, 255, 255, 0.01);
@@ -1220,7 +1250,8 @@ main {
   .bob-alt,
   .glow-a,
   .glow-b,
-  .glow-c {
+  .glow-c,
+  .scene-scroll {
     animation: none;
   }
 }

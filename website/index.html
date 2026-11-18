@@ -30,18 +30,25 @@
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-  <!-- The specimen stage: molecular world behind the glass -->
-  <div class="lab-scene" aria-hidden="true">
-    <svg id="layer-far" class="scene-layer scene-far" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
-    <svg id="layer-mid" class="scene-layer scene-mid" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
-    <svg id="layer-near" class="scene-layer scene-near" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
-    <div class="scene-glow glow-a"></div>
-    <div class="scene-glow glow-b"></div>
-    <div class="scene-glow glow-c"></div>
+  <!-- Stage + viewport frost share one stacking context below the type.
+       A fixed backdrop-filter sibling is what Safari paints over the hero. -->
+  <div class="scene-frame" aria-hidden="true">
+    <div class="lab-scene">
+      <div class="scene-scroll scene-scroll-far">
+        <svg id="layer-far" class="scene-layer scene-far" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+      </div>
+      <div class="scene-scroll scene-scroll-mid">
+        <svg id="layer-mid" class="scene-layer scene-mid" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+      </div>
+      <div class="scene-scroll scene-scroll-near">
+        <svg id="layer-near" class="scene-layer scene-near" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+      </div>
+      <div class="scene-glow glow-a"></div>
+      <div class="scene-glow glow-b"></div>
+      <div class="scene-glow glow-c"></div>
+    </div>
+    <div class="acrylic-blur"></div>
   </div>
-
-  <!-- Viewport frost only. The slab below is document-tall and must not blur. -->
-  <div class="acrylic-blur" aria-hidden="true"></div>
 
   <!-- The frosted acrylic panel itself -->
   <div class="acrylic" aria-hidden="true">

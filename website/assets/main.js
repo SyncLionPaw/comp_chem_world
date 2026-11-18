@@ -203,7 +203,10 @@
     }
 
     applyTheme(document.documentElement.getAttribute("data-theme") || resolveTheme());
+    refreshScrollParallax();
   };
+
+  let refreshScrollParallax = () => {};
 
   const themeBtn = document.getElementById("theme-toggle");
   if (themeBtn) {
@@ -621,37 +624,57 @@
 
   buildScene();
 
-  /* ————— parallax: ease while the pointer or scroll is moving, then stop ————— */
+  /* ————— parallax —————
+     Scroll: CSS scroll(root) timeline on .scene-scroll, keyframes of tanh(sy/1600)*travel.
+     Pointer: 0.06 ease on the inner layer only. JS never writes the scroll offset
+     onto the transform the browser is animating.
+     Without scroll timelines, one-frame snap (sy = targetSy) on the inner layer. */
 
   (function parallax() {
     if (reduceMotion) return;
-    const cfgs = [
-      { el: document.getElementById("layer-far"), s: 45, m: 9 },
-      { el: document.getElementById("layer-mid"), s: 100, m: 20 },
-      { el: document.getElementById("layer-near"), s: 170, m: 34 },
-    ].filter((c) => c.el);
-    if (!cfgs.length) return;
+    const layers = [
+      { name: "far", el: document.getElementById("layer-far"), s: 45, m: 9 },
+      { name: "mid", el: document.getElementById("layer-mid"), s: 100, m: 20 },
+      { name: "near", el: document.getElementById("layer-near"), s: 170, m: 34 },
+    ].filter((layer) => layer.el);
+    if (!layers.length) return;
+
+    const scrollLinked = CSS.supports("animation-timeline", "scroll(root)");
     let tMx = 0, tMy = 0, mx = 0, my = 0;
-    let targetSy = window.scrollY || 0;
-    let sy = targetSy;
     let running = false;
 
-    const paint = () => {
+    const paintPointer = () => {
+      for (const layer of layers) {
+        const x = (-mx * layer.m).toFixed(2);
+        const y = (-my * layer.m * 0.6).toFixed(2);
+        layer.el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      }
+    };
+
+    let targetSy = window.scrollY || 0;
+    let sy = targetSy;
+
+    const paintSnap = () => {
       const k = Math.tanh(sy / 1600);
-      for (const c of cfgs) {
-        const x = (-mx * c.m).toFixed(2);
-        const y = (k * c.s - my * c.m * 0.6).toFixed(2);
-        c.el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      for (const layer of layers) {
+        const x = (-mx * layer.m).toFixed(2);
+        const y = (k * layer.s - my * layer.m * 0.6).toFixed(2);
+        layer.el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       }
     };
 
     const tick = () => {
       running = false;
       if (document.hidden) return;
-      sy += (targetSy - sy) * 0.28;
       mx += (tMx - mx) * 0.06;
       my += (tMy - my) * 0.06;
-      paint();
+      if (scrollLinked) {
+        paintPointer();
+        if (Math.abs(tMx - mx) >= 0.002 || Math.abs(tMy - my) >= 0.002) schedule();
+        return;
+      }
+      sy = targetSy;
+      paintSnap();
       const settled =
         Math.abs(targetSy - sy) < 0.5 &&
         Math.abs(tMx - mx) < 0.002 &&
@@ -670,14 +693,57 @@
       tMy = e.clientY / window.innerHeight - 0.5;
       schedule();
     }, { passive: true });
-    window.addEventListener("scroll", () => {
-      targetSy = window.scrollY || 0;
-      schedule();
-    }, { passive: true });
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) schedule();
     });
-    paint();
+
+    if (!scrollLinked) {
+      window.addEventListener("scroll", () => {
+        targetSy = window.scrollY || 0;
+        schedule();
+      }, { passive: true });
+      paintSnap();
+      return;
+    }
+
+    const sheet = document.createElement("style");
+    sheet.setAttribute("data-scroll-parallax", "");
+    document.head.appendChild(sheet);
+    const anchors = [0, 200, 400, 650, 900, 1200, 1550, 1900, 2300, 2800, 3500, 4500, 6000, 8000];
+    let generation = 0;
+    let keyedMax = -1;
+
+    const writeKeyframes = () => {
+      const root = document.scrollingElement || document.documentElement;
+      const max = Math.max(0, root.scrollHeight - root.clientHeight);
+      if (Math.abs(max - keyedMax) < 0.5) return;
+      keyedMax = max;
+      generation += 1;
+      const stops = anchors.filter((stop) => stop < max);
+      stops.push(max);
+      let css = "";
+      for (const layer of layers) {
+        const frames = stops.map((stop) => {
+          const pct = max === 0 ? 0 : (stop / max) * 100;
+          const y = Math.tanh(stop / 1600) * layer.s;
+          return `${pct.toFixed(4)}%{transform:translate3d(0,${y.toFixed(3)}px,0)}`;
+        }).join("");
+        css += `@keyframes scroll-${layer.name}-${generation}{${frames}}`;
+      }
+      sheet.textContent = css;
+      // A running animation keeps the keyframes it started with. A new name
+      // binds this range's curve without JS writing scroll into the transform.
+      for (const layer of layers) {
+        const host = layer.el.parentElement;
+        if (!host) continue;
+        host.style.animationName = `scroll-${layer.name}-${generation}`;
+      }
+    };
+
+    writeKeyframes();
+    refreshScrollParallax = writeKeyframes;
+    window.addEventListener("resize", writeKeyframes);
+    if (document.fonts) document.fonts.ready.then(writeKeyframes);
   })();
 
   /* ————— reveal + counters ————— */
