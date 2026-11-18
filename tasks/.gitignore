@@ -19,6 +19,8 @@
 /005-task005/tests/protected/sources/executions/case05/reaction-3023/irc/pathway-02/forward/attempt-01/initial.gbw
 /005-task005/tests/protected/sources/executions/case05/reaction-3023/ts-search/pathway-01/attempt-01/ts.out
 /005-task005/tests/protected/sources/executions/case05/reaction-3023/ts-search/pathway-02/attempt-01/ts.out
+/006-task006/tests/protected/source-authority-v1/SC-012-D0SC04896H-s001.pdf
+/006-task006/tests/protected/source-authority-v1/SC-012-D0SC04896H-s002.zip
 /027-task027/solution/_support/current-reference-run/native_outputs/production-endpoint-opt-minus-4042849/job.densities
 /027-task027/solution/_support/current-reference-run/native_outputs/production-endpoint-opt-minus-4042849/job.gbw
 /027-task027/solution/_support/current-reference-run/native_outputs/production-endpoint-opt-minus-4042849/job.out
@@ -97,6 +99,7 @@
 /136-task136/tests/refs/official_main_article.pdf
 /136-task136/tests/refs/official_supplementary_information.pdf
 /155-task155/tests/refs.json
+/156-task156/tests/refs.json
 /159-task159/tests/verify.py
 /160-task160/tests/refs.json
 /188-task188/tests/refs.json

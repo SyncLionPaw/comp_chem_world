@@ -8268,6 +8268,10 @@
       "mode": 420,
       "size": 34920
     },
+    "95a84ef3af4bea76e5d2d589846ca2f4001502dac845ae734bc534e09f1bdb8f": {
+      "mode": 420,
+      "size": 29029442
+    },
     "95ab52034fe4946062029841fc9c9b89788d094dec1c2496fb4d544fbc244614": {
       "mode": 420,
       "size": 219
@@ -11336,6 +11340,10 @@
       "mode": 420,
       "size": 289282
     },
+    "ce339248e5d4db6c3939624d08e5a7fdf8a83bcff8f3ddb0543721638641aa8e": {
+      "mode": 420,
+      "size": 72358128
+    },
     "ce3b2af6a951f633ccf64ebb7e52249c57dc58f02b7483f7a17acbe13ac2c029": {
       "mode": 420,
       "size": 32124
@@ -13008,6 +13016,10 @@
       "mode": 420,
       "size": 156549928
     },
+    "ec3744548892430c8c32c6c520eb06e6820638bdf4c6ea33c686e6f8cf3b6a43": {
+      "mode": 420,
+      "size": 1656384
+    },
     "ec5d95242129aa5709cd69ebf9a0359d341a9118fd2c10d93ad449f785ee50c1": {
       "mode": 420,
       "size": 839096
@@ -14255,6 +14267,8 @@
     "tasks/005-task005/tests/protected/sources/executions/case05/reaction-3023/ts-search/pathway-02/attempt-01/ts.out": "0637c3abf40bc22df031d92433c2df743816535cea6442f0469e3d3cb63c2e46",
     "tasks/006-task006/environment/assets/dependencies/requirements.lock.txt": "2432122d359218cde6fdbb704efa3dce03941d2f8e931020588eb27531f2473a",
     "tasks/006-task006/environment/assets/submit-job.json": "b1774b2397bb3500d49986fcc977252eaee33ed2e0ad5955d7be15c5164aa526",
+    "tasks/006-task006/tests/protected/source-authority-v1/SC-012-D0SC04896H-s001.pdf": "ec3744548892430c8c32c6c520eb06e6820638bdf4c6ea33c686e6f8cf3b6a43",
+    "tasks/006-task006/tests/protected/source-authority-v1/SC-012-D0SC04896H-s002.zip": "ce339248e5d4db6c3939624d08e5a7fdf8a83bcff8f3ddb0543721638641aa8e",
     "tasks/007-task007/environment/assets/task07-model.json": "fe67b1f381f1a6ee40c06778f2eaa89327a4ea43b4ac0311bdc462ecd80ed6d4",
     "tasks/007-task007/environment/assets/task07-scientific-claims.schema.json": "271031d7b376914ef2cf4b16a7c45cd362f2e8b5093082c71cde4c11f1d8f91a",
     "tasks/007-task007/environment/assets/task07-site-inventory.csv": "b0c29d123d6678688100741e0a67ac5b371669bae5efe22b79c8a22bb67f0d06",
@@ -17498,6 +17512,7 @@
     "tasks/156-task156/environment/assets/phase_diagram/melt/fit_gibbs_energy.csv": "a41a2c96d8c486dfe3ed941985c81072ac20250d2cd82bd83f2e35dfa8b3ebcf",
     "tasks/156-task156/environment/assets/phase_diagram/tridymite/fit_gibbs_energy.csv": "91af8e2eb91a14e1a5c0ba4fd7902dda6d40603a6299828fe2387d4ea1e23e53",
     "tasks/156-task156/environment/assets/phase_diagram/tridymite_low/fit_gibbs_energy.csv": "515442626266ed480f759f7e4d8fbac844b6fd8098670bf91044afaa602cd549",
+    "tasks/156-task156/tests/refs.json": "95a84ef3af4bea76e5d2d589846ca2f4001502dac845ae734bc534e09f1bdb8f",
     "tasks/157-task157/environment/assets/cleaved_dft_surface_energies.csv": "8faf31537be5c3017058d1dcf5d8c3218e69de864c3dad2f6656e63884a6e89a",
     "tasks/157-task157/environment/assets/method-note.md": "151bbebf7ed20966697c14258a5d3a299563a4697ebee8355187d5dbe68f9715",
     "tasks/157-task157/environment/assets/surfaces/alpha_quartz/001/surface.0.xyz": "4a5f7d1c3510e61a109e418547eb49d8c162e0ef4f1d672b3767213d5d636128",
