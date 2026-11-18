@@ -8,10 +8,12 @@ RUN apt-get update \
 
 WORKDIR /app
 
+COPY wheels/ /opt/wheels/
 COPY assets/requirements.lock.txt /tmp/ihf-requirements.lock.txt
-RUN python3 -m pip install --break-system-packages --no-cache-dir --require-hashes -r /tmp/ihf-requirements.lock.txt \
+RUN python3 -m pip install --break-system-packages --no-cache-dir --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r /tmp/ihf-requirements.lock.txt \
     && python3 -m pip check \
-    && rm /tmp/ihf-requirements.lock.txt
+    && rm /tmp/ihf-requirements.lock.txt \
+    && rm -rf /opt/wheels
 
 COPY assets/protocol.json /app/public/protocol.json
 COPY assets/output-contract.json /app/public/output-contract.json

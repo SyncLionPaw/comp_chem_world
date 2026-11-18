@@ -4,8 +4,11 @@ FROM compchembench-connectivity:hpc
 RUN apt-get update && apt-get install -y --no-install-recommends tmux asciinema \
     && rm -rf /var/lib/apt/lists/*
 
+COPY wheels/ /opt/wheels/
+COPY requirements.lock.txt /tmp/requirements.lock
 RUN python3 -m venv /opt/ccb-venv \
- && /opt/ccb-venv/bin/python -m pip install --no-cache-dir numpy==1.26.4
+ && /opt/ccb-venv/bin/python -m pip install --no-cache-dir --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r /tmp/requirements.lock \
+ && rm -rf /opt/wheels
 ENV PATH="/opt/ccb-venv/bin:${PATH}"
 
 WORKDIR /app

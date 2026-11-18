@@ -15,10 +15,17 @@ RUN apt-get update \
 COPY assets/build/requirements.in assets/build/requirements.lock.txt /tmp/case03-runtime/
 COPY assets/build/sources/SPaiNN-461b414a.tar.gz /tmp/case03-runtime/sources/SPaiNN-461b414a.tar.gz
 COPY assets/build/wheels/schnetpack-2.0.4-py3-none-any.whl /tmp/case03-runtime/wheels/schnetpack-2.0.4-py3-none-any.whl
+COPY wheels/ /opt/wheels/
+COPY assets/build/sources/antlr4-python3-runtime-4.9.3.tar.gz /opt/wheels/antlr4-python3-runtime-4.9.3.tar.gz
 RUN uv venv /opt/case03-runtime \
     && cd /tmp/case03-runtime \
-    && uv pip install --python /opt/case03-runtime/bin/python --no-cache --require-hashes -r requirements.lock.txt \
+    && python3 -c 'from pathlib import Path; p=Path("requirements.lock.txt"); lines=p.read_text().splitlines(True); prefixes=("./sources/SPaiNN-","antlr4-python3-runtime=="); skip={"v":False}; out=[line for line in lines if not (skip.update(v=line.startswith(prefixes) or (skip["v"] and line[:1] in " \t#")) or skip["v"])]; p.with_name("wheels.lock").write_text("".join(out))' \
+    && uv pip install --python /opt/case03-runtime/bin/python --no-cache --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r wheels.lock \
+    && echo "d28335c19b8f88bb604bfbde610aa2110c50b41ee48b11fd65b2d11f935a286d  sources/SPaiNN-461b414a.tar.gz" | sha256sum -c - \
+    && echo "f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b  /opt/wheels/antlr4-python3-runtime-4.9.3.tar.gz" | sha256sum -c - \
+    && uv pip install --python /opt/case03-runtime/bin/python --no-cache --no-index --find-links=/opt/wheels --no-build-isolation --no-deps sources/SPaiNN-461b414a.tar.gz /opt/wheels/antlr4-python3-runtime-4.9.3.tar.gz \
     && uv pip check --python /opt/case03-runtime/bin/python \
+    && rm -rf /opt/wheels \
     && /opt/case03-runtime/bin/python -c 'import ase, h5py, numpy, scipy, schnetpack, spainn, torch, yaml' \
     && rm -rf /root/.ssh \
     && install -d -m 0700 /root/.ssh

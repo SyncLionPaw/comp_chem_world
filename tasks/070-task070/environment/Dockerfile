@@ -1,8 +1,11 @@
 FROM compchembench-connectivity:hpc
 WORKDIR /app
+COPY wheels/ /opt/wheels/
+COPY requirements.lock.txt /tmp/requirements.lock
 RUN python3.12 -m venv /opt/case-python \
- && /opt/case-python/bin/python -m pip install --no-cache-dir numpy==2.2.6 \
- && /opt/case-python/bin/python -m pip check
+ && /opt/case-python/bin/python -m pip install --no-cache-dir --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r /tmp/requirements.lock \
+ && /opt/case-python/bin/python -m pip check \
+ && rm -rf /opt/wheels
 ENV PATH="/opt/case-python/bin:${PATH}"
 COPY assets/M_WT.top assets/M_WT.rst assets/M_V72I.top assets/M_V72I.rst /environment/assets/
 COPY assets/md_inputs/ /environment/assets/md_inputs/

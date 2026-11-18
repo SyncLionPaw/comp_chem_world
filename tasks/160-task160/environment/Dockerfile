@@ -12,19 +12,10 @@ RUN apt-get update \
 
 ENV PATH="/opt/si-ox-runtime/bin:${PATH}"
 
-RUN pip install --no-cache-dir \
-        numpy==1.26.4 \
-        scipy==1.14.1 \
-        pandas==2.2.3 \
-        ase==3.23.0 \
-        psutil==6.1.1 \
-        scikit-learn==1.5.2 \
-        ruamel.yaml==0.18.10 \
-        PyYAML==6.0.2 \
-        Cython==3.0.11 \
-        pybind11==2.13.6 \
-        setuptools==75.6.0 \
-        wheel==0.45.1
+COPY wheels/ /opt/wheels/
+COPY requirements.lock.txt /tmp/requirements.lock
+RUN pip install --no-cache-dir --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r /tmp/requirements.lock \
+    && rm -rf /opt/wheels
 
 COPY assets/runtime-source/python-ace-66c35ea6e5dbed2857d423952b922183206c140e.tar.gz /tmp/python-ace.tar.gz
 RUN printf '%s\n' \

@@ -10,9 +10,11 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends tmux asciinema nodejs npm ripgrep \
     && rm -rf /var/lib/apt/lists/*
 COPY assets/build/requirements.in assets/build/requirements.lock.txt /tmp/case05-runtime/
+COPY wheels/ /opt/wheels/
 RUN uv venv /opt/case05-runtime \
-    && uv pip install --python /opt/case05-runtime/bin/python --no-cache --require-hashes -r /tmp/case05-runtime/requirements.lock.txt \
+    && uv pip install --python /opt/case05-runtime/bin/python --no-cache --no-index --find-links=/opt/wheels --require-hashes -r /tmp/case05-runtime/requirements.lock.txt \
     && uv pip check --python /opt/case05-runtime/bin/python \
+    && rm -rf /opt/wheels \
     && /opt/case05-runtime/bin/python -c 'import numpy, pyscf' \
     && rm -rf /root/.ssh \
     && install -d -m 0700 /root/.ssh

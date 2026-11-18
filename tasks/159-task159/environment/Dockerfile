@@ -22,20 +22,18 @@ RUN printf '%s\n' \
         '36466d6b78da6bf5bc2a25a282582b45decd8b1b626e468e55d13b759b4a4111  /tmp/runtime-source/pyscal3-3.3.2.tar.gz' \
         | sha256sum -c -
 
-RUN /opt/si-ox-runtime/bin/python -m pip install --no-cache-dir \
-        pip==24.3.1 setuptools==75.6.0 wheel==0.45.1 \
-    && /opt/si-ox-runtime/bin/python -m pip install --no-cache-dir \
-        numpy==1.26.4 scipy==1.14.1 PyYAML==6.0.2 \
+COPY wheels/ /opt/wheels/
+COPY grader-requirements.lock.txt /tmp/grader-requirements.lock
+COPY author-requirements.lock.txt /tmp/author-requirements.lock
+RUN /opt/si-ox-runtime/bin/python -m pip install --no-cache-dir --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r /tmp/grader-requirements.lock \
     && /opt/si-ox-runtime/bin/python -c 'import numpy, scipy, yaml; assert numpy.__version__ == "1.26.4"; print("grader runtime", numpy.__version__, scipy.__version__, yaml.__version__)' \
-    && /opt/si-ox-author-runtime/bin/python -m pip install --no-cache-dir \
-        pip==24.3.1 setuptools==75.6.0 wheel==0.45.1 \
-    && /opt/si-ox-author-runtime/bin/python -m pip install --no-cache-dir \
-        -r /tmp/runtime-source/calphy-requirements.txt \
-    && /opt/si-ox-author-runtime/bin/python -m pip install --no-cache-dir --no-deps \
+    && /opt/si-ox-author-runtime/bin/python -m pip install --no-cache-dir --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r /tmp/author-requirements.lock \
+    && /opt/si-ox-author-runtime/bin/python -m pip install --no-cache-dir --no-index --find-links=/opt/wheels --no-deps \
         /tmp/runtime-source/calphy-2.1.2-py3-none-any.whl \
-    && /opt/si-ox-author-runtime/bin/python -m pip install --no-cache-dir --no-build-isolation \
+    && /opt/si-ox-author-runtime/bin/python -m pip install --no-cache-dir --no-index --find-links=/opt/wheels --no-build-isolation \
         /tmp/runtime-source/pyscal3-3.3.2.tar.gz \
-    && /opt/si-ox-author-runtime/bin/python -m pip check
+    && /opt/si-ox-author-runtime/bin/python -m pip check \
+    && rm -rf /opt/wheels
 
 RUN mkdir -p /tmp/lammps-source /tmp/libpace-source \
     && tar -xzf /tmp/runtime-source/lammps-stable_29Aug2024_update3.tar.gz -C /tmp/lammps-source --strip-components=1 \

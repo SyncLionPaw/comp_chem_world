@@ -16,10 +16,13 @@ ENV VIRTUAL_ENV=/opt/organic-emitter-rate-constants
 ENV PATH="/opt/organic-emitter-rate-constants/bin:${PATH}"
 
 
+COPY wheels/ /opt/wheels/
 COPY assets/requirements.lock.txt /tmp/requirements.lock.txt
 RUN uv venv "$VIRTUAL_ENV" --python /usr/bin/python3 \
     && uv pip install --python "$VIRTUAL_ENV/bin/python" \
+       --no-index --find-links=/opt/wheels \
        --require-hashes -r /tmp/requirements.lock.txt \
+    && rm -rf /opt/wheels \
     && uv pip check --python "$VIRTUAL_ENV/bin/python"
 
 COPY assets/inputs/ /app/inputs/

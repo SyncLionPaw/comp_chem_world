@@ -3352,6 +3352,10 @@
       "mode": 420,
       "size": 7145
     },
+    "3d0208f56507649b5af91bbb128f650a6f86de1b5a9af780e6479145e5362ea3": {
+      "mode": 420,
+      "size": 20197299
+    },
     "3d16ec64fad804f201c72c8076ff9b5cc60df01daf936ec59e54f105f49e9e30": {
       "mode": 420,
       "size": 806
@@ -5984,6 +5988,10 @@
       "mode": 420,
       "size": 7774
     },
+    "6d16f9e63e72f06c83f72394e7f06e07a6ae45472ae0317c4ab82cc32c4ae126": {
+      "mode": 420,
+      "size": 2465
+    },
     "6d1b29cad93233e6294c45a3a6080ed9423bb73ddbc41d116011f900bbcaf701": {
       "mode": 420,
       "size": 2990
@@ -6359,6 +6367,10 @@
     "732daeaafc8500f599d2cde0555b91ea4212cc1b76cacba0505d95f1c71f069b": {
       "mode": 420,
       "size": 2166798
+    },
+    "736e25ec67c220cb20fab7017c4fe6382eedee223076d57f4047342b1bc68ce3": {
+      "mode": 420,
+      "size": 2789465
     },
     "73712fc635f75c85285b22fa19041970a10331841d90790bf319459e6acd0139": {
       "mode": 420,
@@ -13388,6 +13400,10 @@
       "mode": 420,
       "size": 607061
     },
+    "f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b": {
+      "mode": 420,
+      "size": 117034
+    },
     "f23f11cb60d84ec0abcbdc186129aa92e6b7967763d8a502a4e71bff8e07e7a4": {
       "mode": 420,
       "size": 245000
@@ -16107,6 +16123,7 @@
     "tasks/058-task058/environment/assets/raw_data/unpacked/amset-supporting-data-v1.0.2-ec2fb88a3a9c/amset-supporting-data-v1.0.2/seebeck/p-GaAs/CRT_transport.json": "134313a46d7dfdce1ab94aab3bf425a063a41a1eea086dd55178f8c152175c03",
     "tasks/059-task059/environment/assets/author/inputs/GaAs.POSCAR": "5ee56495ec8c7888bfa8e324ae8276eed5cb23bf2d497b1c3e5e42add722fc72",
     "tasks/059-task059/environment/assets/author/inputs/methods-context.md": "01ec86aa4b4bf5c232f7070b44a3282074be3f3b1f06c55fd2041a42613eda78",
+    "tasks/059-task059/environment/assets/build/spglib-2.3.1.tar.gz": "736e25ec67c220cb20fab7017c4fe6382eedee223076d57f4047342b1bc68ce3",
     "tasks/059-task059/environment/assets/literature/paper.pdf": "e8104a3a7db8d5af6b869f0a473a182a2aa0a90859d0dfa9033aac55e50b48b0",
     "tasks/059-task059/environment/assets/literature/supplementary.pdf": "a4df4de46fc4a73b235418eb3016f1bd1f7d9e797f4a069b304dbbb4357e93e0",
     "tasks/059-task059/environment/assets/public/output-contract.md": "64057e145c906c53619f103da3ca71282d50f084598da6ba9036e4603c2f928d",
@@ -17512,6 +17529,8 @@
     "tasks/156-task156/environment/assets/phase_diagram/melt/fit_gibbs_energy.csv": "a41a2c96d8c486dfe3ed941985c81072ac20250d2cd82bd83f2e35dfa8b3ebcf",
     "tasks/156-task156/environment/assets/phase_diagram/tridymite/fit_gibbs_energy.csv": "91af8e2eb91a14e1a5c0ba4fd7902dda6d40603a6299828fe2387d4ea1e23e53",
     "tasks/156-task156/environment/assets/phase_diagram/tridymite_low/fit_gibbs_energy.csv": "515442626266ed480f759f7e4d8fbac844b6fd8098670bf91044afaa602cd549",
+    "tasks/156-task156/environment/assets/requirements.lock.txt": "6d16f9e63e72f06c83f72394e7f06e07a6ae45472ae0317c4ab82cc32c4ae126",
+    "tasks/156-task156/environment/assets/wheels/parmed-4.3.0.tar.gz": "3d0208f56507649b5af91bbb128f650a6f86de1b5a9af780e6479145e5362ea3",
     "tasks/156-task156/tests/refs.json": "95a84ef3af4bea76e5d2d589846ca2f4001502dac845ae734bc534e09f1bdb8f",
     "tasks/157-task157/environment/assets/cleaved_dft_surface_energies.csv": "8faf31537be5c3017058d1dcf5d8c3218e69de864c3dad2f6656e63884a6e89a",
     "tasks/157-task157/environment/assets/method-note.md": "151bbebf7ed20966697c14258a5d3a299563a4697ebee8355187d5dbe68f9715",
@@ -17844,6 +17863,7 @@
     "tasks/164-task164/environment/assets/build/requirements.in": "1f2b06bc74bba8fd573006c544ac52f825264bb73d762d8da537137ac87c60b6",
     "tasks/164-task164/environment/assets/build/requirements.lock.txt": "1eb97eb1585c8d0febfd66e3ab3e8ef126638594c9de6c5a701c99b94588c404",
     "tasks/164-task164/environment/assets/build/sources/SPaiNN-461b414a.tar.gz": "d28335c19b8f88bb604bfbde610aa2110c50b41ee48b11fd65b2d11f935a286d",
+    "tasks/164-task164/environment/assets/build/sources/antlr4-python3-runtime-4.9.3.tar.gz": "f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b",
     "tasks/164-task164/environment/assets/harbor/bench25_capture.py": "95089567d913444d95a91ad9981019fcebae70d738e94bef43639b1801e8458a",
     "tasks/164-task164/environment/assets/harbor/case03_producer.py": "2d1284f06976c37d79e95a03cee2e5ea3f366f0c93195455982edf7689df0325",
     "tasks/164-task164/environment/assets/harbor/case03_train.py": "e997251219b205efb8c0004ddd8d8401c89a8e8e45f5cde9400b75a36a67e179",
@@ -17873,6 +17893,7 @@
     "tasks/165-task165/environment/assets/build/requirements.in": "1f2b06bc74bba8fd573006c544ac52f825264bb73d762d8da537137ac87c60b6",
     "tasks/165-task165/environment/assets/build/requirements.lock.txt": "1eb97eb1585c8d0febfd66e3ab3e8ef126638594c9de6c5a701c99b94588c404",
     "tasks/165-task165/environment/assets/build/sources/SPaiNN-461b414a.tar.gz": "d28335c19b8f88bb604bfbde610aa2110c50b41ee48b11fd65b2d11f935a286d",
+    "tasks/165-task165/environment/assets/build/sources/antlr4-python3-runtime-4.9.3.tar.gz": "f224469b4168294902bb1efa80a8bf7855f24c99aef99cbefc1bcd3cce77881b",
     "tasks/165-task165/environment/assets/databases/03_3Sing_C4H8.db": "52cb7f039931cdb9f1082722ca127a1e3e89bd8c1b3bd0bcdea5a488e38c0a9d",
     "tasks/165-task165/environment/assets/databases/06_3Sing_C4H8_grid.db": "c96d27459e77ab5220dddc407a9969425c3878ae1c6427838dc44c8f350a431b",
     "tasks/165-task165/environment/assets/harbor/bench25_capture.py": "dcbf2057ef6237254ebd6656c06b8960271db36d93733fc847228d0fc3eba903",
