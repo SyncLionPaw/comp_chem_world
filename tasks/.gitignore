@@ -1,6 +1,7 @@
 # Restored by uv run init from shared/asset-store/
 # All environment/assets are managed; large test and solution files listed below.
 */environment/assets/
+/005-task005/tests/protected/participant.zip
 /005-task005/tests/protected/sources/executions/case05/reaction-3023/endpoint-validation/pathway-01/backward/attempt-02/freq.gbw
 /005-task005/tests/protected/sources/executions/case05/reaction-3023/endpoint-validation/pathway-01/backward/attempt-02/initial.gbw
 /005-task005/tests/protected/sources/executions/case05/reaction-3023/endpoint-validation/pathway-01/forward/attempt-01/freq.gbw
@@ -98,15 +99,15 @@
 /155-task155/tests/refs.json
 /159-task159/tests/verify.py
 /160-task160/tests/refs.json
+/188-task188/tests/refs.json
 /191-task191/tests/refs.json
-/194-task194/tests/refs.json
+/211-task211/tests/refs.json
+/212-task212/tests/refs.json
+/213-task213/tests/refs.json
 /214-task214/tests/refs.json
 /215-task215/tests/refs.json
-/216-task216/tests/refs.json
-/217-task217/tests/refs.json
-/218-task218/tests/refs.json
-/239-task239/tests/refs.json
+/236-task236/tests/refs.json
+/237-task237/tests/refs.json
 /240-task240/tests/refs.json
-/243-task243/tests/refs.json
-/244-task244/tests/refs.json
-/245-task245/tests/refs.json
+/241-task241/tests/refs.json
+/242-task242/tests/refs.json

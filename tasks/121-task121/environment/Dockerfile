@@ -13,9 +13,11 @@ ENV PATH="/opt/chemgraph/bin:${PATH}" \
     NUMEXPR_NUM_THREADS=1 \
     BENCH19_CASE_ID="case-02-coords"
 COPY assets/requirements.lock.txt /opt/requirements.lock.txt
+COPY assets/wheels/ /opt/wheels/
 RUN pip install --no-cache-dir --upgrade pip >/dev/null \
- && pip install --no-cache-dir -r /opt/requirements.lock.txt \
- && pip check
+ && pip install --no-cache-dir --no-index --find-links=/opt/wheels --require-hashes -r /opt/requirements.lock.txt \
+ && pip check \
+ && rm -rf /opt/wheels
 COPY assets/inputs.json /app/environment/assets/inputs.json
 COPY assets/name_lookup.json /app/environment/assets/name_lookup.json
 WORKDIR /app
