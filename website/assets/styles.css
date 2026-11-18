@@ -1113,6 +1113,150 @@ main {
   }
 }
 
+.source-block {
+  margin-top: 2.6rem;
+}
+
+.source-title {
+  margin: 0 0 0.45rem;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  scroll-margin-top: calc(var(--panel-inset) + 4.75rem + env(safe-area-inset-top, 0px));
+}
+
+.source-lead {
+  margin: 0;
+  max-width: 46rem;
+  color: var(--ink-dim);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.source-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  color: var(--ink-dim);
+  font-size: 0.86rem;
+}
+
+.source-legend li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  max-width: 100%;
+  line-height: 1.35;
+}
+
+.source-swatch {
+  flex: 0 0 auto;
+  width: 0.85rem;
+  height: 0.38rem;
+  margin-top: 0.28em;
+  border-radius: 999px;
+}
+
+.source-bars {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.source-bars li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.45rem 1rem;
+  align-items: center;
+  padding: 0.72rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.source-name {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.source-meta {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.source-track {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  align-items: stretch;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  overflow: hidden;
+}
+
+.source-seg {
+  display: block;
+  flex: 0 0 auto;
+  height: 100%;
+}
+
+.source-seg:first-child {
+  border-radius: 999px 0 0 999px;
+}
+
+.source-seg:last-child {
+  border-radius: 0 999px 999px 0;
+}
+
+.source-seg:only-child {
+  border-radius: 999px;
+}
+
+.source-local {
+  background: var(--accent);
+}
+
+.source-hpc {
+  background: var(--gold);
+}
+
+.source-meta {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.86rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+@media (min-width: 720px) {
+  .source-bars li {
+    grid-template-columns: 15.5rem minmax(6rem, 1fr) 13.5rem;
+  }
+
+  .source-name,
+  .source-track,
+  .source-meta {
+    grid-row: 1;
+  }
+
+  .source-track {
+    grid-column: 2;
+  }
+
+  .source-meta {
+    grid-column: 3;
+    text-align: right;
+  }
+}
+
 .terminal-wrap {
   position: relative;
   margin: 0.2rem 0 0;

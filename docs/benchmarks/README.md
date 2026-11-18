@@ -5,6 +5,46 @@
 原始 README 已逐份保存在本目录的各 bench Markdown 文件中；详情、材料来源与许可说明请以对应原文为准。
 本索引涵盖 245 个研究任务（编号 001–245）；`tasks/000-hello` 是项目冒烟测试，不映射到论文。
 
+## 来源统计
+
+37 个 bench 各对应一篇来源论文，合计 239 个任务。Bench 17（任务 108–113）没有统一论文，MACE-OFF23 的引用只对应 Task 110，这 6 个任务单独列出。研究任务为 245 个（001–245）：195 个本地、50 个 HPC。`000-hello` 不计入。期刊名取自各 bench 说明里的发表信息，任务数取自下方总览。
+
+### 期刊
+
+| 期刊 | 篇数 | 任务 | bench |
+| --- | --- | --- | --- |
+| Nature Communications | 16 | 103 | 04、05、06、09、10、11、15、18、21、22、23、24、29、30、37、38 |
+| Journal of Chemical Theory and Computation | 6 | 38 | 07、12、20、31、32、34 |
+| Chemical Science | 4 | 24 | 01、03、25、33 |
+| Communications Chemistry | 2 | 18 | 13、19 |
+| The Journal of Physical Chemistry C | 1 | 8 | 14 |
+| Physical Review Letters | 1 | 7 | 02 |
+| arXiv | 1 | 7 | 28 |
+| Journal of the American Chemical Society | 1 | 6 | 27 |
+| Nano Letters | 1 | 6 | 26 |
+| npj Computational Materials | 1 | 6 | 36 |
+| Proceedings of the National Academy of Sciences | 1 | 6 | 08 |
+| Journal of Chemical Information and Modeling | 1 | 5 | 35 |
+| Science | 1 | 5 | 16 |
+| 合计 | 37 | 239 | |
+| Bench 17（无统一论文） | — | 6 | 17 |
+| 研究任务 | | 245 | 001–245 |
+
+### 出版方
+
+首页覆盖面一节用同一组数字画条形图：条形总长是该组占 245 项计分任务的比例，条内按本地与 HPC 分成两段（本地 + HPC = 任务）。HPC 是使用远程计算资源、计算时间不少于 4 小时的任务，本地是其余。计数取自 `configs/local.yaml`（与 `local-a.yaml`、`local-b.yaml` 同一任务集）和 `configs/hpc.yaml`，不含 `000-hello`。
+
+| 出版方 | 篇数 | 任务 | 本地 | HPC | 组成 |
+| --- | --- | --- | --- | --- | --- |
+| Nature 系列 | 17 | 109 | 83 | 26 | Nature Communications 16 篇、103 个任务；npj Computational Materials 1 篇、6 个任务 |
+| ACS | 10 | 63 | 50 | 13 | JCTC 6 篇、38 个任务；JACS 1 篇、6 个任务；JCIM 1 篇、5 个任务；Nano Letters 1 篇、6 个任务；The Journal of Physical Chemistry C 1 篇、8 个任务 |
+| RSC | 6 | 42 | 37 | 5 | Chemical Science 4 篇、24 个任务；Communications Chemistry 2 篇、18 个任务 |
+| Science 与 PNAS | 2 | 11 | 9 | 2 | Science 1 篇、5 个任务；PNAS 1 篇、6 个任务 |
+| Physical Review Letters | 1 | 7 | 6 | 1 | bench 02 |
+| arXiv 预印本 | 1 | 7 | 4 | 3 | bench 28 |
+| 合计 | 37 | 239 | 189 | 50 | |
+| Bench 17（无统一论文） | — | 6 | 6 | 0 | 任务 108–113 |
+
 ## 总览
 
 | Bench | 论文或参考 | DOI | 对应任务 | 原始说明 |

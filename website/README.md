@@ -4,6 +4,8 @@ Standalone academic project homepage for **comp-chem-world** (static HTML/CSS/JS
 
 Marketing/stat numbers on the page count the **scored** set only: **245** research tasks (001–245) = **195** local + **50** HPC. Smoke task `000-hello` is mentioned as excluded, never added into totals. (`configs/local.yaml` lists 196 paths including hello; display local as 195.)
 
+The coverage section’s venue bars use the same 245 tasks, grouped by where the source paper was published. Counts match `docs/benchmarks/README.md`: Nature family 17 papers / 109 tasks, ACS 10 / 63, RSC 6 / 42, Science and PNAS 2 / 11, Physical Review Letters 1 / 7, arXiv 1 / 7, and bench 17 (no shared paper) / 6 tasks. Bar width is that group’s share of 245. This split does not replace 195 local + 50 HPC.
+
 ## Theme & language
 
 Header controls (next to GitHub): compact **theme** (sun/moon) and **language** (中文 / EN) toggles.
