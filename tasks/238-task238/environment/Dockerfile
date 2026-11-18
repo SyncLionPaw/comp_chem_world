@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 compchembench-base:2.1.267
+FROM comp-chem-world-base
 
 WORKDIR /app
 
@@ -10,11 +10,10 @@ RUN cd /tmp/vendor-wheels && sha256sum -c SHA256SUMS
 COPY assets/dependencies/system-packages/ /tmp/system-packages/
 
 RUN rm -rf /app/environment/assets/wheels /app/environment/assets/dependencies \
- && test "$(dpkg --print-architecture)" = amd64 \
  && python3 -c 'import sys; assert sys.version_info[:2] == (3, 12), sys.version' \
  && cd /tmp/system-packages \
  && sha256sum -c SHA256SUMS \
- && dpkg -i ./*.deb \
+ && dpkg -i ./*_$(dpkg --print-architecture).deb \
  && dpkg-query -W libgomp1 libgfortran5 libstdc++6 \
  && cd /app \
  && python3 -m venv /opt/science \

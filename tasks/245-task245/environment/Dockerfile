@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 compchembench-base:2.1.267
+FROM comp-chem-world-base
 
 WORKDIR /app
 
@@ -12,7 +12,6 @@ COPY --chown=0:0 assets/wheels/python312/ /tmp/co2-wheels/
 RUN cd /tmp/co2-wheels && sha256sum -c SHA256SUMS
 
 RUN rm -rf /app/inputs/wheels /opt/co2-public/inputs/wheels \
- && test "$(dpkg --print-architecture)" = amd64 \
  && apt-get update \
  && apt-get install -y --no-install-recommends libgomp1 \
  && rm -rf /var/lib/apt/lists/* \
@@ -36,7 +35,7 @@ RUN rm -rf /opt/co2-public/inputs/contracts /app/inputs/contracts /app/inputs/de
  && chmod -R a-w /opt/co2-public \
  && chmod -R a+rX /opt/co2-public /app/inputs
 
-RUN test -x /usr/local/bin/claude && claude --version | grep -F "2.1.267"
+RUN test -x /usr/local/bin/claude && claude --version
 
 ENV PATH="/opt/co2-science/bin:${PATH}" \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -44,4 +43,4 @@ ENV PATH="/opt/co2-science/bin:${PATH}" \
     OMP_NUM_THREADS=1 \
     OPENBLAS_NUM_THREADS=1 \
     MKL_NUM_THREADS=1 \
-    CCW_CLAUDE_CODE_VERSION=2.1.267
+    CCW_CLAUDE_CODE_VERSION=2.1.317

@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 compchembench-base:2.1.267
+FROM comp-chem-world-base
 
 WORKDIR /app
 
@@ -20,7 +20,7 @@ RUN python3 /tmp/ccw35-build-dns.py > /tmp/ccw35-build-network.log 2>&1 & \
  && /opt/ccw35-science/bin/pip check \
  && ln -s /app/inputs /inputs \
  && test -x /usr/local/bin/claude \
- && claude --version | grep -F '2.1.267' \
+ && claude --version \
  && kill "$NETWORK_PID" \
  && install -m 755 /tmp/ccw35-claude-gateway.py /opt/ccw35-science/bin/claude \
  && rm /tmp/ccw35-claude-gateway.py
