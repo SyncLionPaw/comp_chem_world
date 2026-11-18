@@ -38,3 +38,4 @@ jobs/
 # Local / generated
 .DS_Store
 output/
+tmp/
