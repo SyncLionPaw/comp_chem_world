@@ -15,7 +15,7 @@ rm -f "$LOGS/reward.txt" "$LOGS/reward.json" "$LOGS/verification.json" \
       "$LOGS/harbor-error.json" "$LOGS/harbor-transport.json"
 
 # 1. Run the scientific scorer and normalize its exit code into a report.
-python "$TESTS/verify.py" "$APP" --reference-dir "$TESTS" --suite-root "$APP" \
+python3 "$TESTS/verify.py" "$APP" --reference-dir "$TESTS" --suite-root "$APP" \
   >"$LOGS/scorer.stdout" 2>"$LOGS/scorer.stderr"
 NATIVE_RC=$?
 python3 - "$NATIVE_RC" "$LOGS" <<'PY'

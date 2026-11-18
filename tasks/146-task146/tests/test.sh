@@ -1,3 +1,3 @@
 #!/bin/sh
 set -eu
-python /tests/verify.py
+python3 /tests/verify.py

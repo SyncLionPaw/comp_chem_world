@@ -10,7 +10,7 @@ rm -f "$LOGS/reward.txt"
 rm -f "$LOGS/verification.json" "$LOGS/report.json" "$LOGS/verdict.json" "$LOGS/case02-check.json"
 
 set +e
-python "$TESTS/verify.py"
+python3 "$TESTS/verify.py"
 status=$?
 set -e
 

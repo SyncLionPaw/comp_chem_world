@@ -7,7 +7,7 @@ set -euo pipefail
 
 mkdir -p /logs/verifier
 
-if python -m pytest --ctrf /logs/verifier/ctrf.json /tests/verify.py -rA; then
+if python3 -m pytest --ctrf /logs/verifier/ctrf.json /tests/verify.py -rA; then
   EXIT_CODE=0
 else
   EXIT_CODE=1

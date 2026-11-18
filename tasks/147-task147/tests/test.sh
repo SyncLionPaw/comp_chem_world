@@ -5,4 +5,4 @@ LOGS="${LOGS:-/logs/verifier}"
 TESTS="${TESTS:-/tests}"
 export APP LOGS TESTS
 mkdir -p "$LOGS"
-python "$TESTS/verify.py"
+python3 "$TESTS/verify.py"
