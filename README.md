@@ -1,6 +1,6 @@
 # comp-chem-world
 
-计算化学 agent 评测环境：Harbor 任务 + 共享 Docker 基础镜像。研究任务 245 个（编号 `001–245`），另加冒烟任务 `000-hello`。论文与任务对应关系见 [docs/benchmarks/README.md](docs/benchmarks/README.md)。
+计算化学 agent 评测环境：Harbor 任务 + 共享 Docker 基础镜像。项目主页：<https://synclionpaw.github.io/comp_chem_world/>。研究任务 245 个（编号 `001–245`），另加冒烟任务 `000-hello`。论文与任务对应关系见 [docs/benchmarks/README.md](docs/benchmarks/README.md)。
 
 ## 快速开始
 
