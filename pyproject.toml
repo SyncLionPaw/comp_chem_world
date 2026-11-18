@@ -3,6 +3,12 @@ name = "comp-chem-world"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
+license = "Apache-2.0"
+authors = [
+    { email = "mayerxjchen@gmail.com" },
+    { email = "gongyulei@stu.xmu.edu.cn" },
+    { email = "sheng.bi@xmu.edu.cn" },
+]
 requires-python = ">=3.13"
 dependencies = [
     "zstandard>=0.25.0",
