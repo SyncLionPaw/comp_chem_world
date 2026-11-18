@@ -4488,10 +4488,6 @@
       "mode": 420,
       "size": 4727
     },
-    "51ec71ea09e3bac335d4597b831d24105c61335ee1f486cad96512e225de30cf": {
-      "mode": 420,
-      "size": 2678
-    },
     "51f012a3cf224f31b250000733bf19f1a6a5dea90d9b714b5e2841ba214251b4": {
       "mode": 420,
       "size": 2043
@@ -6891,10 +6887,6 @@
     "7ce95d16deba5cdbedc9e2269427a564c84918d0b9827d1af0591126e2eeea16": {
       "mode": 384,
       "size": 480663
-    },
-    "7cf6a7f635c43ca9b0db915bfb5b4bf9723a8a9dfe616e7412a001f05c441d9c": {
-      "mode": 420,
-      "size": 656
     },
     "7cf91a128068608c731df55e9c452cccb179b84df086ebc95f70797092c55d73": {
       "mode": 384,
@@ -10380,6 +10372,10 @@
       "mode": 420,
       "size": 57180
     },
+    "baa2cb3fec8d2bc07da8011b46493bbdb1c201b9d2c655473153b231ee50a37f": {
+      "mode": 420,
+      "size": 1051
+    },
     "bab577aa3cd9dd25d8c56e397a4c6b2b0865c1f60b502c431325c912e94b303b": {
       "mode": 420,
       "size": 258500
@@ -13399,6 +13395,10 @@
     "f1e408fc32e1fda8dee9c3fceee5650fd622526e4dc6fa1f1926f497b5508d13": {
       "mode": 384,
       "size": 36414
+    },
+    "f1f471c82c0bccdb0273b559d7f53092a623d903ee12b057af3433e869a9dd19": {
+      "mode": 420,
+      "size": 3784
     },
     "f21587f471b1f434dcc92b305724ef6df14c7aac40e15d3220b734f635352650": {
       "mode": 420,
@@ -21372,7 +21372,7 @@
     "tasks/222-task222/environment/assets/output-contract.md": "a8537a39a98f46cc1e7eb093ccdedffce8acfb0a7d9ed97b05ce12df4f358eb5",
     "tasks/222-task222/environment/assets/reference/experimental_pka.json": "1332a0d388f518ae1f8033e92c345fed47c0f76dcabafdf66851c98abd56d453",
     "tasks/222-task222/environment/assets/requirements.lock.txt": "fb866b6aabb7591f031812beac3bde594f7071ce345c78066917ee989e8cdb82",
-    "tasks/223-task223/environment/assets/requirements.lock.txt": "51ec71ea09e3bac335d4597b831d24105c61335ee1f486cad96512e225de30cf",
+    "tasks/223-task223/environment/assets/requirements.lock.txt": "f1f471c82c0bccdb0273b559d7f53092a623d903ee12b057af3433e869a9dd19",
     "tasks/223-task223/environment/assets/runtime/build_dns.py": "c425a6be8ee762f69c0b3265409aa5ce274a6bfb25ff5a4797f513582826d1a7",
     "tasks/223-task223/environment/assets/runtime/claude-gateway.py": "6f50bed1259b6f06d9b1f4ff5cf0899119630e489e6e1f313278c2657f174e0e",
     "tasks/223-task223/environment/assets/solute.dcd": "a348139efcdccf1c5070061b204b4ad2ccbad996ced95453cbb0e1a795d42e29",
@@ -21383,7 +21383,7 @@
     "tasks/224-task224/environment/assets/hill-height-source-provenance.json": "3098f07203fef6be29cdb06fa6e3ae36379ec99f62c1fd608a0fd9d792670d4b",
     "tasks/224-task224/environment/assets/output-contract.json": "a1c40a6d792de2506df379cc8bf37f616fbe25b54c309ef43b7aa0ca8cce8f2b",
     "tasks/224-task224/environment/assets/output-field-map.json": "96d46e0a803b14a96eae67eeb284d14eca48e7299108bba30618a376d91cb316",
-    "tasks/224-task224/environment/assets/requirements.lock.txt": "7cf6a7f635c43ca9b0db915bfb5b4bf9723a8a9dfe616e7412a001f05c441d9c",
+    "tasks/224-task224/environment/assets/requirements.lock.txt": "baa2cb3fec8d2bc07da8011b46493bbdb1c201b9d2c655473153b231ee50a37f",
     "tasks/224-task224/environment/assets/runtime/build_dns.py": "c425a6be8ee762f69c0b3265409aa5ce274a6bfb25ff5a4797f513582826d1a7",
     "tasks/224-task224/environment/assets/runtime/claude-gateway.py": "6f50bed1259b6f06d9b1f4ff5cf0899119630e489e6e1f313278c2657f174e0e",
     "tasks/224-task224/environment/assets/solvated.prm7": "924d48d6892ebbc1ed5d1b04d65bc48f97f56444cb2b60c547b6d2bb5701383f",

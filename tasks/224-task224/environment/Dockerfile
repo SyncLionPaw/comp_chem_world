@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 comp-chem-world-base
+FROM comp-chem-world-base
 
 WORKDIR /app
 
