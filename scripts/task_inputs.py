@@ -5,14 +5,12 @@ End users place one file at shared/inputs.tar.zst, then run:
   # or
   uv run init --inputs-only
 
-Uses zstd (level 3, multi-threaded): much faster than xz with similar size
-on mixed already-compressed scientific payloads.
+Uses zstd (level 3, one thread) so the same blobs pack to the same bytes.
 """
 from __future__ import annotations
 
 import json
 import shutil
-import stat
 import sys
 import tarfile
 import tempfile
@@ -36,7 +34,7 @@ WHEEL_MANIFEST = WHEELHOUSE / "manifest.json"
 ASSET_STATE = ASSET_STORE / ".restore-state.json"
 WHEEL_STATE = WHEELHOUSE / ".restore-state.json"
 CHUNK_SIZE = 8 * 1024 * 1024
-# Fast with solid ratio; negative threads = use all CPUs.
+# Fixed level and one thread so the same blobs pack to the same bytes.
 ZSTD_LEVEL = 3
 
 
@@ -89,7 +87,7 @@ def zstd_tar_writer(path: Path) -> Iterator[tarfile.TarFile]:
     temporary = path.with_name(path.name + ".tmp")
     temporary.unlink(missing_ok=True)
     raw = temporary.open("wb")
-    compressor = zstd.ZstdCompressor(level=ZSTD_LEVEL, threads=-1).stream_writer(raw)
+    compressor = zstd.ZstdCompressor(level=ZSTD_LEVEL, threads=0).stream_writer(raw)
     archive = tarfile.open(fileobj=compressor, mode="w|")
     try:
         yield archive
@@ -128,8 +126,8 @@ def add_file(archive: tarfile.TarFile, path: Path, arcname: str) -> None:
     st = path.stat()
     info = tarfile.TarInfo(name=arcname)
     info.size = st.st_size
-    info.mtime = int(st.st_mtime)
-    info.mode = stat.S_IMODE(st.st_mode)
+    info.mtime = 0
+    info.mode = 0o644
     with path.open("rb") as handle:
         archive.addfile(info, handle)
 
