@@ -1,3 +1,0 @@
-# Use the native host architecture; local runtime tools cover arm64 and amd64.
-services:
-  main: {}
