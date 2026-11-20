@@ -9,7 +9,7 @@ End users should be able to evaluate **without** rebuilding the offline archive:
 1. Install [uv](https://docs.astral.sh/uv/): `curl -LsSf https://astral.sh/uv/install.sh | sh`
 2. Clone this repo; `cd` into it.
 3. Obtain the offline archive from **AI4EC** (not in git) and place it at **`shared/inputs.tar.zst`** (only path that matters; do not unpack by hand).
-4. Ensure Docker works (`docker info`), then: **`uv run init`**
+4. Ensure Docker works (`docker info`), then: **`uv run init`** (full restore). To restore only tasks listed in a job config: **`uv run init -s configs/local-a-selected-20.yaml`**.
 5. Put `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` in `.env` (created from `.env.example` by `init` if missing). Any Anthropic-compatible endpoint works. Change the default model in `configs/agent.yaml`, or override per run with `-m` / `--base-url` / `--api-key-name` (see README).
 6. Run all local tasks: **`uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y`**; run HPC tasks with **`configs/hpc.yaml -c configs/agent.yaml`**.
 
@@ -30,6 +30,9 @@ uv run init
 
 # only verify/restore shared wheels + assets (no Docker / image build)
 uv run init --inputs-only
+
+# restore only tasks listed in a Harbor job config (same inputs.tar.zst; narrower prepare)
+uv run init -s configs/local-a-selected-20.yaml
 
 # clean restored task inputs while keeping images, results, and the project environment
 uv run reset

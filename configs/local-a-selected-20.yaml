@@ -1,0 +1,27 @@
+# Selected 20-task subset of local-a for follow-up runs.
+job_name: comp-chem-world-local-a-selected-20
+n_concurrent_trials: 8
+tasks:
+  - path: tasks/005-task005
+  - path: tasks/013-task013
+  - path: tasks/040-task040
+  - path: tasks/049-task049
+  - path: tasks/063-task063
+  - path: tasks/066-task066
+  - path: tasks/071-task071
+  - path: tasks/094-task094
+  - path: tasks/104-task104
+  - path: tasks/111-task111
+  - path: tasks/017-task017
+  - path: tasks/025-task025
+  - path: tasks/073-task073
+  - path: tasks/093-task093
+  - path: tasks/118-task118
+  - path: tasks/008-task008
+  - path: tasks/022-task022
+  - path: tasks/033-task033
+  - path: tasks/050-task050
+  - path: tasks/116-task116
+
+# Compose with:
+#   uv run harbor run -c configs/local-a-selected-20.yaml -c configs/agent.yaml --env-file .env -y

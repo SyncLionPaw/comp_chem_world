@@ -36,7 +36,7 @@ uv run init
 uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y
 ```
 
-`uv run init` 会把 `shared/inputs.tar.zst` 解到 `shared/wheelhouse/` 与 `shared/asset-store/`，再恢复进各任务目录；之后可反复 `uv run harbor …`。
+`uv run init` 会把 `shared/inputs.tar.zst` 解到 `shared/wheelhouse/` 与 `shared/asset-store/`，再恢复进各任务目录；之后可反复 `uv run harbor …`。默认恢复全部任务输入；加 `-s <job-config.yaml>` 时只 restore 该配置里列出的 tasks（归档路径不变）。
 
 ### 常用命令
 
@@ -46,6 +46,11 @@ uv run harbor run -p tasks/000-hello -a oracle -y
 
 # 只恢复物料，不构建镜像
 uv run init --inputs-only
+
+# 只恢复某个任务子集（例如 20 题清单）
+uv run init -s configs/local-a-selected-20.yaml
+# 可与 --inputs-only 合用：
+uv run init --inputs-only -s configs/local-a-selected-20.yaml
 
 # 卸下 tasks/ 下已恢复的输入（保留镜像、.env、jobs、共享 store）
 uv run reset
@@ -61,6 +66,7 @@ uv run harbor run -c configs/hpc.yaml -c configs/agent.yaml --env-file .env -y
 | `configs/local.yaml` | 全部 local 任务（196，含 `000-hello`） |
 | `configs/local-a.yaml` | local 前半：benches 01–18 + `000-hello`（98） |
 | `configs/local-b.yaml` | local 后半：benches 19–38（98） |
+| `configs/local-a-selected-20.yaml` | local-a 的 20 题子集（可配合 `uv run init -s`） |
 | `configs/hpc.yaml` | HPC / 集群任务（50） |
 | `configs/agent.yaml` | 默认 agent / 模型（与上面任一任务集组合使用） |
 

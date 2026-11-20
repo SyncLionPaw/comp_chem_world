@@ -14,6 +14,8 @@ shared/asset-store/*.blob
 shared/asset-store/.restore-state.json
 shared/inputs.tar.zst
 shared/inputs.tar.zst.tmp
+shared/inputs-*.tar.zst
+shared/inputs-*.tar.zst.tmp
 shared/inputs.tar.xz
 shared/inputs.tar.xz.tmp
 # Legacy assets-only archives

@@ -6,9 +6,13 @@ End users place one file at shared/inputs.tar.zst, then run:
   uv run init --inputs-only
 
 Uses zstd (level 3, one thread) so the same blobs pack to the same bytes.
+
+Maintainers can build a task-subset archive with pack-subset; recipients still
+place it at shared/inputs.tar.zst and run the same `uv run init` path.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import shutil
 import sys
@@ -132,6 +136,54 @@ def add_file(archive: tarfile.TarFile, path: Path, arcname: str) -> None:
         archive.addfile(info, handle)
 
 
+def write_manifest(path: Path, data: dict[str, Any]) -> None:
+    path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def filter_manifest(data: dict[str, Any], prefixes: list[str]) -> dict[str, Any]:
+    from task_config_paths import matches_task_prefix
+
+    files = {
+        relative: digest
+        for relative, digest in data["files"].items()
+        if matches_task_prefix(relative, prefixes)
+    }
+    digests = set(files.values())
+    missing = sorted(digest for digest in digests if digest not in data["blobs"])
+    if missing:
+        raise ValueError(f"Manifest files reference missing blobs: {missing[:5]}")
+    blobs = {digest: data["blobs"][digest] for digest in sorted(digests)}
+    return {"version": 1, "files": dict(sorted(files.items())), "blobs": blobs}
+
+
+def task_prefixes_from_config(config_path: Path) -> list[str]:
+    from task_config_paths import task_prefixes_from_config as parse
+
+    return parse(config_path)
+
+
+def pack_archive(assets: dict[str, Any], wheels: dict[str, Any], output: Path) -> None:
+    output = output.resolve()
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=output.parent) as raw:
+        staging = Path(raw)
+        asset_manifest = staging / "asset-manifest.json"
+        wheel_manifest = staging / "wheel-manifest.json"
+        write_manifest(asset_manifest, assets)
+        write_manifest(wheel_manifest, wheels)
+        with zstd_tar_writer(output) as archive:
+            add_file(archive, asset_manifest, "asset-store/manifest.json")
+            for digest in sorted(assets["blobs"]):
+                add_file(archive, ASSET_STORE / f"{digest}.blob", f"asset-store/{digest}.blob")
+            add_file(archive, wheel_manifest, "wheelhouse/manifest.json")
+            for digest in sorted(wheels["blobs"]):
+                add_file(archive, WHEELHOUSE / f"{digest}.whl", f"wheelhouse/{digest}.whl")
+    print(
+        f"Packed inputs: {len(assets['blobs'])} asset blobs + {len(wheels['blobs'])} wheels "
+        f"({output.stat().st_size / (1024**2):.1f} MiB, zstd-{ZSTD_LEVEL}) -> {output}"
+    )
+
+
 def pack() -> None:
     assert_not_restored()
     assets = read_json(ASSET_MANIFEST)
@@ -140,17 +192,25 @@ def pack() -> None:
         raise FileNotFoundError(f"Asset store incomplete under {ASSET_STORE}")
     if not wheel_blobs_ready(wheels):
         raise FileNotFoundError(f"Wheelhouse incomplete under {WHEELHOUSE}")
+    pack_archive(assets, wheels, ARCHIVE)
 
-    with zstd_tar_writer(ARCHIVE) as archive:
-        add_file(archive, ASSET_MANIFEST, "asset-store/manifest.json")
-        for digest in sorted(assets["blobs"]):
-            add_file(archive, ASSET_STORE / f"{digest}.blob", f"asset-store/{digest}.blob")
-        add_file(archive, WHEEL_MANIFEST, "wheelhouse/manifest.json")
-        for digest in sorted(wheels["blobs"]):
-            add_file(archive, WHEELHOUSE / f"{digest}.whl", f"wheelhouse/{digest}.whl")
+
+def pack_subset(prefixes: list[str], output: Path) -> None:
+    assert_not_restored()
+    assets = read_json(ASSET_MANIFEST)
+    wheels = read_json(WHEEL_MANIFEST)
+    if not asset_blobs_ready(assets):
+        raise FileNotFoundError(f"Asset store incomplete under {ASSET_STORE}")
+    if not wheel_blobs_ready(wheels):
+        raise FileNotFoundError(f"Wheelhouse incomplete under {WHEELHOUSE}")
+    filtered_assets = filter_manifest(assets, prefixes)
+    filtered_wheels = filter_manifest(wheels, prefixes)
+    if not filtered_assets["files"] and not filtered_wheels["files"]:
+        raise ValueError(f"No asset or wheel files matched prefixes: {prefixes}")
+    pack_archive(filtered_assets, filtered_wheels, output)
     print(
-        f"Packed inputs: {len(assets['blobs'])} asset blobs + {len(wheels['blobs'])} wheels "
-        f"({ARCHIVE.stat().st_size / (1024**2):.1f} MiB, zstd-{ZSTD_LEVEL}) -> {ARCHIVE}"
+        f"Subset covers {len(prefixes)} task prefixes; "
+        f"{len(filtered_assets['files'])} asset files, {len(filtered_wheels['files'])} wheel files"
     )
 
 
@@ -245,10 +305,52 @@ def ensure() -> None:
 
 
 def main() -> None:
-    commands = {"pack": pack, "unpack": unpack, "ensure": ensure}
-    if len(sys.argv) != 2 or sys.argv[1] not in commands:
-        raise SystemExit("Usage: task_inputs.py {pack|unpack|ensure}")
-    commands[sys.argv[1]]()
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    sub.add_parser("pack", help="Pack the full shared inputs archive")
+    sub.add_parser("unpack", help="Unpack shared/inputs.tar.zst into stores")
+    sub.add_parser("ensure", help="Ensure stores exist, unpacking the archive if needed")
+
+    subset = sub.add_parser(
+        "pack-subset",
+        help="Pack a task-subset inputs archive (still consumed via shared/inputs.tar.zst + uv run init)",
+    )
+    subset.add_argument(
+        "--config",
+        type=Path,
+        help="Harbor job config whose tasks.path entries define the subset",
+    )
+    subset.add_argument(
+        "--tasks",
+        nargs="+",
+        metavar="PATH",
+        help="Task prefixes such as tasks/005-task005 (alternative to --config)",
+    )
+    subset.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="Output archive path (e.g. shared/inputs-local-a-selected-20.tar.zst)",
+    )
+
+    args = parser.parse_args()
+    if args.command == "pack":
+        pack()
+    elif args.command == "unpack":
+        unpack()
+    elif args.command == "ensure":
+        ensure()
+    elif args.command == "pack-subset":
+        if bool(args.config) == bool(args.tasks):
+            raise SystemExit("pack-subset requires exactly one of --config or --tasks")
+        prefixes = task_prefixes_from_config(args.config) if args.config else [p.rstrip("/") for p in args.tasks]
+        for prefix in prefixes:
+            if not prefix.startswith("tasks/"):
+                raise SystemExit(f"Task path must start with tasks/: {prefix}")
+        pack_subset(prefixes, args.output)
+    else:
+        raise SystemExit(f"Unknown command: {args.command}")
 
 
 if __name__ == "__main__":

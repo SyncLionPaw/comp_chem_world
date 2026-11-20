@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import shutil
@@ -15,6 +16,8 @@ from typing import Any
 import zstandard as zstd
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from task_config_paths import matches_task_prefix
 TASKS = ROOT / "tasks"
 STORE = ROOT / "shared" / "asset-store"
 ARCHIVE = ROOT / "shared" / "asset-store.tar.zst"
@@ -247,15 +250,21 @@ def compact() -> None:
     )
 
 
-def prepare() -> None:
+def prepare(prefixes: list[str] | None = None) -> None:
     data = ensure_store()
     if STATE.exists():
         raise RuntimeError("Restore state exists; run 'uv run reset' (or task_assets.py clean) first")
     names = task_names()
     created: list[str] = []
-    write_json(STATE, {"version": 1, "created": created})
+    mode = "subset" if prefixes else "all"
+    write_json(STATE, {"version": 1, "mode": mode, "created": created})
+    selected = {
+        relative: digest
+        for relative, digest in data["files"].items()
+        if prefixes is None or matches_task_prefix(relative, prefixes)
+    }
     try:
-        for relative, digest in sorted(data["files"].items()):
+        for relative, digest in sorted(selected.items()):
             path = path_for(relative, names)
             if path.exists():
                 if sha256(path) != digest:
@@ -273,11 +282,15 @@ def prepare() -> None:
             finally:
                 temporary.unlink(missing_ok=True)
             created.append(relative)
-            write_json(STATE, {"version": 1, "created": created})
+            write_json(STATE, {"version": 1, "mode": mode, "created": created})
     except Exception:
         clean()
         raise
-    print(f"Restored {len(created)} asset paths from {len(data['blobs'])} shared blobs.")
+    scope = f"{len(prefixes)} task prefixes" if prefixes else "all tasks"
+    print(
+        f"Restored {len(created)} asset paths from {len(data['blobs'])} shared blobs "
+        f"({scope}; {len(selected)} matching mappings)."
+    )
 
 
 def clean() -> None:
@@ -439,17 +452,34 @@ def ensure_store() -> dict[str, Any]:
 
 
 def main() -> None:
-    commands = {
-        "compact": compact,
-        "prepare": prepare,
-        "clean": clean,
-        "verify": verify,
-        "pack": pack,
-        "unpack": unpack,
-    }
-    if len(sys.argv) != 2 or sys.argv[1] not in commands:
-        raise SystemExit("Usage: task_assets.py {compact|prepare|clean|verify|pack|unpack}")
-    commands[sys.argv[1]]()
+    parser = argparse.ArgumentParser(description="Manage shared task assets.")
+    sub = parser.add_subparsers(dest="command", required=True)
+    for name in ("compact", "clean", "verify", "pack", "unpack"):
+        sub.add_parser(name)
+    prepare_parser = sub.add_parser("prepare")
+    prepare_parser.add_argument(
+        "--prefix",
+        action="append",
+        default=[],
+        metavar="PATH",
+        help="Only restore paths under this task prefix (repeatable), e.g. tasks/005-task005",
+    )
+    args = parser.parse_args()
+    if args.command == "prepare":
+        prefixes = [p.rstrip("/") for p in args.prefix] or None
+        prepare(prefixes)
+    elif args.command == "compact":
+        compact()
+    elif args.command == "clean":
+        clean()
+    elif args.command == "verify":
+        verify()
+    elif args.command == "pack":
+        pack()
+    elif args.command == "unpack":
+        unpack()
+    else:
+        raise SystemExit(f"Unknown command: {args.command}")
 
 
 if __name__ == "__main__":

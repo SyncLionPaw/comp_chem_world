@@ -1,4 +1,5 @@
 import argparse
+import json
 import os
 import shutil
 import subprocess
@@ -41,9 +42,21 @@ def project_root() -> Path:
     raise SystemExit("Run this command from within the comp-chem-world repository.")
 
 
-def run_resource(root: Path, kind: str, action: str, check: bool = True) -> None:
+def run_resource(
+    root: Path,
+    kind: str,
+    action: str,
+    check: bool = True,
+    extra: Sequence[str] = (),
+) -> None:
     subprocess.run(
-        [sys.executable, "-I", str(root / "scripts" / RESOURCE_SCRIPTS[kind]), action],
+        [
+            sys.executable,
+            "-I",
+            str(root / "scripts" / RESOURCE_SCRIPTS[kind]),
+            action,
+            *extra,
+        ],
         cwd=root,
         check=check,
     )
@@ -54,26 +67,76 @@ def clean_all(root: Path, check: bool = True) -> None:
     run_resource(root, "wheels", "clean", check=check)
 
 
+def restore_state_path(root: Path, store: str) -> Path:
+    return root / "shared" / store / ".restore-state.json"
+
+
+def restore_mode(root: Path, store: str) -> str | None:
+    path = restore_state_path(root, store)
+    if not path.is_file():
+        return None
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        return "all"
+    mode = data.get("mode", "all")
+    return mode if mode in {"all", "subset"} else "all"
+
+
+def any_restore_state(root: Path) -> bool:
+    return any(restore_state_path(root, store).exists() for store in ("wheelhouse", "asset-store"))
+
+
 def inputs_restored(root: Path) -> bool:
-    return all(
-        (root / "shared" / store / ".restore-state.json").is_file()
-        for store in ("wheelhouse", "asset-store")
-    )
+    """True only when both stores are restored in full (mode=all)."""
+    modes = [restore_mode(root, store) for store in ("wheelhouse", "asset-store")]
+    return all(mode == "all" for mode in modes)
 
 
-def prepare_all(root: Path) -> None:
-    if inputs_restored(root):
+def task_prefixes_from_subset(root: Path, subset: Path) -> list[str]:
+    scripts = root / "scripts"
+    sys.path.insert(0, str(scripts))
+    from task_config_paths import task_prefixes_from_config
+
+    path = subset if subset.is_absolute() else (root / subset)
+    if not path.is_file():
+        raise SystemExit(f"Subset config not found: {path}")
+    prefixes = task_prefixes_from_config(path)
+    if not prefixes:
+        raise SystemExit(f"No tasks found in subset config: {path}")
+    return prefixes
+
+
+def prepare_extra(prefixes: list[str] | None) -> list[str]:
+    if not prefixes:
+        return []
+    extra: list[str] = []
+    for prefix in prefixes:
+        extra.extend(["--prefix", prefix])
+    return extra
+
+
+def prepare_all(root: Path, prefixes: list[str] | None = None) -> None:
+    if prefixes is None and inputs_restored(root):
         report("OK", "Task inputs are already restored.", "32")
         return
-    if any(
-        (root / "shared" / store / ".restore-state.json").exists()
-        for store in ("wheelhouse", "asset-store")
-    ):
-        raise SystemExit("Task inputs are only partially restored; run 'uv run reset' first.")
-    report("SETUP", "Restoring task inputs; they will remain available until 'uv run reset'.", "33")
+    if prefixes is not None and inputs_restored(root):
+        report("OK", "Full task inputs are already restored (covers the requested subset).", "32")
+        return
+    if any_restore_state(root):
+        raise SystemExit("Task inputs are already restored (possibly a subset); run 'uv run reset' first.")
+    if prefixes:
+        report(
+            "SETUP",
+            f"Restoring task inputs for {len(prefixes)} tasks from subset config; "
+            "they will remain available until 'uv run reset'.",
+            "33",
+        )
+    else:
+        report("SETUP", "Restoring task inputs; they will remain available until 'uv run reset'.", "33")
+    extra = prepare_extra(prefixes)
     try:
-        run_resource(root, "wheels", "prepare")
-        run_resource(root, "assets", "prepare")
+        run_resource(root, "wheels", "prepare", extra=extra)
+        run_resource(root, "assets", "prepare", extra=extra)
     except BaseException:
         clean_all(root, check=False)
         raise
@@ -123,14 +186,20 @@ def build_images(root: Path) -> None:
     subprocess.run(["bash", str(root / "images" / "build.sh")], cwd=root, check=True)
 
 
-def initialize(root: Path, *, inputs_only: bool = False) -> None:
+def initialize(
+    root: Path,
+    *,
+    inputs_only: bool = False,
+    subset: Path | None = None,
+) -> None:
+    prefixes = task_prefixes_from_subset(root, subset) if subset is not None else None
     if inputs_only:
         report("SETUP", "Inputs-only init: skipping Docker, .env, and image builds.", "33")
     else:
         ensure_docker()
         ensure_env_file(root)
     verify_all(root)
-    prepare_all(root)
+    prepare_all(root, prefixes)
     if inputs_only:
         report("OK", "Task inputs restored; run 'uv run init' later for Docker and images.", "32")
         return
@@ -148,6 +217,16 @@ def parse_init_arguments(arguments: Sequence[str]) -> argparse.Namespace:
         action="store_true",
         help="Only verify and restore shared wheels/assets; skip Docker, .env, and image builds.",
     )
+    parser.add_argument(
+        "-s",
+        "--subset",
+        type=Path,
+        metavar="CONFIG",
+        help=(
+            "Harbor job config whose tasks.path entries limit restore "
+            "(default: restore all tasks). Example: configs/local-a-selected-20.yaml"
+        ),
+    )
     return parser.parse_args(arguments)
 
 
@@ -156,12 +235,14 @@ def execute(command: str, arguments: Sequence[str] = ()) -> None:
     try:
         if command == "init":
             options = parse_init_arguments(arguments)
-            initialize(root, inputs_only=options.inputs_only)
+            initialize(root, inputs_only=options.inputs_only, subset=options.subset)
         elif command == "reset":
             if arguments:
                 raise SystemExit("Usage: uv run reset")
             clean_all(root)
-            print("Removed restored task inputs; kept Docker images, .env, jobs, and the project environment.")
+            print(
+                "Removed restored task inputs; kept Docker images, .env, jobs, and the project environment."
+            )
     except subprocess.CalledProcessError as error:
         raise SystemExit(error.returncode) from error
 
