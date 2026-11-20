@@ -230,6 +230,82 @@ def parse_init_arguments(arguments: Sequence[str]) -> argparse.Namespace:
     return parser.parse_args(arguments)
 
 
+def parse_pack_arguments(arguments: Sequence[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        prog="pack",
+        description=(
+            "Pack shared wheelhouse + asset-store into an offline inputs archive. "
+            "Recipients place the file at shared/inputs.tar.zst and run uv run init "
+            "(optionally with -s for the same subset config)."
+        ),
+    )
+    parser.add_argument(
+        "-s",
+        "--subset",
+        type=Path,
+        metavar="CONFIG",
+        help=(
+            "Harbor job config whose tasks.path entries define the subset archive "
+            "(default: pack the full store to shared/inputs.tar.zst)"
+        ),
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        metavar="PATH",
+        help=(
+            "Output archive path. Default: shared/inputs.tar.zst (full), or "
+            "shared/inputs-<config-stem>.tar.zst when -s is set"
+        ),
+    )
+    return parser.parse_args(arguments)
+
+
+def default_pack_output(root: Path, subset: Path | None) -> Path:
+    if subset is None:
+        return root / "shared" / "inputs.tar.zst"
+    stem = subset.stem if subset.is_absolute() else (root / subset).stem
+    return root / "shared" / f"inputs-{stem}.tar.zst"
+
+
+def pack_inputs(root: Path, *, subset: Path | None = None, output: Path | None = None) -> None:
+    default = default_pack_output(root, subset)
+    out = output if output is not None else default
+    if not out.is_absolute():
+        out = root / out
+
+    if subset is None:
+        canonical = root / "shared" / "inputs.tar.zst"
+        if out.resolve() != canonical.resolve():
+            raise SystemExit(
+                "Full pack always writes shared/inputs.tar.zst; "
+                "omit -o, or pass -s CONFIG for a named subset archive"
+            )
+        report("PACK", f"Packing full inputs archive -> {canonical}")
+        run_resource(root, "inputs", "pack")
+        report("OK", f"Packed full inputs archive at {canonical}", "32")
+        return
+
+    config = subset if subset.is_absolute() else (root / subset)
+    if not config.is_file():
+        raise SystemExit(f"Subset config not found: {config}")
+    prefixes = task_prefixes_from_subset(root, config)
+    report("PACK", f"Packing subset inputs for {len(prefixes)} tasks from {config} -> {out}")
+    run_resource(
+        root,
+        "inputs",
+        "pack-subset",
+        extra=["--config", str(config), "--output", str(out)],
+    )
+    report(
+        "OK",
+        f"Packed subset archive at {out}. Recipients: copy/rename to shared/inputs.tar.zst, "
+        f"then `uv run init -s {subset}`.",
+        "32",
+    )
+
+
 def execute(command: str, arguments: Sequence[str] = ()) -> None:
     root = project_root()
     try:
@@ -243,6 +319,11 @@ def execute(command: str, arguments: Sequence[str] = ()) -> None:
             print(
                 "Removed restored task inputs; kept Docker images, .env, jobs, and the project environment."
             )
+        elif command == "pack":
+            options = parse_pack_arguments(arguments)
+            pack_inputs(root, subset=options.subset, output=options.output)
+        else:
+            raise SystemExit(f"Unknown command: {command}")
     except subprocess.CalledProcessError as error:
         raise SystemExit(error.returncode) from error
 

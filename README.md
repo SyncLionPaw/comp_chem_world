@@ -52,6 +52,11 @@ uv run init -s configs/local-a-selected-20.yaml
 # 可与 --inputs-only 合用：
 uv run init --inputs-only -s configs/local-a-selected-20.yaml
 
+# 打包离线资源（需完整 store 且未 restore；必要时先 uv run reset）
+uv run pack
+uv run pack -s configs/local-a-selected-20.yaml
+# 子集包默认写到 shared/inputs-local-a-selected-20.tar.zst；对方改名为 shared/inputs.tar.zst 后再 init
+
 # 卸下 tasks/ 下已恢复的输入（保留镜像、.env、jobs、共享 store）
 uv run reset
 

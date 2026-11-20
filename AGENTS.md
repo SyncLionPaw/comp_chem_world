@@ -20,7 +20,7 @@ That is the supported onboarding loop. Human-oriented copy lives in `README.md`;
 - **Name**: `comp-chem-world` — computational chemistry agent environments / evals
 - **Python**: 3.13 (see `.python-version`)
 - **Package manager / build**: `uv` + `uv_build`, src layout under `src/comp_chem_world/`
-- **Entry**: `uv run init` / `reset` → `comp_chem_world.cli:command_main`; `uv run harbor` → Harbor CLI, pinned as a dev dependency (`harbor==0.26.0` in `[dependency-groups]`)
+- **Entry**: `uv run init` / `reset` / `pack` → `comp_chem_world.cli:command_main`; `uv run harbor` → Harbor CLI, pinned as a dev dependency (`harbor==0.26.0` in `[dependency-groups]`)
 
 ## Commands
 
@@ -33,6 +33,11 @@ uv run init --inputs-only
 
 # restore only tasks listed in a Harbor job config (same inputs.tar.zst; narrower prepare)
 uv run init -s configs/local-a-selected-20.yaml
+
+# pack offline inputs (requires a complete, non-restored store: uv run reset first if needed)
+uv run pack
+uv run pack -s configs/local-a-selected-20.yaml
+# -> shared/inputs-local-a-selected-20.tar.zst (recipients rename to shared/inputs.tar.zst)
 
 # clean restored task inputs while keeping images, results, and the project environment
 uv run reset
@@ -81,7 +86,7 @@ AGENTS.md              # this file
 - Harbor tasks live under `tasks/NNN-<name>/` (e.g. `tasks/000-hello/`). Imported benchmark tasks are flattened into this same directory so Harbor's `datasets.path: tasks` discovers them directly. Each task has `instruction.md`, `task.toml`, `environment/`, `tests/`, optional `solution/`; not mixed into library modules.
 - Imported task assets can be very large. Keep task input data with its task when needed for reproducibility; do not copy Harbor `jobs/`, runner metadata, or source-repository author archives into a task.
 - **Agent visibility of `environment/assets/`**: Harbor builds with `environment/` as the Docker context and does **not** bind-mount `assets/` into the agent container. The agent only sees paths that the task `Dockerfile` `COPY`s into the final image (typically `/app/inputs` or `/app/assets`). Prefer narrow `COPY` of required inputs; put offline build caches under paths copied only to `/tmp` in a multi-stage build. Never add a read/write bind of `environment/assets` in `docker-compose.yaml` (if a bind is unavoidable, `read_only: true`). `uv run init` restores asset files as read-only on the host to reduce accidental write-back; `scripts/audit_task_assets.py` reports visibility and mount issues. Do not leave `__pycache__`, `reward.*`, or other run outputs under `assets/`.
-- **Offline inputs archive (required for newcomers)**: put the file at **`shared/inputs.tar.zst`** only. It is gitignored and is the single distribution bundle for all offline wheels + scientific assets (tasks 001–185 and 186–245). `uv run init` unpacks it into `shared/wheelhouse/` + `shared/asset-store/` and restores task paths; then Harbor can run the full dataset. `uv run reset` removes restored copies under `tasks/`. Manifests (`shared/wheelhouse/manifest.json`, `shared/asset-store/manifest.json`) stay in git as the path→SHA-256 source of truth.
+- **Offline inputs archive (required for newcomers)**: put the file at **`shared/inputs.tar.zst`** only. It is gitignored and is the single distribution bundle for all offline wheels + scientific assets (tasks 001–185 and 186–245). `uv run init` unpacks it into `shared/wheelhouse/` + `shared/asset-store/` and restores task paths; then Harbor can run the full dataset. Maintainers rebuild with `uv run pack` (full) or `uv run pack -s <job-config.yaml>` (subset → `shared/inputs-<stem>.tar.zst`; recipients still rename to `shared/inputs.tar.zst` and may use `uv run init -s` with the same config). `uv run reset` removes restored copies under `tasks/` (required before packing if restore-state is present). Manifests (`shared/wheelhouse/manifest.json`, `shared/asset-store/manifest.json`) stay in git as the path→SHA-256 source of truth.
 - Offline wheels live in `shared/wheelhouse/`; task assets live in `shared/asset-store/` (all of `tasks/*/environment/assets/`, plus `tasks/*/tests/` and `tasks/*/solution/` files ≥ 1 MiB). Both have SHA-256 manifests. Maintainers: `python3 -I scripts/task_wheels.py compact` / `task_assets.py compact`, then `python3 -I scripts/task_inputs.py pack` to refresh `shared/inputs.tar.zst`. Do not commit restored paths, `*.whl` / `*.blob` under `shared/`, or `inputs.tar.zst`—commit manifests only; do not modify shared blobs in place.
 - Preserve both ARM64 and x86_64 dependency variants when migrating tasks. Store both wheels in the shared store, include both hashes in pip locks, and select Conda manifests and local binaries by host architecture; do not replace one architecture with the other.
 - Do not use Git LFS by default. Only use it when you understand which files are covered by `.gitattributes`, where the LFS objects are stored, how collaborators and CI will retrieve them, and how migration or removal affects existing pointers. If any of that is unclear, do not enable Git LFS, run `git lfs install`, or add LFS-tracked files; use the repository's shared asset-store workflow instead.
