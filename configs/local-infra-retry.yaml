@@ -4,4 +4,5 @@ n_concurrent_trials: 4
 
 tasks:
   - path: tasks/047-task047
+  - path: tasks/062-task062
   - path: tasks/067-task067
