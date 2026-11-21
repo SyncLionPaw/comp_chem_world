@@ -176,7 +176,14 @@ def main():
     if 'reward' in report:
         (logs / 'reward.txt').write_text(str(report['reward']) + '\n')
     elif report['status'] == 'REVIEW_REQUIRED':
-        (logs / 'reward.json').write_text('{}\n')
+        # Emit 0 so Harbor records a score instead of RewardFileNotFoundError.
+        report = dict(report, reward=0)
+        (logs / 'verification.json').write_text(
+            json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + '\n'
+        )
+        (logs / 'reward.txt').write_text('0\n')
+    else:
+        (logs / 'reward.txt').write_text('0\n')
     print(json.dumps({'status': report['status'], 'science_validated': report['science_validated']}))
     return rc
 

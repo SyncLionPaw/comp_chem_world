@@ -1,0 +1,7 @@
+# Retry tasks that hit infra exceptions mid-run before late fixes landed.
+job_name: comp-chem-world-local-infra-retry
+n_concurrent_trials: 4
+
+tasks:
+  - path: tasks/047-task047
+  - path: tasks/067-task067

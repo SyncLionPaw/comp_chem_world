@@ -31,7 +31,12 @@ elif status not in {'FAIL','PASS','REVIEW_REQUIRED','INFRA_ERROR'}:
 src.unlink(missing_ok=True); (logs/'reward.txt').unlink(missing_ok=True)
 if status == 'PASS': (logs/'reward.txt').write_text('1\n',encoding='ascii'); code=0
 elif status == 'FAIL': (logs/'reward.txt').write_text('0\n',encoding='ascii'); code=1
-elif status == 'REVIEW_REQUIRED': code=0
-else: code=2
+elif status == 'REVIEW_REQUIRED':
+    # Emit 0 so Harbor records a score instead of RewardFileNotFoundError.
+    (logs/'reward.txt').write_text('0
+',encoding='ascii'); code=0
+else:
+    (logs/'reward.txt').write_text('0
+',encoding='ascii'); code=2
 raise SystemExit(code)
 PY
