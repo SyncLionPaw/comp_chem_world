@@ -1811,8 +1811,8 @@ _EMBEDDED = {
 }
 _EVALUATOR = None
 _CASE = 'case-02-curvature-bias'
-_PREFLIGHT = {'case_id': 'case-02-curvature-bias', 'public_assets': [{'path': 'hessian_eigenvalues.csv', 'sha256': '9bac57d284a907ea153cfc31dbe524220ada45061cd4dd4595be9a95fa64edf0'}, {'path': 'output-contract.json', 'sha256': '87918cb04153f1ec3c9ec8a5b29feb2069208855d0946fdc7e6612e98e6eb5cc'}], 'schema': 'ccb-environment-preflight/v1', 'trusted_files': [{'path': 'submission_guard.py', 'sha256': '37fdf998a836dcfc208276b0a9e36590b19126f6d9d0ce24be7fcda281fce93f'}, {'path': 'test.sh', 'sha256': '1db920ab8653499124a8bdde83ac1b750a3063f3dab81288e117b98810692e5b'}, {'path': 'trusted_reviews/8a38d5f8131a1c40fe78c5be99a534c740325d08c231dc2de85071fdd48beea6.json', 'sha256': '3dd59236f33aa4df1cf6e1f0b7808962cf8c1adb20c0717de478221e3057630e'}, {'path': 'trusted_reviews/a1be039bc3bc5c825dcba76d377032909ddabe147abbd3ba19438f1bf6c30abf.json', 'sha256': '10382f309ab6fa4ea1dc4c26bd31f3faf03aa2f69747ec6f1367e1efa1bffa53'}, {'path': 'trusted_reviews/a6f0877006a34d2eb1160730a633e90bbaff4e32e2bb5cd60f2fcf89e73275e5.json', 'sha256': '90d969317c25b7bfbe2b5003b933b72474893d33fc6b818e9d195f3f669013da'}, {'path': 'verifier_adapter.py', 'sha256': '10bddc3b564e927765831ab86ee57094c05a34d92f67ec30d374c046c59e05bc'}, {'path': 'verify.py', 'sha256': '87a02d183e80ab8a75514c54357d2dfdd7663742f7a400577c88db3543af6c7a'}]}
-_PREFLIGHT_SHA = 'cf6b5c426f0631aa67f861d1be67267397232bd8d792be97f0da08bf8269c69f'
+_PREFLIGHT = {'case_id': 'case-02-curvature-bias', 'public_assets': [{'path': 'hessian_eigenvalues.csv', 'sha256': '9bac57d284a907ea153cfc31dbe524220ada45061cd4dd4595be9a95fa64edf0'}, {'path': 'output-contract.json', 'sha256': '87918cb04153f1ec3c9ec8a5b29feb2069208855d0946fdc7e6612e98e6eb5cc'}], 'schema': 'ccb-environment-preflight/v1', 'trusted_files': [{'path': 'submission_guard.py', 'sha256': '37fdf998a836dcfc208276b0a9e36590b19126f6d9d0ce24be7fcda281fce93f'}, {'path': 'test.sh', 'sha256': '1db920ab8653499124a8bdde83ac1b750a3063f3dab81288e117b98810692e5b'}, {'path': 'trusted_reviews/8a38d5f8131a1c40fe78c5be99a534c740325d08c231dc2de85071fdd48beea6.json', 'sha256': '3dd59236f33aa4df1cf6e1f0b7808962cf8c1adb20c0717de478221e3057630e'}, {'path': 'trusted_reviews/a1be039bc3bc5c825dcba76d377032909ddabe147abbd3ba19438f1bf6c30abf.json', 'sha256': '10382f309ab6fa4ea1dc4c26bd31f3faf03aa2f69747ec6f1367e1efa1bffa53'}, {'path': 'trusted_reviews/a6f0877006a34d2eb1160730a633e90bbaff4e32e2bb5cd60f2fcf89e73275e5.json', 'sha256': '90d969317c25b7bfbe2b5003b933b72474893d33fc6b818e9d195f3f669013da'}, {'path': 'verifier_adapter.py', 'sha256': '10bddc3b564e927765831ab86ee57094c05a34d92f67ec30d374c046c59e05bc'}, {'path': 'verify.py', 'sha256': '9a0b14ecd894ff1a38547e2da23f0148ab1b8202d5bcd9639be89a6a649402e1'}]}
+_PREFLIGHT_SHA = 'a7883507910769b2858c7fa30e5058fd4883a73745bfaf7de8c7b5bf190651bf'
 
 def _load(name,source):
  m=types.ModuleType(name); m.__file__=str(Path(os.environ.get("TESTS","/tests"))/name); sys.modules[name]=m
@@ -3945,7 +3945,11 @@ def native_main():
         return 0
     except Exception as exc:
         _native_archive(audit, harbor_logs)
-        _native_write_infra(harbor_logs, "native verification infrastructure failed: " + type(exc).__name__, audit)
+        _native_write_infra(
+            harbor_logs,
+            f"native verification infrastructure failed: {type(exc).__name__}: {exc}",
+            audit,
+        )
         print((harbor_logs / "verification.json").read_text(encoding="utf-8"))
         return 2
 
