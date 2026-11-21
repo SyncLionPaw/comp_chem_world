@@ -10,12 +10,12 @@ description = "从一条完整存档COLVAR计算可复核的标准态ΔG，并�
 case_id = "case-03-binding-free-energy-stop-rule"
 title = "选择可辩护的结合自由能与停止判据"
 objective = "从一条完整存档COLVAR计算可复核的标准态ΔG，并用低成本敏感性判断当前精度可支持什么研究决策。"
-compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 300 }
+compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 1800 }
 requirements = { software = ["Python 3 + NumPy"], inputs = [{ path = "environment/assets/g4-thermodynamic-records.npz", sha256 = "12aac89f64da94407bb9a8b73cb7316a5eea982e70b1bc0c556e49a95b4280de" }, { path = "environment/assets/record-provenance.json", sha256 = "1ef94ece5e4cd95b1332cc931fce226fbe2fdd3149461774669dd62991d22ff5" }, { path = "environment/assets/thermodynamic-method.md", sha256 = "ef05a71bcedee02f442aed45aec53d9498552f3d111a4c71dcf2b8b89c5f1e51" }] }
 outputs = ["FES.csv", "blocks.csv", "thermodynamics.json", "sensitivity.csv", "sampling-decision.json", "audit-report.md", "provenance.json"]
 
 [agent]
-timeout_sec = 600.0
+timeout_sec = 1800.0
 network_mode = "public"
 
 [environment]

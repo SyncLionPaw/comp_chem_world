@@ -1,7 +1,7 @@
 FROM comp-chem-world-base
 WORKDIR /app
 RUN sed -i 's#http://ports.ubuntu.com#https://ports.ubuntu.com#g' /etc/apt/sources.list.d/ubuntu.sources \
-    && apt-get -o Acquire::Retries=3 update && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 gfortran=4:13.2.0-7ubuntu1 cmake=3.28.3-1build7 libopenblas-dev=0.3.26+ds-1ubuntu0.1 python3.12-dev=3.12.3-1ubuntu0.17 \
+    && apt-get -o Acquire::Retries=3 update && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 gfortran=4:13.2.0-7ubuntu1 cmake=3.28.3-1build7 git libopenblas-dev=0.3.26+ds-1ubuntu0.1 python3.12-dev=3.12.3-1ubuntu0.17 \
     && rm -rf /var/lib/apt/lists/*
 RUN python3 -m venv /opt/case07-venv
 ENV UV_HTTP_TIMEOUT=300 UV_HTTP_RETRIES=5

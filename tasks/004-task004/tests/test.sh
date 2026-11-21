@@ -1,6 +1,6 @@
 #!/bin/sh
-# PASS -> reward 1; candidate FAIL -> reward 0. Unsupported, protected-input
-# errors, grader errors, and invocation failures create no reward file.
+# PASS -> reward 1; FAIL / REVIEW_REQUIRED / grader errors -> reward 0.
+# Always emit reward.txt so Harbor does not raise RewardFileNotFoundError.
 export OMP_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
 export MKL_NUM_THREADS=1
@@ -47,16 +47,16 @@ else:
     raise SystemExit(2)
 PY
 then
-  rm -f "$LOGS_DIR/reward.txt"
+  printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2
   cat "$LOGS_DIR/verifier.stdout" >&2
-  exit 2
+  exit 0
 fi
 status=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["status"])' "$LOGS_DIR/verification.json") || {
-  rm -f "$LOGS_DIR/reward.txt"; exit 2;
+  printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0;
 }
 case "$status" in
   PASS) printf '1\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
   FAIL) printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
-  REVIEW_REQUIRED) rm -f "$LOGS_DIR/reward.txt"; exit 2 ;;
-  *) rm -f "$LOGS_DIR/reward.txt"; exit 2 ;;
+  REVIEW_REQUIRED) printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
+  *) printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
 esac

@@ -36,7 +36,7 @@ uv run init
 uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y
 ```
 
-`uv run init` 会把 `shared/inputs.tar.zst` 解到 `shared/wheelhouse/` 与 `shared/asset-store/`，再恢复进各任务目录；之后可反复 `uv run harbor …`。默认恢复全部任务输入；加 `-s <job-config.yaml>` 时只 restore 该配置里列出的 tasks（归档路径不变）。
+`uv run init` 会把 `shared/inputs.tar.zst` 解到 `shared/wheelhouse/` 与 `shared/asset-store/`，再恢复进各任务目录；之后可反复 `uv run harbor …`。默认恢复全部任务输入；加 `-s <job-config.yaml>` 时只 restore 该配置里列出的 tasks（归档路径不变）。恢复后还会去掉 `tasks/*/tests/refs.json` 上的 group/other 写权限（避免 umask 0002 导致独立评分镜像 `prepare` 失败）。
 
 ### 常用命令
 

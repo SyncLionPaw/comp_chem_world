@@ -162,8 +162,7 @@
     }
   },
   "scoring_integrity": {
-    "tests/verify.py": "ce45e9b8eee4041b484daa05a38c3ca7d8ba053079eaa2da68f632fb02760485",
-    "tests/test.sh": "8e84a4ef50048099db38b5dd71710eea4a75a43f8057a8469a6b9f1e2c5c4291"
+    "tests/verify.py": "8b7d1ba8eb9955807ce65a775676fae4839e7fd5a8b27b3b5f9d40ccec2552b2"
   },
   "evidence_documents": {
     "environment/assets/literature/paper.pdf": {

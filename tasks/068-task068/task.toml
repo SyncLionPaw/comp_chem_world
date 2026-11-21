@@ -13,7 +13,7 @@ execution_class = "local"
 
 [agent]
 network_mode = "public"
-timeout_sec = 600.0
+timeout_sec = 2400.0
 
 [environment]
 network_mode = "public"

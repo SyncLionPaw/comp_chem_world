@@ -1,6 +1,6 @@
 # Full local task set. Classification is based on the task environment image/runtime.
 job_name: comp-chem-world-local
-n_concurrent_trials: 4
+n_concurrent_trials: 10
 
 tasks:
   - path: tasks/000-hello

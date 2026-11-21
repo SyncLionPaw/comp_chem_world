@@ -9,6 +9,8 @@ COPY environment/assets/output-contract.json /app/output-contract.json
 COPY task.toml instruction.md /opt/bench07-task/
 COPY environment/assets/ /opt/bench07-task/environment/assets/
 COPY tests/ /opt/bench07-task/tests/
-RUN python3 -I /opt/bench07-task/tests/harbor_runtime/prepare.py
+# Host umask (e.g. 0002) can leave refs.json group-writable; prepare rejects that.
+RUN chmod go-w /opt/bench07-task/tests/refs.json \
+ && python3 -I /opt/bench07-task/tests/harbor_runtime/prepare.py
 RUN mkdir -p /logs/agent /logs/verifier /logs/artifacts && chmod 0700 /logs
 COPY environment/assets/compute-budget.yaml /app/compute-budget.yaml

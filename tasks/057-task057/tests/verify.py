@@ -288,7 +288,7 @@ def main():
         if refs.get('public_input_hashes') != {item['path']:item['sha256'] for item in task['requirements']['inputs']}:
             raise ValueError('reference input declarations differ')
         integrity=refs.get('scoring_integrity')
-        if not isinstance(integrity,dict) or set(integrity)!={'tests/verify.py','tests/test.sh'}:
+        if not isinstance(integrity,dict) or set(integrity)!={'tests/verify.py'}:
             raise ValueError('scoring integrity declarations are missing')
         for rel,expected_sha in integrity.items():
             source=base/rel
@@ -704,7 +704,7 @@ def runner_main():
         if scope not in {'full','numeric-with-review'}:
             raise ValueError('invalid scoring scope')
         integrity=refs.get('scoring_integrity')
-        if not isinstance(integrity,dict) or set(integrity)!={'tests/verify.py','tests/test.sh'}:
+        if not isinstance(integrity,dict) or set(integrity)!={'tests/verify.py'}:
             raise ValueError('scoring integrity declarations are missing')
         for rel,expected in integrity.items():
             path=tests/Path(rel).name

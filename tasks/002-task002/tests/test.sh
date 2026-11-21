@@ -24,12 +24,16 @@ case "$status" in
     exit 0
     ;;
   11)
-    rm -f "$LOGS/reward.txt"
-    exit 11
+    # REVIEW_REQUIRED: emit 0 so Harbor records a score instead of RewardFileNotFoundError.
+    printf '0
+' > "$LOGS/reward.txt"
+    exit 0
     ;;
   *)
-    rm -f "$LOGS/reward.txt"
-    echo "Case 02 verifier infrastructure failure (exit $status); no reward emitted" >&2
-    exit "$status"
+    # Infrastructure errors still emit 0 for truthful eval accounting.
+    printf '0
+' > "$LOGS/reward.txt"
+    echo "Case 02 verifier infrastructure failure (exit $status); reward=0" >&2
+    exit 0
     ;;
 esac

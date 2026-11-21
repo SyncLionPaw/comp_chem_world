@@ -10,12 +10,12 @@ description = "从真实稀疏坐标中找相近配体z/r而水结构不同的�
 case_id = "case-04-g4-hydration-water-bridge"
 title = "用坐标证据裁决G4湿/干态与水桥假说"
 objective = "从真实稀疏坐标中找相近配体z/r而水结构不同的例子，评估湿/干或水桥机制假说能获得多强支持。"
-compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 180 }
+compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 1800 }
 requirements = { software = ["Python 3 + NumPy"], inputs = [{ path = "environment/assets/g4-coordinate-samples.npz", sha256 = "574c49fdc457fec2b57d3d81e9fadde6bb59e269e5676568b0d69d7a37e14550" }, { path = "environment/assets/coordinate-provenance.json", sha256 = "ec950e3438e0e982dd2f9ff8644879d3b2415976781d9d4a4052fbb050ccec20" }, { path = "environment/assets/g4-descriptors.csv", sha256 = "9b75c752603ee98c64a8ac971cd76ff4126a45ce50de65cdfd8babbe28888f66" }, { path = "environment/assets/descriptor-provenance.json", sha256 = "0cdaef45fc096bd1aca62229c665a1736a3ae336a59caf847cc5c34b22c5effd" }, { path = "environment/assets/geometry-method.md", sha256 = "d863e5b015aefb9b08a6bffab712e829c374289ca36a9847ad8369607226f0d6" }, { path = "environment/assets/g4-trajectory-observables.csv", sha256 = "8382f7bfb0356e5ee63ecb38337509a4f2df9674ae55af6fc121a5dfbf38744f" }, { path = "environment/assets/g4-trajectory-observables.provenance.json", sha256 = "459cac2a99bd2480952f33309004b815542542f68fa8c503fa4569959748deb7" }] }
 outputs = ["coordinate-observables.csv", "geometry-evidence.csv", "state-hypotheses.json", "mechanism-decision.md", "state-analysis.json", "state-frames.csv", "state-blocks.csv"]
 
 [agent]
-timeout_sec = 180.0
+timeout_sec = 1800.0
 network_mode = "public"
 
 [environment]

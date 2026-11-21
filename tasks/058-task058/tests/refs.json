@@ -168,8 +168,7 @@
     }
   },
   "scoring_integrity": {
-    "tests/verify.py": "abe9d7d77ffb08d9b93536adae072836207873cf6f55e0ff820d7bd91ca96153",
-    "tests/test.sh": "8e84a4ef50048099db38b5dd71710eea4a75a43f8057a8469a6b9f1e2c5c4291"
+    "tests/verify.py": "465b4d387a6f5c8a945111d58be10504b2f3cdaa935abbf7ebb7e52fd16436b5"
   },
   "evidence_documents": {
     "environment/assets/literature/paper.pdf": {

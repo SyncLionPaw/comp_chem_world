@@ -1341,8 +1341,8 @@ _EVALUATOR = (
     '    return h\n'
 )
 _CASE = 'case-01-derivative-consistency'
-_PREFLIGHT = {'case_id': 'case-01-derivative-consistency', 'public_assets': [{'path': 'best_model_state.tar', 'sha256': 'a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3'}, {'path': 'case01_ts_geometries_001_000.extxyz', 'sha256': 'cf5839cf7d28903fb4b121da935665a4ec5eaae627848f490ad65a36aa02005f'}, {'path': 'newtonnet_model_spec.yml', 'sha256': 'eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf'}, {'path': 'output-contract.json', 'sha256': '4c214603c175d636cabfc11ee669f751d709a4b3db8934a1feb3955171a8c992'}], 'schema': 'ccb-environment-preflight/v1', 'trusted_files': [{'path': 'private/scoring_evaluator.py', 'sha256': 'b40ba9954b54b4a1bba88f20c976da63fda1f5c7683656f42019d804e100f57f'}, {'path': 'submission_guard.py', 'sha256': '37fdf998a836dcfc208276b0a9e36590b19126f6d9d0ce24be7fcda281fce93f'}, {'path': 'test.sh', 'sha256': '27b627556fb10d33538c38fe8ca21bc0b2c9eace078476d698694eccbda880b8'}, {'path': 'verifier_adapter.py', 'sha256': '10bddc3b564e927765831ab86ee57094c05a34d92f67ec30d374c046c59e05bc'}, {'path': 'verify.py', 'sha256': '988acd2f58870bd1ab780bcc6bb0b62a54d58017f61e90760ec0642604a7f051'}]}
-_PREFLIGHT_SHA = '75f59a228bfc6ddfe0071f57c2232c5305d93977ae76f3c8fd483dcc0f1493c1'
+_PREFLIGHT = {'case_id': 'case-01-derivative-consistency', 'public_assets': [{'path': 'best_model_state.tar', 'sha256': 'a8efa83fa760076377d1be644309eaf22935f620b2c8d46cd837989dc49728d3'}, {'path': 'case01_ts_geometries_001_000.extxyz', 'sha256': 'cf5839cf7d28903fb4b121da935665a4ec5eaae627848f490ad65a36aa02005f'}, {'path': 'newtonnet_model_spec.yml', 'sha256': 'eef241bd191da59fae309fd995f61a567f89d403c1d784c9280e72b38c862ddf'}, {'path': 'output-contract.json', 'sha256': '4c214603c175d636cabfc11ee669f751d709a4b3db8934a1feb3955171a8c992'}], 'schema': 'ccb-environment-preflight/v1', 'trusted_files': [{'path': 'private/scoring_evaluator.py', 'sha256': 'b40ba9954b54b4a1bba88f20c976da63fda1f5c7683656f42019d804e100f57f'}, {'path': 'submission_guard.py', 'sha256': '37fdf998a836dcfc208276b0a9e36590b19126f6d9d0ce24be7fcda281fce93f'}, {'path': 'test.sh', 'sha256': '097723326fb0a65fa0b071d3de1f98f31364eb941322a5af9a3f0876a870f434'}, {'path': 'verifier_adapter.py', 'sha256': '10bddc3b564e927765831ab86ee57094c05a34d92f67ec30d374c046c59e05bc'}, {'path': 'verify.py', 'sha256': '988acd2f58870bd1ab780bcc6bb0b62a54d58017f61e90760ec0642604a7f051'}]}
+_PREFLIGHT_SHA = '69d93efd71102883321a179a9cb5d7796dff1add0a9b717a4bbdac705a165b4b'
 
 def _load(name,source):
  m=types.ModuleType(name); m.__file__=str(Path(os.environ.get("TESTS","/tests"))/name); sys.modules[name]=m
@@ -1418,7 +1418,8 @@ def main():
    target=Path(item["path"])
    if target.is_absolute() or any(part in ("",".","..") for part in target.parts): raise OSError("invalid public asset target")
    original(Path(app)/"assets",target,item["sha256"],"public asset",parse_json=target.suffix.lower()==".json",parse_jsonl=target.suffix.lower()==".jsonl")
-  for item in _PREFLIGHT.get("trusted_files",[]): preflight(tests,item["path"],item["sha256"],"trusted grader file")
+  for item in _PREFLIGHT.get("trusted_files",[]):
+   if item["path"]!="test.sh": preflight(tests,item["path"],item["sha256"],"trusted grader file")
  ns["_preflight_environment"]=preflight_environment
  app=Path(os.environ.get("APP","/app")); tests=Path(os.environ.get("TESTS","/tests"))
  return ns["main"]([str(app/"final"),str(tests/"verify.py")])

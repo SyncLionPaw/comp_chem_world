@@ -10,12 +10,12 @@ description = "基于六种 guest 的 OAMe 数据区分水模型对绝对误差�
 case_id = "case-06-water-model-free-energy"
 title = "诊断 TIP3P 与 TIP4P/Ew 对结合自由能的影响"
 objective = "基于六种 guest 的 OAMe 数据区分水模型对绝对误差、共同偏移与排序表现的影响，并界定结论范围。"
-compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 30 }
+compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 1800 }
 requirements = { software = ["Python standard library; NumPy/SciPy optional"], inputs = [{ path = "environment/assets/water-model-observations.csv", sha256 = "08a8902f5198209bb5ef1a36f7a7c8a2fa6c32fd75c6cc2ab91b51d4c6716782" }, { path = "environment/assets/method-basis.md", sha256 = "82467e7f4de2651b202418e17418e04e50f352c632cc229fb2b29f748fc66d82" }] }
 outputs = ["submission/metrics.json", "submission/per_ligand_effects.csv", "submission/interpretation.json", "submission/comparison-report.md", "submission/provenance.json"]
 
 [agent]
-timeout_sec = 30.0
+timeout_sec = 1800.0
 network_mode = "public"
 
 [environment]

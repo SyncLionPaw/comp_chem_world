@@ -38,6 +38,7 @@ def _grade_entry():
             return proc.returncode
         if status == 'REVIEW_REQUIRED' and proc.returncode == 2 and ('reward' not in result):
             report_file.write_text(json.dumps(result, ensure_ascii=False) + '\n')
+            reward_file.write_text('0\n')
             print(json.dumps(result, ensure_ascii=False))
             return 0
         elif status == 'ENVIRONMENT_ERROR' and proc.returncode == 2 and ('reward' not in result):
@@ -47,8 +48,9 @@ def _grade_entry():
     except Exception as exc:
         result = {'status': 'ENV_INVALID', 'error': type(exc).__name__ + ': ' + str(exc)}
     report_file.write_text(json.dumps(result, ensure_ascii=False) + '\n')
+    reward_file.write_text('0\n')
     print(json.dumps(result, ensure_ascii=False))
-    return 2
+    return 0
 if __name__ == '__main__' and sys.argv[1:] == ['--grade']:
     raise SystemExit(_grade_entry())
 'Structured local scientific verification in portable and CompChemBench layouts.'

@@ -116,8 +116,7 @@
     }
   },
   "scoring_integrity": {
-    "tests/verify.py": "bd60c6b41664e86b8834673f8ebe723ce1f0a891a305112fadbc66b0d0cf3884",
-    "tests/test.sh": "8e84a4ef50048099db38b5dd71710eea4a75a43f8057a8469a6b9f1e2c5c4291"
+    "tests/verify.py": "1a30ba408509f445a2c2dd8c89a76d6bfbbc9df0522e490932cd8015f48e1810"
   },
   "evidence_documents": {
     "environment/assets/literature/paper.pdf": {

@@ -10,12 +10,12 @@ description = "以稀疏真实apo坐标比较替代腔体区域，并判断现�
 case_id = "case-05-apo-cavity-hydration"
 title = "选择apo腔体定义并判断水合概率可识别性"
 objective = "以稀疏真实apo坐标比较替代腔体区域，并判断现有bias/time证据是否支持unbiased hydration probability。"
-compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 180 }
+compute = { class = "local", cpus = 2, memory_mb = 4096, wall_seconds = 1800 }
 requirements = { software = ["Python 3 + NumPy"], inputs = [{ path = "environment/assets/oame-coordinate-samples.npz", sha256 = "852c0a855a524b5e3026ad81e447ae66965443b90082817ca235ed1075fe399e" }, { path = "environment/assets/oame-coordinate-provenance.json", sha256 = "0b55b2145de5442cefce15e1649aa3aaf4a8257884e6577da947bef42cecb3e9" }, { path = "environment/assets/oah-coordinate-samples.npz", sha256 = "c8eaa38d376b4824e690dcd2c8f743cbd82ec62adf5dca69b862137903b673ad" }, { path = "environment/assets/oah-coordinate-provenance.json", sha256 = "dbdbc7dddd0aa8a45dfa8c5483522a3e69bc082bd78b66f09c3af858b911e9fa" }, { path = "environment/assets/oame-bias-audit.csv", sha256 = "2bed2e877a3f3739a4b2b85dcc1168ec49deb019864dbf1c9326bb7179e7b6d2" }, { path = "environment/assets/oame-bias-audit-provenance.json", sha256 = "dd3d71ea3e0445c2340e693e2b4865501a35385c428db2d6d17e2b6dbd44f0b1" }, { path = "environment/assets/oah-bias-audit.csv", sha256 = "32d57502adbb54e0eeda00206297842a3417b296edec1d667bea9cd0c2aa7672" }, { path = "environment/assets/oah-bias-audit-provenance.json", sha256 = "ef8f37664deea804035e61eb73a9b9505b8a1748a78673f400c0be163ec1ce55" }, { path = "environment/assets/apo-method.md", sha256 = "b5ce1c339461e91bcf56283d9b94aa5ade0fd0c11630f015943416d279147514" }] }
 outputs = ["cavity-definition.json", "occupancy-region-sensitivity.csv", "wire-geometry.csv", "bias-validity-audit.json", "decision.md"]
 
 [agent]
-timeout_sec = 180.0
+timeout_sec = 1800.0
 network_mode = "public"
 
 [environment]

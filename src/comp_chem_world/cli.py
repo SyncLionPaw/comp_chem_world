@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import shutil
+import stat
 import subprocess
 import sys
 from collections.abc import Sequence
@@ -186,6 +187,32 @@ def build_images(root: Path) -> None:
     subprocess.run(["bash", str(root / "images" / "build.sh")], cwd=root, check=True)
 
 
+def harden_reference_permissions(root: Path) -> None:
+    """Clear group/other write bits on git-tracked verifier refs.
+
+    Harbor prepare rejects group- or world-writable refs.json. Asset restore
+    already strips write bits, but refs.json lives in git and inherits the
+    host umask (often 0002 → 0664).
+    """
+    fixed = 0
+    for path in sorted((root / "tasks").glob("*/tests/refs.json")):
+        if not path.is_file() or path.is_symlink():
+            continue
+        mode = path.stat().st_mode
+        if not mode & 0o022:
+            continue
+        path.chmod(stat.S_IMODE(mode) & ~0o022)
+        fixed += 1
+    if fixed:
+        report(
+            "SETUP",
+            f"Cleared group/other write on {fixed} tasks/*/tests/refs.json file(s).",
+            "33",
+        )
+    else:
+        report("OK", "Verifier refs.json files are not group/world-writable.", "32")
+
+
 def initialize(
     root: Path,
     *,
@@ -200,6 +227,7 @@ def initialize(
         ensure_env_file(root)
     verify_all(root)
     prepare_all(root, prefixes)
+    harden_reference_permissions(root)
     if inputs_only:
         report("OK", "Task inputs restored; run 'uv run init' later for Docker and images.", "32")
         return

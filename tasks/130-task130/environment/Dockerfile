@@ -13,9 +13,11 @@ ENV PATH="/opt/chemgraph/bin:${PATH}" \
     NUMEXPR_NUM_THREADS=1 \
     BENCH19_CASE_ID="case-11-smi-file"
 COPY assets/requirements.lock.txt /opt/requirements.lock.txt
-COPY assets/vendor/ /opt/vendor/
-RUN pip install --no-cache-dir --upgrade pip >/dev/null \
- && pip install --no-cache-dir --find-links=/opt/vendor -r /opt/requirements.lock.txt tblite==0.7.0 \
- && pip check
+COPY assets/wheels/ /opt/wheels/
+COPY assets/vendor/ /opt/wheels/
+RUN python -m pip install --no-cache-dir --no-index --find-links=/opt/wheels \
+      -r /opt/requirements.lock.txt tblite==0.7.0 \
+ && python -m pip check \
+ && rm -rf /opt/wheels
 COPY assets/inputs.json /app/environment/assets/inputs.json
 WORKDIR /app
