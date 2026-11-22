@@ -24,11 +24,11 @@ network_mode = "no-network"
 [environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 120
+build_timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier.environment]
 cpus = 2
 memory_mb = 4096
-build_timeout_sec = 120
+build_timeout_sec = 1800
 network_mode = "no-network"
