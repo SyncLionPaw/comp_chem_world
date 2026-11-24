@@ -6,18 +6,20 @@ Guidance for coding agents working in this repo.
 
 End users should be able to evaluate **without** rebuilding the offline archive:
 
-1. Install [uv](https://docs.astral.sh/uv/): `curl -LsSf https://astral.sh/uv/install.sh | sh`
-2. Clone this repo; `cd` into it.
-3. Obtain the offline archive from **AI4EC** (not in git) and place it at **`shared/inputs.tar.zst`** (only path that matters; do not unpack by hand).
-4. Ensure Docker works (`docker info`), then: **`uv run init`** (full restore). To restore only tasks listed in a job config: **`uv run init -s configs/local-a-selected-20.yaml`**.
-5. Put `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` in `.env` (created from `.env.example` by `init` if missing). Any Anthropic-compatible endpoint works. Change the default model in `configs/agent.yaml`, or override per run with `-m` / `--base-url` / `--api-key-name` (see README).
-6. Run all local tasks: **`uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y`**; run HPC tasks with **`configs/hpc.yaml -c configs/agent.yaml`**.
+1. Confirm the **Linux host kernel is ≥ 6.8** (`uname -r`; Ubuntu 24.04 LTS default). Base images are `ubuntu:24.04` and Harbor/Docker expect **cgroup v2**. Kernels older than 6.8 are unsupported. On macOS/Windows only the Docker Desktop (or equivalent) **Linux VM kernel** counts.
+2. Install [uv](https://docs.astral.sh/uv/): `curl -LsSf https://astral.sh/uv/install.sh | sh`
+3. Clone this repo; `cd` into it.
+4. Obtain the offline archive from **AI4EC** (not in git) and place it at **`shared/inputs.tar.zst`** (only path that matters; do not unpack by hand).
+5. Ensure Docker works (`docker info`; Cgroup Version 2), then: **`uv run init`** (full restore). To restore only tasks listed in a job config: **`uv run init -s configs/local-a-selected-20.yaml`**.
+6. Put `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` in `.env` (created from `.env.example` by `init` if missing). Any Anthropic-compatible endpoint works. Change the default model in `configs/agent.yaml`, or override per run with `-m` / `--base-url` / `--api-key-name` (see README).
+7. Run all local tasks: **`uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y`**; run HPC tasks with **`configs/hpc.yaml -c configs/agent.yaml`**.
 
 That is the supported onboarding loop. Human-oriented copy lives in `README.md`; keep both in sync when the path changes.
 
 ## Project
 
 - **Name**: `comp-chem-world` — computational chemistry agent environments / evals
+- **Host**: Linux kernel **≥ 6.8** (cgroup v2); validated on Ubuntu 24.04 (`6.8.x`)
 - **Python**: 3.13 (see `.python-version`)
 - **Package manager / build**: `uv` + `uv_build`, src layout under `src/comp_chem_world/`
 - **Entry**: `uv run init` / `reset` / `pack` → `comp_chem_world.cli:command_main`; `uv run harbor` → Harbor CLI, pinned as a dev dependency (`harbor==0.26.0` in `[dependency-groups]`)

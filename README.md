@@ -8,7 +8,8 @@
 
 ### 前置
 
-- Docker 可用（`docker info`）
+- **Linux 主机内核 ≥ 6.8**（`uname -r`；与 Ubuntu 24.04 LTS 默认内核一致）。基础镜像为 `ubuntu:24.04`，Harbor/Docker 需 **cgroup v2**；低于 6.8 不在支持范围内。macOS / Windows 仅通过 Docker Desktop（或同类）提供的 **Linux VM 内核**满足上述要求，宿主机 Darwin/NT 版本本身不算数。
+- Docker 可用（`docker info`；Storage 常用 overlayfs，Cgroup Version 应为 2）
 - 离线资源包 `inputs.tar.zst`（约数 GB，不进 git；需向 **AI4EC** 申请获取）
 - 模型 API key（默认 DeepSeek，见 `.env.example`）
 
