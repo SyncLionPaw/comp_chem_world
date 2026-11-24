@@ -10,7 +10,7 @@ Compare the candidates using native final-relaxation evidence: energy, physical 
 
 ## Requirements
 
-For fresh calculations, use `ikkem-slurm` to probe authorized resources. Choose MPI ranks, memory, wall time, and concurrency within the task budget. Submit, wait for a terminal state, collect native outputs, and validate the scientific results.
+For fresh calculations, use `hpc` to probe authorized resources. Choose MPI ranks, memory, wall time, and concurrency within the task budget. Submit, wait for a terminal state, collect native outputs, and validate the scientific results.
 
 Preserve each starting structure and use the common method. A fresh calculation is a spin-polarized variable-cell relaxation with `IBRION=1`, `NPAR=2` and standard PAW_PBE Li 17Jan2003, Ti 08Apr2002 and O 08Apr2002, subject to the authorized host resources and sealed PAW policy. Do not combine candidates or start one from another’s relaxed structure. Report archived observed settings separately from the requested fresh method. Keep the selected PAW policy and host-sealed source/run observations in `method.paw_policy` and `method.paw_identity`; do not publish POTCAR contents. The alternate `hpc_standard_native_v1` source is host-qualified but is not asserted byte-identical or numerically equivalent to the archived source.
 
@@ -18,7 +18,7 @@ For every candidate, analyze the final ionic step, `TOTEN`, `energy(sigma->0)`, 
 
 Read `/app/hpc-attempt.json` before any run. Submit HPC work only when host execution is available and authorized; do not bypass disabled submission, transfer or shell access. Use supported existing records and report missing evidence rather than inventing it. Preserve native records and provenance. Write `/app/final/results.json` according to `/app/assets/output-schema.json`.
 
-Read the authorized aliases, job name `attempt_id`, and `workdir_template` from `/app/hpc-attempt.json`. Probe and choose a host and partition with `ikkem-slurm`, then use that job name and directory for submission. Write the chosen SSH alias alone to `/app/final/hpc-host.txt` for native evidence collection. Run the Slurm commands from a writable working directory and link `/app/submit-job.json` there as `submit-job.json`.
+Read the authorized aliases, job name `attempt_id`, and `workdir_template` from `/app/hpc-attempt.json`. Probe and choose a host and partition with `hpc`, then use that job name and directory for submission. Write the chosen SSH alias alone to `/app/final/hpc-host.txt` for native evidence collection. Run the Slurm commands from a writable working directory and link `/app/submit-job.json` there as `submit-job.json`.
 
 For a fresh run, stage `accepted-plan.json` in the job directory with `ntasks`, `memory_gib`, `walltime_seconds`, `concurrent_runs`, `ranks_per_run`, `vasp_path`, and `mpi_path`. Include `# CCB_ACCEPTED_PLAN_SHA256=<digest>` on its own line in the submitted batch script. Hash the plan as UTF-8 JSON with sorted keys, compact separators, and no final newline.
 

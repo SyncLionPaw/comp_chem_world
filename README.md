@@ -61,7 +61,9 @@ uv run pack -s configs/local-a-selected-20.yaml
 # 卸下 tasks/ 下已恢复的输入（保留镜像、.env、jobs、共享 store）
 uv run reset
 
-# HPC / 集群任务（需另行准备 compchembench-connectivity:hpc 镜像）
+# HPC / 集群任务（需先构建 connectivity 镜像）
+# cp images/connectivity/hpc.toml.example images/connectivity/hpc.toml  # 填 host/user/key
+# bash images/connectivity/build.sh   # → compchembench-connectivity:hpc
 uv run harbor run -c configs/hpc.yaml -c configs/agent.yaml --env-file .env -y
 ```
 
@@ -149,5 +151,5 @@ configs/               # Harbor job 配置（任务集 + agent.yaml）
 
 - 首次 `uv run …` 会按 `uv.lock` 自动创建 `.venv`，一般不必手动 `uv sync`。
 - 磁盘建议预留数十 GB（镜像 + 解包物料）。
-- 缺少 `compchembench-connectivity:hpc` 时，只有 HPC 配置里的任务会失败，local 不受影响。
+- 缺少 `compchembench-connectivity:hpc` 时，只有 HPC 配置里的任务会失败，local 不受影响。构建：填好 `images/connectivity/hpc.toml` 后执行 `bash images/connectivity/build.sh`。
 - 仓库约定与维护细节见 [`AGENTS.md`](AGENTS.md)。

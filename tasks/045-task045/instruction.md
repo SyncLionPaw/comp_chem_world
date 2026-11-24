@@ -12,7 +12,7 @@ Study diffusion at 353 K and 373 K; add 363 K only if pilot evidence supports it
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include NumPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC computing resources, consult `ikkem-slurm`.
+If using HPC computing resources, consult `hpc`.
 
 - Use supplied source models only; no new training or DFT. Stay within 100 ps and 200,000 steps and use a timestep ≤0.5 fs. Count setup, equilibration, branches, controls, failed and unknown attempts. Charge failed/unknown runs their full reservation and completed runs by verified executed steps.
 - Run at least two distinct 10-ps pilot seeds at both 353 K and 373 K; then at least 10 ps adaptive sampling and two fresh confirmation seeds of at least 10 ps each. Keep the full study within budget. Before the pilots, freeze the selector: if any pilot-only group violates the registered finite-window diagnostic, extend; if no pilot group triggers, use a fresh velocity seed. Preserve per-group measured values and stable/triggered flags. Stable, mixed, or physical-claim outcomes may require independent review after every execution and numerical gate passes; do not infer a preferred scientific result from the review route.

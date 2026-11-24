@@ -405,7 +405,7 @@ def validate_record(record_path: Path, tests: Path, app: Path, candidate: dict) 
         raise ValueError("remote source manifest differs from the bounded four-run plan")
     if record["trusted_job_id"] == "3968344":
         if source_manifest.get("allocation") != {
-            "host": "ikkem", "partition": "cpu", "nodes": 1,
+            "host": "hpc", "partition": "cpu", "nodes": 1,
             "cpus": 8, "memory_gib": 8, "walltime": "00:30:00",
         }:
             raise ValueError("remote source manifest differs from the authorized allocation")

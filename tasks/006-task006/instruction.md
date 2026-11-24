@@ -12,7 +12,7 @@ Investigate whether, and under what conditions, external evidence and computatio
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include NumPy, pandas, scikit-learn, SciPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `ikkem-slurm` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
 
 - Choose data, methods, controls and validation yourself. Public internet access is available; respect the environment’s resource limits.
 - Define the physical quantity, units, conditions and population. Examine validation independence, duplicate/correlated observations and label exposure as relevant; public labels are not prospectively blind.

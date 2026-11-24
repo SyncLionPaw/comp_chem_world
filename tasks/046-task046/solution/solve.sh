@@ -629,7 +629,7 @@ def submit_config(app: Path) -> tuple[Path, dict]:
             if isinstance(targets, dict) and any(isinstance(t, dict) and t.get("resource_class") == "gpu"
                                                   for t in targets.values()):
                 return path, doc
-    raise RuntimeError("no configured GPU target is available to ikkem-slurm; refusing to guess a route")
+    raise RuntimeError("no configured GPU target is available to hpc; refusing to guess a route")
 
 
 def _memory_mb(value: object) -> int:
@@ -666,9 +666,9 @@ def _duration_seconds(value: object) -> int:
 
 
 def select_route(app: Path, config_path: Path, config: dict) -> dict:
-    cli = shutil.which("ikkem-slurm")
+    cli = shutil.which("hpc")
     if not cli:
-        raise RuntimeError("ikkem-slurm CLI unavailable")
+        raise RuntimeError("hpc CLI unavailable")
     targets = config.get("targets", {})
     candidates = []
     probe_dir = app / "execution" / "route-probes"
@@ -808,7 +808,7 @@ def record_unresolved_submission(app: Path, out: Path, plan: dict, run: dict, jo
         "start_time": start_time, "end_time": end_time, "elapsed_seconds": elapsed})
     scheduler = {"schema": "case05-candidate-scheduler-record/v2", "origin": "candidate-submitted",
         "attempt_id": plan["attempt_id"], "run_id": run["run_id"], "job_id": handle,
-        "job_id_kind": "ikkem-slurm-local-handle; scheduler ID unavailable", "state": status,
+        "job_id_kind": "hpc-local-handle; scheduler ID unavailable", "state": status,
         "requested_steps": run["steps"], "executed_steps": None, "dt_fs": DT_FS, "gpu_count": 1,
         "exit_code": None, "resources": resources, "allocation_id": None, "array_job": False,
         "elapsed_seconds": elapsed, "start_time": start_time, "end_time": end_time,
@@ -898,9 +898,9 @@ def source_stage(app: Path, run_dir: Path, run: dict, paths: dict[str, Path],
 def execute_run(app: Path, plan: dict, paths: dict[str, Path], run: dict,
                 start_kind: str, parent_restart: Path | None, tau_ps: float,
                 selection: dict, config_path: Path) -> tuple[dict, dict]:
-    cli = shutil.which("ikkem-slurm")
+    cli = shutil.which("hpc")
     if not cli:
-        raise RuntimeError("ikkem-slurm CLI unavailable")
+        raise RuntimeError("hpc CLI unavailable")
     run_id = run["run_id"]
     out = app / "execution" / run_id
     out.mkdir(parents=True, exist_ok=False)
@@ -933,7 +933,7 @@ def execute_run(app: Path, plan: dict, paths: dict[str, Path], run: dict,
     (out / "dry-run.stdout").write_text(dry_proc.stdout)
     (out / "dry-run.stderr").write_text(dry_proc.stderr)
     if dry_proc.returncode != 0 or dry is None or dry.get("plan_sha256") is None:
-        raise RuntimeError("ikkem-slurm dry-run rejected the requested route/resources/workdir")
+        raise RuntimeError("hpc dry-run rejected the requested route/resources/workdir")
     json_write(out / "ikkem-plan.json", dry)
     t_submit = iso_now()
     submitted, sub_proc = cli_json(submit, out)
@@ -953,7 +953,7 @@ def execute_run(app: Path, plan: dict, paths: dict[str, Path], run: dict,
                  "gpus": 1, "walltime_minutes": res["walltime_minutes"]}, remote_workdir,
                 t_submit, ended, state, sub_proc.returncode, sub_proc.stdout, sub_proc.stderr,
                 tau_ps, parent_restart)
-            raise RecordedSubmissionError("ikkem-slurm submission failed or is unresolved; no retry was attempted",
+            raise RecordedSubmissionError("hpc submission failed or is unresolved; no retry was attempted",
                                           recorded, job_record)
     json_write(out / "submit-result.json", submitted)
     job_id = str(submitted["job_id"])

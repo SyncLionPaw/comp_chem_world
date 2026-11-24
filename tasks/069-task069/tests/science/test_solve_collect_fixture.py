@@ -56,7 +56,7 @@ class SolveCollectContractTests(unittest.TestCase):
             shutil.copytree(PACKAGE/"environment/assets",assets,dirs_exist_ok=True)
             solution.mkdir(); shutil.copy2(PACKAGE/"solution/case08_remote.sh",solution)
             shutil.copy2(PACKAGE/"solution/case08_tools.py",solution)
-            bin_dir.mkdir(); cli=bin_dir/"ikkem-slurm"; cli.write_text(MOCK); cli.chmod(0o755)
+            bin_dir.mkdir(); cli=bin_dir/"hpc"; cli.write_text(MOCK); cli.chmod(0o755)
             events=root/"events.json"
             env=os.environ.copy(); env.update({
                 "APP":str(app),"SOLUTION":str(solution),"PATH":str(bin_dir)+os.pathsep+env["PATH"],

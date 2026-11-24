@@ -30,6 +30,11 @@ That is the supported onboarding loop. Human-oriented copy lives in `README.md`;
 # verify resources and build base images (requires Docker and uv)
 uv run init
 
+# HPC connectivity image (after base exists; needs images/connectivity/hpc.toml)
+# cp images/connectivity/hpc.toml.example images/connectivity/hpc.toml
+bash images/connectivity/build.sh
+# bash images/connectivity/build.sh --platform linux/amd64   # → :hpc-amd64
+
 # only verify/restore shared wheels + assets (no Docker / image build)
 uv run init --inputs-only
 
@@ -75,6 +80,7 @@ scripts/               # repository maintenance helpers
 images/                # shared Docker base images
   base/                #   → comp-chem-world-base (Python, uv, pytest, Claude Code)
   chem/                #   → comp-chem-world-base-chem (ase, rdkit)
+  connectivity/        #   → compchembench-connectivity:hpc (SSH + hpc)
   build.sh
 configs/               # Harbor job configs (task sets in local/hpc/local-a/local-b; agent/model in agent.yaml; compose task set + agent.yaml)
 jobs/                  # Harbor run outputs (gitignored)
@@ -96,7 +102,8 @@ AGENTS.md              # this file
 - Maintain the paper/task index in `docs/benchmarks/README.md` and the 28 preserved bench Markdown files in `docs/benchmarks/` when imported bench tasks change. Bench 17 has no paper common to every task: its MACE-OFF23 citation applies only to Task 110.
 - Build base images from `images/`: `bash images/build.sh` or `bash images/build.sh -f` (pass host `http_proxy`/`https_proxy` so downloads work). `images/base/uv` is downloaded by `build.sh` (host-arch-matched, recorded in `images/base/uv.arch`) when missing and is gitignored.
 - Image chain: `ubuntu:24.04` → `comp-chem-world-base` (Python, uv, pytest, Claude Code) → `comp-chem-world-base-chem` (+ ase, rdkit in `/app/.venv`). Task Dockerfiles `FROM` one of these; there is no separate Claude image.
-- Local tasks use `comp-chem-world-base`; HPC/cluster tasks may retain `compchembench-connectivity:hpc` because they require a separately built connectivity image with SSH/Slurm tooling. Do not replace that image with a credential-free base without checking the task's execution model.
+- HPC connectivity image (separate, credential-bearing): after `comp-chem-world-base` exists, `cp images/connectivity/hpc.toml.example images/connectivity/hpc.toml`, fill host/user/key, then `bash images/connectivity/build.sh` → tag `compchembench-connectivity:hpc` (use `--platform linux/amd64` for `:hpc-amd64`). Bakes `/root/.ssh/` + `/opt/skills/hpc/` + `/usr/local/bin/hpc`. Never commit `hpc.toml` or `images/connectivity/ssh/`.
+- Local tasks use `comp-chem-world-base`; HPC/cluster tasks `FROM` or `COPY --from` `compchembench-connectivity:hpc`. Do not replace that image with a credential-free base without checking the task's execution model.
 - Claude Code version is pinned in two places that must stay equal: `CLAUDE_CODE_VERSION` in `images/build.sh` and `kwargs.version` in both full-run configs. When they match, Harbor reuses the preinstalled binary.
 
 
@@ -136,7 +143,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/):
 - **summary**: imperative mood, lowercase, no trailing period, ≤ 72 chars. Write in English.
 - One logical change per commit. Don't mix image changes, task additions and refactors in one commit.
 - Use a body when the reason isn't obvious from the diff (e.g. a version bump or a verifier change).
-- Never commit `.env`, `jobs/`, `.venv`, `images/base/uv`, `images/base/uv.arch`, or any API key. Check `git status` before committing.
+- Never commit `.env`, `jobs/`, `.venv`, `images/base/uv`, `images/base/uv.arch`, `images/connectivity/hpc.toml`, `images/connectivity/ssh/`, or any API key. Check `git status` before committing.
 - Bumping the Claude Code version updates `images/build.sh` and both full-run configs in the same commit.
 
 Examples:

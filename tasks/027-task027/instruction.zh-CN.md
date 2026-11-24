@@ -12,7 +12,7 @@
 
 - 环境：使用容器 `PATH` 上的 Python；所需科学计算包已预装。不要自行安装额外软件包，也不要通过网络获取依赖。
 
-使用 HPC 时，按 `ikkem-slurm` 的统一流程执行：探测已授权的目标，提交作业，等待终态，回收原生输出，再核验科学结果。
+使用 HPC 时，按 `hpc` 的统一流程执行：探测已授权的目标，提交作业，等待终态，回收原生输出，再核验科学结果。
 
 先用所选引擎做短时试算，估计计算成本。每个通道至少计算三个不同几何的受限扫描点或路径点，并保留各自的原生能量或梯度结果。根据实际观察（例如拓扑、能量、收敛性和耗时）选择至少一个通道，执行新的开壳层 DFT 鞍点优化和完整振动分析。对该鞍点，沿其真实虚频的正负方向位移，或从该鞍点启动 IRC，证明两端分别弛豫至目标 BPR 与所选产物。两端均须在相同最终 DFT 水平优化并分析。单独优化提供的端点几何不能证明鞍点与两端相连。
 
@@ -30,7 +30,7 @@
 
 在 `final/` 下提供六项执行交付物：`ts_search_report.json`、`barriers.csv`、`native_outputs/`、`failures.md`、`resource_usage.csv` 和 `execution-receipt.json`；另提供用于参考与不确定度评估的 `references_uncertainty.md`。任何 F12 转移估计均须说明假设和局限。报告须覆盖两个通道、每个通道至少三个筛查记录，并说明精修或停止的理由；状态须区分 `validated`、`screened_unresolved` 与 `failed`。位垒表每个通道一行，未验证通道的新能量和位垒栏留空。`native_outputs/` 保存原生计算文件、几何及连接证据；同时保存失败记录和逐作业资源记录。公开机器可读合同在容器内挂载为 `/app/output-contract.json`，SSH/Slurm 接口说明位于 `/app/environment/README.md`；其中列有报告字段、原生文件绑定和收据结构。如实说明缺失的执行或资源证据，不得将 SSH 凭据写入提交文件。
 
-从 `/app` 使用现有 `ikkem-slurm` 客户端操作 Slurm，并将所有 `.submit-job/*.json` 状态文件原样保存在 `final/native_outputs/slurm/`，包括失败和取消的作业。保留原始计算文件，并将科研阶段与对应作业 ID 关联。
+从 `/app` 使用现有 `hpc` 客户端操作 Slurm，并将所有 `.submit-job/*.json` 状态文件原样保存在 `final/native_outputs/slurm/`，包括失败和取消的作业。保留原始计算文件，并将科研阶段与对应作业 ID 关联。
 
 ## 文件
 

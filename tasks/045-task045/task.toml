@@ -37,7 +37,7 @@ compute = { class = "remote", cpus = 2, memory_mb = 4096, network = "public", pr
 status = { readiness = "PENDING", reference_validation = "NOT_RUN" }
 runtime = { migration_status = "current-generic-runner-staging" }
 agent_interface = { reference_solution_provided = true }
-hpc = { client = "ikkem-slurm" }
+hpc = { client = "hpc" }
 
 [task]
 name = "compchemworld/reline-04-diffusion"

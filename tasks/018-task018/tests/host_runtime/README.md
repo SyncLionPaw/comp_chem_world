@@ -53,7 +53,7 @@ uv run --project "$RUNTIME" harbor run -p 'task 14' -a claude-code --ak version=
 
 ## C05 的 HPC 接入
 
-C05 使用本 bench 的 Harbor 环境扩展、生命周期插件和 `task 18/tests/host_runtime/bench03_hpc/` 采集器。候选容器继承测评者构建的 `compchembench-connectivity:hpc`，从镜像使用 SSH 和 `ikkem-slurm`；Task Compose 将测评者共享的公共提交配置只读挂载到 `/app/submit-job.json`，默认来自 `~/.config/submit-job/config.json`，也可用 `CCB_SLURM_CONFIG=/absolute/path/to/config.json` 指定。无需额外的 Task 专用 HPC TOML 或主机 SSH 文件挂载。完整科研作答入口为：
+C05 使用本 bench 的 Harbor 环境扩展、生命周期插件和 `task 18/tests/host_runtime/bench03_hpc/` 采集器。候选容器继承测评者构建的 `compchembench-connectivity:hpc`，从镜像使用 SSH 和 `hpc`；Task Compose 将测评者共享的公共提交配置只读挂载到 `/app/submit-job.json`，默认来自 `~/.config/submit-job/config.json`，也可用 `CCB_SLURM_CONFIG=/absolute/path/to/config.json` 指定。无需额外的 Task 专用 HPC TOML 或主机 SSH 文件挂载。完整科研作答入口为：
 
 ```sh
 PYTHONPATH="$RUNTIME" uv run --project "$RUNTIME" harbor run -p 'task 18' \

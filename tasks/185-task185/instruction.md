@@ -10,7 +10,7 @@ Use Ai2-Kit to coordinate a reproducible workflow that builds and evaluates a wa
 
 ## Requirements
 
-If using HPC, follow the `ikkem-slurm` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result. Manage and close out your own jobs and temporary files.
+If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result. Manage and close out your own jobs and temporary files.
 
 Use a scientifically appropriate independent evaluation set and report the tested phases, temperatures, configurations and observables. Use metrics and units suited to the data; explain the split and any sampling or convergence limitations. Preserve enough configuration and execution records to reproduce how Ai2-Kit coordinated the fit. Existing traceable labels may be used; new first-principles labels are not required.
 

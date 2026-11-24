@@ -23,7 +23,7 @@ inputs = [
 compute = { class = "remote", cpus = 2, memory_mb = 4096, network = "public", profile = "reline-05-collective", resource_plan = "environment/assets/compute-budget.yaml" }
 status = { readiness = "PENDING", reference_validation = "NOT_RUN" }
 agent_interface = { reference_solution_provided = true }
-hpc = { client = "ikkem-slurm" }
+hpc = { client = "hpc" }
 
 [task]
 name = "compchemworld/reline-05-collective"

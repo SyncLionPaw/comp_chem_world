@@ -66,7 +66,7 @@ def load_site() -> dict:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
-        raise Stop("configure [ikkem.slurm] and [ikkem.engines.vasp].potcar_root in config/ikkem.toml, then rebuild the connectivity image") from exc
+        raise Stop("configure [hpc] and [vasp].potcar_root in images/connectivity/hpc.toml, then rebuild the connectivity image") from exc
 
 
 def utc_text(value: str) -> str:

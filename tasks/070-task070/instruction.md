@@ -12,7 +12,7 @@ Using both monomer systems, investigate the relationship of V72I to flexibility,
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include NumPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC computing resources, consult `ikkem-slurm`.
+If using HPC computing resources, consult `hpc`.
 
 Choose the number of replicas, production length, equilibration criteria, and analysis segments, and explain the choices and limitations. Use at least two independent replicas with different velocity random seeds per variant; each replica must have at least 2 frames, and each variant must have at least 21 frames in total. This minimum data volume only ensures that the stated analyses are computable; it does not imply adequate sampling or reliable biological conclusions.
 

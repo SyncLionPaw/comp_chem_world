@@ -10,7 +10,7 @@ Independently optimize neutral benzophenone (C13H10O, 24 atoms; `O=C(c1ccccc1)c1
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include h5py, NumPy, PySCF, SciPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `ikkem-slurm` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
 
 Use the task’s configured remote execution profile within its run budget. Do not start from a task-answer geometry.
 

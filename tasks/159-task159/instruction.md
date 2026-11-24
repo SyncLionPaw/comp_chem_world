@@ -16,7 +16,7 @@ The 12-hour active-computation allowance includes preparation of the independent
 
 Use the exact packaged Hamiltonian, source-bound inputs, executable, software, and invocation interface. The public computation configuration is available at `/app/inputs/candidate-runtime/candidate-scope.json` and `/app/inputs/candidate-runtime/native_inputs/input-template*.json`. They define the role-specific sampling, including 20,000 switching steps per direction for B/R/S and 40,000 for D. Keep the declared temperature, pressure, cell, potential, and sampling conditions source-bound; do not substitute a different protocol.
 
-If using HPC computing resources, consult `ikkem-slurm`.
+If using HPC computing resources, consult `hpc`.
 
 This computation is limited to 12 direction attempts, including failures and retries, and no more than 484,000 actual or conservatively reserved MD steps. Shared equilibration is limited to 20,000 steps per phase and is counted once per shared setup. Active computation is limited to 12 hours per independent evaluation. Count sourced active intervals; exclude queue time only when independent scheduler records show it does not overlap active work. These are ceilings, not a promise of convergence. If required compute is unavailable, report `NOT_RUN`; never fabricate run evidence.
 

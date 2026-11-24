@@ -1,4 +1,4 @@
-"""Read ikkem-slurm native states and exact sacct bytes; never execute a job.
+"""Read hpc native states and exact sacct bytes; never execute a job.
 
 Candidate files are evidence to review, not scheduler authentication. Missing
 measurements/attempt authority never become PASS through this parser.
@@ -140,6 +140,6 @@ def audit_execution(final,report,record):
      if not math.isfinite(v) or v<0:raise RecordError('memory/scratch measurement is invalid')
    if f['maxrss_gib'] is None and row.get('peak_memory_gib'):raise RecordError('unknown MaxRSS cannot be replaced by requested memory')
    if f['maxrss_gib'] is not None and (not row.get('peak_memory_gib') or abs(float(row['peak_memory_gib'])-f['maxrss_gib'])>0.01):raise RecordError('MaxRSS projection mismatch')
-  result.update(attempt_id=record['attempt_id'],transport='ikkem-slurm',job_count=len(states),elapsed_attempt_seconds=(end-start).total_seconds())
+  result.update(attempt_id=record['attempt_id'],transport='hpc',job_count=len(states),elapsed_attempt_seconds=(end-start).total_seconds())
   return result
- except (RecordError,OSError,ValueError,TypeError,KeyError) as e:return {'status':'FAIL','reason':str(e),'transport':'ikkem-slurm','job_count':0}
+ except (RecordError,OSError,ValueError,TypeError,KeyError) as e:return {'status':'FAIL','reason':str(e),'transport':'hpc','job_count':0}

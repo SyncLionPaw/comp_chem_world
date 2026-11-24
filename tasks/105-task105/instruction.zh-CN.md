@@ -10,7 +10,7 @@
 
 ## 要求
 
-如需新计算，使用 `ikkem-slurm` 探测已授权的资源，在本题预算内自行安排 MPI 核数、内存、时限和并行方式。提交后等待终态，回收原生输出并核验科学结果。
+如需新计算，使用 `hpc` 探测已授权的资源，在本题预算内自行安排 MPI 核数、内存、时限和并行方式。提交后等待终态，回收原生输出并核验科学结果。
 
 保留每个起始结构并使用共用方法。新计算须为自旋极化变胞弛豫，使用 `IBRION=1`、`NPAR=2` 和标准 PAW_PBE Li 17Jan2003、Ti 08Apr2002、O 08Apr2002，并遵守主机授权资源及密封 PAW 策略。不得合并候选，也不得从另一候选的弛豫结构开始。将归档中观察到的设置与新计算要求分开报告。在 `method.paw_policy` 和 `method.paw_identity` 中保留所选策略及主机密封的来源/运行观察；不得公开 POTCAR 内容。备用 `hpc_standard_native_v1` 来源经主机资质确认，但不声称与归档字节相同或数值等价。
 
@@ -18,7 +18,7 @@
 
 任何运行前先读取 `/app/hpc-attempt.json`。仅在主机执行可用且已授权时提交 HPC 计算；不得绕过禁用的提交、传输或 shell。利用现有受支持记录，对缺失证据如实说明，不得编造。保留原生记录及 provenance。按 `/app/assets/output-schema.json` 写 `/app/final/results.json`。
 
-从 `/app/hpc-attempt.json` 读取授权入口、作业名 `attempt_id` 和工作目录模板 `workdir_template`。通过 `ikkem-slurm` 探测并选择站点和分区，提交时使用该作业名和目录。将所选 SSH 别名单独写入 `/app/final/hpc-host.txt`，供回收原生作业证据。 在可写工作目录执行 Slurm 命令，并将 `/app/submit-job.json` 链接为该目录下的 `submit-job.json`。
+从 `/app/hpc-attempt.json` 读取授权入口、作业名 `attempt_id` 和工作目录模板 `workdir_template`。通过 `hpc` 探测并选择站点和分区，提交时使用该作业名和目录。将所选 SSH 别名单独写入 `/app/final/hpc-host.txt`，供回收原生作业证据。 在可写工作目录执行 Slurm 命令，并将 `/app/submit-job.json` 链接为该目录下的 `submit-job.json`。
 
 新计算须在作业目录提供 `accepted-plan.json`，记录 `ntasks`、`memory_gib`、`walltime_seconds`、`concurrent_runs`, `ranks_per_run`、`vasp_path` 和 `mpi_path`。在提交的批处理脚本中单独保留一行 `# CCB_ACCEPTED_PLAN_SHA256=<摘要>`。计算摘要时使用 UTF-8 JSON，键名排序，分隔符无空格，末尾无换行。
 

@@ -29,34 +29,34 @@ manifest = {
     "inputs": {name: sha(root / "inputs" / name) for name in sorted(p.name for p in (root / "inputs").iterdir() if p.is_file())},
     "run_plan": {"labels": ["B-dt1fs", "B-dt2fs", "U-dt1fs", "U-dt2fs"],
                  "max_ps_each": 50, "max_total_ps": 200, "dt_fs": [1, 2]},
-    "allocation": {"host": "ikkem", "partition": "cpu", "nodes": 1,
+    "allocation": {"host": "hpc", "partition": "cpu", "nodes": 1,
                    "cpus": 8, "memory_gib": 8, "walltime": "00:30:00"},
 }
 (root / "source-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
 PY
 
 cd "$APP"
-ikkem-slurm probe --host ikkem --partition cpu --json > "$WORK/probe.json"
+hpc probe --host hpc --partition cpu --json > "$WORK/probe.json"
 SNAPSHOT_SHA="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["snapshot_sha256"])' "$WORK/probe.json")"
-ikkem-slurm submit --profile cpu --name "$NAME" --src "$WORK" \
+hpc submit --profile cpu --name "$NAME" --src "$WORK" \
   --cmd 'bash case08_remote.sh' --nodes 1 --ntasks 1 --cpus 8 --mem 8G \
   --time 00:30:00 --reason 'Bounded four-run NVT timestep comparison for case-08; at most 200 ps total, one CPU node, 8 CPUs, 8 GiB, 30 minutes.' \
   --probe-snapshot "$WORK/probe.json" --snapshot-sha256 "$SNAPSHOT_SHA" > "$WORK/submission.json"
 
 JOB_ID="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print(d.get("job_id", ""))' "$WORK/submission.json")"
 if [[ -z "$JOB_ID" ]]; then
-  echo "ikkem-slurm did not return a job handle" >&2
+  echo "hpc did not return a job handle" >&2
   exit 70
 fi
 
 set +e
-ikkem-slurm wait --job "$NAME" --poll 10 --timeout 1860 > "$WORK/scheduler.json"
+hpc wait --job "$NAME" --poll 10 --timeout 1860 > "$WORK/scheduler.json"
 WAIT_RC=$?
 set -e
 if (( WAIT_RC == 0 )); then
-  ikkem-slurm collect --job "$NAME" --dest "$WORK/collected"
+  hpc collect --job "$NAME" --dest "$WORK/collected"
 else
-  ikkem-slurm collect --job "$NAME" --dest "$WORK/collected" --allow-unsuccessful
+  hpc collect --job "$NAME" --dest "$WORK/collected" --allow-unsuccessful
 fi
 
 if [[ -d "$WORK/collected/submission" ]]; then

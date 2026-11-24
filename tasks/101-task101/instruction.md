@@ -10,7 +10,7 @@ Calculate all 18 signed Γ modes at each pressure, track the Raman branches, fit
 
 ## Requirements
 
-If using HPC, follow the `ikkem-slurm` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
 
 Use pressure-matched structures and input mapping in `/app/assets`; do not relax structures. Run at least one 0-GPa single-variable cutoff or `kz` control. Every finite-displacement electronic step must reach its declared EDIFF without reaching NELM. Follow `/app/verification.md` for branch tracking, pressure residuals, fields, tolerances and evidence.
 

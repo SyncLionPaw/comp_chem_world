@@ -518,15 +518,15 @@ def freeze_plan(app: Path, route=None):
 
 
 def site_route(app: Path):
-    configured = os.environ.get("CCB_IKKEM_SUBMIT_CONFIG")
+    configured = os.environ.get("CCB_HPC_SUBMIT_CONFIG")
     cfg_paths = [Path(configured).expanduser()] if configured else [app / "submit-job.json", Path.home() / ".config/submit-job/config.json"]
     cfg_path = next((p for p in cfg_paths if p.is_file()), None)
     if cfg_path is None:
         raise RuntimeError("missing site-owned submit-job.json; no resource route is configured")
     config = json.loads(cfg_path.read_text(encoding="utf-8"))
-    cli = Path(os.environ.get("IKKEM_SLURM_SUBMIT_CLI", "/opt/skills/ikkem-slurm/scripts/submit.py"))
+    cli = Path(os.environ.get("HPC_SUBMIT_CLI", "/usr/local/bin/hpc"))
     if not cli.is_file():
-        raise RuntimeError(f"maintainer ikkem-slurm CLI is missing: {cli}")
+        raise RuntimeError(f"maintainer hpc CLI is missing: {cli}")
     routes = []
     for name, target in config.get("targets", {}).items():
         if not isinstance(target, dict) or target.get("backend") != "slurm" or target.get("resource_class") != "gpu":
@@ -688,7 +688,7 @@ def cli_call(cli, args, cwd, accept_error=False):
     proc = subprocess.run([sys.executable, str(cli), *args], cwd=cwd,
                           capture_output=True, text=True)
     if proc.returncode and not accept_error:
-        raise RuntimeError(f"ikkem-slurm {args[0]} failed: {proc.stderr.strip() or proc.stdout.strip()}")
+        raise RuntimeError(f"hpc {args[0]} failed: {proc.stderr.strip() or proc.stdout.strip()}")
     try:
         payload = json.loads(proc.stdout)
     except json.JSONDecodeError:
@@ -717,7 +717,7 @@ def submit_one(app, cli, target_name, target, partition, tz_name, plan, run_id,
     _, dry = cli_call(cli, common + ["--dry-run"], app)
     batch = dry.get("plan", {}).get("script")
     if not isinstance(batch, str) or not re.search(r"^\s*#SBATCH\s+--gres(?:=|\s+)gpu:1\s*$", batch, re.M):
-        raise RuntimeError("the real ikkem-slurm dry-run did not render the required one-GPU request")
+        raise RuntimeError("the real hpc dry-run did not render the required one-GPU request")
     batch_path = run_dir / "submit.sh"
     batch_path.write_text(batch, encoding="utf-8")
     files = [source / "strc.lmp", *sorted(source.glob("model.*.pb")), source / "run.lammps",

@@ -10,7 +10,7 @@ Independently optimize neutral benzophenone (C13H10O, 24 atoms), compute its Car
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include h5py, NumPy, PySCF, SciPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `ikkem-slurm` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
 
 Use the task’s configured remote execution profile within its run budget. Keep the geometry, Hessian, mode, reference and displaced roots, and operator on one consistent electronic/mode route. For atom A and Cartesian component k, evaluate `O_Ak=-Z_A*(int1e_iprinv+transpose)`, contract with the singlet density `2*(X+Y)`, and project with `mode_Ak/sqrt(m_A)`; do not apply nuclear charge twice. Report the signed projection in Hartree/(bohr·sqrt(amu)). Validate against inverse-distance-origin finite differences at three successively halved Bohr steps. The finest-step componentwise and projected errors must satisfy the existing Richardson O(h²) envelope plus `64*eps*nao²` floating-point floor.
 

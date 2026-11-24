@@ -1,0 +1,125 @@
+{
+  "profiles": {
+    "cpu": "hpc-cpu"
+  },
+  "targets": {
+    "hpc-cpu": {
+      "backend": "slurm",
+      "host": "hpc",
+      "resource_class": "cpu",
+      "partition": "cpu",
+      "partition_limits": {
+        "cpu": {
+          "enabled": true,
+          "max_nodes": 8,
+          "max_ntasks": 512,
+          "max_ntasks_per_node": 64,
+          "max_cpus_per_task": 64,
+          "max_total_cpus": 512,
+          "max_memory_per_node": "250G",
+          "max_total_memory": "2000G",
+          "max_walltime": "2-00:00:00",
+          "max_gpus_per_node": 0,
+          "max_total_gpus": 0
+        }
+      },
+      "transfer_timeout": 3600,
+      "base_dir": "~/submit-jobs"
+    },
+    "hpc-gpu": {
+      "backend": "slurm",
+      "host": "hpc",
+      "resource_class": "gpu",
+      "allow_typed_gres": false,
+      "partition": "gpu",
+      "allowed_partitions": [
+        "gpu"
+      ],
+      "partition_limits": {
+        "gpu": {
+          "enabled": true,
+          "max_nodes": 5,
+          "max_ntasks": 320,
+          "max_ntasks_per_node": 64,
+          "max_cpus_per_task": 64,
+          "max_total_cpus": 320,
+          "max_memory_per_node": "1400G",
+          "max_total_memory": "7000G",
+          "max_walltime": "2-00:00:00",
+          "max_gpus_per_node": 8,
+          "max_total_gpus": 40
+        }
+      },
+      "transfer_timeout": 1800,
+      "base_dir": "~/submit-jobs"
+    },
+    "bigu-gpu": {
+      "backend": "slurm",
+      "host": "bigroup",
+      "resource_class": "gpu",
+      "partition": "allgpus",
+      "allowed_partitions": [
+        "allgpus",
+        "gpu4090",
+        "gpup100",
+        "gpuv100"
+      ],
+      "partition_limits": {
+        "allgpus": {
+          "enabled": true,
+          "max_nodes": 3,
+          "max_ntasks": 192,
+          "max_ntasks_per_node": 64,
+          "max_cpus_per_task": 64,
+          "max_total_cpus": 192,
+          "max_memory_per_node": "90G",
+          "max_total_memory": "270G",
+          "max_walltime": "3-00:00:00",
+          "max_gpus_per_node": 4,
+          "max_total_gpus": 12
+        },
+        "gpu4090": {
+          "enabled": true,
+          "max_nodes": 1,
+          "max_ntasks": 64,
+          "max_ntasks_per_node": 64,
+          "max_cpus_per_task": 64,
+          "max_total_cpus": 64,
+          "max_memory_per_node": "248G",
+          "max_total_memory": "248G",
+          "max_walltime": "7-00:00:00",
+          "max_gpus_per_node": 4,
+          "max_total_gpus": 4
+        },
+        "gpup100": {
+          "enabled": true,
+          "max_nodes": 1,
+          "max_ntasks": 80,
+          "max_ntasks_per_node": 80,
+          "max_cpus_per_task": 80,
+          "max_total_cpus": 80,
+          "max_memory_per_node": "90G",
+          "max_total_memory": "90G",
+          "max_walltime": "7-00:00:00",
+          "max_gpus_per_node": 8,
+          "max_total_gpus": 8
+        },
+        "gpuv100": {
+          "enabled": true,
+          "max_nodes": 1,
+          "max_ntasks": 80,
+          "max_ntasks_per_node": 80,
+          "max_cpus_per_task": 80,
+          "max_total_cpus": 80,
+          "max_memory_per_node": "16G",
+          "max_total_memory": "16G",
+          "max_walltime": "7-00:00:00",
+          "max_gpus_per_node": 8,
+          "max_total_gpus": 8
+        }
+      },
+      "transfer_timeout": 3600,
+      "base_dir": "~/submit-jobs"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 FROM compchembench-connectivity:hpc
 
 # This HPC image bakes the cluster SSH material, so the Agent submits its own
-# GROMACS job through ssh/ikkem-slurm; no runtime injection from the runner.
+# GROMACS job through ssh/hpc; no runtime injection from the runner.
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends gromacs tmux asciinema \
     && rm -rf /var/lib/apt/lists/*

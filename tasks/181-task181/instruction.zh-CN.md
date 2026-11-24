@@ -14,7 +14,7 @@
 
 - 环境：使用容器 `PATH` 上的 Python；所需科学计算包已预装。不要自行安装额外软件包，也不要通过网络获取依赖。
 
-使用 HPC 时，按 `ikkem-slurm` 的统一流程执行：探测已授权的目标，提交作业，等待终态，回收原生输出，再核验科学结果。
+使用 HPC 时，按 `hpc` 的统一流程执行：探测已授权的目标，提交作业，等待终态，回收原生输出，再核验科学结果。
 
 使用给定 LAMMPS 模板，步长为 0.5 fs，并每 100 步输出 thermo、dump 和 deviation。每次运行覆盖 0–20,000 步，产生 201 份时间对齐样本；体系为 12.4 Å 周期立方体、含 192 个原子。保持原子 ID 与类型对应关系稳定，位置、力、thermo 与 deviation 数值均有限。deviation 文件表头含 max_devi_f，每个样本有七列：步数及六个非负值。dump 坐标为 wrapped 且没有 image flags；不得据此推断 unwrapped transport。保留原生 LAMMPS 日志。
 

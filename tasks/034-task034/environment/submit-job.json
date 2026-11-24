@@ -1,11 +1,11 @@
 {
   "profiles": {
-    "cpu": "ikkem-cpu"
+    "cpu": "hpc-cpu"
   },
   "targets": {
-    "ikkem-cpu": {
+    "hpc-cpu": {
       "backend": "slurm",
-      "host": "ikkem",
+      "host": "hpc",
       "resource_class": "cpu",
       "partition": "cpu",
       "partition_limits": {
@@ -26,9 +26,9 @@
       "transfer_timeout": 3600,
       "base_dir": "~/submit-jobs"
     },
-    "ikkem-gpu": {
+    "hpc-gpu": {
       "backend": "slurm",
-      "host": "ikkem",
+      "host": "hpc",
       "resource_class": "gpu",
       "allow_typed_gres": false,
       "partition": "gpu",

@@ -8,4 +8,4 @@ WORKDIR /app
 ENV APP=/app
 COPY assets/_runtime/output-contract.json /app/output-contract.json
 COPY assets/_runtime/README.md /app/research-service.md
-RUN mkdir -p /app/final && ikkem-slurm --help >/dev/null
+RUN mkdir -p /app/final && hpc --help >/dev/null

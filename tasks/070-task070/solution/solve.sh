@@ -8,7 +8,7 @@ if [[ "${1:-}" == "--help" || "${1:-}" == "-h" ]]; then
   exit 0
 fi
 # Oracle-only binding for the independently prepared task-71 OpenMM runtime.
-export TASK71_SUBMIT_PY=/opt/skills/ikkem-slurm/scripts/submit.py
+export TASK71_HPC_CLI=/usr/local/bin/hpc
 export TASK71_HPC_STATE_DIR=/app
 export TASK71_ASSETS_DIR=/app/assets
 route="$(python3 - <<'ROUTE'
@@ -20,7 +20,7 @@ target = os.environ.get('TASK71_TARGET') or config.get('profiles', {}).get('gpu'
 spec = config['targets'].get(target, {})
 partition = os.environ.get('TASK71_PARTITION') or spec.get('partition')
 if spec.get('resource_class') != 'gpu' or not target or not partition:
-    raise SystemExit('Select an authorized GPU route in the ikkem-slurm configuration.')
+    raise SystemExit('Select an authorized GPU route in the hpc configuration.')
 print(target, partition)
 ROUTE
 )"

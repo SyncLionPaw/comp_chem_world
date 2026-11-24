@@ -23,13 +23,13 @@ RUN groupadd --gid 10001 researcher \
     && chmod 0700 /root /root/.ssh \
     && find /root/.ssh -type d -exec chmod 0700 {} + \
     && find /root/.ssh -type f -exec chmod 0600 {} + \
-    && cp /opt/skills/ikkem-slurm/scripts/submit.py /opt/skills/ikkem-slurm/scripts/submit_core.py \
+    && cp /opt/hpc/submit.py /opt/hpc/submit_core.py \
     && cp /app/assets/task07_trusted.py /opt/task7/task07_trusted.py \
-    && cp /app/assets/task07_submit.py /opt/skills/ikkem-slurm/scripts/submit.py \
-    && chmod 0444 /opt/task7/task07_trusted.py /opt/skills/ikkem-slurm/scripts/submit.py /opt/skills/ikkem-slurm/scripts/submit_core.py \
-    && chown -R root:root /opt/task7 /opt/skills/ikkem-slurm/scripts /app/assets \
-    && chmod 0755 /opt/task7 /opt/skills/ikkem-slurm/scripts /app /app/assets \
-    && chmod -R a-w /opt/skills/ikkem-slurm/scripts \
+    && cp /app/assets/task07_submit.py /opt/hpc/submit.py \
+    && chmod 0444 /opt/task7/task07_trusted.py /opt/hpc/submit.py /opt/hpc/submit_core.py \
+    && chown -R root:root /opt/task7 /opt/hpc /app/assets \
+    && chmod 0755 /opt/task7 /opt/hpc /app /app/assets \
+    && chmod -R a-w /opt/hpc \
     && chmod -R a-w /app/assets \
     && (rm -f /usr/bin/sudo /usr/sbin/sudo /bin/su /usr/bin/su /usr/bin/pkexec /etc/sudoers.d/* || true)
 RUN python3 - <<'PY'
@@ -58,9 +58,9 @@ for root, dirs, files in os.walk('/', topdown=True, followlinks=False):
 trusted_paths = [
     '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin',
     '/opt/case-science', '/opt/case-science/bin', '/opt/task7',
-    '/opt/task7/task07_trusted.py', '/opt/skills/ikkem-slurm/scripts',
-    '/opt/skills/ikkem-slurm/scripts/submit.py',
-    '/opt/skills/ikkem-slurm/scripts/submit_core.py',
+    '/opt/task7/task07_trusted.py', '/opt/hpc',
+    '/opt/hpc/submit.py',
+    '/opt/hpc/submit_core.py',
     '/usr/bin/python3', '/usr/bin/bash', '/usr/bin/ssh', '/root', '/root/.ssh',
 ]
 for name in trusted_paths:

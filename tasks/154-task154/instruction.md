@@ -12,7 +12,7 @@ Investigate whether a defensible refinement of the 5HLS–62G system can be obta
 
 - Choose how to check identity, chemical plausibility, numerical convergence and independent agreement. Preserve the connection between native outputs and any model you claim to have refined. Distinguish missing validation from demonstrated deterioration.
 - Acquire your own inputs and document their sources, access basis and transformations. Distinguish completed work from plans, preserve evidence supporting the results and justify the stopping point.
-- If using cluster resources, use the authorized `ikkem-slurm` interface and retain native job and resource records.
+- If using cluster resources, use the authorized `hpc` interface and retain native job and resource records.
 
 ## Files
 

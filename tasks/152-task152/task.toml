@@ -23,7 +23,7 @@ provenance_profile = "bench23-candidate-submission/v1"
 execution_profile = "harbor-autonomous-remote/v1"
 compute_budget = "Compute resources and orchestration are the agent's own choice; no per-job, per-study or total volume ceiling is declared or scored for this task. Submitted cost records are kept for provenance and checked only for internal consistency."
 execution_cross_check = "This edition installs no operator execution context. The verifier scores the candidate's own evidence and cross-checks its submitted run artifacts, and the report records trusted_execution=UNVERIFIED. No volume, external directory or host-side configuration is required to grade this task."
-credential_scope = "The candidate image supplies site SSH access and the ikkem-slurm client; no credential is stored in this repository or in the task tests."
+credential_scope = "The candidate image supplies site SSH access and the hpc client; no credential is stored in this repository or in the task tests."
 
 [agent]
 timeout_sec = 14400

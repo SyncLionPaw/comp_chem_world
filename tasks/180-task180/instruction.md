@@ -14,7 +14,7 @@ Run a fresh CP2K ENERGY_FORCE calculation for each geometry. Use BLYP-D3, TZV2P-
 
 - Environment: use the container Python on `PATH`; required scientific packages are preinstalled. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `ikkem-slurm` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
 
 Each native output must show one finite total energy in Hartree, one complete 192-row force block in Hartree/Bohr, positive SCF convergence, normal termination, and geometry and cell echoes consistent with the input. Preserve input row order in the forces.
 
