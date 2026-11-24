@@ -6,7 +6,7 @@ name = "compchemworld/hsp60-case-02-dyad-protonation"
 description = "Estimate Asp50/Asp397 catalytic-dyad protonation from the supplied structures using a fresh pKa prediction."
 
 [agent]
-timeout_sec = 1800
+timeout_sec = 3600
 network_mode = "no-network"
 
 [verifier]

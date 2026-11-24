@@ -1,0 +1,16 @@
+# Separate verifier: bounded executable /dev/shm for candidate chroot replay.
+# verify.py requires tmpfs at /dev/shm with exec and size ≤ 512 MiB.
+services:
+  main:
+    build:
+      context: ../environment
+    tmpfs:
+      - /tmp
+      - /dev/shm:rw,exec,nosuid,nodev,size=512m
+    volumes:
+      - type: bind
+        source: .
+        target: /tests
+        read_only: true
+        bind:
+          create_host_path: false

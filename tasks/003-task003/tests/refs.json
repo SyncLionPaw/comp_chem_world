@@ -3,7 +3,7 @@
   "case_id": "case-03-low-data-model-selection",
   "reference_source_kind": "published_result",
   "source_digest": "sha256:aa7b1daeb0591147c2c74191e60a38b9f8d6467e67c4ee7dbf1a339935b489c0",
-  "independent_check": "Revision 6.0.2: deterministic public-output checks plus evaluator-owned independent refitting of the declared model protocol on every outer split and inner fold, including declared PCA solver parameters. No submitted code execution or arbitrary internals are verified; unsupported but potentially valid methods are REVIEW_REQUIRED with no reward.",
+  "independent_check": "Revision 6.0.2: deterministic public-output checks plus evaluator-owned independent refitting of the declared model protocol on every outer split and inner fold, including declared PCA solver parameters. No submitted code execution or arbitrary internals are verified; unsupported but potentially valid methods are REVIEW_REQUIRED (Harbor reward.json review_required=1; no scalar pass/fail reward).",
   "readiness": "READY_FOR_RUNTIME",
   "verification_coverage": "PARTIAL",
   "asset_hashes": {

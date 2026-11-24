@@ -164,7 +164,7 @@ name = "compchemworld/case-05"
 description = "Short Li–Li contacts along deposited NEB geometries"
 
 [agent]
-timeout_sec = 600
+timeout_sec = 1800
 network_mode = "no-network"
 
 [verifier]

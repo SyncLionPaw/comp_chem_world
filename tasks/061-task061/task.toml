@@ -23,7 +23,7 @@ build_timeout_sec = 1800
 network_mode = "public"
 env = { CCB_CASE07_ENABLE_SCIENTIFIC_REVIEW = "${CCB_CASE07_ENABLE_SCIENTIFIC_REVIEW:-0}" }
 [agent]
-timeout_sec = 1800
+timeout_sec = 3600
 user = "agent"
 
 [verifier.environment]
