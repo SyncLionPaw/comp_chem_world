@@ -12,7 +12,7 @@ Investigate what supports harmonic stability and phonon-mediated superconductivi
 
 - Choose the computational method, numerical controls, stability and superconductivity observables, and any theory needed for interpretation. Distinguish sampled from broader stability claims, establish numerical sensitivity where feasible and report any conclusions that remain unsupported.
 - Acquire your own inputs and document their sources, access basis and transformations. Distinguish completed work from plans, preserve evidence supporting the results and justify the stopping point.
-- If using cluster resources, use the authorized `hpc` interface and retain native job and resource records.
+- If using cluster resources, see `/app/AGENTS.md` and use SSH alias `hpc`; retain native job and resource records.
 
 ## Files
 

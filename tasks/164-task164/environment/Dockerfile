@@ -6,6 +6,7 @@ LABEL org.compchemworld.bench="25_SPaiNN-Nonadiabatic-Dynamics" \
       org.compchemworld.dependencies="reviewed-hpc-shared-python312-arm64-lock"
 
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 RUN apt-get update \
     && apt-get install -y --no-install-recommends tmux asciinema nodejs npm ripgrep \
     && rm -rf /var/lib/apt/lists/*

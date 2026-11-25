@@ -9,6 +9,7 @@ RUN python3 -m venv /opt/ccb-venv \
 ENV PATH="/opt/ccb-venv/bin:${PATH}"
 
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 COPY assets/inputs/ /app/inputs/
 COPY assets/output-contract.json /app/output-contract.json
 COPY assets/runtime-resource-endpoints.json /app/runtime-resource-endpoints.json

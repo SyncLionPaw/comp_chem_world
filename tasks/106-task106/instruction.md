@@ -10,7 +10,7 @@ Assess the finite ordinary-NEB evidence by reconstructing the sampled profile an
 
 ## Requirements
 
-For fresh calculations, use `hpc` to probe authorized resources. Choose MPI ranks, memory, wall time, and concurrency within the task budget. Submit, wait for a terminal state, collect native outputs, and validate the scientific results.
+For fresh calculations, see `/app/AGENTS.md` and use SSH alias `hpc` to probe authorized resources. Choose MPI ranks, memory, wall time, and concurrency within the task budget. Submit, wait for a terminal state, collect native outputs, and validate the scientific results.
 
 Use the frozen five images, ordinary NEB with `LCLIMB=.FALSE.`, three active images, `NPAR=4`, and the specified standard PAW_PBE Li 17Jan2003, Ti 08Apr2002, O 08Apr2002. A fresh run is limited to the authorized four-step resource plan. Do not alter inputs, substitute PAW identities or climbing-image NEB, or replace historical endpoint evidence with new static calculations. Keep physical atomic forces distinct from projected NEB forces; preserve each image’s cell; report both energy conventions, with sigma-zero primary. Provide at least four common complete ionic steps for active images 01–03, host-verifiable native provenance and observed-method comparison. Do not present the geometric tangent check as VTST’s internal tangent or the finite path as a converged saddle. Do not publish POTCAR contents.
 

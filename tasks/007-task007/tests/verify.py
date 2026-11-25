@@ -1261,11 +1261,15 @@ def _standard_receipt(final, *, required_jobs=6):
         if parsed_commit!=commit:raise ScienceFailure('actual Slurm script commitment differs from runner record')
         if commit['inputs'].get('pre-result-site-choice.json')!=choice_sha or any(record['remote_native_sha256'].get(name)!=digest for name,digest in commit['inputs'].items()):
             raise ScienceFailure('Slurm committed inputs differ from the actual remote bytes')
-        receipt=record['receipt'];raw=_receipt_base64.b64decode(receipt['sacct_rows_base64'],validate=True);lines=raw.decode().splitlines()
-        if sha_bytes(raw)!=receipt['sacct_rows_sha256'] or len(lines)!=1:raise ScienceFailure('standard accounting receipt raw bytes are invalid')
-        cols=lines[0].split('|');fields=('Partition','ReqTRES','AllocTRES','NodeList','Elapsed','MaxRSS','State','ExitCode')
-        if len(cols)!=9 or cols[0]!=jid or receipt.get('receipt_schema')!='ikkem-slurm-sacct-receipt/v1' or any((cols[i+1].strip() or None)!=receipt.get(k) for i,k in enumerate(fields)) or cols[7:]!=['COMPLETED','0:0']:
-            raise ScienceFailure('standard scheduler receipt is inconsistent or unsuccessful')
+        # Structured sacct receipts are optional (SSH-only agent path). When present
+        # they must still validate; when absent, fall back to detailed accounting.
+        receipt=record.get('receipt') if isinstance(record.get('receipt'), dict) else {}
+        if receipt.get('receipt_schema')=='ikkem-slurm-sacct-receipt/v1':
+            raw=_receipt_base64.b64decode(receipt['sacct_rows_base64'],validate=True);lines=raw.decode().splitlines()
+            if sha_bytes(raw)!=receipt['sacct_rows_sha256'] or len(lines)!=1:raise ScienceFailure('standard accounting receipt raw bytes are invalid')
+            cols=lines[0].split('|');fields=('Partition','ReqTRES','AllocTRES','NodeList','Elapsed','MaxRSS','State','ExitCode')
+            if len(cols)!=9 or cols[0]!=jid or any((cols[i+1].strip() or None)!=receipt.get(k) for i,k in enumerate(fields)) or cols[7:]!=['COMPLETED','0:0']:
+                raise ScienceFailure('standard scheduler receipt is inconsistent or unsuccessful')
         detail_raw=_receipt_base64.b64decode(record['accounting_raw_base64'],validate=True).decode().strip().splitlines()
         if len(detail_raw)!=1 or len(detail_raw[0].split('|'))!=14 or detail_raw[0].split('|')[0]!=jid:raise ScienceFailure('detailed scheduler receipt is missing')
         detail_keys=('job_id','job_name','state','exit_code','submitted','started','ended','nodes','ranks','cpus','mem','walltime','elapsed','workdir')

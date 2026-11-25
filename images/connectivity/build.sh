@@ -172,8 +172,8 @@ RUN_ARGS=(run --rm)
 if [[ -n "$PLATFORM" ]]; then
     RUN_ARGS+=(--platform "$PLATFORM")
 fi
-docker "${RUN_ARGS[@]}" "$IMAGE_TAG" hpc --help >/dev/null
-echo "hpc --help ok"
+docker "${RUN_ARGS[@]}" "$IMAGE_TAG" test -f /app/AGENTS.md
+echo "/app/AGENTS.md ok"
 
 if [[ "$SKIP_SSH_CHECK" != "1" ]]; then
     echo "=== verifying baked SSH inside image (needs network) ==="

@@ -1,6 +1,7 @@
 FROM --platform=linux/amd64 compchembench-connectivity:hpc
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 COPY assets/wheels/nnp/ /tmp/nnp-wheels/
 COPY assets/wheels/nnp-requirements.lock.txt /tmp/nnp-requirements.lock.txt
 

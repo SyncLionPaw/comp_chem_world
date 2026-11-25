@@ -27,3 +27,5 @@ RUN uv venv "$VIRTUAL_ENV" --python /usr/bin/python3 \
 
 COPY assets/inputs/ /app/inputs/
 WORKDIR /app
+
+COPY AGENTS.md /app/AGENTS.md

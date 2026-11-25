@@ -2,6 +2,7 @@ FROM compchembench-connectivity:hpc
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 # Inherit the connectivity base and add the pinned PACEMAKER/PyACE runtime.
 # The trial-local trusted service dispatches fits to isolated workers.
 RUN apt-get update \

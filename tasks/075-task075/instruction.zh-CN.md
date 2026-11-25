@@ -12,7 +12,7 @@
 
 - 环境：使用容器 `PATH` 上的 Python。已预装 geomeTRIC、h5py、NetworkX、NumPy、PySCF、SciPy。不要自行安装额外软件包，也不要通过网络获取依赖。
 
-如果使用 HPC 计算资源，请查阅 `hpc`。
+如果使用 HPC 计算资源，请见 `/app/AGENTS.md`，并通过 SSH 别名 `hpc` 连接。
 
 - 提交的每个极小点和过渡态都须有真实程序产生的原生 CML/XML（包括 XML 格式）和匹配的优化 XYZ，不得用手写摘要、合成日志或其他文件代替原生计算证据。每个无水模型组成为乙酸根质子共享模型 C4H7O4 或甲酸根 C2H3O4；桥连水模型分别为 C4H9O5 或 C2H5O5，桥水为位于两羧酸根之间的完整水分子。原生输出需包含优化坐标、Hartree 电子能量、全部 3N−6 个 cm⁻¹ 频率和对应模位移、优化完成及驻点证据、程序/单位、原子、总电荷 −1、自旋多重度 1、方法、基组、隐式溶剂及介电常数。原生输出按以下 CML 约定提交：使用文本内容为数值的唯一 `cc:hfenergy`（`units` 含 `hartree`）、`cc:frequency`、`cc:displacement` 数组，以及 `cc:program`、`cc:method`、`cc:basis`、`g:charge`、`g:mult`、`g:solvent`、`g:eps` 标量。另以 `g:optimization` 文本明确包含 “optimization completed” 和 “stationary point found”；可附 `g:gradientmax`（Hartree/bohr）及 `g:stationarytype`（`minimum` 或 `transition_state`）。这些 `dictRef` 值须逐字匹配；XML namespace 前缀可不同，但 CML 元素须使用 `http://www.xml-cml.org/schema` namespace。`cc:hfenergy`、`cc:frequency`、`cc:displacement` 的文本须分别为一个有限能量值、一个以空格分隔的完整频率数组、一个以空格分隔的位移数组；频率数组和位移数组节点各恰有一个。频率/位移文本顺序须一致：每个频率模式依次列出全部原子的 x,y,z 位移。`cc:program`、`cc:method`、`cc:basis`、`g:charge`、`g:mult`、`g:solvent`、`g:eps` 的值可置于任意后代元素的 `dictRef` 标量中。每个端点的 JSON 能量须与原生能量相差不超过 2×10⁻⁵ Hartree，频率不超过 1 cm⁻¹，XYZ 文件为标准行式文本：首行为原子数，第二行为注释行，随后每行依次为元素符号和 x、y、z（Å）；元素顺序须与 CML 一致，坐标不超过 0.025 Å；若原生输出含最大梯度，极小点不得超过 4×10⁻⁴、过渡态不得超过 5×10⁻⁴ Hartree/bohr。
 - 两个极小点须将质子定位在相反羧酸根上，且不得有低于 −20 cm⁻¹ 的显著虚频。过渡态恰有一个低于 −20 cm⁻¹ 的频率；其原生位移对指定 O–H–O 质子转移坐标的绝对归一化投影至少为 0.20。`transfer_atoms` 使用 1 起始索引标明 `oxygen_a`、`proton`、`oxygen_b`。如有轻微负频率（−20 至 0 cm⁻¹）的极小点，结果需人工复核。

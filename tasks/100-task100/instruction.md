@@ -12,7 +12,7 @@ Run the supplied instance and protocol, then determine mode frequencies, uncerta
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include NumPy, SciPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 Retain actual MPI ranks and candidate-submitted execution records. Include native inputs, outputs, potential checks and stage evidence required by `/app/verification.md`. Apply its frequency, stability, phase, uncertainty, provenance and resource criteria without substituting synthetic data.
 

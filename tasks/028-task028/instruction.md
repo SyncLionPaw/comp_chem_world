@@ -14,7 +14,7 @@ Distinguish results of new calculations from acquired measurements and external 
 
 - Environment: use the container Python on `PATH`; required scientific packages are preinstalled. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 The attempt deadline is 8 elapsed hours, including queue waits. Count failed and cancelled allocations in the attempt record. Record submitted, failed, cancelled and completed jobs and report actual resource usage. If SSH/Slurm access is unavailable or evidence is missing, say so; never invent job records. Protect SSH credentials: do not include them in outputs or logs. Scientific conclusions must be supported independently of the format and completeness of the submission.
 
@@ -22,9 +22,9 @@ Perform the calculations on HPC. Preserve native calculation files, job records,
 
 ### Input and deliverable details
 
-Provide `final/claim.md`, `final/native_evidence/` and `final/provenance.json`. The claim should connect each quantitative conclusion to its uncertainty and evidence. Preserve native inputs and outputs, acquired sources, job records and analysis files. The provenance file must follow the complete public schema mounted in the container at `/app/output-contract.json`, including evidence paths and hashes, source attribution, execution links and conditions/populations for rate comparisons. The existing `hpc` interface and native-record requirements are described at `/app/research-service.md`; configuration is `/app/submit-job.json`.
+Provide `final/claim.md`, `final/native_evidence/` and `final/provenance.json`. The claim should connect each quantitative conclusion to its uncertainty and evidence. Preserve native inputs and outputs, acquired sources, job records and analysis files. The provenance file must follow the complete public schema mounted in the container at `/app/output-contract.json`, including evidence paths and hashes, source attribution, execution links and conditions/populations for rate comparisons. Cluster access is described in `/app/AGENTS.md` (SSH alias `hpc`); native-record requirements are described at `/app/research-service.md`; configuration is `/app/submit-job.json`.
 
-Use the existing `hpc` client from `/app` for Slurm work and retain all `.submit-job/*.json` state files unchanged in `final/native_evidence/slurm/`, including failed and cancelled jobs. Preserve the original calculation files and connect scientific stages to their job IDs.
+See `/app/AGENTS.md` and use SSH alias `hpc` for Slurm work; retain all `.submit-job/*.json` state files unchanged in `final/native_evidence/slurm/`, including failed and cancelled jobs. Preserve the original calculation files and connect scientific stages to their job IDs.
 
 ## Files
 

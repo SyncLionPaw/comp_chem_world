@@ -12,7 +12,7 @@ Build and test an energy-and-force model and determine what it can support about
 
 - Choose the model, labels, independent validation, simulated conditions and sampling. Diagnose a concrete weakness or risk and use a justified change or control to test it. Distinguish single-molecule and collective motion, and quantify or bound sampling uncertainty.
 - Acquire your own inputs and document their sources, access basis and transformations. Distinguish completed work from plans, preserve evidence supporting the results and justify the stopping point.
-- If using cluster resources, use the authorized `hpc` interface and retain native job and resource records.
+- If using cluster resources, see `/app/AGENTS.md` and use SSH alias `hpc`; retain native job and resource records.
 
 ## Files
 

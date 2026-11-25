@@ -80,7 +80,7 @@ scripts/               # repository maintenance helpers
 images/                # shared Docker base images
   base/                #   → comp-chem-world-base (Python, uv, pytest, Claude Code)
   chem/                #   → comp-chem-world-base-chem (ase, rdkit)
-  connectivity/        #   → compchembench-connectivity:hpc (SSH + hpc)
+  connectivity/        #   → compchembench-connectivity:hpc (SSH + /app/AGENTS.md)
   build.sh
 configs/               # Harbor job configs (task sets in local/hpc/local-a/local-b; agent/model in agent.yaml; compose task set + agent.yaml)
 jobs/                  # Harbor run outputs (gitignored)
@@ -102,7 +102,7 @@ AGENTS.md              # this file
 - Maintain the paper/task index in `docs/benchmarks/README.md` and the 28 preserved bench Markdown files in `docs/benchmarks/` when imported bench tasks change. Bench 17 has no paper common to every task: its MACE-OFF23 citation applies only to Task 110.
 - Build base images from `images/`: `bash images/build.sh` or `bash images/build.sh -f` (pass host `http_proxy`/`https_proxy` so downloads work). `images/base/uv` is downloaded by `build.sh` (host-arch-matched, recorded in `images/base/uv.arch`) when missing and is gitignored.
 - Image chain: `ubuntu:24.04` → `comp-chem-world-base` (Python, uv, pytest, Claude Code) → `comp-chem-world-base-chem` (+ ase, rdkit in `/app/.venv`). Task Dockerfiles `FROM` one of these; there is no separate Claude image.
-- HPC connectivity image (separate, credential-bearing): after `comp-chem-world-base` exists, `cp images/connectivity/hpc.toml.example images/connectivity/hpc.toml`, fill host/user/key, then `bash images/connectivity/build.sh` → tag `compchembench-connectivity:hpc` (use `--platform linux/amd64` for `:hpc-amd64`). Bakes `/root/.ssh/` + `/opt/skills/hpc/` + `/usr/local/bin/hpc`. Never commit `hpc.toml` or `images/connectivity/ssh/`.
+- HPC connectivity image (separate, credential-bearing): after `comp-chem-world-base` exists, `cp images/connectivity/hpc.toml.example images/connectivity/hpc.toml`, fill host/user/key, then `bash images/connectivity/build.sh` → tag `compchembench-connectivity:hpc` (use `--platform linux/amd64` for `:hpc-amd64`). Bakes `/root/.ssh/` (alias `hpc`) and `/app/AGENTS.md` (stay-in-lane + unique `~/submit-jobs/<task>-<utc>-<rand>/` rules). Prefer a cluster account restricted to that job tree when operators can provide one (`authorized_keys` restrict/command=, or a dedicated home). Never commit `hpc.toml` or `images/connectivity/ssh/`.
 - Local tasks use `comp-chem-world-base`; HPC/cluster tasks `FROM` or `COPY --from` `compchembench-connectivity:hpc`. Do not replace that image with a credential-free base without checking the task's execution model.
 - Claude Code version is pinned in two places that must stay equal: `CLAUDE_CODE_VERSION` in `images/build.sh` and `kwargs.version` in both full-run configs. When they match, Harbor reuses the preinstalled binary.
 

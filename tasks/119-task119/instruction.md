@@ -12,7 +12,7 @@ Test whether and under which conditions Li and Na co-intercalation affect Mg sto
 
 - Choose meaningful compositions, structures, reference states, migration probes and convergence checks. Justify comparability and separate finite candidate coverage, kinetic evidence and thermodynamic evidence. Base the conclusion on your results.
 - Acquire your own inputs and document their sources, access basis and transformations. Distinguish completed work from plans, preserve evidence supporting the results and justify the stopping point.
-- If using cluster resources, use the authorized `hpc` interface and retain native job and resource records.
+- If using cluster resources, see `/app/AGENTS.md` and use SSH alias `hpc`; retain native job and resource records.
 
 ## Files
 

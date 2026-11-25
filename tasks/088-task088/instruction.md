@@ -12,7 +12,7 @@ Implement the prescribed GROMACS workflow, prepare the compute environment, subm
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include matplotlib, MDAnalysis, NumPy, pillow, SciPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 - Follow the host-provided execution profile and use its supported software environment.
 - Document constraint, PME, and neighbor-list settings; system construction and equilibration checks; output frequency; the reciprocal-space estimator; and the uncertainty method. Stream the trajectory rather than allocating a frame-by-atom-by-wavevector array. Discuss finite-size resolution and estimator aliasing, whether the low-k minimum is statistically resolved, and the baseline used for `delta_k`. Report static dielectric fluctuations separately from the finite-k estimates. Record measured software versions and resources, not estimates.

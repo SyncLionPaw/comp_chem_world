@@ -1762,15 +1762,18 @@ def score(app: Path, tests: Path, logs: Path) -> int:
 
     if report and fresh_route:
         candidate_audit = candidate_execution.audit(final, report)
-        if candidate_audit.get("transport") in ("hpc", "ikkem-slurm"):
+        # SKIP = no structured sacct receipts (SSH-only); science checks still run.
+        if candidate_audit.get("status") == "SKIP":
+            measurements["slurm_records"] = candidate_audit
+        elif candidate_audit.get("transport") in ("hpc", "ikkem-slurm", "ssh"):
             measurements["slurm_records"] = candidate_audit
         if (candidate_audit.get("status") == "REVIEW_REQUIRED"
                 and (candidate_audit.get("reason") == "resource peak-memory or scratch measurement is missing"
-                     or candidate_audit.get("transport") in ("hpc", "ikkem-slurm"))):
+                     or candidate_audit.get("transport") in ("hpc", "ikkem-slurm", "ssh"))):
             try:
                 resource_review = case07_review.assess_resources(
                     final, tests, report, candidate_audit.get("attempt_id", ""),
-                    native_slurm=candidate_audit.get("transport") in ("hpc", "ikkem-slurm"))
+                    native_slurm=candidate_audit.get("transport") in ("hpc", "ikkem-slurm", "ssh"))
             except case07_review.ReviewEnvironmentError as exc:
                 result = {"schema_version": "case07-verification/v1", "status": "ENV_INVALID",
                           "scientific_scope": "trusted_resource_review_input_invalid", "archive_mode": False,

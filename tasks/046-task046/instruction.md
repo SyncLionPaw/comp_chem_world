@@ -12,7 +12,7 @@ Plan and run a finite-budget study of (1) the shell signal, (2) whether the GK i
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include NumPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC computing resources, consult `hpc`.
+If using HPC computing resources, see `/app/AGENTS.md` and use SSH alias `hpc`.
 
 - Use supplied source models only; no new training or DFT. Limit the study to 50 ps and 100,000 steps, with a timestep ≤0.5 fs. Count preparation, equilibration, controls, branches, failed and unknown attempts; charge failed/unknown runs their full reservation and completed runs by verified steps.
 - At the single frozen actual temperature (363.0 or 363.15 K; both are nominally 363 K), run two distinct pilot seeds of at least 5 ps including preparation; from a common checkpoint run two control branches of at least 3 ps with different thermostat or control settings; then run at least 5 ps adaptive sampling and one fresh confirmation seed of at least 10 ps. Record positive integer seeds for stochastic initialization or thermostats. A null seed is permitted only for a deterministic NVT intervention that reads a completed pilot restart whose hash matches `parent_checkpoint_sha256`, with no random velocity initialization or stochastic thermostat in the hashed input. Pilot and confirmation seeds must be positive integers and match a seed in their hashed native input; confirmation must remain fresh.

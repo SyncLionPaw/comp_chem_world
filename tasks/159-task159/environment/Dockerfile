@@ -2,6 +2,7 @@ FROM compchembench-connectivity:hpc
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 # Keep the task grader on its existing NumPy 1.26 ABI. Calphy 2.1.2 runs in a
 # separate interpreter because it requires NumPy >= 2.
 RUN apt-get update \

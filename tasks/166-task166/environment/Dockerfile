@@ -6,6 +6,7 @@ LABEL org.compchemworld.bench="25_SPaiNN-Nonadiabatic-Dynamics" \
       org.compchemworld.dependencies="pinned-local-pyscf-runtime"
 
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 RUN apt-get update \
     && apt-get install -y --no-install-recommends tmux asciinema nodejs npm ripgrep \
     && rm -rf /var/lib/apt/lists/*

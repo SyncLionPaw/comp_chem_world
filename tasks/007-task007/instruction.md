@@ -12,7 +12,7 @@ Before examining results, choose two octahedral sites with different first-shell
 
 - Environment: use the container Python on `PATH`; required scientific packages are preinstalled. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 - Reconstruct the cell and complete octahedral-site inventory; verify periodic multiplicity, six-neighbor distances and element counts. Record chosen sites, coordinates and rationale before results.
 - Complete exactly six fixed-geometry, collinear spin-polarized PBE/PAW static VASP calculations with the same potentials. Within each A/B pair, physical inputs match; baseline and numerical-sensitivity starts also match magnetically. No hybrid, +U, SOC or meta-GGA.

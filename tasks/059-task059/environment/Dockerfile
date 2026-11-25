@@ -1,5 +1,6 @@
 FROM compchembench-connectivity:hpc
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 RUN sed -i 's#http://ports.ubuntu.com#https://ports.ubuntu.com#g' /etc/apt/sources.list.d/ubuntu.sources \
     && apt-get -o Acquire::Retries=3 update \
     && apt-get install -y --no-install-recommends build-essential=12.10ubuntu1 python3.12-dev=3.12.3-1ubuntu0.17 cmake \

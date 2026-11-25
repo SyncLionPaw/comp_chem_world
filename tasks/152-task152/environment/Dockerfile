@@ -1,6 +1,7 @@
 FROM compchembench-connectivity:hpc
 
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 COPY assets/ /app/assets/
 COPY assets/verification.md /app/verification.md
 # Root-owned observer consumed by the task's [[verifier.collect]] hook. The image

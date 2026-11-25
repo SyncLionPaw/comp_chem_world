@@ -12,7 +12,7 @@ Using the supplied GaAs input, produce parameters for carrier-scattering researc
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include matplotlib, NetworkX, NumPy, pandas, pymatgen, SciPy, spglib, sympy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 - Report the fundamental and direct band gaps, elastic stiffnesses, clamped-ion (electronic) and ion-inclusive dielectric tensors, long-wavelength effective POP frequencies, and deformation responses of conduction-band electrons and valence-band holes. State units, structure, energy reference, strain convention, and sources.
 - Compare each reported quantity across at least two comparable settings and give the differences. State the unscissored band gap and occupations used for response calculations; do not use the HSE06 gap to conceal metallic PBE response. For degenerate hole states, provide the complete subspace response or an equivalent symmetry invariant.

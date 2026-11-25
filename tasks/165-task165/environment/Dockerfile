@@ -6,6 +6,7 @@ LABEL org.compchemworld.bench="25_SPaiNN-Nonadiabatic-Dynamics" \
       org.compchemworld.dependencies="case03-reviewed-python312-arm64-model-lock"
 
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 COPY assets/build/requirements.in assets/build/requirements.lock.txt /tmp/case04-runtime/
 COPY assets/build/sources/SPaiNN-461b414a.tar.gz /tmp/case04-runtime/sources/SPaiNN-461b414a.tar.gz
 COPY assets/build/wheels/schnetpack-2.0.4-py3-none-any.whl /tmp/case04-runtime/wheels/schnetpack-2.0.4-py3-none-any.whl

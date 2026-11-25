@@ -12,7 +12,7 @@ Determine whether available and newly generated evidence supports a heterogeneou
 
 - Choose a representation, observables and controls that can distinguish network heterogeneity from a plausible simpler description. Report sampling limits and distinguish experimental observations, published calculations and your own results.
 - Acquire your own inputs and document their sources, access basis and transformations. Distinguish completed work from plans, preserve evidence supporting the results and justify the stopping point.
-- If using HPC computing resources, consult `hpc`.
+- If using HPC computing resources, see `/app/AGENTS.md` and use SSH alias `hpc`.
 - Retain native job and resource records.
 
 ## Files

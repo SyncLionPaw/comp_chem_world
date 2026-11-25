@@ -1,5 +1,6 @@
 FROM compchembench-connectivity:hpc
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 RUN mkdir -p /app/final
 COPY assets/6L_MoS2_origin /app/assets/6L_MoS2_origin
 COPY assets/potentials/MoS.rebomos /app/assets/potentials/MoS.rebomos

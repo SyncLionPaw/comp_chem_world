@@ -2,6 +2,7 @@ FROM --platform=linux/amd64 compchembench-connectivity:hpc
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 COPY assets/wheels/ /tmp/suite29-wheels/
 COPY assets/requirements.lock.txt /tmp/suite29-requirements.lock.txt
 

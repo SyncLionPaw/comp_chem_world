@@ -10,7 +10,7 @@ On the available single-node CPU environment, run B and U at 1 fs and 2 fs (four
 
 ## Requirements
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 Within each paired comparison, the starting TPR coordinates and velocities must match. A shared seed is acceptable only when the actual starting vectors agree.
 

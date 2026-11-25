@@ -12,7 +12,7 @@ Assess whether A2 changes PD spatial structure and A2–rpL5 association in the 
 
 - Environment: use the container Python on `PATH`. Preinstalled packages include matplotlib, MDAnalysis, NumPy, pillow, SciPy. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC computing resources, consult `hpc`.
+If using HPC computing resources, see `/app/AGENTS.md` and use SSH alias `hpc`.
 
 Follow the remote execution interface in `/app/environment/RPC-PROTOCOL.md` and the host's access and scheduler policies. Record actual resource use, job IDs, submission scripts, status, exit codes and collected artifact hashes. Establish a condensate rather than treating the 466-bead construction unit as one. Preserve force-field and intervention identity: A2 includes both the charge and Lennard-Jones changes, so charge-only neutralization is not the A2 intervention. Distinguish new execution evidence from published results. Report equilibration and sampling evidence, uncertainty, limitations, and interpretation. A conclusion may be supported, refuted, or evidence-based inconclusive.
 

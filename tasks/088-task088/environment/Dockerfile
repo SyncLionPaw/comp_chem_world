@@ -8,6 +8,7 @@ RUN apt-get update \
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 COPY wheels/ /opt/wheels/
 COPY assets/requirements.lock.txt /tmp/ihf-requirements.lock.txt
 RUN python3 -m pip install --break-system-packages --no-cache-dir --no-index --find-links=/opt/wheels --only-binary=:all: --require-hashes -r /tmp/ihf-requirements.lock.txt \

@@ -14,7 +14,7 @@ Run two fresh 20,000-step NVT trajectories of periodic 192-atom water at 300 K. 
 
 - Environment: use the container Python on `PATH`; required scientific packages are preinstalled. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 Use the supplied LAMMPS template, with 0.5 fs steps and thermo, dump, and deviation output every 100 steps. Each run covers steps 0–20,000 and produces 201 aligned samples for 192 atoms in the 12.4 Å periodic cube. Keep atom-ID/type mapping stable and positions, forces, thermo, and deviations finite. The deviation file has a max_devi_f header and seven columns per sample: step plus six nonnegative values. Dump coordinates are wrapped and have no image flags; do not infer unwrapped transport. Preserve the native LAMMPS log.
 

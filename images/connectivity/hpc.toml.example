@@ -7,8 +7,3 @@ host = "login-node.example.edu"
 user = "your-cluster-account"
 identity_file = "~/.ssh/id_rsa"
 # port = 22
-
-# Optional: VASP module path hints for tasks that read /root/.ssh/vasp-site.json
-# [vasp]
-# module = "vasp/6.4.2"
-# bin = "vasp_std"

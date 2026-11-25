@@ -2,6 +2,7 @@ FROM --platform=linux/amd64 compchembench-connectivity:hpc
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 COPY assets/ /app/environment/assets/
 COPY assets/runtime/ /app/runtime/
 

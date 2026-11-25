@@ -2,6 +2,7 @@ FROM --platform=linux/amd64 compchembench-connectivity:hpc
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 COPY assets/runtime/native-config-export.patch /tmp/native-config-export.patch
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends cmake g++ make ca-certificates git libfftw3-dev \

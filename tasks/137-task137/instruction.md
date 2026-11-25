@@ -10,7 +10,7 @@ Choose a physical system and reproducible research design. Address all six targe
 
 ## Requirements
 
-If using HPC computing resources, consult `hpc`.
+If using HPC computing resources, see `/app/AGENTS.md` and use SSH alias `hpc`.
 
 Use only resources you are authorized to access. Choose resources according to the scientific requirements; do not assume a GPU is available or guess host/account details. Use a new job directory and keep the research independent of benchmark reference or historical run materials. Record the methods, data, resource use, execution outcomes and evidence needed to reproduce reported results. If a service is unavailable, report it as a limitation, not scientific disproof.
 

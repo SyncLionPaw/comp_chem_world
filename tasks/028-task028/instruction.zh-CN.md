@@ -14,7 +14,7 @@
 
 - 环境：使用容器 `PATH` 上的 Python；所需科学计算包已预装。不要自行安装额外软件包，也不要通过网络获取依赖。
 
-使用 HPC 时，按 `hpc` 的统一流程执行：探测已授权的目标，提交作业，等待终态，回收原生输出，再核验科学结果。
+使用 HPC 时，见 `/app/AGENTS.md`：用 SSH 别名 `hpc`，远程工作目录使用唯一的 `~/submit-jobs/<task>-<utc>-<rand>/`，再核验科学结果。
 
 整个尝试期限为 8 小时，包含排队等待。失败和取消的分配也计入尝试记录。记录已提交、失败、取消及完成的作业并报告实际资源用量。若 SSH/Slurm 接入不可用或证据缺失，应如实说明，不得编造作业记录。保护 SSH 凭据，不得写入输出或日志。科学结论须有独立证据支持，不能仅凭提交格式正确或文件齐全确立。
 
@@ -22,9 +22,9 @@
 
 ### 输入与产物细则
 
-提供 `final/claim.md`、`final/native_evidence/` 和 `final/provenance.json`。结论须将每项定量主张与不确定度和证据相连。保存原生输入与输出、获取的来源、作业记录和分析文件。来源与证据须在 `provenance.json` 中按公开完整 schema 记录，包括路径和哈希、来源归属、执行关联，以及速率比较所需的条件和参考物种群体。具体格式见容器内的公开合同 `/app/output-contract.json`。现有 `hpc` 接口及原生记录要求见 `/app/research-service.md`，配置位于 `/app/submit-job.json`。
+提供 `final/claim.md`、`final/native_evidence/` 和 `final/provenance.json`。结论须将每项定量主张与不确定度和证据相连。保存原生输入与输出、获取的来源、作业记录和分析文件。来源与证据须在 `provenance.json` 中按公开完整 schema 记录，包括路径和哈希、来源归属、执行关联，以及速率比较所需的条件和参考物种群体。具体格式见容器内的公开合同 `/app/output-contract.json`。集群访问见 `/app/AGENTS.md`（SSH 别名 `hpc`）；原生记录要求见 `/app/research-service.md`，配置位于 `/app/submit-job.json`。
 
-从 `/app` 使用现有 `hpc` 客户端操作 Slurm，并将所有 `.submit-job/*.json` 状态文件原样保存在 `final/native_evidence/slurm/`，包括失败和取消的作业。保留原始计算文件，并将科研阶段与对应作业 ID 关联。
+见 `/app/AGENTS.md`，用 SSH 别名 `hpc` 操作 Slurm，并将所有 `.submit-job/*.json` 状态文件原样保存在 `final/native_evidence/slurm/`，包括失败和取消的作业。保留原始计算文件，并将科研阶段与对应作业 ID 关联。
 
 ## 文件
 

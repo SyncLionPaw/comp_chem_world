@@ -151,5 +151,5 @@ configs/               # Harbor job 配置（任务集 + agent.yaml）
 
 - 首次 `uv run …` 会按 `uv.lock` 自动创建 `.venv`，一般不必手动 `uv sync`。
 - 磁盘建议预留数十 GB（镜像 + 解包物料）。
-- 缺少 `compchembench-connectivity:hpc` 时，只有 HPC 配置里的任务会失败，local 不受影响。构建：填好 `images/connectivity/hpc.toml` 后执行 `bash images/connectivity/build.sh`。
+- 缺少 `compchembench-connectivity:hpc` 时，只有 HPC 配置里的任务会失败，local 不受影响。构建：填好 `images/connectivity/hpc.toml` 后执行 `bash images/connectivity/build.sh`。镜像只烘焙 SSH（alias `hpc`）和 `/app/AGENTS.md`；agent 用 SSH 自探集群，作业目录须唯一且勿扫登录节点其它路径。
 - 仓库约定与维护细节见 [`AGENTS.md`](AGENTS.md)。

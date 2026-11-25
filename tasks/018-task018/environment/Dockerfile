@@ -2,6 +2,7 @@ FROM compchembench-connectivity:hpc
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 COPY wheels/ /opt/wheels/
 COPY assets/vendor/requirements.lock.txt /tmp/case05-requirements.lock.txt
 RUN python3 -m venv /opt/case05-venv \

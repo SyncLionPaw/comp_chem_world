@@ -1,6 +1,7 @@
 # This case needs x86_64: the pinned PySCF/geomeTRIC wheelhouse ships linux-x86_64 wheels only.
 # The amd64 connectivity base must be prepared as compchembench-connectivity:hpc-amd64.
 FROM compchembench-connectivity:hpc-amd64
+COPY AGENTS.md /app/AGENTS.md
 
 # The fresh solver requires the locked PySCF/geomeTRIC runtime.
 COPY assets/qm_task.md /app/environment/assets/qm_task.md

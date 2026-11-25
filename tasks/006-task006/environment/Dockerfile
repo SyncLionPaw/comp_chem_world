@@ -1,4 +1,5 @@
 FROM compchembench-connectivity:hpc
+COPY AGENTS.md /app/AGENTS.md
 
 LABEL org.compchemworld.case="case-06-hybrid-end-to-end-barrier" \
       org.compchemworld.scope="environment-only-hpc-scoped-science-replay-v6"

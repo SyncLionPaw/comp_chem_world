@@ -1,5 +1,6 @@
 FROM compchembench-connectivity:hpc
 WORKDIR /app
+COPY AGENTS.md /app/AGENTS.md
 COPY wheels/ /opt/wheels/
 COPY requirements.lock.txt /tmp/requirements.lock
 RUN python3.12 -m venv /opt/case-python \

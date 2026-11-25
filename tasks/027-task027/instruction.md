@@ -12,7 +12,7 @@ Within one bounded attempt, use new calculations to screen both C1 and C2 and in
 
 - Environment: use the container Python on `PATH`; required scientific packages are preinstalled. Do not install additional packages or fetch dependencies from the network.
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 First run a short trial with the chosen engine to estimate calculation cost. For each channel, calculate at least three distinct constrained-scan or path geometries, retaining a native energy or gradient result for each. Use these observations—such as topology, energy, convergence and cost—to select at least one channel for a new open-shell DFT saddle-point optimization and full vibrational analysis. For that saddle point, show that displacement along both signs of its actual imaginary mode, or an IRC initiated there, relaxes to the intended BPR and selected product. Optimize and analyze both endpoints at the same final DFT level. Independently optimizing supplied endpoint geometries does not establish a connection.
 
@@ -30,7 +30,7 @@ Inputs are in `/app/assets/`: the Supporting Information, the toluene ipso-BPR n
 
 Under `final/`, provide the six execution deliverables `ts_search_report.json`, `barriers.csv`, `native_outputs/`, `failures.md`, `resource_usage.csv`, and `execution-receipt.json`, plus `references_uncertainty.md` for the reference and uncertainty assessment. Any F12 transfer estimate must state its assumptions and limitations. The report must cover both channels, at least three screening records per channel, and the rationale for refinement or stopping; distinguish `validated`, `screened_unresolved` and `failed`. The barrier table has one row per channel, with new-level energy and barrier cells blank for an unvalidated channel. Keep the native calculation files, geometries and connection evidence in `native_outputs/`; retain failures and a per-job resource record. The public machine-readable contract is mounted at `/app/output-contract.json`, and the SSH/Slurm interface overview at `/app/environment/README.md`; consult them for the exact report fields, native-file bindings and receipt structure. Disclose missing execution or resource evidence and keep SSH credentials out of submitted files.
 
-Use the existing `hpc` client from `/app` for Slurm work and retain all `.submit-job/*.json` state files unchanged in `final/native_outputs/slurm/`, including failed and cancelled jobs. Preserve the original calculation files and connect scientific stages to their job IDs.
+See `/app/AGENTS.md` and use SSH alias `hpc` for Slurm work; retain all `.submit-job/*.json` state files unchanged in `final/native_outputs/slurm/`, including failed and cancelled jobs. Preserve the original calculation files and connect scientific stages to their job IDs.
 
 ## Files
 

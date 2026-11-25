@@ -10,7 +10,7 @@ Assess optimization convergence and whether the evidence supports a bounded reco
 
 ## Requirements
 
-If using HPC, follow the `hpc` workflow: probe the authorized target, submit, wait for a terminal state, collect native outputs, and validate the scientific result.
+If using HPC, see `/app/AGENTS.md`: use SSH alias `hpc`, keep remote work under a unique `~/submit-jobs/<task>-<utc>-<rand>/` directory, and validate the scientific result.
 
 Allow one initial optimization and at most two recoveries. This study covers iteration-limit extension only: a recovery must continue the final geometry of a normally terminated but unconverged optimization, increase MaxIter and preserve all other scientific controls, including r2SCAN-3c Opt TightSCF, charge and spin.
 

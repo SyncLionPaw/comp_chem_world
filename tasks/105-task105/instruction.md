@@ -10,7 +10,7 @@ Compare the candidates using native final-relaxation evidence: energy, physical 
 
 ## Requirements
 
-For fresh calculations, use `hpc` to probe authorized resources. Choose MPI ranks, memory, wall time, and concurrency within the task budget. Submit, wait for a terminal state, collect native outputs, and validate the scientific results.
+For fresh calculations, see `/app/AGENTS.md` and use SSH alias `hpc` to probe authorized resources. Choose MPI ranks, memory, wall time, and concurrency within the task budget. Submit, wait for a terminal state, collect native outputs, and validate the scientific results.
 
 Preserve each starting structure and use the common method. A fresh calculation is a spin-polarized variable-cell relaxation with `IBRION=1`, `NPAR=2` and standard PAW_PBE Li 17Jan2003, Ti 08Apr2002 and O 08Apr2002, subject to the authorized host resources and sealed PAW policy. Do not combine candidates or start one from another’s relaxed structure. Report archived observed settings separately from the requested fresh method. Keep the selected PAW policy and host-sealed source/run observations in `method.paw_policy` and `method.paw_identity`; do not publish POTCAR contents. The alternate `hpc_standard_native_v1` source is host-qualified but is not asserted byte-identical or numerically equivalent to the archived source.
 

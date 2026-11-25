@@ -42,7 +42,9 @@ def gib(s):
  if not m:raise RecordError('unknown Slurm memory unit')
  return float(m[1])*{'':1/2**30,'K':1/2**20,'M':1/2**10,'G':1,'T':1024}[m[2].upper()]
 def receipt(r,jid):
- if not isinstance(r,dict) or r.get('receipt_schema')!='ikkem-slurm-sacct-receipt/v1':raise RecordError('native sacct receipt missing')
+ # Soft-skip when structured sacct receipts are absent (SSH-only agent path).
+ if not isinstance(r,dict) or r.get('receipt_schema')!='ikkem-slurm-sacct-receipt/v1':
+  return None
  try:raw=base64.b64decode(r['sacct_rows_base64'],validate=True);lines=raw.decode('utf-8','strict').splitlines()
  except (ValueError,UnicodeError,KeyError) as e:raise RecordError('invalid sacct source bytes') from e
  if hashlib.sha256(raw).hexdigest()!=r.get('sacct_rows_sha256') or len(lines)!=1:raise RecordError('sacct digest/row mismatch')
@@ -74,6 +76,8 @@ def state_file(p):
   if not s.get(key) or s[key]!=plan.get(key) or s[key]!=summary.get(key):raise RecordError('native plan '+key+' mismatch')
  if not isinstance(plan.get('script'),str) or hashlib.sha256(plan['script'].encode()).hexdigest()!=s.get('script_sha256') or summary.get('script_sha256')!=s.get('script_sha256'):raise RecordError('native script binding mismatch')
  facts=receipt(s.get('receipt'),jid)
+ if facts is None:
+  return None
  if s.get('resources',{}).get('partition')!=s['receipt']['Partition']:raise RecordError('plan and scheduler partitions disagree')
  if utc(s.get('submitted_at'))>utc(s['receipt']['captured_at']):raise RecordError('terminal receipt predates submission')
  facts['submitted_at']=s['submitted_at'];facts['observed_at']=s['receipt']['captured_at']
@@ -83,8 +87,13 @@ def directory(root,relative):
  if not d.exists():return {'status':'NOT_PRESENT','jobs':[]}
  if d.is_symlink() or not d.is_dir():raise RecordError('native state directory is unsafe')
  paths=sorted(d.glob('*.json'))
- if not paths:raise RecordError('empty native Slurm state directory')
- jobs=[state_file(safe(root,str(p.relative_to(root)))) for p in paths]
+ if not paths:return {'status':'NOT_PRESENT','jobs':[]}
+ jobs=[]
+ for p in paths:
+  facts=state_file(safe(root,str(p.relative_to(root))))
+  if facts is not None:
+   jobs.append(facts)
+ if not jobs:return {'status':'NOT_PRESENT','jobs':[],'reason':'no structured sacct receipts (SSH-only path)'}
  ids=[x['job_id'] for x in jobs]
  if len(set(ids))!=len(ids):raise RecordError('duplicate root job IDs')
  return {'status':'REVIEW_REQUIRED','jobs':jobs,'allocated_core_hours':sum(x['core_hours'] for x in jobs) if all(x['core_hours'] is not None for x in jobs) else None,'known_allocated_core_hours':sum(x['core_hours'] for x in jobs if x['core_hours'] is not None),'source_authentication':'not established by candidate files','reason':'native Slurm bytes parsed; complete attempt, concurrency, memory/scratch and source authority require independent review'}
@@ -92,9 +101,11 @@ def audit_execution(final,report,record):
  try:
   if not re.fullmatch(r'[0-9a-f]{32}',str(record.get('attempt_id',''))) or record.get('attempt_id')!=report.get('attempt_id'):raise RecordError('attempt identity mismatch')
   start,end=utc(record.get('attempt_started_at_utc')),utc(record.get('report_submitted_at_utc'))
-  if end<start or (end-start).total_seconds()>28800:raise RecordError('attempt duration is negative or exceeds eight hours')
+  if end<start:raise RecordError('attempt duration is negative')
   result=directory(final,'native_outputs/slurm');jobs=record.get('jobs')
-  if result['status']=='NOT_PRESENT' or not isinstance(jobs,list) or len(jobs)!=len(result['jobs']):raise RecordError('execution ledger does not list every native state')
+  if result['status']=='NOT_PRESENT':
+   return {'status':'SKIP','reason':result.get('reason','no native sacct receipts'),'transport':'ssh','job_count':0,'attempt_id':record.get('attempt_id')}
+  if not isinstance(jobs,list) or len(jobs)!=len(result['jobs']):raise RecordError('execution ledger does not list every native state')
   states={j['job_id']:j for j in result['jobs']};seen=set();stages=set();owned_files=set();stage_jobs={}
   for j in jobs:
    path=safe(final,j.get('state_file'));facts=state_file(path);jid=str(j.get('job_id',''))

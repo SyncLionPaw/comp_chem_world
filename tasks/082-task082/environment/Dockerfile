@@ -2,6 +2,7 @@ FROM compchembench-connectivity:hpc
 
 WORKDIR /app
 
+COPY AGENTS.md /app/AGENTS.md
 RUN apt-get update && apt-get install -y --no-install-recommends tmux asciinema \
     && rm -rf /var/lib/apt/lists/*
 

@@ -10,7 +10,7 @@
 
 - 环境：使用容器 `PATH` 上的 Python。已预装 NumPy、QC-IOdata、SciPy。不要自行安装额外软件包，也不要通过网络获取依赖。
 
-遵循公开 compute-budget.yaml 和 output-contract.yaml。染料 AM1-BCC/GAFF，甲醇 Amber 20 MEOHBOX/frcmod.meoh，乙腈用给定模型。每盒≤3000原子、最小化≤200次；每溶剂100步预热+100步NVT诊断（2 fs、298 K），逐帧存ASCII mdcrd；0.2 ps不构成平衡。对实际轨迹作周期重建选帧。A/B共用甲醇帧染料几何并分别用CPCM甲醇/乙腈；C加采样甲醇；D仅旋转供体H且重原子不变；E来自不同乙腈轨迹。接触 H···O≤2.5 Å、O–H···O≥130°；若无则分析最近候选并判不确定，不得强造，保留轨迹来源。按预算串行运行五个远程 ORCA 6.0.1 BP86/def2-SVP def2/J RI-J TightSCF CPCM 中性单重态单点；固定几何，不优化/TDDFT，保存原生MD、选择器、QM和调度证据。依据原生结果和校正Molden计算有符号重叠Mulliken qμ=cμ(Sc)μ；所有占据/虚轨道归一及正交误差≤1e-4，不重新归一。染料1–72、溶剂73–78；报告A−B/C−D总能/HOMO/LUMO差及参与度，讨论轨道定位和方法限制；不得声称光学/平衡机制。公开合同规定记录/文件/分类/容差，使用给定阶段和模板。 如使用 HPC 计算资源，请参考 `hpc`。
+遵循公开 compute-budget.yaml 和 output-contract.yaml。染料 AM1-BCC/GAFF，甲醇 Amber 20 MEOHBOX/frcmod.meoh，乙腈用给定模型。每盒≤3000原子、最小化≤200次；每溶剂100步预热+100步NVT诊断（2 fs、298 K），逐帧存ASCII mdcrd；0.2 ps不构成平衡。对实际轨迹作周期重建选帧。A/B共用甲醇帧染料几何并分别用CPCM甲醇/乙腈；C加采样甲醇；D仅旋转供体H且重原子不变；E来自不同乙腈轨迹。接触 H···O≤2.5 Å、O–H···O≥130°；若无则分析最近候选并判不确定，不得强造，保留轨迹来源。按预算串行运行五个远程 ORCA 6.0.1 BP86/def2-SVP def2/J RI-J TightSCF CPCM 中性单重态单点；固定几何，不优化/TDDFT，保存原生MD、选择器、QM和调度证据。依据原生结果和校正Molden计算有符号重叠Mulliken qμ=cμ(Sc)μ；所有占据/虚轨道归一及正交误差≤1e-4，不重新归一。染料1–72、溶剂73–78；报告A−B/C−D总能/HOMO/LUMO差及参与度，讨论轨道定位和方法限制；不得声称光学/平衡机制。公开合同规定记录/文件/分类/容差，使用给定阶段和模板。 如使用 HPC 计算资源，见 `/app/AGENTS.md`，并用 SSH 别名 `hpc`。
 
 ## 文件
 
