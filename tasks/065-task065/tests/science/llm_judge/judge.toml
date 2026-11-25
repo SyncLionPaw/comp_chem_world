@@ -1,0 +1,75 @@
+# LLM scientific adjudicator (Harbor RewardKit). Rubric levels; weighted-mean score.
+[judge]
+judge = "anthropic/claude-sonnet-4-5"
+files = ["/app/coordinate-observables.csv", "/app/geometry-evidence.csv", "/app/state-hypotheses.json", "/app/mechanism-decision.md", "/app/state-analysis.json", "/app/state-frames.csv", "/app/state-blocks.csv"]
+guard = "penalize"
+timeout = 300
+
+[scoring]
+aggregation = "weighted-mean"
+
+[[criterion]]
+name = "coordinate_geometry_atom_ids_units_and_pbc"
+id = "coordinate_geometry_atom_ids_units_and_pbc"
+description = "Criterion `coordinate_geometry_atom_ids_units_and_pbc`. PBC/geometry recomputation from positions, atom IDs, RMSD and rotated boxes. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Geometry inputs insufficient for independent PBC/geometry recomputation.",
+  "Partial geometry evidence; units/PBC/atom IDs incomplete.",
+  "Real positions, atom IDs, template-fit RMSD and rotated box vectors support independent PBC/geometry recomputation.",
+]
+
+[[criterion]]
+name = "matched_z_and_radius_hydration_contrast"
+id = "matched_z_and_radius_hydration_contrast"
+description = "Criterion `matched_z_and_radius_hydration_contrast`. z/r-matched frames (0.02 nm) with water-feature and Br-contact contrast. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "No valid matched pair or no measured hydration/Br-contact contrast.",
+  "Pair present but matching tolerance or contrast explanation incomplete.",
+  "Two actual frames matched within 0.02 nm in z and radius with measured water-feature and Br-contact difference; extra frames support the explanation where used.",
+]
+
+[[criterion]]
+name = "water_bridge_geometry_and_hypothesis_limits"
+id = "water_bridge_geometry_and_hypothesis_limits"
+description = "Criterion `water_bridge_geometry_and_hypothesis_limits`. Bridge geometry vs stated definition; no population/kinetics overclaim from sparse snapshots. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Bridge claims without geometry, or sparse snapshots used for population/kinetics.",
+  "Geometry discussed but definition checks or hypothesis limits incomplete.",
+  "Uses atom-level O–O/H-angle/Br-contact evidence; unsupported bridges rejected under the stated definition; no population/kinetics inference from sparse biased snapshots.",
+]
+
+[[criterion]]
+name = "full_frame_join_and_OPES_weights"
+id = "full_frame_join_and_OPES_weights"
+description = "Criterion `full_frame_join_and_OPES_weights`. Full 8834-row coordinate/COLVAR join with exact frame IDs and declared weights. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Incomplete join, wrong frame IDs, or missing weight verification.",
+  "Mostly complete join/weights with gaps in uniqueness or declared instantaneous weights.",
+  "Uses all 8834 rows, preserves exact frame IDs, verifies unique time join, reports predeclared instantaneous OPES weights.",
+]
+
+[[criterion]]
+name = "state_analysis_scope_and_summary"
+id = "state_analysis_scope_and_summary"
+description = "Criterion `state_analysis_scope_and_summary`. Bound/unbound/intermediate masks, weighted masses/ESS, occupancy/bridge summaries, burn-in sensitivity. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "State analysis missing or scientifically overscoped.",
+  "Partial masks/ESS/summaries; burn-in sensitivity weak.",
+  "Reports required masks, weighted masses and ESS, cavity-water occupancy and bridge summaries, plus burn-in sensitivity within stated scope.",
+]
+
+[[criterion]]
+name = "contiguous_block_statistics"
+id = "contiguous_block_statistics"
+description = "Criterion `contiguous_block_statistics`. Complete non-overlapping 4 ns block coverage with ESS and bound/unbound masses. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Blocks missing, overlapping, or not covering the source timeline.",
+  "Blocks mostly OK but ESS/mass/coverage statistics incomplete.",
+  "Complete non-overlapping public 4 ns blocks covering the timeline with frame count, ESS, bound/unbound mass, and required summaries.",
+]

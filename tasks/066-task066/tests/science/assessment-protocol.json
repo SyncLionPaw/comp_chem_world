@@ -41,7 +41,7 @@
         "required_evidence": "Two actual host-aligned coordinate excerpts and original axis definitions support reproducible integer counts and alternative region/volume sensitivity.",
         "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
         "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "bias_time_join_and_historical_replay_validity",
@@ -49,7 +49,7 @@
         "required_evidence": "Actual contiguous time excerpts show the distinct COLVAR cadence/offset and time-varying bias diagnostics. A final kernel alone does not establish historical same-configuration bias.",
         "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
         "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "water_wire_or_ring_graph_geometry_and_atom_level_evidence",
@@ -57,7 +57,7 @@
         "required_evidence": "A bounded PBC-aware O-O/H-angle graph reference supplies real water atom IDs, edge geometry, connected components and cycle rank for both apo hosts. This supports checking alternative graph definitions without demanding an author ring mode.",
         "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
         "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "identifiability_of_unbiased_hydration_probability",
@@ -65,7 +65,7 @@
         "required_evidence": "The original alpha-shape parameter/mask is absent and supplied frames are sparse, biased observations; bounded sample frequencies cannot be promoted to unbiased P(n) without validated weights.",
         "accepted_methods": "Accept alternative physically justified regions and valid conditional conclusions. Sparse biased coordinate frequencies alone do not support unbiased probabilities. A decision not to reweight is valid when grounded in the actual timing/bias evidence.",
         "inference_limits": "基于apo-method.md定义至少两个有物理依据的腔体区域，报告真实坐标中的整数occupancy和边界敏感性；明确标为sparse biased-sample frequency。审计OAMe/OAH时间戳、CV/bias变化和kernel适用区间，若历史same-configuration bias不能成立，则不报告unbiased P(n)。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       }
     ]
   },

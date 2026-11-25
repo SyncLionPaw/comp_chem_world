@@ -20,20 +20,25 @@ try:
 except Exception as exc:
     report={'status':'INFRA_ERROR','error':f'verifier emitted invalid JSON: {exc}'}
 status=report.get('status')
-if status in {'PASS','REVIEW_REQUIRED'} and rc != 0:
+if status == 'PASS' and rc != 0:
     report={'status':'INFRA_ERROR','error':f'verifier status {status} conflicts with exit code {rc}'}; status='INFRA_ERROR'
 elif status == 'FAIL' and rc not in (0,1):
     report={'status':'INFRA_ERROR','error':f'verifier status FAIL conflicts with exit code {rc}'}; status='INFRA_ERROR'
-elif status not in {'FAIL','PASS','REVIEW_REQUIRED','INFRA_ERROR'}:
+elif status == 'REVIEW_REQUIRED':
+    report={'status':'INFRA_ERROR','error':'REVIEW_REQUIRED is no longer a graded terminal status; LLM judge must return PASS or FAIL'}; status='INFRA_ERROR'
+elif status not in {'FAIL','PASS','INFRA_ERROR'}:
     report={'status':'INFRA_ERROR','error':f'unsupported status: {status!r}'}; status='INFRA_ERROR'
 (logs/'verification.json').write_text(json.dumps(report,ensure_ascii=False)+'\n',encoding='utf-8')
 (logs/'raw-verifier.stdout.json').write_text(src.read_text(encoding='utf-8'),encoding='utf-8')
 src.unlink(missing_ok=True); (logs/'reward.txt').unlink(missing_ok=True)
-if status == 'PASS': (logs/'reward.txt').write_text('1\n', encoding='ascii'); code=0
-elif status == 'FAIL': (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=1
-elif status == 'REVIEW_REQUIRED':
-    # Emit 0 so Harbor records a score instead of RewardFileNotFoundError.
-    (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=0
+reward = report.get('reward')
+if status in {'PASS','FAIL'} and isinstance(reward, (int, float)):
+    (logs/'reward.txt').write_text(f'{float(reward):.6g}\n', encoding='ascii')
+    code = 0 if status == 'PASS' else 1
+elif status == 'PASS':
+    (logs/'reward.txt').write_text('1\n', encoding='ascii'); code=0
+elif status == 'FAIL':
+    (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=1
 else:
     (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=2
 raise SystemExit(code)

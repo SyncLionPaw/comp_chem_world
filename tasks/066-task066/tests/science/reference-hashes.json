@@ -1,13 +1,14 @@
 {
   "tests/apo_numeric.py": "0f4d1c9805321a9803790879c7ed7745c45c27e88208450cdc63874abd009e75",
-  "tests/assessment-protocol.json": "65b6fa359e50daa813105df0f01d9e9959dc29a03d2a08b3de822709e719b3ef",
-  "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+  "tests/assessment-protocol.json": "6944a3e889c4fa6729d9fca67c94d3e5fed9141c15954a83d75c85f0d2963cc9",
+  "tests/diagnostic.py": "17721a49a7a38b9475b0b23534dce1904288aa93e77c8d36b90e4ceeb6d31028",
   "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
   "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
-  "tests/numeric_evidence.py": "00b0668b51417c26d147dd58ee945329c321ec2824c17790086f0c0337ae4427",
+  "tests/numeric_evidence.py": "7a3396317255ab02929abcd3cf84c748a314977ce315b92c839d56d2c39f0317",
   "tests/refs.json": "90ad30b4b26c4d9ede319f8a4ee3516d348f03e2e351391463425431cfd17cfb",
-  "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+  "tests/review_status.py": "34f2c189a25c1d99b9edfdcbdfeeaeee467c5e18263d901d27e9ee947d847949",
   "tests/test.sh": "0ae6d7fe88171c1abfbea56f980d4e8922f7412adadb0b80132082dc9dfca0ef",
   "tests/verification-plan.yaml": "4ce934adbbe14b1859a40694beb1006690ab3796075a7388361687e1501ff22c",
-  "tests/verify.py": "8e519752504991cb7423daaa9798b9edb3590689ab23a06b11b5677e9148eb49"
+  "tests/verify.py": "8e519752504991cb7423daaa9798b9edb3590689ab23a06b11b5677e9148eb49",
+  "tests/llm_judge/judge.toml": "996eabeb9d366a7079775ad362034af0638db2250b54ea402b2b7ff84eb338bf"
 }

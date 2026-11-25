@@ -1,0 +1,42 @@
+# LLM scientific adjudicator (Harbor RewardKit). Rubric levels; weighted-mean score.
+[judge]
+judge = "anthropic/claude-sonnet-4-5"
+files = ["/app/FES.csv", "/app/blocks.csv", "/app/thermodynamics.json", "/app/sensitivity.csv", "/app/sampling-decision.json", "/app/audit-report.md", "/app/provenance.json"]
+guard = "penalize"
+timeout = 300
+
+[scoring]
+aggregation = "weighted-mean"
+
+[[criterion]]
+name = "baseline_reweighted_fes_and_funnel_standard_state_integral"
+id = "baseline_reweighted_fes_and_funnel_standard_state_integral"
+description = "Criterion `baseline_reweighted_fes_and_funnel_standard_state_integral`. Reproducible one-replica baseline FES / funnel standard-state integral. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Baseline FES/integral missing, irreproducible, or contradicted by the acquired record.",
+  "Baseline present but incomplete cross-check or unclear reproducibility.",
+  "Fixed reproducible baseline from the complete one-replica record with independent numerical cross-check.",
+]
+
+[[criterion]]
+name = "burnin_or_window_sensitivity_and_sampling_decision"
+id = "burnin_or_window_sensitivity_and_sampling_decision"
+description = "Criterion `burnin_or_window_sensitivity_and_sampling_decision`. Non-baseline burn-in/bin/window sensitivity plus ESS and continue/stop decision. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "No sensitivity or sampling decision, or decision ignores ESS/time coverage.",
+  "Sensitivity or ESS partially reported; decision weakly supported.",
+  "At least one predeclared non-baseline sensitivity recomputed; block/frame ESS and one-replica/time constraints inform the sampling decision.",
+]
+
+[[criterion]]
+name = "units_scope_and_uncertainty_accounting"
+id = "units_scope_and_uncertainty_accounting"
+description = "Criterion `units_scope_and_uncertainty_accounting`. Native PLUMED units and one-replica (176.7 ns) scope vs published multi-walker claims. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Wrong units or inflates scope to full published multi-CV/multi-walker analysis.",
+  "Units or scope mostly right but uncertainty/scope caveats incomplete.",
+  "Uses native PLUMED units; correctly scopes results to the acquired one-replica record and accounts for uncertainty limits.",
+]

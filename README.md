@@ -30,8 +30,10 @@ mv /path/to/inputs.tar.zst shared/inputs.tar.zst
 # 4. 初始化：同步依赖 → 解包物料 → 恢复任务输入 → 生成 .env → 构建基础镜像
 uv run init
 
-# 5. 编辑 .env，填入 ANTHROPIC_API_KEY= 与 ANTHROPIC_BASE_URL=
-#    （任意 Anthropic 兼容端点均可；默认示例指向 DeepSeek）
+# 5. 编辑 .env：
+#    - Agent：ANTHROPIC_API_KEY= 与 ANTHROPIC_BASE_URL=
+#    - 科学 LLM judge（062–067 等）：见下方「LLM scientific judge」
+#    （任意 Anthropic 兼容端点均可）
 
 # 6. 全量 local 测评（任务集 + agent 两份配置一起传）
 uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y
@@ -101,6 +103,45 @@ uv run harbor run -c configs/local.yaml -c configs/agents.clear.yaml \
 # 先看 Harbor 实际会选用哪套凭证/端点
 uv run harbor run --dry-run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y
 ```
+
+### LLM scientific judge（062–067）
+
+部分原 `REVIEW_REQUIRED` 任务用 Harbor **RewardKit** LLM judge 做科学终裁（`all-pass` → `reward=1`，否则 `0`）。Judge 跑在 **separate verifier** 里，凭证与 agent **可以分开**。
+
+在 `.env` 中配置（模板见 `.env.example`）：
+
+```bash
+# Agent（做题）
+ANTHROPIC_API_KEY=...
+ANTHROPIC_BASE_URL=https://your-agent-gateway.example/llm
+
+# Judge（打分；可与 agent 不同网关 / 不同 key）
+REWARDKIT_API_KEY=...
+REWARDKIT_BASE_URL=https://your-judge-gateway.example/llm
+REWARDKIT_JUDGE=anthropic/claude-sonnet-5-5
+```
+
+要点：
+
+1. Harbor 通过各题 `task.toml` 的 `[verifier.env]` 把上述变量注入 verifier；跑 job 时仍加 `--env-file .env`。
+2. 若只填了 `ANTHROPIC_*`、未填 `REWARDKIT_*`，judge **回退**使用 `ANTHROPIC_*`（同一网关）。
+3. `REWARDKIT_JUDGE` 必须是该 `REWARDKIT_BASE_URL` 上 `/v1/models` 里真实存在的模型 id（LiteLLM 写法，如 `anthropic/<model-id>`）。科学审题建议 ≥ Sonnet；Haiku 偏弱。
+4. 缺 key 时 verifier 报 `INFRA_ERROR`（不会静默给 PASS）。
+
+**提示词在哪、严不严**
+
+| 层 | 位置 | 作用 |
+|----|------|------|
+| 系统提示（通用） | RewardKit 包内 `rewardkit/prompts/llm.md`：`You are an evaluation judge. Evaluate … against the following criteria.` | 几乎不设宽严，只要求按 criteria 评 |
+| 防注入 | `guard = "penalize"`（各题 `tests/science/llm_judge/judge.toml`） | 发现提交物里的评分指令则整题 0 |
+| 科学准则（真正定宽严） | 同目录 `[[criterion]] description = "..."` | 注入到 `{criteria}`；`type = "binary"` + 根 `[scoring] aggregation = "all-pass"` |
+
+062–067 现为 `type = "rubric"` + `weighted-mean`：**允许部分分数**，连续分（0–1）写入 `reward.txt`；judge 成功即 `PASS`（结构检查失败仍为 `FAIL`/0）。宽严主要看 **rubric levels / criterion 文案**：
+
+- 偏严：`Grade PASS only if … with cited evidence; otherwise FAIL`、要求具体数值/哈希/匹配容差。
+- 偏松：协议里的 `Accept equivalent …`、`no single hidden ranking is required`、允许多种合理特征子集。
+
+改宽严：编辑该题 `tests/science/llm_judge/judge.toml` 的 `description`（或从 `assessment-protocol.json` 的 scientific criteria 重新生成），不必改 RewardKit 系统提示。可选 `prompt_template = "....md"` 覆盖系统提示（须含 `{criteria}`）。打分明细在 trial 的 `reward-details.json` / Verifier Logs。
 
 ## 资源包
 

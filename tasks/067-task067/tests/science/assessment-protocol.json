@@ -70,32 +70,32 @@
         "necessary": true,
         "required_evidence": "SI provides the six experimental/TIP3P/TIP4P-Ew values and rounded metric checks; equal-weight metrics are recomputed from those acquired observations.",
         "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
-        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量由 LLM scientific judge 终裁。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "per_ligand_water_model_shifts_and_common_offset",
         "necessary": true,
         "required_evidence": "Six paired water-model values support per-ligand shifts and an equal-weight mean offset.",
         "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
-        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量由 LLM scientific judge 终裁。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "ranking_vs_absolute_error_diagnosis",
         "necessary": true,
         "required_evidence": "Reported Kendall ranking is 0.87 for both models while the absolute RMSE differs, so ranking agreement and absolute accuracy answer different questions.",
         "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
-        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量由 LLM scientific judge 终裁。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "sampling_sigma_and_causal_scope_limits",
         "necessary": true,
         "required_evidence": "Reported σ values describe simulation estimates; this six-ligand comparison does not identify causal force-field error or model-form uncertainty.",
         "accepted_methods": "Assess the scientific criteria in this file against the submitted native artifacts and reports. Do not infer execution or numeric success from file presence. Any unresolved criterion remains pending; use the named source paths and hashes in the task assets/provenance.",
-        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量保留人工审阅。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "inference_limits": "核验六配体绝对/offset error、回归/排序统计、逐 guest 水模型变化，并审阅报告是否区分排序与绝对准确度、sampling σ 与 force-field/model-form uncertainty，且避免因果过度解释。数值及结构化结论可自动判定，论证质量由 LLM scientific judge 终裁。",
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       }
     ],
     "required_paths": [

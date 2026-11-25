@@ -47,7 +47,7 @@
         "required_evidence": "Real positions, atom IDs, template-fit RMSD and rotated box vectors support independent PBC/geometry recomputation.",
         "accepted_methods": "Do not require one four-state author mask. A plausible bridge requires the submitted atom-level geometry and stated cutoff/angle tests; unsupported or conditional is valid when the selected evidence says so. Never infer kinetics or population from snapshots.",
         "inference_limits": "以同一套坐标定义计算匹配z/r对的水特征；对每个水桥断言列出具体O IDs、距离、donor-H-acceptor角和Br-water接触，并提供替代解释。可以报告当前证据不足；不能把均匀选帧当作状态占比或动力学事件。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "matched_z_and_radius_hydration_contrast",
@@ -55,7 +55,7 @@
         "required_evidence": "Two actual frames with coordinate z and radius matched within 0.02 nm show a measured water-feature and Br-contact difference; additional frames support an explicit H-bond geometry test.",
         "accepted_methods": "Do not require one four-state author mask. A plausible bridge requires the submitted atom-level geometry and stated cutoff/angle tests; unsupported or conditional is valid when the selected evidence says so. Never infer kinetics or population from snapshots.",
         "inference_limits": "以同一套坐标定义计算匹配z/r对的水特征；对每个水桥断言列出具体O IDs、距离、donor-H-acceptor角和Br-water接触，并提供替代解释。可以报告当前证据不足；不能把均匀选帧当作状态占比或动力学事件。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "water_bridge_geometry_and_hypothesis_limits",
@@ -63,7 +63,7 @@
         "required_evidence": "Hidden reference lists actual water atom IDs and O–O/H-angle/Br-contact measurements for selected snapshots. Agents may conclude a proposed bridge is unsupported when geometry does not satisfy their stated definition; sparse biased snapshots cannot imply population or kinetics.",
         "accepted_methods": "Do not require one four-state author mask. A plausible bridge requires the submitted atom-level geometry and stated cutoff/angle tests; unsupported or conditional is valid when the selected evidence says so. Never infer kinetics or population from snapshots.",
         "inference_limits": "以同一套坐标定义计算匹配z/r对的水特征；对每个水桥断言列出具体O IDs、距离、donor-H-acceptor角和Br-water接触，并提供替代解释。可以报告当前证据不足；不能把均匀选帧当作状态占比或动力学事件。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "full_frame_join_and_OPES_weights",
@@ -71,7 +71,7 @@
         "required_evidence": "Use all 8,834 rows of the source-pinned derived coordinate/COLVAR table, preserve exact frame IDs, verify the unique time join and report the predeclared instantaneous historical OPES-bias weighting. New MVP fixed baseline: native COLVAR masks use bound z<0.8 nm/r<=0.45 nm and unbound z>=1.25 nm/r<=0.45 nm; beta=1/(0.00831446261815324 kJ mol-1 K-1 * 300 K), instantaneous OPES bias only.",
         "accepted_methods": "Recompute log weights with beta=1/(R*T), max-subtract before exponentiation, and retain the funnel/upper-wall-constrained scope. Do not use RCT as the instantaneous bias.",
         "inference_limits": "This is one historical biased trajectory, not equilibrium, unconfined populations, or kinetics.",
-        "review_scope": "Per-frame joins and weights are independently recomputed; physical interpretation remains reviewed."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "state_analysis_scope_and_summary",
@@ -79,7 +79,7 @@
         "required_evidence": "Report bound-like/unbound-like/intermediate masks, weighted masses and ESS, continuous cavity-water occupancy and bridge summaries, plus burn-in sensitivity. The new versioned MVP baseline requires separately normalized burn-in windows at 0, 20,000 and 40,000 ps, plus the full 45 non-overlapping 4,000 ps blocks; additional declared sensitivities may be included.",
         "accepted_methods": "Use the public mask definitions and full-table values. If describing low/high occupancy, state the threshold; do not call cavity count zero a dry state when the source range excludes zero. These three burn-in windows and the 4,000 ps block width are explicit requirements of this new MVP version; additional methods may supplement them.",
         "inference_limits": "Weighted state log-odds are conditional finite-sample proxies, not standard-state binding free energies.",
-        "review_scope": "Declared numeric summaries are independently recomputed; conclusions about hydration remain reviewed."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "contiguous_block_statistics",

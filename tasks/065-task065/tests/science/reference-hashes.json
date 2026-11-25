@@ -1,16 +1,17 @@
 {
-  "tests/assessment-protocol.json": "18d6c380941aa17790dcf9144c444cac1f744fb55471ea68b6a2ff220ff3412b",
-  "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+  "tests/assessment-protocol.json": "8813b6cafc000f399fc52451c1c86dcaec9aa5287ce67e0cdbd7345aa16392e5",
+  "tests/diagnostic.py": "17721a49a7a38b9475b0b23534dce1904288aa93e77c8d36b90e4ceeb6d31028",
   "tests/evidence/paper.pdf": "23d079cccc85828edf430c8784a1f016845af8a05fda2ff3d4bb5df8b314dc53",
   "tests/evidence/supplementary-information.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
   "tests/g4_model_numpy.py": "a9f3ba5475d5804ae56844b89ca5a466ee63ef11fae292ac92ad0078e66f950d",
   "tests/mvp_numeric.py": "cbcdc1b88f3f83a092f82f80f10ce6cd82cc1cbe7bbe2ad88449a0299524306f",
-  "tests/numeric_evidence.py": "55768019de295940e5907956b1d28ae069b0893efb6cc8b060c27b946c2caab1",
+  "tests/numeric_evidence.py": "746928b2b315a219647716bb081f8351d880f8a1bc45bbf1db71c69505acb02c",
   "tests/refs.json": "3fe0e5f2e54b0ebf1b50d6d9f7ee51773f5a5e0dd480d9e723f227281169bf6d",
   "tests/test.sh": "f0778702f773fe6ed79835ef186de83aaa92e73dd0123974688c7a0faee79776",
   "tests/verification-plan.yaml": "0773cc97aaac3beff2039a1e1e6022a1c33c03fb572bdbf80f8db0f2c9ffb76a",
   "tests/verify.py": "2dca9f73c6e68470dac313f8a49e7804eaaf8b336ee40a5585d4e5ead60bc5c8",
-  "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+  "tests/review_status.py": "34f2c189a25c1d99b9edfdcbdfeeaeee467c5e18263d901d27e9ee947d847949",
   "tests/test_case04_cavity_summary_compat.py": "ca6e24b6a1563dd8cdde3140874b5512f409ac15fc145930dd3335ae99471d1b",
-  "environment/assets/output-contract.json": "4e089132c34b3273dd11964fee51d912119add66576a7172da739bc0429687f6"
+  "environment/assets/output-contract.json": "4e089132c34b3273dd11964fee51d912119add66576a7172da739bc0429687f6",
+  "tests/llm_judge/judge.toml": "f13bbb52843e42f0ff3936da8fbd514e47c5d45e130bb2ad0b00059d7cfbac0f"
 }

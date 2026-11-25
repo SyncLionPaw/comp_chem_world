@@ -183,7 +183,7 @@ def _replay_d07_summary(package_dir, payload, protocol, tests):
     values['thermodynamics']=thermo
     evidence={'summary_path':summary_path.relative_to(payload).as_posix(),'summary_sha256':sha(summary_path),'recomputed':values}
     hashes={'environment/assets/g4-native-traces.npz':sha(trace),'environment/assets/g4-coordinate-samples.npz':sha(coords),'environment/assets/water-model-observations.csv':sha(obs),'candidate_artifact:'+summary_path.relative_to(payload).as_posix():sha(summary_path)}
-    return {'status':'FAIL' if mismatches else 'JUDGE_REQUIRED','summary':'D07 bounded CV, matched-coordinate, six-ligand water-model and thermodynamic claims were independently recomputed; scientific adequacy and conclusions remain for review.','checked_values':{'mismatches':mismatches,'evidence':evidence},'source_hashes':hashes}
+    return {'status':'FAIL' if mismatches else 'JUDGE_REQUIRED','summary':'D07 bounded CV, matched-coordinate, six-ligand water-model and thermodynamic claims were independently recomputed; scientific adequacy and conclusions remain for the LLM scientific judge.','checked_values':{'mismatches':mismatches,'evidence':evidence},'source_hashes':hashes}
 
 def evaluate(case_id, package_dir, candidate_root, protocol, refs):
     """Evaluate numeric evidence; unsupported open criteria stay JUDGE_REQUIRED.
@@ -196,7 +196,7 @@ def evaluate(case_id, package_dir, candidate_root, protocol, refs):
     package_dir=Path(package_dir); candidate_root=Path(candidate_root)
     payload=candidate_root/'submission' if case_id=='case-06-water-model-free-energy' and (candidate_root/'submission').is_dir() else candidate_root
     criteria=[c['criterion'] for c in protocol.get('criteria',[]) if isinstance(c,dict) and c.get('necessary') is True]
-    result={name:_judge('This scientific decision needs a trusted human review.') for name in criteria}
+    result={name:_judge('This scientific decision is deferred to the LLM scientific judge.') for name in criteria}
     source_refs=refs.get('source_hashes',{}) if isinstance(refs,dict) else {}
     candidate_phase=False
     try:

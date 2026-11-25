@@ -1,0 +1,64 @@
+# LLM scientific adjudicator (Harbor RewardKit). Rubric levels; weighted-mean score.
+[judge]
+judge = "anthropic/claude-sonnet-4-5"
+files = ["/app/cv-audit.csv", "/app/validation-plan.json", "/app/decision.json", "/app/rationale.md", "/app/model-output-audit.csv", "/app/model-gradient-audit.csv"]
+guard = "penalize"
+timeout = 300
+
+[scoring]
+aggregation = "weighted-mean"
+
+[[criterion]]
+name = "trace_and_column_provenance_integrity"
+id = "trace_and_column_provenance_integrity"
+description = "Criterion `trace_and_column_provenance_integrity`. Candidate-bound provenance vs public trace-provenance metadata and duplicate-column audit limits. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Provenance missing, mismatched, or silently assumes unauditable duplicate-column equality.",
+  "Provenance partially aligned; duplicate-column / unique-column NPZ limitations incompletely disclosed.",
+  "Provenance matches public metadata including duplicate-column audit policy and states what cannot be re-audited from the unique-column NPZ.",
+]
+
+[[criterion]]
+name = "gauge_aware_pairwise_cv_comparison"
+id = "gauge_aware_pairwise_cv_comparison"
+description = "Criterion `gauge_aware_pairwise_cv_comparison`. Sign/gauge-aware pairwise CV statistics across native outputs. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Native outputs incomplete or pairwise stats ignore sign/gauge.",
+  "Pairwise stats present but gauge/sign handling or stratification incomplete.",
+  "All three native outputs used with sign/gauge-aware pairwise statistics and stratified diagnostics.",
+]
+
+[[criterion]]
+name = "independent_validation_leakage_and_bias_applicability_decision"
+id = "independent_validation_leakage_and_bias_applicability_decision"
+description = "Criterion `independent_validation_leakage_and_bias_applicability_decision`. B/U multi-trajectory validation needs vs this single biased archived trajectory. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Treats this biased single-trajectory archive as sufficient independent B/U validation.",
+  "Notes bias/leakage risks but decision on applicability is vague or inconsistent.",
+  "States author protocol needs B/U multi-trajectory data; correctly judges this biased one-trajectory record inadequate for that validation claim.",
+]
+
+[[criterion]]
+name = "published_model_forward_and_native_comparison"
+id = "published_model_forward_and_native_comparison"
+description = "Criterion `published_model_forward_and_native_comparison`. Per-row model_output vs native fits for 64×3×6 with correct s_raw/sw columns. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Wrong columns, incomplete rows, or no native vs model comparison.",
+  "Partial forward/native comparison with gaps in models, columns, or fit reporting.",
+  "Every required row uses correct model_output mapping (s_raw vs sw family) and reports native_value fits consistently.",
+]
+
+[[criterion]]
+name = "descriptor_gradient_statistics"
+id = "descriptor_gradient_statistics"
+description = "Criterion `descriptor_gradient_statistics`. d(sw)/d(d1..d12) summaries over 64 legacy descriptor frames for all three models. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Gradients missing or not tied to the fixed model export.",
+  "Some gradient summaries present but incomplete across models/frames/statistics.",
+  "Reports gradients from the fixed export and summarizes all 64 frames for all three models (e.g. median/percentiles as required).",
+]

@@ -1,13 +1,14 @@
 {
-  "tests/assessment-protocol.json": "2ab4a029c51ea03911e1ed9684497d0c19365563ef6ad7390b4ccf4037e05399",
-  "tests/diagnostic.py": "ee39103b3349dbf99a657b5b3049acfc0e4fcebe941010f2ad4739152c14e3f3",
+  "tests/assessment-protocol.json": "1d0d237cba3e76af2476380309f0ebb479d11bbf376227010fa1a41c7fe82d82",
+  "tests/diagnostic.py": "17721a49a7a38b9475b0b23534dce1904288aa93e77c8d36b90e4ceeb6d31028",
   "tests/evidence/41467_2020_20310_MOESM1_ESM.pdf": "07a947a90073cafe4bc1f5b80651246b3ec15b84c14b183ecabfc42335325f06",
   "tests/evidence/README.txt": "517a3620157e9083b76a8d1e1fec022f45ba8e5fbd0713cd1304a3e2feb12011",
   "tests/evidence/evidence-manifest.json": "fcc0d827a7e54b938b546cab9e5ce1caf0cbf020819dcb9cb628c7b0eacf48a1",
-  "tests/numeric_evidence.py": "00b0668b51417c26d147dd58ee945329c321ec2824c17790086f0c0337ae4427",
+  "tests/numeric_evidence.py": "7a3396317255ab02929abcd3cf84c748a314977ce315b92c839d56d2c39f0317",
   "tests/refs.json": "c9f6676fdde1b77b815fe315418ed9fb0d64e6153c668ce3793b267c077fc2e2",
-  "tests/review_status.py": "547a0b68728f7fbdab960c2556be38988788f72a196db172343b00ccee0971c5",
+  "tests/review_status.py": "34f2c189a25c1d99b9edfdcbdfeeaeee467c5e18263d901d27e9ee947d847949",
   "tests/test.sh": "0ae6d7fe88171c1abfbea56f980d4e8922f7412adadb0b80132082dc9dfca0ef",
-  "tests/verification-plan.yaml": "70b757cf9998f831c46dac6d7ae63cd601ccedc4e4b68a8defe3ad16422bf102",
-  "tests/verify.py": "06ea63490c66e65a78f9657dce9afeeac338b34d23280dc486b4444474e63cd7"
+  "tests/verification-plan.yaml": "685730da97bd806ccb25fd48b98ec88e30fedd7edc93f2bd315bbd05cc2a54d4",
+  "tests/verify.py": "06ea63490c66e65a78f9657dce9afeeac338b34d23280dc486b4444474e63cd7",
+  "tests/llm_judge/judge.toml": "d156cc380d5aefcb510d035896c82126868619252953ad5a1290e410ea2a6cb6"
 }

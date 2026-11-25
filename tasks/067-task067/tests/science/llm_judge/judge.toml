@@ -1,0 +1,53 @@
+# LLM scientific adjudicator (Harbor RewardKit). Rubric levels; weighted-mean score.
+[judge]
+judge = "anthropic/claude-sonnet-4-5"
+files = ["/app/submission/metrics.json", "/app/submission/per_ligand_effects.csv", "/app/submission/interpretation.json", "/app/submission/comparison-report.md", "/app/submission/provenance.json"]
+guard = "penalize"
+timeout = 300
+
+[scoring]
+aggregation = "weighted-mean"
+
+[[criterion]]
+name = "six_ligand_absolute_and_offset_error_regression_metrics"
+id = "six_ligand_absolute_and_offset_error_regression_metrics"
+description = "Criterion `six_ligand_absolute_and_offset_error_regression_metrics`. Equal-weight metrics recomputed from SI six-ligand experimental/TIP3P/TIP4P-Ew values. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Metrics missing, wrong inputs, or not recomputable from SI observations.",
+  "Metrics partially correct; equal-weight recomputation or rounded checks incomplete.",
+  "Equal-weight absolute/offset/regression metrics recomputed from the acquired six-ligand SI observations.",
+]
+
+[[criterion]]
+name = "per_ligand_water_model_shifts_and_common_offset"
+id = "per_ligand_water_model_shifts_and_common_offset"
+description = "Criterion `per_ligand_water_model_shifts_and_common_offset`. Per-ligand TIP3P vs TIP4P-Ew shifts and equal-weight mean offset. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Shifts/offset missing or inconsistent with paired values.",
+  "Some per-ligand shifts present; mean offset incomplete or misweighted.",
+  "Six paired shifts reported with a correctly equal-weight mean offset.",
+]
+
+[[criterion]]
+name = "ranking_vs_absolute_error_diagnosis"
+id = "ranking_vs_absolute_error_diagnosis"
+description = "Criterion `ranking_vs_absolute_error_diagnosis`. Kendall ranking agreement vs absolute RMSE answer different questions. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Conflates ranking agreement with absolute accuracy.",
+  "Notes both metrics but diagnosis incomplete.",
+  "Explicitly separates Kendall ranking (~0.87 both models) from differing absolute RMSE and states they answer different questions.",
+]
+
+[[criterion]]
+name = "sampling_sigma_and_causal_scope_limits"
+id = "sampling_sigma_and_causal_scope_limits"
+description = "Criterion `sampling_sigma_and_causal_scope_limits`. σ as simulation estimate only; no causal force-field/model-form claim from six ligands. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Treats σ or six-ligand gaps as causal force-field/model-form proof.",
+  "Partially limits causal claims but overreads σ or sample size.",
+  "σ described as simulation estimate uncertainty; six-ligand comparison not used to identify causal force-field or model-form error.",
+]

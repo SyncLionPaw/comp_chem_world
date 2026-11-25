@@ -27,12 +27,21 @@ network_mode = "public"
 workdir = "/app"
 
 [verifier]
-timeout_sec = 600.0
+timeout_sec = 1500.0
 environment_mode = "separate"
-network_mode = "no-network"
+network_mode = "public"
+
+[verifier.env]
+# Judge credentials are independent of the agent endpoint.
+# Prefer REWARDKIT_*; if unset, review_status falls back to ANTHROPIC_*.
+REWARDKIT_API_KEY = "${REWARDKIT_API_KEY:-}"
+REWARDKIT_BASE_URL = "${REWARDKIT_BASE_URL:-}"
+REWARDKIT_JUDGE = "${REWARDKIT_JUDGE:-anthropic/claude-sonnet-4-5}"
+ANTHROPIC_API_KEY = "${ANTHROPIC_API_KEY:-}"
+ANTHROPIC_BASE_URL = "${ANTHROPIC_BASE_URL:-}"
 
 [verifier.environment]
-network_mode = "no-network"
+network_mode = "public"
 cpus = 2
 memory_mb = 4096
 storage_mb = 10240

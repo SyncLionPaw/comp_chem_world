@@ -11,7 +11,7 @@ End users should be able to evaluate **without** rebuilding the offline archive:
 3. Clone this repo; `cd` into it.
 4. Obtain the offline archive from **AI4EC** (not in git) and place it at **`shared/inputs.tar.zst`** (only path that matters; do not unpack by hand).
 5. Ensure Docker works (`docker info`; Cgroup Version 2), then: **`uv run init`** (full restore). To restore only tasks listed in a job config: **`uv run init -s configs/local-a-selected-20.yaml`**.
-6. Put `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` in `.env` (created from `.env.example` by `init` if missing). Any Anthropic-compatible endpoint works. Change the default model in `configs/agent.yaml`, or override per run with `-m` / `--base-url` / `--api-key-name` (see README).
+6. Put `ANTHROPIC_API_KEY` and `ANTHROPIC_BASE_URL` in `.env` (created from `.env.example` by `init` if missing). Any Anthropic-compatible endpoint works. For LLM-judge tasks (062–067), also set `REWARDKIT_API_KEY` / `REWARDKIT_BASE_URL` / `REWARDKIT_JUDGE` if the judge uses a different gateway (see README). Change the default agent model in `configs/agent.yaml`, or override per run with `-m` / `--base-url` / `--api-key-name`.
 7. Run all local tasks: **`uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y`**; run HPC tasks with **`configs/hpc.yaml -c configs/agent.yaml`**.
 
 That is the supported onboarding loop. Human-oriented copy lives in `README.md`; keep both in sync when the path changes.

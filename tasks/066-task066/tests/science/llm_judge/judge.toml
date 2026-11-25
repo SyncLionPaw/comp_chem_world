@@ -1,0 +1,53 @@
+# LLM scientific adjudicator (Harbor RewardKit). Rubric levels; weighted-mean score.
+[judge]
+judge = "anthropic/claude-sonnet-4-5"
+files = ["/app/cavity-definition.json", "/app/occupancy-region-sensitivity.csv", "/app/wire-geometry.csv", "/app/bias-validity-audit.json", "/app/decision.md"]
+guard = "penalize"
+timeout = 300
+
+[scoring]
+aggregation = "weighted-mean"
+
+[[criterion]]
+name = "pbc_occupancy_region_geometry_and_sensitivity"
+id = "pbc_occupancy_region_geometry_and_sensitivity"
+description = "Criterion `pbc_occupancy_region_geometry_and_sensitivity`. Reproducible occupancy counts and region/volume sensitivity on host-aligned excerpts. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Counts not reproducible or region definition missing.",
+  "Counts present but alternative region/volume sensitivity incomplete.",
+  "Host-aligned excerpts and axis definitions support reproducible integer counts and alternative region/volume sensitivity.",
+]
+
+[[criterion]]
+name = "bias_time_join_and_historical_replay_validity"
+id = "bias_time_join_and_historical_replay_validity"
+description = "Criterion `bias_time_join_and_historical_replay_validity`. COLVAR cadence/offset and time-varying bias; historical sampling validity. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Ignores cadence/bias diagnostics or treats a final kernel as historical proof.",
+  "Some bias/time diagnostics present; historical validity incompletely argued.",
+  "Uses contiguous excerpts showing COLVAR cadence/offset and time-varying bias; does not claim historical sampling from a final kernel alone.",
+]
+
+[[criterion]]
+name = "water_wire_or_ring_graph_geometry_and_atom_level_evidence"
+id = "water_wire_or_ring_graph_geometry_and_atom_level_evidence"
+description = "Criterion `water_wire_or_ring_graph_geometry_and_atom_level_evidence`. PBC-aware O–O/H-angle graph with atom IDs, components and cycle rank. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "No atom-level wire/ring graph evidence.",
+  "Partial graph evidence missing components/cycles or atom IDs.",
+  "Bounded PBC-aware graph with real water atom IDs, edge geometry, connected components and cycle rank for both apo hosts.",
+]
+
+[[criterion]]
+name = "identifiability_of_unbiased_hydration_probability"
+id = "identifiability_of_unbiased_hydration_probability"
+description = "Criterion `identifiability_of_unbiased_hydration_probability`. Sparse biased frames cannot yield unbiased P(n) without validated weights/mask. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Promotes sample frequencies to unbiased P(n) without validated weights/mask.",
+  "Notes sparsity/bias but still overstates identifiability of unbiased hydration probability.",
+  "States alpha-shape mask absence and sparse biased observations; refuses unbiased P(n) without validated weights.",
+]

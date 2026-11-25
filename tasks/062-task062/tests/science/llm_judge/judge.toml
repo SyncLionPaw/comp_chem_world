@@ -1,0 +1,42 @@
+# LLM scientific adjudicator (Harbor RewardKit). Rubric levels; weighted-mean score.
+[judge]
+judge = "anthropic/claude-sonnet-4-5"
+files = ["/app/feature-audit.csv", "/app/geometry-check.json", "/app/decision.json", "/app/research-rationale.md"]
+guard = "penalize"
+timeout = 300
+
+[scoring]
+aggregation = "weighted-mean"
+
+[[criterion]]
+name = "coordinate_cn_units_pbc_and_closed_form_checks"
+id = "coordinate_cn_units_pbc_and_closed_form_checks"
+description = "Criterion `coordinate_cn_units_pbc_and_closed_form_checks`. Coordinate CNs, units, PBC and closed-form checks from real uniformly selected frames with explicit atom IDs/box vectors. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Missing or non-recomputable geometry/CN evidence; units/PBC/closed-form or lattice-translation checks absent or wrong.",
+  "Partial recomputation or incomplete units/PBC/closed-form documentation; key checks missing or inconsistently cited.",
+  "Cited evidence supports recomputing switching CNs with correct units/PBC; closed-form distances and lattice-translation invariance are recorded.",
+]
+
+[[criterion]]
+name = "matched_z_water_feature_complementarity_and_selection"
+id = "matched_z_water_feature_complementarity_and_selection"
+description = "Criterion `matched_z_water_feature_complementarity_and_selection`. Matched-z water feature contrast and justified feature selection among L1–L4 / V1–V8. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "No valid z/r-matched frame pair (0.02 nm) with V1–V8 CN contrast, or feature choice lacks evidence.",
+  "Pair or feature discussion present but matching tolerance, CN contrast, or redundancy/support limits incomplete.",
+  "Reports a real pair matched within 0.02 nm in z and radius in the bound-like z range with differing V1–V8 CN; feature families compared with explicit support limits.",
+]
+
+[[criterion]]
+name = "sampling_scope_and_validation_boundary"
+id = "sampling_scope_and_validation_boundary"
+description = "Criterion `sampling_scope_and_validation_boundary`. B/U training-design scope vs this sparse biased excerpt; no overclaim of equilibrium/CV optimality/causality. Assign the single best-fitting rubric level. Prefer lower levels when evidence is missing, uncited, or contradictory."
+type = "rubric"
+levels = [
+  "Ignores training-design.json or claims equilibrium frequencies, CV optimality, causality, or generalization from this excerpt.",
+  "Mentions some limits but understates the B/U protocol gap or leaves overclaims partially intact.",
+  "Uses source-hashed training-design.json to state the reported B/U protocol; clearly states this biased excerpt cannot establish equilibrium frequencies, CV optimality, or causal importance, and names held-out evidence still required.",
+]

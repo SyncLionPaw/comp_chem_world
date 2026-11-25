@@ -47,7 +47,7 @@
         "required_evidence": "A fixed reproducible baseline is derived from the complete acquired one-replica record; the global numerical result was independently cross-checked.",
         "accepted_methods": "Fixed baseline values are checked numerically. Accept more than one sensitivity protocol if it is predeclared, correctly recomputed, and conclusions respect one-replica/time-correlation limits. No full paper-reproduction claim.",
         "inference_limits": "按baseline protocol输出固定FES/ΔG，再改变一个合理分析选择重算敏感性。给出粗略用途、精度边界和下一步采样/停止决定；不能以接近paper数字代替收敛论证。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "burnin_or_window_sensitivity_and_sampling_decision",
@@ -55,7 +55,7 @@
         "required_evidence": "At least one predeclared non-baseline burn-in, bin-count, or time-window sensitivity is independently recomputed; report block/frame ESS and one-replica/time-correlation limits. The trusted 10ns example is illustrative, not a required variant; similarity to a paper number alone does not establish convergence.",
         "accepted_methods": "Fixed baseline values are checked numerically. Accept more than one sensitivity protocol if it is predeclared, correctly recomputed, and conclusions respect one-replica/time-correlation limits. No full paper-reproduction claim.",
         "inference_limits": "按baseline protocol输出固定FES/ΔG，再改变一个合理分析选择重算敏感性。给出粗略用途、精度边界和下一步采样/停止决定；不能以接近paper数字代替收敛论证。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "units_scope_and_uncertainty_accounting",
@@ -63,7 +63,7 @@
         "required_evidence": "Native PLUMED units resolve the prose typo; the acquired record is one 176.7ns replica, not the full published multi-CV/multi-walker analysis.",
         "accepted_methods": "Fixed baseline values are checked numerically. Accept more than one sensitivity protocol if it is predeclared, correctly recomputed, and conclusions respect one-replica/time-correlation limits. No full paper-reproduction claim.",
         "inference_limits": "按baseline protocol输出固定FES/ΔG，再改变一个合理分析选择重算敏感性。给出粗略用途、精度边界和下一步采样/停止决定；不能以接近paper数字代替收敛论证。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       }
     ]
   },

@@ -166,10 +166,10 @@ def run(app, tests):
         if nstatus=='INFRA': raise RuntimeError('independent trusted numeric computation failed: '+json.dumps(numeric_result,ensure_ascii=False))
         if nstatus not in ('FAIL','NEEDS_JUDGE','PASS'): raise RuntimeError('numeric evidence returned invalid status')
         checks.append({'criterion':'independent_numeric_evidence','passed':nstatus!='FAIL','result':numeric_result})
-    # Open scientific decisions remain pending independent review after runtime integration.
+    # Open scientific decisions are adjudicated by the LLM scientific judge after runtime integration.
     return {'status':'REVIEW_REQUIRED' if all(c['passed'] for c in checks) else 'FAIL','checks':checks,
             'numeric_evidence':numeric_result,
-            'scope':'delivery diagnostics; existing fixed numeric checks where defined; scientific criteria require trusted review'}
+            'scope':'delivery diagnostics; existing fixed numeric checks where defined; scientific criteria are adjudicated by the LLM scientific judge'}
 if __name__=='__main__':
     a=argparse.ArgumentParser();a.add_argument('--submission',type=Path,required=True);args=a.parse_args()
     try:

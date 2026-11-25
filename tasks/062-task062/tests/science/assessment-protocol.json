@@ -38,7 +38,7 @@
         "required_evidence": "Real uniformly selected coordinates and explicit atom IDs/box vectors support recomputing switching CNs; closed-form test distances and lattice-translation invariance are recorded in the derived reference.",
         "accepted_methods": "Accept equivalent feature selections when they are supported by same-coordinate measurements, explicit criteria, and accurate sampling limitations; no single hidden ranking is required.",
         "inference_limits": "按`geometry-method.md`重算抽查坐标特征；阅读`training-design.json`概述公开的B/U训练设计和缺失的原始验证数据；以同一坐标定义的z/r配对和敏感性支持特征选择。样本均匀覆盖存档时间，但仍来自单条偏置轨迹，不用于平衡频率。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "matched_z_water_feature_complementarity_and_selection",
@@ -46,7 +46,7 @@
         "required_evidence": "A real frame pair is matched within 0.02 nm in coordinate z and radius in the bound-like z range while V1–V8 CN differs; compare feature families and explain support limits. Multiple reasonable feature subsets are acceptable.",
         "accepted_methods": "Accept equivalent feature selections when they are supported by same-coordinate measurements, explicit criteria, and accurate sampling limitations; no single hidden ranking is required.",
         "inference_limits": "按`geometry-method.md`重算抽查坐标特征；阅读`training-design.json`概述公开的B/U训练设计和缺失的原始验证数据；以同一坐标定义的z/r配对和敏感性支持特征选择。样本均匀覆盖存档时间，但仍来自单条偏置轨迹，不用于平衡频率。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       },
       {
         "criterion": "sampling_scope_and_validation_boundary",
@@ -54,7 +54,7 @@
         "required_evidence": "Use the mounted, source-hashed training-design.json to describe the reported B/U state protocol and its limits. The sparse biased excerpt is not those ten training trajectories and cannot establish equilibrium frequencies, CV optimality, or causal importance; the underlying trajectories, labels, weights and held-out results are unavailable.",
         "accepted_methods": "Accept equivalent feature selections when they are supported by same-coordinate measurements, explicit criteria, and accurate sampling limitations; no single hidden ranking is required.",
         "inference_limits": "按`geometry-method.md`重算抽查坐标特征；阅读`training-design.json`概述公开的B/U训练设计和缺失的原始验证数据；以同一坐标定义的z/r配对和敏感性支持特征选择。样本均匀覆盖存档时间，但仍来自单条偏置轨迹，不用于平衡频率。",
-        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are reviewed from the cited candidate evidence and public source records."
+        "review_scope": "Numerical claims are independently recomputed where supported; open scientific conclusions are adjudicated by the LLM scientific judge from the cited candidate evidence and public source records."
       }
     ]
   },
