@@ -106,42 +106,7 @@ uv run harbor run --dry-run -c configs/local.yaml -c configs/agent.yaml --env-fi
 
 ### LLM scientific judge（062–067）
 
-部分原 `REVIEW_REQUIRED` 任务用 Harbor **RewardKit** LLM judge 做科学终裁（`all-pass` → `reward=1`，否则 `0`）。Judge 跑在 **separate verifier** 里，凭证与 agent **可以分开**。
-
-在 `.env` 中配置（模板见 `.env.example`）：
-
-```bash
-# Agent（做题）
-ANTHROPIC_API_KEY=...
-ANTHROPIC_BASE_URL=https://your-agent-gateway.example/llm
-
-# Judge（打分；可与 agent 不同网关 / 不同 key）
-REWARDKIT_API_KEY=...
-REWARDKIT_BASE_URL=https://your-judge-gateway.example/llm
-REWARDKIT_JUDGE=anthropic/claude-sonnet-5-5
-```
-
-要点：
-
-1. Harbor 通过各题 `task.toml` 的 `[verifier.env]` 把上述变量注入 verifier；跑 job 时仍加 `--env-file .env`。
-2. 若只填了 `ANTHROPIC_*`、未填 `REWARDKIT_*`，judge **回退**使用 `ANTHROPIC_*`（同一网关）。
-3. `REWARDKIT_JUDGE` 必须是该 `REWARDKIT_BASE_URL` 上 `/v1/models` 里真实存在的模型 id（LiteLLM 写法，如 `anthropic/<model-id>`）。科学审题建议 ≥ Sonnet；Haiku 偏弱。
-4. 缺 key 时 verifier 报 `INFRA_ERROR`（不会静默给 PASS）。
-
-**提示词在哪、严不严**
-
-| 层 | 位置 | 作用 |
-|----|------|------|
-| 系统提示（通用） | RewardKit 包内 `rewardkit/prompts/llm.md`：`You are an evaluation judge. Evaluate … against the following criteria.` | 几乎不设宽严，只要求按 criteria 评 |
-| 防注入 | `guard = "penalize"`（各题 `tests/science/llm_judge/judge.toml`） | 发现提交物里的评分指令则整题 0 |
-| 科学准则（真正定宽严） | 同目录 `[[criterion]] description = "..."` | 注入到 `{criteria}`；`type = "binary"` + 根 `[scoring] aggregation = "all-pass"` |
-
-062–067 现为 `type = "rubric"` + `weighted-mean`：**允许部分分数**，连续分（0–1）写入 `reward.txt`；judge 成功即 `PASS`（结构检查失败仍为 `FAIL`/0）。宽严主要看 **rubric levels / criterion 文案**：
-
-- 偏严：`Grade PASS only if … with cited evidence; otherwise FAIL`、要求具体数值/哈希/匹配容差。
-- 偏松：协议里的 `Accept equivalent …`、`no single hidden ranking is required`、允许多种合理特征子集。
-
-改宽严：编辑该题 `tests/science/llm_judge/judge.toml` 的 `description`（或从 `assessment-protocol.json` 的 scientific criteria 重新生成），不必改 RewardKit 系统提示。可选 `prompt_template = "....md"` 覆盖系统提示（须含 `{criteria}`）。打分明细在 trial 的 `reward-details.json` / Verifier Logs。
+部分原 `REVIEW_REQUIRED` 任务用 Harbor **RewardKit** LLM judge 做科学终裁。Judge 在 **separate verifier** 里跑，凭证可与 agent 分开。打分为 `rubric` + `weighted-mean`（0–1 部分分写入 `reward.txt`）。配置见下方「更新说明」，细则与提示词说明见文末同名小节。
 
 ## 资源包
 
@@ -194,3 +159,43 @@ configs/               # Harbor job 配置（任务集 + agent.yaml）
 - 磁盘建议预留数十 GB（镜像 + 解包物料）。
 - 缺少 `compchembench-connectivity:hpc` 时，只有 HPC 配置里的任务会失败，local 不受影响。构建：填好 `images/connectivity/hpc.toml` 后执行 `bash images/connectivity/build.sh`。镜像只烘焙 SSH（alias `hpc`）和 `/app/AGENTS.md`；agent 用 SSH 自探集群，作业目录须唯一且勿扫登录节点其它路径。
 - 仓库约定与维护细节见 [`AGENTS.md`](AGENTS.md)。
+
+## 更新说明：LLM scientific judge（062–067）
+
+**不用换** `shared/inputs.tar.zst`。`git pull` 后只多配 judge 凭证即可。
+
+### 新人 / 已有环境要做什么
+
+1. `git pull`（或重新 clone）拿到 062–067 的 RewardKit judge 改动。
+2. 编辑 `.env`（可由 `uv run init` 从 `.env.example` 生成）：
+
+```bash
+# Agent（做题）— 原有
+ANTHROPIC_API_KEY=...
+ANTHROPIC_BASE_URL=https://your-agent-gateway.example/llm
+
+# Judge（打分）— 新增；可与 agent 不同网关
+# 若省略 REWARDKIT_API_KEY / REWARDKIT_BASE_URL，会回退用上面的 ANTHROPIC_*
+REWARDKIT_API_KEY=...
+REWARDKIT_BASE_URL=https://your-judge-gateway.example/llm
+REWARDKIT_JUDGE=anthropic/claude-sonnet-5-5
+```
+
+3. 照常跑（务必带 `--env-file .env`）：
+
+```bash
+uv run harbor run -c configs/local.yaml -c configs/agent.yaml --env-file .env -y
+```
+
+4. 跑到 062–067 时，verifier 需要能出网（`uvx` 拉 `harbor-rewardkit` + 调 judge API）。缺 key / 模型 id 不对会 `INFRA_ERROR`，不会假 PASS。
+5. `REWARDKIT_JUDGE` 必须是该网关 `/v1/models` 里真实存在的 id（LiteLLM 写法 `anthropic/<model-id>`）。科学审题建议 ≥ Sonnet。
+
+### 提示词与部分分
+
+| 层 | 位置 | 作用 |
+|----|------|------|
+| 系统提示 | RewardKit `rewardkit/prompts/llm.md` | 通用评委口吻，几乎不定宽严 |
+| 防注入 | 各题 `tests/science/llm_judge/judge.toml` 的 `guard = "penalize"` | 提交物里塞评分指令 → 0 |
+| 科学准则 | 同文件 `[[criterion]]`（`type = "rubric"`） | 真正定宽严；`weighted-mean` 得到 0–1 连续分 |
+
+结构检查失败仍是 `FAIL`/0；judge 成功则 `PASS` 且 `reward.txt` 为部分分。明细见 trial 的 `reward-details.json` / Verifier Logs。改宽严只改该题 `judge.toml` 的 rubric levels / description 即可。
