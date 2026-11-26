@@ -30,6 +30,8 @@ shared/asset-store.tar.xz.tmp
 # Vendored into images/base by build.sh when missing
 images/base/uv
 images/base/uv.arch
+images/base/codex.tgz
+images/base/codex.stamp
 
 # Harbor job outputs
 jobs/
@@ -40,4 +42,7 @@ jobs/
 # Local / generated
 .DS_Store
 output/
+result/
 tmp/
+skills_/
+compchemworld-score.zip

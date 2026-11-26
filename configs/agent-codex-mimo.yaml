@@ -1,0 +1,19 @@
+# Codex harness + MiMo v2.6 Flash (OpenAI-compatible gateway).
+# Compose with a task config, e.g.:
+#   uv run harbor run -c configs/local-a-selected-20.yaml \
+#     -c configs/agent-codex-mimo.yaml --env-file .env -y
+#
+# Credentials: OPENAI_API_KEY + OPENAI_BASE_URL in .env
+# (LiteLLM OpenAI surface, e.g. https://chenglab.xmu.edu.cn/llm/v1).
+#
+# kwargs.version must match CODEX_VERSION in images/build.sh so Harbor reuses
+# the preinstalled /usr/local/bin/codex (no nvm/npm install per trial).
+
+agents:
+  - name: codex
+    model_name: openai/mimo-v2.6-flash
+    model_api_key_name: OPENAI_API_KEY
+    kwargs:
+      version: "0.172.0"
+      # Binary is baked into comp-chem-world-base; skip nvm/npm/apt install.
+      skip_install: true
