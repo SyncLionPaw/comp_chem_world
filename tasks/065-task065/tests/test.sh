@@ -40,6 +40,9 @@ elif status == 'PASS':
 elif status == 'FAIL':
     (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=1
 else:
-    (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=2
+    # Infra / pending: leave reward unset rather than scoring a model 0.
+    (logs/'reward.txt').unlink(missing_ok=True)
+    (logs/'reward.json').write_text('{"infra_or_pending": 1, "reward": null}\n', encoding='ascii')
+    code=2
 raise SystemExit(code)
 PY

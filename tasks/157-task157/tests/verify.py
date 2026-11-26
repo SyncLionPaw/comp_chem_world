@@ -146,24 +146,46 @@ def verify(root,refdir,refs):
  if set(cleaved_inputs)!=set(ORIENTATIONS):raise EnvironmentFailure("public cleaved-only input is malformed")
  byfile={};audit=read_csv(out/"orientation_audit.csv",HEADERS["orientation_audit.csv"])
  if len(audit)!=35:raise ScienceFailure("orientation_audit must contain all 35 slabs")
+ def parse_cell_vectors(text, ctx):
+  raw=(text or "").strip()
+  try:
+   cell=json.loads(raw)
+  except Exception:
+   # Accept semicolon-separated rows of three floats.
+   rows=[]
+   for part in raw.replace("|",";").split(";"):
+    part=part.strip()
+    if not part: continue
+    vals=[float(x) for x in part.replace(",", " ").split()]
+    if len(vals)!=3: raise ScienceFailure(f"{ctx}: cell_vectors_A must be a 3x3 matrix")
+    rows.append(vals)
+   if len(rows)!=3: raise ScienceFailure(f"{ctx}: cell_vectors_A must be a 3x3 matrix")
+   cell=rows
+  if not isinstance(cell,(list,tuple)) or len(cell)!=3: raise ScienceFailure(f"{ctx}: cell_vectors_A must be a 3x3 matrix")
+  return cell
+
  for row in audit:
   o=row["orientation"];fn=row["slab_file"]
   if o not in ORIENTATIONS:raise ScienceFailure(f"unknown orientation {o}")
-  path=input_root/f"surfaces/alpha_quartz/{o}/{fn}"
+  # Allow filenames that already include the orientation directory prefix.
+  fn_name=Path(fn).name
+  path=input_root/f"surfaces/alpha_quartz/{o}/{fn_name}"
+  if not path.is_file():
+   alt=input_root/f"surfaces/alpha_quartz/{fn}"
+   path=alt if alt.is_file() else path
   if not path.is_file():raise ScienceFailure(f"audit names unknown slab {o}/{fn}")
-  if (o,fn) in byfile:raise ScienceFailure(f"duplicate slab audit row {o}/{fn}")
-  data=parse_xyz(path);ctx=f"{o}/{fn}"
+  if (o,fn_name) in byfile:raise ScienceFailure(f"duplicate slab audit row {o}/{fn_name}")
+  data=parse_xyz(path);ctx=f"{o}/{fn_name}"
   for k,v in (("N_atoms",data["N"]),("N_Si",data["Si"]),("N_O",data["O"])):
    if integer(row,k,ctx)!=v:raise ScienceFailure(f"{ctx}: {k} differs from input")
   if data["Si"]*2!=data["O"] or data["Si"]+data["O"]!=data["N"]:raise ScienceFailure(f"{ctx}: slab must be stoichiometric SiO2")
   close(num(row,"area_A2",ctx),data["area"],refs["geometry_area_tolerance_A2"],ctx+" surface area")
   close(num(row,"atomic_span_A",ctx),data["span"],refs["geometry_span_tolerance_A"],ctx+" atomic thickness")
-  try:cell=json.loads(row["cell_vectors_A"])
-  except Exception as e:raise ScienceFailure(f"{ctx}: cell_vectors_A must be a JSON array") from e
+  cell=parse_cell_vectors(row["cell_vectors_A"], ctx)
   for i in range(3):
    for j in range(3):close(float(cell[i][j]),data["cell"][i][j],refs["cell_vector_tolerance_A"],ctx+" cell vector")
   if row["stoichiometry"]!="Si:O=1:2" or not row["geometry_note"].strip():raise ScienceFailure(f"{ctx}: geometry/stochiometry interpretation missing")
-  byfile[(o,fn)]=data
+  byfile[(o,fn_name)]=data
  if set(o for o,_ in byfile)!=set(ORIENTATIONS):raise ScienceFailure("all five orientations must be audited")
  expected_counts={"001":4,"011":9,"100_alpha":7,"100_beta":6,"101":9}
  for o,c in expected_counts.items():

@@ -77,7 +77,8 @@ def normalize_arm(raw, paired=False):
         raise CandidateProtocolError("model_spec arm must be an object")
     result = deepcopy(raw)
     allowed_arm = {"matrix_file", "feature_columns", "estimator", "preprocessing", "target_transform",
-                   "seed", "cv", "cv_folds", "cv_folds_source", "budget", "seed_policy", "tie_break", "description", "note"}
+                   "seed", "cv", "cv_folds", "cv_folds_source", "budget", "seed_policy", "tie_break",
+                   "description", "note", "selection", "rationale", "comment", "comments"}
     extra_arm = set(result) - allowed_arm
     if extra_arm:
         raise ReviewRequired(f"unsupported model arm options: {sorted(extra_arm)}")

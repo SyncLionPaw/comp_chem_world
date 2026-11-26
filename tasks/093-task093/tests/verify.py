@@ -224,7 +224,7 @@ def has_zero_derivative_condition(text: str, order: int) -> bool:
     normalized = _normalize_derivative_notation(text)
     prime = "'" * order
     atom = rf"(?<![A-Za-z0-9])P1\s*{re.escape(prime)}(?!')"
-    endpoint = r"(?:\s*\(\s*(?:z\s*=\s*)?(?:0|L)\s*\))?"
+    endpoint = r"(?:\s*\(\s*(?:z\s*=\s*)?(?:0|L|zL|zR|z_L|z_R|z\{L\}|z\{R\}|left|right)\s*\))?"
     zero = r"\s*=\s*0(?:\.0+)?(?=$|[^0-9.]|\.(?!\d))"
     return re.search(atom + endpoint + zero, normalized) is not None
 

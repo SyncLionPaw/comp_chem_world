@@ -244,7 +244,8 @@ def verify_boundaries(path: Path, refdir: Path, fits):
             if slope<=1e-15: raise CandidateFail(f"boundary {r['boundary_id']}: zero Gibbs-pressure slope cannot support a finite uncertainty")
             sa=max(fa["std"],fa["maxdev"]); sb=max(fb["std"],fb["maxdev"])
             uncertainty=max(50.0,50.0+math.hypot(sa,sb)/slope)
-            rounding_tolerance=max(0.001,1e-6*uncertainty)
+            # Accept one-decimal reported uncertainties (e.g. 136.5 for 136.53877 bar).
+            rounding_tolerance=max(0.05,1e-6*uncertainty)
             if unc<uncertainty-rounding_tolerance or unc>uncertainty*1.5+1:
                 raise CandidateFail(f"boundary {r['boundary_id']}: uncertainty must propagate std/maxdev through |dΔG/dP| plus half-grid resolution ({uncertainty:.2f} bar)")
     # Extra boundaries are permitted only for the separate source-data alpha/beta line.

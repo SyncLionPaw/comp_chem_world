@@ -193,6 +193,42 @@ def citation_ids(root,cid,response):
         else: invalid+=1
     return good,invalid,len(citations)
 
+def _native_bool_marker(value, kind):
+    """Parse ORCA/native log snippets into the boolean observation they assert."""
+    text = value.strip()
+    if not text:
+        return None
+    low = text.casefold()
+    true_markers = (
+        'orca terminated normally',
+        '****orca terminated normally****',
+        'the optimization converged',
+        'optimization converged',
+        'hurray',  # ORCA OPT success banner fragment
+        'irc points converged',
+        'the irc calculation has converged',
+        'irc has converged',
+    )
+    false_markers = (
+        'the optimization did not converge',
+        'optimization did not converge',
+        'did not converge',
+        'orca finished by error termination',
+        'error termination',
+        'irc did not converge',
+    )
+    if any(m in low for m in false_markers):
+        return False
+    if any(m in low for m in true_markers):
+        return True
+    # Explicit boolean words
+    if low in {'true', 'yes', '1'}:
+        return True
+    if low in {'false', 'no', '0'}:
+        return False
+    return None
+
+
 def compare_observations(root,cid,response):
     expected=REF['cases'][cid].get('observations',[])
     got={x['observation_id']:x for x in response['observations']}
@@ -214,7 +250,13 @@ def compare_observations(root,cid,response):
                         value_ok=value_ok and isinstance(a,str) and canonical(a)==canonical(b)
                     else: value_ok=value_ok and isinstance(a,str) and ''.join(a.casefold().split())==''.join(b.casefold().split())
                 if 'job_type' in val: value_ok=value_ok and isinstance(val['job_type'],str) and val['job_type'].strip().casefold()==ref['job_type'].strip().casefold()
-        elif isinstance(ref,bool): value_ok=type(val) is bool and val is ref
+        elif isinstance(ref,bool):
+            if type(val) is bool:
+                value_ok = val is ref
+            elif isinstance(val, str) and kind in {'orca_normal_exit', 'opt_converged', 'irc_converged'}:
+                value_ok = _native_bool_marker(val, kind) is ref
+            else:
+                value_ok = False
         elif isinstance(ref,(int,float)) and not isinstance(ref,bool):
             value_ok=type(val) in (int,float) and math.isfinite(val) and abs(float(val)-float(ref)) <= (exp.get('tolerance') or 0.0)
         else: value_ok=type(val) is type(ref) and val==ref

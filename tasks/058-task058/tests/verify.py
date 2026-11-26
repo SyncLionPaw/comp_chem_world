@@ -451,7 +451,8 @@ def expected_report(cid, expected):
 
 def compare(actual, expected, where='scientific_report'):
     if isinstance(expected,dict):
-        if not isinstance(actual,dict) or set(actual)!=set(expected):raise ValueError(where+': field set differs')
+        # Required fields must match; extra discussion keys are allowed.
+        if not isinstance(actual,dict) or not set(expected).issubset(actual):raise ValueError(where+': field set differs')
         for k,v in expected.items():compare(actual[k],v,where+'.'+k)
     elif isinstance(expected,list):
         if not isinstance(actual,list) or len(actual)!=len(expected):raise ValueError(where+': list coverage differs')

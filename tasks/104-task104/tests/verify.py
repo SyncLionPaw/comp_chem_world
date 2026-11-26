@@ -185,6 +185,17 @@ def shape_delta(reference: dict, submitted: dict) -> float:
 
 
 def match_composition(submitted, reference: list[dict]) -> tuple[bool, str]:
+    # Accept either a list of spectrum objects or a site-ID-keyed mapping.
+    if isinstance(submitted, dict) and submitted:
+        normalized = []
+        for site, payload in submitted.items():
+            if isinstance(payload, dict):
+                item = dict(payload)
+                item.setdefault("site", str(site))
+            else:
+                return False, "spectra mapping values must be objects"
+            normalized.append(item)
+        submitted = normalized
     if not isinstance(submitted, list) or not submitted:
         return False, "spectra entry must be a non-empty list"
     by_site = {}

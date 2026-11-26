@@ -3,7 +3,7 @@
     "assets/kinetics.json": "sha256:88aefc2c5dfdf8667e58bf3f1e9d37768f1921008344d5ecfb5077da4457596d"
   },
   "source_documents": {
-    "docs/Qin 等 - 2023 - Cation-induced changes in the inner- and outer-sphere mechanisms of electrocatalytic CO2 reduction.pdf": "9e7f9ba697b03e58932666bcece864599f17f77512d5754de392fa9a501639e9",
+    "docs/Qin \u7b49 - 2023 - Cation-induced changes in the inner- and outer-sphere mechanisms of electrocatalytic CO2 reduction.pdf": "9e7f9ba697b03e58932666bcece864599f17f77512d5754de392fa9a501639e9",
     "docs/41467_2023_43300_MOESM1_ESM.pdf": "06557bce238f7ca373646a992cf8d087126852eb5ab4817ad3ace698f533cfb9"
   },
   "runtime_bound": true,
@@ -17,7 +17,7 @@
   ],
   "case_id": "case-03-potential",
   "evidence_files": {
-    "verify.py": "965ddad7aba9df490467306b1915d31fa4d828fa9b02fe4425726ac5454622ac"
+    "verify.py": "2cd8a3a970e88b6cc4812ec9e3ae18d11839de298f4a7cec27e5251ca6787bb3"
   },
   "reference": {
     "numeric": {

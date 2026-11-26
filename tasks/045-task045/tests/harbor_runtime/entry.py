@@ -121,13 +121,10 @@ def main():
                           review={'reason': 'Independent review is unavailable, inconclusive or invalid; see review-error.json.'})
     write_json(logs / 'verification.json', report)
     if reward is None:
-        # Unresolved REVIEW / pending states: emit 0 so Harbor records a score
-        # instead of RewardFileNotFoundError (truthful eval, not agent capability).
-        report = dict(report, reward=0)
-        write_json(logs / 'verification.json', report)
-        reward_path.write_text('0\n')
-        reward_path.chmod(0o600)
-        print('REVIEW_REQUIRED: independent scientific review remains unresolved; reward=0')
+        # Pending review is unscored: do not write a model failure reward.
+        reward_path.unlink(missing_ok=True)
+        write_json(logs / 'reward.json', {'review_required': 1, 'reward': None})
+        print('REVIEW_REQUIRED: independent scientific review remains unresolved; no score')
         return 0
     reward_path.write_text(f'{reward}\n')
     reward_path.chmod(0o600)
@@ -142,11 +139,11 @@ if __name__ == '__main__':
         logs = Path(os.environ.get('LOGS', '/logs/verifier'))
         if not logs.is_symlink():
             logs.mkdir(parents=True, exist_ok=True)
-            write_json(logs / 'harbor-error.json', {'status': 'INFRA_ERROR', 'reward': 0,
+            write_json(logs / 'harbor-error.json', {'status': 'INFRA_ERROR', 'reward': None,
                        'error': f'{type(exc).__name__}: {exc}'})
-            (logs / 'reward.txt').write_text('0\n')
-            (logs / 'reward.txt').chmod(0o600)
-        print('INFRA_ERROR: see harbor-error.json; reward=0', file=sys.stderr)
+            (logs / 'reward.txt').unlink(missing_ok=True)
+            write_json(logs / 'reward.json', {'infra_error': 1, 'reward': None})
+        print('INFRA_ERROR: see harbor-error.json; no score', file=sys.stderr)
         raise SystemExit(2)
 
     finally:

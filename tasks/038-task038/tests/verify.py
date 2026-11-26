@@ -16,7 +16,9 @@ def _grade_entry():
     logs = Path(os.environ.get('LOGS', '/logs/verifier'))
     logs.mkdir(parents=True, exist_ok=True)
     reward_file = logs / 'reward.txt'
+    pending_metrics = logs / 'reward.json'
     reward_file.unlink(missing_ok=True)
+    pending_metrics.unlink(missing_ok=True)
     report_file = logs / 'verification.json'
     report_file.unlink(missing_ok=True)
     try:
@@ -38,19 +40,23 @@ def _grade_entry():
             return proc.returncode
         if status == 'REVIEW_REQUIRED' and proc.returncode == 2 and ('reward' not in result):
             report_file.write_text(json.dumps(result, ensure_ascii=False) + '\n')
-            reward_file.write_text('0\n')
+            pending_metrics.write_text(json.dumps({'review_required': 1}) + '\n')
             print(json.dumps(result, ensure_ascii=False))
             return 0
         elif status == 'ENVIRONMENT_ERROR' and proc.returncode == 2 and ('reward' not in result):
             result = {**result, 'scientific_status': status, 'status': 'ENV_INVALID'}
+            report_file.write_text(json.dumps(result, ensure_ascii=False) + '\n')
+            pending_metrics.write_text(json.dumps({'env_invalid': 1, 'reward': None}) + '\n')
+            print(json.dumps(result, ensure_ascii=False))
+            return 2
         else:
             raise ValueError('unknown/inconsistent verifier status or exit code')
     except Exception as exc:
         result = {'status': 'ENV_INVALID', 'error': type(exc).__name__ + ': ' + str(exc)}
     report_file.write_text(json.dumps(result, ensure_ascii=False) + '\n')
-    reward_file.write_text('0\n')
+    pending_metrics.write_text(json.dumps({'env_invalid': 1, 'reward': None}) + '\n')
     print(json.dumps(result, ensure_ascii=False))
-    return 0
+    return 2
 if __name__ == '__main__' and sys.argv[1:] == ['--grade']:
     raise SystemExit(_grade_entry())
 'Structured local scientific verification in portable and CompChemBench layouts.'

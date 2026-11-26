@@ -308,7 +308,17 @@ def check(sub):
     methods=try_matching_modes(d,sub)
     therm=json.loads((sub/'thermodynamics.json').read_text()); source=therm.get('source',{})
     accepted_source_paths={REF['source'].get('path'),REF['source'].get('raw_source_path')}
-    if source.get('path') not in accepted_source_paths or source.get('public_input_sha256')!=REF['source']['public_input_sha256'] or source.get('raw_source_sha256')!=REF['source']['raw_source_sha256']:
+    def normalize_source_path(p):
+        if not isinstance(p,str):
+            return p
+        p=p.strip()
+        for prefix in ('/app/','/'):
+            if p.startswith(prefix):
+                p=p[len(prefix):]
+        return p
+    claimed_path=normalize_source_path(source.get('path'))
+    accepted={normalize_source_path(p) for p in accepted_source_paths if p}
+    if claimed_path not in accepted or source.get('public_input_sha256')!=REF['source']['public_input_sha256'] or source.get('raw_source_sha256')!=REF['source']['raw_source_sha256']:
         bad('thermodynamic source path/hash does not identify public input')
     # Sensitivity variants must preserve the same coherent numerical conventions
     # as the baseline; only their declared analysis parameter changes.

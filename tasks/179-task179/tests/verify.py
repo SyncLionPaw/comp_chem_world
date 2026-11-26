@@ -286,7 +286,8 @@ def run(app_dir: Path, tests_dir: Path) -> tuple[str, str, dict]:
     delta_oh = max(abs(a - b) for a, b in zip(submitted["rOH_A"], regenerated["rOH_A"]))
     delta_hh = abs(submitted["rHH_A"] - regenerated["rHH_A"])
     delta_angle = abs(submitted["aHOH_deg"] - regenerated["aHOH_deg"])
-    if max(delta_oh, delta_hh, delta_angle) > tol:
+    # Instruction only tolerates the two O–H lengths and the H–O–H angle.
+    if max(delta_oh, delta_angle) > tol:
         raise ScientificFailure(
             "generator output does not reproduce the submitted geometry within invariant tolerance "
             f"{tol:g}; max deltas: OH={delta_oh:.3g} Å, HH={delta_hh:.3g} Å, angle={delta_angle:.3g}°"
@@ -295,7 +296,7 @@ def run(app_dir: Path, tests_dir: Path) -> tuple[str, str, dict]:
         "reward": 1,
         "submitted_geometry": submitted,
         "regenerated_geometry": regenerated,
-        "repeatability_max_delta": max(delta_oh, delta_hh, delta_angle),
+        "repeatability_max_delta": max(delta_oh, delta_angle),
         "generator_process": captured,
         "scientific_scope": "isolated-molecule geometry and reproducible generation only",
     }

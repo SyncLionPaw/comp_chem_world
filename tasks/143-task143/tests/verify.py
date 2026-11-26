@@ -495,7 +495,9 @@ def replay_path_step(forces,previous_force,previous_direction,old_energy,deltas,
         work=float(np.sum(forces*delta)); threshold=float(old_energy)-min(REFS["thresholds"]["armijo_absolute_eV"],REFS["thresholds"]["armijo_relative_work"]*work)
         if kind=="rejected_trial" and energy<=threshold+REFS["tolerances"]["armijo_energy_abs_eV"]:raise ScientificFailure("rejected trial satisfies Armijo acceptance condition")
         if kind=="accepted_trial" and energy>threshold+REFS["tolerances"]["armijo_energy_abs_eV"]:raise ScientificFailure("accepted trial fails Armijo acceptance condition")
-    return search,forces.copy(),search*(.5**(len(deltas)-1))
+    # Protocol: halve only the current trial displacement after rejection.
+    # The next PR+ step reuses the unscaled search direction, not the accepted scale.
+    return search,forces.copy(),search
 def xyz_preflight(path,expected_symbols,max_frames):
     """Validate every XYZ record before ASE sees attacker-controlled atom counts."""
     frames=0

@@ -92,8 +92,9 @@ def _normalize_region_definition(definition):
     center=d.get('center_or_axis_nm',d.get('axis_center_nm'))
     if isinstance(center,dict):
         try:
-            x=_number(center.get('x_nm'),'axis x coordinate'); y=_number(center.get('y_nm'),'axis y coordinate')
-            interval=center.get('z_interval_nm')
+            x=_number(center.get('x_nm', center.get('x', center.get('X_nm'))),'axis x coordinate')
+            y=_number(center.get('y_nm', center.get('y', center.get('Y_nm'))),'axis y coordinate')
+            interval=center.get('z_interval_nm', center.get('z_nm', center.get('z_range_nm', center.get('z'))))
             if not isinstance(interval,(list,tuple)) or len(interval)!=2: raise CandidateError('z_interval_nm must contain lower and upper coordinates')
             zlo=_number(interval[0],'axis lower z'); zhi=_number(interval[1],'axis upper z')
         except CandidateError: raise

@@ -69,6 +69,25 @@ def _nonempty_text(value: Any, maximum: int = 10000) -> bool:
     return isinstance(value, str) and bool(value.strip()) and len(value.encode("utf-8")) <= maximum
 
 
+def _software_entry_ok(value: Any) -> bool:
+    if _nonempty_text(value):
+        return True
+    if not isinstance(value, dict):
+        return False
+    name = value.get("name", value.get("software", value.get("package", value.get("program"))))
+    if not _nonempty_text(name):
+        return False
+    for key in ("version", "license", "licence"):
+        if key not in value or value[key] is None:
+            continue
+        item = value[key]
+        if isinstance(item, (int, float)) and not isinstance(item, bool):
+            continue
+        if not _nonempty_text(item):
+            return False
+    return True
+
+
 def _safe_relative(final: Path, value: Any) -> tuple[str, Path]:
     if (not isinstance(value, str) or not value or "\\" in value or "\x00" in value
             or len(value.encode("utf-8")) > 1024):
@@ -230,7 +249,8 @@ def validate_submission(app: Path) -> dict[str, Any]:
                     and isinstance(repro.get("software"), list)
                     and isinstance(repro.get("data_sources"), list))
         if repro_ok:
-            repro_ok = all(_nonempty_text(value) for value in repro["commands"] + repro["software"])
+            repro_ok = (all(_nonempty_text(value) for value in repro["commands"])
+                        and all(_software_entry_ok(value) for value in repro["software"]))
             paths = repro["execution_evidence_paths"]
             if repro["execution_status"] == "executed":
                 repro_ok = repro_ok and bool(paths) and bool(repro["commands"]) and bool(repro["software"])

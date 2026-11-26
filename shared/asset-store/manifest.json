@@ -12752,6 +12752,10 @@
       "mode": 420,
       "size": 12753
     },
+    "e5ef735e94b4c3386fba52148387085aad31b6af5b5c6cfd67d10e66ce2148b0": {
+      "mode": 420,
+      "size": 2309314
+    },
     "e5f90c2fd61012d6ad332657a5bf5455620f0db8524f0b005d91e1c2737bad69": {
       "mode": 420,
       "size": 1584732
@@ -16496,6 +16500,7 @@
     "tasks/083-task083/environment/assets/cohort-validation.npz": "a454592acac8be98e74142e353e6fb70498fcf858faafd0a234ae07d1d7ca2e7",
     "tasks/083-task083/tests/refs.json": "b4877db2dd4670686a0398420c684d3923b53e4b0fe2676b09a5ec369404671f",
     "tasks/084-task084/environment/assets/SOURCES.yaml": "c4c556e486508f50ddf736965406ae542825ebd096f2da88f9abb989350e43d1",
+    "tasks/084-task084/environment/assets/axis-cm-1.npy": "772e01ff5c4e632c725c3e70220c865246f42f7576febfd360e4f63242bfcfcd",
     "tasks/084-task084/environment/assets/cohort-train.npz": "1d6c93b082427d6895da6f1cd72ecfe0a04b775b05550ab1495926f03e0ef77a",
     "tasks/084-task084/environment/assets/cohort-validation.npz": "a454592acac8be98e74142e353e6fb70498fcf858faafd0a234ae07d1d7ca2e7",
     "tasks/084-task084/environment/assets/isomer-candidates-public.json": "0948d0a82e6c4faedcf0113e3c8542b42f477181f6de6e4b9a421c3a38a5df41",
@@ -20980,7 +20985,7 @@
     "tasks/211-task211/environment/assets/wheels/conda-packages/zstd-1.5.7-hb78ec9c_7.conda": "47d682b9f6d6ec9eb1a6e6c3e75ea6273e899e78fb7fc59f81d39745009fbc60",
     "tasks/211-task211/environment/assets/wheels/micromamba-2.3.3-0-linux-aarch64.tar.bz2": "02ed4fe982c8ecbf9c5b1759c07ee29063994842b65fdaab439db77b9b00510a",
     "tasks/211-task211/environment/assets/wheels/micromamba-2.3.3-0.tar.bz2": "e7274528ceb9c20d048a428d6c22d7e02e268f8ffb762c4c365422347c8b8ba2",
-    "tasks/211-task211/tests/refs.json": "732daeaafc8500f599d2cde0555b91ea4212cc1b76cacba0505d95f1c71f069b",
+    "tasks/211-task211/tests/refs.json": "e5ef735e94b4c3386fba52148387085aad31b6af5b5c6cfd67d10e66ce2148b0",
     "tasks/212-task212/environment/assets/output-contract.json": "7a3682d86f641006205be861831638a3adc31291fba7b5526a5ae58ef0149769",
     "tasks/212-task212/environment/assets/pdb/ptp1b_chimera_crystal_structures.tar.gz": "bdcbc7b76f2f2be7a54aa71c4f5acdba3cc22ad38bcd54c124846d2a828ab4f4",
     "tasks/212-task212/tests/refs.json": "72641eb8273aa8e5a795c1f2faed1ca1d1d6b22f3dc264f6d1118e88949c98d7",

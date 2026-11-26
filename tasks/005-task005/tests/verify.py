@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 import sys
 
-EXPECTED_MANIFEST_SHA256 = "4feefd07d808e794edaf8b8c0e0d63e0ce4a7e6ca6f76b973ac6d584d1d24bb4"
+EXPECTED_MANIFEST_SHA256 = "ad18c7738f927a1085f78b02c90a059617f3dd6bb1fc5976bd6ab6e0aa6aba84"
 
 
 def digest(path):

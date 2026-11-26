@@ -548,7 +548,17 @@ def run(output: Path, package: Path, ref_dir: Path, suite_root: Path, input_root
     units = summary["units"]
     if not isinstance(units, dict) or units.get("volume") != "A^3/FU" or units.get("energy") != "eV/FU" or units.get("pressure") != "GPa":
         raise CandidateFail("summary.units must state volume=A^3/FU, energy=eV/FU, pressure=GPa")
-    if not isinstance(summary["method"], dict) or not summary["method"].get("description"):
+    method = summary["method"]
+    if isinstance(method, str):
+        method_ok = bool(method.strip())
+    elif isinstance(method, dict):
+        method_ok = any(
+            isinstance(method.get(k), str) and method.get(k).strip()
+            for k in ("description", "fit", "fitting", "window", "units", "name", "summary", "text")
+        ) or any(isinstance(v, str) and v.strip() for v in method.values())
+    else:
+        method_ok = False
+    if not method_ok:
         raise CandidateFail("summary.method needs a reproducible method description")
     for name, header in HEADERS.items():
         if not (out / name).is_file():

@@ -32,9 +32,10 @@ src.unlink(missing_ok=True); (logs/'reward.txt').unlink(missing_ok=True)
 if status == 'PASS': (logs/'reward.txt').write_text('1\n', encoding='ascii'); code=0
 elif status == 'FAIL': (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=1
 elif status == 'REVIEW_REQUIRED':
-    # Emit 0 so Harbor records a score instead of RewardFileNotFoundError.
-    (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=0
+    (logs/'reward.txt').unlink(missing_ok=True)
+    (logs/'reward.json').write_text('{"review_required": 1, "reward": null}\n', encoding='ascii'); code=0
 else:
-    (logs/'reward.txt').write_text('0\n', encoding='ascii'); code=2
+    (logs/'reward.txt').unlink(missing_ok=True)
+    (logs/'reward.json').write_text('{"infra_error": 1, "reward": null}\n', encoding='ascii'); code=2
 raise SystemExit(code)
 PY

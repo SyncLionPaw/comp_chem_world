@@ -433,9 +433,13 @@ def main():
     if set(normed) != topic_fields:
         fail("normalized must contain exactly the five fixed topics")
     liquid = val.mapping(normed["liquid water dipole normalization"], "normalized.liquid water dipole normalization", fail)
-    liquid_entity = norm(liquid.get("entity", "")).replace("-", " ").replace("_", " ").strip()
-    if liquid_entity not in {"water molecule", "water molecules", "h2o molecule", "h2o molecules",
-                             "molecule", "molecules"}:
+    liquid_entity_raw = norm(liquid.get("entity", "")).replace("-", " ").replace("_", " ").strip()
+    liquid_entity = re.split(r"[(\[;,]", liquid_entity_raw, maxsplit=1)[0].strip()
+    liquid_allowed = {"water molecule", "water molecules", "h2o molecule", "h2o molecules",
+                      "molecule", "molecules"}
+    if liquid_entity not in liquid_allowed and not any(
+            liquid_entity_raw == allowed or liquid_entity_raw.startswith(allowed + " ")
+            for allowed in liquid_allowed):
         fail("liquid-water normalization structured answer is inconsistent")
     if "count" in liquid:
         count = val.number(liquid["count"], "liquid-water normalization count", fail)

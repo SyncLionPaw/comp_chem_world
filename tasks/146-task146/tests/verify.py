@@ -197,7 +197,15 @@ def validate(final, rows):
     if isinstance(weights,str):
         if not weights.strip(): raise ValueError('weights declaration must be nonempty')
     elif isinstance(weights,dict):
-        if not weights or any(not isinstance(k,str) or not math.isfinite(float(v)) or float(v)<=0 for k,v in weights.items()):
+        # Allow explanatory strings (e.g. "uniform") alongside numeric weight entries.
+        numeric={k:v for k,v in weights.items() if not isinstance(v,str)}
+        notes={k:v for k,v in weights.items() if isinstance(v,str)}
+        if notes and any(not isinstance(k,str) or not str(v).strip() for k,v in notes.items()):
+            raise ValueError('weight notes must be nonempty strings')
+        if numeric:
+            if any(not isinstance(k,str) or not math.isfinite(float(v)) or float(v)<=0 for k,v in numeric.items()):
+                raise ValueError('numeric weights must be a nonempty mapping of positive finite values')
+        elif not notes:
             raise ValueError('numeric weights must be a nonempty mapping of positive finite values')
     elif isinstance(weights,list):
         if not weights or any(not math.isfinite(float(v)) or float(v)<=0 for v in weights): raise ValueError('numeric weights must be positive and finite')

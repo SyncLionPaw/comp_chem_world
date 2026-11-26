@@ -462,7 +462,13 @@ def check_submission(submission: Path, assets: Path, refs_path: Path, *,
                 check_index_hash(rec["train_indices_sha256"], tr, "record.train_indices_sha256", split_errors)
             if rec.get("test_indices_sha256") is not None:
                 check_index_hash(rec["test_indices_sha256"], te, "record.test_indices_sha256", split_errors)
-            if type(rec.get("seed")) is not int:
+            # Full-pool draws are not sampled; seed may be null. Smaller n must name an int seed.
+            seed = rec.get("seed")
+            full_pool = n == len(train_pool) and set(tr) == frozen_train_set
+            if full_pool:
+                if seed is not None and type(seed) is not int:
+                    raise ValueError("full-pool split seed must be an integer or null")
+            elif type(seed) is not int:
                 raise ValueError("split record must declare an integer seed")
             if set(tr) & frozen_test_set or not set(tr).issubset(frozen_train_set):
                 raise ValueError("train indices overlap frozen test set or leave frozen training pool")

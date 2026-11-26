@@ -169,8 +169,9 @@ def _compare_result(actual: dict, expected: dict, label: str) -> float:
     deltas = [_close(actual.get("populations"), expected.get("populations"), label=f"{label} populations")]
     keys = ("fluorescence", "phosphorescence_T1", "phosphorescence_T2", "nonradiative", "total_PLQY")
     try:
-        deltas.append(_close([actual["yields"][k] for k in keys],
-                             [expected["yields"][k] for k in keys], label=f"{label} yields"))
+        yields = actual.get("yields") if isinstance(actual.get("yields"), dict) else {}
+        got = [yields[k] if k in yields else actual[k] for k in keys]
+        deltas.append(_close(got, [expected["yields"][k] for k in keys], label=f"{label} yields"))
     except (KeyError, TypeError) as exc:
         raise ValueError(f"{label}: missing or invalid yield fields") from exc
     return max(deltas)

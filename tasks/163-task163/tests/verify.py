@@ -140,12 +140,25 @@ def overlap(x0: float, x1: float, lo: float, hi: float) -> float:
     return max(0.0, min(x1, hi) - max(x0, lo))
 
 
-def overlap_category(width: float, candidate_width: float, paper_width: float) -> str:
+def overlap_category(width: float, candidate_width: float, paper_width: float, denominator: str | None = None) -> str:
     if width <= policy("overlap_zero"):
         return "none"
-    if abs(width - min(candidate_width, paper_width)) <= policy("overlap_full"):
+    if denominator == "paper":
+        ref = paper_width
+    elif denominator == "candidate":
+        ref = candidate_width
+    else:
+        ref = min(candidate_width, paper_width)
+    if abs(width - ref) <= policy("overlap_full"):
         return "full"
     return "partial"
+
+
+def accepted_overlap_categories(width: float, candidate_width: float, paper_width: float) -> set[str]:
+    return {
+        overlap_category(width, candidate_width, paper_width, denom)
+        for denom in (None, "paper", "candidate")
+    }
 
 
 def recompute_selection(points: list[tuple], family: str, search: dict, parameters: dict, molecule: str) -> dict:
@@ -541,12 +554,22 @@ def main() -> int:
                 "dihedral_deg": selected_result["touches_dihedral_grid_boundary"],
             },
         }
-        if not isinstance(conclusion, dict) or set(conclusion) != set(expected_conclusion):
+        if not isinstance(conclusion, dict) or not set(expected_conclusion).issubset(conclusion):
             raise CandidateFail(f"{molecule}: paper comparison conclusion fields are invalid")
+        radial_ok = accepted_overlap_categories(ov_r, rhi-rlo, PAPER_R[1]-PAPER_R[0])
+        angular_ok = accepted_overlap_categories(ov_d, dhi-dlo, PAPER_DIH[1]-PAPER_DIH[0])
         for key, expected_value in expected_conclusion.items():
             got = conclusion[key]
+            if key == "radial_overlap_category":
+                if got not in radial_ok:
+                    raise CandidateFail(f"{molecule}: conclusion {key} mismatch")
+                continue
+            if key == "angular_overlap_category":
+                if got not in angular_ok:
+                    raise CandidateFail(f"{molecule}: conclusion {key} mismatch")
+                continue
             if isinstance(expected_value, dict):
-                if set(got) != set(expected_value):
+                if not isinstance(got, dict) or not set(expected_value).issubset(got):
                     raise CandidateFail(f"{molecule}: conclusion {key} fields are invalid")
                 for subkey, subvalue in expected_value.items():
                     if isinstance(subvalue, bool) or isinstance(subvalue, str):

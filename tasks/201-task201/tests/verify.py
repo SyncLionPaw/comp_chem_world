@@ -141,7 +141,7 @@ def main():
                         environment[name] = str(replacement)
             result = subprocess.run(['bash', str(root / 'tests' / 'test.sh'), *sys.argv[1:]], env=environment)
             if not (logs / 'reward.txt').is_file() and not (logs / 'reward.json').is_file():
-                # Infra/ERROR paths inside the sealed grader may omit reward; emit 0 for Harbor.
+                # Infra/ERROR paths are unscored; do not invent a model failure reward.
                 report_path = logs / 'verify.json'
                 report = {}
                 if report_path.is_file():
@@ -152,15 +152,15 @@ def main():
                     except Exception:
                         report = {}
                 report.setdefault('status', 'ENV_INVALID')
-                report['reward'] = 0.0
+                report['reward'] = None
                 report['eligible_for_success_ranking'] = False
                 report_path.write_text(json.dumps(report, indent=2) + '\n', encoding='utf-8')
-                (logs / 'reward.txt').write_text('0.0\n', encoding='ascii')
+                (logs / 'reward.json').write_text(json.dumps({'env_invalid': 1, 'reward': None}) + '\n', encoding='ascii')
             return result.returncode
     except Exception as error:
-        report = {'status': 'ENV_INVALID', 'scientific_status': 'UNRANKABLE', 'reward': 0.0, 'eligible_for_success_ranking': False, 'message': str(error)}
+        report = {'status': 'ENV_INVALID', 'scientific_status': 'UNRANKABLE', 'reward': None, 'eligible_for_success_ranking': False, 'message': str(error)}
         (logs / 'verify.json').write_text(json.dumps(report, indent=2) + '\n')
-        (logs / 'reward.txt').write_text('0.0\n', encoding='ascii')
+        (logs / 'reward.json').write_text(json.dumps({'env_invalid': 1, 'reward': None}) + '\n', encoding='ascii')
         print(str(error), file=sys.stderr)
         return 2
 

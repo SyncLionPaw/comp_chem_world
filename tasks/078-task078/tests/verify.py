@@ -306,8 +306,33 @@ EAD_KERNEL_ROWS = ["PBE0|DZVP", "PBE0|TZVP", "PBE0|TZV2P", "ADMM|TZVP+tzp",
 EFL_KERNEL_ROWS = ["PBE0|DZVP", "PBE0|TZVP", "PBE0|TZV2P", "ADMM|DZVP+dzp", "ADMM|TZVP+dzp",
                    "ADMM|TZV2P+dzp", "ADMM|TZVP+tzp", "ADMM|TZV2P+tzp", "ADMM|TZV2P+tz2p",
                    "sTDA@PBE0|TZVP", "sTDA@ADMM|TZVP+tzp"]
+# Instruction uses ADMM-PBE0 / sTDA@ADMM-PBE0; older SI shorthand omits -PBE0.
+METHOD_ALIASES = {
+    "ADMM-PBE0": "ADMM",
+    "sTDA@ADMM-PBE0": "sTDA@ADMM",
+}
 STATS_TOL, TRANS_TOL = 0.02, 0.001
 STDA_TRANS_TOL = 0.005
+
+
+def normalize_method(method: str) -> str:
+    method = (method or "").strip()
+    return METHOD_ALIASES.get(method, method)
+
+
+def sample_items(value):
+    """Accept a bare sample list or an object that wraps the list plus provenance."""
+    if isinstance(value, list):
+        return value
+    if isinstance(value, dict):
+        for key in ("items", "samples", "errors", "per_molecule", "values"):
+            arr = value.get(key)
+            if isinstance(arr, list):
+                return arr
+        lists = [v for v in value.values() if isinstance(v, list)]
+        if len(lists) == 1:
+            return lists[0]
+    return None
 
 
 def run(app: Path) -> dict:
@@ -364,7 +389,8 @@ def run(app: Path) -> dict:
             if quantity not in ("EAD", "EFL"):
                 report["problems"].append(f"{where}: bad quantity {quantity!r}")
                 continue
-            key = f"{quantity}|{row.get('method', '').strip()}|{row.get('abs', '').strip()}"
+            method = normalize_method(row.get("method", ""))
+            key = f"{quantity}|{method}|{row.get('abs', '').strip()}"
             if key in verified:
                 report["problems"].append(f"{where}: duplicate {key}")
                 continue
@@ -411,12 +437,13 @@ def run(app: Path) -> dict:
         gold = per_item.get(key)
         if gold is None:
             raise InfraError(f"refs.json lacks per-item gold for {key}")
-        report["problems"].extend(check_per_item(samples.get(key), gold, item_tol,
+        items = sample_items(samples.get(key))
+        report["problems"].extend(check_per_item(items, gold, item_tol,
                                                  f"samples[{key}]"))
         if report["problems"]:
             report["status"] = "FAIL"
             return report
-        item_errs = [to_float(str(it.get("err", "")), key) for it in samples[key]]
+        item_errs = [to_float(str(it.get("err", "")), key) for it in items]
         me, mae, mx, std = moments(item_errs)
         c = recomputed[key]["stats"]
         for name, got, expect in (("me", me, c["me"]), ("mae", mae, c["mae"]),

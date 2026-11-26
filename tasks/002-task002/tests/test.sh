@@ -6,7 +6,7 @@ LOGS="${LOGS:-/logs/verifier}"
 TESTS="${TESTS:-/tests}"
 export APP LOGS TESTS
 mkdir -p "$LOGS"
-rm -f "$LOGS/reward.txt"
+rm -f "$LOGS/reward.txt" "$LOGS/reward.json"
 rm -f "$LOGS/verification.json" "$LOGS/report.json" "$LOGS/verdict.json" "$LOGS/case02-check.json"
 
 set +e
@@ -24,16 +24,13 @@ case "$status" in
     exit 0
     ;;
   11)
-    # REVIEW_REQUIRED: emit 0 so Harbor records a score instead of RewardFileNotFoundError.
-    printf '0
-' > "$LOGS/reward.txt"
+    # REVIEW_REQUIRED: pending scientific review is not a scored model failure.
+    printf '{"review_required": 1}\n' > "$LOGS/reward.json"
     exit 0
     ;;
   *)
-    # Infrastructure errors still emit 0 for truthful eval accounting.
-    printf '0
-' > "$LOGS/reward.txt"
-    echo "Case 02 verifier infrastructure failure (exit $status); reward=0" >&2
-    exit 0
+    # Infrastructure errors: leave reward unset so Harbor treats this as infra.
+    echo "Case 02 verifier infrastructure failure (exit $status); no reward" >&2
+    exit 2
     ;;
 esac

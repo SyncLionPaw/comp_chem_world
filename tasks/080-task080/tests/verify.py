@@ -73,6 +73,9 @@ def read_csv_rows(path: Path, required_columns: list[str]) -> list[dict[str, str
 
 def to_float(text: str, where: str) -> float:
     text = (text or "").strip().replace("−", "-").replace(",", "")
+    # Instruction allows printed percentage units such as "31%".
+    if text.endswith("%"):
+        text = text[:-1].strip()
     try:
         value = float(text)
     except ValueError:

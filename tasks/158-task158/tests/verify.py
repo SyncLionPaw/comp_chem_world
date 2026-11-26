@@ -294,7 +294,8 @@ def verify(case_root: Path, ref_dir: Path, refs):
             denom=integer(outrow,"n_filtered_subset",ctx)
             if denom!=int(sum(raw[1:])): raise ScienceFailure(f"{ctx}: wrong denominator; use cubic+hex+other filtered-subset counts")
             frac=number(outrow,"crystalline_fraction_subset",ctx)
-            close(frac,(raw[1]+raw[2])/sum(raw[1:]),1e-12,ctx+" subset fraction")
+            # Six-decimal reported fractions are within ~5e-7 of the exact ratio.
+            close(frac,(raw[1]+raw[2])/sum(raw[1:]),5e-7,ctx+" subset fraction")
             temp=number(outrow,"temperature_K",ctx)
             tps=raw[0]*.001
             expected_temp=300+11*tps if tps<=100 else (1400 if tps<=200 else max(1200,1400-(tps-200)*.01))

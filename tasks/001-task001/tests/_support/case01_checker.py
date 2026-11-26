@@ -321,6 +321,13 @@ def _source_evidence_matches(actual: Any, expected: Any, label: str, key: str = 
             return actual == (expected == "YES")
         if type(expected) is bool and isinstance(actual, str) and actual in {"YES", "NO"}:
             return expected == (actual == "YES")
+    if key == "execution_state":
+        # Allow "failed" plus a native exit-code annotation such as "failed (exit 1)".
+        if isinstance(actual, str) and isinstance(expected, str):
+            actual_state = actual.strip().split("(", 1)[0].strip().lower()
+            expected_state = expected.strip().split("(", 1)[0].strip().lower()
+            if actual_state == expected_state:
+                return True
     if isinstance(expected, list):
         return (isinstance(actual, list) and len(actual) == len(expected)
                 and all(_source_evidence_matches(a, e, label, key) for a, e in zip(actual, expected)))

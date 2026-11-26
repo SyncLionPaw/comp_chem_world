@@ -1,6 +1,6 @@
 #!/bin/sh
-# PASS -> reward 1; FAIL / REVIEW_REQUIRED / grader errors -> reward 0.
-# Always emit reward.txt so Harbor does not raise RewardFileNotFoundError.
+# PASS -> reward 1; FAIL -> reward 0; REVIEW_REQUIRED -> reward.json marker;
+# grader/infra errors leave reward unset and exit 2.
 export OMP_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
 export MKL_NUM_THREADS=1
@@ -12,7 +12,7 @@ APP_DIR=${APP:-/app}
 TESTS_DIR=${TESTS:-$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)}
 LOGS_DIR=${LOGS:-/logs/verifier}
 mkdir -p "$LOGS_DIR" || exit 2
-rm -f "$LOGS_DIR/reward.txt" "$LOGS_DIR/verification.json"
+rm -f "$LOGS_DIR/reward.txt" "$LOGS_DIR/reward.json" "$LOGS_DIR/verification.json"
 
 if python3 "$TESTS_DIR/verify.py"   --final-dir "$APP_DIR/final"   --runtime-dir "$LOGS_DIR/runtime"   --gold-path "$TESTS_DIR/protected/case04_answers.csv"   --report "$LOGS_DIR/verification.json"   >"$LOGS_DIR/verifier.stdout" 2>&1; then verifier_rc=0; else verifier_rc=$?; fi
 python3 - "$LOGS_DIR/verification.json" "$verifier_rc" <<'PY'
@@ -47,16 +47,23 @@ else:
     raise SystemExit(2)
 PY
 then
-  printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2
+  rm -f "$LOGS_DIR/reward.txt" "$LOGS_DIR/reward.json"
   cat "$LOGS_DIR/verifier.stdout" >&2
-  exit 0
+  exit 2
 fi
 status=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["status"])' "$LOGS_DIR/verification.json") || {
-  printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0;
+  rm -f "$LOGS_DIR/reward.txt" "$LOGS_DIR/reward.json"
+  exit 2
 }
 case "$status" in
   PASS) printf '1\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
   FAIL) printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
-  REVIEW_REQUIRED) printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
-  *) printf '0\n' > "$LOGS_DIR/reward.txt" || exit 2; exit 0 ;;
+  REVIEW_REQUIRED)
+    printf '{"review_required": 1}\n' > "$LOGS_DIR/reward.json" || exit 2
+    exit 0
+    ;;
+  *)
+    rm -f "$LOGS_DIR/reward.txt" "$LOGS_DIR/reward.json"
+    exit 2
+    ;;
 esac

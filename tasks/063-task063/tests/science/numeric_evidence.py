@@ -604,18 +604,31 @@ def evaluate(case_id, package_dir, candidate_root, protocol, refs):
                     # when the surrounding mapping layout is left for review.
             else:
                 mapping_review=True
-            native_path=claimed.get('native_record_path')
+            def normalize_asset_path(p):
+                if not isinstance(p,str):
+                    return p
+                p=p.strip()
+                for prefix in ('/app/','/'):
+                    if p.startswith(prefix):
+                        p=p[len(prefix):]
+                return p
+            native_path=normalize_asset_path(claimed.get('native_record_path'))
             native_sha=claimed.get('native_record_sha256')
-            native_identity_ok=((native_path==published.get('path') and native_sha==published.get('sha256'))
+            published_path=normalize_asset_path(published.get('path'))
+            native_identity_ok=((native_path==published_path and native_sha==published.get('sha256'))
                 or (native_path==npz_path and native_sha==npz_sha))
+            def path_matches(claimed_value, expected):
+                return claimed_value in (None, expected) or normalize_asset_path(claimed_value)==expected
             optional_path_hashes_ok=(
-                all(claimed.get(k) in (None, expected) for k,expected in (
+                all(path_matches(claimed.get(k), expected) for k,expected in (
                     ('public_input_path',npz_path),('converted_npz_path',npz_path),
                     ('trace_provenance_path',prov_rel)))
                 and all(claimed.get(k) in (None, expected) for k,expected in (
                     ('public_input_sha256',npz_sha),('converted_npz_sha256',npz_sha),
                     ('trace_provenance_sha256',prov_sha)))
-                and (claimed.get('public_input_path')==npz_path or claimed.get('converted_npz_path')==npz_path or native_path==npz_path))
+                and (path_matches(claimed.get('public_input_path'), npz_path)
+                     or path_matches(claimed.get('converted_npz_path'), npz_path)
+                     or native_path==npz_path))
             provenance_ok=(native_identity_ok
                 and claimed.get('acquired_colvar_path')==published.get('path')
                 and claimed.get('acquired_colvar_sha256')==published.get('sha256')

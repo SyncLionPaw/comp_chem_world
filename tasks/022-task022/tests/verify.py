@@ -586,11 +586,11 @@ def case02_rules(rules: object) -> tuple[bool, bool, list[str]]:
             # transition-state clause that establishes exactly one imaginary mode.
             if (re.search(normal_ok, clause) and
                     not re.search(r"imaginary|negative|frequenc|虚频|负频|频率", clause)):
-                required_normal = re.search(
-                    r"\b(?:required|requiredly|requires?|must|shall|mandatory)\b|必须|须|要求", clause)
+                # Affirmative normal-termination wording is enough; obligation
+                # modals (must/shall) are optional when the clause is not hedged.
                 weak_normal = re.search(
                     r"\b(?:sufficient|suffices?|enough|optional(?:ly)?|only|merely)\b|足够|充分|可选", clause)
-                if (not required_normal or weak_normal or hedge_cue.search(clause)
+                if (weak_normal or hedge_cue.search(clause)
                         or neg_cue.search(clause) or zh_neg.search(clause)
                         or limit_cue.search(clause)):
                     return False

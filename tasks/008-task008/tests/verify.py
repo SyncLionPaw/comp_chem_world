@@ -42,6 +42,36 @@ def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def close(a,b,tol=2e-8): return math.isfinite(float(a)) and abs(float(a)-float(b)) <= tol
 def interval_equal(got,want,tol=1e-12):
     return len(got)==len(want) and all((x==y if isinstance(x,str) or isinstance(y,str) else close(x,y,tol)) for x,y in zip(got,want))
+
+def normalize_hull_groups(groups):
+    """Accept either a list of group objects or a composite-key map of the same groups."""
+    if isinstance(groups, list):
+        if any(not isinstance(r, dict) for r in groups):
+            raise AssertionError("coverage_hull.json must contain a groups array of objects")
+        return groups
+    if isinstance(groups, dict):
+        out = []
+        for key, rec in groups.items():
+            if not isinstance(rec, dict):
+                raise AssertionError("coverage_hull.json composite-key groups must map to objects")
+            item = dict(rec)
+            needed = ("alloy", "energy_convention", "surface_correction")
+            if not all(k in item for k in needed):
+                parts = None
+                if isinstance(key, str):
+                    for sep in ("|", "/", "::", "||"):
+                        trial = key.split(sep)
+                        if len(trial) == 3:
+                            parts = trial
+                            break
+                if parts is None:
+                    raise AssertionError("composite hull group key must identify alloy, energy_convention, and surface_correction")
+                item.setdefault("alloy", parts[0])
+                item.setdefault("energy_convention", parts[1])
+                item.setdefault("surface_correction", parts[2])
+            out.append(item)
+        return out
+    raise AssertionError("coverage_hull.json must contain a groups array of objects or a composite-key map")
 def preflight(app,tests):
     try: refs=json.loads((tests/"refs.json").read_text(encoding="utf8"))
     except Exception as exc: raise RuntimeError(f"integrity failure: refs.json: {type(exc).__name__}") from exc
@@ -127,8 +157,10 @@ def check(app, tests, final):
     cidx={(r["alloy"],r["energy_convention"],r["surface_correction"]):r for r in contrasts}
     tidx={(r["alloy"],r["energy_convention"],r["surface_correction"],r["transition"]):r for r in thresholds}
     hull=json.loads((final/"coverage_hull.json").read_text())
-    if not isinstance(hull,dict) or not isinstance(hull.get("groups"),list) or any(not isinstance(r,dict) for r in hull["groups"]): raise AssertionError("coverage_hull.json must contain a groups array of objects")
-    hidx={(r["alloy"],r["energy_convention"],r["surface_correction"]):r for r in hull["groups"]}
+    if not isinstance(hull, dict):
+        raise AssertionError("coverage_hull.json must be a JSON object")
+    hull_groups=normalize_hull_groups(hull.get("groups"))
+    hidx={(r["alloy"],r["energy_convention"],r["surface_correction"]):r for r in hull_groups}
     expected_groups={(a,c,s) for a in by for c in CONVENTIONS for s in CORRECTIONS}
     if set(cidx)!=expected_groups or len(cidx)!=len(contrasts): raise AssertionError("contrast key domain has missing, extra, or duplicate groups")
     expected_thresholds={(a,c,s,t) for a in by for c in CONVENTIONS for s in CORRECTIONS for t in ("0_to_50_increment_decreases","50_to_100_increment_decreases","both_stepwise_increments_decrease","total_0_to_100_excess_decreases")}
@@ -137,7 +169,7 @@ def check(app, tests, final):
     mu_grid={round(-.2+.001*i,6) for i in range(401)}
     expected_surface={(a,c,s,mu,cov) for a,c,s in expected_groups for mu in mu_grid for cov in (0.,.5,1.)}
     if set(surface_index)!=expected_surface or len(surface_index)!=len(surface): raise AssertionError("surface-excess key grid has missing, extra, or duplicate rows")
-    if set(hidx)!=expected_groups or len(hidx)!=len(hull["groups"]):raise AssertionError("hull key domain has missing, extra, or duplicate groups")
+    if set(hidx)!=expected_groups or len(hidx)!=len(hull_groups):raise AssertionError("hull key domain has missing, extra, or duplicate groups")
     ident=json.loads((final/"reference_identifiability.json").read_text())
     if not isinstance(ident,dict) or not isinstance(ident.get("affine_reference_invariance"),dict): raise AssertionError("reference_identifiability.json must contain affine_reference_invariance object")
     narrative=(final/"interpretation.md").read_text(encoding="utf8")

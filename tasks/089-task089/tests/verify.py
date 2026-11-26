@@ -226,12 +226,15 @@ def solver_log_has_metrics(log):
 
 def _parse_candidate_report(data):
     report = json.loads(data, object_pairs_hook=_unique_json_object)
-    allowed = {"schema", "status", "objective_scope", "objective_requests", "final_residual"}
-    if not isinstance(report, dict) or not set(report).issubset(allowed):
+    required = {"schema", "status", "objective_scope", "objective_requests", "final_residual"}
+    if not isinstance(report, dict):
         raise ValueError("solver.log must be a JSON candidate report")
+    # Extra solver diagnostics are allowed; required fields are still checked.
     report.setdefault("schema", "task90-candidate-objective-report/v1")
     report.setdefault("status", "PENDING")
     report.setdefault("objective_scope", "evaluator-observable objective requests; internal optimizer calls are not counted")
+    if not required.issubset(report):
+        raise ValueError("solver.log candidate report is missing required fields")
     if (report["schema"] != "task90-candidate-objective-report/v1"
             or report["status"] != "PENDING"
             or report["objective_scope"] != "evaluator-observable objective requests; internal optimizer calls are not counted"):

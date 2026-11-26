@@ -218,9 +218,37 @@ def main(argv: list[str]) -> int:
          "site_symmetry": str(ds.site_symmetry_symbols[i])}
         for i, symbol in enumerate(species)
     ]
-    sites_valid = (isinstance(sites, list) and len(sites) == len(expected_sites)
-                   and all(isinstance(site, dict) and type(site.get("atom_index")) is int for site in sites)
-                   and sorted(sites, key=lambda site: site["atom_index"]) == expected_sites)
+
+    def required_site_fields(site: dict) -> dict | None:
+        if not isinstance(site, dict) or type(site.get("atom_index")) is not int:
+            return None
+        letter = site.get("wyckoff_letter")
+        if letter is None and isinstance(site.get("wyckoff_label"), str):
+            # Accept full labels like "2h" only when reduced to the letter field.
+            label = site["wyckoff_label"].strip()
+            letter = label[-1] if label and label[-1].isalpha() else label
+        if not isinstance(letter, str):
+            return None
+        # Letter field must be the Wyckoff letter alone (not multiplicity+letter).
+        letter = letter.strip()
+        if len(letter) != 1 or not letter.isalpha():
+            return None
+        return {
+            "atom_index": site["atom_index"],
+            "species": site.get("species"),
+            "wyckoff_letter": letter,
+            "site_symmetry": site.get("site_symmetry"),
+        }
+
+    projected = None
+    if isinstance(sites, list):
+        projected = [required_site_fields(site) for site in sites]
+    sites_valid = (
+        isinstance(projected, list)
+        and len(projected) == len(expected_sites)
+        and all(site is not None for site in projected)
+        and sorted(projected, key=lambda site: site["atom_index"]) == expected_sites
+    )
     check("reported_wyckoff_sites", sites_valid,
           "compare species, Wyckoff letters and site symmetry against the submitted cell")
 

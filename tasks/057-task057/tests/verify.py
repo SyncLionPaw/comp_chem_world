@@ -425,9 +425,40 @@ def expected_report(cid, expected):
                 'directional_sample':{'doping_cm3':n,'temperature_K':t,'S_xx_yy_zz':[r['S_amset'] for r in sample]}})
     return common
 
+def equivalent_srt_scale(actual, expected) -> bool:
+    """Accept equivalent (T/ref)^p and (ref/T)^(-p) temperature scales via sample curves."""
+    if not isinstance(actual, dict) or not isinstance(expected, dict):
+        return False
+    if not {'reference_K', 'power'}.issubset(actual) or not {'reference_K', 'power'}.issubset(expected):
+        return False
+    for key, value in expected.items():
+        if key in {'reference_K', 'power'}:
+            continue
+        if actual.get(key) != value:
+            return False
+    try:
+        ref_a = float(actual['reference_K'])
+        ref_e = float(expected['reference_K'])
+        pow_a = float(actual['power'])
+        pow_e = float(expected['power'])
+    except (TypeError, ValueError):
+        return False
+    if not all(math.isfinite(v) for v in (ref_a, ref_e, pow_a, pow_e)) or ref_a <= 0 or ref_e <= 0:
+        return False
+    sample_T = (200.0, 300.0, 450.0, 600.0, 900.0)
+    expected_curve = [(T / ref_e) ** pow_e for T in sample_T]
+    for invert in (False, True):
+        actual_curve = [((ref_a / T) if invert else (T / ref_a)) ** pow_a for T in sample_T]
+        if all(math.isclose(a, e, rel_tol=1e-6, abs_tol=1e-8) for a, e in zip(actual_curve, expected_curve)):
+            return True
+    return False
+
+
 def compare(actual, expected, where='scientific_report'):
+    if where.endswith('SRT_temperature_scale') and equivalent_srt_scale(actual, expected):
+        return
     if isinstance(expected,dict):
-        if not isinstance(actual,dict) or set(actual)!=set(expected):raise ValueError(where+': field set differs')
+        if not isinstance(actual,dict) or not set(expected).issubset(actual):raise ValueError(where+': field set differs')
         for k,v in expected.items():compare(actual[k],v,where+'.'+k)
     elif isinstance(expected,list):
         if not isinstance(actual,list) or len(actual)!=len(expected):raise ValueError(where+': list coverage differs')

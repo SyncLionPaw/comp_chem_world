@@ -2,7 +2,7 @@
   "version": "case05-protected-assets/joint-fix-r2",
   "files": {
     "participant.zip": "675e72f69fb387a928c91a47b0f14af0e0f838f94b1e94cc6f9be8f3704ec514",
-    "runtime/audit-v2/evaluator/grade.py": "cc558e64b9282ab41d6fdc4a9019ab330870728ebdea9d983cfd2863b2c65d7a",
+    "runtime/audit-v2/evaluator/grade.py": "7fe646ece13c843eb77d57322b15087d3b55df5914e924ed12f3bb984aceed5b",
     "runtime/audit-v2/evaluator/reference.json": "30b589129c68f94ce7ca7831ac23733c4adc6782fdb8af46c56e24455d1cfbf6",
     "runtime/audit-v2/evaluator/source-manifest.csv": "0affb0b3bf502b0d7f70d7a80c2b3b8602969575676395ed372acebd460af9be",
     "sources/executions/case05/reaction-3023/endpoint-validation/pathway-01/backward/attempt-01/freq.hess": "2a98294b438944b3625bbcdf52c9b079506129c292ee587de980da9a4684d0f5",

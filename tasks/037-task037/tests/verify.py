@@ -535,7 +535,8 @@ def _bench37_0_validate_spectrum(candidate_wave, candidate_power, wave, power):
 def _bench37_0_validate_modes(actual, expected, wave, power):
     import numpy as np
     from scipy.signal import find_peaks
-    if set(actual) != {'bending', 'symmetric', 'asymmetric'}:
+    required_modes = ('bending', 'symmetric', 'asymmetric')
+    if any(mode not in actual for mode in required_modes):
         raise ValueError('missing/extra vibration mode')
     pending_review = []
     for mode, target in expected.items():

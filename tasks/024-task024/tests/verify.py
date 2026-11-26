@@ -489,9 +489,14 @@ def grade(final, app, reference, rates):
             if "=" in normalized:
                 lhs, rhs = normalized.split("=", 1)
                 identifier = r"\s*[A-Za-z_][A-Za-z0-9_]*\s*"
+                rhs_has_number_density = bool(
+                    re.search(r"\b(?:molecules|n_cm3|air_molecules_cm3|molecules_per_cm3|molecules_cm3)\b",
+                              rhs.lower())
+                    or "molecules/cm3" in rhs.lower()
+                )
                 inverse = (re.fullmatch(identifier, lhs) is not None
                            and "mol_per_l" in lhs.lower()
-                           and "molecules" in rhs.lower())
+                           and rhs_has_number_density)
             if molar_conversion and is_worked_numeric(normalized):
                 lhs, rhs = normalized.split("=", 1)
                 unit_product = r"([-+]?\d+(?:\.\d*)?(?:[eE][-+]?\d+)?)\s+(mol_per_L|molecules_per_cm3|molecules_cm3)\b"
