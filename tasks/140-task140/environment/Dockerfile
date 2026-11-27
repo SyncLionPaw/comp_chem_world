@@ -3,8 +3,8 @@ FROM comp-chem-world-base
 LABEL org.compchembench.bench="21_newtonnet-hessian-transition-states"
 LABEL org.compchembench.newtonnet_commit="7057a029367a8f5b4ef55601ac3c51e542ad7014"
 
-RUN uv python install 3.12.14 \
-    && uv venv /opt/newtonnet-local --python 3.12.14
+RUN uv python install 3.12.12 \
+    && uv venv /opt/newtonnet-local --python 3.12.12
 
 ENV VIRTUAL_ENV=/opt/newtonnet-local
 ENV PATH="/opt/newtonnet-local/bin:${PATH}"

@@ -15,11 +15,11 @@ RUN rm -rf /app/inputs/wheels /opt/co2-public/inputs/wheels \
  && apt-get update \
  && apt-get install -y --no-install-recommends libgomp1 \
  && rm -rf /var/lib/apt/lists/* \
- && UV_PYTHON_INSTALL_DIR=/opt/co2-python uv python install --no-bin 3.12.14 \
- && CO2_PYTHON="$(UV_PYTHON_INSTALL_DIR=/opt/co2-python uv python find --no-project --managed-python --no-python-downloads 3.12.14)" \
- && "$CO2_PYTHON" -c 'import sys; assert sys.version_info[:3] == (3, 12, 14), sys.version' \
+ && UV_PYTHON_INSTALL_DIR=/opt/co2-python uv python install --no-bin 3.12.12 \
+ && CO2_PYTHON="$(UV_PYTHON_INSTALL_DIR=/opt/co2-python uv python find --no-project --managed-python --no-python-downloads 3.12.12)" \
+ && "$CO2_PYTHON" -c 'import sys; assert sys.version_info[:3] == (3, 12, 12), sys.version' \
  && "$CO2_PYTHON" -m venv /opt/co2-science \
- && /opt/co2-science/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 12, 14), sys.version' \
+ && /opt/co2-science/bin/python -c 'import sys; assert sys.version_info[:3] == (3, 12, 12), sys.version' \
  && chmod -R a+rX /opt/co2-python \
  && /opt/co2-science/bin/pip install --no-index --find-links=/tmp/co2-wheels mpmath==1.3.0 numpy==2.2.6 pymupdf==1.26.5 scipy==1.15.3 \
  && /opt/co2-science/bin/pip check \

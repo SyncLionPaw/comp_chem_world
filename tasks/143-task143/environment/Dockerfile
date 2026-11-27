@@ -12,8 +12,8 @@ RUN if [ "$(dpkg --print-architecture)" = "arm64" ]; then sed -i 's#http://ports
     && obabel -V 2>&1 | grep -F 'Open Babel 3.1.1' \
     && rm -rf /var/lib/apt/lists/*
 
-RUN uv python install 3.12.14 \
-    && uv venv /opt/case-python --python 3.12.14
+RUN uv python install 3.12.12 \
+    && uv venv /opt/case-python --python 3.12.12
 
 ENV VIRTUAL_ENV=/opt/case-python
 ENV PATH="/opt/case-python/bin:${PATH}"
